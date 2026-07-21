@@ -125,6 +125,102 @@ async function fileSha256(root, relative) {
   return createHash('sha256').update(data).digest('hex');
 }
 
+function rejectPublishedImage(rule, file) {
+  throw new MediaValidationError(rule, file);
+}
+
+function validateJpegMetadata(data, file) {
+  let offset = 2;
+  while (offset < data.length) {
+    if (data[offset] !== 0xff) rejectPublishedImage('published_type_mismatch', file);
+    while (data[offset] === 0xff) offset += 1;
+    const marker = data[offset];
+    offset += 1;
+    if (marker === 0xd9 || marker === 0xda) return;
+    if (marker === 0x01 || (marker >= 0xd0 && marker <= 0xd7)) continue;
+    if (offset + 2 > data.length) {
+      rejectPublishedImage('published_type_mismatch', file);
+    }
+    const length = data.readUInt16BE(offset);
+    if (length < 2 || offset + length > data.length) {
+      rejectPublishedImage('published_type_mismatch', file);
+    }
+    if (marker === 0xe1 || marker === 0xed || marker === 0xfe) {
+      rejectPublishedImage('published_metadata_forbidden', file);
+    }
+    offset += length;
+  }
+  rejectPublishedImage('published_type_mismatch', file);
+}
+
+function validatePngMetadata(data, file) {
+  let offset = 8;
+  let ended = false;
+  while (offset + 12 <= data.length) {
+    const length = data.readUInt32BE(offset);
+    const type = data.toString('ascii', offset + 4, offset + 8);
+    const end = offset + 12 + length;
+    if (end > data.length) rejectPublishedImage('published_type_mismatch', file);
+    if (new Set(['eXIf', 'tEXt', 'zTXt', 'iTXt']).has(type)) {
+      rejectPublishedImage('published_metadata_forbidden', file);
+    }
+    offset = end;
+    if (type === 'IEND') {
+      ended = true;
+      break;
+    }
+  }
+  if (!ended || offset !== data.length) {
+    rejectPublishedImage('published_type_mismatch', file);
+  }
+}
+
+function validateWebpMetadata(data, file) {
+  if (data.readUInt32LE(4) !== data.length - 8) {
+    rejectPublishedImage('published_type_mismatch', file);
+  }
+  let offset = 12;
+  while (offset + 8 <= data.length) {
+    const type = data.toString('ascii', offset, offset + 4);
+    const length = data.readUInt32LE(offset + 4);
+    const end = offset + 8 + length;
+    if (end > data.length) rejectPublishedImage('published_type_mismatch', file);
+    if (type === 'EXIF' || type === 'XMP ') {
+      rejectPublishedImage('published_metadata_forbidden', file);
+    }
+    offset = end + (length % 2);
+  }
+  if (offset !== data.length) rejectPublishedImage('published_type_mismatch', file);
+}
+
+function validatePublishedImage(data, publishedPath, file) {
+  const extension = path.extname(publishedPath).toLowerCase();
+  if (extension === '.jpg' || extension === '.jpeg') {
+    if (data.length < 4 || !data.subarray(0, 3).equals(Buffer.from([0xff, 0xd8, 0xff]))) {
+      rejectPublishedImage('published_type_mismatch', file);
+    }
+    validateJpegMetadata(data, file);
+    return;
+  }
+  if (extension === '.png') {
+    const signature = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]);
+    if (data.length < 20 || !data.subarray(0, 8).equals(signature)) {
+      rejectPublishedImage('published_type_mismatch', file);
+    }
+    validatePngMetadata(data, file);
+    return;
+  }
+  if (
+    extension !== '.webp' ||
+    data.length < 20 ||
+    data.toString('ascii', 0, 4) !== 'RIFF' ||
+    data.toString('ascii', 8, 12) !== 'WEBP'
+  ) {
+    rejectPublishedImage('published_type_mismatch', file);
+  }
+  validateWebpMetadata(data, file);
+}
+
 function validateRights(rightsValue, file) {
   const rights = requireObject(rightsValue, 'incomplete_rights', file);
   if (!ALLOWED_RIGHTS.has(rights.status)) {
@@ -305,7 +401,7 @@ export async function validateManifest(manifestValue, options) {
   verifyReceipt(receipt, keys, manifestFile);
   if (
     manifest.submission_id !== receipt.submission_id ||
-    contributor.github !== receipt.contributor_github
+    contributor.github.toLowerCase() !== receipt.contributor_github.toLowerCase()
   ) {
     throw new MediaValidationError('receipt_manifest_mismatch', manifestFile);
   }
@@ -348,7 +444,9 @@ export async function validateManifest(manifestValue, options) {
       if (!(await existsAsFile(root, publishedPath))) {
         throw new MediaValidationError('missing_published_asset', manifestFile);
       }
-      if ((await fileSha256(root, publishedPath)) !== declaredHash) {
+      const publishedData = await readFile(path.resolve(root, publishedPath));
+      validatePublishedImage(publishedData, publishedPath, manifestFile);
+      if (createHash('sha256').update(publishedData).digest('hex') !== declaredHash) {
         throw new MediaValidationError('published_hash_mismatch', manifestFile);
       }
       publishedPaths.add(publishedPath);

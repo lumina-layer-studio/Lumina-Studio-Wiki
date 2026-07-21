@@ -20,6 +20,20 @@ function sha256(data) {
   return createHash('sha256').update(data).digest('hex');
 }
 
+function webp(chunks = [{ type: 'VP8 ', payload: Buffer.from([0]) }]) {
+  const body = [Buffer.from('WEBP')];
+  for (const chunk of chunks) {
+    const size = Buffer.alloc(4);
+    size.writeUInt32LE(chunk.payload.length);
+    body.push(Buffer.from(chunk.type), size, chunk.payload);
+    if (chunk.payload.length % 2 === 1) body.push(Buffer.from([0]));
+  }
+  const payload = Buffer.concat(body);
+  const riffSize = Buffer.alloc(4);
+  riffSize.writeUInt32LE(payload.length);
+  return Buffer.concat([Buffer.from('RIFF'), riffSize, payload]);
+}
+
 function fixtureKeys() {
   return generateKeyPairSync('ed25519');
 }
@@ -90,7 +104,7 @@ function imageManifest(privateKey, publicImage, overrides = {}) {
 
 async function makeRepository() {
   const root = await mkdtemp(path.join(tmpdir(), 'lumina-media-test-'));
-  const publicImage = Buffer.from('public web image');
+  const publicImage = webp();
   const zh = path.join(root, 'docs/tutorials/sample-workflow.md');
   const en = path.join(
     root,
@@ -137,6 +151,50 @@ test('accepts a signed bilingual image contribution', async () => {
     manifestPath: 'data/media-contributions/sample-workflow.json',
     keys: new Map([[KEY_ID, publicKey]]),
   });
+});
+
+test('treats GitHub login casing as equivalent', async () => {
+  const { privateKey, publicKey } = fixtureKeys();
+  const { root, publicImage } = await makeRepository();
+  const manifest = imageManifest(privateKey, publicImage);
+  manifest.contributor.github = 'Example-User';
+
+  await validateManifest(manifest, {
+    root,
+    manifestPath: 'data/media-contributions/sample-workflow.json',
+    keys: new Map([[KEY_ID, publicKey]]),
+  });
+});
+
+test('rejects disguised images and embedded identifying metadata', async () => {
+  const { privateKey, publicKey } = fixtureKeys();
+  const { root } = await makeRepository();
+  const imagePath = path.join(
+    root,
+    'static/media/sample-workflow/result-photo.webp',
+  );
+  const options = {
+    root,
+    manifestPath: 'data/media-contributions/sample-workflow.json',
+    keys: new Map([[KEY_ID, publicKey]]),
+  };
+
+  const disguised = Buffer.from('not a web image');
+  await writeFile(imagePath, disguised);
+  await expectRule(
+    validateManifest(imageManifest(privateKey, disguised), options),
+    'published_type_mismatch',
+  );
+
+  const withExif = webp([
+    { type: 'VP8 ', payload: Buffer.from([0]) },
+    { type: 'EXIF', payload: Buffer.from('device and location') },
+  ]);
+  await writeFile(imagePath, withExif);
+  await expectRule(
+    validateManifest(imageManifest(privateKey, withExif), options),
+    'published_metadata_forbidden',
+  );
 });
 
 test('accepts an external video while rejecting local video payloads', async () => {
