@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "locales": {
+    "zh": [
+      "/",
+      "/开发者动态",
+      "/部署安装",
+      "/更新日志",
+      "/耗材选择",
+      "/校准板校色",
+      "/使用教程",
+      "/切片教程",
+      "/常见问题QA",
+      "/关于我们",
+      "/赞助支持",
+      "/TD值",
+      "/使用教程2",
+      "/使用教程2/首次使用-设备配置",
+      "/使用教程2/生成并打印梯度色卡",
+      "/更新日志/1.x-history",
+      "/更新日志/2026-03",
+      "/更新日志/2026-04",
+      "/更新日志/2026-05",
+      "/更新日志/2026-06",
+      "/更新日志/2026-07"
+    ],
+    "en": [
+      "/",
+      "/development-updates",
+      "/installation",
+      "/changelog",
+      "/filament-selection",
+      "/color-chart-calibration",
+      "/user-guide-1x",
+      "/slicer-guide",
+      "/faq",
+      "/about",
+      "/sponsors-and-support",
+      "/td-and-hex-values",
+      "/user-guide-2x",
+      "/getting-started/device-setup",
+      "/tutorials/generate-and-print-gradient-cards",
+      "/changelog/1.x-history",
+      "/changelog/2026-03",
+      "/changelog/2026-04",
+      "/changelog/2026-05",
+      "/changelog/2026-06",
+      "/changelog/2026-07"
+    ]
+  }
+}

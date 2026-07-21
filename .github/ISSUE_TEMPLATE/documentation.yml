@@ -1,0 +1,29 @@
+name: Documentation correction
+description: Report an inaccurate, unclear, or outdated Wiki page.
+title: "[Docs]: "
+labels: [documentation]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Public page URL
+      placeholder: https://wiki.luminastudio.com.cn/...
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is inaccurate or unclear?
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Suggested correction or public source
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy check
+      options:
+        - label: I removed accounts, personal information, local paths, and credentials.
+          required: true

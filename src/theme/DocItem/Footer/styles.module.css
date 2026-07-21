@@ -1,0 +1,18 @@
+.licenseNotice {
+  margin-block: 1.25rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--ifm-toc-border-color);
+  border-radius: 10px;
+  background: color-mix(
+    in srgb,
+    var(--ifm-background-surface-color) 76%,
+    transparent
+  );
+  color: var(--ifm-font-color-secondary);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.licenseNotice p {
+  margin: 0;
+}

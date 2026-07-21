@@ -1,0 +1,30 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.docsSidebar.category.快速开始": {
+    "message": "Getting Started",
+    "description": "The label for category '快速开始' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.教程与工作流": {
+    "message": "Tutorials and Workflows",
+    "description": "The label for category '教程与工作流' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.基础知识": {
+    "message": "Core Concepts",
+    "description": "The label for category '基础知识' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.版本进展": {
+    "message": "Releases",
+    "description": "The label for category '版本进展' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.项目信息": {
+    "message": "Project",
+    "description": "The label for category '项目信息' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.旧版资料": {
+    "message": "Legacy Guides",
+    "description": "The label for category '旧版资料' in sidebar 'docsSidebar'"
+  }
+}

@@ -1,0 +1,159 @@
+---
+id: tutorial-gradient-card-generate-print
+title: "生成并打印梯度色卡"
+slug: "/使用教程2/生成并打印梯度色卡"
+description: "从 Lumina Studio 生成配置文件包，并在切片软件中准备、检查和打印白底与黑底梯度色卡。"
+sidebar_position: 17
+---
+
+# 生成并打印梯度色卡
+
+本教程会带你从 Lumina Studio 生成梯度卡配置文件包，再用切片软件准备同一种测试耗材的白底色卡和黑底色卡。
+
+完成后，你应该得到两张已经打印好的梯度色卡：一张使用白色底板，一张使用黑色底板。请把下载的 ZIP 一起保留下来，下一篇“提取梯度卡”教程还会用到它。
+
+## 视频教程
+
+<iframe
+  className="tutorial-video-iframe"
+  src="https://player.bilibili.com/player.html?isOutside=true&bvid=BV1hRK66JEaT&cid=40105348672&p=1&high_quality=1&danmaku=0&autoplay=0"
+  title="Lumina Studio 教程｜生成并打印梯度色卡"
+  scrolling="no"
+  frameBorder="0"
+  allow="autoplay; fullscreen; picture-in-picture">
+</iframe>
+
+如果播放器无法加载，可以[前往哔哩哔哩观看完整教程](https://www.bilibili.com/video/BV1hRK66JEaT/)。
+
+## 本篇会完成什么
+
+![打印完成的白底与黑底梯度色卡](pathname:///zh/media/tutorials/zh-CN/gradient-card-generate-print/2026-07-19/wiki-assets/07-white-black-card-photo.webp?v=20260719-1)
+
+每一种待测试耗材都要配一张白底色卡和一张黑底色卡。两张卡的底板颜色不同，但上方的梯度色块必须使用同一卷待测试耗材。
+
+## 开始前需要准备什么
+
+![在设置中确认切片软件、打印机和喷嘴](pathname:///zh/media/tutorials/zh-CN/gradient-card-generate-print/2026-07-19/wiki-assets/00-settings-check.webp?v=20260719-1)
+
+请先确认 Lumina Studio 的“设置”中已经选择了你实际使用的切片软件、打印机型号和喷嘴尺寸。
+
+准备三种耗材：
+
+- 白色耗材，用于第一张色卡的底板；
+- 黑色耗材，用于第二张色卡的底板；
+- 这次准备测试的耗材，用于两张色卡上方的梯度色块。本教程以红色耗材为例。
+
+还需要准备你平时使用的切片软件。第一次操作时，建议先完整做完一卷耗材，不要同时测试多卷不同耗材，避免把照片和配置包对应错。
+
+## 第一步：打开梯度卡生成
+
+![打开耗材管理中的梯度卡生成](pathname:///zh/media/tutorials/zh-CN/gradient-card-generate-print/2026-07-19/wiki-assets/01-open-gradient-generator.webp?v=20260719-1)
+
+打开 Lumina Studio，在页面顶部点击“耗材管理”。
+
+进入耗材管理后，在第二排标签中点击“梯度卡生成”。看到左侧“生成设置”和右侧“使用须知与线上模型”，就说明已经进入正确页面。
+
+先读一遍右侧提示。这里最重要的一点是：每一种待测试耗材都要打印两张卡，一张白底，一张黑底。缺少其中一张，后续提取到的耗材数据就不完整。
+
+## 第二步：选择层高
+
+![选择与打印设置一致的层高](pathname:///zh/media/tutorials/zh-CN/gradient-card-generate-print/2026-07-19/wiki-assets/02-choose-layer-height.webp?v=20260719-1)
+
+在“生成设置”中找到“层高”下拉菜单。当前可以选择 0.04 mm、0.08 mm 或 0.10 mm。
+
+如果这是你第一次制作梯度卡，建议选择默认的 **0.08 mm**。0.04 mm 对打印稳定性、拍摄和后续提取的要求都更高，不建议第一次就使用。
+
+选择后，再看一眼下拉菜单中显示的数值。它应该与你准备在切片软件和打印机中使用的层高一致。本教程以 0.08 mm 为例。
+
+## 第三步：生成并保存 ZIP
+
+![生成并下载完整配置文件包](pathname:///zh/media/tutorials/zh-CN/gradient-card-generate-print/2026-07-19/wiki-assets/03-download-zip.webp?v=20260719-1)
+
+确认层高后，点击“生成配置文件包”。生成过程中不要重复点击按钮。
+
+生成完成后，页面下方会出现成功提示和“下载结果”区域。看到“下载配置文件包 (.zip)”按钮，就说明文件已经准备好。
+
+点击“下载配置文件包 (.zip)”，把 ZIP 保存到一个容易找到的位置。建议用“耗材名称 + 层高 + 日期”给外层文件夹命名，例如“红色 PLA_0.08_2026-07-19”。不要只把 ZIP 留在浏览器默认下载目录里。
+
+![Finder 中实际下载的完整 ZIP](pathname:///zh/media/tutorials/zh-CN/gradient-card-generate-print/2026-07-19/wiki-assets/03b-actual-zip.webp?v=20260719-1)
+
+这个 ZIP 不只是模型下载包。它同时保存了后续“提取梯度卡”需要的配置和目录模板。因此，即使你准备使用页面右侧的 MakerWorld 在线模型，也必须在这里生成、下载并保留 ZIP。
+
+如果你更方便直接使用 MakerWorld，可以打开下面的链接：
+
+- [梯度卡在线模型（当前为 0.08 mm 层高）](https://makerworld.com.cn/zh/models/2394753-lumina2-0-ti-xing-xiao-se-se-qia-0-08ceng-gao-15ce#profileId-2721317)
+- [梯度卡收纳盒在线模型](https://makerworld.com.cn/zh/models/2400920-can-shu-hua-lumina-2-0ti-du-se-qia-zi-ding-yi-shou#profileId-2729620)
+
+![实际打开的 MakerWorld 梯度卡页面](pathname:///zh/media/tutorials/zh-CN/gradient-card-generate-print/2026-07-19/wiki-assets/03c-makerworld-page.webp?v=20260719-1)
+
+通过上面的在线模型链接下载，还可以为 Lumina 团队提供 MakerWorld 积分；这些积分将用于社区抽奖福利。
+
+使用在线模型时，也要确认在线模型的层高与你在 Lumina 中生成配置文件包时选择的层高一致。当前梯度卡链接对应 0.08 mm；如果你选择了其他层高，请优先使用 ZIP 中的 3MF。
+
+## 第四步：找到并打开 3MF
+
+![解压后保留 3MF、清单、说明和数据目录](pathname:///zh/media/tutorials/zh-CN/gradient-card-generate-print/2026-07-19/wiki-assets/04-zip-contents.webp?v=20260719-1)
+
+下载完成后，先解压 ZIP。打开解压后的文件夹，在根目录找到扩展名为“.3mf”的打印文件。文件夹中还会看到 manifest、说明文件和数据目录模板；这些文件不要删除或改名。
+
+双击 3MF，或从 Bambu Studio / OrcaSlicer 中选择“打开项目”。项目打开后，应该能看到一块由多个方格组成的梯度卡模型。
+
+![在 Bambu Studio 中打开实际生成的 3MF](pathname:///zh/media/tutorials/zh-CN/gradient-card-generate-print/2026-07-19/wiki-assets/04-open-in-bambu-studio.webp?v=20260719-1)
+
+在对象列表中，模型通常分为两个部分：“Base - White”是底板，“Step - Sample”是上方的梯度色块。看到这两个对象，说明 3MF 已经完整载入。
+
+如果切片软件提示打印机、喷嘴或配置不兼容，先不要直接忽略。返回 Lumina Studio 的“设置”，核对切片软件、打印机和喷嘴，再重新生成一次配置文件包。
+
+## 第五步：准备白底和黑底两张色卡
+
+![白底、黑底和红色样本层的对象映射](pathname:///zh/media/tutorials/zh-CN/gradient-card-generate-print/2026-07-19/wiki-assets/05-material-mapping.webp?v=20260719-1)
+
+当前配置包中只有一套梯度卡模型。先在对象列表中展开模型，确认里面同时包含“Base - White”和“Step - Sample”。接着复制整套模型，让同一个打印盘上出现两张相同的梯度卡。
+
+第一张作为白底卡：把“Base - White”分配给白色耗材，把“Step - Sample”分配给这次待测试的红色耗材。
+
+第二张作为黑底卡：把底板对象分配给黑色耗材，把“Step - Sample”仍然分配给同一卷红色耗材。即使对象名称仍显示“Base - White”，也要以实际耗材映射为准。
+
+完成映射后检查：一张是白色底板加红色样本层，另一张是黑色底板加红色样本层。不要缩放模型，不要改变模型高度，也不要把底板和梯度色块错分到同一种耗材。
+
+## 第六步：检查后开始打印
+
+![翻到底面并逐层检查切片结果](pathname:///zh/media/tutorials/zh-CN/gradient-card-generate-print/2026-07-19/wiki-assets/06-bottom-preview.webp?v=20260719-1)
+
+开始切片前，确认切片软件中选择的是你实际使用的打印机和喷嘴，层高与 Lumina 中生成配置包时选择的数值一致。本例应为 0.08 mm。
+
+再检查一次耗材槽映射，确保白色、黑色和红色都没有被自动替换成其他槽位。然后对当前打印盘进行切片。进入预览后，把视角翻转到底面，再拖动右侧层滑块逐层检查。你应该同时看到白底和黑底上的红色梯度方格。
+
+预览没有缺层、悬空或错误换色提示后，再发送到打印机。取下后立即把两张卡放在一起，并标记对应的耗材名称。
+
+## 打印后要保留什么
+
+请保留以下三样内容：
+
+- 白底梯度卡；
+- 黑底梯度卡；
+- 本次从 Lumina 下载的完整 ZIP。
+
+不要只保留解压出来的 3MF，也不要把不同层高或不同日期生成的配置包混在一起。后续拍摄和“提取梯度卡”时，需要让这一对实物色卡与正确的 ZIP 对应。
+
+## 常见问题
+
+### 可以只打印白底卡或黑底卡吗？
+
+不可以。每一种测试耗材都需要白底和黑底两张卡，二者是一对。
+
+### 从 MakerWorld 下载了在线模型，还要生成 ZIP 吗？
+
+要。在线模型可以代替本地 3MF 用于打印，但不能代替后续提取需要的配置文件包。
+
+### 第一次应该选哪个层高？
+
+建议从 0.08 mm 开始。等你已经熟悉打印、拍摄和提取流程后，再尝试 0.04 mm。
+
+### 打开 3MF 后，打印机或喷嘴不匹配怎么办？
+
+先回到 Lumina Studio 的“设置”核对切片软件、打印机型号和喷嘴尺寸，再重新生成配置文件包。不要在不确认兼容性的情况下直接覆盖全部项目设置。
+
+### 对象名称里的“Base - White”为什么在第二张黑底卡上没有变？
+
+这是模型对象的原始名称。第二张卡真正使用哪种底板颜色，取决于你在切片软件中给底板对象分配的耗材槽。请以耗材映射和切片预览为准。

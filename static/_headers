@@ -1,0 +1,23 @@
+# Docusaurus fingerprints generated CSS and JavaScript filenames. Keep those
+# immutable in the browser so repeat visits do not revalidate the whole app.
+/zh/assets/*
+  Cache-Control: public, max-age=31556952, immutable
+
+/en/assets/*
+  Cache-Control: public, max-age=31556952, immutable
+
+# Brand assets keep stable filenames, so allow a short refresh window instead
+# of marking them immutable.
+/zh/img/*
+  Cache-Control: public, max-age=86400
+
+/en/img/*
+  Cache-Control: public, max-age=86400
+
+# Tutorial and knowledge images live below dated, versioned paths. They are
+# immutable so repeat visits do not re-download the same visual walkthroughs.
+/zh/media/*
+  Cache-Control: public, max-age=31556952, immutable
+
+/en/media/*
+  Cache-Control: public, max-age=31556952, immutable

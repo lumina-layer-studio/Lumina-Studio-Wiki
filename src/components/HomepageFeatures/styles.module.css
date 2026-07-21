@@ -1,0 +1,68 @@
+.features {
+  padding: 4rem 1.5rem 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  width: min(1080px, 100%);
+  margin: 0 auto;
+}
+
+.card {
+  display: flex;
+  min-height: 220px;
+  flex-direction: column;
+  padding: 2rem;
+  border: 1px solid var(--ifm-toc-border-color);
+  border-radius: 18px;
+  background: var(--ifm-card-background-color);
+  box-shadow: 0 12px 30px rgb(0 0 0 / 6%);
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.card:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 18px 42px rgb(0 0 0 / 10%);
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.cardTitle {
+  margin-bottom: 0.75rem;
+  font-size: 1.55rem;
+}
+
+.cardDescription {
+  margin-bottom: 1.5rem;
+  color: var(--ifm-color-emphasis-700);
+  line-height: 1.7;
+}
+
+.cardAction {
+  display: inline-flex;
+  gap: 0.45rem;
+  align-items: center;
+  margin-top: auto;
+  color: var(--ifm-color-primary);
+  font-weight: 700;
+}
+
+@media (max-width: 720px) {
+  .features {
+    padding: 2.5rem 1rem 1.5rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    min-height: 0;
+    padding: 1.5rem;
+  }
+}

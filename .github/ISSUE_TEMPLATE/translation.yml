@@ -1,0 +1,33 @@
+name: Translation improvement
+description: Suggest a clearer or more accurate Chinese or English translation.
+title: "[Translation]: "
+labels: [translation]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Public page URL
+    validations:
+      required: true
+  - type: dropdown
+    id: language
+    attributes:
+      label: Language
+      options:
+        - English
+        - 简体中文
+        - Both / 两者
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Current wording and suggested wording
+    validations:
+      required: true
+  - type: checkboxes
+    id: ai
+    attributes:
+      label: AI assistance
+      options:
+        - label: AI was used and the suggestion was manually checked.

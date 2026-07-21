@@ -1,0 +1,22 @@
+{
+  "title": {
+    "message": "Lumina Studio",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "Lumina Studio",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.文档": {
+    "message": "Documentation",
+    "description": "Navbar item with label 文档"
+  },
+  "item.label.更新日志": {
+    "message": "Changelog",
+    "description": "Navbar item with label 更新日志"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  }
+}
