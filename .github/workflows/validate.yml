@@ -17,6 +17,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Enable pnpm
         uses: pnpm/action-setup@v4
@@ -32,6 +34,10 @@ jobs:
 
       - name: Run public behavior tests
         run: pnpm test:public
+
+      - name: Protect the published-media baseline
+        if: github.event_name == 'pull_request'
+        run: node scripts/media-contributions.mjs --base "${{ github.event.pull_request.base.sha }}"
 
       - name: Check tracked repository boundary
         run: python3 scripts/public_repo_guard.py

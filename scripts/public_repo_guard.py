@@ -16,7 +16,9 @@ from typing import Iterable, Sequence
 DEFAULT_MAX_FILE_BYTES = 25 * 1024 * 1024
 
 DETECTION_FIXTURE_PATHS = {
+    "scripts/media-contributions.mjs",
     "scripts/public_repo_guard.py",
+    "tests/media-contributions.test.mjs",
     "tests/test_public_repo_guard.py",
 }
 
@@ -77,6 +79,7 @@ TEXT_SUFFIXES = {
     ".md",
     ".mdx",
     ".mjs",
+    ".pem",
     ".py",
     ".sh",
     ".svg",
@@ -129,6 +132,12 @@ TEXT_RULES: tuple[tuple[str, re.Pattern[str]], ...] = (
         "private_storage_endpoint",
         re.compile(r"\b[A-Za-z0-9-]+\.r2\.cloudflarestorage\.com\b", re.IGNORECASE),
     ),
+    (
+        "internal_topology",
+        re.compile(
+            r"(?:\blumina-layer-studio/Wiki\b|\bR2\b|\bNAS\b)",
+        ),
+    ),
 )
 
 IPV4_CANDIDATE = re.compile(r"(?<![A-Za-z0-9.])(?:\d{1,3}\.){3}\d{1,3}(?![A-Za-z0-9.])")
@@ -170,6 +179,20 @@ def _is_forbidden_path(relative: str) -> bool:
     )
 
 
+def _is_public_verification_key(relative: str, path: Path) -> bool:
+    if not relative.startswith("data/media-keys/") or path.suffix.lower() != ".pem":
+        return False
+    try:
+        text = path.read_text(encoding="ascii")
+    except (UnicodeDecodeError, OSError):
+        return False
+    return (
+        text.startswith("-----BEGIN PUBLIC KEY-----\n")
+        and text.rstrip().endswith("-----END PUBLIC KEY-----")
+        and "PRIVATE" not in text
+    )
+
+
 def _contains_ip_literal(text: str) -> bool:
     for match in IPV4_CANDIDATE.finditer(text):
         try:
@@ -207,7 +230,9 @@ def scan_files(
             findings.add(Finding("forbidden_path", relative))
         if path.name.lower() in FORBIDDEN_FILENAMES:
             findings.add(Finding("forbidden_filename", relative))
-        if path.suffix.lower() in FORBIDDEN_SUFFIXES:
+        if path.suffix.lower() in FORBIDDEN_SUFFIXES and not _is_public_verification_key(
+            relative, path
+        ):
             findings.add(Finding("forbidden_suffix", relative))
         if path.stat().st_size > max_file_bytes:
             findings.add(Finding("oversized_file", relative))

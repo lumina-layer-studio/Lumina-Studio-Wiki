@@ -122,6 +122,26 @@ class PublicRepoGuardTests(unittest.TestCase):
         self.assertNotIn("203.0.113.42", result.stdout)
         self.assertNotIn("do-not-print", result.stdout)
 
+    def test_rejects_internal_topology_references(self) -> None:
+        private_repository = "lumina-layer-studio" + "/Wiki"
+        storage_name = "R" + "2"
+        archive_name = "N" + "AS"
+        repository = self.make_repo(
+            {
+                "docs/bad.md": (
+                    f"private={private_repository}\n"
+                    f"storage={storage_name}\n"
+                    f"archive={archive_name}\n"
+                )
+            }
+        )
+
+        result = self.run_guard(repository)
+
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("internal_topology: docs/bad.md", result.stdout)
+        self.assertNotIn(private_repository, result.stdout)
+
     def test_rejects_private_operations_paths(self) -> None:
         repository = self.make_repo(
             {
@@ -162,6 +182,39 @@ class PublicRepoGuardTests(unittest.TestCase):
         )
         self.assertIn("forbidden_suffix: backup/archive.zip", result.stdout)
         self.assertIn("oversized_file: static/img/large.png", result.stdout)
+
+    def test_allows_only_public_verification_pem_in_media_key_directory(self) -> None:
+        public_key = (
+            "-----BEGIN PUBLIC KEY-----\n"
+            "MCowBQYDK2VwAyEAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa=\n"
+            "-----END PUBLIC KEY-----\n"
+        )
+        repository = self.make_repo(
+            {"data/media-keys/2026-07-v1.pem": public_key}
+        )
+
+        result = self.run_guard(repository)
+
+        self.assertEqual(result.returncode, 0, result.stdout)
+
+    def test_rejects_private_key_even_in_media_key_directory(self) -> None:
+        private_key = (
+            "-----BEGIN PRIVATE KEY-----\n"
+            "TOP-SECRET\n"
+            "-----END PRIVATE KEY-----\n"
+        )
+        repository = self.make_repo(
+            {"data/media-keys/compromised.pem": private_key}
+        )
+
+        result = self.run_guard(repository)
+
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn(
+            "forbidden_suffix: data/media-keys/compromised.pem", result.stdout
+        )
+        self.assertIn("private_key: data/media-keys/compromised.pem", result.stdout)
+        self.assertNotIn("TOP-SECRET", result.stdout)
 
     def test_tree_mode_scans_generated_output(self) -> None:
         repository = self.make_repo({"README.md": "safe\n"})

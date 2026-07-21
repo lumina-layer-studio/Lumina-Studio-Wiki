@@ -23,6 +23,8 @@ python3 scripts/public_repo_guard.py --tree build
 
 中文正文位于 `docs/`，英文正文位于 `i18n/en/docusaurus-plugin-content-docs/current/`。欢迎通过 Issue 或 Pull Request 修正文案、补充教程和改进翻译；详细规则见 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
+新教程图片和视频采用可核验的媒体登记：网页图片随 PR 审核，视频使用 Bilibili 或 YouTube 链接，原始素材不直接进入 Git。具体步骤见贡献指南。
+
 ## 许可
 
 - 站点源代码采用 [MIT License](LICENSE)。
