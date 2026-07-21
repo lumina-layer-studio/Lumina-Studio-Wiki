@@ -1,0 +1,23 @@
+/zh/
+  Cache-Control: public, max-age=43200
+
+/zh/docs/*
+  Cache-Control: public, max-age=43200
+
+/en/
+  Cache-Control: public, max-age=43200
+
+/en/docs/*
+  Cache-Control: public, max-age=43200
+
+/zh/assets/*
+  Cache-Control: public, max-age=31556952, immutable
+
+/en/assets/*
+  Cache-Control: public, max-age=31556952, immutable
+
+/zh/img/*
+  Cache-Control: public, max-age=86400
+
+/en/img/*
+  Cache-Control: public, max-age=86400

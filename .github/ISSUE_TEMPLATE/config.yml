@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security report / 安全问题
+    url: https://github.com/lumina-layer-studio/Lumina-Studio-Wiki/security/advisories/new
+    about: Report credentials, private data, or security weaknesses privately.
