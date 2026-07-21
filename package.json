@@ -15,8 +15,7 @@
     "start": "docusaurus start",
     "test:edge": "node --test tests/*.test.mjs",
     "test:guard": "python3 -m unittest discover tests -p 'test_*.py' -v",
-    "validate:media": "node scripts/media-contributions.mjs",
-    "test:public": "pnpm test:guard && pnpm test:edge && pnpm validate:media",
+    "test:public": "pnpm test:guard && pnpm test:edge",
     "typecheck": "tsc --noEmit",
     "write-translations": "docusaurus write-translations"
   },

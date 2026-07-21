@@ -63,3 +63,22 @@ test('writer places Cloudflare control files at the build root', async () => {
     '/zh /zh/ 301\n/en /en/ 301\n',
   );
 });
+
+
+test('published HTML has a reusable cache policy', async () => {
+  const headers = await readFile(
+    new URL('../static/_headers', import.meta.url),
+    'utf8',
+  );
+
+  for (const route of ['/zh/', '/zh/docs/*', '/en/', '/en/docs/*']) {
+    assert.match(
+      headers,
+      new RegExp(
+        `${route.replaceAll('/', '\\\/').replace('*', '\\*')}\\n` +
+          '  Cache-Control: public, max-age=43200',
+      ),
+      route,
+    );
+  }
+});

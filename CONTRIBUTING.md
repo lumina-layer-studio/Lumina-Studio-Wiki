@@ -26,15 +26,29 @@
 - 教程视频应使用经批准的视频平台链接或嵌入；不要向仓库提交 MP4、字幕包、压缩包或工程归档。
 - AI 生成或修改的图片必须在 PR 中注明，不得伪装成真实的软件界面或真实操作截图。
 
-### 新素材的提交方式
+### 页面与素材结构
 
-1. 先打开 Draft PR，并写清教程主题、中文与英文页面路径。
-2. 按 PR 中的媒体交付提示上传原始素材；不要把视频母版、工程文件或压缩包放进 Git。
-3. 将审核用网页图片放入 `static/media/<教程标识>/`，并清除定位、设备和账号等元数据。
-4. 将交付页面返回的签名回执写入 `data/media-contributions/<教程标识>.json`，同时填写作者、授权方式、署名、AI 参与情况和网页图片哈希。
-5. 视频只填写 Bilibili 或 YouTube 的公开链接。维护者完成内容、版权和自动检查后再合并。
+每篇页面使用独立目录，MDX 文件必须与目录同名，页面所用图片放在同级 `assets/` 目录。中英文页面分别保存自己实际显示的素材。
 
-既有素材登记在 `data/media-contributions/legacy-assets.json`，该文件只用于保护已发布内容，投稿者不要修改。
+```text
+docs/tutorials/example/example.mdx
+docs/tutorials/example/assets/step-01.webp
+```
+
+图片使用 Docusaurus 官方支持的相对 `require` 写法：
+
+```jsx
+<img
+  src={require('./assets/step-01.webp').default}
+  alt="描述画面内容"
+/>
+```
+
+- MDX 正文中不得写 `import`，不得引入自定义图片、路径或布局组件。
+- 页面链接使用相对 Markdown 链接，不手写站点语言前缀或部署地址。
+- 提交图片时要清除定位、设备和账号等元数据，并在 PR 中说明来源、作者、许可方式和 AI 参与情况。
+- 不要把视频母版、工程文件或压缩包放进 Git。视频只填写 Bilibili 或 YouTube 公开链接。
+- 如果审核需要核验原始素材，维护者会在 PR 中说明安全的提交方式；原始文件不进入 Git。
 
 ## 本地检查
 
@@ -62,4 +76,4 @@ python3 scripts/public_repo_guard.py --tree build
 
 ---
 
-Thank you for improving the Wiki. Fork the repository, branch from the latest `main`, keep the Chinese and English pages aligned where practical, run the documented checks, and submit a pull request. Disclose AI-assisted translation or imagery, verify it manually, and provide the source and permission for third-party media. Never include credentials, private operations, personal paths, or self-hosted video payloads.
+Thank you for improving the Wiki. Fork the repository, branch from the latest `main`, keep the Chinese and English pages aligned where practical, run the documented checks, and submit a pull request. Keep each page in a same-named folder with a same-named `.mdx` file and a local `assets/` directory. Use Docusaurus Markdown features and relative `require('./assets/...').default` image sources; do not add imports or custom path/image components to document files. Disclose AI-assisted translation or imagery, verify it manually, and provide the source and permission for third-party media. Never include credentials, non-public operations, personal paths, or self-hosted video payloads.

@@ -183,37 +183,23 @@ class PublicRepoGuardTests(unittest.TestCase):
         self.assertIn("forbidden_suffix: backup/archive.zip", result.stdout)
         self.assertIn("oversized_file: static/img/large.png", result.stdout)
 
-    def test_allows_only_public_verification_pem_in_media_key_directory(self) -> None:
-        public_key = (
-            "-----BEGIN PUBLIC KEY-----\n"
-            "MCowBQYDK2VwAyEAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa=\n"
-            "-----END PUBLIC KEY-----\n"
-        )
-        repository = self.make_repo(
-            {"data/media-keys/2026-07-v1.pem": public_key}
-        )
-
-        result = self.run_guard(repository)
-
-        self.assertEqual(result.returncode, 0, result.stdout)
-
-    def test_rejects_private_key_even_in_media_key_directory(self) -> None:
+    def test_rejects_private_key_files(self) -> None:
         private_key = (
             "-----BEGIN PRIVATE KEY-----\n"
             "TOP-SECRET\n"
             "-----END PRIVATE KEY-----\n"
         )
         repository = self.make_repo(
-            {"data/media-keys/compromised.pem": private_key}
+            {"credentials/compromised.pem": private_key}
         )
 
         result = self.run_guard(repository)
 
         self.assertNotEqual(result.returncode, 0)
         self.assertIn(
-            "forbidden_suffix: data/media-keys/compromised.pem", result.stdout
+            "forbidden_suffix: credentials/compromised.pem", result.stdout
         )
-        self.assertIn("private_key: data/media-keys/compromised.pem", result.stdout)
+        self.assertIn("private_key: credentials/compromised.pem", result.stdout)
         self.assertNotIn("TOP-SECRET", result.stdout)
 
     def test_tree_mode_scans_generated_output(self) -> None:

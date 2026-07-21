@@ -1,0 +1,75 @@
+---
+id: wikijs-7
+title: "耗材选择"
+slug: "/耗材选择"
+description: ""
+sidebar_position: 7
+wikijs_path: "耗材选择"
+wikijs_author: "Evan76"
+wikijs_creator: "Evan76"
+wikijs_updated_at: "2026-04-10T16:42:35.439Z"
+---
+# 耗材使用
+**Lumina目前支持2/4/6/8四种模式，现阶段是以固定搭配的形式进行使用，当然如果你理解色卡和校准的原理可以自行替换对应颜色。本篇就不过多介绍这种扩展玩法了。
+颜色参考(怕你们看不清 放大点）**
+<img
+  src={require('./assets/468.png').default}
+  alt="468.png"
+/>
+
+**如果不直观，那看这个**
+
+<img
+  src={require('./assets/se8.jpg').default}
+  alt="se8.jpg"
+/>
+:::warning 必看
+
+这里说的颜色只需要接近，不是强行要求找到 HEX 值完全相同的耗材。例如，绿色可以选深绿或浅绿，红色可以选深红或普通红，蓝色可以选深蓝或浅蓝，黄色可以选淡黄或荧光黄，白色可以选奶白或普通白，青色也可以用青色、蓝色或薄荷色等接近颜色。
+
+关键是在校准和使用时，始终保持软件中的颜色对象与实际耗材一一对应。
+
+:::
+
+## 2色（黑白灰度模式）
+**黑白色
+打印出来的色卡一般是这样的**
+<img
+  src={require('./assets/se1.png').default}
+  alt="se1.png"
+/>
+## 4色（CMYW/RYBW模式）
+**4色分为两个模式，共用一个模型
+在打印的时候
+品红色和红色共用一个品红色对象，就是在打印RYBW的时候你把品红色设置红色，青色设置蓝色就可以了**
+<img
+  src={require('./assets/se2.png').default}
+  alt="se1.png"
+/>
+<img
+  src={require('./assets/se3.png').default}
+  alt="se1.png"
+/>
+## 6色（CMYWGK/RYBWGK模式）
+**6色也是分为两个模式，公用一个模型
+在打印的时候
+品红色和红色共用一个品红色对象，就是在打印RYBW的时候你把品红色设置红色，青色设置蓝色就可以了**
+<img
+  src={require('./assets/se4.png').default}
+  alt="se1.png"
+/>
+<img
+  src={require('./assets/se5.png').default}
+  alt="se1.png"
+/>
+## 8色模式
+**八色模式是品红色红色青色蓝色都用了，不存在共用名字，不需要修改
+8色模式的色卡如何辨别第一和第二张，第一张的左上角第一行第一个是白色，然后依次后面7个都是纯色的使用的耗材颜色，可以用来分辨page1和2**
+<img
+  src={require('./assets/se6.png').default}
+  alt="se1.png"
+/>
+<img
+  src={require('./assets/se7.png').default}
+  alt="se1.png"
+/>

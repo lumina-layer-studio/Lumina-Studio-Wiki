@@ -14,8 +14,10 @@
 - [ ] I own the submitted media or documented its source, author, permission, and license
 - [ ] Any AI-generated or AI-edited media is disclosed
 - [ ] No video, archive, database, credential, or private operations file is included
-- [ ] New tutorial media has its own signed media record, or this PR changes text only
 - [ ] Videos use an approved Bilibili or YouTube link instead of a local video file
+- [ ] Each changed tutorial uses a same-named folder and `.mdx` file with local `assets/`
+- [ ] Document images use relative `require('./assets/...').default` sources
+- [ ] Document files add no imports or custom image/path components
 
 ## Verification
 

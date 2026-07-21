@@ -21,9 +21,14 @@ pnpm build
 python3 scripts/public_repo_guard.py --tree build
 ```
 
-中文正文位于 `docs/`，英文正文位于 `i18n/en/docusaurus-plugin-content-docs/current/`。欢迎通过 Issue 或 Pull Request 修正文案、补充教程和改进翻译；详细规则见 [CONTRIBUTING.md](CONTRIBUTING.md)。
+中文正文位于 `docs/`，英文正文位于 `i18n/en/docusaurus-plugin-content-docs/current/`。每篇教程使用独立目录，MDX 文件与目录同名，图片放在页面目录内的 `assets/` 中。
 
-新教程图片和视频采用可核验的媒体登记：网页图片随 PR 审核，视频使用 Bilibili 或 YouTube 链接，原始素材不直接进入 Git。具体步骤见贡献指南。
+```text
+docs/tutorials/example/example.mdx
+docs/tutorials/example/assets/step-01.webp
+```
+
+文档只使用 Docusaurus 官方 Markdown/MDX 能力，不在 MDX 正文中导入自定义图片或路径组件。欢迎通过 Issue 或 Pull Request 修正文案、补充教程和改进翻译；详细规则见 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
 ## 许可
 

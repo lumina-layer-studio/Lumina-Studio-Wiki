@@ -1,3 +1,18 @@
+# Docusaurus pages are immutable for a deployment and Cloudflare Pages purges
+# them on the next deployment. Reuse the generated HTML between visits instead
+# of forcing every browser to revalidate it immediately.
+/zh/
+  Cache-Control: public, max-age=43200
+
+/zh/docs/*
+  Cache-Control: public, max-age=43200
+
+/en/
+  Cache-Control: public, max-age=43200
+
+/en/docs/*
+  Cache-Control: public, max-age=43200
+
 # Docusaurus fingerprints generated CSS and JavaScript filenames. Keep those
 # immutable in the browser so repeat visits do not revalidate the whole app.
 /zh/assets/*
