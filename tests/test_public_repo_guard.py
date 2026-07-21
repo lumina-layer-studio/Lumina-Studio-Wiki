@@ -122,6 +122,26 @@ class PublicRepoGuardTests(unittest.TestCase):
         self.assertNotIn("203.0.113.42", result.stdout)
         self.assertNotIn("do-not-print", result.stdout)
 
+    def test_rejects_internal_topology_references(self) -> None:
+        private_repository = "lumina-layer-studio" + "/Wiki"
+        storage_name = "R" + "2"
+        archive_name = "N" + "AS"
+        repository = self.make_repo(
+            {
+                "docs/bad.md": (
+                    f"private={private_repository}\n"
+                    f"storage={storage_name}\n"
+                    f"archive={archive_name}\n"
+                )
+            }
+        )
+
+        result = self.run_guard(repository)
+
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("internal_topology: docs/bad.md", result.stdout)
+        self.assertNotIn(private_repository, result.stdout)
+
     def test_rejects_private_operations_paths(self) -> None:
         repository = self.make_repo(
             {
