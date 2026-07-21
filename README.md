@@ -1,8 +1,6 @@
 # Lumina Studio Wiki
 
-[Lumina Studio Wiki](https://wiki.luminastudio.com.cn/) 的公开源文件。仓库包含中英文文档、教程图片、Docusaurus 站点代码和公开构建检查。
-
-本仓库是**已发布 Wiki 内容的唯一公开来源**。服务器、NAS、备份、账号、密钥、未发布草稿和内部运维资料不属于本仓库。
+[Lumina Studio Wiki](https://wiki.luminastudio.com.cn/) 的中英文公开源文件，包含使用文档、教程图片和站点代码。欢迎通过 Issue 或 Pull Request 帮助完善教程与翻译。
 
 ## 本地预览
 
@@ -33,6 +31,6 @@ python3 scripts/public_repo_guard.py --tree build
 
 ---
 
-This repository is the public source for the bilingual [Lumina Studio Wiki](https://wiki.luminastudio.com.cn/). It contains published documentation, tutorial images, the Docusaurus site, and public validation checks. Private drafts, credentials, infrastructure, backups, and machine-specific operations are intentionally maintained elsewhere.
+This repository contains the bilingual source for the [Lumina Studio Wiki](https://wiki.luminastudio.com.cn/), including user documentation, tutorial images, and the website code.
 
 Contributions are welcome through issues and pull requests. See [CONTRIBUTING.md](CONTRIBUTING.md) for localization, AI-assisted translation, media-rights, and validation requirements.
