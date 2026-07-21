@@ -79,6 +79,7 @@ TEXT_SUFFIXES = {
     ".md",
     ".mdx",
     ".mjs",
+    ".pem",
     ".py",
     ".sh",
     ".svg",
