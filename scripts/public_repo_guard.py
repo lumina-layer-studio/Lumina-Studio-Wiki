@@ -136,7 +136,6 @@ TEXT_RULES: tuple[tuple[str, re.Pattern[str]], ...] = (
         "internal_topology",
         re.compile(
             r"(?:\blumina-layer-studio/Wiki\b|\bR2\b|\bNAS\b)",
-            re.IGNORECASE,
         ),
     ),
 )

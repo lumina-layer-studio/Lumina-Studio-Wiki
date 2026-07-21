@@ -205,6 +205,20 @@ function validateReceiptShape(receiptValue, manifestFile) {
     if (!ALLOWED_KINDS.has(asset.kind)) {
       throw new MediaValidationError('invalid_asset_kind', manifestFile);
     }
+    const filename = requireString(
+      asset.original_filename,
+      'invalid_original_filename',
+      manifestFile,
+    );
+    if (
+      filename.length > 128 ||
+      filename.includes('/') ||
+      filename.includes('\\') ||
+      filename === '.' ||
+      filename === '..'
+    ) {
+      throw new MediaValidationError('invalid_original_filename', manifestFile);
+    }
     assertSha256(asset.original_sha256, 'invalid_original_sha256', manifestFile);
     if (!Number.isSafeInteger(asset.original_size) || asset.original_size < 1) {
       throw new MediaValidationError('invalid_original_size', manifestFile);
@@ -266,6 +280,13 @@ export async function validateManifest(manifestValue, options) {
     if (!(await existsAsFile(root, document))) {
       throw new MediaValidationError('missing_document', manifestFile);
     }
+  }
+  const zhRelative = zh.slice('docs/tutorials/'.length).replace(/\.mdx?$/u, '');
+  const enRelative = en
+    .slice('i18n/en/docusaurus-plugin-content-docs/current/tutorials/'.length)
+    .replace(/\.mdx?$/u, '');
+  if (zhRelative !== enRelative) {
+    throw new MediaValidationError('locale_pair_mismatch', manifestFile);
   }
 
   const contributor = requireObject(
@@ -400,6 +421,34 @@ async function validateLegacyRegistryLock(root, baseRef) {
   }
 }
 
+async function validateChangedMediaPaths(root, baseRef) {
+  let output;
+  try {
+    const result = await execFileAsync(
+      'git',
+      ['diff', '--name-only', baseRef, '--'],
+      { cwd: root, encoding: 'utf8', maxBuffer: 2 * 1024 * 1024 },
+    );
+    output = result.stdout;
+  } catch {
+    throw new MediaValidationError('changed_media_scan_failed');
+  }
+  for (const changedPath of output.split('\n').filter(Boolean)) {
+    const isImage = /\.(?:gif|jpe?g|png|svg|webp)$/iu.test(changedPath);
+    const isDocumentationAsset =
+      changedPath.startsWith('static/') ||
+      changedPath.startsWith('docs/') ||
+      changedPath.startsWith('i18n/');
+    if (
+      isImage &&
+      isDocumentationAsset &&
+      !changedPath.startsWith('static/media/')
+    ) {
+      throw new MediaValidationError('new_media_outside_media_root', changedPath);
+    }
+  }
+}
+
 async function listFiles(directory) {
   let entries;
   try {
@@ -451,6 +500,7 @@ export async function validateRepository({ root = process.cwd(), legacyBase } = 
       throw new MediaValidationError('invalid_base_ref');
     }
     await validateLegacyRegistryLock(repositoryRoot, baseRef);
+    await validateChangedMediaPaths(repositoryRoot, baseRef);
   }
   const directory = path.join(repositoryRoot, 'data/media-contributions');
   let entries;

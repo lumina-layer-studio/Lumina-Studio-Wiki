@@ -38,6 +38,7 @@ function signedReceipt(privateKey, overrides = {}) {
         asset_id: '018f53c2-b4da-7df5-947e-5a7e5066124b',
         logical_id: 'result-photo',
         kind: 'image',
+        original_filename: 'result-photo.jpg',
         original_sha256: sha256('original image'),
         original_size: 14,
         original_media_type: 'image/jpeg',
@@ -147,6 +148,7 @@ test('accepts an external video while rejecting local video payloads', async () 
         asset_id: '018f53c2-b4da-7df5-947e-5a7e5066124b',
         logical_id: 'walkthrough-video',
         kind: 'video',
+        original_filename: 'walkthrough-video.mp4',
         original_sha256: sha256('video master'),
         original_size: 12,
         original_media_type: 'video/mp4',
@@ -241,6 +243,16 @@ test('rejects unsafe paths, missing locale peers, and wrong public hashes', asyn
   const missingPeer = imageManifest(privateKey, publicImage);
   missingPeer.documents.en = 'i18n/en/docusaurus-plugin-content-docs/current/tutorials/missing.md';
   await expectRule(validateManifest(missingPeer, options), 'missing_document');
+
+  const unrelatedEnPath = path.join(
+    root,
+    'i18n/en/docusaurus-plugin-content-docs/current/tutorials/unrelated.md',
+  );
+  await writeFile(unrelatedEnPath, '# Unrelated tutorial\n');
+  const unrelatedPeer = imageManifest(privateKey, publicImage);
+  unrelatedPeer.documents.en =
+    'i18n/en/docusaurus-plugin-content-docs/current/tutorials/unrelated.md';
+  await expectRule(validateManifest(unrelatedPeer, options), 'locale_pair_mismatch');
 
   const wrongHash = imageManifest(privateKey, publicImage);
   wrongHash.assets[0].published_sha256 = '0'.repeat(64);
@@ -367,4 +379,30 @@ test('legacy registry may be introduced with the media contract', async () => {
   const result = await validateRepository({ root, legacyBase: 'HEAD' });
 
   assert.deepEqual(result, { manifests: 0, assets: 0 });
+});
+
+test('pull request validation rejects new tutorial images outside static media', async () => {
+  const root = await mkdtemp(path.join(tmpdir(), 'lumina-media-root-test-'));
+  const registry = path.join(root, 'data/media-contributions/legacy-assets.json');
+  const validator = path.join(root, 'scripts/media-contributions.mjs');
+  await mkdir(path.dirname(registry), { recursive: true });
+  await mkdir(path.dirname(validator), { recursive: true });
+  await writeFile(registry, JSON.stringify({ schema_version: 1, assets: {} }));
+  await writeFile(validator, '// established media contract\n');
+  execFileSync('git', ['init', '-q', '-b', 'main'], { cwd: root });
+  execFileSync('git', ['add', '.'], { cwd: root });
+  execFileSync(
+    'git',
+    ['-c', 'user.name=Test', '-c', 'user.email=test@example.invalid', 'commit', '-qm', 'base'],
+    { cwd: root },
+  );
+  const bypass = path.join(root, 'static/img/new-tutorial-image.png');
+  await mkdir(path.dirname(bypass), { recursive: true });
+  await writeFile(bypass, 'image');
+  execFileSync('git', ['add', '.'], { cwd: root });
+
+  await expectRule(
+    validateRepository({ root, legacyBase: 'HEAD' }),
+    'new_media_outside_media_root',
+  );
 });
