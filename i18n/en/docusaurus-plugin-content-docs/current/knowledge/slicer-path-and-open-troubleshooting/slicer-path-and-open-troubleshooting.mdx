@@ -1,0 +1,223 @@
+---
+id: slicer-path-and-open-troubleshooting
+title: "Slicer Not Detected or 3MF Will Not Open"
+slug: "/knowledge/slicer-path-and-open-troubleshooting"
+description: "Separate generation, download, automatic launch, file compatibility, and incomplete-project problems; set a valid macOS .app path and use manual Open Project as a fallback."
+sidebar_position: 36
+---
+
+# Slicer Not Detected or 3MF Will Not Open
+
+:::note[Translation notice]
+This page is an **AI-assisted translation** of the Chinese draft. The terminology,
+diagnostic flow, links, and screenshots were checked against the current English interface.
+It remains a local review draft and has not been published.
+:::
+
+“The slicer will not open” can mean several different failures:
+
+1. Lumina never generated a valid 3MF;
+2. the browser could not download the result;
+3. the file downloads but automatic slicer launch fails;
+4. one slicer does not understand the selected export format;
+5. the slicer opens geometry but not the complete project.
+
+Start by finding the failing stage. Do not change the slicer path when the 3MF was never
+generated, and do not regenerate a valid file merely because one-click launch is blocked.
+
+## Step 1: confirm Lumina generated a downloadable 3MF
+
+Before investigating the slicer, check that:
+
+- generation completed rather than remaining on a spinner;
+- **Download 3MF** is present;
+- the downloaded file is not empty;
+- the filename still ends in `.3mf`;
+- the temporary result has not expired.
+
+If the download is missing, empty, or expired, return to Lumina and generate again. For
+page and generation failures, see
+[The Page Will Not Open, Keeps Spinning, or Generation Fails](pathname:///en/docs/knowledge/web-generation-troubleshooting/).
+
+## Step 2: match export format to the intended slicer
+
+Lumina’s selected slicer is not only a launch preference; it can affect the generated
+project format and metadata. In **Settings**, choose the slicer actually used for this file,
+then choose the correct printer and nozzle before generating again.
+
+<img
+  src={require('./assets/01-export-format.webp').default}
+  alt="Real English Lumina Settings page showing slicer selection and the optional macOS manual path controls"
+/>
+
+If you change slicer or device settings, generate a new 3MF. An older downloaded result does
+not automatically adopt the new export setting.
+
+## Step 3: use a manual path on macOS only when auto detection fails
+
+On macOS, the manual path must point to the **actual `.app` bundle** in Applications. It
+must not point to `Contents`, an internal executable, a disk image, or a website shortcut.
+
+Procedure:
+
+1. open the Applications folder in Finder;
+2. find the installed slicer app;
+3. read its exact disk filename, including spaces and capitalisation;
+4. enter the complete `.app` path in Lumina;
+5. select **Validate and Save**;
+6. return to the generated result only after validation succeeds.
+
+<img
+  src={require('./assets/02-path-validation.webp').default}
+  alt="Real English Lumina manual slicer path comparison showing an invalid spaced filename and the valid installed BambuStudio app path"
+/>
+
+In this documented Mac environment:
+
+```text
+/Applications/Bambu Studio.app   ← not the installed filename
+/Applications/BambuStudio.app    ← actual installed app bundle
+```
+
+This is an example, not a universal path. Use the exact name on your computer. After a
+successful save, Lumina prefers that path for opening 3MF files. **Clear** returns to
+automatic detection.
+
+:::info[Windows]
+The manual `.app` field is for macOS. On Windows, install the slicer normally, launch it at
+least once, and use the downloaded 3MF with the slicer’s **Open Project** command when auto
+detection fails. Do not enter an `.exe` path into a macOS `.app` field.
+:::
+
+## Step 4: use manual Open Project as the reliable fallback
+
+If one-click open fails:
+
+1. select **Download 3MF**;
+2. verify that the download completed;
+3. start Bambu Studio, OrcaSlicer, or the configured slicer manually;
+4. choose **File → Open Project**;
+5. select the downloaded 3MF;
+6. if asked, choose to open the **complete project**, not geometry only.
+
+<img
+  src={require('./assets/03-open-full-project.webp').default}
+  alt="English concept diagram showing a downloaded Lumina 3MF opened as a complete slicer project with plate, objects, materials, and settings preserved"
+/>
+
+A complete project should preserve the build plate, object or part hierarchy, project
+filaments, and saved settings. If only one merged geometry object remains, close the file
+and open it again as a complete project.
+
+Do not unpack a 3MF, rename its internal files, and re-compress it. A 3MF is a structured
+project container; manual repacking can break metadata and references.
+
+## Step 5: follow the shortest diagnostic flow
+
+<img
+  src={require('./assets/04-open-diagnosis-flow.webp').default}
+  alt="English diagnostic flow separating Lumina generation, 3MF download, manual slicer open, automatic launch, and incomplete project problems"
+/>
+
+Use these branches:
+
+- **No 3MF download exists:** fix generation first;
+- **download fails or is empty:** regenerate and save immediately;
+- **manual Open Project works:** the file is usually valid; inspect detection, permissions,
+  and the `.app` path;
+- **one slicer opens it and another does not:** verify export format and both app versions;
+- **all slicers reject it:** generate a fresh copy, keep the original, and record versions;
+- **it opens but objects/materials/settings are missing:** open as a complete project.
+
+## Common messages and first actions
+
+| Message or symptom | First action |
+| --- | --- |
+| Slicer not detected | Download 3MF and open manually; on macOS inspect the `.app` path |
+| Export format and installed slicer differ | Choose the real slicer and generate a new file |
+| Slicer path no longer exists | Locate the moved or reinstalled app and validate the new path |
+| 3MF result cannot be found | Generate again; the old temporary result was cleaned or expired |
+| Download is temporarily unavailable | Generate again and save the new result immediately |
+| Preparing a launch copy failed | Check disk space and permissions; use manual download/open |
+| Slicer starts but no project appears | Wait for startup, then use File → Open Project manually |
+| Project opens with missing materials or objects | Reopen as a complete project and verify export compatibility |
+
+Capture the full message when reporting a problem. A statement such as “it will not open”
+does not identify which stage failed.
+
+## Step 6: opening is not the final print check
+
+After the project opens, verify:
+
+- printer and nozzle match the real machine;
+- project filaments are present;
+- every object or part is assigned to the intended project filament;
+- project filaments map to the correct physical spools and hardware slots;
+- the display face, backing, and every colour layer look correct in sliced Preview.
+
+Use
+[Import a Lumina 3MF into the Slicer Correctly](pathname:///en/docs/tutorials/3mf-slicer-material-mapping/)
+for the complete mapping workflow.
+
+## What to include in a useful report
+
+Provide:
+
+1. Lumina Studio version or build information;
+2. operating system and version;
+3. slicer name and version;
+4. selected slicer, printer, and nozzle in Lumina;
+5. a screenshot of the complete error;
+6. whether one-click open fails, manual open fails, or both;
+7. the untouched failing 3MF when redistribution is permitted;
+8. whether another slicer can open it.
+
+Remove accounts, email, browser bookmarks, server addresses, local personal paths, and
+other private data before posting publicly. Do not upload commercial or private artwork
+without permission.
+
+## Common questions
+
+### Why is there no Save button for slicer, printer, and nozzle?
+
+Those ordinary selections save automatically. The custom macOS path has **Validate and
+Save** because Lumina must first confirm that it points to a supported `.app` bundle.
+
+### The path validated, but the Converter shows another slicer. Why?
+
+The selected export slicer and the detected custom path must agree. Choose the intended
+slicer in Settings and generate a new 3MF.
+
+### The slicer was moved and the old path stopped working. Is that expected?
+
+Yes. A saved path is a specific location. Moving, renaming, deleting, or reinstalling the
+app invalidates it. Validate its new location.
+
+### One-click launch starts the slicer but no project appears. What next?
+
+Wait for complete startup, then download the 3MF and use File → Open Project. Record the
+one-click message so launch-argument and permission problems can be separated.
+
+### Does an expired download mean the 3MF is corrupt?
+
+No. Browser results are temporary. Generate again and save the new file to durable storage.
+
+### Double-click opens the wrong application. Is Lumina configured incorrectly?
+
+Not necessarily. That is an operating-system file association. Open the target slicer
+first and use its Open Project command.
+
+## Image notes and content licence
+
+The Settings and validation screenshots are real captures of the current English Lumina
+Studio interface. The complete-project image and decision flow are clearly labelled concept
+diagrams; they do not imitate a slicer screenshot. Generic application paths contain no
+account, personal directory, server, or credential.
+
+Unless otherwise noted, the original text, diagrams, and focus annotations are available
+under the Wiki’s
+[CC BY-NC-SA 4.0 content licence](pathname:///en/docs/project/content-license/).
+Bambu Studio, OrcaSlicer, and other product names belong to their respective owners.
+
+Detection and export compatibility can change. Treat the actual generated file, current
+slicer version, complete-project contents, and sliced Preview as authoritative.

@@ -14,6 +14,10 @@ Lumina Studio 生成完成后，真正决定每个区域使用哪卷耗材的，
 
 本文以 Bambu Studio 和 OrcaSlicer 的常见界面为例。不同版本的按钮位置可能略有区别，但检查顺序相同。
 
+如果 Lumina 没有检测到切片软件、一键打开没有反应，或者下载后的 3MF 仍然打不开，请先阅读
+[切片器没检测到，或者 3MF 打不开怎么办？](pathname:///zh/docs/knowledge/slicer-path-and-open-troubleshooting/)，
+把“文件生成”“自动启动”和“项目导入”三类问题分开排查。
+
 ## 开始前需要准备什么
 
 开始前，请准备：
@@ -154,6 +158,10 @@ Lumina Studio 生成完成后，真正决定每个区域使用哪卷耗材的，
 
 找到作品最终用于观看的显色面。如果显色面朝向打印板底部，就把视角翻到底面；如果你的作品明确采用顶面显色，则检查顶面。
 
+切片器这里显示的是实际喷嘴路径，不要把它与 Lumina 的显色配方层号混为一谈。Lumina 分层图的
+第 1 层从观赏面开始；详细读法见
+[怎样读懂 Lumina 分层预览？](pathname:///zh/docs/knowledge/layer-preview-guide/)。
+
 <img
   src={require('./assets/04-check-sliced-display-surface.webp').default}
   alt="切片后翻到显色面并拖动层滑块逐层检查"
@@ -178,6 +186,9 @@ Lumina Studio 生成完成后，真正决定每个区域使用哪卷耗材的，
 ### 打开 3MF 后，原来的参数和颜色分组都不见了怎么办？
 
 先确认你是否选择了“只导入模型/几何数据”。关闭当前项目，重新把原始 3MF 作为完整项目打开。如果项目本身是为另一台打印机或另一种喷嘴生成的，回到 Lumina 修正设备设置后重新生成，通常比手动恢复全部参数更稳妥。
+
+如果切片软件本身没有启动，或者手动打开也失败，请按
+[切片器检测与 3MF 打开排障](pathname:///zh/docs/knowledge/slicer-path-and-open-troubleshooting/)逐层检查。
 
 ### 为什么切片器自动把项目耗材替换成了错误材料？
 
