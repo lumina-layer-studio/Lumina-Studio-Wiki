@@ -21,8 +21,8 @@
 
 ## Verification
 
-- [ ] `pnpm typecheck`
-- [ ] `pnpm build`
+- [ ] `yarn typecheck`
+- [ ] `yarn build`
 
 ## Screenshots or source links
 

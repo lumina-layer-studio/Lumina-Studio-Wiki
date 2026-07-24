@@ -54,9 +54,9 @@ docs/tutorials/example/assets/step-01.webp
 
 ```bash
 corepack enable
-pnpm install --frozen-lockfile
-pnpm typecheck
-pnpm build
+yarn install --immutable
+yarn typecheck
+yarn build
 ```
 
 公开构建不需要任何账号或密钥。请不要为了让 CI 工作而添加本机配置或访问凭据。
