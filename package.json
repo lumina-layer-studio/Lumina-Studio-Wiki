@@ -8,14 +8,15 @@
   },
   "scripts": {
     "docusaurus": "docusaurus",
-    "start": "docusaurus start",
-    "build": "docusaurus build",
+    "generate:wiki-updates": "tsx scripts/generate-wiki-recent-changes.ts",
+    "start": "tsx scripts/generate-wiki-recent-changes.ts && docusaurus start",
+    "build": "tsx scripts/generate-wiki-recent-changes.ts && docusaurus build",
     "postbuild": "cp static/_headers static/_redirects static/_routes.json build/",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "test": "tsx --test tests/**/*.test.ts",
     "write-translations": "docusaurus write-translations",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsx scripts/generate-wiki-recent-changes.ts && tsc --noEmit"
   },
   "dependencies": {
     "@docusaurus/core": "3.10.2",
