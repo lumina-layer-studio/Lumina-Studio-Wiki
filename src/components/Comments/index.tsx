@@ -6,6 +6,7 @@ import 'artalk/Artalk.css';
 
 import {resolveLegacyPageKey} from '@site/src/lib/legacyPageKeys';
 
+import {bindArtalkLifecycle} from './artalkLifecycle';
 import styles from './styles.module.css';
 
 type LoadState = 'idle' | 'loading' | 'ready' | 'failed';
@@ -34,6 +35,7 @@ export default function Comments(): React.ReactNode {
 
     let disposed = false;
     let instance: ArtalkInstance | undefined;
+    let unbindLifecycle: (() => void) | undefined;
     setLoadState('loading');
 
     void import('artalk')
@@ -54,13 +56,12 @@ export default function Comments(): React.ReactNode {
           },
           darkMode: 'auto',
         });
-        instance.on('list-loaded', markReady);
-        instance.on('list-failed', () => {
-          if (!disposed) setLoadState('failed');
+        unbindLifecycle = bindArtalkLifecycle(instance, {
+          onReady: markReady,
+          onFailed: () => {
+            if (!disposed) setLoadState('failed');
+          },
         });
-        // Artalk can finish its initial request inside init(), before listeners
-        // are attached. A successfully created editor is already interactive.
-        markReady();
       })
       .catch(() => {
         if (!disposed) setLoadState('failed');
@@ -68,6 +69,7 @@ export default function Comments(): React.ReactNode {
 
     return () => {
       disposed = true;
+      unbindLifecycle?.();
       instance?.destroy();
     };
   }, [artalkLocale, pageKey, server, site]);

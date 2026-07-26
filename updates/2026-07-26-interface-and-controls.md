@@ -1,7 +1,7 @@
 ---
 slug: interface-and-controls
 title: 界面与控件参考正式上线
-description: 69 篇中文与 69 篇英文控件参考已上线，并新增挂件环教程与公开贡献说明。
+description: 69 篇中文与 69 篇英文控件参考已上线，并更新公开贡献说明。
 authors: [lumina-wiki]
 tags: [Wiki, 文档更新, 双语]
 ---
@@ -13,7 +13,6 @@ Lumina Studio Wiki 新增了完整的“界面与控件”参考区。现在可�
 ## 本次新增内容
 
 - **69 篇中文控件参考**和对应的 **69 篇英文控件参考**，覆盖工作区、图像转换、颜色匹配、预览、模型结构、矢量化、耗材、LUT 与系统设置；
-- 一篇完整的[挂件环工作流教程](pathname:///docs/tutorials/keychain-loop/)，从开启功能、调整尺寸与位置，到重新生成并在切片软件中检查连接和孔径；
 - 面向社区作者与开发者的[公开贡献说明](https://github.com/lumina-layer-studio/Lumina-Studio-Wiki/blob/main/CONTRIBUTING.md)，统一中英文文档、图片、链接和本地检查方式。
 
 ## 从哪里开始

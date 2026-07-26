@@ -1,7 +1,7 @@
 ---
 slug: interface-and-controls
 title: Interface and control reference is now live
-description: 69 Chinese and 69 English control references are now available, together with a keychain-loop tutorial and public contribution guidance.
+description: 69 Chinese and 69 English control references are now available, together with updated public contribution guidance.
 authors: [lumina-wiki]
 tags: [Wiki, Documentation update, Bilingual]
 ---
@@ -13,7 +13,6 @@ The Lumina Studio Wiki now has a complete interface and control reference. You c
 ## What is new
 
 - **69 Chinese reference pages** and their **69 English counterparts**, covering the workspace, image conversion, colour matching, previews, model features, vectorisation, materials, LUT tools, and system settings;
-- a complete [keychain-loop workflow tutorial in Chinese](https://wiki.luminastudio.com.cn/zh/docs/tutorials/keychain-loop/), from enabling the feature and adjusting its size and position to regenerating the model and checking the connection and opening in a slicer;
 - [public contribution guidance](https://github.com/lumina-layer-studio/Lumina-Studio-Wiki/blob/main/CONTRIBUTING.md) for community authors and developers, with shared rules for bilingual pages, images, links, and local checks.
 
 ## Where to begin

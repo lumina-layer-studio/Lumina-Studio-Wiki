@@ -1,6 +1,8 @@
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
+import {createLocalizedDocRedirects} from './src/data/localizedDocRedirects';
+
 const config: Config = {
   title: 'Lumina Studio Wiki',
   tagline: 'Lumina Studio 官方使用文档',
@@ -35,6 +37,15 @@ const config: Config = {
     format: 'detect',
     hooks: {onBrokenMarkdownLinks: 'throw'},
   },
+
+  plugins: [
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        createRedirects: createLocalizedDocRedirects,
+      },
+    ],
+  ],
 
   presets: [
     [
@@ -114,7 +125,22 @@ const config: Config = {
         },
         {type: 'localeDropdown', position: 'right'},
         {
-          href: 'https://github.com/lumina-layer-studio/Lumina-Studio-Wiki',
+          type: 'dropdown',
+          label: '支持项目',
+          position: 'right',
+          items: [
+            {
+              href: 'https://ifdian.net/a/MMMINNN',
+              label: '中国大陆 · 爱发电',
+            },
+            {
+              href: 'https://www.patreon.com/cw/Lumina_studio',
+              label: '海外 · Patreon',
+            },
+          ],
+        },
+        {
+          href: 'https://github.com/lumina-layer-studio/Lumina-Layers',
           label: 'GitHub',
           position: 'right',
         },

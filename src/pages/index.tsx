@@ -40,6 +40,43 @@ function HomepageHeader(): ReactNode {
   );
 }
 
+function HomepageSupport(): ReactNode {
+  return (
+    <section className={styles.support} aria-labelledby="homepage-support-title">
+      <Heading
+        as="h2"
+        id="homepage-support-title"
+        className={styles.supportTitle}
+      >
+        <Translate id="homepage.support.title">支持 Lumina Studio</Translate>
+      </Heading>
+      <p className={styles.supportDescription}>
+        <Translate id="homepage.support.description">
+          Wiki 免费公开。如果这些内容对您有帮助，可以选择适合所在地区的平台支持项目持续开发。
+        </Translate>
+      </p>
+      <div className={styles.supportActions}>
+        <Link
+          className="button button--secondary button--lg"
+          to="https://ifdian.net/a/MMMINNN"
+        >
+          <Translate id="homepage.support.afdian">
+            中国大陆 · 爱发电
+          </Translate>
+        </Link>
+        <Link
+          className="button button--secondary button--lg"
+          to="https://www.patreon.com/cw/Lumina_studio"
+        >
+          <Translate id="homepage.support.patreon">
+            海外 · Patreon
+          </Translate>
+        </Link>
+      </div>
+    </section>
+  );
+}
+
 export default function Home(): ReactNode {
   const description = translate({
     id: 'homepage.meta.description',
@@ -51,6 +88,7 @@ export default function Home(): ReactNode {
       <HomepageHeader />
       <main>
         <HomepageFeatures />
+        <HomepageSupport />
         <p className={styles.publicNote}>
           <Translate id="homepage.publicNote">
             免费公开 · 中英文 · 持续更新

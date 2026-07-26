@@ -377,6 +377,22 @@
     "message": "Free and public · Chinese and English · Updated continuously",
     "description": "Homepage public access note"
   },
+  "homepage.support.title": {
+    "message": "Support Lumina Studio",
+    "description": "Homepage support section title"
+  },
+  "homepage.support.description": {
+    "message": "The Wiki is free and public. If it helps you, you can support continued development through the platform available in your region.",
+    "description": "Homepage support section description"
+  },
+  "homepage.support.afdian": {
+    "message": "Mainland China · Afdian",
+    "description": "Homepage Afdian support button"
+  },
+  "homepage.support.patreon": {
+    "message": "International · Patreon",
+    "description": "Homepage Patreon support button"
+  },
   "homepage.feature.open": {
     "message": "View guide",
     "description": "Homepage feature card action"
