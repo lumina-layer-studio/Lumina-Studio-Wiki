@@ -1,0 +1,40 @@
+---
+id: reference-lut-compare
+title: "LUT Compare"
+slug: "/reference/lut-management/lut-compare"
+description: "Shared-recipe ΔE00, coverage, compatibility warnings, and largest differences between two LUTs."
+sidebar_position: 8
+---
+
+# LUT Compare
+
+LUT Compare joins two LUTs by identical recipe and calculates ΔE00 between their predicted colours. It is designed for
+material-batch changes, repeat-calibration consistency, and before/after comparisons.
+
+<img
+  src={require('./assets/01-lut-compare.webp').default}
+  alt="Real LUT comparison statistics and largest-difference recipes"
+/>
+
+## Statistics
+
+- **Matched recipes:** records that can be joined by recipe key.
+- **Identical RGB:** matched records with exactly equal RGB values.
+- **Mean / P95 / maximum ΔE00:** central, tail, and worst shared-recipe differences.
+- **Coverage A / B:** shared recipes as a percentage of each LUT's comparable records.
+
+P95 means 95% of shared recipes are at or below that difference and is usually more representative than the single
+maximum. The maximum remains useful for finding the most abnormal recipe.
+
+## Compatibility warnings
+
+Warnings report mismatched colour mode, layer count, layer height, line width, schema, predictive capability, or dynamic
+capability. With no shared recipes, row numbers must not be treated as equivalent recipes.
+
+Largest Differences displays both colours, the recipe, and ΔE00. Comparing LUTs does not modify, merge, or overwrite
+either source.
+
+Related pages:
+
+- [LUT Details and Gamut Charts](../lut-details/lut-details.mdx)
+- [LUT Library](../lut-library/lut-library.mdx)

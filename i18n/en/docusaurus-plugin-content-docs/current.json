@@ -11,6 +11,46 @@
     "message": "Tutorials and Workflows",
     "description": "The label for category '教程与工作流' in sidebar 'docsSidebar'"
   },
+  "sidebar.docsSidebar.category.界面与控件": {
+    "message": "Interface and Controls",
+    "description": "The label for category '界面与控件' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.工作区与导航": {
+    "message": "Workspace and Navigation",
+    "description": "The label for category '工作区与导航' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.图像转换基础设置": {
+    "message": "Image Conversion Basics",
+    "description": "The label for category '图像转换基础设置' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.颜色匹配": {
+    "message": "Colour Matching",
+    "description": "The label for category '颜色匹配' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.预览、调色板与分组": {
+    "message": "Preview, Palette, and Groups",
+    "description": "The label for category '预览、调色板与分组' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.模型结构与附加功能": {
+    "message": "Model Geometry and Attachments",
+    "description": "The label for category '模型结构与附加功能' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.矢量化与颜色提取": {
+    "message": "Vectorization and Colour Extraction",
+    "description": "The label for category '矢量化与颜色提取' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.耗材、配方与五色查询": {
+    "message": "Materials, Recipes, and Five-colour Queries",
+    "description": "The label for category '耗材、配方与五色查询' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.LUT 管理与分析": {
+    "message": "LUT Management and Analysis",
+    "description": "The label for category 'LUT 管理与分析' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.设置、导入导出与反馈": {
+    "message": "Settings, Import/Export, and Feedback",
+    "description": "The label for category '设置、导入导出与反馈' in sidebar 'docsSidebar'"
+  },
   "sidebar.docsSidebar.category.基础知识": {
     "message": "Core Concepts",
     "description": "The label for category '基础知识' in sidebar 'docsSidebar'"

@@ -1,0 +1,60 @@
+---
+id: reference-isolated-pixel-cleanup
+title: "Isolated Pixel Cleanup"
+slug: "/reference/color-matching/isolated-pixel-cleanup"
+description: "How Lumina identifies strict one-pixel recipe outliers, which neighbour value replaces them, and which conversion paths use the cleanup."
+sidebar_position: 4
+---
+
+# Isolated Pixel Cleanup
+
+**Isolated Pixel Cleanup** removes strict one-pixel recipe outliers after colour matching. It does not blur the image
+and it does not smooth every edge. A pixel is eligible only when its complete material stack differs from every valid
+neighbour around it.
+
+The option is enabled by default.
+
+## Location
+
+Open **Converter → Core Settings → Advanced Settings**, then locate **Isolated Pixel Cleanup**.
+
+<img
+  src={require('./assets/01-isolated-pixel-cleanup-location.webp').default}
+  alt="Isolated Pixel Cleanup in Lumina Studio Advanced Settings"
+/>
+
+## Cleanup rule
+
+The cleanup runs after colours have been matched to printable material recipes. For every pixel, Lumina examines up to
+eight neighbours:
+
+1. It compares the complete material stack, not only the displayed RGB value.
+2. The current stack must differ from every valid neighbour to qualify as isolated.
+3. It finds the most common material stack among the neighbours.
+4. It copies both the stack and matched colour from a neighbour that owns that common stack.
+
+The result therefore reuses an already valid recipe from the image. It cannot create a colour outside the active
+palette. Edge and corner pixels are evaluated against only the neighbours that actually exist.
+
+## What is not removed
+
+- Two or more connected pixels with the same stack are not strict one-pixel outliers.
+- A fine line or small region survives this rule when at least one neighbour uses the same stack.
+- Large noisy regions, excessive source noise, or an unnecessarily high quantize budget require separate correction.
+
+If many speckles remain, also check [Quantize Colors](../../converter-basic/quantize-colors/quantize-colors.mdx), source
+noise, and final print dimensions.
+
+## Scope
+
+The legacy LUT, predictive-matching, and Material Archive pixel pipelines use the same palette-preserving neighbour-copy
+rule. Native vector shapes are matched as vector objects and do not pass through this one-pixel cleanup.
+
+Changing the option invalidates the previous 3MF and download result. Rebuild the preview and model before comparing
+results. Lumina recipe cards store this setting.
+
+## Related pages
+
+- [Quantize Colors](../../converter-basic/quantize-colors/quantize-colors.mdx)
+- [Precise Colour Matching](../precise-color-matching/precise-color-matching.mdx)
+- [Hue Protection](../hue-protection/hue-protection.mdx)

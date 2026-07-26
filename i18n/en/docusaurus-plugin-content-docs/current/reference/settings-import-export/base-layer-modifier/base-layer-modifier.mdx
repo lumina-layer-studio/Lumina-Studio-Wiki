@@ -1,0 +1,42 @@
+---
+id: reference-base-layer-modifier
+title: "Base-plate Layer-height Modifier"
+slug: "/reference/settings-import-export/base-layer-modifier"
+description: "How the base-plate layer-height modifier is written, where it applies, and when it is skipped."
+sidebar_position: 2
+---
+
+# Base-plate Layer-height Modifier
+
+The Base-plate Layer-height Modifier writes a variable-layer configuration into the generated 3MF. The plain base uses a
+coarser layer height while the coloured artwork keeps its original fine layers. It reduces base printing time without
+changing the entire model to coarse layers.
+
+<img
+  src={require('./assets/01-base-layer-modifier.webp').default}
+  alt="Base-plate layer-height modifier in System Settings"
+/>
+
+## Written values
+
+The base-plate layer height is half the nozzle diameter:
+
+| Nozzle | Base-plate layer height |
+| --- | --- |
+| 0.2 mm | 0.1 mm |
+| 0.4 mm | 0.2 mm |
+
+Lumina Studio writes the range to the 3MF `layer_config_ranges` data. A compatible slicer can then apply separate layer
+heights to the base and coloured region of the same object.
+
+## Scope
+
+- The modifier currently applies to Bambu-family slicer output, so it is hidden for other slicers.
+- Double-sided models require controlled structure and colour order on both faces, so generation skips the modifier.
+- Changing the switch or nozzle size requires a new 3MF generation.
+
+This setting optimises base-plate time; it is not a universal layer-height recommendation. Always inspect the sliced
+base, materials, and print quality before sending the job.
+
+See [Why Base-colour Layer Height Must Match](../../../knowledge/base-color-layer-height/base-color-layer-height.mdx)
+for the relationship between first layers, colour layers, and the base.

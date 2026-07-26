@@ -1,0 +1,53 @@
+---
+id: reference-vectorizer-color-and-detail
+title: "颜色数量、平滑度与细节等级"
+slug: "/reference/vector-and-extraction/vectorizer-color-and-detail"
+description: "解释矢量化基础参数如何影响调色板、轮廓和平滑程度。"
+sidebar_position: 2
+---
+
+# 颜色数量、平滑度与细节等级
+
+基础参数控制最终保留多少颜色，以及轮廓在“忠于原图”和“路径简洁”之间如何取舍。
+
+<img
+  src={require('./assets/01-basic-parameters.webp').default}
+  alt="图像转矢量的基础参数"
+/>
+
+## 颜色数量
+
+“自动”对应颜色数 `0`。算法会根据图像内容确定实际调色板大小，并在结果摘要中显示最终颜色数。
+
+切换为“手动”后，可指定 `2–256` 种颜色。这个数值是颜色分割使用的 K-Means 调色板大小，不是 SVG 形状数量：
+
+- 数值较小会合并相近颜色，色块更统一；
+- 数值较大可保留更多渐变和局部色差，也更容易产生碎片。
+
+对颜色本来就有限的图标或像素画，可按原图实际色数手动设置；无法确定时保留“自动”即可。
+
+## 平滑度
+
+范围为 `0–1`，默认 `0.5`。它控制轮廓抽稀和平滑：
+
+- 接近 `0`：优先保留原始转折和小细节，路径节点通常更多；
+- 接近 `1`：轮廓更平滑、路径更简洁，但尖角和细小凹凸可能被削弱。
+
+平滑度不负责消除颜色噪点。小色块过多时，应同时检查[预处理](../vectorizer-preprocessing/vectorizer-preprocessing.mdx)和[区域过滤](../vectorizer-curve-and-filtering/vectorizer-curve-and-filtering.mdx)。
+
+## 细节等级
+
+“细节等级”默认关闭，对应内部值 `-1`。此时高级参数分别生效，适合需要明确控制分割、拟合和过滤的情况。
+
+启用后范围为 `0–1`，初始值为 `0.5`。它是统一细节控制，会由矢量化引擎联动一组细节相关参数：
+
+- 低值偏向更简洁的区域和路径；
+- 高值偏向保留更多边缘与小结构。
+
+它不会改变颜色数量，也不会把高级参数的显示值改写成新的数字。需要可复现地微调某一个阶段时，应关闭细节等级，再调整对应的高级参数。
+
+相关页面：
+
+- [图像转矢量](../vectorizer-overview/vectorizer-overview.mdx)
+- [超像素分割与抗锯齿检测](../vectorizer-segmentation/vectorizer-segmentation.mdx)
+- [曲线拟合与区域过滤](../vectorizer-curve-and-filtering/vectorizer-curve-and-filtering.mdx)

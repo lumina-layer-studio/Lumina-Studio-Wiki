@@ -1,0 +1,48 @@
+---
+id: reference-device-and-slicer
+title: "Device and Slicer"
+slug: "/reference/settings-import-export/device-and-slicer"
+description: "How slicer, printer, nozzle, device profile, and manual slicer path settings work together."
+sidebar_position: 1
+---
+
+# Device and Slicer
+
+The device settings control how Lumina Studio prepares the 3MF and which slicer opens it after generation. Select the
+slicer, printer, and installed nozzle that you actually use; the devices shown in examples are not required choices.
+
+<img
+  src={require('./assets/01-device-slicer.webp').default}
+  alt="Slicer and printing-device settings in Lumina Studio"
+/>
+
+## How the settings work together
+
+1. **Slicer Software** determines the compatible printer list and output adapter.
+2. **Printer Model** determines the build plate, machine capabilities, and available device profiles.
+3. **Nozzle Size** contributes to model resolution, line width, and selected layer-height calculations.
+4. **Device Profile** distinguishes hardware or toolhead variants of the same printer.
+
+Changing the slicer immediately filters the printer list. If the previous printer, nozzle, or profile is no longer valid,
+Lumina Studio selects a valid option from the new list instead of retaining an unusable combination.
+
+These changes invalidate previously generated downloads. Preview and generate again to create a 3MF for the new device.
+
+## Manual slicer path
+
+On macOS, you can enter a slicer `.app` path, such as `/Applications/Bambu Studio.app`. Validate & Save checks the path
+before storing it. A validated path takes priority when you choose to open a generated 3MF in the slicer.
+
+The manual path only selects the application used to open the file. It does not convert one slicer's output format into
+another, so the Slicer Software selection must still match that application.
+
+:::note
+The installed machine registry supplies the device list. Lumina Studio retries a temporarily empty list automatically.
+A persistent error usually means the backend has not started or the machine registry could not be loaded.
+:::
+
+Related pages:
+
+- [First Device Setup](../../../getting-started/device-setup/device-setup.mdx)
+- [Slicer Path and 3MF Opening Troubleshooting](../../../knowledge/slicer-path-and-open-troubleshooting/slicer-path-and-open-troubleshooting.mdx)
+- [Base-plate Layer-height Modifier](../base-layer-modifier/base-layer-modifier.mdx)

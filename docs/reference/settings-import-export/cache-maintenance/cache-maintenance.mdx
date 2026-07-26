@@ -1,0 +1,39 @@
+---
+id: reference-cache-maintenance
+title: "缓存管理"
+slug: "/reference/settings-import-export/cache-maintenance"
+description: "清除缓存会处理的临时文件、会话状态和使用注意事项。"
+sidebar_position: 6
+---
+
+# 缓存管理
+
+“清除缓存”用于删除后端运行期间产生的临时文件、预览模型和会话数据，并返回已清理文件数与释放空间。
+
+<img
+  src={require('./assets/01-cache.webp').default}
+  alt="系统设置中的缓存管理区域"
+/>
+
+## 清除内容
+
+执行后，Lumina Studio 会依次清理：
+
+- 文件注册表中的临时文件；
+- 当前后端保存的转换会话及其临时文件；
+- 输出目录 `temp` 与 `models` 中的运行时文件；
+- 输出目录顶层可清理的 3MF、GLB、PNG、JPG 和 TXT 文件。
+
+应用保留明确标记为受保护的统计与 LUT 文件。耗材库、导入的正式 LUT 源文件和软件设置不属于这个按钮的普通
+清理目标。
+
+## 清除后的影响
+
+正在使用的预览会话会被移除，页面中已有的预览或下载链接可能不再有效。继续工作时需要重新上传或重新预览，
+再生成新的下载文件。
+
+不要把清除缓存作为所有故障的第一步：它会丢失当前临时工作状态。只有在长时间使用后需要回收空间、会话状态异常，
+或故障排查明确要求时再执行。
+
+生成失败的常见原因和处理顺序参见
+[网页端生成与下载故障排查](../../../knowledge/web-generation-troubleshooting/web-generation-troubleshooting.mdx)。

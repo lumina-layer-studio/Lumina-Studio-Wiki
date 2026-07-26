@@ -1,0 +1,48 @@
+---
+id: reference-vectorizer-segmentation
+title: "Superpixel Segmentation and Antialiasing"
+slug: "/reference/vector-and-extraction/vectorizer-segmentation"
+description: "How SLIC size, edge sensitivity, refinement, and antialiasing tolerance form color boundaries."
+sidebar_position: 5
+---
+
+# Superpixel Segmentation and Antialiasing
+
+For multicolor vectorization, the engine first divides the image into SLIC superpixels, then refines their labels using color and edge information. These controls primarily determine how color-region boundaries are formed.
+
+<img
+  src={require('./assets/01-segmentation.webp').default}
+  alt="Image Vectorizer superpixel segmentation controls"
+/>
+
+## SLIC Region Size
+
+The range is `5–100`, with a default of `20`. It is the target size for the initial SLIC regions:
+
+- Smaller values create more, smaller superpixels and can follow finer local changes.
+- Larger values create fewer, larger superpixels, processing faster with more generalized regions.
+
+It is not a fixed size for final SVG shapes. Color merging, boundary refinement, and filtering still change the regions afterward.
+
+## Edge Sensitivity
+
+The range is `0–1`, with a default of `0.8`. It controls how strongly SLIC relaxes its spatial constraint when an edge is detected:
+
+- Higher values follow color boundaries more aggressively.
+- Lower values emphasize spatial regularity and generally smoother segmentation.
+
+## Refine Passes
+
+The range is `0–20`, with a default of `6`. Each pass refines region labels from their neighborhood. More passes can align boundaries more closely to the image, but take longer. `0` skips this stage.
+
+## Antialiasing Detection
+
+When enabled, the engine identifies mixed pixels between two colors so that each antialiasing shade is less likely to become a separate region. It is useful for smoothly edged illustrations, icons, and text. Leave it off when pixel art must retain its exact stair-stepped pixels.
+
+**AA Tolerance** ranges from `1–50`, defaults to `10`, and is measured in LAB ΔE. Higher values allow a wider color difference to be classified as a mixed edge pixel.
+
+Related pages:
+
+- [Colors, Smoothness, and Detail](../vectorizer-color-and-detail/vectorizer-color-and-detail.mdx)
+- [Image Preprocessing](../vectorizer-preprocessing/vectorizer-preprocessing.mdx)
+- [Curve Fitting and Region Filtering](../vectorizer-curve-and-filtering/vectorizer-curve-and-filtering.mdx)

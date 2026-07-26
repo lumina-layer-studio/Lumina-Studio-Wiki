@@ -1,0 +1,83 @@
+---
+id: reference-navigation-and-status
+title: "Navigation, Language, Theme, and Connection Status"
+slug: "/reference/workspace-and-navigation/navigation-and-status"
+description: "Understand Lumina Studio's primary and secondary navigation, language and theme controls, backend status, and update announcements."
+sidebar_position: 1
+---
+
+# Navigation, Language, Theme, and Connection Status
+
+:::note[Translation notice]
+This page is an **AI-assisted translation** of the Chinese reference. Control names and
+behaviour were checked against the current English interface and source code.
+:::
+
+The header contains the product identity, workspace navigation, and global status controls.
+Changing pages does not start Preview, Generate, or Save, and the current editing state
+normally remains available.
+
+<img
+  src={require('./assets/01-header-navigation.webp').default}
+  alt="Lumina Studio English header with workspace navigation, global controls, and backend status"
+/>
+
+## Primary pages
+
+| Page | Purpose |
+| --- | --- |
+| Converter | import artwork, choose a colour source and structure, Preview, and generate 3MF |
+| LUT Management | manage LUTs, create calibration boards, extract LUTs from photographs, and inspect or compare LUTs |
+| Material Management | manage material archives, generate or extract gradient cards, and query layer recipes |
+| Vectorizer | convert a bitmap into SVG for further editing or transfer to Converter |
+| Settings | select the machine, nozzle, and slicer, and manage compute, cache, and interface options |
+
+LUT Management and Material Management have their own secondary pages. Returning to either
+workspace keeps its current valid secondary page; an invalid stored page falls back to that
+workspace's default.
+
+## Converter secondary pages
+
+- **Core Settings:** image, source, dimensions, backing, mode, common advanced options, and Actions;
+- **Color Adjustment:** 2D Preview, selections, colour replacement, recipes, and colour groups;
+- **Advanced:** Relief, Outline, Cloisonné, Transparent Coating, Keychain Loop, Fridge Magnet, Puzzle, and related structure controls.
+
+Core Settings and Advanced use movable panels. Color Adjustment is a full-screen colour
+workspace, so **Panel Controls** only lists panels that actually exist on the active page.
+See [Show, Collapse, Move, and Reset Panels](../panel-layout/panel-layout.mdx).
+
+## Language and theme
+
+The language button reads `EN` in Chinese and `中` in English. Switching language preserves
+the active page, input values, and Preview while replacing the interface copy.
+
+The theme button switches between light and dark presentation. It does not change the image,
+recipe, model, or export. On a narrow window, some labels collapse to icons and the navigation
+rows can scroll horizontally.
+
+## Connection status
+
+The status at the right of the header reports whether the frontend can reach the Lumina backend:
+
+- **green:** the latest `/health` check returned normally;
+- **red:** the latest check failed or the backend was unreachable;
+- **checking:** the first result has not arrived.
+
+Lumina checks once when the page loads and then every five seconds. Green only confirms current
+frontend-to-backend communication; it does not prove that a particular LUT, image, temporary
+session, or generation task is valid. When the badge is red, verify that the Lumina backend is
+running before retrying the action.
+
+## Update announcements
+
+When a newer unread announcement exists, Lumina presents recent update entries after startup.
+Closing dismisses the dialog for the current session. **Do not show this version again** records
+the latest announcement version in local browser storage. That reading state is not uploaded and
+does not change Converter settings.
+
+## What page changes preserve
+
+The interface retains current control values, selected pages, and panel layout. Device settings
+also use best-effort backend synchronisation. Temporary Previews, download links, and file sessions
+still expire. For durable work, keep the share card, JSON, 3MF, source artwork, and the actual LUT
+or material archive.

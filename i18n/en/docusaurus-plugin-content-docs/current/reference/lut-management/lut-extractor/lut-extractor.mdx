@@ -1,0 +1,47 @@
+---
+id: reference-lut-extractor
+title: "LUT Extraction Workflow"
+slug: "/reference/lut-management/lut-extractor"
+description: "Complete path from a calibration-board photograph to a downloadable LUT."
+sidebar_position: 4
+---
+
+# LUT Extraction Workflow
+
+LUT Extractor samples every patch in a printed calibration-board photograph and creates a LUT containing measured
+colours, recipes, and palette metadata.
+
+<img
+  src={require('./assets/01-lut-extractor.webp').default}
+  alt="LUT Extractor waiting for a calibration-board photograph"
+/>
+
+## Workflow
+
+1. Select the colour mode and page used to generate the board.
+2. Upload the photograph. Common images and DNG, CR2/CR3, NEF, ARW, ORF, RW2, RAF, PEF, SRW, and RAW camera files are
+   accepted.
+3. Place the four corners in the displayed order, then apply photo correction or pixel nudging if required.
+4. Select Extract Colors and inspect the rectified board, patch preview, and invalid cells.
+5. For a multi-page mode, extract every page and then merge the set.
+6. Enter manufacturer, material type, and each base colour's name and value, then confirm the palette.
+7. Download the LUT.
+
+Replacing or rotating the image, or changing colour mode, clears corners and incomplete results so stale geometry is not
+applied to the new photograph.
+
+## Multi-page modes
+
+Standard 8-colour and 5-colour Extended use multi-page results; full 8-colour export can contain additional pages. The
+status list marks each required page. Merge becomes available only after the required set has been extracted.
+
+## Manual patch correction
+
+If one sampled patch is wrong, edit that cell in the extraction preview. Corrections remain in the current extraction
+session and are written into the final LUT after palette confirmation.
+
+Related pages:
+
+- [Photo Correction and Corner Placement](../extractor-photo-correction/extractor-photo-correction.mdx)
+- [ColorChecker Calibration](../colorchecker-calibration/colorchecker-calibration.mdx)
+- [LUT Details](../lut-details/lut-details.mdx)

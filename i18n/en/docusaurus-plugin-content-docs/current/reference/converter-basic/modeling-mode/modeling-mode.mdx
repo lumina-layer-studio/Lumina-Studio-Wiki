@@ -1,0 +1,43 @@
+---
+id: reference-modeling-mode
+title: "Modeling Mode"
+slug: "/reference/converter-basic/modeling-mode"
+description: "Explains High-Fidelity, Pixel Art, Vector, and Color Card processing, including availability and resolution."
+sidebar_position: 9
+---
+
+# Modeling Mode
+
+Modeling Mode determines how Lumina Studio turns the source artwork into a colour grid and model geometry. It is separate from
+Source Type: the source defines available recipes, while the modeling mode defines how artwork and edges are sampled.
+
+<img
+  src={require('./assets/01-modeling-mode.webp').default}
+  alt="The four Modeling Mode options in Lumina Studio"
+/>
+
+## High-Fidelity
+
+Raster images are processed at roughly 10 px/mm, receive edge-preserving treatment, and are clustered according to Quantize
+Colors before matching. This suits photographs, illustrations, gradients, and ordinary detailed artwork.
+
+## Pixel Art
+
+The processing scale follows nozzle width and nearest-neighbour resizing preserves hard edges. When the visible source palette
+fits the colour budget, it is retained; otherwise raw pixels are quantized without the High-Fidelity smoothing stage.
+
+## Vector
+
+Vector is available only for SVG input. The store rejects attempts to force a raster file into Vector mode. Shapes, fills, and
+strokes drive geometry directly.
+
+## Color Card
+
+Color Card produces validation patches from the current recipes and follows a dedicated generation path rather than ordinary
+image detail.
+
+There is no universal “best” choice between High-Fidelity and Pixel Art. Compare at the same size and nozzle using
+[Bitmap vs vector](../../../knowledge/bitmap-vs-vector/bitmap-vs-vector.mdx) and
+[Choosing an image mode](../../../knowledge/image-mode-selection/image-mode-selection.mdx).
+
+Changing the mode invalidates the old 3MF and download.

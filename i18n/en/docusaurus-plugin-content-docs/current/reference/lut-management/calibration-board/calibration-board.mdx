@@ -1,0 +1,41 @@
+---
+id: reference-calibration-board
+title: "Generate a LUT Calibration Board"
+slug: "/reference/lut-management/calibration-board"
+description: "Colour mode, patch size, spacing, backing, and output of LUT calibration boards."
+sidebar_position: 3
+---
+
+# Generate a LUT Calibration Board
+
+A calibration board arranges the recipes of a colour mode as printable patches. After printing and photographing it, LUT
+Extractor can write the measured colours back into a LUT.
+
+<img
+  src={require('./assets/01-calibration-board.webp').default}
+  alt="LUT calibration-board parameters"
+/>
+
+## Parameters
+
+- **Colour Mode:** selects the recipe set and page count; BW, 4-colour, 5-colour Extended, 6-colour, and 8-colour modes
+  are supported.
+- **Patch Size:** `3–10 mm` in `0.5 mm` steps. Larger patches are easier to photograph but enlarge the board.
+- **Patch Gap:** `0.4–2.0 mm` in `0.01 mm` steps.
+- **Backing Thickness:** `0.4–3.5 mm` in `0.08 mm` steps.
+
+8-colour mode exposes Full Export. 5-colour Extended and 8-colour calibration may require multiple pages, so their result
+is delivered as a package rather than pretending every recipe fits one board.
+
+## Output
+
+After generation, the right side shows the complete preview and per-layer images. Open a layer thumbnail to inspect it at
+full size. Slicer actions use the printer, nozzle, and slicer selected in System Settings.
+
+The colour mode and page selected during extraction must match the generated board. Keep the positioning border intact
+and never combine photos from different calibration modes in one extraction session.
+
+Next:
+
+- [LUT Extraction Workflow](../lut-extractor/lut-extractor.mdx)
+- [Photo Correction and Corner Placement](../extractor-photo-correction/extractor-photo-correction.mdx)

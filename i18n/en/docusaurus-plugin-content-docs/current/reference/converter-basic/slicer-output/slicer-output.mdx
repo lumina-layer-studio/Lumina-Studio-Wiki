@@ -1,0 +1,35 @@
+---
+id: reference-slicer-output
+title: "Slicer and downloads"
+slug: "/reference/converter-basic/slicer-output"
+description: "Main output action, detected slicers, switching applications, 3MF downloads, and Large Format ZIP files."
+sidebar_position: 13
+---
+
+# Slicer and downloads
+
+Lumina detects slicers it can launch and prioritises the application selected in Settings. The primary action depends on
+slicer availability, whether an artifact already exists, and Large Format state.
+
+<img
+  src={require('./assets/01-slicer-list.webp').default}
+  alt="Detected slicers and the Download 3MF option"
+/>
+
+| State | Main-button action |
+| --- | --- |
+| Slicer detected, no artifact | Generate the 3MF, then open it in the selected slicer |
+| Slicer detected, artifact ready | Open the current artifact directly |
+| No slicer detected | Generate and download, or download the existing 3MF |
+| Large Format | Generate or download a ZIP of tiled 3MF files; do not auto-open it |
+
+The menu lists detected applications and provides a separate Download 3MF action. If the preferred application from
+Settings is missing, Lumina reports the mismatch instead of claiming a successful launch.
+
+## Final slicer checks
+
+Verify the printer and nozzle, physical filament assignment, build-plate placement, display-face direction, and every
+fine feature or attachment in the sliced layers. A 3MF can carry model and material metadata, but the slicer makes the final
+machine-specific decisions.
+
+Related: [Material mapping in a slicer](../../../tutorials/slicer-material-mapping/slicer-material-mapping.mdx).

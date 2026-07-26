@@ -1,0 +1,62 @@
+---
+id: reference-vectorizer-curve-and-filtering
+title: "Curve Fitting and Region Filtering"
+slug: "/reference/vector-and-extraction/vectorizer-curve-and-filtering"
+description: "Bézier fitting, contour simplification, and small-region, contour, and hole filtering."
+sidebar_position: 6
+---
+
+# Curve Fitting and Region Filtering
+
+After color segmentation defines regions, their boundaries are simplified, fitted with Bézier curves, and traced. Filtering controls decide which small regions, contours, and holes survive into the final SVG.
+
+## Curve Fitting
+
+<img
+  src={require('./assets/01-curve-fitting.webp').default}
+  alt="Image Vectorizer curve-fitting controls"
+/>
+
+### Curve Fit Error
+
+The range is `0.1–5 px`, with a default of `0.8 px`. This is the maximum error allowed by Schneider Bézier fitting:
+
+- Smaller values follow the source contour more closely, with more control points.
+- Larger values use fewer control points and smoother curves, but may lose detail.
+
+### Contour Simplification
+
+The range is `0–2`, with a default of `0.45`. Increasing it removes more contour points before fitting, producing simpler paths. Both this control and Curve Fit Error affect complexity, but one simplifies contour points while the other limits Bézier fitting error.
+
+### Merge Segment Tolerance
+
+The range is `0–0.5`, with a default of `0.05`. It permits nearly linear Bézier segments to merge when their control-point deviation is small enough. Increasing it reduces segmentation along near-straight lines; excessive values can straighten subtle bends.
+
+## Region Filtering
+
+<img
+  src={require('./assets/02-region-filtering.webp').default}
+  alt="Image Vectorizer region-filtering controls"
+/>
+
+### Min Region Area
+
+The range is `0–1000 px²`, with a default of `50 px²`. Segmented color regions below this area are candidates for merging into a neighbor.
+
+**Max Merge Color Dist** constrains that merge. Its UI range is `0–500`, defaults to `200`, and is measured as LAB ΔE². Higher values permit small regions with larger color differences to merge.
+
+### Min Contour Area
+
+The range is `0–500 px²`, with a default of `10 px²`. After contour tracing, independent shapes below this area are discarded. It runs later than Min Region Area, so the two controls solve different problems.
+
+### Min Hole Area
+
+The range is `0–100 px²`, with a default of `4 px²`. Holes smaller than this are filled, while larger holes remain as empty structures in the path.
+
+When cleaning up fragments, first determine whether the problem is a segmented color region, an independent traced contour, or a hole inside a region, then adjust the corresponding control.
+
+Related pages:
+
+- [Image Vectorizer](../vectorizer-overview/vectorizer-overview.mdx)
+- [Stroke, Thin Lines, and Coverage Fix](../vectorizer-output-enhancement/vectorizer-output-enhancement.mdx)
+- [Superpixel Segmentation and Antialiasing](../vectorizer-segmentation/vectorizer-segmentation.mdx)

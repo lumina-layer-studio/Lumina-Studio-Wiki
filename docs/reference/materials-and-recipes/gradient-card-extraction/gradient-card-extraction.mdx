@@ -1,0 +1,74 @@
+---
+id: reference-gradient-card-extraction
+title: "梯度卡提取"
+slug: "/reference/materials-and-recipes/gradient-card-extraction"
+description: "从白底、黑底梯度卡照片拟合并保存耗材档案。"
+sidebar_position: 6
+---
+
+# 梯度卡提取
+
+梯度卡提取把同一种耗材的白底卡、黑底卡照片拟合为可供叠层预测使用的耗材档案。
+
+<img
+  src={require('./assets/01-gradient-card-inputs.webp').default}
+  alt="梯度卡提取的 ZIP、名称和图片入口"
+/>
+
+## 准备文件
+
+需要三项输入：
+
+1. [梯度卡生成](../gradient-card-generation/gradient-card-generation.mdx)下载的 Kit ZIP；
+2. 白色基底梯度卡的完整照片；
+3. 黑色基底梯度卡的完整照片。
+
+支持普通图片和当前环境能够解码的相机格式。若系统不支持 HEIC/HEIF，请先转为 PNG 或 JPG。两张照片应使用同一相机、曝光、白平衡和校色设置，并避免反光、过曝和阴影遮住色块。
+
+## 图像来源与 ColorChecker
+
+默认按相机或扫描仪原图处理。开启“ColorChecker 校色”后，需要分别校正并确认白底图和黑底图；确认后的图像会明确记录为校色来源。
+
+同一耗材的多次复验只能合并相同来源：原图与 ColorChecker 校正图不会混在同一组历史样本中。
+
+## 旋转、角点和纯色块位置
+
+上传图片后可以顺时针或逆时针旋转 90°。随后按以下顺序点击卡片四角：
+
+1. 左上；
+2. 右上；
+3. 右下；
+4. 左下。
+
+<img
+  src={require('./assets/02-corner-controls.webp').default}
+  alt="纯色块位置和角点微调控件"
+/>
+
+“纯白色块位置”和“纯黑色块位置”决定采样顺序。通常保留“自动检测（推荐）”；自动方向不可靠时，才指定照片中露出纯基底色块的角。
+
+角点放置后，可选择第 1–4 个角，设置 `1–10` 像素的微调步长，再用方向按钮移动。角点应沿梯度卡有效区域，不要框入桌面、手指或透视外的背景。
+
+## 提取与保存
+
+<img
+  src={require('./assets/03-extract-action.webp').default}
+  alt="黑底梯度卡与提取耗材按钮"
+/>
+
+“提取耗材”在 ZIP 配置、两张图片和两组四角齐全后可用。结果区会显示：
+
+- 透视校正和实际采样框；
+- 估算 RGB / HEX；
+- 平均、最大 ΔE；
+- 线性及分通道 RMSE；
+- 白底、黑底方向和方向置信度；
+- 拟合参数与材料摘要。
+
+输入耗材名称后才能保存。品牌可从已有品牌中选择，也可直接输入新品牌；目录按品牌和名称建立。对已有档案发起复验时，可选择合并或覆盖，详见[编辑与复验耗材](../material-edit-and-verification/material-edit-and-verification.mdx)。
+
+复验期间，“取消复验”会退出当前复验目标，但不会删除耗材库中原有的档案。选择“合并结果”时，新样本会加入
+同一来源类型的历史数据；选择“覆盖结果”时，新拟合结果替换该档案当前的数据。结果详情还可以下载
+`stage_A_parameters.json`，用于保留本次拟合参数和诊断摘要。
+
+保存后可在[耗材库](../material-library/material-library.mdx)检查档案，并在[耗材配方查询](../material-recipe-query/material-recipe-query.mdx)验证叠层预测。

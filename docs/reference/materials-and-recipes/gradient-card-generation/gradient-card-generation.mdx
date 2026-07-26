@@ -1,0 +1,47 @@
+---
+id: reference-gradient-card-generation
+title: "梯度卡生成"
+slug: "/reference/materials-and-recipes/gradient-card-generation"
+description: "生成打印梯度卡和后续提取所需的配置文件包。"
+sidebar_position: 5
+---
+
+# 梯度卡生成
+
+梯度卡用于测量单种耗材在不同叠层厚度和基底上的透射、吸收特性。生成页面会创建打印文件和后续提取必须使用的 Kit ZIP。
+
+<img
+  src={require('./assets/01-gradient-card-generation.webp').default}
+  alt="梯度卡生成页面"
+/>
+
+## 层高
+
+可选层高为 `0.04 mm`、`0.08 mm` 和 `0.10 mm`。层高会写入打印任务和提取配置，之后保存的耗材档案也会记录这一标定条件。
+
+不要在打印后临时改变提取页面里的层高：提取以 Kit ZIP 中的配置为准。
+
+## 生成配置文件包
+
+点击“生成配置文件包”后，Lumina 会生成：
+
+- 可打印的 3MF；
+- 梯度卡布局与层序配置；
+- 提取时用于对应色块的参数；
+- 使用说明。
+
+生成完成后及时下载 ZIP。即使你从 MakerWorld 获取完全相同的在线 3MF，提取时仍需要这里生成的配置包。
+
+## 打印要求
+
+每种待测耗材需要打印两张卡：
+
+1. 白色基底一张；
+2. 黑色基底一张。
+
+两张卡必须使用相同的待测耗材、层高、打印配置和方向。在线模型与本地生成模型的几何相同；页面同时提供梯度卡和参数化收纳盒入口。
+
+- [Lumina 2.0 梯形校色色卡（0.08 mm 层高）](https://makerworld.com.cn/zh/models/2394753-lumina2-0-ti-xing-xiao-se-se-qia-0-08ceng-gao-15ce#profileId-2721317)
+- [参数化 Lumina 2.0 梯度色卡收纳盒](https://makerworld.com.cn/zh/models/2400920-can-shu-hua-lumina-2-0ti-du-se-qia-zi-ding-yi-shou#profileId-2729620)
+
+打印完成后进入[梯度卡提取](../gradient-card-extraction/gradient-card-extraction.mdx)。提取并保存的结果会出现在[耗材库](../material-library/material-library.mdx)。

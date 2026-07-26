@@ -1,0 +1,34 @@
+---
+id: reference-structure-mode
+title: "Structure Mode"
+slug: "/reference/converter-basic/structure-mode"
+description: "Explains Double-sided and Single-sided geometry and the restrictions applied by relief, fridge-magnet, and extended five-colour modes."
+sidebar_position: 8
+---
+
+# Structure Mode
+
+Structure Mode determines whether colour layers are built on one side or both sides of the base plate.
+
+<img
+  src={require('./assets/01-structure-mode.webp').default}
+  alt="Double-sided and Single-sided Structure Mode options"
+/>
+
+## Double-sided
+
+Colour layers are built on both sides of the base, which is useful for tags or hanging pieces that must show artwork from either
+direction. It increases model height, material use, and sliced layers.
+
+## Single-sided
+
+Colour layers remain on one side and the opposite side is the base plate. Relief, fridge-magnet, and other back-dependent
+features use the single-sided path.
+
+## Automatic restrictions
+
+- Relief or Fridge Magnet disables or forces Single-sided geometry.
+- 5-Color Extended does not allow Double-sided and switches an existing Double-sided selection back to Single-sided.
+- Any change invalidates the previous 3MF and download.
+
+This is model geometry, not the slicer's print-order setting. Inspect the underside in the slicer after generation.

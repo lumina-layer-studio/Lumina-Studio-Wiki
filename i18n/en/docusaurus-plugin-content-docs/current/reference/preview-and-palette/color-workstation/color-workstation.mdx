@@ -1,0 +1,44 @@
+---
+id: reference-color-workstation
+title: "Color Workstation"
+slug: "/reference/preview-and-palette/color-workstation"
+description: "Entry point, three-column layout, and preview-session behaviour of Color Workstation."
+sidebar_position: 1
+---
+
+# Color Workstation
+
+After a successful preview, open Color Adjustment to enter Color Workstation. It is not a separate project: the 2D view,
+palette, and available-colour panel all read the active preview session, and confirmed edits are written back to that same
+session.
+
+<img
+  src={require('./assets/01-workstation.webp').default}
+  alt="Color Workstation opened with real preview data"
+/>
+
+## The three areas
+
+- **2D preview:** inspect the result and click a colour or connected region to edit it.
+- **Palette:** review colours used by this preview, their coverage, selection mode, and edit history.
+- **Target colours:** a traditional LUT shows its colour library; a material archive shows colours achievable by the
+  selected material set.
+
+If an image exists but no preview has been created, opening the workstation attempts a preview automatically. When the
+image, colour source, or required parameters are incomplete, the panel stays empty instead of reusing data from an older
+session.
+
+## Where edits are kept
+
+A confirmed replacement first updates the active 2D and 3D previews. Generate then uses those edits to create the 3MF.
+Closing the workstation or pressing `Esc` only returns to the 3D viewer; it does not undo confirmed edits. Recheck the
+palette after replacing the image, colour source, or preview session.
+
+Related pages:
+
+- [2D Preview and Hover Inspection](../two-dimensional-preview/two-dimensional-preview.mdx)
+- [Selection Modes, Palette, and Free Colours](../selection-modes/selection-modes.mdx)
+- [LUT Colour Grid](../lut-color-grid/lut-color-grid.mdx)
+- [Achievable Material Colours](../material-achievable-colors/material-achievable-colors.mdx)
+- [Custom Recipes](../custom-recipes/custom-recipes.mdx)
+- [Gradient Groups and Region Processing](../gradient-groups/gradient-groups.mdx)

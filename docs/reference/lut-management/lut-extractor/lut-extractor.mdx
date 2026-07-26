@@ -1,0 +1,44 @@
+---
+id: reference-lut-extractor
+title: "LUT 提取流程"
+slug: "/reference/lut-management/lut-extractor"
+description: "从校准板照片到可下载 LUT 的完整提取顺序。"
+sidebar_position: 4
+---
+
+# LUT 提取流程
+
+LUT 提取器从打印完成的校准板照片中读取每个色块，并生成包含颜色、配方和调色板元数据的 LUT。
+
+<img
+  src={require('./assets/01-lut-extractor.webp').default}
+  alt="等待上传校准板照片的 LUT 提取器"
+/>
+
+## 操作顺序
+
+1. 选择与校准板一致的颜色模式和页码。
+2. 上传校准板照片。支持常见图片以及 DNG、CR2/CR3、NEF、ARW、ORF、RW2、RAF、PEF、SRW、RAW 等相机原始格式。
+3. 按预览上的顺序放置四个角点，必要时进行照片校正和像素级微调。
+4. 点击“提取颜色”，检查拉正图、色块预览和异常单元格。
+5. 多页模式依次提取每一页，再执行合并。
+6. 填写制造商、类型和每个基础颜色的名称、色值，确认调色板。
+7. 下载 LUT 文件。
+
+更换照片、旋转图片或改变颜色模式会清除当前角点与未完成结果，避免把旧定位用于新图。
+
+## 多页模式
+
+普通 8 色与 5 色扩展使用多页结果；8 色全量导出可包含更多页面。页面状态会逐项标出已提取和未提取，只有所需页
+完成后才允许合并。合并的是同一校准方案的分页结果，不是任意两个 LUT。
+
+## 手动修正
+
+提取预览中发现单个色块读错时，可以对该单元格进行手动修正。修改保留在当前提取会话中，确认调色板后写入最终
+LUT。
+
+相关页面：
+
+- [照片校正与角点定位](../extractor-photo-correction/extractor-photo-correction.mdx)
+- [ColorChecker 校色](../colorchecker-calibration/colorchecker-calibration.mdx)
+- [LUT 详情](../lut-details/lut-details.mdx)

@@ -1,0 +1,45 @@
+---
+id: reference-source-type
+title: "Source Type"
+slug: "/reference/converter-basic/source-type"
+description: "Explains the differences between Legacy LUT, Inferred LUT, and Material Archive sources, including what is reset when switching."
+sidebar_position: 2
+---
+
+# Source Type
+
+Source Type determines which colour data Lumina Studio uses to turn image colours into printable, layer-by-layer material
+recipes. It does not alter the source image, but it changes the brands, databases, layer modes, and backing materials available
+later in the workflow.
+
+<img
+  src={require('./assets/01-source-type.webp').default}
+  alt="Source Type options in Lumina Studio Basic Settings"
+/>
+
+## The three sources
+
+| Option | Data used | Typical use |
+| --- | --- | --- |
+| Legacy LUT | A precomputed colour-to-recipe lookup table | Existing LUTs, compatible multi-LUT sets, or a LUT file you import |
+| Inferred LUT | Brand packages containing colour databases and an optional predictive model | Native brand packages with declared layer modes and databases |
+| Material Archive | Individual filament profiles extracted from gradient cards | Freely combining measured materials and solving recipes for that set |
+
+These are not three views of the same data. The same image can produce different candidates and recipes under each source.
+
+## What switching resets
+
+Switching sources invalidates the current preview, 3MF, and download URL so results from the previous data source cannot be
+reused accidentally.
+
+- Switching to Legacy LUT clears native brand, database, dynamic-layer, and model-assisted state.
+- Switching to Material Archive disables model-assisted matching.
+- Switching to Inferred LUT selects databases and a supported layer mode from the active brand.
+
+Confirm the new source settings and generate a fresh preview after every switch.
+
+## Continue with the selected source
+
+- [Legacy LUT](../legacy-lut-source/legacy-lut-source.mdx)
+- [Inferred LUT](../inferred-lut-source/inferred-lut-source.mdx)
+- [Material Archive](../material-archive-source/material-archive-source.mdx)

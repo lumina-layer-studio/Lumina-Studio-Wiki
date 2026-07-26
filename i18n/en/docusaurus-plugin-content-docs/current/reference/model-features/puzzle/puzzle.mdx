@@ -1,0 +1,42 @@
+---
+id: reference-puzzle
+title: "Puzzle"
+slug: "/reference/model-features/puzzle"
+description: "Regular and irregular puzzles, three sizing modes, connectors, labels, and resolved layout values."
+sidebar_position: 7
+---
+
+# Puzzle
+
+Puzzle mode computes a layout from the artwork's solid boundary, generates every piece from its own boundary, and assembles
+the pieces into one downloadable 3MF. It is more than decorative lines over the image.
+
+<img
+  src={require('./assets/01-puzzle-settings.webp').default}
+  alt="Puzzle Settings in Lumina Studio"
+/>
+
+## Style and sizing
+
+- **Regular Puzzle:** an orderly grid with consistent connector behaviour.
+- **Irregular Puzzle:** displaced boundaries with Irregularity Strength and Minimum Neck Width controls.
+- **By Piece Size:** average width and height from 5–200 mm.
+- **By Grid:** 1–200 rows and 1–200 columns.
+- **By Piece Count:** 2–2000 target pieces, with the grid solved from the artwork aspect ratio.
+
+Targets are not guaranteed geometry. Transparency, an irregular silhouette, and minimum-feature constraints can change the
+resolved rows, columns, piece count, or average size. The summary therefore shows both requested and resolved values.
+
+## Connectors and labels
+
+Classic and Easy Cut use different connector profiles. Actual fit still depends on nozzle size, shrinkage, and slicer
+compensation.
+
+Show Piece Labels provides numbering information for the puzzle workflow. Engrave Back Labels is currently disabled because
+the labels are not embedded in exported geometry yet.
+
+Irregularity Strength ranges from 0–1. Minimum Neck Width ranges from 0.2–20 mm and prevents overly thin connector areas.
+Geometry adjustments appear in the Warnings section.
+
+Puzzle is unavailable in Batch mode and disables Large Format, Keychain Loop, and Fridge Magnet mode. Generate a normal
+preview first because the layout needs the current solid mask and physical dimensions.

@@ -1,0 +1,76 @@
+---
+id: reference-panel-layout
+title: "Show, Collapse, Move, and Reset Panels"
+slug: "/reference/workspace-and-navigation/panel-layout"
+description: "Understand Panel Controls, title-bar dragging, edge docking, collapse state, local layout persistence, and Reset Layout."
+sidebar_position: 2
+---
+
+# Show, Collapse, Move, and Reset Panels
+
+Converter Core Settings and Advanced are assembled from movable panels. Panels can dock on
+the left or right edge or temporarily float over the workspace to expose more of the 3D view.
+
+:::note[Translation notice]
+This page is an **AI-assisted translation** of the Chinese reference. The current English UI
+and widget-layout implementation were checked directly.
+:::
+
+<img
+  src={require('./assets/01-panel-controls.webp').default}
+  alt="Lumina Studio Panel Controls menu with active-page panels and Reset Layout"
+/>
+
+## Panel Controls
+
+The header menu lists only panels used by the **active primary page and active secondary page**:
+
+- a blue dot means the panel is visible;
+- select a panel name to hide or show it;
+- moving to another secondary page changes the menu entries;
+- when Color Adjustment has no dock panels, the control does not offer ineffective toggles.
+
+Hiding a panel does not disable its feature or clear its values. The component is simply not
+rendered until it is shown again.
+
+## Move and dock
+
+Drag a panel by its title bar. Releasing it at the left or right edge snaps it into that dock and
+inserts it at the drop position. Panels in the same dock automatically stack without manual pixel
+alignment.
+
+After the window changes size, Lumina recalculates the active page layout. A floating panel that
+cannot remain safely visible is returned to the left dock rather than being left off-screen.
+
+## Collapse and expand
+
+Use the triangle at the right of the title bar. You can also:
+
+- double-click the title bar;
+- focus the title bar and press `Enter`.
+
+Collapse hides only the content area. The panel title and position remain. During a drag, Lumina
+temporarily measures the panel at collapsed height; after the drop it restores the previous
+expanded state and measured content height.
+
+## Layout memory
+
+Position, dock edge, collapsed state, and visibility are stored in this browser's local storage.
+They are not project parameters, are not included in share cards, JSON, or 3MF, and do not sync to
+another computer.
+
+After an upgrade, records for removed panels are discarded and new panels receive the current
+version's default layout.
+
+## Reset Layout
+
+**Reset Layout** restores default position, visibility, and collapsed state for all panels. It does
+not:
+
+- delete an image or Preview;
+- change LUT, material, or structure parameters;
+- clear colour replacements or custom recipes;
+- reset the machine, nozzle, or slicer selected in Settings.
+
+It is therefore safe to use when panels overlap, leave the visible area, or acquire an inconvenient
+dock order.

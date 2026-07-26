@@ -1,0 +1,50 @@
+---
+id: reference-lut-details
+title: "LUT Details and Gamut Charts"
+slug: "/reference/lut-management/lut-details"
+description: "How to read LUT summary, typed metadata, palette, and colour-coverage charts."
+sidebar_position: 7
+---
+
+# LUT Details and Gamut Charts
+
+LUT Details shows what a LUT actually declares about materials, colour mode, print structure, capabilities, and coverage.
+Do not decide compatibility from the filename alone.
+
+<img
+  src={require('./assets/01-lut-details.webp').default}
+  alt="Summary, metadata, and palette of a loaded LUT"
+/>
+
+## Summary and typed metadata
+
+- **Colour count** is the number of drawable LUT records, not the base-material count.
+- **Source kind** distinguishes traditional lookup data from predictive sources.
+- **Layer height, line width, maximum colour layers, base layers, and layer order** describe the LUT's print structure.
+- **Base channel** identifies the substrate channel index used by recipes.
+- **Capabilities** declare predictive matching, dynamic height/count, or custom-recipe support.
+- **Supported modes** enumerate explicitly supported layer-count and layer-height pairs.
+
+Raw metadata retains additional source fields for diagnosing old or migrated files. Use the typed fields for normal
+selection decisions.
+
+## Palette
+
+The palette maps channel index to colour name, material, and HEX. Load physical materials in that channel order instead of
+guessing slots from appearance.
+
+<img
+  src={require('./assets/02-color-charts.webp').default}
+  alt="Lab, RGB, hue-lightness, and hue-chroma plots for a LUT"
+/>
+
+## Charts
+
+- **Lab:** 2D plots a*/b*; 3D adds L* and optional reference slices.
+- **RGB:** plots records in the RGB cube.
+- **Hue–lightness:** shows relative lightness bounds by hue.
+- **Hue–chroma:** shows relative saturation reach by hue.
+
+Neutral colours have no stable hue, so hue-dependent charts omit them while Lab/RGB statistics retain them.
+
+Use [LUT Compare](../lut-compare/lut-compare.mdx) to analyse two batches or calibrations.

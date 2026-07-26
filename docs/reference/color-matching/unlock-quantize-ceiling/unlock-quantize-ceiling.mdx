@@ -1,0 +1,62 @@
+---
+id: reference-unlock-quantize-ceiling
+title: "解锁量化颜色数"
+slug: "/reference/color-matching/unlock-quantize-ceiling"
+description: "说明解锁量化颜色数如何把上限从 256 提高到 8192、关闭时的自动钳制，以及性能和 3D 预览影响。"
+sidebar_position: 7
+---
+
+# 解锁量化颜色数
+
+“解锁量化颜色数”只改变[量化颜色数](../../converter-basic/quantize-colors/quantize-colors.mdx)滑块的上限。
+它本身不会重新量化图像，也不会自动把当前值调高。
+
+此项默认关闭。
+
+## 控件位置
+
+1. 进入“图像转换”。
+2. 打开“核心设置”中的“高级设置”。
+3. 找到“解锁量化颜色数”。
+
+<img
+  src={require('./assets/01-unlock-quantize-ceiling-location.webp').default}
+  alt="Lumina Studio 高级设置中的解锁量化颜色数开关"
+/>
+
+## 数值范围
+
+| 状态 | 量化颜色数范围 | 步长 |
+| --- | ---: | ---: |
+| 关闭 | 8–256 | 8 |
+| 开启 | 8–8192 | 8 |
+
+量化颜色数的默认值为 48。开启解锁后，当前值仍保持不变，只有手动调到 256 以上才会改变处理预算。
+
+关闭解锁时，如果当前值高于 256，软件会立即把它压回 256。这样可保证界面值与普通上限一致。
+
+## 性能影响
+
+量化颜色数决定 K-Means 或相应颜色预算允许保留的细节数量。把上限提高到数百或数千后，可能明显增加：
+
+- 聚类和颜色映射时间；
+- 内存占用；
+- 配方求解数量；
+- 3D 预览的颜色网格数量；
+- 浏览器渲染和 GLB 生成时间。
+
+解锁不是提高画质的固定步骤。图像本身的有效颜色、目标尺寸、喷嘴线宽和可用配方仍会限制最终细节。
+
+## 与 3D 预览的关系
+
+普通 3D 预览仍以 128 个颜色网格为默认上限。量化颜色数超过 128 时，如需在 3D 预览中尽量保留这些
+低频颜色，还要开启[3D 高精度颜色预览](../../preview-and-palette/high-precision-3d-preview/high-precision-3d-preview.mdx)。
+
+切换此项或修改量化颜色数后，请重新生成预览和模型。Lumina 配方卡保存量化颜色数，但不单独保存
+“解锁”开关。
+
+## 相关页面
+
+- [量化颜色数](../../converter-basic/quantize-colors/quantize-colors.mdx)
+- [3D 高精度颜色预览](../../preview-and-palette/high-precision-3d-preview/high-precision-3d-preview.mdx)
+- [孤立像素清理](../isolated-pixel-cleanup/isolated-pixel-cleanup.mdx)

@@ -1,0 +1,48 @@
+---
+id: reference-legacy-lut-source
+title: "Legacy LUT"
+slug: "/reference/converter-basic/legacy-lut-source"
+description: "Explains brand and LUT selection, compatible multi-selection, refresh and upload actions, and dynamic-layer controls."
+sidebar_position: 3
+---
+
+# Legacy LUT
+
+A Legacy LUT is a precomputed colour lookup table. Each printable colour is paired with a fixed layer-by-layer material recipe,
+and Lumina Studio selects the closest table entry while previewing an image.
+
+<img
+  src={require('./assets/01-legacy-lut-source.webp').default}
+  alt="Brand, refresh, and upload controls for the Legacy LUT source"
+/>
+
+## Select a brand and LUT
+
+1. Select **Legacy LUT** under Source Type.
+2. Select a brand.
+3. Choose a LUT from the colour-mode groups.
+4. Generate a preview and inspect key colours, greys, and shadows.
+
+Compatible LUTs under one brand can be selected together. The first selected item remains the primary LUT and the selected
+tables form one candidate set; no merged file is written to disk. Do not combine tables with incompatible layer counts,
+layer heights, or material channels.
+
+## Refresh and upload
+
+The refresh button beside Brand rereads the LUT directory and its catalogue. It does not modify any LUT file.
+
+Upload accepts `.npy`, `.json`, `.npz`, and `.msgpack`. After uploading, confirm which LUT is actually selected. A readable
+file can still contain incomplete colour-mode, layer, or recipe metadata, so inspect LUT Details if the preview is unexpected.
+
+## Dynamic layers
+
+Colour Layers and Layer Height only appear when LUT metadata declares `supports_dynamic_layer_count`. The store limits the
+layer count to 1–20 and the layer height to 0.04–0.20 mm, then invalidates old outputs.
+
+Ordinary legacy LUTs continue to use their stored layer count and height when these controls are not shown.
+
+## Related pages
+
+- [Source Type](../source-type/source-type.mdx)
+- [Quantize Colors](../quantize-colors/quantize-colors.mdx)
+- [Choosing a material profile](../../../knowledge/material-profile-selection/material-profile-selection.mdx)

@@ -1,0 +1,9 @@
+{
+  "label": "耗材、配方与五色查询",
+  "position": 8,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "slug": "/reference/materials-and-recipes"
+  }
+}

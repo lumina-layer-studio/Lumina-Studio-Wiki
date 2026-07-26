@@ -1,0 +1,49 @@
+---
+id: reference-legacy-lut-source
+title: "传统 LUT"
+slug: "/reference/converter-basic/legacy-lut-source"
+description: "说明传统 LUT 的品牌、LUT、多选、刷新与上传控件，以及动态层数的显示条件。"
+sidebar_position: 3
+---
+
+# 传统 LUT
+
+传统 LUT 是一张已经计算好的颜色查找表。每个可打印颜色都带有固定的逐层耗材配方；预览时，
+Lumina Studio 从表中寻找最接近原图颜色的条目。
+
+<img
+  src={require('./assets/01-legacy-lut-source.webp').default}
+  alt="传统 LUT 的品牌选择、刷新和上传入口"
+/>
+
+## 选择品牌和 LUT
+
+1. 在“来源类型”中选择“传统 LUT”。
+2. 选择品牌。
+3. 在按颜色模式分组的列表中选择 LUT。
+4. 生成预览，检查主体色、灰阶和暗部。
+
+同一品牌下可以同时选择多个兼容 LUT。多选后，软件以列表中的第一项为主 LUT，并把所选表合并为
+一组候选；这不等于在磁盘上生成一个新的 LUT 文件。不同层数、层高或配方通道不兼容的 LUT 不应
+强行组合。
+
+## 刷新与上传
+
+品牌标题旁的刷新按钮会重新读取 LUT 目录和目录索引；它不会修改当前 LUT 文件。新增或替换文件后，
+可用此按钮让列表立即更新。
+
+“上传”支持 `.npy`、`.json`、`.npz` 和 `.msgpack`。上传成功后仍要在列表中确认实际选中的 LUT。
+文件能被读取不代表其颜色模式、层数、层高和配方数据一定完整；预览异常时先打开 LUT 详情检查元数据。
+
+## 动态层数
+
+只有元数据声明 `supports_dynamic_layer_count` 的 LUT 才会显示“叠色层数”和“叠色层高”。软件会把
+层数限制在 1–20，将层高限制在 0.04–0.20 mm，并清除旧预览和生成结果。
+
+普通旧 LUT 使用文件内既定的层数与层高，不会因为界面未显示这两个控件而丢失配方。
+
+## 相关页面
+
+- [来源类型](../source-type/source-type.mdx)
+- [量化颜色数](../quantize-colors/quantize-colors.mdx)
+- [LUT 与耗材档案有什么区别](../../../knowledge/material-profile-selection/material-profile-selection.mdx)

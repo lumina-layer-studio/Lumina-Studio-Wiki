@@ -1,0 +1,42 @@
+---
+id: reference-auto-gradient-replacement
+title: "Auto Gradient Replacement"
+slug: "/reference/settings-import-export/auto-gradient-replacement"
+description: "Rules, scope, and manual alternative for automatically collapsing gradient bands after preview."
+sidebar_position: 5
+---
+
+# Auto Gradient Replacement
+
+When a material profile maps a continuous gradient to a finite set of recipes, a smooth area can become several similar
+bands. Auto Gradient Replacement detects these groups after preview and replaces every colour in a group with the
+representative colour that covers the most pixels.
+
+<img
+  src={require('./assets/01-auto-gradient.webp').default}
+  alt="Auto gradient replacement in System Settings"
+/>
+
+## Processing order
+
+1. Complete normal image processing and material colour matching.
+2. Analyse gradient-band groups in the preview.
+3. Select the colour with the largest pixel count in each group.
+4. Confirm the replacements as a batch and refresh the 2D and 3D previews.
+
+Images with many gradients therefore perform one extra replacement pass after the initial preview, so the final image may
+appear slightly later.
+
+## Default behaviour
+
+The option is off by default. With it off, the raw matched result remains available for inspection in Color Workstation.
+You can review each detected group and apply the same operation manually, then undo or refine individual changes.
+
+The operation reduces banding caused by a finite recipe set. It does not increase the available colour count and does not
+change regions that were not detected as part of the same gradient group.
+
+Related pages:
+
+- [Color Workstation](../../preview-and-palette/color-workstation/color-workstation.mdx)
+- [Selection Modes, Palette, and Free Colours](../../preview-and-palette/selection-modes/selection-modes.mdx)
+- [Material Profile Source](../../converter-basic/material-archive-source/material-archive-source.mdx)

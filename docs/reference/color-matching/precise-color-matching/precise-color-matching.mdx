@@ -1,0 +1,65 @@
+---
+id: reference-precise-color-matching
+title: "高精度颜色匹配"
+slug: "/reference/color-matching/precise-color-matching"
+description: "说明高精度颜色匹配如何把量化中心限制在打印机可达颜色中，以及它与色相保护、LUT 来源的关系。"
+sidebar_position: 5
+---
+
+# 高精度颜色匹配
+
+“高精度颜色匹配（实验性功能）”把图像量化阶段的颜色中心限制在当前 LUT 所记录的可达颜色集合中。
+普通量化可以产生任意 RGB 聚类中心，再把这些颜色查表到打印配方；高精度匹配则让聚类中心从一开始就落在
+当前打印系统可表达的颜色上。
+
+此项默认关闭。
+
+## 控件位置
+
+1. 进入“图像转换”。
+2. 打开“核心设置”中的“高级设置”。
+3. 找到“高精度颜色匹配（实验性功能）”。
+
+<img
+  src={require('./assets/01-precise-color-matching-location.webp').default}
+  alt="Lumina Studio 高级设置中的高精度颜色匹配开关"
+/>
+
+## 匹配流程
+
+开启后，高保真图像量化会使用当前 LUT 的颜色样本和其颜色空间索引：
+
+1. 从原图像素建立初始聚类。
+2. 将聚类中心约束到 LUT 中实际存在的可达颜色。
+3. 输出不超过“量化颜色数”的颜色集合。
+4. 再使用这些颜色对应的材料配方生成预览和模型。
+
+只有在当前来源提供了有效的 LUT 颜色表和索引时，约束量化才会启用；数据不完整时会退回普通量化，
+不会因为勾选此项而中断处理。耗材档案使用自己的配方求解流程，不依赖此开关。
+
+## 与色相保护的关系
+
+高精度颜色匹配开启时，[色相保护](../hue-protection/hue-protection.mdx)会被禁用。界面中的色相保护
+开关会变为不可操作，处理端也会把独立色相权重置为 0，避免两套候选排序规则同时作用。
+
+<img
+  src={require('../hue-protection/assets/03-disabled-by-precise-matching.webp').default}
+  alt="开启高精度颜色匹配后色相保护被禁用"
+/>
+
+关闭高精度颜色匹配后，色相保护才会重新按自己的开关状态工作。
+
+## 结果与性能
+
+高精度颜色匹配可能减少“聚类颜色看起来接近，但最终打印配方跳到另一种颜色”的情况。代价是量化过程需要
+反复查询可达颜色集合，通常比普通 K-Means 更慢。结果仍受当前 LUT、量化颜色数、图像内容和材料层数限制；
+它不会创造 LUT 中不存在的颜色。
+
+切换后应重新生成预览。当前 Lumina 配方卡不会保存这一实验性开关，重新导入配方卡时需要再次确认。
+
+## 相关页面
+
+- [色相保护](../hue-protection/hue-protection.mdx)
+- [暗色彩度门槛](../dark-chroma-gate/dark-chroma-gate.mdx)
+- [量化颜色数](../../converter-basic/quantize-colors/quantize-colors.mdx)
+- [孤立像素清理](../isolated-pixel-cleanup/isolated-pixel-cleanup.mdx)

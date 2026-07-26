@@ -1,0 +1,62 @@
+---
+id: reference-vectorizer-overview
+title: "Image Vectorizer"
+slug: "/reference/vector-and-extraction/vectorizer-overview"
+description: "Convert a raster image to SVG, then download it or continue in Image Converter."
+sidebar_position: 1
+---
+
+# Image Vectorizer
+
+Image Vectorizer converts a PNG, JPEG, WebP, or BMP raster image into an SVG made of closed paths and a limited color palette. It works especially well with icons, pixel art, flat-color illustrations, and images with clear boundaries. Photographs can also be converted, but usually produce more colors and shapes.
+
+## Basic workflow
+
+1. Select a supported raster image in the upload area.
+2. Keep the defaults for the first pass and click **Start Vectorization**.
+3. Pan and zoom the original and SVG previews together to inspect contours, thin lines, and color boundaries.
+4. Choose **Download SVG** to save the file, or **Send to Image Converter** to continue building a 3D model.
+
+While processing, the button changes to **Vectorizing…**. The current frontend request can be canceled. Selecting another image clears the previous result.
+
+<img
+  src={require('./assets/01-comparison.webp').default}
+  alt="Synchronized comparison of the original image and vectorized SVG"
+/>
+
+## Current processing pipeline
+
+The current implementation runs image scaling and Mean Shift smoothing, color segmentation, boundary extraction, contour assembly, Bézier fitting, contour tracing, and SVG output in sequence. Each control in the panel targets one of these stages; these are not merely post-processing filters.
+
+The result summary reports:
+
+- **Shapes**: the number of paths retained in the final SVG;
+- **Colors**: the palette size actually used after automatic detection or manual selection;
+- **Width × height**: the source image dimensions in pixels;
+- **Palette**: the first 16 colors are shown directly, with any remainder displayed as `+N`.
+
+<img
+  src={require('./assets/02-result-summary.webp').default}
+  alt="Vectorization shape count, color count, dimensions, and palette"
+/>
+
+Shape count is not a quality score. More shapes usually retain more small regions, but also make the SVG more complex. Judge the result by comparing the contours and colors rather than targeting a particular count.
+
+## Download or continue
+
+<img
+  src={require('./assets/03-result-actions.webp').default}
+  alt="Send to Image Converter and Download SVG actions"
+/>
+
+**Send to Image Converter** reads the generated SVG, loads it as a vector source in Image Converter, and switches to the Converter tab. Lumina marks the file as an Image Vectorizer result so the downstream workflow can treat it as a native SVG.
+
+The generated file uses a temporary download URL and is currently retained for 20 minutes. Download anything you want to keep. Leaving this module also clears its current page state and preview.
+
+## Parameter reference
+
+- [Number of Colors, Smoothness, and Detail Level](../vectorizer-color-and-detail/vectorizer-color-and-detail.mdx)
+- [Stroke, Thin Lines, and Coverage Fix](../vectorizer-output-enhancement/vectorizer-output-enhancement.mdx)
+- [Image Preprocessing](../vectorizer-preprocessing/vectorizer-preprocessing.mdx)
+- [Superpixel Segmentation and Antialiasing](../vectorizer-segmentation/vectorizer-segmentation.mdx)
+- [Curve Fitting and Region Filtering](../vectorizer-curve-and-filtering/vectorizer-curve-and-filtering.mdx)

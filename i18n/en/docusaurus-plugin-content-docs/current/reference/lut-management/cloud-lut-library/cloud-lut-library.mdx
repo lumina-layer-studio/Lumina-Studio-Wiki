@@ -1,0 +1,39 @@
+---
+id: reference-cloud-lut-library
+title: "Cloud LUT Library"
+slug: "/reference/lut-management/cloud-lut-library"
+description: "Remote catalog, installation states, pagination, and offline behaviour."
+sidebar_position: 2
+---
+
+# Cloud LUT Library
+
+Cloud LUT Library reads an administrator-configured remote catalog and installs selected revisions into the local LUT
+library. It is optional: local LUTs remain available offline when the remote catalog is not configured or temporarily
+unavailable.
+
+<img
+  src={require('./assets/01-cloud-library.webp').default}
+  alt="Cloud LUT Library with no remote catalog configured"
+/>
+
+## Catalog state
+
+The header reports remote item count, installed count, active channels, and loaded entries. Each request loads up to 100
+items. Load More appends the next offset and de-duplicates entries by LUT ID and revision ID.
+
+Cards have three local states:
+
+- **Not installed:** no local copy exists.
+- **Installed:** the displayed revision is installed.
+- **Local revision available:** a local copy exists, but it is not the displayed catalog revision.
+
+Install downloads that revision and refreshes local state. The item then also appears in [LUT Library](../lut-library/lut-library.mdx).
+
+Search checks LUT ID, revision ID, content hash, channel, display name, manufacturer, and compatible colour mode. It only
+filters catalog pages that have already been loaded.
+
+:::note
+“Cloud LUT registry is not configured” is not a local LUT failure. This Lumina Studio instance has no remote catalog URL;
+continue with the local library.
+:::

@@ -1,0 +1,51 @@
+---
+id: reference-solver-cache-density
+title: "Exhaustive Cache Density"
+slug: "/reference/settings-import-export/solver-cache-density"
+description: "Lab-grid density, cache creation, and resource limits for the material-profile solver."
+sidebar_position: 3
+---
+
+# Exhaustive Cache Density
+
+A material profile enumerates recipes reachable with the selected materials and layer count, then indexes their predicted
+colours in a Lab grid. Exhaustive Cache Density controls the grid resolution. A finer grid makes it less likely that
+similar colours with different recipes collide in the same cell.
+
+<img
+  src={require('./assets/01-solver-cache.webp').default}
+  alt="Exhaustive cache density settings"
+/>
+
+## Tiers
+
+Available tiers are `64³`, `128³`, `256³`, `512³`, `1024³`, and `2048³`. With Customise exhaustive density disabled,
+every build uses `64³`.
+
+Higher tiers primarily reduce candidate loss caused by grid collisions. They are useful when a material profile needs
+tighter colour matching. They cannot create physically unreachable colours or correct inaccurate material measurements.
+
+## Cache and resource behaviour
+
+The cache is sparse: it stores physically reachable recipes rather than allocating every cell in the full 3D grid. Each
+resolution creates its own cache file, so selecting a new tier does not overwrite caches from other tiers.
+
+Builds are still governed by safety budgets:
+
+- small recipe spaces can use exact mode;
+- larger spaces are checked against estimated memory and total recipe counts;
+- a build that exceeds the active budget stops with guidance to reduce material or layer count instead of consuming
+  unbounded resources.
+
+The first build at a new tier therefore takes longer than loading an existing cache. Lookup cost may also increase mildly
+with density.
+
+:::note
+This setting belongs to the material-profile solver. A traditional LUT reads its existing colours and recipes and does
+not use this grid density.
+:::
+
+Related pages:
+
+- [Material Profile Source](../../converter-basic/material-archive-source/material-archive-source.mdx)
+- [LUT Colour Grid](../../preview-and-palette/lut-color-grid/lut-color-grid.mdx)

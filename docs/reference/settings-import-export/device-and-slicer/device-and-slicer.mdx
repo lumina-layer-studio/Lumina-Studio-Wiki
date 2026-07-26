@@ -1,0 +1,48 @@
+---
+id: reference-device-and-slicer
+title: "设备与切片软件"
+slug: "/reference/settings-import-export/device-and-slicer"
+description: "切片软件、打印机、喷嘴、设备配置和手动切片软件路径的关系。"
+sidebar_position: 1
+---
+
+# 设备与切片软件
+
+系统设置中的设备信息决定 Lumina Studio 如何组织 3MF，以及生成完成后使用哪个切片软件打开文件。请按实际使用的
+切片软件、打印机和已安装喷嘴选择，不要只按示例设备设置。
+
+<img
+  src={require('./assets/01-device-slicer.webp').default}
+  alt="Lumina Studio 的切片软件与打印设备设置"
+/>
+
+## 设置之间的关系
+
+1. **切片软件**决定可选的打印机范围和输出适配方式。
+2. **打印机型号**决定打印床、机器能力及可用设备配置。
+3. **喷嘴尺寸**参与模型精度、线宽和部分层高参数的计算。
+4. **设备配置**用于区分同一机型下的具体喷头或硬件组合。
+
+更换切片软件后，打印机列表会立即按兼容性重新筛选。如果原先的机型、喷嘴或设备配置不再可用，Lumina Studio
+会自动切换到当前列表中的有效选项，避免保留一组不能生成的旧配置。
+
+这些选项发生变化时，之前生成的下载文件会失效。重新预览并生成即可得到与新设备一致的 3MF。
+
+## 手动切片软件路径
+
+macOS 可以填写切片软件的 `.app` 路径，例如 `/Applications/Bambu Studio.app`。点击“校验并保存”后，
+Lumina Studio 会先验证该路径；验证通过的路径会优先用于“在切片软件中打开”。
+
+手动路径只改变打开文件时调用的应用，不会把一种切片器格式自动转换为另一种格式。切片软件下拉菜单仍应选择
+与该应用相符的类型。
+
+:::note
+设备列表由当前安装的机器配置提供。列表暂时为空时，页面会自动重试；持续失败通常表示后端尚未启动或机器配置
+未能加载。
+:::
+
+相关页面：
+
+- [首次配置打印设备](../../../getting-started/device-setup/device-setup.mdx)
+- [切片软件路径与无法打开 3MF](../../../knowledge/slicer-path-and-open-troubleshooting/slicer-path-and-open-troubleshooting.mdx)
+- [底板层高修改器](../base-layer-modifier/base-layer-modifier.mdx)

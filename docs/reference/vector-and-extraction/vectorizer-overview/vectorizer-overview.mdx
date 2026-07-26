@@ -1,0 +1,62 @@
+---
+id: reference-vectorizer-overview
+title: "图像转矢量"
+slug: "/reference/vector-and-extraction/vectorizer-overview"
+description: "把位图转换为 SVG，并将结果下载或继续送入图像转换。"
+sidebar_position: 1
+---
+
+# 图像转矢量
+
+“图像转矢量”把 PNG、JPEG、WebP 或 BMP 位图转换为由封闭路径和有限调色板组成的 SVG。它适合处理图标、像素画、色块插画和边界清楚的图片；照片也可以转换，但通常会产生更多颜色和形状。
+
+## 基本流程
+
+1. 点击上传区，选择一张支持的位图。
+2. 先使用默认参数，点击“开始矢量化”。
+3. 在结果区同步缩放、平移原图与 SVG，检查轮廓、细线和色块边界。
+4. 需要保存文件时点击“下载 SVG”；需要继续制作 3D 模型时点击“发送到图像转换”。
+
+处理中的按钮会变为“正在矢量化…”，再次操作可取消当前前端请求。更换图片会清除旧结果。
+
+<img
+  src={require('./assets/01-comparison.webp').default}
+  alt="图像转矢量的原图与 SVG 同步对比"
+/>
+
+## 当前处理管线
+
+当前实现依次完成图像缩放与 Mean Shift 平滑、颜色分割、边界提取、轮廓装配、贝塞尔曲线拟合、轮廓追踪和 SVG 输出。界面中的参数分别作用于这些阶段，并不是一组后期滤镜。
+
+结果摘要显示：
+
+- **形状数**：SVG 中最终保留的路径数量；
+- **颜色数**：自动检测或手动指定后实际使用的调色板大小；
+- **宽 × 高**：源图像的像素尺寸；
+- **调色板**：最多直接显示前 16 种颜色，其余颜色以 `+N` 表示。
+
+<img
+  src={require('./assets/02-result-summary.webp').default}
+  alt="矢量化结果的形状数、颜色数、尺寸和调色板"
+/>
+
+形状数不是质量分数。形状更多通常意味着保留了更多小区域，也会让 SVG 更复杂；判断结果时应直接比较轮廓和颜色，而不是只追求某个数字。
+
+## 下载或继续转换
+
+<img
+  src={require('./assets/03-result-actions.webp').default}
+  alt="发送到图像转换和下载 SVG 按钮"
+/>
+
+“发送到图像转换”会读取刚生成的 SVG，将其作为矢量源载入图像转换，并自动切换到“图像转换”页面。生成的 SVG 带有 Lumina 的矢量化来源标记，后续流程可以按原生 SVG 处理。
+
+结果文件使用临时下载地址，当前保留时间为 20 分钟。需要长期保存时应及时下载；离开该模块后，页面状态和当前预览也会被清理。
+
+## 参数页面
+
+- [颜色数量、平滑度与细节等级](../vectorizer-color-and-detail/vectorizer-color-and-detail.mdx)
+- [描边、薄线与覆盖修复](../vectorizer-output-enhancement/vectorizer-output-enhancement.mdx)
+- [图像预处理](../vectorizer-preprocessing/vectorizer-preprocessing.mdx)
+- [超像素分割与抗锯齿检测](../vectorizer-segmentation/vectorizer-segmentation.mdx)
+- [曲线拟合与区域过滤](../vectorizer-curve-and-filtering/vectorizer-curve-and-filtering.mdx)

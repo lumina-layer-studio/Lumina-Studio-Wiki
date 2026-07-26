@@ -1,0 +1,42 @@
+---
+id: reference-cloud-material-library
+title: "Cloud Material Library"
+slug: "/reference/materials-and-recipes/cloud-material-library"
+description: "Browse, install, update, and roll back cloud material archives."
+sidebar_position: 4
+---
+
+# Cloud Material Library
+
+The cloud library is an optional material catalog. The local library remains fully usable offline when no registry is
+configured.
+
+<img
+  src={require('./assets/01-cloud-material-library.webp').default}
+  alt="Cloud Material Library with no registry configured"
+/>
+
+The summary reports catalog entries, locally installed materials, available updates, index state, and the last sync
+time. Refresh Cloud Catalog rereads the catalog and install status; it does not delete local archives.
+
+Search covers brand, name, material ID, revision, directory, channel, and visibility. Filters show All, Not Installed
+(including missing local files), Updates, or Installed. Catalog pages contain 50 entries and can be loaded one page at a
+time or all at once.
+
+## Install states
+
+Each card shows its brand, name, colour, local directory, package size, fingerprint, and one of these states:
+
+- **Not installed**: available to download;
+- **Installed**: the local revision matches the catalog;
+- **Update available**: a newer catalog revision can be installed;
+- **Local revision available**: identical content already exists through another local mapping;
+- **Local files missing**: an install record exists but its archive files are incomplete.
+
+The Official badge is a channel marker. Confirm the material identity and intended conditions before using it.
+
+Rollback controls appear only when a usable historical revision is still present locally. Rollback changes the active
+installed revision without altering the cloud catalog.
+
+Installed archives appear in the [Material Library](../material-library/material-library.mdx) and can be backed up
+offline with [Material Import and Export](../material-import-export/material-import-export.mdx).

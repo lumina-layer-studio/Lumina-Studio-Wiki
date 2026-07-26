@@ -1,0 +1,42 @@
+---
+id: reference-extractor-photo-correction
+title: "Photo Correction and Corner Placement"
+slug: "/reference/lut-management/extractor-photo-correction"
+description: "Offset, zoom, distortion, vignette, white balance, and corner nudging in LUT Extractor."
+sidebar_position: 5
+---
+
+# Photo Correction and Corner Placement
+
+Photo correction aligns the board grid with the extraction template. It affects the active upload only and does not
+modify the photograph on disk.
+
+<img
+  src={require('./assets/01-photo-correction.webp').default}
+  alt="Photo correction and corner fine-tuning controls in LUT Extractor"
+/>
+
+## Correction controls
+
+| Control | Range | Effect |
+| --- | --- | --- |
+| Horizontal Offset | `-30–30` | Moves the sampling template along X |
+| Vertical Offset | `-30–30` | Moves the sampling template along Y |
+| Zoom | `0.80–1.20` | Scales the sampling area uniformly |
+| Distortion Correction | `-0.20–0.20` | Compensates barrel or pincushion distortion |
+| Vignette Correction | On/off | Compensates edge darkening |
+| Auto White Balance | On/off | Produces a white-balanced preview for this image |
+
+Use these controls for systematic image errors. If only one corner is displaced, move that corner instead of shifting the
+entire template.
+
+## Four corners
+
+After placing four corners on the canvas, choose the active corner. Step accepts `1–10 px`; the direction buttons and
+keyboard arrow keys move the active corner by that amount. Clear Corners removes positioning points without deleting the
+uploaded photograph.
+
+Place corners on the specified outer board marks, not on the nearest patch centre. If the rectified grid remains skewed,
+check corner order before increasing distortion correction.
+
+Continue with [LUT Extraction Workflow](../lut-extractor/lut-extractor.mdx).

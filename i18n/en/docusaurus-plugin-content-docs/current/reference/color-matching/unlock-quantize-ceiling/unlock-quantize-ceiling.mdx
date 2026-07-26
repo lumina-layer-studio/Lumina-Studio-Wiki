@@ -1,0 +1,64 @@
+---
+id: reference-unlock-quantize-ceiling
+title: "Unlock Quantize Ceiling"
+slug: "/reference/color-matching/unlock-quantize-ceiling"
+description: "How the switch raises the Quantize Colors ceiling from 256 to 8192, clamps the value again when disabled, and affects processing cost."
+sidebar_position: 7
+---
+
+# Unlock Quantize Ceiling
+
+**Unlock Quantize Ceiling** changes only the maximum value of the
+[Quantize Colors](../../converter-basic/quantize-colors/quantize-colors.mdx) slider. Enabling it does not re-quantize the
+image and does not raise the current value automatically.
+
+The option is disabled by default.
+
+## Location
+
+Open **Converter → Core Settings → Advanced Settings**, then locate **Unlock quantize ceiling**.
+
+<img
+  src={require('./assets/01-unlock-quantize-ceiling-location.webp').default}
+  alt="Unlock Quantize Ceiling in Lumina Studio Advanced Settings"
+/>
+
+## Value ranges
+
+| State | Quantize Colors range | Step |
+| --- | ---: | ---: |
+| Disabled | 8–256 | 8 |
+| Enabled | 8–8192 | 8 |
+
+The default quantize value is 48. Enabling the switch keeps the current value; processing changes only after the slider
+is moved above 256.
+
+When the switch is disabled again, a current value above 256 is immediately clamped back to 256.
+
+## Performance impact
+
+Increasing the budget into the hundreds or thousands can significantly increase:
+
+- clustering and colour-mapping time;
+- memory consumption;
+- the number of recipes that must be solved;
+- the number of colour meshes requested for a high-precision 3D preview;
+- browser rendering and GLB-generation time.
+
+Unlocking is not a mandatory quality step. Effective image colours, final dimensions, nozzle line width, and available
+recipes still limit useful detail.
+
+## Relationship with the 3D preview
+
+The normal 3D preview still uses 128 colour meshes as its default ceiling. To preserve more low-frequency preview
+colours when Quantize Colors is above 128, also enable
+[High-precision 3D Colour Preview](../../preview-and-palette/high-precision-3d-preview/high-precision-3d-preview.mdx).
+
+Changing the switch or quantize value requires a new preview and model. Lumina recipe cards store the quantize value,
+but not the separate unlock switch.
+
+## Related pages
+
+- [Quantize Colors](../../converter-basic/quantize-colors/quantize-colors.mdx)
+- [High-precision 3D Colour Preview](../../preview-and-palette/high-precision-3d-preview/high-precision-3d-preview.mdx)
+- [Isolated Pixel Cleanup](../isolated-pixel-cleanup/isolated-pixel-cleanup.mdx)

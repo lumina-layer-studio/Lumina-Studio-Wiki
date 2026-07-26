@@ -1,0 +1,46 @@
+---
+id: reference-vectorizer-preprocessing
+title: "图像预处理"
+slug: "/reference/vector-and-extraction/vectorizer-preprocessing"
+description: "解释 Mean Shift 平滑和最大工作像素数如何影响矢量化输入。"
+sidebar_position: 4
+---
+
+# 图像预处理
+
+预处理发生在颜色分割之前。它先控制内部工作分辨率，再使用 Mean Shift 平滑相邻像素。
+
+<img
+  src={require('./assets/01-preprocessing.webp').default}
+  alt="图像转矢量的预处理参数"
+/>
+
+## 空间平滑半径
+
+范围为 `0–50`，默认 `15`。它是 Mean Shift 搜索相邻像素的空间窗口半径：
+
+- 增大后会在更大的邻域内消除局部噪点；
+- 过大时，靠得很近的细线和小结构可能一起被平滑。
+
+## 颜色平滑半径
+
+范围为 `0–80`，默认 `25`。它决定颜色相差多远的像素仍可参与同一次 Mean Shift 聚合：
+
+- 增大后，相近颜色更容易合并，碎片会减少；
+- 过大时，原本需要区分的近似色也可能合并。
+
+空间半径决定“看多远”，颜色半径决定“多相似才算一组”。两者共同工作，不能互相替代。
+
+## 最大工作像素数
+
+界面范围为 `100,000–10,000,000`，默认 `3,000,000`。当输入图像总像素超过该值时，引擎会先缩小图像，再执行后续分割：
+
+- 较低值减少内存占用和处理时间；
+- 较高值可保留更多小细节，但会增加计算量。
+
+小于限制的图片不会因为这个参数被放大。结果摘要仍显示源图像宽高；该限制控制的是内部处理分辨率。
+
+相关页面：
+
+- [颜色数量、平滑度与细节等级](../vectorizer-color-and-detail/vectorizer-color-and-detail.mdx)
+- [超像素分割与抗锯齿检测](../vectorizer-segmentation/vectorizer-segmentation.mdx)

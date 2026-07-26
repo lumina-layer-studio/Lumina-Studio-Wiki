@@ -1,0 +1,63 @@
+---
+id: reference-auto-dynamic-range
+title: "Auto Dynamic Range"
+slug: "/reference/color-matching/auto-dynamic-range"
+description: "How Lumina compresses source L* into the reachable brightness range of the active LUT or Material Archive, and when it skips the operation."
+sidebar_position: 3
+---
+
+# Auto Dynamic Range
+
+**Auto Dynamic Range (Experimental)** compresses source-image lightness into the range that the active LUT or Material
+Archive can reproduce. It runs before colour quantization and recipe matching.
+
+The option is disabled by default.
+
+## Location
+
+Open **Converter → Core Settings → Advanced Settings**, then locate
+**Auto Dynamic Range (Experimental)**.
+
+<img
+  src={require('./assets/01-auto-dynamic-range-location.webp').default}
+  alt="Auto Dynamic Range in Lumina Studio Advanced Settings"
+/>
+
+## Processing order
+
+When enabled, Lumina:
+
+1. reads the minimum and maximum CIELAB L* values from the active LUT or material palette;
+2. measures the L* range actually used by the source image;
+3. acts only when the target range is genuinely narrower;
+4. applies smooth toe and shoulder curves to shadows and highlights;
+5. keeps the a* and b* chroma channels, then continues to quantization and matching.
+
+This is not a simple linear fade toward grey. Mild compression mainly rolls in both ends while preserving the midtone
+slope. When substantial compression is required, midtone contrast also decreases to fit the target range.
+
+## Automatic skip conditions
+
+Lumina leaves the image unchanged when:
+
+- the active colour source cannot provide a valid reachable lightness range;
+- the reachable range is equal to or wider than the source range;
+- the source spans less than 1 L* and is effectively flat in lightness;
+- the target range is invalid or has no meaningful compression space.
+
+An enabled switch with no visible preview difference is therefore not necessarily a failure.
+
+## Evaluating the result
+
+Compare near-white highlights and near-black shadows. Compression can bring those regions into a range that the active
+materials can distinguish, but it may also reduce overall contrast. The option does not increase the LUT colour count
+or change material layer heights.
+
+Changing the setting requires a new preview and model. The current Lumina recipe-card format does not persist this
+experimental switch.
+
+## Related pages
+
+- [Hue Protection](../hue-protection/hue-protection.mdx)
+- [Precise Colour Matching](../precise-color-matching/precise-color-matching.mdx)
+- [Selecting and Storing Filament](../../../knowledge/filament-selection-and-storage/filament-selection-and-storage.mdx)
