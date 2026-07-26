@@ -4,6 +4,7 @@ import test from 'node:test';
 import {
   createLocalizedDocRedirects,
   localizedDocSlugPairs,
+  retiredTutorialPaths,
 } from '../src/data/localizedDocRedirects';
 
 test('creates two compatibility redirects for every localized slug pair', () => {
@@ -34,4 +35,10 @@ test('keeps redirect sources unique and all paths canonical', () => {
 
   assert.equal(new Set(sources).size, sources.length);
   assert.equal(createLocalizedDocRedirects('/docs/not-mapped/'), undefined);
+});
+
+test('redirects retired tutorial URLs to the tutorials index', () => {
+  assert.deepEqual(createLocalizedDocRedirects('/docs/tutorials/'), [
+    ...retiredTutorialPaths,
+  ]);
 });

@@ -28,6 +28,11 @@ export const localizedDocSlugPairs = [
   ['/切片教程', '/slicer-guide'],
 ] as const;
 
+export const retiredTutorialPaths = [
+  '/docs/tutorials/keychain-loop/',
+  '/docs/tutorials/transparent-coating/',
+] as const;
+
 function docPath(slug: string): string {
   return `/docs/${slug.replace(/^\/|\/$/g, '')}/`;
 }
@@ -39,6 +44,10 @@ const localizedDocPathPairs = localizedDocSlugPairs.map(
 export function createLocalizedDocRedirects(
   existingPath: string,
 ): string[] | undefined {
+  if (existingPath === '/docs/tutorials/') {
+    return [...retiredTutorialPaths];
+  }
+
   for (const [zhPath, enPath] of localizedDocPathPairs) {
     if (existingPath === zhPath) return [enPath];
     if (existingPath === enPath) return [zhPath];
