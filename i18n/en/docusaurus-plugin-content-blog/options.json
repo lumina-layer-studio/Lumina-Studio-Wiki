@@ -1,0 +1,14 @@
+{
+  "title": {
+    "message": "Wiki Updates",
+    "description": "The title for the blog used in SEO"
+  },
+  "description": {
+    "message": "New tutorials and important revisions in the Lumina Studio Wiki",
+    "description": "The description for the blog used in SEO"
+  },
+  "sidebar.title": {
+    "message": "All updates",
+    "description": "The label for the left sidebar"
+  }
+}

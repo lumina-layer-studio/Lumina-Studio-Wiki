@@ -18,5 +18,9 @@
   "item.label.GitHub": {
     "message": "GitHub",
     "description": "Navbar item with label GitHub"
+  },
+  "item.label.Wiki 动态": {
+    "message": "Wiki Updates",
+    "description": "Navbar item with label Wiki 动态"
   }
 }
