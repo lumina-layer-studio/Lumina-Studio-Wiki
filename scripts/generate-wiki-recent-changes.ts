@@ -60,6 +60,24 @@ function runGit(repoRoot: string, args: string[]): string {
   });
 }
 
+function hasCommit(repoRoot: string, commit: string): boolean {
+  try {
+    runGit(repoRoot, ['cat-file', '-e', `${commit}^{commit}`]);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function recoverShallowHistory(repoRoot: string): void {
+  const isShallow =
+    runGit(repoRoot, ['rev-parse', '--is-shallow-repository']).trim() ===
+    'true';
+  if (!isShallow) return;
+
+  runGit(repoRoot, ['fetch', '--quiet', '--unshallow', 'origin']);
+}
+
 function localeRoot(filePath: string): {locale: Locale; root: string} | undefined {
   if (filePath.startsWith(CHINESE_ROOT)) {
     return {locale: 'zh', root: CHINESE_ROOT};
@@ -434,9 +452,15 @@ export function generateRecentChanges({
   head = 'HEAD',
   outputFile,
 }: GenerateOptions): RecentChangeEntry[] {
-  try {
-    runGit(repoRoot, ['cat-file', '-e', `${baseline}^{commit}`]);
-  } catch {
+  if (!hasCommit(repoRoot, baseline)) {
+    try {
+      recoverShallowHistory(repoRoot);
+    } catch {
+      // The actionable baseline error below is clearer than transport details.
+    }
+  }
+
+  if (!hasCommit(repoRoot, baseline)) {
     throw new Error(
       `Wiki recent changes baseline ${baseline} is unavailable. Fetch full Git history before building.`,
     );

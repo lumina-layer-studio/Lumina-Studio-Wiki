@@ -201,6 +201,45 @@ test('generates grouped bilingual recent changes from real Git history', async (
   );
 });
 
+test('recovers the required public history in a shallow deployment clone', async (t) => {
+  const source = await createFixtureRepository();
+  const cloneParent = await mkdtemp(
+    path.join(os.tmpdir(), 'lumina-wiki-shallow-parent-'),
+  );
+  const shallowRepo = path.join(cloneParent, 'wiki');
+  git(
+    cloneParent,
+    'clone',
+    '--quiet',
+    '--depth',
+    '1',
+    '--branch',
+    'main',
+    `file://${source.repoRoot}`,
+    shallowRepo,
+  );
+  t.after(() =>
+    Promise.all([
+      rm(source.repoRoot, {recursive: true, force: true}),
+      rm(cloneParent, {recursive: true, force: true}),
+    ]),
+  );
+
+  assert.throws(
+    () => git(shallowRepo, 'cat-file', '-e', `${source.baseline}^{commit}`),
+  );
+
+  const entries = generateRecentChanges({
+    repoRoot: shallowRepo,
+    baseline: source.baseline,
+  });
+
+  assert.equal(entries.length, 4);
+  assert.doesNotThrow(() =>
+    git(shallowRepo, 'cat-file', '-e', `${source.baseline}^{commit}`),
+  );
+});
+
 test('fails clearly when the configured history baseline is unavailable', async (t) => {
   const {repoRoot} = await createFixtureRepository();
   t.after(() => rm(repoRoot, {recursive: true, force: true}));
