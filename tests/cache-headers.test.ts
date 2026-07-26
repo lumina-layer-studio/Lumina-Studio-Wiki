@@ -19,3 +19,21 @@ test('revalidates HTML while keeping fingerprinted assets immutable', async () =
     2,
   );
 });
+
+test('redirects retired tutorials before a stale page can be served', async () => {
+  const redirects = await readFile(
+    new URL('../static/_redirects', import.meta.url),
+    {encoding: 'utf8'},
+  );
+
+  for (const locale of ['zh', 'en']) {
+    for (const slug of ['keychain-loop', 'transparent-coating']) {
+      assert.match(
+        redirects,
+        new RegExp(
+          `/${locale}/docs/tutorials/${slug}/ /${locale}/docs/tutorials/ 301`,
+        ),
+      );
+    }
+  }
+});
