@@ -47,6 +47,24 @@ the published summary remains human-reviewed and must link only to public pages.
 3. **Reuse the product release log — rejected.** Software releases and Wiki
    editorial changes have different audiences and publication rhythms.
 
+## Market pattern review
+
+- OrcaSlicer exposes the last editor, edit date, and revision history on each
+  GitHub Wiki page, while keeping software release notes as their own Wiki
+  section. This is useful for page-level traceability but does not provide a
+  reader-oriented feed of documentation improvements.
+- Prusa keeps its support knowledge base focused on finding articles and places
+  broader updates in a separate blog, newsletter, and firmware/download area.
+  This keeps product communication separate from reference documentation.
+- Snapmaker keeps its Wiki centered on product manuals and topic navigation
+  rather than publishing raw documentation commit activity.
+- Docusaurus itself combines page-level “last updated” metadata with a separate
+  dated blog and subscription feeds.
+
+The selected Lumina pattern combines the two useful layers: page-level update
+time for detailed traceability and a curated Wiki update feed for meaningful
+reader-facing changes. The feed must not become an automatic commit log.
+
 ## Validation
 
 - Build the Chinese and English locales.
