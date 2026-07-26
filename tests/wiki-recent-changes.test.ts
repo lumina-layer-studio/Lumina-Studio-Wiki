@@ -214,3 +214,25 @@ test('fails clearly when the configured history baseline is unavailable', async 
     /recent changes baseline.+unavailable/i,
   );
 });
+
+test('regenerates recent changes before local and production builds', async () => {
+  const packageJson = JSON.parse(
+    await readFile('package.json', 'utf8'),
+  ) as {scripts: Record<string, string>};
+  const gitignore = await readFile('.gitignore', 'utf8');
+  const workflow = await readFile('.github/workflows/validate.yml', 'utf8');
+
+  assert.match(
+    packageJson.scripts['generate:wiki-updates'] ?? '',
+    /generate-wiki-recent-changes/,
+  );
+  for (const lifecycle of ['prestart', 'prebuild', 'pretypecheck']) {
+    assert.match(
+      packageJson.scripts[lifecycle] ?? '',
+      /generate-wiki-recent-changes/,
+      lifecycle,
+    );
+  }
+  assert.match(gitignore, /src\/generated\/wikiRecentChanges\.ts/);
+  assert.match(workflow, /fetch-depth:\s*0/);
+});

@@ -8,13 +8,17 @@
   },
   "scripts": {
     "docusaurus": "docusaurus",
+    "generate:wiki-updates": "tsx scripts/generate-wiki-recent-changes.ts",
+    "prestart": "tsx scripts/generate-wiki-recent-changes.ts",
     "start": "docusaurus start",
+    "prebuild": "tsx scripts/generate-wiki-recent-changes.ts",
     "build": "docusaurus build",
     "postbuild": "cp static/_headers static/_redirects static/_routes.json build/",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "test": "tsx --test tests/**/*.test.ts",
     "write-translations": "docusaurus write-translations",
+    "pretypecheck": "tsx scripts/generate-wiki-recent-changes.ts",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
