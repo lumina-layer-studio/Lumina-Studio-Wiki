@@ -23,6 +23,10 @@
     "message": "Wiki Updates",
     "description": "Navbar item with label Wiki 动态"
   },
+  "item.label.Wiki 反馈": {
+    "message": "Wiki Feedback",
+    "description": "Navbar item with label Wiki 反馈"
+  },
   "item.label.支持项目": {
     "message": "Support",
     "description": "Navbar item with label 支持项目"

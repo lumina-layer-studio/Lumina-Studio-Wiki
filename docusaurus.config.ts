@@ -123,6 +123,12 @@ const config: Config = {
           position: 'left',
           label: 'Wiki 动态',
         },
+        {
+          type: 'doc',
+          docId: 'project/wiki-feedback/wiki-feedback',
+          position: 'left',
+          label: 'Wiki 反馈',
+        },
         {type: 'localeDropdown', position: 'right'},
         {
           type: 'dropdown',
