@@ -215,7 +215,7 @@ test('fails clearly when the configured history baseline is unavailable', async 
   );
 });
 
-test('regenerates recent changes before local and production builds', async () => {
+test('regenerates recent changes inside every Yarn entry command', async () => {
   const packageJson = JSON.parse(
     await readFile('package.json', 'utf8'),
   ) as {scripts: Record<string, string>};
@@ -226,10 +226,10 @@ test('regenerates recent changes before local and production builds', async () =
     packageJson.scripts['generate:wiki-updates'] ?? '',
     /generate-wiki-recent-changes/,
   );
-  for (const lifecycle of ['prestart', 'prebuild', 'pretypecheck']) {
+  for (const lifecycle of ['start', 'build', 'typecheck']) {
     assert.match(
       packageJson.scripts[lifecycle] ?? '',
-      /generate-wiki-recent-changes/,
+      /^tsx scripts\/generate-wiki-recent-changes\.ts && /,
       lifecycle,
     );
   }
