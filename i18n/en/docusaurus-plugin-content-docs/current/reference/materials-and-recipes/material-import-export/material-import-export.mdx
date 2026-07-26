@@ -1,0 +1,46 @@
+---
+id: reference-material-import-export
+title: "Material Import and Export"
+slug: "/reference/materials-and-recipes/material-import-export"
+description: "Back up, transfer, and restore complete Lumina material archives."
+sidebar_position: 2
+---
+
+# Material Import and Export
+
+The Material Library can export several archives into one ZIP and import them into another Lumina installation. The ZIP
+is a complete material package, not a screenshot or a list of display colours.
+
+<img
+  src={require('./assets/01-material-selection.webp').default}
+  alt="Selection, import, and export controls in the Material Library"
+/>
+
+## Export
+
+1. Select the materials to preserve, or use Select All.
+2. Select Export Selected.
+3. Save the generated `lumina_materials_<count>_<time>.zip`.
+
+One ZIP may contain several materials. Lumina writes an export manifest, a package manifest, each archive's
+`material.json`, fitted parameters, and the other public files needed by the archive. The download URL is temporary, so
+save the file promptly.
+
+## Import
+
+Import Material ZIP accepts several ZIP files in one selection. Before installation, the backend checks safe archive
+paths, manifests and material directories, UTF-8 JSON, Stage A solver parameters, and—when a versioned package manifest
+is present—file sizes and content hashes.
+
+If the requested directory already exists, Lumina creates another directory with a timestamp suffix instead of
+overwriting the existing archive. Newly imported materials are selected automatically for review.
+
+If any file in a multi-ZIP import fails, archives already written by that request are rolled back so the transfer does
+not stop half complete.
+
+Use this workflow before moving computers or servers, handing measured materials to a collaborator, restoring a NAS
+backup, or preserving a reproducible experiment set.
+
+After import, verify brand, directory, layer height, and run count in the
+[Material Library](../material-library/material-library.mdx) before using the archives for
+[Material Recipe Query](../material-recipe-query/material-recipe-query.mdx) or image conversion.

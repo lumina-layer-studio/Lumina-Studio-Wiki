@@ -1,0 +1,45 @@
+---
+id: reference-vectorizer-output-enhancement
+title: "描边、薄线与覆盖修复"
+slug: "/reference/vector-and-extraction/vectorizer-output-enhancement"
+description: "解释 SVG 描边、薄线检测和画布覆盖修复的作用与边界。"
+sidebar_position: 3
+---
+
+# 描边、薄线与覆盖修复
+
+“输出增强”用于减少相邻色块之间的细缝，并尽量保留原图中的细线结构。
+
+<img
+  src={require('./assets/01-output-enhancement.webp').default}
+  alt="图像转矢量的输出增强参数"
+/>
+
+## 启用描边
+
+开启后，每个 SVG 路径会同时输出描边。默认描边宽度为 `0.5`：
+
+- 增大宽度可让相邻路径稍微重叠，减少缩放或渲染时出现的白线；
+- 宽度过大时，描边会侵入相邻色块，细节也会变粗。
+
+范围为 `0–20`。关闭“启用描边”后，描边宽度控件隐藏，SVG 只保留填充路径。
+
+## 薄线检测半径
+
+范围为 `0.5–10 px`，默认 `2.5 px`。引擎使用距离变换识别半径不超过该值的狭长结构，并在矢量化时加强保留。
+
+数值过小可能遗漏细线；数值过大则会把更多狭窄区域当作薄线处理。它描述的是内部工作图像上的像素半径，不是打印后的毫米宽度。
+
+## 覆盖修复
+
+“启用覆盖修复”会在轮廓追踪完成后检查画布覆盖率。实际覆盖率低于“最小覆盖率”时，引擎会补齐未被路径覆盖的像素，减少色块之间的微小空隙。
+
+最小覆盖率范围为 `0–1`，默认 `0.998`。数值越接近 `1`，越容易触发补全。
+
+覆盖率只表示画布是否被 SVG 路径覆盖，不代表颜色或轮廓与原图的匹配精度。若边界形状本身不正确，应调整分割或曲线参数，而不是只提高覆盖率。
+
+相关页面：
+
+- [图像转矢量](../vectorizer-overview/vectorizer-overview.mdx)
+- [超像素分割与抗锯齿检测](../vectorizer-segmentation/vectorizer-segmentation.mdx)
+- [曲线拟合与区域过滤](../vectorizer-curve-and-filtering/vectorizer-curve-and-filtering.mdx)

@@ -1,0 +1,98 @@
+---
+id: reference-three-dimensional-viewer
+title: "3D Viewer, Screenshot, Performance, and Diagnostics"
+slug: "/reference/preview-and-palette/three-dimensional-viewer"
+description: "Use the 3D camera, Fullscreen and Screenshot, and interpret the Performance and Diagnostics panels."
+sidebar_position: 8
+---
+
+# 3D Viewer, Screenshot, Performance, and Diagnostics
+
+After Preview or Generate, the 3D Viewer places the model on the selected machine's build-plate
+grid. Use it to inspect orientation, outline, structural additions, and approximate scale. It is
+not a slicer toolpath Preview.
+
+:::note[Translation notice]
+This page is an **AI-assisted translation** of the Chinese reference. The camera, export,
+performance timing, and diagnostics behaviour were checked against a real English Preview.
+:::
+
+<img
+  src={require('./assets/viewer-main.webp').default}
+  alt="Real Lumina Studio English 3D Preview with build plate and viewer controls"
+/>
+
+## Camera interaction
+
+- hold and drag on the canvas to orbit around the model;
+- scroll the mouse wheel to move nearer or farther;
+- camera movement uses damping and stops smoothly;
+- selecting the canvas outside a model clears the active magnet when Fridge Magnet editing is on.
+
+The camera permits a large distance range. If the model appears extremely small, verify target and
+Preview dimensions rather than using magnification alone to decide whether a feature is printable.
+
+## Four bottom-right controls
+
+From left to right:
+
+1. **Performance;**
+2. **Diagnostics;**
+3. **Fullscreen;**
+4. **Screenshot.**
+
+Fullscreen appears only when the browser exposes the Fullscreen API. Exiting returns to the same
+workspace. Screenshot reads the current WebGL canvas and downloads
+`lumina-3d-screenshot-<timestamp>.png`. It is a picture of the 3D canvas, not a share card, and
+contains no recoverable recipe.
+
+## Performance
+
+<img
+  src={require('./assets/viewer-performance.webp').default}
+  alt="Lumina Studio Performance panel showing timing from a real Preview request"
+/>
+
+The panel uses timing fields from the latest Preview and Generate responses:
+
+| Field | Meaning |
+| --- | --- |
+| Total | total request-to-completion time for that stage |
+| Upload processing | time spent receiving and preparing the input |
+| Worker | backend worker computation |
+| Cache load | reading existing intermediate data |
+| Preview GLB | building the segmented model shown by the 3D Viewer |
+| Palette | preparing Preview colours and recipe information |
+| Overhead | Generate time outside the core worker calculation |
+
+A section appears only when the backend returned its timing data. Performance and Diagnostics are
+mutually exclusive; opening either closes the other.
+
+## Diagnostics
+
+<img
+  src={require('./assets/viewer-diagnostics.webp').default}
+  alt="Lumina Studio Diagnostics panel showing source, FPS, heap, triangles, calls, textures, and canvas"
+/>
+
+| Field | Meaning |
+| --- | --- |
+| Source | Preview GLB, generated model, batch Preview, or idle canvas |
+| FPS / frame time | actual browser refresh rate and estimated time per frame |
+| JS heap | used and total JavaScript heap when the browser exposes it |
+| Triangles | triangles submitted by the current renderer |
+| Calls | draw calls in the current frame |
+| Textures | textures held by the renderer |
+| Canvas | WebGL pixel dimensions and device pixel ratio |
+
+Use Diagnostics to separate slow backend generation from a model that has completed but renders
+slowly on the local browser. Low FPS with very high triangle or call counts can be improved by
+disabling unnecessary advanced 3D structures, reducing Preview complexity, and checking browser
+hardware acceleration. Diagnostics does not judge print quality and does not alter model settings.
+
+## Relationship to High-precision 3D color Preview
+
+**High-precision 3D color Preview** changes how surface colour is displayed. Performance and
+Diagnostics only observe the current 3D canvas. See
+[High-precision 3D Color Preview](../high-precision-3d-preview/high-precision-3d-preview.mdx)
+for colour-rendering behaviour and limits.

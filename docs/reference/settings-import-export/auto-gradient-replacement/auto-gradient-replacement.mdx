@@ -1,0 +1,39 @@
+---
+id: reference-auto-gradient-replacement
+title: "渐变自动换色"
+slug: "/reference/settings-import-export/auto-gradient-replacement"
+description: "预览后自动合并渐变条带颜色的规则、作用范围和手动替代方式。"
+sidebar_position: 5
+---
+
+# 渐变自动换色
+
+耗材档案把连续渐变匹配为有限耗材配方时，平滑区域可能被切成多条相近色带。“渐变自动换色”会在预览完成后识别
+这些色带组，并把同组颜色统一替换成该组覆盖像素最多的代表色。
+
+<img
+  src={require('./assets/01-auto-gradient.webp').default}
+  alt="系统设置中的渐变自动换色开关"
+/>
+
+## 处理顺序
+
+1. 正常完成图片处理和耗材颜色匹配；
+2. 分析预览中的渐变条带分组；
+3. 对每个分组选择像素数最多的颜色；
+4. 批量确认替换并刷新 2D、3D 预览。
+
+因此，渐变较多的图片在普通预览完成后还会多一次批量替换，最终画面可能稍晚出现。
+
+## 默认行为
+
+该选项默认关闭。关闭时会保留原始匹配结果，用户可在颜色工作站查看各个分组，再决定是否合并。手动操作与自动操作
+使用同一套分组和替换能力，并且可以继续撤销或微调。
+
+自动换色减少的是由有限配方造成的条带感，不等于提高颜色数量，也不会改动没有被识别为同一渐变组的区域。
+
+相关页面：
+
+- [颜色工作站](../../preview-and-palette/color-workstation/color-workstation.mdx)
+- [选择模式、调色板与自由色](../../preview-and-palette/selection-modes/selection-modes.mdx)
+- [耗材档案来源](../../converter-basic/material-archive-source/material-archive-source.mdx)

@@ -1,0 +1,39 @@
+---
+id: reference-keychain-loop
+title: "Keychain Loop parameters"
+slug: "/reference/model-features/keychain-loop"
+description: "Loop width, length, hole diameter, rotation and offsets, plus mutually exclusive modes."
+sidebar_position: 5
+---
+
+# Keychain Loop parameters
+
+The loop is real geometry in the final 3MF, not a preview marker. Its thickness follows the model's total layer stack and
+its material comes from the slot assigned during generation.
+
+<img
+  src={require('./assets/01-keychain-loop-settings.webp').default}
+  alt="Keychain Loop parameters in Lumina Studio"
+/>
+
+## Size
+
+| Parameter | Range | Effect |
+| --- | --- | --- |
+| Loop Width | 2–10 mm, 0.5 mm steps | Outer horizontal size |
+| Loop Length | 4–15 mm, 0.5 mm steps | Distance from the attachment end outward |
+| Loop Hole Diameter | 1–5 mm, 0.25 mm steps | Opening for a ring or lanyard |
+
+The hole must leave enough printable wall around it. A value being accepted by the interface does not guarantee that every
+nozzle, material, or connector can print it reliably.
+
+## Position
+
+- **Rotation Angle:** -180° to 180°; 0° points upward and positive values rotate clockwise.
+- **X Offset:** -200 to 200 mm; positive moves right.
+- **Y Offset:** -200 to 200 mm; positive moves up.
+
+Offsets are relative to the model centre. Excessive offsets detach the loop from the body.
+
+Puzzle or Fridge Magnet mode disables the loop. Regenerate the 3MF after every change, then verify that the loop is joined
+to the body and that the opening survives slicing.

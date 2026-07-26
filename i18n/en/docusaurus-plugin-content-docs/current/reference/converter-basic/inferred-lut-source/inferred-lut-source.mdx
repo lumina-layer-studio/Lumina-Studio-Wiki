@@ -1,0 +1,48 @@
+---
+id: reference-inferred-lut-source
+title: "Inferred LUT"
+slug: "/reference/converter-basic/inferred-lut-source"
+description: "Explains native brand packages, database selection, supported layer modes, and when model-assisted matching appears."
+sidebar_position: 4
+---
+
+# Inferred LUT
+
+Inferred LUT loads a brand package containing colour databases, supported layer modes, and an optional predictive model.
+Instead of choosing one fixed table, you first select a brand and then choose the databases and supported layer mode used for
+matching.
+
+<img
+  src={require('./assets/01-inferred-lut-source.webp').default}
+  alt="Brand, database, layer, and model-assisted controls for an Inferred LUT"
+/>
+
+## Brand and databases
+
+Only databases declared by the selected brand can be enabled. At least one database must remain selected before the source is
+ready for preview.
+
+Changing the brand clears the previous brand's database choices and applies the new package defaults. The old preview and 3MF
+are invalidated at the same time.
+
+## Layer Count
+
+The slider does not create an arbitrary layer mode. Lumina Studio searches the brand's `supported_modes`:
+
+- an exact layer-count and layer-height pair is used when available;
+- if several heights exist for the count, the nearest current height is chosen;
+- if the count is unsupported, the previous valid mode remains active.
+
+The Supported Modes line lists the actual “layers @ layer height” pairs used by generation.
+
+## Model-assisted matching
+
+Model-Assisted Matching and Model only appear only when the brand package contains a usable predictive model. The measured
+database remains the baseline, while the model can replace weak database matches when its result is clearly better. See
+[Model-Assisted Matching](../../color-matching/model-assisted-matching/model-assisted-matching.mdx) for the exact decision rule.
+
+## Related pages
+
+- [Source Type](../source-type/source-type.mdx)
+- [Legacy LUT](../legacy-lut-source/legacy-lut-source.mdx)
+- [Model-Assisted Matching](../../color-matching/model-assisted-matching/model-assisted-matching.mdx)

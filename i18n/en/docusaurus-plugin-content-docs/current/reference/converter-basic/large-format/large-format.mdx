@@ -1,0 +1,43 @@
+---
+id: reference-large-format
+title: "Large Format Mode"
+slug: "/reference/converter-basic/large-format"
+description: "Tiling, tile dimensions, edge-tile sizing, ZIP output, and SVG fallback behaviour."
+sidebar_position: 11
+---
+
+# Large Format Mode
+
+Large Format splits artwork that is too large or inconvenient for one build plate into separate 3MF tiles and packages
+them in a ZIP.
+
+<img
+  src={require('./assets/01-large-format.webp').default}
+  alt="Large Format Mode with Tile Width and Tile Height"
+/>
+
+## Finished size and tile size
+
+Enabling the mode raises the finished width and height limit from 400 mm to **9999 mm**. Tile Width and Tile Height range
+from **50–500 mm** in **10 mm** steps.
+
+The displayed grid is calculated as follows:
+
+- columns are the finished width divided by tile width, rounded up;
+- rows are the finished height divided by tile height, rounded up;
+- total tiles are rows multiplied by columns;
+- the last row and column keep only the physical remainder rather than receiving blank padding.
+
+The `columns × rows = total` summary is therefore the direct result of the current values. A size in parentheses identifies
+a smaller edge tile.
+
+## Output and slicing
+
+Generation downloads a ZIP instead of opening one 3MF. File names include the source name and tile position. Leave room
+inside the printer's usable bed area for skirts, purge regions, and machine boundaries.
+
+Native SVG is tiled as vector geometry when safe. Unsupported SVG structures fall back to bounded raster tiling and report
+a warning. Physical size remains unchanged, but very small details can differ.
+
+Puzzle and Fridge Magnet mode disable Large Format. Relief, Outline, and Transparent Coating can be tiled, but inspect the
+geometry along every tile boundary.

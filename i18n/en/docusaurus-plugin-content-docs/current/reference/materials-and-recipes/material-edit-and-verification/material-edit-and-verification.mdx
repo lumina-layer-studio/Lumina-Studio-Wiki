@@ -1,0 +1,55 @@
+---
+id: reference-material-edit-and-verification
+title: "Editing and Re-Verification"
+slug: "/reference/materials-and-recipes/material-edit-and-verification"
+description: "Edit display metadata, append verification runs, and inspect fit history."
+sidebar_position: 3
+---
+
+# Editing and Re-Verification
+
+The four actions on a material card change different parts of an archive.
+
+## Edit Details
+
+<img
+  src={require('./assets/01-edit-material.webp').default}
+  alt="Dialog for editing material name, brand, and display colour"
+/>
+
+Edit Details changes the display name, brand, and display colour. The colour accepts either the picker or `#RGB` /
+`#RRGGBB`.
+
+This colour overrides the estimated RGB shown in selectors; it does not refit E, k, or substrate parameters. The
+directory remains unchanged, so existing references survive a display-name edit.
+
+## Re-Verify
+
+Re-Verify opens Gradient Extractor with the current directory as the target. After extracting a new white/black image
+pair, choose:
+
+- **Merge Result** to retain history and jointly refit the valid old and new samples;
+- **Override** to discard old runs and replace the result;
+- **Cancel Re-Verification** to leave without writing the archive.
+
+Raw captures and ColorChecker-corrected images are separate source classes and cannot be merged directly. Capture with
+the same source type or intentionally override the old archive.
+
+## Verification History
+
+<img
+  src={require('./assets/02-verification-history.webp').default}
+  alt="Verification History dialog for a material archive"
+/>
+
+Each available run summary records estimated colour, mean ΔE, linear RMSE, detected white/black orientation, and E, k,
+white C0, and black C0 parameters. Merge diagnostics also identify accepted and excluded historical measurements.
+
+Use these fields to check repeatability, spot exposure or orientation problems, and decide whether a new measurement
+should be merged or should replace the archive.
+
+Delete Material removes only this local directory from the active server and cannot be undone. It does not delete a
+cloud revision or another machine's copy. Export it first through
+[Material Import and Export](../material-import-export/material-import-export.mdx) when a backup is required.
+
+See [Gradient Card Extraction](../gradient-card-extraction/gradient-card-extraction.mdx) for the complete capture flow.

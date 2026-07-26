@@ -1,0 +1,63 @@
+---
+id: reference-separate-backing
+title: "Separate Backing"
+slug: "/reference/model-features/separate-backing"
+description: "How Separate Backing changes the 3MF object structure, retains the selected backing material, and should be checked in a slicer."
+sidebar_position: 1
+---
+
+# Separate Backing
+
+**Separate Backing** controls whether the backing mesh is merged into the base-colour object or written as its own
+object in the final model. It changes the 3MF object structure. It does not automatically make the backing thicker and
+it does not create another filament slot by itself.
+
+The option is disabled by default.
+
+## Location
+
+Open **Converter → Core Settings → Advanced Settings**, then locate **Separate Backing**.
+
+<img
+  src={require('./assets/01-separate-backing-location.webp').default}
+  alt="Separate Backing in Lumina Studio Advanced Settings"
+/>
+
+## When disabled
+
+The backing is merged into the object that uses the selected backing material. A slicer normally presents it together
+with image geometry assigned to the same material, which keeps the object list simpler.
+
+## When enabled
+
+Lumina preserves a separate backing mesh:
+
+- raster and high-fidelity models use a separate object named `Backing`;
+- native vector models use a separate object named `Board`;
+- the object retains the selected backing-material metadata;
+- an independent object does not mean an additional material slot;
+- large-format generation applies the same rule to every valid tile.
+
+After importing the project into a slicer, verify that the backing object is present and mapped to the intended
+filament. Slicers group multi-object projects differently, so do not rely only on the colours shown on the build plate.
+
+## Preview and regeneration
+
+The normal 2D colour preview shows the colour-matching result and is not authoritative for backing separation. The
+regenerated 3MF and the slicer's object list are the source of truth.
+
+Changing this option requires a new model build. Lumina recipe cards store the setting.
+
+## Typical uses
+
+- Select, hide, or inspect the backing independently in a slicer.
+- Treat the backing as a separate part during post-processing.
+- Satisfy a printer or slicer workflow that manages backing and image objects separately.
+
+If the backing does not require independent handling, leaving the option off produces a simpler object list.
+
+## Related pages
+
+- [Base-colour Layer Height and Backing Thickness](../../../knowledge/base-color-layer-height/base-color-layer-height.mdx)
+- [Why Lumina Preview, Slicer Preview, and the Print Differ](../../../knowledge/preview-slicer-print-differences/preview-slicer-print-differences.mdx)
+- [Material Mapping in a Slicer](../../../tutorials/slicer-material-mapping/slicer-material-mapping.mdx)

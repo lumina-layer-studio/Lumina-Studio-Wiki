@@ -1,0 +1,45 @@
+---
+id: reference-model-assisted-matching
+title: "Model-Assisted Matching"
+slug: "/reference/color-matching/model-assisted-matching"
+description: "Explains database-first, model-fallback, and model-only behaviour for native predictive colour sources."
+sidebar_position: 6
+---
+
+# Model-Assisted Matching
+
+Model-Assisted Matching appears only for an Inferred LUT brand package with a usable predictive model. It is not an image
+recognition model and does not alter the source artwork; it predicts layer recipes for target colours.
+
+<img
+  src={require('./assets/01-model-assisted-matching.webp').default}
+  alt="Model-Assisted Matching and Model only controls"
+/>
+
+## Model-Assisted Matching
+
+Lumina Studio calculates both the nearest database candidate and the model candidate. The model replaces the database result
+only when both conditions hold:
+
+1. the database distance is above the model threshold; and
+2. model distance plus its safety margin is still lower than database distance.
+
+This is not an “all colours use the model” switch. Strong measured database matches remain unchanged.
+
+## Model only
+
+Model only skips the database baseline and uses the predictive result directly. It is useful for evaluating model coverage, but
+it is not guaranteed to outperform measured data. If no predictive runtime is available, these controls are not shown.
+
+## Threshold and margin
+
+The current UI does not expose threshold and margin fields. Empty values use the predictive runtime defaults stored in the brand
+package. The code accepts explicit non-negative overrides for configuration and reproduction.
+
+Changing either switch invalidates old output. Hold brand, databases, layer count, dimensions, and other colour controls constant
+when comparing previews.
+
+## Related pages
+
+- [Inferred LUT](../../converter-basic/inferred-lut-source/inferred-lut-source.mdx)
+- [Precise Color Matching](../precise-color-matching/precise-color-matching.mdx)

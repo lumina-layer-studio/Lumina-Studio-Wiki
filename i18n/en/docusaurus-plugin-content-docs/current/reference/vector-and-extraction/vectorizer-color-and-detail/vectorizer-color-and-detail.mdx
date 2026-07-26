@@ -1,0 +1,53 @@
+---
+id: reference-vectorizer-color-and-detail
+title: "Colors, Smoothness, and Detail"
+slug: "/reference/vector-and-extraction/vectorizer-color-and-detail"
+description: "How the basic vectorization controls affect the palette and contours."
+sidebar_position: 2
+---
+
+# Colors, Smoothness, and Detail
+
+The basic controls decide how many colors are retained and how the contours balance source fidelity against simpler paths.
+
+<img
+  src={require('./assets/01-basic-parameters.webp').default}
+  alt="Basic Image Vectorizer parameters"
+/>
+
+## Number of Colors
+
+**Auto** uses an internal value of `0`. The vectorizer determines a palette size from the image and reports the resolved count in the result summary.
+
+Switch to **Manual** to choose `2–256` colors. This value is the K-Means palette size used by color segmentation, not the number of SVG shapes:
+
+- Lower values consolidate similar colors into larger, more uniform regions.
+- Higher values retain more gradients and local color differences, but can create more fragments.
+
+For icons or pixel art with a known palette, the original color count is a useful starting point. Otherwise, Auto is a sensible first pass.
+
+## Smoothness
+
+The range is `0–1`, with a default of `0.5`. It controls contour decimation and smoothing:
+
+- Near `0`, more original turns and small details are retained, usually with more path nodes.
+- Near `1`, paths become smoother and simpler, but sharp corners and small irregularities may be weakened.
+
+Smoothness is not a color-noise filter. If the output contains many tiny color regions, also inspect [Preprocessing](../vectorizer-preprocessing/vectorizer-preprocessing.mdx) and [Region Filtering](../vectorizer-curve-and-filtering/vectorizer-curve-and-filtering.mdx).
+
+## Detail Level
+
+Detail Level is off by default, represented internally by `-1`. In this mode, each advanced parameter is used independently.
+
+When enabled, its range is `0–1` and it starts at `0.5`. It is a unified detail control that lets the vectorization engine coordinate several detail-related parameters:
+
+- Lower values favor simpler regions and paths.
+- Higher values favor retaining more edges and small structures.
+
+It does not change the palette size, and it does not rewrite the advanced values displayed in the UI. Turn it off when you need reproducible control over one specific stage.
+
+Related pages:
+
+- [Image Vectorizer](../vectorizer-overview/vectorizer-overview.mdx)
+- [Superpixel Segmentation and Antialiasing](../vectorizer-segmentation/vectorizer-segmentation.mdx)
+- [Curve Fitting and Region Filtering](../vectorizer-curve-and-filtering/vectorizer-curve-and-filtering.mdx)

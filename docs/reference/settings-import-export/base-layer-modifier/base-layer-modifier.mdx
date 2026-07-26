@@ -1,0 +1,41 @@
+---
+id: reference-base-layer-modifier
+title: "底板层高修改器"
+slug: "/reference/settings-import-export/base-layer-modifier"
+description: "底板层高修改器的写入方式、适用范围和自动跳过条件。"
+sidebar_position: 2
+---
+
+# 底板层高修改器
+
+“底板层高修改器”会在生成的 3MF 中写入分层配置，让纯底板区域使用较粗的层高打印，彩色图案仍保留原有的
+精细层高。它用于减少底板耗时，不会把整件作品都改成粗层高。
+
+<img
+  src={require('./assets/01-base-layer-modifier.webp').default}
+  alt="系统设置中的底板层高修改器开关"
+/>
+
+## 写入规则
+
+底板层高取喷嘴直径的一半：
+
+| 喷嘴 | 底板层高 |
+| --- | --- |
+| 0.2 mm | 0.1 mm |
+| 0.4 mm | 0.2 mm |
+
+Lumina Studio 将这段范围写入 3MF 的 `layer_config_ranges`。切片软件读取 3MF 后，可以在同一个对象里对底板和
+彩色区域使用不同层高。
+
+## 适用范围
+
+- 目前只在 Bambu 系切片器输出中启用，因此选择其他切片器时不会显示这个开关。
+- 双面模型需要从两面维持结构和颜色顺序，生成时会自动跳过该修改器。
+- 开关或喷嘴尺寸变化后，需要重新生成 3MF。
+
+该设置优化的是底板打印时间，不代表所有模型都应使用固定层高。底板结构、材料和实际打印质量仍应在切片预览中
+检查。
+
+关于首层厚度、彩色层与底板层的关系，参见
+[底色层层高为什么要匹配](../../../knowledge/base-color-layer-height/base-color-layer-height.mdx)。

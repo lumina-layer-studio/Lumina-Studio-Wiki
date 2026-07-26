@@ -1,0 +1,46 @@
+---
+id: reference-material-library
+title: "耗材库"
+slug: "/reference/materials-and-recipes/material-library"
+description: "查看和管理由梯度卡标定得到的本地耗材档案。"
+sidebar_position: 1
+---
+
+# 耗材库
+
+耗材库保存的是 Lumina 已经测量过的耗材档案。它们不仅包含用于界面显示的颜色，还包含叠层预测所需的拟合参数，因此不能用普通色号文件代替。
+
+<img
+  src={require('./assets/01-material-library.webp').default}
+  alt="按品牌展开的耗材库"
+/>
+
+## 品牌分组与同名耗材
+
+耗材按品牌折叠显示。没有品牌的档案归入“未分组”。点击品牌栏可展开或收起该组。
+
+“同名 N 份”表示品牌和显示名称相同，但磁盘目录或实测数据不同。Lumina 不会只凭名称把它们合并；目录名才是每份档案的稳定标识。
+
+云端安装且属于官方频道的档案带有“官方”标记。该标记表示来源，不代表它一定比你的实测档案更适合当前打印机和拍摄条件。
+
+## 卡片字段
+
+- **显示颜色**：梯度卡拟合出的估算 RGB；可以在编辑窗口中手动覆盖。
+- **创建时间 / 最近更新**：档案首次保存和最后写入的时间。
+- **品牌 / 目录名**：用于分组和唯一定位档案。
+- **拟合误差**：本次拟合的平均 ΔE。它是诊断指标，不是不同耗材之间的绝对排名。
+- **验证次数**：并入当前档案的有效测量次数。
+- **使用次数**：该档案被各颜色模式实际采用的次数；如有记录，还会显示最近使用时间。
+- **层高**：制作梯度卡并拟合此档案时使用的层高。叠层预测会使用这项标定条件。
+
+## 顶部操作
+
+“全选耗材”只改变当前选择；“刷新耗材库”重新读取后端档案，不会重新标定耗材。
+
+批量迁移与备份见[导入与导出耗材](../material-import-export/material-import-export.mdx)。单份档案的“编辑信息”“再次验证”“展开验证历史”和“删除耗材”见[编辑与复验耗材](../material-edit-and-verification/material-edit-and-verification.mdx)。
+
+相关页面：
+
+- [梯度卡生成](../gradient-card-generation/gradient-card-generation.mdx)
+- [梯度卡提取](../gradient-card-extraction/gradient-card-extraction.mdx)
+- [耗材配方查询](../material-recipe-query/material-recipe-query.mdx)

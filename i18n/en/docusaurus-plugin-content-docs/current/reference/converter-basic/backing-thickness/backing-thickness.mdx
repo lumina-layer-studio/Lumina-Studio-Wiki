@@ -1,0 +1,28 @@
+---
+id: reference-backing-thickness
+title: "Base-Plate Thickness"
+slug: "/reference/converter-basic/backing-thickness"
+description: "Explains the base-plate thickness range, 0.08 mm step, and its relationship to relief and fridge-magnet geometry."
+sidebar_position: 7
+---
+
+# Base-Plate Thickness
+
+Thickness controls the foundation below the colour layers. The default is **1.20 mm**.
+
+<img
+  src={require('./assets/01-backing-thickness.webp').default}
+  alt="Base-plate Thickness slider in Lumina Studio"
+/>
+
+The UI range is 0.24–3.44 mm in 0.08 mm steps; the generation schema accepts the safety range 0.20–3.50 mm. The UI step keeps
+the base aligned with a commonly used print-layer height.
+
+Base thickness does not include colour layers, relief height, or a transparent coating. Add those parts separately when estimating
+the finished height.
+
+Relief mode clamps its extra height against the minimum required by the current base and material layers. Fridge Magnet mode may
+also increase the effective spacer thickness to preserve wall thickness around a magnet pocket; disabling the feature restores
+the saved base thickness.
+
+Choose the value for the output size, attached features, material, and slicer result. Changing it invalidates the existing 3MF.

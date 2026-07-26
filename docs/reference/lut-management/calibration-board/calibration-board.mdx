@@ -1,0 +1,39 @@
+---
+id: reference-calibration-board
+title: "生成 LUT 校准板"
+slug: "/reference/lut-management/calibration-board"
+description: "LUT 校准板的颜色模式、色块尺寸、间距、底板和输出方式。"
+sidebar_position: 3
+---
+
+# 生成 LUT 校准板
+
+校准板把某个颜色模式的配方排列为可打印色块。打印并拍摄后，可以在 LUT 提取器中把实测颜色重新写成 LUT。
+
+<img
+  src={require('./assets/01-calibration-board.webp').default}
+  alt="LUT 校准板生成参数"
+/>
+
+## 参数
+
+- **颜色模式：** 决定配方集合和校准板页数，支持黑白、4 色、5 色扩展、6 色和 8 色模式。
+- **色块尺寸：** `3–10 mm`，步进 `0.5 mm`。较大色块更容易拍摄，板件也会更大。
+- **色块间距：** `0.4–2.0 mm`，步进 `0.01 mm`。间距用于分隔色块并保持定位边界。
+- **底板厚度：** `0.4–3.5 mm`，步进 `0.08 mm`。
+
+8 色模式会显示“全量导出”开关。5 色扩展和 8 色校准可能由多页组成，生成结果会以配置包提供，而不是假定一张
+校准板能容纳全部配方。
+
+## 生成结果
+
+生成成功后，右侧显示整板预览与逐层图。点击逐层缩略图可以放大检查每层分布。底部的切片器操作使用系统设置中的
+打印机、喷嘴和切片软件配置。
+
+校准板参数必须和后续提取时选择的颜色模式、页码相符。不要裁掉定位边界，也不要把不同模式的照片混在同一个
+提取会话中。
+
+下一步：
+
+- [LUT 提取流程](../lut-extractor/lut-extractor.mdx)
+- [照片校正与角点定位](../extractor-photo-correction/extractor-photo-correction.mdx)

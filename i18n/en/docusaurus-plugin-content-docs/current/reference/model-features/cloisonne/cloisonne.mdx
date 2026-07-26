@@ -1,0 +1,35 @@
+---
+id: reference-cloisonne
+title: "Cloisonné (in development)"
+slug: "/reference/model-features/cloisonne"
+description: "Current Cloisonné wire width, height, compatibility limits, and development status."
+sidebar_position: 8
+---
+
+# Cloisonné (in development)
+
+Cloisonné extracts a wireframe from matched-colour boundaries, creates a separate **Wire** object, and forces a Single-sided
+base. The feature is still marked as under construction and may be incomplete on complex artwork.
+
+<img
+  src={require('./assets/01-cloisonne-settings.webp').default}
+  alt="Cloisonné Settings with the in-development notice"
+/>
+
+## Parameters
+
+- **Wire Width:** 0.2–1.2 mm in 0.1 mm steps; controls horizontal wire thickness.
+- **Wire Height:** 0.04–1.0 mm in 0.04 mm steps; controls how far Wire rises above the colour regions.
+
+A narrow wire can fall below reliable nozzle line width. A wide wire can cover adjacent colours. Extra height increases
+texture but also raises clearance and surface-collision risks.
+
+## Current limits
+
+- Relief and Cloisonné are mutually exclusive.
+- The option is disabled in Vector modeling mode.
+- Wire uses a fixed gold preview colour for identification; actual print colour depends on slicer material assignment.
+- Every change requires a newly generated 3MF.
+
+Because the interface explicitly labels this feature as in development, validate the 3D preview, object list, sliced layers,
+and a small test piece before using it for a final print.

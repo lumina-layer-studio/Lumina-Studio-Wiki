@@ -1,0 +1,36 @@
+---
+id: reference-outline
+title: "Outline"
+slug: "/reference/model-features/outline"
+description: "How Lumina builds a separate outline from the model boundary and how width interacts with coating and alpha."
+sidebar_position: 3
+---
+
+# Outline
+
+Outline creates separate geometry outside the solid boundary of the artwork. It can strengthen a silhouette, frame an
+irregular model, or provide a more visible edge around an attachment.
+
+<img
+  src={require('./assets/01-outline-settings.webp').default}
+  alt="Outline Settings in Lumina Studio"
+/>
+
+## Outline Width
+
+The range is **0.5–10 mm** in **0.5 mm** steps. Width is the outward expansion from the original boundary, not a line
+diameter. Large values can close narrow notches and round small corners.
+
+The boundary comes from the current solid or vector geometry. Raster images with transparency normally use the alpha
+silhouette; SVG files use the parsed vector boundary. An empty usable boundary can produce no outline.
+
+## Interaction with other geometry
+
+- When Transparent Coating is enabled, the outline extends down across the coating thickness.
+- Outline and Separate Backing can coexist but appear as separate objects in the 3MF.
+- Any width change requires a newly generated 3MF.
+
+Inspect the outline object and sliced first layers, especially on artwork with semi-transparent background pixels.
+
+Related: [Transparent Coating](../transparent-coating/transparent-coating.mdx) and
+[Bitmap vs vector](../../../knowledge/bitmap-vs-vector/bitmap-vs-vector.mdx).

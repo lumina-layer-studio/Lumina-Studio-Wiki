@@ -1,0 +1,46 @@
+---
+id: reference-svg-raster-density
+title: "High-Fidelity SVG Sampling Density"
+slug: "/reference/settings-import-export/svg-raster-density"
+description: "SVG pixel sampling density, limits, and performance impact in High-Fidelity mode."
+sidebar_position: 4
+---
+
+# High-Fidelity SVG Sampling Density
+
+In High-Fidelity mode, an SVG is rasterised at its physical size before colour matching and modelling. Sampling density
+controls how many pixels are created for each millimetre.
+
+<img
+  src={require('./assets/01-svg-density.webp').default}
+  alt="High-Fidelity SVG sampling-density slider"
+/>
+
+## Range
+
+- Default: `10.0 px/mm`
+- Minimum: `2.0 px/mm`
+- Maximum: `50.0 px/mm`
+- Step: `0.1 px/mm`
+
+For example, a 100 mm-wide SVG is rasterised at about 1000 pixels wide with the default. A higher value preserves finer
+edges and small shapes, but increases processing time and memory use. A lower value reduces computation while making
+fine lines or small gaps more likely to look coarse.
+
+## When it applies
+
+The value is used only when:
+
+- the input is an SVG; and
+- Image Mode is set to High-Fidelity.
+
+Native Vector mode processes SVG geometry directly and does not read this value. PNG, JPG, and other raster images are
+also unaffected.
+
+Changing the density invalidates the previous preview and 3MF. Preview again to see the new raster density. Reset default
+returns to `10.0 px/mm`.
+
+Related pages:
+
+- [Image Mode](../../converter-basic/source-type/source-type.mdx)
+- [Raster and Vector Images](../../../knowledge/bitmap-vs-vector/bitmap-vs-vector.mdx)

@@ -1,0 +1,91 @@
+---
+id: reference-image-input-and-crop
+title: "Image Import, Batch Selection, Crop, and Rotation"
+slug: "/reference/converter-basic/image-input-and-crop"
+description: "Understand accepted artwork, single and batch input, share-card detection, crop ratios and coordinates, and persistent image rotation."
+sidebar_position: 1
+---
+
+# Image Import, Batch Selection, Crop, and Rotation
+
+The first Converter input determines the artwork used by Preview, colour matching, and model
+geometry. Select files through the picker or drop them onto the upload area. Once an image exists,
+the uploader collapses to one row and can be expanded again by selecting the filename area.
+
+:::note[Translation notice]
+This page is an **AI-assisted translation** of the Chinese reference. Accepted formats, share-card
+routing, crop behaviour, and image rotation were checked against the current English interface and
+source code.
+:::
+
+<img
+  src={require('./assets/01-upload-rotate.webp').default}
+  alt="Lumina Studio English Core Settings with image input, Crop after upload, and Image rotation"
+/>
+
+## Accepted artwork
+
+Converter accepts:
+
+- JPEG, PNG, SVG, and WebP;
+- HEIC and HEIF;
+- DNG, CR2, CR3, NEF, ARW, ORF, RW2, RAF, PEF, SRW, and generic RAW;
+- Lumina `.lumina.json` project files.
+
+RAW, HEIC, and HEIF depend on the backend's available decoder. When the current environment cannot
+decode the file, convert it to PNG or JPEG first. SVG follows vector-input handling and does not
+automatically open the bitmap crop dialog.
+
+## Single image, add more, and batch mode
+
+With one ordinary image, the uploader shows the current Preview and offers:
+
+- **Replace current image:** replace the image in the current task;
+- **Add more images:** append files and enter a batch task.
+
+Batch mode lists files and allows additions or individual removal. It renders up to 40 filenames
+directly and reports the remaining count. The single-image crop switch is not shown in batch mode;
+prepare each input's framing and orientation before adding it to the batch.
+
+When exactly one `.lumina.json` or Lumina recipe PNG is selected, the uploader routes it through
+project import before ordinary image handling. A PNG without valid embedded recipe data remains an
+ordinary image. See
+[Share Card and JSON: Export, Import, and Continue Editing](../../../knowledge/share-card-json/share-card-json.mdx).
+
+## Crop after upload
+
+When **Crop after upload** is enabled, selecting a new single bitmap opens the crop dialog. Turning
+the switch off affects future selections; it does not recover pixels already removed from the
+current image.
+
+<img
+  src={require('./assets/02-crop-dialog.webp').default}
+  alt="Lumina Studio crop dialog with free and fixed ratios, pixel coordinates, Use original, and Confirm crop"
+/>
+
+The dialog provides:
+
+- free ratio;
+- `1:1`, `4:3`, `3:2`, `16:9`, `9:16`, and `3:4`;
+- original and selected pixel dimensions;
+- pixel fields for `X`, `Y`, width, and height;
+- **Use original** and **Confirm crop**.
+
+Dragging the crop box and editing fields stay synchronised. The selection is constrained to the
+source image. Confirming replaces the current task's image, Preview, and aspect ratio with the
+cropped result. `Esc`, Close, or **Use original** does not submit the current crop.
+
+## Image rotation
+
+The selector offers `90°`, `180°`, and `270°`. Select an angle and then choose **Apply rotation**;
+changing only the selector does not alter the image.
+
+Applying rotation creates a new current image and updates its aspect ratio. Later 2D and 3D Preview,
+colour matching, share card, JSON, and 3MF use the rotated result. Repeated rotations operate on the
+current image rather than applying a temporary browser transform.
+
+## Check after changing the image
+
+Replace, crop, and rotate operations make the previous Preview stale. Run Preview again and check
+outline, orientation, transparency, layer images, and target dimensions. For a complete walkthrough,
+see [Upload, Crop, and Rotate an Image](../../../knowledge/image-upload-crop-rotate/image-upload-crop-rotate.mdx).

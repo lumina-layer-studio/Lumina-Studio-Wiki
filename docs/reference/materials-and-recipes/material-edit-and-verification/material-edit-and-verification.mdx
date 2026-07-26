@@ -1,0 +1,57 @@
+---
+id: reference-material-edit-and-verification
+title: "编辑与复验耗材"
+slug: "/reference/materials-and-recipes/material-edit-and-verification"
+description: "修改耗材显示信息、追加复验记录和查看拟合历史。"
+sidebar_position: 3
+---
+
+# 编辑与复验耗材
+
+耗材卡片上的四个操作分别处理显示信息、重新测量、历史诊断和删除。它们影响的内容不同。
+
+## 编辑信息
+
+<img
+  src={require('./assets/01-edit-material.webp').default}
+  alt="编辑耗材名称、品牌和显示颜色的窗口"
+/>
+
+“编辑信息”可以修改：
+
+- 显示名称；
+- 品牌；
+- 显示颜色，可用颜色选择器或 `#RGB` / `#RRGGBB` 输入。
+
+显示颜色只覆盖档案的估算 RGB，方便在材料选择器中辨认；它不会重新拟合 E、k 或基底参数。目录名保持不变，因此已有引用不会因改名失效。
+
+## 再次验证
+
+“再次验证”会切换到“梯度卡提取”，并把当前目录设为复验目标。完成一对白底、黑底照片的提取后，可以：
+
+- **合并结果**：保留历史记录，将本次有效样本与既有样本共同重拟合；
+- **覆盖结果**：丢弃原有验证记录，用本次结果替换；
+- **取消复验**：退出复验模式，不写入档案。
+
+原图与 ColorChecker 校正图属于不同图像来源，不能直接合并。若来源不一致，请改用相同来源重新拍摄，或明确选择覆盖。
+
+## 验证历史
+
+<img
+  src={require('./assets/02-verification-history.webp').default}
+  alt="耗材档案的验证历史窗口"
+/>
+
+每次可用的验证摘要包括估算颜色、平均 ΔE、线性 RMSE、白底和黑底方向，以及 E、k、白底 C0、黑底 C0 参数。合并诊断还会说明哪些历史测量被采用或排除。
+
+这些数据主要用于判断：
+
+- 相同耗材的多次拍摄是否一致；
+- 曝光、白平衡或方向识别是否出现偏差；
+- 新测量是否应当合并，还是应该覆盖旧档案。
+
+## 删除
+
+“删除耗材”只删除当前服务器上的这一份本地目录，且不可撤销。云端版本或另一台机器上的副本不会一并删除。需要保留时，先按[导入与导出耗材](../material-import-export/material-import-export.mdx)导出备份。
+
+复验的完整采集流程见[梯度卡提取](../gradient-card-extraction/gradient-card-extraction.mdx)。

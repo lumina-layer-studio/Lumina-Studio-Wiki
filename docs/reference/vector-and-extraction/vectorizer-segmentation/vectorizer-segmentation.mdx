@@ -1,0 +1,48 @@
+---
+id: reference-vectorizer-segmentation
+title: "超像素分割与抗锯齿检测"
+slug: "/reference/vector-and-extraction/vectorizer-segmentation"
+description: "解释 SLIC 区域大小、边缘敏感度、边界细化和抗锯齿容差。"
+sidebar_position: 5
+---
+
+# 超像素分割与抗锯齿检测
+
+多色矢量化先使用 SLIC 把图像划分为超像素，再根据颜色和边缘细化区域标签。这里的设置主要决定色块边界如何形成。
+
+<img
+  src={require('./assets/01-segmentation.webp').default}
+  alt="图像转矢量的超像素分割参数"
+/>
+
+## 超像素区域大小
+
+范围为 `5–100`，默认 `20`。它是 SLIC 的目标区域大小：
+
+- 小值产生更多、更小的超像素，可追踪较细的局部变化；
+- 大值产生更少、更大的超像素，处理更快，区域也更概括。
+
+它不是最终 SVG 色块的固定尺寸。后续颜色合并、边界细化和过滤仍会改变区域。
+
+## 边缘敏感度
+
+范围为 `0–1`，默认 `0.8`。它控制 SLIC 在检测到边缘时降低空间约束的程度：
+
+- 高值更积极地沿颜色边缘调整区域边界；
+- 低值更强调区域的空间规则性，边界通常更平滑。
+
+## 边界细化次数
+
+范围为 `0–20`，默认 `6`。每一轮都会根据周围标签重新细化区域边界。增加次数可以让边界更贴近图像，但也会延长处理时间；`0` 表示跳过这一步。
+
+## 抗锯齿检测
+
+开启后，引擎会识别位于两种颜色之间的混合边缘像素，避免把每一种抗锯齿过渡色都当成独立色块。它适合边缘平滑的插画、图标和文字；像素画需要保留逐像素阶梯时，通常应关闭。
+
+“抗锯齿容差”范围为 `1–50`，默认 `10`，单位为 LAB ΔE。数值越大，允许被识别为混合边缘的颜色差异越大。
+
+相关页面：
+
+- [颜色数量、平滑度与细节等级](../vectorizer-color-and-detail/vectorizer-color-and-detail.mdx)
+- [图像预处理](../vectorizer-preprocessing/vectorizer-preprocessing.mdx)
+- [曲线拟合与区域过滤](../vectorizer-curve-and-filtering/vectorizer-curve-and-filtering.mdx)

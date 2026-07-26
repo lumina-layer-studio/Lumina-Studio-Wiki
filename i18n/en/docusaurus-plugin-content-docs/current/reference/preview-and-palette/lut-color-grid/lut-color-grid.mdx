@@ -1,0 +1,49 @@
+---
+id: reference-lut-color-grid
+title: "LUT Colour Grid"
+slug: "/reference/preview-and-palette/lut-color-grid"
+description: "Available and recommended colours, search, hue filters, favourites, and card layout."
+sidebar_position: 4
+---
+
+# LUT Colour Grid
+
+After previewing with a traditional LUT, the right column loads every colour that LUT can produce. Colours used in the
+current image are separated from the remaining entries. Selecting a source colour adds twelve recommendations ordered by
+RGB distance.
+
+<img
+  src={require('./assets/01-lut-grid.webp').default}
+  alt="LUT grid with recommended replacements, colours used in the image, and other available colours"
+/>
+
+## Finding a colour
+
+The search field accepts:
+
+- HEX, such as `#8B5055` or `8b50`;
+- RGB, such as `139, 80, 85`;
+- hue filters for red, orange, yellow, green, cyan, blue, purple, and neutral colours.
+
+Used in Image comes from the active preview palette. Other Available contains the remaining entries from the same LUT.
+Recommendations are numerical neighbours, not a guarantee of the closest physical print under a particular light, build
+plate, or filament batch.
+
+## Favourites and display modes
+
+Double-click a swatch to favourite or unfavourite it. Favourites are stored locally and separately for each LUT.
+
+Compatible LUTs can switch between Swatch and Card views. Card view follows the physical page, row, column, and A/B labels
+recorded in the LUT. A LUT without card-layout metadata remains in Swatch view.
+
+## Confirming a replacement
+
+Clicking a target colour creates a pending source-to-target item:
+
+- Confirm Replace recalculates the 2D and 3D previews.
+- Cancel leaves the session unchanged.
+- A gradient-region source keeps its exact spatial mask instead of falling back to a whole-image HEX remap.
+- Multiple colours and regions are handled in one batch.
+
+Material archives have no fixed LUT grid and use
+[Achievable Material Colours](../material-achievable-colors/material-achievable-colors.mdx) instead.

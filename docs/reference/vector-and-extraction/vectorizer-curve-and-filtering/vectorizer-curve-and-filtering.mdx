@@ -1,0 +1,62 @@
+---
+id: reference-vectorizer-curve-and-filtering
+title: "曲线拟合与区域过滤"
+slug: "/reference/vector-and-extraction/vectorizer-curve-and-filtering"
+description: "解释贝塞尔拟合、轮廓简化以及小区域、轮廓和孔洞过滤。"
+sidebar_position: 6
+---
+
+# 曲线拟合与区域过滤
+
+颜色分割确定区域后，轮廓还要经过简化、贝塞尔拟合和 Potrace 追踪。过滤参数则决定哪些小区域、轮廓和孔洞会进入最终 SVG。
+
+## 曲线拟合
+
+<img
+  src={require('./assets/01-curve-fitting.webp').default}
+  alt="图像转矢量的曲线拟合参数"
+/>
+
+### 曲线拟合误差
+
+范围为 `0.1–5 px`，默认 `0.8 px`。它是 Schneider 贝塞尔曲线拟合允许的最大误差：
+
+- 小值让曲线更贴近原轮廓，但会产生更多控制点；
+- 大值减少控制点并使曲线更平滑，但可能削弱细节。
+
+### 轮廓简化强度
+
+范围为 `0–2`，默认 `0.45`。增大后会在拟合前减少轮廓点，生成更简洁的路径。它与曲线拟合误差都会影响路径复杂度，但前者作用于轮廓点，后者约束贝塞尔拟合误差。
+
+### 线段合并容差
+
+范围为 `0–0.5`，默认 `0.05`。它允许把控制点偏差足够小的近线性贝塞尔段合并。增大可减少接近直线的分段数量；过大时，轻微折线也可能被拉直。
+
+## 区域过滤
+
+<img
+  src={require('./assets/02-region-filtering.webp').default}
+  alt="图像转矢量的区域过滤参数"
+/>
+
+### 最小区域面积
+
+范围为 `0–1000 px²`，默认 `50 px²`。颜色分割得到的区域小于该值时，会尝试合并到相邻区域。
+
+“最大合并色差”限制这种合并，范围为 `0–500`，默认 `200`，单位是 LAB ΔE²。数值越大，颜色差异更大的小区域也可被并入邻区。
+
+### 最小轮廓面积
+
+范围为 `0–500 px²`，默认 `10 px²`。轮廓追踪后，小于该面积的独立形状会被丢弃。它晚于“最小区域面积”生效，因此两者用途不同。
+
+### 最小孔洞面积
+
+范围为 `0–100 px²`，默认 `4 px²`。区域内部小于该面积的孔洞会被填充；较大的孔洞继续保留为路径中的空白结构。
+
+遇到小碎片时，先判断它属于颜色分割产生的小区域、独立的小轮廓，还是区域内部的小孔洞，再调整对应参数。
+
+相关页面：
+
+- [图像转矢量](../vectorizer-overview/vectorizer-overview.mdx)
+- [描边、薄线与覆盖修复](../vectorizer-output-enhancement/vectorizer-output-enhancement.mdx)
+- [超像素分割与抗锯齿检测](../vectorizer-segmentation/vectorizer-segmentation.mdx)

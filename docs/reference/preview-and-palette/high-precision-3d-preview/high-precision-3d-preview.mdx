@@ -1,0 +1,59 @@
+---
+id: reference-high-precision-3d-preview
+title: "3D 高精度颜色预览"
+slug: "/reference/preview-and-palette/high-precision-3d-preview"
+description: "说明 3D 高精度颜色预览如何提高 GLB 颜色网格上限、与量化颜色数的关系，以及它不会改变哪些打印数据。"
+sidebar_position: 9
+---
+
+# 3D 高精度颜色预览
+
+“3D 高精度颜色预览”用于提高浏览器 3D 预览保留的颜色网格数量。它只改变预览 GLB 的分段上限，
+不会增加打印配方，也不会把原图中不存在的颜色加入最终模型。
+
+此项默认关闭。
+
+## 控件位置
+
+1. 进入“图像转换”。
+2. 打开“核心设置”中的“高级设置”。
+3. 找到“3D 高精度颜色预览”。
+
+<img
+  src={require('./assets/01-high-precision-3d-preview-location.webp').default}
+  alt="Lumina Studio 高级设置中的 3D 高精度颜色预览开关"
+/>
+
+## 默认预览上限
+
+普通 3D 预览最多保留 128 个颜色网格。颜色数超过上限时，软件会按像素出现频率保留主要颜色，
+并把低频颜色合并到颜色空间中最接近的高频颜色。这样可以控制浏览器需要渲染的网格数量。
+
+## 开启后的上限
+
+开启后，如果[量化颜色数](../../converter-basic/quantize-colors/quantize-colors.mdx)高于 128，
+3D 预览上限会提高到当前量化颜色数：
+
+| 当前量化颜色数 | 普通预览上限 | 开启高精度预览后 |
+| ---: | ---: | ---: |
+| 64 | 128 | 128，结果通常不变 |
+| 128 | 128 | 128 |
+| 256 | 128 | 256 |
+| 512 | 128 | 512 |
+
+像素建模模式会直接使用当前量化颜色数作为预览预算；在该模式下，此开关可能不会产生额外变化。
+
+## 性能影响
+
+颜色网格越多，GLB 文件越大，轮廓提取、网格生成、浏览器上传和 Three.js 渲染所需时间也越长。
+高量化颜色数与高精度 3D 预览同时开启时，显存和内存占用都会上升。
+
+此开关不改变 2D 颜色预览，也不改变 3MF 中的材料配方。判断最终打印结构时仍应以切片软件为准。
+
+切换后，已有 3D 预览和生成结果会失效，需要重新生成。该设置会随 Lumina 配方卡保存。
+
+## 相关页面
+
+- [量化颜色数](../../converter-basic/quantize-colors/quantize-colors.mdx)
+- [解锁量化颜色数](../../color-matching/unlock-quantize-ceiling/unlock-quantize-ceiling.mdx)
+- [切片预览、软件预览与实物为什么不同](../../../knowledge/preview-slicer-print-differences/preview-slicer-print-differences.mdx)

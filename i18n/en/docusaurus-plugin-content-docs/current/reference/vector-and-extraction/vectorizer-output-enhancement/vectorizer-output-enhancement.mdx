@@ -1,0 +1,45 @@
+---
+id: reference-vectorizer-output-enhancement
+title: "Stroke, Thin Lines, and Coverage Fix"
+slug: "/reference/vector-and-extraction/vectorizer-output-enhancement"
+description: "How SVG strokes, thin-line detection, and canvas coverage repair work."
+sidebar_position: 3
+---
+
+# Stroke, Thin Lines, and Coverage Fix
+
+Output Enhancement reduces tiny seams between adjacent color regions and helps preserve thin structures from the source image.
+
+<img
+  src={require('./assets/01-output-enhancement.webp').default}
+  alt="Image Vectorizer output enhancement controls"
+/>
+
+## Enable Stroke
+
+When enabled, each SVG path is emitted with a stroke as well as a fill. The default width is `0.5`:
+
+- Increasing the width slightly overlaps adjacent paths and can hide white seams during rendering or scaling.
+- Excessive width intrudes into neighboring colors and thickens fine details.
+
+The range is `0–20`. Turning **Enable Stroke** off hides Stroke Width and emits fill-only paths.
+
+## Thin Line Max Radius
+
+The range is `0.5–10 px`, with a default of `2.5 px`. The engine uses a distance transform to identify narrow structures at or below this radius and preserve them more aggressively.
+
+A value that is too small can miss thin lines. A value that is too large treats more narrow regions as line features. This is a radius in the internal working image, not a printed width in millimeters.
+
+## Coverage Fix
+
+When **Enable Coverage Fix** is on, the engine checks canvas coverage after contour tracing. If the measured coverage is below **Min Coverage Ratio**, it patches pixels not covered by any SVG path to reduce tiny gaps between regions.
+
+Min Coverage Ratio ranges from `0–1` and defaults to `0.998`. Values closer to `1` make the repair trigger more readily.
+
+Coverage only measures whether SVG paths cover the canvas. It is not a score for color or contour accuracy. If the boundary itself is wrong, adjust segmentation or curve parameters instead of only raising this threshold.
+
+Related pages:
+
+- [Image Vectorizer](../vectorizer-overview/vectorizer-overview.mdx)
+- [Superpixel Segmentation and Antialiasing](../vectorizer-segmentation/vectorizer-segmentation.mdx)
+- [Curve Fitting and Region Filtering](../vectorizer-curve-and-filtering/vectorizer-curve-and-filtering.mdx)

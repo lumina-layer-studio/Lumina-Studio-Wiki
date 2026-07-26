@@ -1,0 +1,46 @@
+---
+id: reference-vectorizer-preprocessing
+title: "Image Preprocessing"
+slug: "/reference/vector-and-extraction/vectorizer-preprocessing"
+description: "How Mean Shift smoothing and the working-pixel limit affect vectorization input."
+sidebar_position: 4
+---
+
+# Image Preprocessing
+
+Preprocessing happens before color segmentation. It first controls the internal working resolution, then applies Mean Shift smoothing to neighboring pixels.
+
+<img
+  src={require('./assets/01-preprocessing.webp').default}
+  alt="Image Vectorizer preprocessing controls"
+/>
+
+## Spatial Smoothing
+
+The range is `0–50`, with a default of `15`. This is the spatial window radius used by Mean Shift:
+
+- Larger values suppress noise across a wider neighborhood.
+- If set too high, nearby thin lines and small structures can be smoothed together.
+
+## Color Smoothing
+
+The range is `0–80`, with a default of `25`. It controls how different colors may be while still participating in the same Mean Shift aggregation:
+
+- Larger values consolidate similar colors and reduce fragments.
+- If set too high, nearby colors that should remain distinct can merge.
+
+Spatial radius answers “how far should the filter look?” while color radius answers “how similar must the colors be?” The two controls work together and are not interchangeable.
+
+## Max Working Pixels
+
+The UI range is `100,000–10,000,000`, with a default of `3,000,000`. If an input exceeds this total pixel count, the engine downsizes it before segmentation:
+
+- Lower limits reduce memory use and processing time.
+- Higher limits preserve more small detail at the cost of more computation.
+
+Images below the limit are not enlarged by this setting. The result summary still reports the source dimensions; this value controls the internal processing resolution.
+
+Related pages:
+
+- [Colors, Smoothness, and Detail](../vectorizer-color-and-detail/vectorizer-color-and-detail.mdx)
+- [Superpixel Segmentation and Antialiasing](../vectorizer-segmentation/vectorizer-segmentation.mdx)

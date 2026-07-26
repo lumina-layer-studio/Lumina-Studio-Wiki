@@ -1,0 +1,36 @@
+---
+id: reference-output-dimensions
+title: "Output Width and Height"
+slug: "/reference/converter-basic/output-dimensions"
+description: "Explains output dimensions, source-aspect locking, normal and large-format ranges, and resolution effects."
+sidebar_position: 6
+---
+
+# Output Width and Height
+
+Width and Height describe the printed XY size in millimetres. They are not the pixel dimensions of the uploaded image.
+
+<img
+  src={require('./assets/01-output-dimensions.webp').default}
+  alt="Output Width and Height sliders in Lumina Studio"
+/>
+
+## Aspect-ratio coupling
+
+After upload, Lumina Studio records the source aspect ratio. Changing Width recalculates Height; changing Height recalculates
+Width. The linked result is rounded to millimetres and clamped to the active range.
+
+Normal mode allows 10–400 mm. Large Format expands the upper limit to 9999 mm, but that does not mean one printer can produce
+the size in a single job. Check the build plate or use [Large Format](../../../knowledge/large-format/large-format.mdx).
+
+## What dimensions affect
+
+- final XY model size;
+- the processing grid used to sample the image;
+- the automatic Quantize Colors suggestion;
+- placement of loops, magnet pockets, outlines, and other attached geometry.
+
+High-Fidelity raster processing normally uses about 10 px/mm. Pixel Art uses nozzle width as its pixel scale. High-Fidelity SVG
+uses the SVG raster density in Settings. See [Modeling Mode](../modeling-mode/modeling-mode.mdx).
+
+Changing either dimension invalidates generated output. Regenerate the preview instead of enlarging an old browser image.

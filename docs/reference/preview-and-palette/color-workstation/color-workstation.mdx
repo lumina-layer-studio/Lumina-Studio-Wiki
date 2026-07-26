@@ -1,0 +1,40 @@
+---
+id: reference-color-workstation
+title: "颜色工作站"
+slug: "/reference/preview-and-palette/color-workstation"
+description: "颜色工作站的入口、三栏结构和预览会话关系。"
+sidebar_position: 1
+---
+
+# 颜色工作站
+
+完成一次预览后，进入“颜色调整”即可打开颜色工作站。这里不是另一套独立工程：左侧预览、中间调色板和
+右侧可用颜色都读取当前预览会话，替换结果也会回写到同一个会话。
+
+<img
+  src={require('./assets/01-workstation.webp').default}
+  alt="使用真实预览数据打开的颜色工作站"
+/>
+
+## 三个区域
+
+- **2D 预览：** 检查成品颜色，点击像素或连通区域作为修改目标；
+- **调色板：** 显示本次预览实际使用的颜色、占比、选择模式和编辑历史；
+- **目标颜色：** 传统 LUT 显示 LUT 色库，耗材档案显示当前耗材组合能够求解出的候选颜色。
+
+如果已经上传图片但还没有预览，打开工作站时会自动尝试预览。图片、颜色来源或必要参数不完整时，面板会
+保留空状态，而不会把上一会话的颜色误当作当前结果。
+
+## 编辑结果保存在哪里
+
+颜色替换首先更新当前预览及 3D 模型；“生成”再使用这些修改创建 3MF。关闭工作站或按 `Esc` 只是回到
+3D 查看器，不会自动撤销已确认的替换。更换图片、颜色来源或重新建立会话后，应重新检查调色板。
+
+继续阅读：
+
+- [2D 预览与悬停检查](../two-dimensional-preview/two-dimensional-preview.mdx)
+- [选择模式、调色板与自由色](../selection-modes/selection-modes.mdx)
+- [LUT 颜色网格](../lut-color-grid/lut-color-grid.mdx)
+- [耗材可达色](../material-achievable-colors/material-achievable-colors.mdx)
+- [自定义配方](../custom-recipes/custom-recipes.mdx)
+- [渐变分组与区域处理](../gradient-groups/gradient-groups.mdx)

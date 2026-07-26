@@ -1,0 +1,43 @@
+---
+id: reference-svg-raster-density
+title: "高保真 SVG 采样密度"
+slug: "/reference/settings-import-export/svg-raster-density"
+description: "SVG 在高保真模式中的像素采样密度、范围和性能影响。"
+sidebar_position: 4
+---
+
+# 高保真 SVG 采样密度
+
+SVG 在“高保真”模式中会先按实际尺寸转换为像素图，再进入颜色匹配和建模流程。采样密度决定每毫米使用多少像素。
+
+<img
+  src={require('./assets/01-svg-density.webp').default}
+  alt="高保真 SVG 采样密度滑块"
+/>
+
+## 数值范围
+
+- 默认：`10.0 px/mm`
+- 最低：`2.0 px/mm`
+- 最高：`50.0 px/mm`
+- 调整步进：`0.1 px/mm`
+
+例如，宽 100 mm 的 SVG 在默认值下会按约 1000 像素宽进行栅格化。提高数值可以保留更细的边缘和小图形，但也会
+增加图像处理时间与内存占用；降低数值则会减少计算量，同时可能让细线或小间隙变得粗糙。
+
+## 何时生效
+
+该设置只作用于：
+
+- 输入文件是 SVG；
+- 图片模式选择“高保真”。
+
+原生“矢量”模式直接处理 SVG 几何，不经过这一步，因此不读取该数值。普通 PNG、JPG 等位图也不受影响。
+
+修改采样密度后，先前生成的预览和 3MF 会失效；重新预览才能看到新密度对应的结果。“恢复默认”会返回
+`10.0 px/mm`。
+
+相关页面：
+
+- [图片处理模式](../../converter-basic/source-type/source-type.mdx)
+- [位图与矢量图的区别](../../../knowledge/bitmap-vs-vector/bitmap-vs-vector.mdx)

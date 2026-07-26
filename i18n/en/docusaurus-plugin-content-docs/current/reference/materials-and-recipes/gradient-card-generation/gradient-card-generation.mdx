@@ -1,0 +1,41 @@
+---
+id: reference-gradient-card-generation
+title: "Gradient Card Generation"
+slug: "/reference/materials-and-recipes/gradient-card-generation"
+description: "Generate printable gradient cards and the extraction configuration package."
+sidebar_position: 5
+---
+
+# Gradient Card Generation
+
+Gradient cards measure how one material transmits and absorbs colour at different stack thicknesses and over different
+substrates. This page creates both the printable model and the Kit ZIP required by extraction.
+
+<img
+  src={require('./assets/01-gradient-card-generation.webp').default}
+  alt="Gradient Card Generation page"
+/>
+
+Available layer heights are `0.04 mm`, `0.08 mm`, and `0.10 mm`. The selected value is written into the print jobs,
+extraction configuration, and resulting material archive. Do not change it after printing; extraction follows the Kit
+ZIP.
+
+Generate Configuration Package creates the printable 3MF, card layout and layer-order configuration, extraction
+parameters, and instructions. Download the ZIP promptly.
+
+Even when you obtain the identical 3MF from MakerWorld, extraction still requires the configuration package generated
+here.
+
+Print two cards for every material under test:
+
+1. one over a white substrate;
+2. one over a black substrate.
+
+Use the same test material, layer height, print profile, and orientation for both. The linked online model has the same
+geometry as the local model; the page also links to a parametric storage box.
+
+- [Lumina 2.0 trapezoid calibration card (0.08 mm layers)](https://makerworld.com.cn/zh/models/2394753-lumina2-0-ti-xing-xiao-se-se-qia-0-08ceng-gao-15ce#profileId-2721317)
+- [Parametric Lumina 2.0 gradient-card storage box](https://makerworld.com.cn/zh/models/2400920-can-shu-hua-lumina-2-0ti-du-se-qia-zi-ding-yi-shou#profileId-2729620)
+
+Continue with [Gradient Card Extraction](../gradient-card-extraction/gradient-card-extraction.mdx). Saved results appear
+in the [Material Library](../material-library/material-library.mdx).

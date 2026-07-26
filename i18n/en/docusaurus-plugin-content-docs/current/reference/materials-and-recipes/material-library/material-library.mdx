@@ -1,0 +1,50 @@
+---
+id: reference-material-library
+title: "Material Library"
+slug: "/reference/materials-and-recipes/material-library"
+description: "Inspect and manage locally calibrated material archives."
+sidebar_position: 1
+---
+
+# Material Library
+
+The Material Library stores materials measured by Lumina. An archive contains both a display colour and the fitted
+parameters used for layer-stack prediction, so an ordinary colour swatch cannot replace it.
+
+<img
+  src={require('./assets/01-material-library.webp').default}
+  alt="Material Library expanded by brand"
+/>
+
+## Brand groups and duplicate names
+
+Materials are collapsed by brand. Archives without a brand appear under Unassigned. Select a brand header to expand or
+collapse it.
+
+“N copies” means the brand and display name match while the directory or measured data differs. Lumina does not merge
+these entries by name; the directory name is the stable identity of each archive.
+
+An archive installed from the official cloud channel carries an Official badge. The badge identifies its origin; it does
+not guarantee that the archive is a better fit for your printer and capture conditions than your own measurements.
+
+## Card fields
+
+- **Display colour**: the estimated RGB from the gradient-card fit. It can be overridden in the edit dialog.
+- **Created / Last Updated**: the first and most recent archive write time.
+- **Brand / Directory**: grouping information and the archive's stable identifier.
+- **Fit Error**: mean ΔE for the fit. It is a diagnostic, not an absolute ranking across materials.
+- **Verification Runs**: valid measurements incorporated into the archive.
+- **Usage Count**: how often colour modes actually used this archive, plus the last-use time when recorded.
+- **Layer Height**: the calibration layer height used to produce and fit the gradient cards.
+
+Select All changes only the current selection. Refresh Library rereads backend storage without recalibrating anything.
+
+See [Material Import and Export](../material-import-export/material-import-export.mdx) for migration and backup. See
+[Editing and Re-Verification](../material-edit-and-verification/material-edit-and-verification.mdx) for Edit Details,
+Re-Verify, Verification History, and Delete Material.
+
+Related pages:
+
+- [Gradient Card Generation](../gradient-card-generation/gradient-card-generation.mdx)
+- [Gradient Card Extraction](../gradient-card-extraction/gradient-card-extraction.mdx)
+- [Material Recipe Query](../material-recipe-query/material-recipe-query.mdx)

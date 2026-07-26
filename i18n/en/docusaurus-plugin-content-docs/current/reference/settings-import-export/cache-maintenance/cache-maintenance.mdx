@@ -1,0 +1,40 @@
+---
+id: reference-cache-maintenance
+title: "Cache Management"
+slug: "/reference/settings-import-export/cache-maintenance"
+description: "Temporary files and session state removed by Clear Cache, and when to use it."
+sidebar_position: 6
+---
+
+# Cache Management
+
+Clear Cache removes temporary backend files, preview models, and conversion sessions. The result reports the number of
+files removed and the storage reclaimed.
+
+<img
+  src={require('./assets/01-cache.webp').default}
+  alt="Cache Management in System Settings"
+/>
+
+## What is cleared
+
+Lumina Studio clears:
+
+- temporary files owned by the file registry;
+- active backend conversion sessions and their temporary files;
+- runtime files inside the output `temp` and `models` directories;
+- cleanable 3MF, GLB, PNG, JPG, and TXT files at the top level of the output directory.
+
+Files explicitly marked as protected statistics or LUT data are retained. Material libraries, imported source LUTs, and
+application settings are not normal targets of this button.
+
+## After clearing
+
+Active preview sessions are removed, so existing preview or download links on the page may stop working. Upload or preview
+again, then generate a new download before continuing.
+
+Do not use Clear Cache as the first response to every error: it discards current temporary work. Use it to reclaim space
+after long sessions, reset known-bad session state, or follow a specific troubleshooting step.
+
+See [Web Generation and Download Troubleshooting](../../../knowledge/web-generation-troubleshooting/web-generation-troubleshooting.mdx)
+for the normal diagnosis order.

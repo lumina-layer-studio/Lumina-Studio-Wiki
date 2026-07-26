@@ -1,0 +1,45 @@
+---
+id: reference-lut-library
+title: "LUT Library"
+slug: "/reference/lut-management/lut-library"
+description: "Origin, search, import, and details entry points for local LUTs."
+sidebar_position: 1
+---
+
+# LUT Library
+
+LUT Library lists every traditional lookup table available to the active backend: bundled presets, user-imported files,
+and revisions installed from the cloud catalog.
+
+<img
+  src={require('./assets/01-lut-library.webp').default}
+  alt="Local LUT Library grouped by manufacturer"
+/>
+
+## Card fields
+
+Each card shows the LUT name, material type, colour mode, source kind, relative path, content fingerprint, and origin:
+Preset, Custom, or Cloud.
+
+The fingerprint identifies the file contents. LUTs with the same name but different data have different fingerprints.
+The displayed path is a public relative reference, not a machine-specific absolute path.
+
+## Search
+
+Search checks name, manufacturer, material, colour mode, source kind, path, and aliases. With multiple space-separated
+terms, every term must match at least one field.
+
+## Import
+
+Import LUT File accepts `.npy`, `.json`, `.npz`, and `.msgpack`. A successful upload appears in the Custom section after
+the catalog refreshes. Upload success does not guarantee complete metadata; open the LUT and verify its colour mode,
+palette, layer order, and base channel.
+
+Refresh Local Library rescans backend storage without re-downloading the cloud catalog. View Details carries the selected
+item directly to [LUT Details](../lut-details/lut-details.mdx).
+
+Related pages:
+
+- [Traditional LUT Source](../../converter-basic/legacy-lut-source/legacy-lut-source.mdx)
+- [Cloud LUT Library](../cloud-lut-library/cloud-lut-library.mdx)
+- [LUT Compare](../lut-compare/lut-compare.mdx)

@@ -1,0 +1,47 @@
+---
+id: reference-inferred-lut-source
+title: "反推 LUT"
+slug: "/reference/converter-basic/inferred-lut-source"
+description: "说明反推 LUT 的品牌包、数据库、受支持层数，以及模型辅助匹配何时出现。"
+sidebar_position: 4
+---
+
+# 反推 LUT
+
+“反推 LUT”读取一个品牌包中的颜色数据库、受支持层数组合和可选预测模型。它与传统 LUT 的区别在于：
+界面不会只选择一张固定查找表，而是先选品牌，再决定参与匹配的数据库和层数模式。
+
+<img
+  src={require('./assets/01-inferred-lut-source.webp').default}
+  alt="反推 LUT 的品牌、数据库、层数和模型辅助匹配控件"
+/>
+
+## 品牌与数据库
+
+选择品牌后，软件只保留该品牌声明的数据库。数据库复选框决定哪些实测或生成数据参与匹配；至少要
+保留一个数据库，来源才处于可预览状态。
+
+切换品牌时，旧品牌的数据库选择会被清除，并采用新品牌提供的默认数据库。旧预览和 3MF 同时失效。
+
+## 层数
+
+滑块并不是任意修改层数。软件会从品牌包的 `supported_modes` 中寻找相同层数：
+
+- 若该层数有当前层高，直接使用该组合；
+- 若有多个层高但没有完全相同项，选择最接近当前层高的一项；
+- 若品牌包不支持所选层数，保持上一项有效组合。
+
+页面下方的“支持模式”是实际可用的“层数 @ 层高”组合。生成时使用这里解析出的组合，不会凭空补出
+品牌包没有的数据。
+
+## 模型辅助匹配
+
+只有品牌包包含可用预测模型时，才会显示“模型辅助匹配”和“仅模型匹配”。普通颜色数据库仍是默认
+基线；模型可以在数据库距离较差且预测结果明显更好时接管候选。完整规则见
+[模型辅助匹配](../../color-matching/model-assisted-matching/model-assisted-matching.mdx)。
+
+## 相关页面
+
+- [来源类型](../source-type/source-type.mdx)
+- [传统 LUT](../legacy-lut-source/legacy-lut-source.mdx)
+- [模型辅助匹配](../../color-matching/model-assisted-matching/model-assisted-matching.mdx)

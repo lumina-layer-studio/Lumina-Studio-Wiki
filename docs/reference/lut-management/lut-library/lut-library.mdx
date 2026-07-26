@@ -1,0 +1,47 @@
+---
+id: reference-lut-library
+title: "LUT 库"
+slug: "/reference/lut-management/lut-library"
+description: "本地 LUT 的来源分类、搜索、导入和详情入口。"
+sidebar_position: 1
+---
+
+# LUT 库
+
+LUT 库列出当前后端可用的传统查色表，包括随软件提供的预设、用户导入的自定义文件和从云端安装的版本。
+
+<img
+  src={require('./assets/01-lut-library.webp').default}
+  alt="按制造商分组显示的本地 LUT 库"
+/>
+
+## 卡片信息
+
+每张卡片显示：
+
+- LUT 名称和材料类型；
+- 颜色模式；
+- 来源类型，例如传统查表；
+- 相对路径和内容指纹；
+- 来源标记：预设、自定义或云端。
+
+内容指纹用于识别实际文件版本；名称相同但内容不同的 LUT 会有不同指纹。相对路径是公开引用，不是本机绝对路径。
+
+## 搜索
+
+搜索会同时匹配名称、制造商、材料、颜色模式、来源类型、路径及别名。输入多个以空格分隔的词时，每个词都必须在
+其中一个字段中命中。
+
+## 导入 LUT
+
+“导入 LUT 文件”支持 `.npy`、`.json`、`.npz` 和 `.msgpack`。上传成功后，文件进入自定义 LUT 区并刷新目录。
+能被上传不代表元数据一定完整；请打开详情检查颜色模式、调色板、层顺序和基础通道。
+
+“刷新本地库”重新扫描后端目录，不会重新下载云端目录。“查看详情”会带着当前项目直接切换到
+[LUT 详情](../lut-details/lut-details.mdx)。
+
+相关页面：
+
+- [传统 LUT 颜色来源](../../converter-basic/legacy-lut-source/legacy-lut-source.mdx)
+- [云端 LUT 库](../cloud-lut-library/cloud-lut-library.mdx)
+- [LUT 对比](../lut-compare/lut-compare.mdx)
