@@ -22,5 +22,17 @@
   "item.label.Wiki 动态": {
     "message": "Wiki Updates",
     "description": "Navbar item with label Wiki 动态"
+  },
+  "item.label.支持项目": {
+    "message": "Support",
+    "description": "Navbar item with label 支持项目"
+  },
+  "item.label.中国大陆 · 爱发电": {
+    "message": "Mainland China · Afdian",
+    "description": "Navbar item with label 中国大陆 · 爱发电"
+  },
+  "item.label.海外 · Patreon": {
+    "message": "International · Patreon",
+    "description": "Navbar item with label 海外 · Patreon"
   }
 }
