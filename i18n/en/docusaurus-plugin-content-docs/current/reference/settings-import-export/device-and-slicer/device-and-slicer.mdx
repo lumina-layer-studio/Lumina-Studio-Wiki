@@ -1,12 +1,10 @@
 ---
-id: reference-device-and-slicer
 title: "Device and Slicer"
-slug: "/reference/settings-import-export/device-and-slicer"
 description: "How slicer, printer, nozzle, device profile, and manual slicer path settings work together."
 sidebar_position: 1
 ---
 
-:::info AI-assisted article
+:::info[AI-assisted article]
 
 This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
 
@@ -42,8 +40,7 @@ before storing it. A validated path takes priority when you choose to open a gen
 The manual path only selects the application used to open the file. It does not convert one slicer's output format into
 another, so the Slicer Software selection must still match that application.
 
-:::note
-The installed machine registry supplies the device list. Lumina Studio retries a temporarily empty list automatically.
+:::note[The installed machine registry supplies the device list. Lumina Studio retries a temporarily empty list automatically.]
 A persistent error usually means the backend has not started or the machine registry could not be loaded.
 :::
 

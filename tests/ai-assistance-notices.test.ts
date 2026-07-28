@@ -28,8 +28,8 @@ const knowledgeSlugs = [
 ] as const;
 
 const markers = {
-  zh: ':::info AI 辅助编写说明',
-  en: ':::info AI-assisted article',
+  zh: ':::info[AI 辅助编写说明]',
+  en: ':::info[AI-assisted article]',
 } as const;
 
 const localeRoots = {
@@ -93,7 +93,7 @@ test('does not mark embedded-video or older human-authored pages', async () => {
     if (/<iframe|<video/i.test(source)) {
       assert.doesNotMatch(
         source,
-        /:::info (AI 辅助编写说明|AI-assisted article)/,
+        /:::info\[(AI 辅助编写说明|AI-assisted article)\]/,
       );
     }
   }
@@ -111,7 +111,7 @@ test('does not mark embedded-video or older human-authored pages', async () => {
       const source = await readFile(file, 'utf8');
       assert.doesNotMatch(
         source,
-        /:::info (AI 辅助编写说明|AI-assisted article)/,
+        /:::info\[(AI 辅助编写说明|AI-assisted article)\]/,
       );
     }
   }

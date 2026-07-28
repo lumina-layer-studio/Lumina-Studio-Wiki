@@ -1,14 +1,12 @@
 ---
-id: tutorial-slicer-material-mapping
 title: "Open a Lumina 3MF in Your Slicer"
-slug: "/tutorials/3mf-slicer-material-mapping"
 description: "Open a Lumina 3MF as a complete project in Bambu Studio or OrcaSlicer, map objects to real filaments and slots, and inspect the sliced display surface before printing."
 sidebar_position: 19
 ---
 
 # Open a Lumina 3MF in Your Slicer: Objects, Colours, and AMS Slots
 
-> **AI translation notice:** This English tutorial was translated from the reviewed Chinese source with AI assistance. The annotation text was also localized with AI assistance. The underlying Bambu Studio screenshots are real and shared with the [Chinese tutorial](https://wiki.luminastudio.com.cn/zh/docs/tutorials/3mf-slicer-material-mapping/); some interface labels therefore remain in Simplified Chinese. If any wording is unclear, please check the Chinese source or leave a comment.
+> **AI translation notice:** This English tutorial was translated from the reviewed Chinese source with AI assistance. The annotation text was also localized with AI assistance. The underlying Bambu Studio screenshots are real and shared with the [Chinese tutorial](https://wiki.luminastudio.com.cn/zh/docs/tutorials/slicer-material-mapping/); some interface labels therefore remain in Simplified Chinese. If any wording is unclear, please check the Chinese source or leave a comment.
 
 After Lumina Studio finishes generating a project, the colour shown on the model is not the only thing that decides which spool prints each region. The slicer's project-filament list, every object's filament assignment, the physical spools loaded in the printer, and the AMS or external-spool positions must all correspond correctly.
 
@@ -27,8 +25,7 @@ Prepare the following:
 
 If someone else supplied the 3MF, first confirm which Lumina version, filament profiles, and generation settings they used. A detached STL normally cannot retain the complete relationship between objects and filaments.
 
-:::info
-This guide covers opening the 3MF, mapping filaments, and checking the sliced result. It does not provide one fixed layer height, line width, flow, or speed that every project must copy. Choose those settings for your own printer, nozzle, material, and required detail.
+:::info[This guide covers opening the 3MF, mapping filaments, and checking the sliced result. It does not provide one fixed layer height, line width, flow, or speed that every project must copy. Choose those settings for your own printer, nozzle, material, and required detail.]
 :::
 
 ## Step 1: Open the 3MF as a complete project
@@ -135,8 +132,7 @@ You can map the slots manually. You may also use the slicer's synchronisation fe
 
 This tutorial does not require you to select the synchronisation control, connect a printer, or send a print. Even after synchronising, check both relationships again: object to project filament, and project filament to physical slot.
 
-:::warning
-Do not move or replace spools simply to make the project-filament numbers look identical to the AMS slot numbers. Matching numbers are not the goal. Correct physical mapping is the goal.
+:::warning[Do not move or replace spools simply to make the project-filament numbers look identical to the AMS slot numbers. Matching numbers are not the goal. Correct physical mapping is the goal.]
 :::
 
 ## Step 7: Perform a real slice

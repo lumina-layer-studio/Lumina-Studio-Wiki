@@ -1,12 +1,10 @@
 ---
-id: reference-dark-chroma-gate
 title: "Dark Chroma Gate"
-slug: "/reference/dark-chroma-gate"
 description: "How the dependent Hue Protection threshold selects dark low-chroma candidates, what 0 means, and which matching paths read the value."
 sidebar_position: 2
 ---
 
-:::info AI-assisted article
+:::info[AI-assisted article]
 
 This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
 
@@ -45,9 +43,7 @@ Lumina converts the source colour to CIELAB/LCh:
 At the default gate of 15, a source pixel inside the dark-lightness range and with **C ≤ 15** can enter the dark
 protection branch. Pixels above the gate continue through normal hue-priority matching.
 
-:::note
-
-LCh chroma C is not the HSV or HSL saturation percentage shown by many image editors.
+:::note[LCh chroma C is not the HSV or HSL saturation percentage shown by many image editors.]
 
 :::
 

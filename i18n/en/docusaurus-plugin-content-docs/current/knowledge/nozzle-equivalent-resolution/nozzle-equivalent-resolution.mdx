@@ -1,12 +1,10 @@
 ---
-id: nozzle-equivalent-resolution
 title: "What Image Resolution Do 0.2 and 0.4 mm Nozzles Provide?"
-slug: "/knowledge/nozzle-equivalent-resolution"
 description: "Use line width, finished size, and a real 60 mm comparison to understand the equivalent resolution of flat color prints made with 0.2 and 0.4 mm nozzles."
 sidebar_position: 20
 ---
 
-:::info AI-assisted article
+:::info[AI-assisted article]
 
 This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
 
@@ -21,8 +19,7 @@ This is an “equivalent resolution.” It does not turn a 3D printer into a 60 
 width, so the slicer's line-width setting is the useful value for estimating
 flat-detail resolution.
 
-:::info
-In simple terms, a 0.2 mm nozzle can place almost twice as many lines into a
+:::info[In simple terms, a 0.2 mm nozzle can place almost twice as many lines into a]
 work of the same size. That gives small eyes, mouths, text, clothing details,
 and isolated color regions more room to remain separate.
 :::
@@ -81,8 +78,7 @@ the slicer may adjust local widths to suit the geometry. The numbers in this
 article are comparison values, not precision measurements of every extruded
 line.
 
-:::warning
-Do not assume that one pixel is exactly 0.2 mm just because the profile uses a
+:::warning[Do not assume that one pixel is exactly 0.2 mm just because the profile uses a]
 0.2 mm nozzle. Check the line width in your current process preset. If you have
 changed it, use your changed value in the calculation.
 :::
@@ -213,8 +209,7 @@ isolated color regions, decide whether preserving more of them is worth the
 additional print time of a 0.2 mm nozzle. Neither option is inherently better;
 they make different trade-offs between precision, efficiency, and appearance.
 
-:::info
-The most reliable method is to inspect the eyes, text, thin lines, and isolated
+:::info[The most reliable method is to inspect the eyes, text, thin lines, and isolated]
 color regions in the sliced preview. Then choose 0.2 or 0.4 mm according to your
 preference and the model's precision needs. If necessary, make a small test print
 before committing to the final piece.

@@ -1,7 +1,5 @@
 ---
-id: content-license
 title: "Content License and Intellectual Property"
-slug: "/project/content-license"
 description: "How Lumina Studio Wiki content may be reused, attributed, and distinguished from third-party material."
 sidebar_position: 14
 ---
@@ -87,8 +85,7 @@ If a credit is missing, a rights boundary is unclear, or you believe material
 was published without permission, contact Lumina Studio through a feedback
 channel listed on the Wiki and include the page URL and relevant rights details.
 
-:::note
-This page is a reader-friendly summary and does not replace the license text. If
+:::note[This page is a reader-friendly summary and does not replace the license text. If]
 this summary conflicts with the Creative Commons license, the license terms
 control.
 :::

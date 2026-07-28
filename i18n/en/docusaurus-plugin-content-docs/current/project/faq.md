@@ -1,7 +1,5 @@
 ---
-id: wikijs-11
 title: "Frequently Asked Questions"
-slug: "/faq"
 unlisted: true
 translation_status: pending
 ---

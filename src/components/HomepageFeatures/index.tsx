@@ -33,7 +33,6 @@ function FeatureCard({title, description, to}: FeatureCardProps): ReactNode {
 export default function HomepageFeatures(): ReactNode {
   const {i18n} = useDocusaurusContext();
   const base = i18n.currentLocale === 'en' ? '/en' : '/zh';
-  const isEnglish = i18n.currentLocale === 'en';
 
   const features: Feature[] = [
     {
@@ -46,9 +45,7 @@ export default function HomepageFeatures(): ReactNode {
           配置切片软件、打印机和喷嘴，完成首次准备。
         </Translate>
       ),
-      to: isEnglish
-        ? `${base}/docs/getting-started/device-setup/`
-        : `${base}/docs/使用教程2/首次使用-设备配置/`,
+      to: `${base}/docs/getting-started/device-setup/`,
     },
     {
       id: 'tutorials',
@@ -60,9 +57,7 @@ export default function HomepageFeatures(): ReactNode {
           按步骤完成色卡、切片与实际打印。
         </Translate>
       ),
-      to: isEnglish
-        ? `${base}/docs/tutorials/generate-and-print-gradient-cards/`
-        : `${base}/docs/使用教程2/生成并打印梯度色卡/`,
+      to: `${base}/docs/tutorials/gradient-card-generate-print/`,
     },
     {
       id: 'knowledge',
@@ -74,9 +69,7 @@ export default function HomepageFeatures(): ReactNode {
           了解耗材、TD/HEX、色彩校准与打印精度。
         </Translate>
       ),
-      to: isEnglish
-        ? `${base}/docs/td-and-hex-values/`
-        : `${base}/docs/TD值/`,
+      to: `${base}/docs/knowledge/td-hex-values/`,
     },
     {
       id: 'releases',
@@ -88,7 +81,7 @@ export default function HomepageFeatures(): ReactNode {
           查看公开版本历史和 2.0 开发月报。
         </Translate>
       ),
-      to: isEnglish ? `${base}/docs/changelog/` : `${base}/docs/更新日志/`,
+      to: `${base}/docs/releases/overview/`,
     },
   ];
 

@@ -1,12 +1,10 @@
 ---
-id: material-profile-selection
 title: "现成耗材档案、自制档案、反推 LUT 与传统 LUT 怎么选？"
-slug: "/knowledge/material-profile-selection"
 description: "分清耗材档案、反推 LUT 与传统 LUT，判断何时可以使用现成数据、何时应该为自己的线材重新制作档案。"
 sidebar_position: 23
 ---
 
-:::info AI 辅助编写说明
+:::info[AI 辅助编写说明]
 
 本文由 AI 在分析 Lumina Studio 当前源码、现有 Wiki 内容及相关操作流程后协助撰写，并已按当前版本进行基础核对。由于软件仍在持续更新，内容可能存在疏漏或与后续版本不一致。如发现不准确之处，或有更清晰的解释、案例与建议，欢迎在本页评论区反馈，或通过 GitHub 提交修订。
 
@@ -78,8 +76,8 @@ Lumina Studio 当前界面中的不同**来源类型**。这两组概念不要�
 - 你需要建立一套以后可以反复复用、可以追溯到真实线盘的材料库。
 
 制作流程请参考
-[生成并打印梯度色卡](pathname:///zh/docs/使用教程2/生成并打印梯度色卡/)和
-[拍摄并提取梯度卡：创建耗材档案](pathname:///zh/docs/使用教程2/拍摄并提取梯度卡/)。
+[生成并打印梯度色卡](pathname:///zh/docs/tutorials/gradient-card-generate-print/)和
+[拍摄并提取梯度卡：创建耗材档案](pathname:///zh/docs/tutorials/gradient-card-extract-profile/)。
 
 ## 反推 LUT：使用成组参考数据
 
@@ -140,7 +138,7 @@ PLA、PETG 等材料类型不仅影响切片温度，也可能改变透光和叠
 
 Lumina 里的档案名称、切片器里的项目耗材编号，以及机器上的真实槽位是三层不同信息。生成后还要
 按照真实线盘逐项映射，不能只看屏幕色块。完整检查方法见
-[把 Lumina 3MF 正确导入切片器](pathname:///zh/docs/tutorials/3mf-slicer-material-mapping/)。
+[把 Lumina 3MF 正确导入切片器](pathname:///zh/docs/tutorials/slicer-material-mapping/)。
 
 ## 用错档案时会出现什么？
 

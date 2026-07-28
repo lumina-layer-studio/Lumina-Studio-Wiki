@@ -1,13 +1,7 @@
 ---
-id: wikijs-11
 title: "常见问题Q&A"
-slug: "/常见问题QA"
 description: ""
 sidebar_position: 11
-wikijs_path: "常见问题QA"
-wikijs_author: "Evan76"
-wikijs_creator: "Evan76"
-wikijs_updated_at: "2026-05-16T07:49:27.824Z"
 ---
 # 常见问题Q&A
 1. **请问什么打印机可以使用Lumina？**

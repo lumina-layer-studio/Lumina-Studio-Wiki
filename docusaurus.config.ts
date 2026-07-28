@@ -1,8 +1,6 @@
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
-import {createLocalizedDocRedirects} from './src/data/localizedDocRedirects';
-
 const config: Config = {
   title: 'Lumina Studio Wiki',
   tagline: 'Lumina Studio 官方使用文档',
@@ -37,15 +35,6 @@ const config: Config = {
     format: 'detect',
     hooks: {onBrokenMarkdownLinks: 'throw'},
   },
-
-  plugins: [
-    [
-      '@docusaurus/plugin-client-redirects',
-      {
-        createRedirects: createLocalizedDocRedirects,
-      },
-    ],
-  ],
 
   presets: [
     [
@@ -113,8 +102,8 @@ const config: Config = {
           label: '文档',
         },
         {
-          type: 'doc',
-          docId: 'releases/wikijs-6',
+          type: 'docSidebar',
+          sidebarId: 'releasesSidebar',
           position: 'left',
           label: '更新日志',
         },
@@ -124,8 +113,8 @@ const config: Config = {
           label: 'Wiki 动态',
         },
         {
-          type: 'doc',
-          docId: 'project/wiki-feedback/wiki-feedback',
+          type: 'docSidebar',
+          sidebarId: 'feedbackSidebar',
           position: 'left',
           label: 'Wiki 反馈',
         },
@@ -155,9 +144,6 @@ const config: Config = {
     footer: {
       style: 'light',
       copyright: `© ${new Date().getFullYear()} Lumina Studio`,
-    },
-    docs: {
-      sidebar: {hideable: true, autoCollapseCategories: true},
     },
   } satisfies Preset.ThemeConfig,
 };

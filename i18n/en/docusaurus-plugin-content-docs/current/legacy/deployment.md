@@ -1,7 +1,5 @@
 ---
-id: wikijs-5
 title: "Installation and Deployment"
-slug: "/installation"
 unlisted: true
 translation_status: pending
 ---

@@ -1,19 +1,16 @@
 ---
-id: wikijs-10
 title: "Slicer Guide"
-slug: "/slicer-guide"
 description: "Restore the 0.08 mm gradient-card settings in Bambu Studio, check filament mapping, and prepare a top-facing color surface when needed."
 sidebar_position: 10
 ---
 
 # Slicer Guide
 
-> **AI translation notice:** This English tutorial was translated from the original Chinese tutorial with AI assistance. The screenshots are shared with the [Chinese tutorial](https://wiki.luminastudio.com.cn/zh/docs/切片教程) and show Bambu Studio in Simplified Chinese. The English setting names below follow Bambu Studio's official English interface.
+> **AI translation notice:** This English tutorial was translated from the original Chinese tutorial with AI assistance. The screenshots are shared with the [Chinese tutorial](https://wiki.luminastudio.com.cn/zh/docs/tutorials/slicer-guide) and show Bambu Studio in Simplified Chinese. The English setting names below follow Bambu Studio's official English interface.
 
 Recent Lumina Studio versions support multiple slicers and printer profiles, so a downloaded project can normally be opened directly in your slicer. Use this guide to restore the settings if a project opens without its original process parameters.
 
-:::info
-The values below are the source tutorial's gradient-card settings. Select the printer and nozzle you actually use, and inspect the sliced preview before printing.
+:::info[The values below are the source tutorial's gradient-card settings. Select the printer and nozzle you actually use, and inspect the sliced preview before printing.]
 :::
 
 ## Bambu Studio
@@ -40,8 +37,7 @@ Under **Quality**, set:
   alt="Set layer height, initial layer height, and initial-layer line width"
 />
 
-:::warning
-If you use a 0.2, 0.6, or 0.8 mm nozzle, keep both **Layer height** and **Initial layer height** at 0.08 mm. Adjust the line width for your nozzle diameter, and leave the other settings unchanged unless your printer or material requires otherwise.
+:::warning[If you use a 0.2, 0.6, or 0.8 mm nozzle, keep both Layer height and Initial layer height at 0.08 mm. Adjust the line width for your nozzle diameter, and leave the other settings unchanged unless your printer or material requires otherwise.]
 :::
 
 ### Step 3: Adjust elephant-foot compensation and the wall generator
@@ -61,8 +57,7 @@ Set **Initial layer flow ratio** to 1.1 as a starting value. You may tune this v
 
 Enable **Only one wall on first layer**.
 
-:::info
-If **Initial layer flow ratio** is not visible, open **Preferences** from the upper-left menu and enable **Developer Mode**.
+:::info[If Initial layer flow ratio is not visible, open Preferences from the upper-left menu and enable Developer Mode.]
 :::
 
 <img
@@ -125,8 +120,7 @@ This step is mainly for correcting object colors when the mapping is wrong. Firs
 
 If the objects below use the wrong colors, which is more common when a model is imported instead of opened as a project, select each object and assign the intended filament.
 
-:::info
-For four-color and six-color presets, check whether the selected mode is **CMYW** (cyan, magenta, yellow, and white) or **RYBW** (red, yellow, blue, and white).
+:::info[For four-color and six-color presets, check whether the selected mode is CMYW (cyan, magenta, yellow, and white) or RYBW (red, yellow, blue, and white).]
 
 The red and magenta modes reuse one object name, while the blue and cyan modes reuse another. For example, if you selected an RYBW preset but the generated object name says magenta, treat that object as red. Apply the same rule to blue and cyan, and verify the final assignments in the sliced preview.
 :::
@@ -173,8 +167,7 @@ Slice the model and inspect the top of the preview. The uppermost five layers sh
   alt="Verify that the top five layers are color layers in the sliced preview"
 />
 
-:::info
-For another model, calculate the modifier range from its actual backing thickness. For example, with a 1 mm backing, use a 0.2 mm initial layer and a 0–1 mm **Height range Modifier** with a 0.2 mm layer height. This preserves the five color layers above the backing.
+:::info[For another model, calculate the modifier range from its actual backing thickness. For example, with a 1 mm backing, use a 0.2 mm initial layer and a 0–1 mm Height range Modifier with a 0.2 mm layer height. This preserves the five color layers above the backing.]
 :::
 
 ## Other outline topics

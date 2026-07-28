@@ -1,5 +1,4 @@
 ---
-slug: interface-and-controls
 title: 界面与控件参考正式上线
 description: 69 篇中文与 69 篇英文控件参考已上线，并更新公开贡献说明。
 authors: [lumina-wiki]

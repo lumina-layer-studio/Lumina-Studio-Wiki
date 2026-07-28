@@ -1,5 +1,4 @@
 ---
-slug: interface-and-controls
 title: Interface and control reference is now live
 description: 69 Chinese and 69 English control references are now available, together with updated public contribution guidance.
 authors: [lumina-wiki]

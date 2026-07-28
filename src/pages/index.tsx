@@ -16,10 +16,7 @@ function localeBase(currentLocale: string): '/zh' | '/en' {
 function HomepageHeader(): ReactNode {
   const {i18n} = useDocusaurusContext();
   const base = localeBase(i18n.currentLocale);
-  const firstUsePath =
-    i18n.currentLocale === 'en'
-      ? `${base}/docs/getting-started/device-setup/`
-      : `${base}/docs/使用教程2/首次使用-设备配置/`;
+  const firstUsePath = `${base}/docs/getting-started/device-setup/`;
 
   return (
     <header className={styles.heroBanner}>
