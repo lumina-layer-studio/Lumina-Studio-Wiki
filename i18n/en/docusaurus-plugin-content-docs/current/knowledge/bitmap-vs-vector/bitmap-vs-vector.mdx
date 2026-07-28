@@ -1,12 +1,10 @@
 ---
-id: bitmap-vector-basics
 title: "Bitmap vs. Vector Images: What’s the Difference?"
-slug: "/knowledge/bitmap-vs-vector"
 description: "Use enlarged comparisons, common formats, and practical examples to understand bitmap and vector images and choose the right source for Lumina Studio."
 sidebar_position: 21
 ---
 
-:::info AI-assisted article
+:::info[AI-assisted article]
 
 This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
 
@@ -24,8 +22,7 @@ usually suit bitmap images. Logos, icons, text outlines, line art, and flat-colo
 graphics usually suit vector paths. The right choice depends on what the source
 actually contains, how you plan to edit it, and which details matter in the result.
 
-:::info
-A simple way to think about it: a bitmap is like graph paper with every square already
+:::info[A simple way to think about it: a bitmap is like graph paper with every square already]
 colored in. A vector image is more like a set of drawing instructions that says where
 to place points, how curves should run, and which areas should be filled.
 :::
@@ -106,8 +103,7 @@ required detail in the first place.
 - **Line art:** paths make it easier to adjust line width, nodes, and corners.
 - **Flat-color graphics:** clearly separated regions usually do not need a large pixel grid to describe their boundaries.
 
-:::note
-“Usually” does not mean “always.” A PNG logo can still be perfectly usable, and a
+:::note[“Usually” does not mean “always.” A PNG logo can still be perfectly usable, and a]
 vector illustration can be extremely complex. The goal is to preserve the strengths
 of your source, not to force every file into one format.
 :::
@@ -151,8 +147,7 @@ often look more natural as a bitmap. After tracing, zoom in and inspect edges, s
 text, closed regions, and the number of color areas rather than only checking whether
 an SVG was exported successfully.
 
-:::warning
-After a low-resolution image is traced into SVG, the canvas can scale indefinitely,
+:::warning[After a low-resolution image is traced into SVG, the canvas can scale indefinitely,]
 but any incorrectly traced outlines scale with it. A file being scalable does not mean
 the missing source detail has been restored.
 :::

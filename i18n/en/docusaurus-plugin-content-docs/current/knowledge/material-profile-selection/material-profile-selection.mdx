@@ -1,12 +1,10 @@
 ---
-id: material-profile-selection
 title: "Installed or Custom Material Archives, Inferred LUTs, or Legacy LUTs?"
-slug: "/knowledge/material-profile-selection"
 description: "Understand Material Archives, Inferred LUTs, and Legacy LUTs, and decide when installed data is suitable or when your own filament should be calibrated."
 sidebar_position: 23
 ---
 
-:::info AI-assisted article
+:::info[AI-assisted article]
 
 This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
 
@@ -89,9 +87,9 @@ Consider a custom archive when any of these apply:
 - you want a reusable, traceable material library tied to your real spools.
 
 Follow
-[Generate and Print Gradient Calibration Cards](pathname:///en/docs/tutorials/generate-and-print-gradient-cards/)
+[Generate and Print Gradient Calibration Cards](pathname:///en/docs/tutorials/gradient-card-generate-print/)
 and
-[Photograph and Extract Gradient Cards](pathname:///en/docs/tutorials/photograph-and-extract-gradient-cards/)
+[Photograph and Extract Gradient Cards](pathname:///en/docs/tutorials/gradient-card-extract-profile/)
 to create one.
 
 ## Inferred LUT: use a prepared reference group
@@ -164,7 +162,7 @@ Inferred LUTs and Legacy LUTs may only support their listed fixed combinations.
 The archive name in Lumina, the project-filament number in the slicer, and the
 physical machine slot are separate identities. After generation, map every project
 filament to the real spool it should use. Do not rely on colour swatches alone. See
-[Open a Lumina 3MF in Your Slicer](pathname:///en/docs/tutorials/3mf-slicer-material-mapping/)
+[Open a Lumina 3MF in Your Slicer](pathname:///en/docs/tutorials/slicer-material-mapping/)
 for the complete check.
 
 ## What happens when the wrong archive is used?

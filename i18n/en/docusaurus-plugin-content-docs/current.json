@@ -55,9 +55,9 @@
     "message": "Core Concepts",
     "description": "The label for category '基础知识' in sidebar 'docsSidebar'"
   },
-  "sidebar.docsSidebar.category.版本进展": {
+  "sidebar.releasesSidebar.category.版本进展": {
     "message": "Releases",
-    "description": "The label for category '版本进展' in sidebar 'docsSidebar'"
+    "description": "The label for category '版本进展' in sidebar 'releasesSidebar'"
   },
   "sidebar.docsSidebar.category.项目信息": {
     "message": "Project",

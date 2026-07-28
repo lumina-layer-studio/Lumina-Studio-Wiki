@@ -1,12 +1,10 @@
 ---
-id: material-recipe-query
 title: "组合耗材层、预测叠色并生成验证色块"
-slug: "/knowledge/material-recipe-query"
 description: "在 Lumina Studio 中按观赏面到基底的顺序组合耗材档案，比较叠层预测颜色，并把多组配方生成可打印的验证色块 3MF。"
 sidebar_position: 35
 ---
 
-:::info AI 辅助编写说明
+:::info[AI 辅助编写说明]
 
 本文由 AI 在分析 Lumina Studio 当前源码、现有 Wiki 内容及相关操作流程后协助撰写，并已按当前版本进行基础核对。由于软件仍在持续更新，内容可能存在疏漏或与后续版本不一致。如发现不准确之处，或有更清晰的解释、案例与建议，欢迎在本页评论区反馈，或通过 GitHub 提交修订。
 
@@ -25,7 +23,7 @@ sidebar_position: 35
 - 想比较多组候选叠层时，怎样一次生成并打印验证色块；
 - 图例中的行列编号，怎样与切片器和打印实物对应。
 
-:::info 先分清“查询”是什么意思
+:::info[先分清“查询”是什么意思]
 当前“配方查询”是**正向预测**：你先选择耗材及叠层顺序，软件再估算可见颜色。它不是
 “输入一个目标色，自动搜索最接近配方”的反向搜索器，也不会替你决定最终应该使用哪组耗材。
 :::
@@ -41,8 +39,8 @@ sidebar_position: 35
 5. 已准备好在切片器中重新核对项目耗材与真实线盘。
 
 如果还没有耗材档案，请先阅读
-[生成并打印梯度卡](pathname:///zh/docs/使用教程2/生成并打印梯度色卡/)和
-[拍摄并提取梯度卡](pathname:///zh/docs/使用教程2/拍摄并提取梯度卡/)。
+[生成并打印梯度卡](pathname:///zh/docs/tutorials/gradient-card-generate-print/)和
+[拍摄并提取梯度卡](pathname:///zh/docs/tutorials/gradient-card-extract-profile/)。
 已有档案但不知道怎样编辑、备份或复验时，请阅读
 [管理耗材档案](pathname:///zh/docs/knowledge/material-library-management/)。
 
@@ -75,7 +73,7 @@ sidebar_position: 35
 再选择每一显色层使用的层高。当前界面提供 **0.04 mm、0.08 mm 和 0.10 mm**。这里的层高
 会参与预测计算，也会写入生成的验证色块 3MF，因此应与后续切片计划一致。
 
-:::warning 不要在同一队列里混用层高
+:::warning[不要在同一队列里混用层高]
 如果先以 0.08 mm 计算并加入队列，再改成 0.04 mm 添加另一组，虽然页面仍可能允许继续，
 但这两组不适合放进同一块验证板比较。请清空队列，按同一层高分别生成。
 :::
@@ -157,7 +155,7 @@ sidebar_position: 35
 
 这个结果说明，不能只记录“使用了红、白、黑三卷料”。**层序本身就是配方的一部分**。
 
-:::warning 预测色不等于显示器或实物标准色
+:::warning[预测色不等于显示器或实物标准色]
 实际打印还会受到耗材批次、温度、流量、首层压实程度、喷嘴、打印板、观察光源、相机和
 显示器影响。页面中的色号适合筛选和比较，不应当作最终色彩验收值。
 :::
@@ -229,9 +227,9 @@ sidebar_position: 35
 7. 确认无误后，再按自己的设备流程打印。
 
 完整的切片器核对方法请阅读
-[把 Lumina 3MF 正确导入切片器](pathname:///zh/docs/tutorials/3mf-slicer-material-mapping/)。
+[把 Lumina 3MF 正确导入切片器](pathname:///zh/docs/tutorials/slicer-material-mapping/)。
 
-:::warning 不要直接发送打印
+:::warning[不要直接发送打印]
 生成成功只证明 3MF 已经创建，不证明真实料槽已经映射正确。项目耗材编号、实际线盘和
 AMS / 多料系统槽位是三件不同的事，必须在切片预览中逐项核对。
 :::

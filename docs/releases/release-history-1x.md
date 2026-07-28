@@ -1,7 +1,5 @@
 ---
-id: release-history-1x
 title: "1.x 公开版本历史"
-slug: "/更新日志/1.x-history"
 description: "Lumina Studio 1.0 至 1.6.4 的完整公开版本历史"
 sidebar_position: 29
 ---
@@ -10,7 +8,7 @@ sidebar_position: 29
 
 > 公开版本周期：2026 年 1 月 15 日—3 月 20 日
 
-[更新日志总览](/zh/docs/更新日志) · [2.0 开发月报：2026 年 3 月](/zh/docs/更新日志/2026-03)
+[更新日志总览](/zh/docs/releases/overview) · [2.0 开发月报：2026 年 3 月](/zh/docs/releases/2026-03)
 
 本页根据旧公开仓库的正式中英文 `CHANGELOG` 整理。为了便于阅读，保留每个公开版本的用户可见变化与重要修复，不展开纯代码整理。
 
@@ -137,4 +135,4 @@ sidebar_position: 29
 
 ---
 
-[返回更新日志总览](/zh/docs/更新日志)
+[返回更新日志总览](/zh/docs/releases/overview)

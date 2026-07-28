@@ -26,7 +26,7 @@ test('provides equivalent localized Wiki feedback pages', async () => {
     const source = await readFile(page.file, 'utf8');
 
     assert.match(source, new RegExp(`title: "${page.title}"`), page.file);
-    assert.match(source, /slug: "\/project\/wiki-feedback"/, page.file);
+    assert.doesNotMatch(source, /^(?:id|slug|wikijs_[^:]+):/m, page.file);
     assert.match(source, /sidebar_position: 15/, page.file);
     assert.equal(source.split(page.marker).length - 1, 1, page.file);
     assert.ok(source.includes(page.template), page.file);
@@ -49,7 +49,7 @@ test('links the localized feedback page from the navbar', async () => {
 
   assert.match(
     config,
-    /type:\s*'doc',[\s\S]*?docId:\s*'project\/wiki-feedback\/wiki-feedback',[\s\S]*?label:\s*'Wiki 反馈'/,
+    /type:\s*'docSidebar',[\s\S]*?sidebarId:\s*'feedbackSidebar',[\s\S]*?label:\s*'Wiki 反馈'/,
   );
   assert.equal(
     englishNavbar['item.label.Wiki 反馈']?.message,

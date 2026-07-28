@@ -1,7 +1,5 @@
 ---
-id: release-history-1x
 title: "1.x Public Release History"
-slug: "/changelog/1.x-history"
 description: "Complete public release history for Lumina Studio 1.0 through 1.6.4"
 sidebar_position: 29
 ---
@@ -10,7 +8,7 @@ sidebar_position: 29
 
 > Public release period: January 15–March 20, 2026
 
-[Changelog overview](/en/docs/changelog) · [2.0 development report: March 2026](/en/docs/changelog/2026-03)
+[Changelog overview](/en/docs/releases/overview) · [2.0 development report: March 2026](/en/docs/releases/2026-03)
 
 This page is based on the official Chinese and English changelogs from the former public repository. It preserves user-visible changes and important fixes for every public version while omitting purely internal code cleanup.
 
@@ -137,4 +135,4 @@ Thanks to `@sandboxdream` for the UI, settings-reliability, and maintenance cont
 
 ---
 
-[Back to the changelog overview](/en/docs/changelog)
+[Back to the changelog overview](/en/docs/releases/overview)

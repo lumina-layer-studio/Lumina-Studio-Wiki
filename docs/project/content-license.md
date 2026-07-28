@@ -1,7 +1,5 @@
 ---
-id: content-license
 title: "内容许可与知识产权"
-slug: "/project/content-license"
 description: "了解 Lumina Studio Wiki 内容的使用许可、署名方式和第三方素材边界。"
 sidebar_position: 14
 ---
@@ -71,7 +69,6 @@ CC BY-NC-SA 4.0 用于本 Wiki 的原创公开内容，不是 Lumina Studio 软�
 如发现署名遗漏、权利边界不清或疑似未经授权的内容，请通过 Wiki 公示的反馈渠道
 联系 Lumina Studio，并附上页面链接和相关权利说明。
 
-:::note
-本页是便于阅读的说明，不替代许可协议正文。如果本说明与 Creative Commons 许可
+:::note[本页是便于阅读的说明，不替代许可协议正文。如果本说明与 Creative Commons 许可]
 协议存在冲突，以许可协议条款为准。
 :::

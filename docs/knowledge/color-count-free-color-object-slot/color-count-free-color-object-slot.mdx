@@ -1,12 +1,10 @@
 ---
-id: color-count-free-color-object-slot
 title: "颜色数、自由色、对象与料槽有什么区别？"
-slug: "/knowledge/color-count-free-color-object-slot"
 description: "分清原图颜色、量化色、匹配色、叠色层、自由色、3MF 对象、项目耗材和真实料槽，避免用一个数字猜完整打印流程。"
 sidebar_position: 28
 ---
 
-:::info AI 辅助编写说明
+:::info[AI 辅助编写说明]
 
 本文由 AI 在分析 Lumina Studio 当前源码、现有 Wiki 内容及相关操作流程后协助撰写，并已按当前版本进行基础核对。由于软件仍在持续更新，内容可能存在疏漏或与后续版本不一致。如发现不准确之处，或有更清晰的解释、案例与建议，欢迎在本页评论区反馈，或通过 GitHub 提交修订。
 
@@ -122,8 +120,7 @@ sidebar_position: 28
 标记或清除自由色后，旧的 3MF 下载结果会失效，需要重新生成。生成后必须在切片器里找到对应独立
 对象，确认它被分配给正确的项目耗材，再把项目耗材映射到真实线盘和实际料槽。
 
-:::warning
-自由色对象用于提供独立分配入口，不是“看到什么 HEX 就一定能打印出什么颜色”的承诺。最终颜色仍由
+:::warning[自由色对象用于提供独立分配入口，不是“看到什么 HEX 就一定能打印出什么颜色”的承诺。最终颜色仍由]
 真实线材、材料预设、首层、板面和观察光线决定。
 :::
 
@@ -161,7 +158,7 @@ sidebar_position: 28
 4. 执行真实切片，并翻到显色面逐层检查。
 
 项目耗材 3 可以映射到实际 AMS 1。编号相同不是目标，真实对应正确才是目标。完整操作步骤请看
-[把 Lumina 3MF 正确导入切片器](pathname:///zh/docs/tutorials/3mf-slicer-material-mapping/)。
+[把 Lumina 3MF 正确导入切片器](pathname:///zh/docs/tutorials/slicer-material-mapping/)。
 
 ## 想改变结果时，应该改哪一个数字？
 
@@ -233,7 +230,7 @@ sidebar_position: 28
 
 - [高保真、像素艺术与矢量模式怎么选？](pathname:///zh/docs/knowledge/image-mode-selection/)；
 - [Lumina 2.0 怎样选择和保管耗材？](pathname:///zh/docs/knowledge/filament-selection-and-storage/)；
-- [把 Lumina 3MF 正确导入切片器](pathname:///zh/docs/tutorials/3mf-slicer-material-mapping/)；
+- [把 Lumina 3MF 正确导入切片器](pathname:///zh/docs/tutorials/slicer-material-mapping/)；
 - [为什么 Lumina 预览、切片器预览和打印实物不一样？](pathname:///zh/docs/knowledge/preview-slicer-print-differences/)。
 
 ## 内容许可

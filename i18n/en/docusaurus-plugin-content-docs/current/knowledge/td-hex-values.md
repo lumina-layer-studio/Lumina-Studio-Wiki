@@ -1,7 +1,5 @@
 ---
-id: wikijs-14
 title: "Shared TD and HEX Values"
-slug: "/td-and-hex-values"
 unlisted: true
 translation_status: pending
 ---

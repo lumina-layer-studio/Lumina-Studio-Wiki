@@ -1,12 +1,10 @@
 ---
-id: slicer-path-and-open-troubleshooting
 title: "切片器没检测到，或者 3MF 打不开怎么办？"
-slug: "/knowledge/slicer-path-and-open-troubleshooting"
 description: "分清 Lumina 生成失败、3MF 下载失败、切片软件自动启动失败与项目导入不完整，并在 macOS 中正确设置手动切片软件路径。"
 sidebar_position: 36
 ---
 
-:::info AI 辅助编写说明
+:::info[AI 辅助编写说明]
 
 本文由 AI 在分析 Lumina Studio 当前源码、现有 Wiki 内容及相关操作流程后协助撰写，并已按当前版本进行基础核对。由于软件仍在持续更新，内容可能存在疏漏或与后续版本不一致。如发现不准确之处，或有更清晰的解释、案例与建议，欢迎在本页评论区反馈，或通过 GitHub 提交修订。
 
@@ -28,7 +26,7 @@ sidebar_position: 36
   alt="从 Lumina 生成、3MF 下载、手动打开和项目完整性四层判断打不开问题"
 />
 
-:::tip 最快的判断
+:::tip[最快的判断]
 先在 Lumina 中下载 3MF，再从切片软件的“文件 → 打开项目”手动打开。若手动可以正常打开，
 文件通常没有损坏，问题多半在自动检测、系统权限或应用路径；若手动也打不开，再检查导出格式、
 文件完整性和切片软件版本。
@@ -48,7 +46,7 @@ BambuStudio 时，优先用 Bambu Studio 打开；选择 OrcaSlicer 时，优先
 如果更换了切片软件、打印机或喷嘴，应回到生成页面重新生成 3MF。旧文件不会因为设置已经
 修改而自动重写。
 
-:::warning 软件显示名和导出格式不是一回事
+:::warning[软件显示名和导出格式不是一回事]
 电脑同时安装多款切片器时，不能只因为另一款软件也能拖入 3MF，就忽略 Lumina 里选择的
 导出格式。某款软件能打开文件，不代表它一定能完整理解另一种切片器的机器预设和项目参数。
 :::
@@ -128,7 +126,7 @@ Lumina 会扫描当前电脑上常见位置中的受支持切片软件。生成�
 
 保存成功后，Lumina 会优先使用这条路径打开 3MF。想恢复自动检测时，点击“清除”。
 
-:::info Windows 用户
+:::info[Windows 用户]
 当前手动 .app 路径只适用于 macOS。Windows 主要通过系统安装信息自动检测。检测不到时，
 先使用安装程序正常安装切片器并手动启动一次；仍无法识别时，直接下载 3MF，在切片器中
 选择“打开项目”。不要把 Windows 的 exe 路径填入 .app 输入框。
@@ -212,7 +210,7 @@ Lumina 页面中的生成结果。
 - 切片预览中显色面、底板和每一层是否正确。
 
 完整步骤请阅读
-[把 Lumina 3MF 正确导入切片器](pathname:///zh/docs/tutorials/3mf-slicer-material-mapping/)。
+[把 Lumina 3MF 正确导入切片器](pathname:///zh/docs/tutorials/slicer-material-mapping/)。
 
 如果页面预览正常、切片器或打印实物却不一致，请继续阅读
 [为什么 Lumina 预览、切片器预览和打印实物不一样？](pathname:///zh/docs/knowledge/preview-slicer-print-differences/)。
