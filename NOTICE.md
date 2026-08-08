@@ -16,3 +16,11 @@ software interfaces, logos, trademarks, model designs, characters, photographs,
 videos, embedded content, or contributor material carrying a separate notice.
 Those items remain subject to their own terms and the rights of their respective
 owners.
+
+## Meow Comment
+
+The feedback form uses `meow-comment-ui` from
+<https://github.com/Neko-vecter/meow-comment>, pinned to commit
+`51e253d38f35d0279cff61c71a5c40b0e35aed4c`. The vendored distribution is
+used under the MIT License; its license text is included in
+`vendor/meow-comment-ui/LICENSE`.

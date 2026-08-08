@@ -9,7 +9,7 @@ const pages = [
     title: 'Wiki 反馈与建议',
     marker: ':::info[AI 辅助编写说明]',
     template: '受影响的页面：',
-    commentPrompt: '请直接在本页底部的评论区留言',
+    commentPrompt: '请直接使用本页底部的反馈表单',
   },
   {
     locale: 'en',
@@ -17,7 +17,7 @@ const pages = [
     title: 'Wiki Feedback and Suggestions',
     marker: ':::info[AI-assisted article]',
     template: 'Affected page:',
-    commentPrompt: 'leave a comment at the bottom of this page',
+    commentPrompt: 'use the feedback form at the bottom of this page',
   },
 ] as const;
 

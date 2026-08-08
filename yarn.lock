@@ -5373,17 +5373,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"artalk@npm:2.9.1":
-  version: 2.9.1
-  resolution: "artalk@npm:2.9.1"
-  dependencies:
-    marked: "npm:^14.1.2"
-  peerDependencies:
-    marked: ^14.1.0
-  checksum: 10c0/12bcd4cbc4c1571d006fcc77c375e5bb8a0d7d5a05cacd7aba9766e11f2edc6b37c793f38c524c5f85a4a562c341c1cae042c04bece68118fd27778bd57224d4
-  languageName: node
-  linkType: hard
-
 "asn1js@npm:^3.0.10, asn1js@npm:^3.0.6":
   version: 3.0.10
   resolution: "asn1js@npm:3.0.10"
@@ -9115,8 +9104,8 @@ __metadata:
     "@mdx-js/react": "npm:3.1.1"
     "@types/node": "npm:^22.0.0"
     "@types/react": "npm:19.2.17"
-    artalk: "npm:2.9.1"
     clsx: "npm:2.1.1"
+    meow-comment-ui: "file:./vendor/meow-comment-ui"
     prism-react-renderer: "npm:2.4.1"
     react: "npm:19.2.7"
     react-dom: "npm:19.2.7"
@@ -9157,15 +9146,6 @@ __metadata:
   version: 3.0.4
   resolution: "markdown-table@npm:3.0.4"
   checksum: 10c0/1257b31827629a54c24a5030a3dac952256c559174c95ce3ef89bebd6bff0cb1444b1fd667b1a1bb53307f83278111505b3e26f0c4e7b731e0060d435d2d930b
-  languageName: node
-  linkType: hard
-
-"marked@npm:^14.1.2":
-  version: 14.1.4
-  resolution: "marked@npm:14.1.4"
-  bin:
-    marked: bin/marked.js
-  checksum: 10c0/7ccc4c9b58d430b68eb878133fc284235ef3022b1a465345d2464712bf7d47507203b54639826839b6cb8d8847cf46f2e382588b9e1fc1d98b657520e16bfa62
   languageName: node
   linkType: hard
 
@@ -9472,6 +9452,13 @@ __metadata:
   peerDependencies:
     tslib: 2
   checksum: 10c0/fe4b887b1709faeed6c42567cb3310c534b1c4eebae00be19a950eb1c2cbe010e014cd7aa4255ff1afc34ec62a105a28c7add93ad4c36ee8b219e8665c9ca1f8
+  languageName: node
+  linkType: hard
+
+"meow-comment-ui@file:./vendor/meow-comment-ui::locator=lumina-studio-wiki%40workspace%3A.":
+  version: 1.0.0
+  resolution: "meow-comment-ui@file:./vendor/meow-comment-ui#./vendor/meow-comment-ui::hash=590606&locator=lumina-studio-wiki%40workspace%3A."
+  checksum: 10c0/6384babe084f3b29b99ae1d4f08f1c3c4d1dfa2ae47c50aebd7f5f6758d92a547b3234e965760a6ecc185fe9fb883ee3e18ec444ee1df890c95b2003475da312
   languageName: node
   linkType: hard
 

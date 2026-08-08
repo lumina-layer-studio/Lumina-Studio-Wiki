@@ -8,6 +8,10 @@
   color: var(--ifm-color-emphasis-700);
 }
 
+.description {
+  color: var(--ifm-color-emphasis-700);
+}
+
 .hidden {
   display: none;
 }

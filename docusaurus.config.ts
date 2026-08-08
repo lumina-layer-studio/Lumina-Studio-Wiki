@@ -82,8 +82,9 @@ const config: Config = {
   ],
 
   customFields: {
-    artalkServer: process.env.ARTALK_SERVER ?? '',
-    artalkSite: 'Lumina Studio Wiki',
+    meowCommentServer:
+      process.env.MEOW_COMMENT_SERVER ??
+      'https://comments.luminastudio.com.cn',
   },
 
   themeConfig: {
