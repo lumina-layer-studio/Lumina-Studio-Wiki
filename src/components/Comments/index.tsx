@@ -1,12 +1,10 @@
 import React, {useEffect, useRef, useState} from 'react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import {useLocation} from '@docusaurus/router';
-import type ArtalkInstance from 'artalk';
-import 'artalk/Artalk.css';
+import type MeowCommentsInstance from 'meow-comment-ui';
+import 'meow-comment-ui/MeowCommentUI.css';
 
-import {resolveLegacyPageKey} from '@site/src/lib/legacyPageKeys';
-
-import {bindArtalkLifecycle} from './artalkLifecycle';
+import {createMeowCommentOptions} from './meowCommentOptions';
 import styles from './styles.module.css';
 
 type LoadState = 'idle' | 'loading' | 'ready' | 'failed';
@@ -16,16 +14,10 @@ export default function Comments(): React.ReactNode {
   const [loadState, setLoadState] = useState<LoadState>('idle');
   const {siteConfig} = useDocusaurusContext();
   const {pathname} = useLocation();
-  const server = String(siteConfig.customFields?.artalkServer ?? '').replace(
-    /\/$/,
-    '',
-  );
-  const site = String(
-    siteConfig.customFields?.artalkSite ?? 'Lumina Studio Wiki',
-  );
+  const server = String(
+    siteConfig.customFields?.meowCommentServer ?? '',
+  ).replace(/\/+$/, '');
   const isEnglish = pathname.startsWith('/en/');
-  const artalkLocale = isEnglish ? 'en-US' : 'zh-CN';
-  const pageKey = resolveLegacyPageKey(pathname);
 
   useEffect(() => {
     if (!server || !containerRef.current) {
@@ -34,34 +26,21 @@ export default function Comments(): React.ReactNode {
     }
 
     let disposed = false;
-    let instance: ArtalkInstance | undefined;
-    let unbindLifecycle: (() => void) | undefined;
+    let instance: MeowCommentsInstance | undefined;
     setLoadState('loading');
 
-    void import('artalk')
-      .then(({default: Artalk}) => {
+    void import('meow-comment-ui')
+      .then(({default: MeowComments}) => {
         if (disposed || !containerRef.current) return;
-        const markReady = () => {
-          if (!disposed) setLoadState('ready');
-        };
-        instance = Artalk.init({
+        instance = new MeowComments({
           el: containerRef.current,
-          pageKey,
-          pageTitle: document.title,
-          server,
-          site,
-          locale: artalkLocale,
-          remoteConfModifier: (remoteConf) => {
-            remoteConf.locale = artalkLocale;
-          },
-          darkMode: 'auto',
+          ...createMeowCommentOptions({
+            server,
+            pathname,
+            pageTitle: document.title,
+          }),
         });
-        unbindLifecycle = bindArtalkLifecycle(instance, {
-          onReady: markReady,
-          onFailed: () => {
-            if (!disposed) setLoadState('failed');
-          },
-        });
+        if (!disposed) setLoadState('ready');
       })
       .catch(() => {
         if (!disposed) setLoadState('failed');
@@ -69,29 +48,33 @@ export default function Comments(): React.ReactNode {
 
     return () => {
       disposed = true;
-      unbindLifecycle?.();
       instance?.destroy();
     };
-  }, [artalkLocale, pageKey, server, site]);
+  }, [pathname, server]);
 
   if (!server) return null;
 
   return (
     <section
       className={styles.comments}
-      aria-label={isEnglish ? 'Comments' : '评论'}
+      aria-label={isEnglish ? 'Submit feedback' : '提交反馈'}
     >
-      <h2>{isEnglish ? 'Comments' : '评论'}</h2>
+      <h2>{isEnglish ? 'Submit feedback' : '提交反馈'}</h2>
+      <p className={styles.description}>
+        {isEnglish
+          ? 'Your feedback is sent privately to the Wiki maintainers and is not displayed publicly on this page.'
+          : '反馈会直接发送给 Wiki 维护者，不会在本页公开显示。'}
+      </p>
       {loadState === 'loading' && (
         <p className={styles.status} role="status">
-          {isEnglish ? 'Loading comments…' : '正在加载评论…'}
+          {isEnglish ? 'Loading the feedback form…' : '正在加载反馈表单…'}
         </p>
       )}
       {loadState === 'failed' && (
         <p className={styles.status} role="status">
           {isEnglish
-            ? 'Comments are temporarily unavailable. The documentation remains available.'
-            : '评论暂时不可用，文档正文不受影响。'}
+            ? 'The feedback form is temporarily unavailable. The documentation remains available.'
+            : '反馈表单暂时不可用，文档正文不受影响。'}
         </p>
       )}
       <div
