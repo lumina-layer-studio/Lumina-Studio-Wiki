@@ -4,7 +4,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Lumina Studio Wiki',
   tagline: 'Lumina Studio 官方使用文档',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/lumina-l-favicon.png',
 
   future: {v4: true},
   url: 'https://wiki.luminastudio.com.cn',
@@ -94,7 +94,7 @@ const config: Config = {
     },
     navbar: {
       title: 'Lumina Studio',
-      logo: {alt: 'Lumina Studio', src: 'img/logo.png'},
+      logo: {alt: 'Lumina Studio', src: 'img/lumina-l-logo.png'},
       items: [
         {
           type: 'docSidebar',
