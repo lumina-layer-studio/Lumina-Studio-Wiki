@@ -18,6 +18,8 @@ it does not create another filament slot by itself.
 
 The option is disabled by default.
 
+Checked against the source code available on October 19, 2026. Eligible single-sided projects also offer Backing output, which can export the model and backing as separate projects.
+
 ## Location
 
 Open **Converter → Core Settings → Advanced Settings**, then locate **Separate Backing**.
@@ -53,6 +55,21 @@ regenerated 3MF and the slicer's object list are the source of truth.
 Changing this option requires a new model build. Lumina recipe cards store the setting.
 
 ## Typical uses
+
+### Backing output
+
+| Option | Download | Purpose |
+| --- | --- | --- |
+| Same project | Model and separate backing object in one project | Manage them together in the slicer |
+| Independent plate projects (ZIP) | Separate model and backing 3MF projects in a ZIP | Slice and print each project separately |
+
+Independent projects retain the original dimensions. Lumina does not shrink the artwork to fit the bed. Unpack the ZIP, open each 3MF, and check the object, brim, and wipe-tower positions before slicing. A downloaded file is not proof that placement is safe; resolve any manual-check warning in the corresponding project.
+
+This option is for single-sided, non-relief, single-model export. It is unavailable for double-sided, relief, five-color extended, batch, puzzle, large-format, and Model texture workflows. If a mode change makes it unavailable, use Same project or that workflow's existing tiled output.
+
+Separate backing does not change color-layer order or determine how the finished parts should be bonded or assembled.
+
+### When a separate backing object helps
 
 - Select, hide, or inspect the backing independently in a slicer.
 - Treat the backing as a separate part during post-processing.

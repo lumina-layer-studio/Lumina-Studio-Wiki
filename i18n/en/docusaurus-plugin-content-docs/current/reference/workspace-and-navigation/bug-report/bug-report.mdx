@@ -1,68 +1,58 @@
 ---
-title: "Report a Bug and Diagnostic Context"
-description: "Learn what the report form requires, which context Lumina attaches, screenshot limits, privacy boundaries, and fallback delivery."
+title: "Report a bug and diagnostic information"
+description: "Describe reproduction steps, review attachments, and check upload status and the ticket identifier."
 sidebar_position: 3
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
+:::info[AI-assisted documentation]
+This article was prepared with AI assistance using the application source code and existing tutorials. If anything is inaccurate, or you have a clearer method, please suggest a correction through this page's feedback.
 :::
 
-# Report a Bug and Diagnostic Context
+# Report a bug and diagnostic information
 
-**Report a bug** creates a reproducible support ticket for the Lumina developer. It keeps the
-user's description and current application context together, reducing follow-up questions about
-mode, LUT, and recent actions.
+For generation failures, unusual previews, or unexpected behavior, open Report a bug from the top bar. Lumina collects the current task's diagnostic information and submits it to the official issue-collection service when you send the report. You do not need to configure a personal sending email account.
 
-<img
-  src={require('./assets/01-bug-report.webp').default}
-  alt="Lumina Studio English bug-report dialog with description, email, screenshot, and automatic context"
-/>
+Checked against the source code available on October 19, 2026.
 
-## What to provide
+## Reproduce the issue before opening the form
 
-- **Description:** required, up to 10,000 characters;
-- **Contact email:** optional, up to 320 characters;
-- **Screenshot:** optional PNG, JPEG, WebP, or GIF, no larger than 5 MB.
+Keep the affected artwork, recipe, and settings. Perform the operation that triggers the issue, then open the form so its context reflects that state. If you replace the image or repeat the operation afterward, use the form's recollection control to update the report.
 
-Describe the expected result, actual result, and exact steps that repeat the issue. When a problem
-depends on a particular image, LUT, material archive, or 3MF, do not assume that the source file is
-safe to publish. Describe the symptom first and provide the smallest authorised sample when needed.
+In the description, include:
 
-## Automatic context
+1. The input and color source, such as SVG with a material archive.
+2. The operation order and the step where the problem begins.
+3. What you expected and what actually happened.
+4. Whether it happens every time or only with a particular file.
 
-The dialog collects one context snapshot when it opens. Its compact summary displays:
+Contact email is optional and lets the maintainer reply. It is not a sending-account configuration. Optional screenshot formats include PNG, JPG, WebP, and GIF. Follow the form's message if a file is not accepted.
 
-- active page;
-- active colour mode;
-- current LUT;
-- the three most recent actions;
-- the two most recent API errors.
+<img src={require('./assets/01-bug-report.webp').default} alt="English bug-report form with description, optional email, screenshot and attachment notice; no report was sent" />
 
-Full context is serialised only after the user expands its disclosure. Typing in the description
-does not repeatedly recollect the application, so reproduce the issue first and then open the form.
+## What may be attached
 
-## Paths and technical errors
+Depending on the current task, a report can collect conversion parameters, device selections, recent actions, errors, and available source images, SVGs, models, LUTs, material archives, and generated results. Not every report has every attachment; it depends on what the session actually contains.
 
-The manual fallback text replaces common local paths, `file://` locations, Windows or UNC paths,
-and stack frames. A bare HTTP status error is converted to a readable message. These safeguards
-reduce accidental leakage but do not replace review:
+These files help developers reproduce the issue. Review the context and attachment notices before sending, particularly when using customer designs or artwork and models you may not redistribute. Check screenshots for account information, notifications, and other private content too.
 
-- text entered in Description is user-authored and is not rewritten;
-- an attached screenshot can contain filenames, accounts, notifications, or private information;
-- customer artwork, unreleased designs, and unauthorised source files should not be uploaded.
+## A ticket number does not mean upload is complete
 
-Inspect the expanded context and screenshot before sending. Redact the source image itself when
-necessary rather than relying on deletion after submission.
+Keep the ticket identifier and watch the final upload state:
 
-## Submission result and fallback delivery
+| State | Meaning and next step |
+| --- | --- |
+| Submitting or waiting for upload | Still processing; wait for the final result |
+| Upload succeeded | The service received the report; this does not mean the bug is fixed |
+| Upload failed | Retry and check the new result |
+| Some attachments were not collected or sent | Check which files are missing and recollect if needed |
+| Upload unavailable | Keep the ticket identifier and use the offered fallback report and contact options |
 
-A successful submission returns a ticket identifier and reports whether email was sent, is pending,
-failed, or is not configured. If email failed or is unavailable, a relay is attempted only when the
-environment offers it and the user explicitly chooses to send.
+Do not close the form merely because a ticket number has appeared. The maintainer may not yet have the complete report while upload is pending.
 
-If automatic submission fails, Lumina prepares a copyable fallback report and provides system-mail
-and QQ Mail routes. Review the generated text before sending and keep the ticket identifier with any
-follow-up message.
+## If sending fails
+
+Check the connection and retry. If it still fails, copy the fallback report and send it to the maintainer with the ticket identifier and reproduction steps. System mail or QQ Mail is a fallback in the relevant failure flow, not a prerequisite for normal submission.
+
+If the original task was closed, its session was replaced, or files were not collected, reopen the task and collect a fresh report rather than repeatedly sending the same incomplete description.
+
+For missing illustrations, errors, or suggestions about documentation, use the [Wiki feedback page](../../../project/wiki-feedback/wiki-feedback.mdx). Report software faults inside Lumina so the diagnostic context can accompany them.

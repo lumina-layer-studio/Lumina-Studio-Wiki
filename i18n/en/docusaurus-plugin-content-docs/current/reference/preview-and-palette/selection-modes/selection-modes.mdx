@@ -1,6 +1,6 @@
 ---
 title: "Selection Modes, Palette, and Free Colours"
-description: "All, Current, Multi, Region, undo, clear remaps, and Free Colour behaviour."
+description: "Same-color, similar-color, region and brush selection, undo, clear remaps, and Free Colour behavior."
 sidebar_position: 3
 ---
 
@@ -24,24 +24,21 @@ that matched colour. After selection, the header shows the quantized colour, mat
 
 | Mode | Target after clicking the 2D preview | Typical use |
 | --- | --- | --- |
-| All | Every pixel of the matched colour; multiple colours can be accumulated | Replace one or more colours everywhere |
-| Current | One connected region containing the clicked point | Edit one isolated graphic or colour patch |
-| Multi | Add or remove connected regions one click at a time | Replace several separate regions together |
-| Region | One connected region containing the clicked point | Use an explicitly spatial replacement workflow |
+| Same color | Toggle every region with the clicked color | Change a color across the image |
+| Similar colors | Toggle visible regions within the color-difference tolerance | Change nearby shades together |
+| Pick blocks | Select or deselect individual regions | Change one or several isolated shapes |
+| Selection brush | Select the area covered by brush strokes | Edit part of a color region |
 
-In the current implementation, Current and Region both use the same connected-region detector and exact regional
-replacement. Current is the default single-region entry; Region keeps the spatial intent explicit. Neither changes every
-matching HEX elsewhere in the image.
+As of October 19, 2026, these tools use a shared selection. Current, Multi, and Region are older entry-point names. Use the tools above in the new interface and check the visible selection boundary to confirm the actual edit area.
 
-In All mode, palette swatches can also add or remove source colours. In Multi mode, clicking an already selected region
-removes it.
+Similar-color tolerance defaults to 6 and runs from 0 to 30. At 0, only identical colors are selected. Brush size runs from 2 to 160 px. See [Quick recolor & similar recipes](../quick-recolor/quick-recolor.mdx) for selection and target-color details.
 
 ## Replace, undo, and clear
 
 Choosing a target colour creates a source-to-target confirmation first. Only Confirm Replace rebuilds the preview. Multiple
 colours or regions are sent as one batch so the 3D result is not rebuilt once per item.
 
-- **Undo** restores the previous global remap snapshot.
+- **Undo** returns to the available previous editing state; check both colors and selection afterward.
 - **Clear Remaps** clears global and regional replacements and rebuilds 2D/3D output from the original matched result.
 - **Cancel** discards only the target colour that has not yet been confirmed.
 
