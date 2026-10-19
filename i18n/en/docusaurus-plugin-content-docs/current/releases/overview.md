@@ -1,45 +1,46 @@
 ---
 title: "Changelog"
-description: "Lumina Studio public release history and 2.0 beta development progress"
+description: "Public releases and development progress for Lumina Studio 2.0."
 sidebar_position: 6
 ---
 
 # Lumina Studio Changelog
 
-This page covers Lumina Studio's public releases and repository-backed progress from the 2.0 beta program.
+This section records public releases and completed development work during the 2.0 beta.
 
-:::info[Current status]
-Lumina Studio 2.0 is in internal development and staged verification. Its final scope and release date are not yet confirmed. “In development” does not mean released; monthly reports contain only merged work that has been reviewed and organized.
+:::info[Development status]
+Monthly reports describe completed and merged work. They do not announce a final 2.0 release date or guarantee that every change is included in every installer. Check the notes for your installed version.
 :::
 
 ## Latest progress
 
-### [July 2026: cloud resources, native SVG relief, and preview improvements](/en/docs/releases/2026-07)
+### [October 2026: editable projects, quick recoloring and print projects](./2026-10.md)
 
-The July report is ongoing through July 17. It introduces native SVG relief, completion notifications, and image rotation, while improving cloud LUTs, material previews, vector exports, and Snapmaker U1 compatibility.
+Updated through October 19. Saved projects preserve local edits, regional recipes and selections. Color Adjustment adds quick recoloring and similar recipes; Model Texture has its own panel. Export adds filament/plate checks and independent backing projects. Bug reports upload directly to the official collection service.
+
+The second half of July and the August and September reports have also been added.
 
 ## 2.0 development reports
 
-| Month | Main focus | Merged PRs |
-| --- | --- | ---: |
-| [July 2026](/en/docs/releases/2026-07) | Cloud resources, native SVG relief, previews, and machine compatibility (ongoing) | 19 |
-| [June 2026](/en/docs/releases/2026-06) | Cloud materials/LUTs, Machine Adapter V2, puzzles, material solving, and systematic reliability work | 256 |
-| [May 2026](/en/docs/releases/2026-05) | Batch 3MF, ColorChecker, materials and recipes, exact matching, and macOS support | 74 |
-| [April 2026](/en/docs/releases/2026-04) | The 2.0 React workspace, Color Workstation, vector pipeline, share cards, and new modeling workflows | 123 |
-| [March 2026](/en/docs/releases/2026-03) | Migration from 1.x to the 2.0 architecture, with native 3MF, DNG, LUT, and machine-adapter foundations | 14 |
+| Month | Main work |
+| --- | --- |
+| [October 2026](./2026-10.md) | Editable projects, quick recoloring, model textures, exports and feedback; through October 19 |
+| [September 2026](./2026-09.md) | Lightweight previews, desktop operation, transparency, wipe towers and batch generation |
+| [August 2026](./2026-08.md) | Project saving, shared selection, dynamic material layers and backing settings |
+| [July 2026](./2026-07.md) | Native SVG relief, planar artwork, Workshop, materials and Flash Studio |
+| [June 2026](./2026-06.md) | Cloud materials/LUTs, device integration, puzzles and material solving |
+| [May 2026](./2026-05.md) | Batch 3MF, ColorChecker, material recipes and precise matching |
+| [April 2026](./2026-04.md) | The 2.0 workspace, color tools, vector processing and share cards |
+| [March 2026](./2026-03.md) | The 2.0 architecture, native 3MF, DNG, LUTs and machine integration |
 
-All **486 merged PRs** across these five months have been accounted for. User-visible changes are described individually, while tests, logging, error governance, and internal refactors are grouped by their practical outcome.
+Changes are grouped by their effects on users, including follow-up fixes. The initial review covered 486 merged changes through July 17; that historical number is not the development total to date.
 
-## 1.x public releases
+## Public 1.x releases
 
-[Read the complete 1.0–1.6.4 release history →](/en/docs/releases/release-history-1x)
+[View the complete 1.0–1.6.4 history →](./release-history-1x.md)
 
-Starting with the first public release in January 2026, the 1.x line delivered the unified application, live 3D preview, multi-color LUTs, 8/6-color calibration, vector modeling, Free Color, relief, and slicer integration. Progress moved to monthly reports after 2.0 entered private development.
+The 1.x series introduced the unified application, live 3D previews, multicolor LUTs, six- and eight-color calibration, vector modeling, free colors, relief and slicer integration. Later 2.0 progress is recorded above.
 
-## Reviewed interim weekly updates
+## Changes to the Wiki
 
-The section below is maintained by the publishing tool and changes only after a weekly draft passes human review. Monthly reports remain the authoritative history.
-
-<!-- DEVLOG:WEEKLY:START -->
-No standalone weekly update has been published.
-<!-- DEVLOG:WEEKLY:END -->
+Use **Wiki Updates** for new tutorials and documentation revisions. Software progress is recorded in the reports above; a documentation edit is not a software release.
