@@ -26,9 +26,13 @@ slicer availability, whether an artifact already exists, and Large Format state.
 | Slicer detected, artifact ready | Open the current artifact directly |
 | No slicer detected | Generate and download, or download the existing 3MF |
 | Large Format | Generate or download a ZIP of tiled 3MF files; do not auto-open it |
+| Independent backing projects | Download a ZIP with separate model and backing 3MFs; unpack and open each |
 
-The menu lists detected applications and provides a separate Download 3MF action. If the preferred application from
-Settings is missing, Lumina reports the mismatch instead of claiming a successful launch.
+As of October 19, 2026, the menu provides Generate and download 3MF, which generates the file first when no current artifact exists. If the preferred application from Settings is missing, Lumina reports the mismatch instead of claiming a successful launch.
+
+Resolve filament-preset or build-plate selection prompts before generation. After changing artwork, colors, or structure, generate a file that matches the new state. Files already downloaded to disk do not update themselves.
+
+The desktop version lets you set a default save location. Save dialogs open there first, but you can choose another location for an individual download.
 
 ## Final slicer checks
 

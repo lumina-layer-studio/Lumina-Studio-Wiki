@@ -63,8 +63,8 @@ test('marks the approved AI-assisted articles exactly once', async () => {
     );
     const targets = [...referenceFiles, ...knowledgeFiles];
 
-    assert.equal(referenceFiles.length, 69);
-    assert.equal(targets.length, 90);
+    assert.equal(referenceFiles.length, 71);
+    assert.equal(targets.length, 92);
 
     for (const file of targets) {
       const source = await readFile(file, 'utf8');

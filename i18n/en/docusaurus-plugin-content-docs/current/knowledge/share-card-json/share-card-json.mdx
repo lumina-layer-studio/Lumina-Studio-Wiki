@@ -1,225 +1,82 @@
 ---
-title: "Share Cards and JSON: Export, Import, and Continue Editing"
-description: "Understand Lumina PNG Share Cards and .lumina.json files, transfer projects safely, confirm restored settings, and rebuild Preview and 3MF results."
-sidebar_position: 32
+title: "Save projects and share cards"
+description: "Save artwork, settings, local recoloring, and selections, then restore the project and continue editing."
+sidebar_position: 22
 ---
 
 :::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
+This article was prepared with AI assistance using the application source code and existing tutorials. If anything is inaccurate, or you have a clearer method, please suggest a correction through this page's feedback.
 :::
 
-# Share Cards and JSON: Export, Import, and Continue Editing
+# Save projects and share cards
 
-Lumina Share Cards transfer the **source artwork and current conversion settings** to
-another device or user, or preserve them for later editing. You can export a viewable
-PNG Share Card or a separate `.lumina.json` recipe file.
+Use Save Project to keep an editable file, or Export Share Card to create a PNG with a preview cover. Both restore editing state. Printing still requires a separately generated 3MF and a slice in your slicer.
 
-The important rules are:
+Checked against the source code available on October 19, 2026. Older projects may not contain local edits; check the import warnings to see what can be restored.
 
-- a valid Preview is required before the export buttons appear;
-- a PNG Share Card is an ordinary viewable image with Lumina recipe data embedded in it;
-- `.lumina.json` has no visual cover and is better suited to unchanged archival storage;
-- both contain source artwork and conversion settings; neither is the final 3MF;
-- inspect source, version, LUT, colour mode, size, and warnings before confirming import;
-- after restore, Preview, Generate, and slice again;
-- image compression, screenshots, or platform re-encoding can remove the embedded PNG data.
+## Choose a file type
 
-## PNG Share Card or JSON?
-
-| Question | PNG Share Card | `.lumina.json` |
+| File | Control | Purpose |
 | --- | --- | --- |
-| Can it be viewed directly? | Yes | Not usefully |
-| Can Lumina import it? | Yes, if the embedded data survives | Yes, if the file and integrity check are intact |
-| Contains source artwork? | Yes | Yes |
-| Contains conversion settings? | Yes | Yes |
-| Contains final 3MF? | No | No |
-| Best use | Let someone view and optionally restore the project | Archive, device transfer, and backup beside the PNG |
-| Main risk | Image tools remove embedded data | Editing, truncation, or renaming breaks the file |
+| `.lumina.json` | Save Project | Archive work, move to another device, or continue later |
+| PNG share card | Export Share Card | Show the result and give someone the restorable project in the original PNG |
+| 3MF or ZIP | Generate / Generate and download | Inspect and print in a slicer; not a substitute for an editable project |
 
-For an important project, keep the source image, PNG Share Card, JSON, final 3MF, and the
-actual LUT or Material Archives. These files solve different recovery problems.
+A PNG share card contains source artwork and project data. Screenshots, JPG conversion, platform compression, or resaving can preserve the picture but remove that data. Send the original file or a ZIP when someone needs to continue editing.
 
-## Step 1: make sure Preview reflects the state you want to save
+## Finish the current edit before saving
 
-Before exporting, check image orientation, crop, transparency, colour source, size,
-backing, structure, Modeling Mode, colour replacements, custom recipes, and device settings.
-Run Preview after every relevant change. An old Share Card does not update itself when the
-current page changes.
+1. Upload artwork, choose a color source, materials, and physical size, then generate a preview.
+2. Finish recoloring, regional recipes, and selection work in Color Adjustment.
+3. Wait for pending edits to finish before clicking Save Project or Export Share Card.
+4. For important work, keep the original artwork, project file, actual material archive or LUT, and final 3MF.
 
-## Step 2: export a Share Card or JSON
+If Lumina says an edit or selection is still being committed, wait or follow the synchronization instruction shown in the interface. A changing preview cannot be exported as a complete editing checkpoint.
 
-<img
-  src={require('./assets/01-export-options.webp').default}
-  alt="Real English Lumina Studio Preview result with Export Share Card and Export JSON controls highlighted"
-/>
+<img src={require('./assets/06-current-project-save.webp').default} alt="Current English Save Project and Export Share Card controls" />
 
-After a valid Preview:
+## What the current project saves
 
-- **Export Share Card** saves a PNG, normally with `-share.png` in the filename;
-- **Export JSON** saves a `.lumina.json` file.
+- Original image or SVG and conversion settings.
+- Confirmed global and local recoloring.
+- Regional recipes, layer-material stacks, and restorable editing state.
+- Current selection.
+- Supported printer, filament-preset, and model-feature settings.
 
-If the buttons are missing or the Preview has expired, run Preview again. Generating a
-3MF is not required for these export controls; the current Preview and recipe state are.
+Restoring creates a fresh preview. Regional edits are checked against the source artwork and working coordinates before application. They cannot be transferred to another image merely because it has the same dimensions.
 
-## Step 3: understand what the PNG contains
+Renaming the same source file does not make it different artwork. After replacing, cropping, or rotating the image, save a corresponding new project.
 
-<img
-  src={require('./assets/02-png-share-card.webp').default}
-  alt="Real exported Lumina PNG Share Card beside an English explanation of its embedded source, settings, integrity data, and re-import instructions"
-/>
+## Import and continue editing
 
-The visible image includes the Preview cover, a Wiki QR code, and import instructions.
-The embedded data can also include:
+1. Choose a `.lumina.json` file or original PNG share card in the Image Conversion uploader.
+2. Check the artwork, dimensions, color source, and compatibility warnings in the confirmation dialog.
+3. Confirm restore and wait for the artwork and preview to load.
+4. Check local recoloring, regional recipes, and selection, then continue editing.
+5. Save a new project after making changes. Generate a new 3MF when you need to print.
 
-- the source image and compatible auxiliary source data;
-- Source Type, LUT identity, colour mode, and colour layers;
-- size, backing thickness, one- or two-sided structure, and Modeling Mode;
-- supported colour replacements, Free Color, and custom recipe state;
-- compatible structure settings such as outline, coating, puzzle, Large Format, or Relief;
-- printer, slicer, nozzle, and device settings;
-- integrity data used to detect corruption or modification.
+The current version retains confirmed edits when you run Preview again. After undoing or recoloring, check the preview before generation. Import does not recover old download links or temporary models from a previous session.
 
-:::warning[Check rights and privacy before sharing]
-A Share Card is not merely a screenshot. An importer may recover the embedded source
-artwork and settings. Do not publicly distribute personal images, private client work,
-commercial models without permission, or material you are not authorised to redistribute.
-Treat a public display copy and an importable project file as separate decisions.
-:::
+<img src={require('./assets/07-current-project-restore.webp').default} alt="Import confirmation for an actually saved project showing artwork, version, color source and size" />
 
-### Why does a reposted PNG sometimes stop importing?
+## Older files and missing resources
 
-Messaging apps, social networks, forums, image editors, and optimisation services may
-re-encode the PNG while preserving its appearance. Screenshots, JPG/WebP conversion,
-editing and resaving, or downloading a platform-generated copy can remove the recipe.
+If an older file did not save regional data, the current version cannot reconstruct every edit from its cover. Keep the original and inspect the result when an import warning says regional information is missing.
 
-When another person needs to import it, send the **original file** as an attachment, ZIP,
-or storage link that does not rewrite image data. Re-import the received copy once before
-deleting your own original. Keep JSON as an independent backup.
+A project is not a complete material backup. Restore the corresponding LUT, material archive, or native slicer preset if it is missing. Matching names do not prove matching data; reselect the resource when Lumina cannot identify it reliably.
 
-## Step 4: JSON is better for archival storage
+## Can JSON be edited manually?
 
-JSON has no viewable cover but contains the project data required for restore. Do not edit
-it manually merely because it is text. Lumina checks source and recipe integrity; truncated
-or modified content can be rejected.
+The current version accepts valid parameter edits rather than treating every change as corruption. Parameters must still meet the format and mode requirements. Damaged artwork, editing data, or regions that do not match the source can still prevent restore.
 
-Keep the complete `.lumina.json` extension. To change size, colour, or structure, import the
-file into Lumina, edit through the interface, Preview, and export a new version.
+For ordinary size, color, and material changes, import the project, edit in Lumina, and save again. Do not remove warning fields or copy regional data from another project to bypass checks.
 
-## Step 5: inspect the import summary before restoring
+## Model texture limitation
 
-Choose one original PNG Share Card or `.lumina.json` file. Lumina opens a confirmation
-dialog before changing the current task.
+Model texture needs an additional STL or OBJ and face-selection information, which the recipe cannot currently contain in full. Both export controls are unavailable while it is enabled. Archive the base model, artwork, and final 3MF separately, with a record of the selected face, orientation, and placement.
 
-<img
-  src={require('./assets/03-import-png-confirm.webp').default}
-  alt="Real English Lumina PNG import confirmation showing source, app version, LUT, colour mode, size, and restore controls"
-/>
+## Check before sharing
 
-Check:
+Share cards and JSON can contain the original design, not just the visible cover. Check artwork rights, personal information, and unreleased content before sending them. Use an ordinary display image when you only want to show the result.
 
-- trusted source and expected filename;
-- app version and creation time;
-- Source Type, LUT or archive identity, and colour mode;
-- millimetre size and relevant structure;
-- any missing-resource, compatibility, or integrity warning.
-
-**Cancel** leaves the current task unchanged. **Confirm Restore** loads the source and
-compatible settings. Cancel if the summary is unexpected or the sender is untrusted.
-
-## Step 6: restore, then Preview again
-
-<img
-  src={require('./assets/04-restored-state.webp').default}
-  alt="Real English Lumina editor after a Share Card restore with source and compatible settings loaded"
-/>
-
-Restore brings the source artwork and compatible editing settings back to the Converter.
-It does not recover an old temporary Preview, final 3MF, or browser session.
-
-After restore:
-
-1. confirm the required LUT or Material Archives exist on this device;
-2. check printer, slicer, nozzle, and material identity;
-3. run Preview and inspect the new result;
-4. Generate a new 3MF;
-5. open the complete project in the slicer and inspect material mapping and paths.
-
-Do not assume that a restored project will produce byte-identical output on a different
-software version or with a different local colour source.
-
-## Step 7: JSON uses the same safety check
-
-<img
-  src={require('./assets/05-import-json-confirm.webp').default}
-  alt="Real English Lumina JSON recipe import confirmation with metadata and Confirm Restore controls"
-/>
-
-The JSON confirmation provides the same opportunity to inspect metadata and warnings.
-If a text editor, sync tool, or transfer process changed the file, Lumina may reject it.
-Keep an untouched offline copy and export a new file after intentional edits in Lumina.
-
-## A practical project backup set
-
-For work that must remain reproducible, store:
-
-```text
-project-name/
-  source-artwork.png
-  project-name-share.png
-  project-name.lumina.json
-  generated-project.3mf
-  material-archives-or-lut/
-  notes.txt
-```
-
-Record the Lumina version, intended printer/nozzle, colour-layer height, and physical
-filament identities in the notes. Do not put secrets, accounts, or private machine paths
-inside a project intended for public sharing.
-
-## Common questions
-
-### Why are the export buttons missing?
-
-There is no current valid Preview, or the Preview result expired. Run Preview again after
-confirming the source and colour selection.
-
-### Is the PNG just a QR-code image?
-
-No. The visible cover and QR code are only part of it. The original file also carries
-embedded project data.
-
-### Can a Share Card replace the final 3MF backup?
-
-No. It restores editing state. Generate and save the final 3MF separately.
-
-### Can I post the Share Card as an ordinary image?
-
-Only after checking redistribution rights and privacy. A platform may also strip its
-embedded data. Use a separate display copy when public viewing is the only goal.
-
-### Why does restore warn that a LUT or archive is missing?
-
-The project refers to a colour source that is not available locally or no longer matches.
-Install or import the correct source when authorised, then Preview again. Do not silently
-substitute a similarly named profile.
-
-### Why does the imported project look different from the old screenshot?
-
-Possible causes include a different app version, colour source, device setup, or a Preview
-generated after later edits. Compare the import summary and rebuild from the restored state.
-
-## Image notes and content licence
-
-The screenshots and PNG round trip come from a real run in the current English Lumina
-Studio interface. The visible Share Card contains original tutorial test artwork. Focus
-annotations explain existing controls and file behaviour.
-
-Unless otherwise noted, the original text, test artwork, and annotations are available
-under the Wiki’s
-[CC BY-NC-SA 4.0 content licence](pathname:///en/docs/project/content-license/).
-Only share third-party artwork when its licence or owner allows redistribution.
-
-Recipe fields and compatibility can change between versions. Treat the current import
-summary, local colour sources, regenerated Preview, and slicer inspection as authoritative.
+Related: [Quick recolor & similar recipes](../../reference/preview-and-palette/quick-recolor/quick-recolor.mdx), [Model texture](../../tutorials/model-texture/model-texture.mdx), [Slicer and downloads](../../reference/converter-basic/slicer-output/slicer-output.mdx).
