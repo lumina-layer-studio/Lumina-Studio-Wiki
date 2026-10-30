@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import {execFileSync} from 'node:child_process';
+import {execFileSync, spawnSync} from 'node:child_process';
 import {
   mkdir,
   mkdtemp,
@@ -320,6 +320,28 @@ test('preserves bilingual grouping when legacy document IDs differ but slugs mat
   }]);
 });
 
+test('matches translations by source path when IDs and slugs both differ', async (t) => {
+  const {repoRoot, baseline} = await createFixtureRepository();
+  t.after(() => rm(repoRoot, {recursive: true, force: true}));
+  const zhPath = 'docs/guide/path-matched.mdx';
+  const enPath = 'i18n/en/docusaurus-plugin-content-docs/current/guide/path-matched.mdx';
+  const zhSource = '---\ntitle: 中文原文\nid: chinese-id\nslug: /chinese-route\n---\n';
+  await put(repoRoot, zhPath, zhSource);
+  await put(repoRoot, enPath, '---\ntitle: English translation\nid: english-id\nslug: /english-route\n---\n');
+  commit(repoRoot, 'add both translations');
+  await put(repoRoot, zhPath, `${zhSource}\n补充说明。\n`);
+  commit(repoRoot, 'update Chinese translation');
+
+  const entries = generateRecentChanges({repoRoot, baseline});
+  for (const entry of entries.slice(0, 2)) {
+    assert.deepEqual(entry.pages, [{
+      action: entry === entries[0] ? 'updated' : 'added',
+      zh: {title: '中文原文', url: '/zh/docs/chinese-route/'},
+      en: {title: 'English translation', url: '/en/docs/english-route/'},
+    }]);
+  }
+});
+
 test('tracks localized pages and assets in non-ASCII directories', async (t) => {
   const {repoRoot, baseline} = await createFixtureRepository();
   t.after(() => rm(repoRoot, {recursive: true, force: true}));
@@ -370,6 +392,23 @@ test('does not fail a current build on malformed historical front matter', async
   assert.ok(pages.some((item) => item.zh?.title === '已修复页面'));
 });
 
+test('does not print invalid historical front matter into build logs', async (t) => {
+  const {repoRoot, baseline} = await createFixtureRepository();
+  t.after(() => rm(repoRoot, {recursive: true, force: true}));
+  const file = 'docs/guide/log-safety.md';
+  await put(repoRoot, file, '---\ntitle: HIDDEN-TEST-TITLE\nid: true\nunlisted: true\n---\n');
+  commit(repoRoot, 'invalid hidden metadata');
+  await put(repoRoot, file, page('已修复的页面'));
+  commit(repoRoot, 'fix metadata');
+
+  const result = spawnSync(process.execPath, [
+    '--import', path.resolve('node_modules/tsx/dist/loader.mjs'),
+    path.resolve('scripts/generate-wiki-recent-changes.ts'),
+  ], {cwd: repoRoot, encoding: 'utf8', env: {...process.env, WIKI_RECENT_CHANGES_BASELINE: baseline}});
+  assert.equal(result.status, 0);
+  assert.doesNotMatch(`${result.stdout}${result.stderr}`, /HIDDEN-TEST-TITLE/);
+});
+
 test('does not expose a page in older entries after it becomes unlisted', async (t) => {
   const {repoRoot, baseline} = await createFixtureRepository();
   t.after(() => rm(repoRoot, {recursive: true, force: true}));
@@ -417,6 +456,37 @@ test('does not expose an old title when a renamed unlisted page is rewritten', a
   const entries = generateRecentChanges({repoRoot, baseline});
   assert.equal(entries.flatMap((entry) => entry.pages)
     .some((item) => item.zh?.title === '不可追踪的旧标题'), false);
+});
+
+test('does not confuse a hidden page with a new page that reuses its ID', async (t) => {
+  const {repoRoot, baseline} = await createFixtureRepository();
+  t.after(() => rm(repoRoot, {recursive: true, force: true}));
+  const oldPath = 'docs/guide/old-identity.md';
+  await put(repoRoot, oldPath, '---\ntitle: 不应公开的旧标题\nid: reused\n---\n');
+  commit(repoRoot, 'add original page');
+  await rm(path.join(repoRoot, oldPath));
+  await put(repoRoot, 'docs/elsewhere/hidden.md', '---\ntitle: 隐藏页面\nid: reused\nunlisted: true\n---\n');
+  await put(repoRoot, 'docs/guide/replacement.md', '---\ntitle: 新页面\nid: reused\n---\n');
+  commit(repoRoot, 'hide original and create replacement');
+
+  const previous = generateRecentChanges({repoRoot, baseline})[1].pages;
+  assert.equal(previous.some((item) => item.zh?.title === '不应公开的旧标题'), false);
+  assert.equal(previous.some((item) => item.zh?.url === '/zh/docs/guide/reused/'), false);
+});
+
+test('uses the current public title and route for earlier revisions', async (t) => {
+  const {repoRoot, baseline} = await createFixtureRepository();
+  t.after(() => rm(repoRoot, {recursive: true, force: true}));
+  const file = 'docs/guide/updated-identity.md';
+  await put(repoRoot, file, '---\ntitle: 旧标题\nid: old-id\nslug: /same-route\n---\n');
+  commit(repoRoot, 'add old identity');
+  await put(repoRoot, file, '---\ntitle: 新标题\nid: new-id\nslug: /same-route\n---\n');
+  commit(repoRoot, 'update title and ID');
+
+  const entries = generateRecentChanges({repoRoot, baseline});
+  for (const entry of entries.slice(0, 2)) {
+    assert.deepEqual(entry.pages[0].zh, {title: '新标题', url: '/zh/docs/same-route/'});
+  }
 });
 
 test('recovers the required public history in a shallow deployment clone', async (t) => {

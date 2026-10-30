@@ -8,7 +8,8 @@ import {
   DefaultNumberPrefixParser,
   stripPathNumberPrefixes,
 } from '@docusaurus/plugin-content-docs/lib/numberPrefix.js';
-import {validateDocFrontMatter} from '@docusaurus/plugin-content-docs/lib/frontMatter.js';
+import type {DocFrontMatter} from '@docusaurus/plugin-content-docs';
+import {DocFrontMatterSchema} from '@docusaurus/plugin-content-docs/lib/frontMatter.js';
 import {parseMarkdownContentTitle} from '@docusaurus/utils';
 import {parseFileContentFrontMatter} from '@docusaurus/utils/lib/markdownUtils.js';
 
@@ -49,6 +50,8 @@ interface GitChange {
 interface PageMetadata {
   locale: Locale;
   docId: string;
+  sourcePath: string;
+  relativePath: string;
   title: string;
   slug: string;
   url?: string;
@@ -168,12 +171,18 @@ function publicUrl(locale: Locale, slug: string): string {
 }
 
 function parseDocument(source: string): {
-  frontMatter: ReturnType<typeof validateDocFrontMatter>;
+  frontMatter: DocFrontMatter;
   content: string;
 } | undefined {
   try {
     const parsed = parseFileContentFrontMatter(source);
-    return {...parsed, frontMatter: validateDocFrontMatter(parsed.frontMatter)};
+    // Apply Docusaurus' schema without logging historical front matter on error.
+    const {value, error} = DocFrontMatterSchema.validate(parsed.frontMatter, {
+      convert: true,
+      allowUnknown: true,
+      abortEarly: false,
+    });
+    return error ? undefined : {...parsed, frontMatter: value};
   } catch {
     // A historical revision may have invalid metadata even if HEAD is valid.
     return undefined;
@@ -245,6 +254,8 @@ function metadataFromDocument(
   const metadata: PageMetadata = {
     locale: location.locale,
     docId,
+    sourcePath: filePath,
+    relativePath: docPath,
     title,
     slug: normalizedSlug,
     url: publicUrl(location.locale, normalizedSlug),
@@ -324,16 +335,23 @@ function metadataByIdAt(
   return index.get(docId);
 }
 
-function metadataBySlugAt(
+function correspondingMetadataAt(
+  repoRoot: string,
   commit: string,
   locale: Locale,
+  paths: Set<string>,
+  ids: Set<string>,
   slugs: Set<string>,
   visibility: VisibilityContext,
 ): PageMetadata | undefined {
-  // Reuse the document index already populated by the ID lookup.
+  // Populate once, then match the translated source path before legacy IDs.
+  metadataByIdAt(repoRoot, commit, locale, ids.values().next().value ?? '', visibility);
   const index = visibility.indexes.get(`${commit}\0${locale}`);
   if (!index) return undefined;
-  return [...index.values()].find((metadata) => slugs.has(metadata.slug));
+  const candidates = [...index.values()];
+  return candidates.find((metadata) => paths.has(metadata.relativePath)) ??
+    candidates.find((metadata) => ids.has(metadata.docId)) ??
+    candidates.find((metadata) => slugs.has(metadata.slug));
 }
 
 function owningDocumentAt(
@@ -433,17 +451,17 @@ function localizedChange(
   action: RecentChangeAction,
   visibility: VisibilityContext,
 ): LocalizedPage {
-  const current = metadataByIdAt(
+  const current = metadataFromDocument(
     repoRoot,
     visibility.head,
-    metadata.locale,
-    metadata.docId,
+    metadata.sourcePath,
+    true,
     visibility,
   );
   // A vanished document may have been renamed and made unlisted; Git cannot
   // reliably identify a rename when its content was rewritten at the same time.
   const title = current
-    ? metadata.title
+    ? current.title
     : metadata.locale === 'zh' ? '已不可用的文档' : 'Unavailable document';
   return {
     title,
@@ -469,8 +487,10 @@ function changesForCommit(
   ]);
   const grouped = new Map<
     string,
-    {action?: RecentChangeAction; zh?: LocalizedPage; en?: LocalizedPage; slugs: Set<string>}
+    {action?: RecentChangeAction; zh?: LocalizedPage; en?: LocalizedPage; paths: Set<string>; ids: Set<string>; slugs: Set<string>}
   >();
+  const groupsByPath = new Map<string, string>();
+  const groupsById = new Map<string, string>();
   const groupsBySlug = new Map<string, string>();
 
   for (const change of parseNullDelimitedChanges(diff)) {
@@ -478,29 +498,38 @@ function changesForCommit(
     if (!resolved) continue;
 
     const {metadata, action} = resolved;
-    const logicalKey = grouped.has(metadata.docId)
-      ? metadata.docId
-      : groupsBySlug.get(metadata.slug) ?? metadata.docId;
-    const existing = grouped.get(logicalKey) ?? {slugs: new Set<string>()};
+    const logicalKey = groupsByPath.get(metadata.relativePath) ??
+      groupsById.get(metadata.docId) ??
+      groupsBySlug.get(metadata.slug) ??
+      `${metadata.locale}:${metadata.relativePath}`;
+    const existing = grouped.get(logicalKey) ?? {
+      paths: new Set<string>(), ids: new Set<string>(), slugs: new Set<string>(),
+    };
     existing.action = strongerAction(existing.action, action);
     existing[metadata.locale] = localizedChange(repoRoot, metadata, action, visibility);
+    existing.paths.add(metadata.relativePath);
+    existing.ids.add(metadata.docId);
     existing.slugs.add(metadata.slug);
     grouped.set(logicalKey, existing);
+    groupsByPath.set(metadata.relativePath, logicalKey);
+    groupsById.set(metadata.docId, logicalKey);
     groupsBySlug.set(metadata.slug, logicalKey);
   }
 
-  for (const [docId, pageChange] of grouped) {
+  for (const pageChange of grouped.values()) {
     const lookupCommit =
       pageChange.action === 'removed' ? `${commit}^` : commit;
     for (const locale of ['zh', 'en'] as const) {
       if (pageChange[locale]) continue;
-      const metadata = metadataByIdAt(
+      const metadata = correspondingMetadataAt(
         repoRoot,
         lookupCommit,
         locale,
-        docId,
+        pageChange.paths,
+        pageChange.ids,
+        pageChange.slugs,
         visibility,
-      ) ?? metadataBySlugAt(lookupCommit, locale, pageChange.slugs, visibility);
+      );
       if (metadata) {
         pageChange[locale] = localizedChange(
           repoRoot,
@@ -520,6 +549,8 @@ function changesForCommit(
         action: RecentChangeAction;
         zh?: LocalizedPage;
         en?: LocalizedPage;
+        paths: Set<string>;
+        ids: Set<string>;
         slugs: Set<string>;
       } => pageChange.action !== undefined,
     )
