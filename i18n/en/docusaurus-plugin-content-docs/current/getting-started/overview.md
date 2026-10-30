@@ -6,6 +6,8 @@ sidebar_position: 1
 
 # Lumina Studio
 
+New to the launcher? Start with the [launcher activation guide](./launcher-activation/launcher-activation.mdx).
+
 ## Project overview
 
 Lumina Layers is a fully open-source application first released on GitHub in January 2026. It lowers the learning barrier of tools such as HueForge and FlatForge and avoids requiring one fixed set of specialty filaments.

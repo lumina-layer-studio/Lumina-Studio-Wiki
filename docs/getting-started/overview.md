@@ -4,6 +4,9 @@ description: "基于物理校准的多色FDM色彩系统"
 sidebar_position: 1
 ---
 # **Lumina Studio**
+
+首次使用启动器？请先查看[启动器激活教程](./launcher-activation/launcher-activation.mdx)。
+
 ## 项目介绍
 Lumina-layers在2026年1月开发并且完全开源发布在github上面的软件，lumina为了简化用户使用hueforge/flatforge等其他软件学习门槛过高或需要使用指定要求的耗材的问题，基于照片实测颜色校准，使用了穷举法和模拟前置的简化穷举法来获得实际打印颜色，目前的模式并未带来任何颜色理论计算（未来可能会在2.0的高级功能中推出基于颜色/td值等的颜色计算玩法），目前只是打印-拍摄-提取颜色-根据提取的颜色映射堆叠配方-打印（这像是一种颜色匹配功能，就像是你在autoforge和CMYK Lithophane那样会默认给你匹配一些颜色的功能一样，所以受此启发）
 
