@@ -150,6 +150,8 @@ test('recognizes only public Wiki document paths', () => {
   assert.equal(isPublicDocumentPath('updates/editorial.md'), false);
   assert.equal(isPublicDocumentPath('.github/internal-server.md'), false);
   assert.equal(isPublicDocumentPath('tests/wiki.test.ts'), false);
+  assert.equal(isPublicDocumentPath('docs/guide/uppercase.MD'), false);
+  assert.equal(isPublicDocumentPath('docs/guide/uppercase.MDX'), false);
 });
 
 test('generates grouped bilingual recent changes from real Git history', async (t) => {
@@ -171,18 +173,18 @@ test('generates grouped bilingual recent changes from real Git history', async (
 
   assert.deepEqual(entries[0].pages[0], {
     action: 'removed',
-    zh: {title: '已移动页面'},
-    en: {title: 'Moved page'},
+    zh: {title: '已不可用的文档'},
+    en: {title: 'Unavailable document'},
   });
   assert.deepEqual(entries[1].pages[0], {
     action: 'moved',
-    zh: {title: '已移动页面', url: '/zh/docs/guide/renamed/'},
-    en: {title: 'Moved page', url: '/en/docs/guide/renamed/'},
+    zh: {title: '已不可用的文档'},
+    en: {title: 'Unavailable document'},
   });
   assert.deepEqual(entries[2].pages[0], {
     action: 'updated',
-    zh: {title: '示例页面', url: '/zh/docs/guide/sample/'},
-    en: {title: 'Sample page', url: '/en/docs/guide/sample/'},
+    zh: {title: '已不可用的文档'},
+    en: {title: 'Unavailable document'},
   });
   assert.deepEqual(entries[3].pages[1], {
     action: 'added',
@@ -242,12 +244,22 @@ test('uses default Docusaurus routes for ordinary, index and numbered documents'
   await put(repoRoot, 'docs/guide/simple.md', page('普通文档'));
   await put(repoRoot, 'docs/guide/index.mdx', page('目录首页'));
   await put(repoRoot, 'docs/02-basics/01-start.mdx', page('编号文档'));
+  await put(
+    repoRoot,
+    'docs/03-advanced/01-retained.mdx',
+    '---\ntitle: 保留编号\nparse_number_prefixes: "false"\n---\n',
+  );
   commit(repoRoot, 'add default-route variants');
 
   const pages = generateRecentChanges({repoRoot, baseline})[0].pages;
   assert.deepEqual(
     pages.map((item) => item.zh?.url).sort(),
-    ['/zh/docs/basics/start/', '/zh/docs/guide/', '/zh/docs/guide/simple/'].sort(),
+    [
+      '/zh/docs/basics/start/',
+      '/zh/docs/guide/',
+      '/zh/docs/guide/simple/',
+      '/zh/docs/03-advanced/01-retained/',
+    ].sort(),
   );
 });
 
@@ -255,19 +267,156 @@ test('infers titles but excludes draft, unlisted and partial documents', async (
   const {repoRoot, baseline} = await createFixtureRepository();
   t.after(() => rm(repoRoot, {recursive: true, force: true}));
   await put(repoRoot, 'docs/guide/no-frontmatter.md', '# 自动标题\n\n正文。\n');
-  await put(repoRoot, 'docs/guide/draft.md', '---\ntitle: Draft\ndraft: true\n---\n');
+  await put(repoRoot, 'docs/guide/draft.md', '---\ntitle: Draft\ndraft: "true"\n---\n');
   await put(
     repoRoot,
     'docs/guide/unlisted.md',
-    '---\ntitle: Unlisted\nunlisted: true\n---\n',
+    '---\ntitle: Unlisted\nunlisted: "true"\n---\n',
   );
   await put(repoRoot, 'docs/guide/_partial.md', '# Partial\n');
+  await put(repoRoot, 'docs/isolated/_partial.md', '# Isolated partial\n');
+  await put(repoRoot, 'docs/_hidden/secret.md', '# Hidden partial\n');
   commit(repoRoot, 'add visible and non-public documents');
 
   const pages = generateRecentChanges({repoRoot, baseline})[0].pages;
   assert.deepEqual(pages, [
     {action: 'added', zh: {title: '自动标题', url: '/zh/docs/guide/no-frontmatter/'}},
   ]);
+});
+
+test('groups translations by document identity when localized slugs differ', async (t) => {
+  const {repoRoot, baseline} = await createFixtureRepository();
+  t.after(() => rm(repoRoot, {recursive: true, force: true}));
+  const zhPath = 'docs/guide/localized/localized.mdx';
+  const enPath =
+    'i18n/en/docusaurus-plugin-content-docs/current/guide/localized/localized.mdx';
+  await put(repoRoot, zhPath, page('中文页面'));
+  await put(repoRoot, enPath, page('English page', '/translated-page'));
+  commit(repoRoot, 'add localized page');
+
+  const pages = generateRecentChanges({repoRoot, baseline})[0].pages;
+  assert.deepEqual(pages, [{
+    action: 'added',
+    zh: {title: '中文页面', url: '/zh/docs/guide/localized/'},
+    en: {title: 'English page', url: '/en/docs/translated-page/'},
+  }]);
+});
+
+test('preserves bilingual grouping when legacy document IDs differ but slugs match', async (t) => {
+  const {repoRoot, baseline} = await createFixtureRepository();
+  t.after(() => rm(repoRoot, {recursive: true, force: true}));
+  await put(repoRoot, 'docs/guide/legacy.mdx', '---\ntitle: 中文旧页\nid: zh-legacy\nslug: /shared\n---\n');
+  await put(
+    repoRoot,
+    'i18n/en/docusaurus-plugin-content-docs/current/guide/legacy.mdx',
+    '---\ntitle: English legacy\nid: en-legacy\nslug: /shared\n---\n',
+  );
+  commit(repoRoot, 'add legacy translations');
+  const pages = generateRecentChanges({repoRoot, baseline})[0].pages;
+  assert.deepEqual(pages, [{
+    action: 'added',
+    zh: {title: '中文旧页', url: '/zh/docs/shared/'},
+    en: {title: 'English legacy', url: '/en/docs/shared/'},
+  }]);
+});
+
+test('tracks localized pages and assets in non-ASCII directories', async (t) => {
+  const {repoRoot, baseline} = await createFixtureRepository();
+  t.after(() => rm(repoRoot, {recursive: true, force: true}));
+  await put(repoRoot, 'docs/指南/颜色/颜色.mdx', page('颜色指南'));
+  await put(
+    repoRoot,
+    'i18n/en/docusaurus-plugin-content-docs/current/指南/颜色/颜色.mdx',
+    page('Color guide'),
+  );
+  commit(repoRoot, 'add localized page');
+  await put(repoRoot, 'docs/指南/颜色/assets/示例.png', 'image');
+  commit(repoRoot, 'update page image');
+
+  const pages = generateRecentChanges({repoRoot, baseline})[0].pages;
+  assert.deepEqual(pages, [{
+    action: 'updated',
+    zh: {title: '颜色指南', url: '/zh/docs/指南/颜色/'},
+    en: {title: 'Color guide', url: '/en/docs/指南/颜色/'},
+  }]);
+});
+
+test('points earlier changes to a document’s current route', async (t) => {
+  const {repoRoot, baseline} = await createFixtureRepository();
+  t.after(() => rm(repoRoot, {recursive: true, force: true}));
+  const file = 'docs/guide/renamed-route/renamed-route.mdx';
+  await put(repoRoot, file, page('改地址的页面', '/old-route'));
+  commit(repoRoot, 'add old route');
+  await put(repoRoot, file, page('改地址的页面', '/new-route'));
+  commit(repoRoot, 'change route');
+
+  const matches = generateRecentChanges({repoRoot, baseline})
+    .flatMap((entry) => entry.pages)
+    .filter((item) => item.zh?.title === '改地址的页面');
+  assert.equal(matches.length, 2);
+  for (const item of matches) assert.equal(item.zh?.url, '/zh/docs/new-route/');
+});
+
+test('does not fail a current build on malformed historical front matter', async (t) => {
+  const {repoRoot, baseline} = await createFixtureRepository();
+  t.after(() => rm(repoRoot, {recursive: true, force: true}));
+  const file = 'docs/guide/recovered/recovered.mdx';
+  await put(repoRoot, file, '---\ntitle: [broken\n---\n');
+  commit(repoRoot, 'old malformed document');
+  await put(repoRoot, file, page('已修复页面'));
+  commit(repoRoot, 'fix document');
+
+  const pages = generateRecentChanges({repoRoot, baseline}).flatMap((entry) => entry.pages);
+  assert.ok(pages.some((item) => item.zh?.title === '已修复页面'));
+});
+
+test('does not expose a page in older entries after it becomes unlisted', async (t) => {
+  const {repoRoot, baseline} = await createFixtureRepository();
+  t.after(() => rm(repoRoot, {recursive: true, force: true}));
+  const file = 'docs/guide/no-longer-listed.md';
+  await put(repoRoot, file, page('不再公开列出的页面'));
+  commit(repoRoot, 'add public page');
+  await put(repoRoot, file, '---\ntitle: 不再公开列出的页面\nunlisted: true\n---\n');
+  commit(repoRoot, 'unlist page');
+
+  const entries = generateRecentChanges({repoRoot, baseline});
+  assert.equal(
+    entries.flatMap((entry) => entry.pages)
+      .some((item) => item.zh?.title === '不再公开列出的页面'),
+    false,
+  );
+});
+
+test('does not expose an unlisted page under its previous filename', async (t) => {
+  const {repoRoot, baseline} = await createFixtureRepository();
+  t.after(() => rm(repoRoot, {recursive: true, force: true}));
+  const oldPath = 'docs/guide/old-name.mdx';
+  const newPath = 'docs/guide/new-name.mdx';
+  await put(repoRoot, oldPath, page('不应显示的旧标题'));
+  commit(repoRoot, 'add public page');
+  await rename(path.join(repoRoot, oldPath), path.join(repoRoot, newPath));
+  await put(repoRoot, newPath, page('不应显示的旧标题').replace('---\n\n', 'unlisted: true\n---\n\n'));
+  commit(repoRoot, 'move and unlist page');
+
+  const entries = generateRecentChanges({repoRoot, baseline});
+  assert.equal(entries.flatMap((entry) => entry.pages)
+    .some((item) => item.zh?.title === '不应显示的旧标题'), false);
+});
+
+test('does not expose an old title when a renamed unlisted page is rewritten', async (t) => {
+  const {repoRoot, baseline} = await createFixtureRepository();
+  t.after(() => rm(repoRoot, {recursive: true, force: true}));
+  const oldPath = 'docs/guide/before-rewrite.mdx';
+  const newPath = 'docs/guide/after-rewrite.mdx';
+  await put(repoRoot, oldPath, page('不可追踪的旧标题'));
+  commit(repoRoot, 'add public page');
+  await rm(path.join(repoRoot, oldPath));
+  await put(repoRoot, newPath, '---\ntitle: 新标题\nunlisted: true\n---\n\n全新内容。\n');
+  commit(repoRoot, 'rewrite and unlist page');
+
+  const entries = generateRecentChanges({repoRoot, baseline});
+  assert.equal(entries.flatMap((entry) => entry.pages)
+    .some((item) => item.zh?.title === '不可追踪的旧标题'), false);
 });
 
 test('recovers the required public history in a shallow deployment clone', async (t) => {
