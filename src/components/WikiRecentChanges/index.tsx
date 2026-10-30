@@ -44,6 +44,8 @@ export default function WikiRecentChanges(): ReactNode {
               <ul className={styles.pages}>
                 {entry.pages.map((page, pageIndex) => {
                   const localizedPage = localizePage(page, locale);
+                  const isEnglish = locale === 'en' || locale.startsWith('en-');
+                  const isFallback = isEnglish ? !page.en : !page.zh;
                   const label = copy.actions[page.action];
                   const key = `${page.action}-${localizedPage.url ?? localizedPage.title}-${pageIndex}`;
 
@@ -55,7 +57,11 @@ export default function WikiRecentChanges(): ReactNode {
                         {label}
                       </span>
                       {localizedPage.url ? (
-                        <Link to={localizedPage.url}>
+                        <Link
+                          to={isFallback ? `pathname://${localizedPage.url}` : localizedPage.url}
+                          autoAddBaseUrl={false}
+                          target={isFallback ? '_self' : undefined}
+                        >
                           {localizedPage.title}
                         </Link>
                       ) : (

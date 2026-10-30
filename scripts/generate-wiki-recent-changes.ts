@@ -2,6 +2,16 @@ import {execFileSync} from 'node:child_process';
 import {mkdirSync, writeFileSync} from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
+// Keep historical document routes consistent with the pinned docs plugin.
+import getDocSlug from '@docusaurus/plugin-content-docs/lib/slug.js';
+import {
+  DefaultNumberPrefixParser,
+  stripPathNumberPrefixes,
+} from '@docusaurus/plugin-content-docs/lib/numberPrefix.js';
+import type {DocFrontMatter} from '@docusaurus/plugin-content-docs';
+import {DocFrontMatterSchema} from '@docusaurus/plugin-content-docs/lib/frontMatter.js';
+import {parseMarkdownContentTitle} from '@docusaurus/utils';
+import {parseFileContentFrontMatter} from '@docusaurus/utils/lib/markdownUtils.js';
 
 export type RecentChangeAction = 'added' | 'updated' | 'moved' | 'removed';
 
@@ -39,16 +49,26 @@ interface GitChange {
 
 interface PageMetadata {
   locale: Locale;
+  docId: string;
+  sourcePath: string;
+  relativePath: string;
   title: string;
   slug: string;
   url?: string;
+}
+
+interface VisibilityContext {
+  head: string;
+  hiddenPaths: Map<string, boolean>;
+  metadata: Map<string, PageMetadata | null>;
+  indexes: Map<string, Map<string, PageMetadata>>;
 }
 
 const CHINESE_ROOT = 'docs/';
 const ENGLISH_ROOT =
   'i18n/en/docusaurus-plugin-content-docs/current/';
 const PUBLIC_ROOTS = [CHINESE_ROOT, ENGLISH_ROOT] as const;
-const DOCUMENT_PATTERN = /\.mdx?$/i;
+const DOCUMENT_PATTERN = /\.mdx?$/;
 const DEFAULT_BASELINE = 'df344dccf3edb046f91110e2564145f1822d0428';
 const DEFAULT_OUTPUT = 'src/generated/wikiRecentChanges.ts';
 
@@ -89,7 +109,12 @@ function localeRoot(filePath: string): {locale: Locale; root: string} | undefine
 }
 
 export function isPublicDocumentPath(filePath: string): boolean {
-  return localeRoot(filePath) !== undefined && DOCUMENT_PATTERN.test(filePath);
+  const location = localeRoot(filePath);
+  return (
+    location !== undefined &&
+    DOCUMENT_PATTERN.test(filePath) &&
+    !filePath.slice(location.root.length).split('/').some((part) => part.startsWith('_'))
+  );
 }
 
 function parseNullDelimitedChanges(output: string): GitChange[] {
@@ -131,27 +156,6 @@ function readFileAtCommit(
   }
 }
 
-function unquote(value: string): string {
-  const trimmed = value.trim();
-  if (
-    (trimmed.startsWith('"') && trimmed.endsWith('"')) ||
-    (trimmed.startsWith("'") && trimmed.endsWith("'"))
-  ) {
-    return trimmed.slice(1, -1);
-  }
-  return trimmed;
-}
-
-function frontMatterValue(source: string, field: 'title' | 'slug'): string | undefined {
-  const frontMatter = source.match(/^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)/);
-  if (!frontMatter) return undefined;
-
-  const match = frontMatter[1]?.match(
-    new RegExp(`^${field}:\\s*(.+?)\\s*$`, 'm'),
-  );
-  return match?.[1] ? unquote(match[1]) : undefined;
-}
-
 function normalizeSlug(slug: string): string {
   const withLeadingSlash = slug.startsWith('/') ? slug : `/${slug}`;
   if (withLeadingSlash === '/') return '/';
@@ -166,28 +170,98 @@ function publicUrl(locale: Locale, slug: string): string {
     : `${localeBase}/docs${normalized}/`;
 }
 
+function parseDocument(source: string): {
+  frontMatter: DocFrontMatter;
+  content: string;
+} | undefined {
+  try {
+    const parsed = parseFileContentFrontMatter(source);
+    // Apply Docusaurus' schema without logging historical front matter on error.
+    const {value, error} = DocFrontMatterSchema.validate(parsed.frontMatter, {
+      convert: true,
+      allowUnknown: true,
+      abortEarly: false,
+    });
+    return error ? undefined : {...parsed, frontMatter: value};
+  } catch {
+    // A historical revision may have invalid metadata even if HEAD is valid.
+    return undefined;
+  }
+}
+
+function isHiddenAtHead(
+  repoRoot: string,
+  filePath: string,
+  visibility: VisibilityContext,
+): boolean {
+  const cached = visibility.hiddenPaths.get(filePath);
+  if (cached !== undefined) return cached;
+  const current = readFileAtCommit(repoRoot, visibility.head, filePath);
+  const parsed = current ? parseDocument(current) : undefined;
+  const hidden = current !== undefined &&
+    (!parsed || parsed.frontMatter.draft === true || parsed.frontMatter.unlisted === true);
+  visibility.hiddenPaths.set(filePath, hidden);
+  return hidden;
+}
+
 function metadataFromDocument(
   repoRoot: string,
   commit: string,
   filePath: string,
   linkable: boolean,
+  visibility: VisibilityContext,
 ): PageMetadata | undefined {
   const location = localeRoot(filePath);
-  if (!location || !DOCUMENT_PATTERN.test(filePath)) return undefined;
-
+  if (!location || !isPublicDocumentPath(filePath)) return undefined;
+  const cacheKey = `${commit}\0${filePath}`;
+  if (visibility.metadata.has(cacheKey)) {
+    const cached = visibility.metadata.get(cacheKey);
+    return cached ? {...cached, ...(linkable ? {} : {url: undefined})} : undefined;
+  }
   const source = readFileAtCommit(repoRoot, commit, filePath);
-  if (!source) return undefined;
-  const title = frontMatterValue(source, 'title');
-  const slug = frontMatterValue(source, 'slug');
-  if (!title || !slug) return undefined;
-
-  const normalizedSlug = normalizeSlug(slug);
-  return {
+  const parsed = source ? parseDocument(source) : undefined;
+  if (!parsed || parsed.frontMatter.draft || parsed.frontMatter.unlisted ||
+      isHiddenAtHead(repoRoot, filePath, visibility)) {
+    visibility.metadata.set(cacheKey, null);
+    return undefined;
+  }
+  const {frontMatter, content} = parsed;
+  const docPath = filePath.slice(location.root.length);
+  const sourceDirName = path.posix.dirname(docPath);
+  const filename = path.posix.parse(docPath).name;
+  const parseNumberPrefixes = frontMatter.parse_number_prefixes ?? true;
+  const baseID = frontMatter.id ??
+    (parseNumberPrefixes ? DefaultNumberPrefixParser(filename).filename : filename);
+  const directoryId = sourceDirName === '.' ? undefined :
+    parseNumberPrefixes
+      ? stripPathNumberPrefixes(sourceDirName, DefaultNumberPrefixParser)
+      : sourceDirName;
+  const docId = [directoryId, baseID].filter(Boolean).join('/');
+  const title = frontMatter.title ?? parseMarkdownContentTitle(content).contentTitle ?? baseID;
+  let normalizedSlug: string;
+  try {
+    normalizedSlug = normalizeSlug(getDocSlug({
+      baseID,
+      frontMatterSlug: frontMatter.slug,
+      source: docPath,
+      sourceDirName,
+      stripDirNumberPrefixes: parseNumberPrefixes,
+    }));
+  } catch {
+    visibility.metadata.set(cacheKey, null);
+    return undefined;
+  }
+  const metadata: PageMetadata = {
     locale: location.locale,
+    docId,
+    sourcePath: filePath,
+    relativePath: docPath,
     title,
     slug: normalizedSlug,
-    ...(linkable ? {url: publicUrl(location.locale, normalizedSlug)} : {}),
+    url: publicUrl(location.locale, normalizedSlug),
   };
+  visibility.metadata.set(cacheKey, metadata);
+  return linkable ? metadata : {...metadata, url: undefined};
 }
 
 function directDocumentsAt(
@@ -200,6 +274,7 @@ function directDocumentsAt(
     output = runGit(repoRoot, [
       'ls-tree',
       '-r',
+      '-z',
       '--name-only',
       commit,
       '--',
@@ -210,27 +285,31 @@ function directDocumentsAt(
   }
 
   return output
-    .split(/\r?\n/)
+    .split('\0')
     .filter(
       (candidate) =>
-        DOCUMENT_PATTERN.test(candidate) &&
+        isPublicDocumentPath(candidate) &&
         path.posix.dirname(candidate) === directory,
     );
 }
 
-function metadataBySlugAt(
+function metadataByIdAt(
   repoRoot: string,
   commit: string,
   locale: Locale,
-  slug: string,
-  linkable: boolean,
+  docId: string,
+  visibility: VisibilityContext,
 ): PageMetadata | undefined {
+  const cacheKey = `${commit}\0${locale}`;
+  const cached = visibility.indexes.get(cacheKey);
+  if (cached) return cached.get(docId);
   const root = locale === 'zh' ? CHINESE_ROOT : ENGLISH_ROOT;
   let output: string;
   try {
     output = runGit(repoRoot, [
       'ls-tree',
       '-r',
+      '-z',
       '--name-only',
       commit,
       '--',
@@ -240,19 +319,39 @@ function metadataBySlugAt(
     return undefined;
   }
 
-  for (const candidate of output.split(/\r?\n/)) {
+  const index = new Map<string, PageMetadata>();
+  for (const candidate of output.split('\0')) {
     if (!isPublicDocumentPath(candidate)) continue;
     const metadata = metadataFromDocument(
       repoRoot,
       commit,
       candidate,
-      linkable,
+      true,
+      visibility,
     );
-    if (metadata?.locale === locale && metadata.slug === slug) {
-      return metadata;
-    }
+    if (metadata?.locale === locale) index.set(metadata.docId, metadata);
   }
-  return undefined;
+  visibility.indexes.set(cacheKey, index);
+  return index.get(docId);
+}
+
+function correspondingMetadataAt(
+  repoRoot: string,
+  commit: string,
+  locale: Locale,
+  paths: Set<string>,
+  ids: Set<string>,
+  slugs: Set<string>,
+  visibility: VisibilityContext,
+): PageMetadata | undefined {
+  // Populate once, then match the translated source path before legacy IDs.
+  metadataByIdAt(repoRoot, commit, locale, ids.values().next().value ?? '', visibility);
+  const index = visibility.indexes.get(`${commit}\0${locale}`);
+  if (!index) return undefined;
+  const candidates = [...index.values()];
+  return candidates.find((metadata) => paths.has(metadata.relativePath)) ??
+    candidates.find((metadata) => ids.has(metadata.docId)) ??
+    candidates.find((metadata) => slugs.has(metadata.slug));
 }
 
 function owningDocumentAt(
@@ -320,6 +419,7 @@ function changeMetadata(
   repoRoot: string,
   commit: string,
   change: GitChange,
+  visibility: VisibilityContext,
 ): {metadata: PageMetadata; action: RecentChangeAction} | undefined {
   const documentChanged = isPublicDocumentPath(change.path);
   const sourceCommit = change.status === 'D' ? `${commit}^` : commit;
@@ -334,6 +434,7 @@ function changeMetadata(
     sourceCommit,
     sourcePath,
     action !== 'removed',
+    visibility,
   );
   return metadata ? {metadata, action} : undefined;
 }
@@ -344,9 +445,34 @@ function pageSortKey(pageChange: RecentChangePage): string {
   return `${2 - localeCount}:${page?.url ?? page?.title ?? ''}`;
 }
 
+function localizedChange(
+  repoRoot: string,
+  metadata: PageMetadata,
+  action: RecentChangeAction,
+  visibility: VisibilityContext,
+): LocalizedPage {
+  const current = metadataFromDocument(
+    repoRoot,
+    visibility.head,
+    metadata.sourcePath,
+    true,
+    visibility,
+  );
+  // A vanished document may have been renamed and made unlisted; Git cannot
+  // reliably identify a rename when its content was rewritten at the same time.
+  const title = current
+    ? current.title
+    : metadata.locale === 'zh' ? '已不可用的文档' : 'Unavailable document';
+  return {
+    title,
+    ...(action !== 'removed' && current?.url ? {url: current.url} : {}),
+  };
+}
+
 function changesForCommit(
   repoRoot: string,
   commit: string,
+  visibility: VisibilityContext,
 ): RecentChangePage[] {
   const diff = runGit(repoRoot, [
     'diff-tree',
@@ -361,41 +487,56 @@ function changesForCommit(
   ]);
   const grouped = new Map<
     string,
-    {action?: RecentChangeAction; zh?: LocalizedPage; en?: LocalizedPage}
+    {action?: RecentChangeAction; zh?: LocalizedPage; en?: LocalizedPage; paths: Set<string>; ids: Set<string>; slugs: Set<string>}
   >();
+  const groupsByPath = new Map<string, string>();
+  const groupsById = new Map<string, string>();
+  const groupsBySlug = new Map<string, string>();
 
   for (const change of parseNullDelimitedChanges(diff)) {
-    const resolved = changeMetadata(repoRoot, commit, change);
+    const resolved = changeMetadata(repoRoot, commit, change, visibility);
     if (!resolved) continue;
 
     const {metadata, action} = resolved;
-    const logicalKey = metadata.slug;
-    const existing = grouped.get(logicalKey) ?? {};
-    existing.action = strongerAction(existing.action, action);
-    existing[metadata.locale] = {
-      title: metadata.title,
-      ...(metadata.url ? {url: metadata.url} : {}),
+    const logicalKey = groupsByPath.get(metadata.relativePath) ??
+      groupsById.get(metadata.docId) ??
+      groupsBySlug.get(metadata.slug) ??
+      `${metadata.locale}:${metadata.relativePath}`;
+    const existing = grouped.get(logicalKey) ?? {
+      paths: new Set<string>(), ids: new Set<string>(), slugs: new Set<string>(),
     };
+    existing.action = strongerAction(existing.action, action);
+    existing[metadata.locale] = localizedChange(repoRoot, metadata, action, visibility);
+    existing.paths.add(metadata.relativePath);
+    existing.ids.add(metadata.docId);
+    existing.slugs.add(metadata.slug);
     grouped.set(logicalKey, existing);
+    groupsByPath.set(metadata.relativePath, logicalKey);
+    groupsById.set(metadata.docId, logicalKey);
+    groupsBySlug.set(metadata.slug, logicalKey);
   }
 
-  for (const [slug, pageChange] of grouped) {
+  for (const pageChange of grouped.values()) {
     const lookupCommit =
       pageChange.action === 'removed' ? `${commit}^` : commit;
     for (const locale of ['zh', 'en'] as const) {
       if (pageChange[locale]) continue;
-      const metadata = metadataBySlugAt(
+      const metadata = correspondingMetadataAt(
         repoRoot,
         lookupCommit,
         locale,
-        slug,
-        pageChange.action !== 'removed',
+        pageChange.paths,
+        pageChange.ids,
+        pageChange.slugs,
+        visibility,
       );
       if (metadata) {
-        pageChange[locale] = {
-          title: metadata.title,
-          ...(metadata.url ? {url: metadata.url} : {}),
-        };
+        pageChange[locale] = localizedChange(
+          repoRoot,
+          metadata,
+          pageChange.action ?? 'updated',
+          visibility,
+        );
       }
     }
   }
@@ -408,6 +549,9 @@ function changesForCommit(
         action: RecentChangeAction;
         zh?: LocalizedPage;
         en?: LocalizedPage;
+        paths: Set<string>;
+        ids: Set<string>;
+        slugs: Set<string>;
       } => pageChange.action !== undefined,
     )
     .map(({action, zh, en}) => ({
@@ -475,9 +619,15 @@ export function generateRecentChanges({
     ...PUBLIC_ROOTS,
   ]);
   const commits = commitOutput.split(/\r?\n/).filter(Boolean);
+  const visibility: VisibilityContext = {
+    head,
+    hiddenPaths: new Map(),
+    metadata: new Map(),
+    indexes: new Map(),
+  };
   const entries = commits
     .map((commit) => {
-      const pages = changesForCommit(repoRoot, commit);
+      const pages = changesForCommit(repoRoot, commit, visibility);
       if (pages.length === 0) return undefined;
       const timestamp = runGit(repoRoot, [
         'show',
