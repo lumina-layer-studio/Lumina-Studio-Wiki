@@ -40,11 +40,10 @@ function commit(repoRoot: string, message: string): string {
   return git(repoRoot, 'rev-parse', 'HEAD');
 }
 
-function page(title: string, slug: string): string {
+function page(title: string, slug?: string): string {
   return `---
 title: "${title}"
-slug: "${slug}"
----
+${slug ? `slug: "${slug}"\n` : ''}---
 
 ${Array.from({length: 30}, (_, index) => `Stable content ${index}.`).join('\n')}
 `;
@@ -199,6 +198,76 @@ test('generates grouped bilingual recent changes from real Git history', async (
     generatedSource,
     /Fixture Author|fixture@example\.com|private subject|internal-server|10\.0\.0\.1|Volumes\/NAS/,
   );
+});
+
+test('includes new and revised bilingual pages without a custom slug', async (t) => {
+  const {repoRoot, baseline} = await createFixtureRepository();
+  t.after(() => rm(repoRoot, {recursive: true, force: true}));
+  const zhPath =
+    'docs/getting-started/launcher-activation/launcher-activation.mdx';
+  const enPath =
+    'i18n/en/docusaurus-plugin-content-docs/current/getting-started/launcher-activation/launcher-activation.mdx';
+  await put(repoRoot, zhPath, page('启动器激活'));
+  await put(repoRoot, enPath, page('Launcher activation'));
+  commit(repoRoot, 'add default-route page');
+  await put(repoRoot, zhPath, `${page('启动器激活')}\n补充说明。\n`);
+  commit(repoRoot, 'revise Chinese page');
+  await put(
+    repoRoot,
+    'docs/getting-started/launcher-activation/assets/step.webp',
+    'image',
+  );
+  commit(repoRoot, 'revise page image');
+
+  const entries = generateRecentChanges({repoRoot, baseline});
+  const matching = entries
+    .flatMap((entry) => entry.pages)
+    .filter((item) => item.zh?.title === '启动器激活');
+  assert.deepEqual(matching.map((item) => item.action), ['updated', 'updated', 'added']);
+  for (const item of matching) {
+    assert.deepEqual(item.zh, {
+      title: '启动器激活',
+      url: '/zh/docs/getting-started/launcher-activation/',
+    });
+    assert.deepEqual(item.en, {
+      title: 'Launcher activation',
+      url: '/en/docs/getting-started/launcher-activation/',
+    });
+  }
+});
+
+test('uses default Docusaurus routes for ordinary, index and numbered documents', async (t) => {
+  const {repoRoot, baseline} = await createFixtureRepository();
+  t.after(() => rm(repoRoot, {recursive: true, force: true}));
+  await put(repoRoot, 'docs/guide/simple.md', page('普通文档'));
+  await put(repoRoot, 'docs/guide/index.mdx', page('目录首页'));
+  await put(repoRoot, 'docs/02-basics/01-start.mdx', page('编号文档'));
+  commit(repoRoot, 'add default-route variants');
+
+  const pages = generateRecentChanges({repoRoot, baseline})[0].pages;
+  assert.deepEqual(
+    pages.map((item) => item.zh?.url).sort(),
+    ['/zh/docs/basics/start/', '/zh/docs/guide/', '/zh/docs/guide/simple/'].sort(),
+  );
+});
+
+test('infers titles but excludes draft, unlisted and partial documents', async (t) => {
+  const {repoRoot, baseline} = await createFixtureRepository();
+  t.after(() => rm(repoRoot, {recursive: true, force: true}));
+  await put(repoRoot, 'docs/guide/no-frontmatter.md', '# 自动标题\n\n正文。\n');
+  await put(repoRoot, 'docs/guide/draft.md', '---\ntitle: Draft\ndraft: true\n---\n');
+  await put(
+    repoRoot,
+    'docs/guide/unlisted.md',
+    '---\ntitle: Unlisted\nunlisted: true\n---\n',
+  );
+  await put(repoRoot, 'docs/guide/_partial.md', '# Partial\n');
+  commit(repoRoot, 'add visible and non-public documents');
+
+  const pages = generateRecentChanges({repoRoot, baseline})[0].pages;
+  assert.deepEqual(pages, [
+    {action: 'added', zh: {title: '自动标题', url: '/zh/docs/guide/no-frontmatter/'}},
+  ]);
 });
 
 test('recovers the required public history in a shallow deployment clone', async (t) => {

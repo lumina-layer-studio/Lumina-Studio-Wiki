@@ -2,6 +2,11 @@ import {execFileSync} from 'node:child_process';
 import {mkdirSync, writeFileSync} from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
+// Keep historical document routes consistent with the pinned docs plugin.
+import getDocSlug from '@docusaurus/plugin-content-docs/lib/slug.js';
+import {DefaultNumberPrefixParser} from '@docusaurus/plugin-content-docs/lib/numberPrefix.js';
+import {parseMarkdownContentTitle} from '@docusaurus/utils';
+import {parseFileContentFrontMatter} from '@docusaurus/utils/lib/markdownUtils.js';
 
 export type RecentChangeAction = 'added' | 'updated' | 'moved' | 'removed';
 
@@ -89,7 +94,12 @@ function localeRoot(filePath: string): {locale: Locale; root: string} | undefine
 }
 
 export function isPublicDocumentPath(filePath: string): boolean {
-  return localeRoot(filePath) !== undefined && DOCUMENT_PATTERN.test(filePath);
+  const location = localeRoot(filePath);
+  return (
+    location !== undefined &&
+    DOCUMENT_PATTERN.test(filePath) &&
+    !filePath.slice(location.root.length).split('/').some((part) => part.startsWith('_'))
+  );
 }
 
 function parseNullDelimitedChanges(output: string): GitChange[] {
@@ -131,27 +141,6 @@ function readFileAtCommit(
   }
 }
 
-function unquote(value: string): string {
-  const trimmed = value.trim();
-  if (
-    (trimmed.startsWith('"') && trimmed.endsWith('"')) ||
-    (trimmed.startsWith("'") && trimmed.endsWith("'"))
-  ) {
-    return trimmed.slice(1, -1);
-  }
-  return trimmed;
-}
-
-function frontMatterValue(source: string, field: 'title' | 'slug'): string | undefined {
-  const frontMatter = source.match(/^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)/);
-  if (!frontMatter) return undefined;
-
-  const match = frontMatter[1]?.match(
-    new RegExp(`^${field}:\\s*(.+?)\\s*$`, 'm'),
-  );
-  return match?.[1] ? unquote(match[1]) : undefined;
-}
-
 function normalizeSlug(slug: string): string {
   const withLeadingSlash = slug.startsWith('/') ? slug : `/${slug}`;
   if (withLeadingSlash === '/') return '/';
@@ -177,11 +166,32 @@ function metadataFromDocument(
 
   const source = readFileAtCommit(repoRoot, commit, filePath);
   if (!source) return undefined;
-  const title = frontMatterValue(source, 'title');
-  const slug = frontMatterValue(source, 'slug');
-  if (!title || !slug) return undefined;
-
-  const normalizedSlug = normalizeSlug(slug);
+  const {frontMatter, content} = parseFileContentFrontMatter(source);
+  if (frontMatter.draft === true || frontMatter.unlisted === true) {
+    return undefined;
+  }
+  const docPath = filePath.slice(location.root.length);
+  const sourceDirName = path.posix.dirname(docPath);
+  const filename = path.posix.parse(docPath).name;
+  const parseNumberPrefixes = frontMatter.parse_number_prefixes !== false;
+  const baseID =
+    typeof frontMatter.id === 'string'
+      ? frontMatter.id
+      : parseNumberPrefixes
+        ? DefaultNumberPrefixParser(filename).filename
+        : filename;
+  const title =
+    typeof frontMatter.title === 'string'
+      ? frontMatter.title
+      : parseMarkdownContentTitle(content).contentTitle ?? baseID;
+  const normalizedSlug = normalizeSlug(getDocSlug({
+    baseID,
+    frontMatterSlug:
+      typeof frontMatter.slug === 'string' ? frontMatter.slug : undefined,
+    source: docPath,
+    sourceDirName,
+    stripDirNumberPrefixes: parseNumberPrefixes,
+  }));
   return {
     locale: location.locale,
     title,
