@@ -16,11 +16,6 @@ The first Converter input determines the artwork used by Preview, colour matchin
 geometry. Select files through the picker or drop them onto the upload area. Once an image exists,
 the uploader collapses to one row and can be expanded again by selecting the filename area.
 
-<img
-  src={require('./assets/01-upload-rotate.webp').default}
-  alt="Lumina Studio English Core Settings with image input, Crop after upload, and Image rotation"
-/>
-
 ## Accepted artwork
 
 Converter accepts:
@@ -56,31 +51,32 @@ When **Crop after upload** is enabled, selecting a new single bitmap opens the c
 the switch off affects future selections; it does not recover pixels already removed from the
 current image.
 
-<img
-  src={require('./assets/02-crop-dialog.webp').default}
-  alt="Lumina Studio crop dialog with free and fixed ratios, pixel coordinates, Use original, and Confirm crop"
-/>
-
 The dialog provides:
 
 - free ratio;
 - `1:1`, `4:3`, `3:2`, `16:9`, `9:16`, and `3:4`;
 - original and selected pixel dimensions;
 - pixel fields for `X`, `Y`, width, and height;
-- **Use original** and **Confirm crop**.
+- **Rotate left 90°**, **Rotate right 90°**, **Cancel**, and **Apply Changes**.
 
 Dragging the crop box and editing fields stay synchronised. The selection is constrained to the
 source image. Confirming replaces the current task's image, Preview, and aspect ratio with the
-cropped result. `Esc`, Close, or **Use original** does not submit the current crop.
+cropped result. `Esc`, Close, or **Cancel** does not submit the current changes.
 
 ## Image rotation
 
-The selector offers `90°`, `180°`, and `270°`. Select an angle and then choose **Apply rotation**;
-changing only the selector does not alter the image.
+<img
+  src={require('./assets/03-current-crop.webp').default}
+  alt="Crop & Rotate dialog with rotation buttons and Apply Changes highlighted"
+/>
+
+After loading one image, choose **Crop & Rotate**. In the same dialog, use **Rotate left 90°** or
+**Rotate right 90°**; press either twice for 180°. Select **Apply Changes** to commit.
 
 Applying rotation creates a new current image and updates its aspect ratio. Later 2D and 3D Preview,
 colour matching, share card, JSON, and 3MF use the rotated result. Repeated rotations operate on the
-current image rather than applying a temporary browser transform.
+current image rather than applying a temporary browser transform. SVG images can be rotated here while retaining vector
+content, but the dialog does not crop them as bitmaps.
 
 ## Check after changing the image
 

@@ -1,6 +1,6 @@
 ---
-title: "Installed or Custom Material Archives, Inferred LUTs, or Legacy LUTs?"
-description: "Understand Material Archives, Inferred LUTs, and Legacy LUTs, and decide when installed data is suitable or when your own filament should be calibrated."
+title: "Material Archives or Classic LUTs?"
+description: "Compare Material Archives and Classic LUTs, and decide when to use existing data or calibrate your own filament."
 sidebar_position: 23
 ---
 
@@ -10,35 +10,26 @@ This article was prepared with AI assistance based on an analysis of the current
 
 :::
 
-# Installed or Custom Material Archives, Inferred LUTs, or Legacy LUTs?
+# Material Archives or Classic LUTs?
 
-If you only want the short answer: **use a colour source that matches the physical
-filament, intended layer height, and workflow for this print.**
+Choose colour data that matches the physical filament, intended layer height, and workflow for the print.
 
 - If a verified Material Archive fully matches your filament, start with it.
 - If no archive fully matches, or colour consistency is important, create archives
   from your own filaments.
-- If Lumina provides an **Inferred LUT** for your material set, use only the supported
-  modes listed with it.
-- Use a **Legacy LUT** when reopening a 1.x project or reusing an older colour set that
+- Use a **Classic LUT** when reopening a 1.x project or reusing an older colour set that
   was already verified.
 
-“Installed” and “custom” describe **where a Material Archive came from**. Material
-Archive, Inferred LUT, and Legacy LUT are different **Source Type** choices in the
-current Lumina Studio interface. Do not mix these two classifications.
+“Installed” and “custom” describe where a Material Archive came from. The current Color Data Source choices are Material
+Archive and Classic LUT. The older name Legacy LUT is now Classic LUT; the [Inferred LUT](../../reference/converter-basic/inferred-lut-source/inferred-lut-source.mdx)
+entry is not currently shown.
 
-<img
-  src={require('./assets/source-choice-map.webp').default}
-  alt="Decision map for selecting Material Archive, Inferred LUT, or Legacy LUT from the real filaments and compatibility needs"
-/>
-
-## How are the three source types different?
+## How do the two sources differ?
 
 | Source Type | Main purpose | Most important selection evidence | Pay particular attention to |
 | --- | --- | --- | --- |
 | Material Archive | Freely combine several single-spool archives for the current artwork | The real filament's material, product line, colour, and archive source | If an installed archive does not fully match the physical spool, its preview is only a reference |
-| Inferred LUT | Use a prepared reference group and palette supplied by Lumina | The brand or material group and the listed supported layer count and layer height | Do not force an unlisted combination or substitute an unrelated palette |
-| Legacy LUT | Continue using a verified fixed colour set from 1.x or an older workflow | The original filament order, Color Mode, layer count, and layer height | Matching names do not prove identical internal data; verify again after changing filament |
+| Classic LUT | Use a verified fixed colour set or compatible LUT files | The original filament order, Color Mode, layer count, and layer height | Matching names do not prove identical internal data; verify again after changing filament |
 
 One image uses only the currently selected Source Type. After changing the source,
 generate a new preview. Do not treat a preview from the previous source as the result
@@ -92,27 +83,9 @@ and
 [Photograph and Extract Gradient Cards](pathname:///en/docs/tutorials/gradient-card-extract-profile/)
 to create one.
 
-## Inferred LUT: use a prepared reference group
+## Classic LUT: fixed, verified combinations and older projects
 
-An Inferred LUT is not another name for a single-spool Material Archive. After you
-select it, the interface lets you choose the corresponding brand or reference group
-and shows the available database plus supported combinations of Color Layers and
-Layer Height.
-
-It is useful when:
-
-- Lumina already includes a reference group matching the material set you plan to use;
-- you want a prepared palette with explicit supported modes;
-- you do not need to replace the group freely with arbitrary single-spool archives.
-
-Follow the supported modes shown in the current interface. If a layer count or layer
-height is not listed, do not assume a nearby value is equivalent. After switching to
-an Inferred LUT, check the exported project filaments again. Do not carry over the
-colour order from a previous Legacy LUT.
-
-## Legacy LUT: fixed, verified combinations and older projects
-
-A Legacy LUT is a precomputed mapping from target colours to layered recipes. It
+A Classic LUT is a precomputed mapping from target colours to layered recipes. It
 remains useful for verified older projects, fixed material combinations, and LUT files
 created by the 1.x workflow.
 
@@ -123,11 +96,11 @@ Keep and verify all of the following together:
 - the supported layer count and Layer Height;
 - the slicer and print conditions used for the original validation.
 
-Some Legacy LUTs support dynamic layer counts and heights; others only support a
+Some Classic LUTs support dynamic layer counts and heights; others only support a
 fixed combination. If the current interface says dynamic settings are unsupported,
 use the modes stored in that LUT instead of forcing parameters from another file.
 
-The current upload control accepts `.npy`, `.json`, `.npz`, and `.msgpack` Legacy LUT
+The current upload control accepts `.npy`, `.json`, `.npz`, and `.msgpack` Classic LUT
 files. A file being readable only proves that its format can be parsed. It does not
 prove that the data matches your physical filament.
 
@@ -155,7 +128,7 @@ contributor measured.
 A Material Archive records the Layer Height used for measurement. The Converter also
 lets you choose the Color Layers and Layer Height for this work. Changing the layer
 height changes how much colour and light transmission accumulates in each layer.
-Inferred LUTs and Legacy LUTs may only support their listed fixed combinations.
+Classic LUTs may only support their listed fixed combinations.
 
 ### 4. Physical spool and slot
 
@@ -223,7 +196,7 @@ and slicer preset matching the physical material.
 ### Can an old LUT be converted directly into Material Archives?
 
 They store and combine different information. Renaming the file or changing its
-extension does not migrate it. Continue using Legacy LUT for an older project, or
+extension does not migrate it. Continue using Classic LUT for an older project, or
 create single-spool archives with the gradient-card workflow when moving to Material
 Archives.
 

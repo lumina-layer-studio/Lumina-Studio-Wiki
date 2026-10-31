@@ -18,19 +18,14 @@ checks.**
 
 - Color Workstation, Custom Recipe, Outline, Transparent Coating, and Separate
   Backing can usually be used in an ordinary single- or double-sided project.
-- Relief, Cloisonné, Fridge Magnet, Puzzle, Large Format, and Batch change geometry or
+- Relief, Fridge Magnet, Puzzle, Large Format, and Batch change geometry or
   generation behaviour and are not ordinary cosmetic switches.
 - Fridge Magnet is single-sided and cannot be combined with Puzzle, Large Format, or
   Keychain Loop.
 - Puzzle cannot be combined with Batch, Large Format, Fridge Magnet, or Keychain Loop.
-- Relief and Cloisonné are mutually exclusive; Native Vector currently uses neither.
+- Relief is not available in Native Vector. The Cloisonné settings entry is currently hidden.
 - An enabled control does not prove a combination is reliable. After adding a
   structural feature, Preview, Generate, slice, and inspect the real layers again.
-
-<img
-  src={require('./assets/feature-compatibility-map.webp').default}
-  alt="Compatibility map separating base structure, appearance processing, and structural feature limits"
-/>
 
 ## First identify what the feature changes
 
@@ -83,7 +78,7 @@ Symbols:
 | Separate Backing | ✅ | ✅ | ⚠️ | Reorganises objects only; inspect complex or double-sided structures |
 | Free Color | ✅ | — | ⚠️ | Exports matched colours as objects; not for Native Vector currently |
 | Relief | ✅ | — | Single-sided only | Mutually exclusive with Cloisonné; height-map Relief is not a Batch feature |
-| Cloisonné | ⚠️ | — | Test single-sided first | Mutually exclusive with Relief; still under development |
+| Cloisonné | — | — | — | Entry hidden in the current version; [older documentation](../../reference/model-features/cloisonne/cloisonne.mdx) is retained |
 | Keychain Loop | ✅ | ⚠️ | Prefer single-sided | Not with Fridge Magnet or Puzzle; inspect the hole and connection |
 | Fridge Magnet | ✅ | ⚠️ | Single-sided only | Not with Puzzle, Large Format, or Keychain Loop |
 | Puzzle | Specialised workflow | — | Specialised structure | Not with Batch, Large Format, Fridge Magnet, or Keychain Loop |
@@ -140,7 +135,7 @@ Lumina prevents known invalid states. For example:
   and Keychain Loop;
 - enabling Puzzle disables Large Format, Keychain Loop, and Fridge Magnet;
 - enabling Relief switches to single-sided and disables Cloisonné;
-- enabling Cloisonné disables Relief;
+- in older versions, enabling Cloisonné disables Relief; the entry is hidden in the current version;
 - entering Batch mode makes Puzzle unavailable.
 
 Review the settings summary after changing a structural feature. Do not repeatedly
@@ -191,8 +186,8 @@ instead of bypassing the conflict.
 
 ### Why are Relief and Cloisonné missing from Native Vector?
 
-The current Native Vector workflow does not support them. Use an appropriate raster
-source for Relief. Cloisonné also remains under development.
+Native Vector does not support Relief; use an appropriate raster source for that feature.
+The Cloisonné settings entry is currently hidden in every mode.
 
 ### Why can a Large Format SVG look rasterised?
 

@@ -12,7 +12,7 @@ This article was prepared with AI assistance based on an analysis of the current
 
 # Upload, Replace, Crop, and Rotate an Image
 
-If you remember only the essentials:
+After uploading artwork, you can adjust its framing and orientation or add more images for a batch:
 
 - click the upload area or drag files into it for the first import;
 - **Replace current image** stays in the single-image workflow, while **Add more images**
@@ -21,9 +21,6 @@ If you remember only the essentials:
   create detail that is absent from the source;
 - after the image changes, old colour edits, Preview data, and generated downloads no
   longer describe the current image. Preview and Generate again.
-
-The screenshots below come from the current English Lumina Studio interface. The
-demonstration graphic exists only to make orientation and crop boundaries obvious.
 
 ## Preserve the original before editing
 
@@ -43,11 +40,6 @@ For important artwork, keep at least:
 
 In **Core Settings**, click the dashed upload area or drag an image onto it.
 
-<img
-  src={require('./assets/01-upload-image.webp').default}
-  alt="Current English Lumina Studio interface with the dashed upload area highlighted"
-/>
-
 The upload area accepts multiple files. Selecting one file starts the single-image
 workflow. Selecting several files starts Batch mode immediately.
 
@@ -60,17 +52,14 @@ When **Crop After Upload** is enabled, a raster image opens in the crop dialog a
 selection. Drag the blue boundary, or choose a common aspect ratio, and verify the
 selection dimensions before confirming.
 
-<img
-  src={require('./assets/02-crop-image.webp').default}
-  alt="Crop Image dialog with the selection boundary, aspect ratios, Use Original, and Confirm Crop highlighted"
-/>
-
 Use:
 
-- **Confirm Crop** to keep only the selected area;
-- **Use Original** to keep the complete uploaded canvas;
+- **Apply Changes** to keep the selected area and rotation;
+- **Cancel** to discard the changes;
 - the close button to cancel the current dialog without treating that as a successful
-  crop.
+  changes.
+
+After loading an image, you can also choose **Crop & Rotate** to reopen the dialog.
 
 Cropping is destructive to the task copy: pixels outside the selection are unavailable
 to later Preview and Generate steps. It does not resize missing detail back into the
@@ -93,11 +82,6 @@ its `viewBox`, page size, off-canvas objects, and geometry in a vector editor. S
 
 After one image is loaded, two controls appear below its thumbnail.
 
-<img
-  src={require('./assets/03-replace-or-add.webp').default}
-  alt="Current English interface showing Replace current image and Add more images"
-/>
-
 ### Replace current image
 
 This removes the current task image and imports another while remaining in the
@@ -118,37 +102,26 @@ returns to the single-image workflow.
 
 ## Step 4: rotate the current image
 
-In the single-image workflow, **Image Rotation** provides 90°, 180°, and 270°:
-
-- 90°: one quarter-turn clockwise;
-- 180°: upside down;
-- 270°: equivalent to 90° counter-clockwise.
-
-Choose the angle, then select **Apply Rotation**.
-
 <img
-  src={require('./assets/04-rotate-image.webp').default}
-  alt="Crop dialog after applying a 90-degree rotation, with the current image now vertical"
+  src={require('./assets/06-current-crop.webp').default}
+  alt="Crop & Rotate dialog with rotation buttons and Apply Changes highlighted"
 />
 
-Rotation updates the task image. Later Preview, 3D, and export use the new orientation,
-and previous generated files are stale. A 90° or 270° rotation also swaps width and
+For one image, choose **Crop & Rotate**, then **Rotate left 90°** or **Rotate right 90°**.
+Click twice for 180°, check the framing, and choose **Apply Changes**. Choose **Cancel** to discard the changes.
+
+Rotation updates the task image. Later Preview, 3D, and export use the new orientation;
+files already downloaded to your computer do not change. A 90° or 270° rotation also swaps width and
 height, which can change the final composition at the same target width.
 
-If Crop After Upload remains enabled, the crop dialog can open again after rotation.
-This is not a duplicate upload; Lumina is asking you to confirm the new canvas. Select
-**Use Original** if no additional crop is required.
+Cropping and rotation share the same dialog. SVG images can be rotated while preserving vector content,
+but the dialog does not crop them as bitmaps.
 
 :::note[Rotation corrects orientation only. It cannot repair missing SVG paths, an incorrect]
 canvas, or low-resolution detail.
 :::
 
 ## Step 5: inspect the Batch file list
-
-<img
-  src={require('./assets/05-batch-list.webp').default}
-  alt="Batch mode showing two English filenames, remove controls, and Add more images"
-/>
 
 Before setting shared parameters, confirm:
 
@@ -166,8 +139,8 @@ then add it to the Batch.
 | Operation | Current image | Workflow | Old Preview and downloads | Next action |
 | --- | --- | --- | --- | --- |
 | Replace current image | Replaced | Single image | Cleared | Check crop, Source Type, and settings; Preview again |
-| Confirm Crop | Uses the selected area | Single image | Cannot represent the new canvas | Check composition and Preview |
-| Apply Rotation | Uses the rotated copy | Single image | Cleared | Confirm the new crop if needed, then Preview |
+| Apply a crop | Uses the selected area | Single image | Cannot represent the new canvas | Check composition and Preview |
+| Apply a rotation | Uses the rotated copy | Single image | Cleared | Check the orientation, then Preview |
 | Add more images | Retained and appended | Batch | Single-image result cleared | Check the list and shared settings |
 | Remove a Batch file | That item is removed | Batch while more than one remains | Batch result becomes stale | Confirm the remaining list and Generate again |
 
@@ -182,15 +155,13 @@ Check whether Crop After Upload is enabled. Batch mode does not open a separate 
 for each file, and SVG does not use the raster crop workflow. In a single-image raster
 workflow, enable the switch and use Replace current image to import again.
 
-### Why did rotation open the crop dialog again?
+### Can I rotate without cropping?
 
-The rotated result has a new canvas. With Crop After Upload enabled, Lumina asks you to
-confirm it. Select Use Original if no further crop is needed.
+Yes. Open **Crop & Rotate**, adjust the direction, retain the full image and choose **Apply Changes**.
 
 ### Can two 90° rotations make 180°?
 
-Yes, but selecting 180° once is clearer and avoids an unnecessary intermediate task
-state. Every applied rotation invalidates the previous Preview.
+Yes. Click the same rotation button twice in the dialog, then choose **Apply Changes** once.
 
 ### How do I leave Batch mode after entering it accidentally?
 
@@ -214,13 +185,9 @@ Try a small known-good JPG or PNG. If that also fails, follow
 [The Page Will Not Open, Keeps Spinning, or Generation Fails](pathname:///en/docs/knowledge/web-generation-troubleshooting/)
 to check the connection, file, and service stage separately.
 
-## Image notes and content licence
+## Content licence
 
-The operation images are real captures of the current English Lumina Studio interface.
-The “Crop & Rotate Demo” graphic was created for this Wiki page. The captures contain
-no personal files, account information, browser address bar, or local path.
-
-Unless otherwise noted, the original text, demo graphic, and focus annotations are
+Unless otherwise noted, the original text is
 available under the Wiki’s
 [CC BY-NC-SA 4.0 content licence](pathname:///en/docs/project/content-license/).
 

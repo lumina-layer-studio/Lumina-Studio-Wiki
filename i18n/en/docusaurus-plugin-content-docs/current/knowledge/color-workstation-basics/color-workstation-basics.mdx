@@ -12,8 +12,7 @@ This article was prepared with AI assistance based on an analysis of the current
 
 # Color Workstation Basics: Select, Replace, Undo, and Free Color
 
-If you remember only one rule: **choose what this edit should affect before choosing
-a colour that looks attractive.**
+Color Workstation adjusts colours in the preview. Select the area to change before choosing a target colour.
 
 A reliable edit follows six steps:
 
@@ -48,13 +47,15 @@ stale and must be generated again.
 ## What does each selection mode affect?
 
 <img
-  src={require('./assets/color-workstation-selection-scope.webp').default}
-  alt="Comparison of Select All, a current or local connected region, and Multi-select scopes"
+  src={require('./assets/01-selection-tools.webp').default}
+  alt="The four selection tools and quick recolor panel in Color Workstation"
 />
 
-### Select All
+The image shows the newer selection tools; panel styling may vary between versions.
 
-Select All works from matched colours. Select one colour and every location using
+### Same color
+
+Same color works from matched colours. Select one colour and every location using
 that matched colour can change. You can also select several matched colours and send
 them to one target.
 
@@ -67,28 +68,25 @@ Use it to:
 Do not use it when only an eye should change but clothing happens to use the same
 matched colour. Both locations can be affected.
 
-### Current / Local Region
+### Similar colors
 
-These modes use the connected region clicked in the Preview as the main scope. They
-are suitable for one specific part. Always inspect the highlighted boundary before
-choosing a target colour.
+Click a colour in the preview to select blocks with similar colours. A larger tolerance includes a wider range;
+at zero, only the same colour is selected. Check the highlight before replacing colours in a gradient.
 
-The current interface retains both labels. For an ordinary single-region edit, the
-important evidence is the actual highlight, not the label.
+### Pick blocks
 
-### Multi-select
+Click blocks in the preview to select or deselect separate regions, such as eyes, highlights or letters.
+Check the highlighted boundaries before choosing a target.
 
-Multi-select accumulates several separate connected regions, then applies one target
-colour in a single confirmation. It is useful for a pair of eyes, separate highlights,
-letters, or decorative dots.
+### Selection brush
 
-It does not mean “select every colour in the Palette.” Each click adds a real region.
-Remove a mistaken region before confirming the replacement.
+Paint over the preview and apply the brush selection. It selects whole colour blocks touched by the stroke,
+not just the pixels beneath the brush. Adjust brush size and check the resulting highlight.
 
 ### Switching modes
 
-Switching the selection mode clears the current colour and region set so that a scope
-from the previous mode cannot leak into the next operation. Make a fresh selection.
+The new tools share one selection; switching tools does not clear it. Choose **Select none** to start over.
+Older versions use different labels, including Current, Multi-select and Local Region.
 
 ## Complete one replacement safely
 
@@ -107,7 +105,7 @@ highlighted image rather than only the displayed HEX value.
 
 The source of target colours depends on the current Source Type:
 
-- **Legacy LUT** or **Inferred LUT**: choose from colours exposed by that LUT;
+- **Classic LUT**: choose from colours exposed by that LUT;
 - **Material Archive**: enter a desired colour, let Lumina solve reachable candidates
   from the selected real materials, then choose one candidate;
 - the input colour is a search target, not a guarantee of an identical physical RGB.
@@ -122,7 +120,7 @@ After confirmation, check that:
 - only the intended regions changed in the 2D Preview;
 - the 3D Preview has refreshed;
 - Layer Preview uses materials consistent with the new result;
-- Select All did not affect another small region unexpectedly;
+- Same color did not affect another small region unexpectedly;
 - a newly generated 3MF still maps objects to the intended physical spools.
 
 If 2D has updated while 3D is still loading, wait for the operation to finish. Do not
@@ -132,11 +130,9 @@ submit several opposite edits rapidly to “force” a refresh.
 
 ### Undo
 
-Undo reverts the most recent recorded global or batch colour mapping. Repeated use can
-step backwards through those records.
-
-Local-region edits use spatial masks rather than a simple whole-image mapping. If Undo
-is unavailable after a local edit, do not assume that it can restore every region.
+Undo returns to the preceding available edit; Redo restores an operation you just undid. Source changes after
+October 29 improved selection and local replacement history, so older versions may behave differently. Check
+the preview and selection after undoing or redoing.
 
 ### Clear Remaps
 
@@ -194,14 +190,13 @@ tones can contain intentional variation. Compare the before and after Preview.
 
 ### Why does clicking the Palette do nothing?
 
-Confirm that Preview has succeeded and check the selection mode. Current, Local
-Region, and Multi-select primarily use clicks on the Preview; Select All is the mode
-designed for whole-image matched colours from the Palette.
+Confirm that Preview has succeeded and check the selection tool. Pick blocks and Selection brush operate on the
+preview; Same color can select matching colours throughout the image.
 
 ### Why did clothing change when I edited only the eyes?
 
-Select All probably found the same matched colour in both places. Clear the mistaken
-mapping, choose Current or Local Region, and verify the highlight before confirming.
+Same color probably found the same matched colour in both places. Undo the mistaken replacement, choose Pick blocks,
+and verify the highlight before confirming.
 
 ### Why is a reachable result not exactly the RGB I entered?
 

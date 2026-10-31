@@ -15,11 +15,6 @@ This article was prepared with AI assistance based on an analysis of the current
 Actions separates inspection, model generation, and delivery for the same parameter set. Previewing first catches image,
 colour, and geometry issues before a printable 3MF is created.
 
-<img
-  src={require('./assets/01-actions.webp').default}
-  alt="Lumina Studio Actions panel after a real preview"
-/>
-
 ## Preview
 
 Preview reads the current image, colour source, and settings and creates a new preview session. A successful run supplies:
@@ -32,13 +27,15 @@ Preview reads the current image, colour source, and settings and creates a new p
 The button is disabled until both an image and a complete colour source are available. Re-preview after changing a setting
 that affects output; layer images from an old session are not reused for the new one.
 
-## Generate
+## Download 3MF or open the slicer
 
-Generate becomes available only after a valid preview. It turns the active parameter set into a printable 3MF. Puzzle and
-Large Format use their own generation paths. A previously downloaded file never changes when settings are edited.
+Once the preview looks right, generate and download a 3MF or open it in a detected slicer. The button label depends on the
+detected slicer and file state, for example **Generate & open in Bambu Studio**, **Generate & Download 3MF**, or
+**Download 3MF**. Use the adjacent arrow to choose an action. If no slicer is detected, you can still generate and download
+the file; there is no separate Generate control to press first.
 
-The bottom primary button can combine generation and opening a slicer. Generation still completes before the artifact is
-handed to the detected application.
+Puzzle and Large Format use their own generation paths. A previously downloaded file does not change when settings are
+edited; check the new preview and generate again.
 
 ## View Layers
 

@@ -14,17 +14,17 @@ Lumina Studio has moved from closed internal development to open development in 
 
 ## Latest progress
 
-### [October 2026: editable projects, quick recoloring and print projects](./2026-10.md)
+### [October 2026: open source, conversion presets and print projects](./2026-10.md)
 
-Updated through October 19. Saved projects preserve local edits, regional recipes and selections. Color Adjustment adds quick recoloring and similar recipes; Model Texture has its own panel. Export adds filament/plate checks and independent backing projects. Bug reports upload directly to the official collection service.
+Updated through October 30. Development moved to the public repository and the 2.0.1 source was released. Conversion presets and desktop interface scale were added, source selection and image controls were updated, and print projects and Color Workstation received fixes.
 
-The second half of July and the August and September reports have also been added. For public development after October 19, see the [Lumina-Layers repository](https://github.com/lumina-layer-studio/Lumina-Layers).
+The second half of July and the August and September reports have also been added. For the latest public development, see the [Lumina-Layers repository](https://github.com/lumina-layer-studio/Lumina-Layers). Check your release notes for the changes included in a particular installation.
 
 ## 2.0 development reports
 
 | Month | Main work |
 | --- | --- |
-| [October 2026](./2026-10.md) | Editable projects, quick recoloring, model textures, exports and feedback; through October 19 |
+| [October 2026](./2026-10.md) | Open source, 2.0.1 source, conversion presets, interface and print-project updates; through October 30 |
 | [September 2026](./2026-09.md) | Lightweight previews, desktop operation, transparency, wipe towers and batch generation |
 | [August 2026](./2026-08.md) | Project saving, shared selection, dynamic material layers and backing settings |
 | [July 2026](./2026-07.md) | Native SVG relief, planar artwork, Workshop, materials and Flash Studio |

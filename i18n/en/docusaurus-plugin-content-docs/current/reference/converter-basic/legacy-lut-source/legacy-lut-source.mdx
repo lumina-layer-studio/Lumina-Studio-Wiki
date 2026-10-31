@@ -1,6 +1,6 @@
 ---
-title: "Legacy LUT"
-description: "Explains brand and LUT selection, compatible multi-selection, refresh and upload actions, and dynamic-layer controls."
+title: "Classic LUT"
+description: "Choose, refresh, and upload Classic LUTs, including compatible selections across brands."
 sidebar_position: 3
 ---
 
@@ -10,30 +10,29 @@ This article was prepared with AI assistance based on an analysis of the current
 
 :::
 
-# Legacy LUT
+# Classic LUT
 
-A Legacy LUT is a precomputed colour lookup table. Each printable colour is paired with a fixed layer-by-layer material recipe,
+A Classic LUT is a precomputed colour lookup table. Each printable colour is paired with a fixed layer-by-layer material recipe,
 and Lumina Studio selects the closest table entry while previewing an image.
 
+## Select LUTs
+
 <img
-  src={require('./assets/01-legacy-lut-source.webp').default}
-  alt="Brand, refresh, and upload controls for the Legacy LUT source"
+  src={require('./assets/02-lut-picker.webp').default}
+  alt="Classic LUT picker with the brand list, search field and Confirm button"
 />
 
-## Select a brand and LUT
+1. Select **Classic LUT** under Color Data Source and open the LUT selection window.
+2. Search or browse the list and select your LUTs. You can select LUTs from different brands.
+3. Confirm the selection, generate a preview, and inspect key colours, greys, and shadows.
 
-1. Select **Legacy LUT** under Source Type.
-2. Select a brand.
-3. Choose a LUT from the colour-mode groups.
-4. Generate a preview and inspect key colours, greys, and shadows.
-
-Compatible LUTs under one brand can be selected together. The first selected item remains the primary LUT and the selected
+Compatible LUTs can be selected together. The first selected item remains the primary LUT and the selected
 tables form one candidate set; no merged file is written to disk. Do not combine tables with incompatible layer counts,
 layer heights, or material channels.
 
 ## Refresh and upload
 
-The refresh button beside Brand rereads the LUT directory and its catalogue. It does not modify any LUT file.
+The refresh button inside the selection window reloads the LUT list without modifying LUT files.
 
 Upload accepts `.npy`, `.json`, `.npz`, and `.msgpack`. After uploading, confirm which LUT is actually selected. A readable
 file can still contain incomplete colour-mode, layer, or recipe metadata, so inspect LUT Details if the preview is unexpected.

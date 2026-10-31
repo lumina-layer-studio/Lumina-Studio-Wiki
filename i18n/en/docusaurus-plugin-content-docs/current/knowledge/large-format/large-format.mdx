@@ -132,8 +132,8 @@ For the roles of Lumina Preview, slicer Preview, and the physical print, see
 
 ## Step 5: Generate once and save the ZIP
 
-Select **Generate** once and wait for all tiles. Do not repeatedly select the button,
-refresh, or replace the image while generation is running.
+Start generation and wait for the result. Do not repeatedly select the button, refresh, or replace the image while it is
+running. The image below shows an older result screen; button placement may differ in the current version.
 
 <img
   src={require('./assets/04-download-zip.webp').default}
@@ -141,6 +141,11 @@ refresh, or replace the image while generation is running.
 />
 
 The verified example returned six files in a ZIP of about 16.9 MB:
+
+:::warning[Partial output is not a complete artwork]
+Newer versions let you download completed tiles when only part of a job succeeds and identify the missing tiles.
+Check the warning, file count and row/column labels. Investigate and regenerate missing parts before printing the complete work.
+:::
 
 ```text
 large-format-demo_R1C1.3mf
