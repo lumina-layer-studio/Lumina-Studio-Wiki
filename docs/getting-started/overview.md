@@ -5,14 +5,16 @@ sidebar_position: 1
 ---
 # **Lumina Studio**
 
-首次使用启动器？请先查看[启动器激活教程](./launcher-activation/launcher-activation.mdx)。
+项目源码与源码运行说明见 [Lumina-Layers 公开仓库](https://github.com/lumina-layer-studio/Lumina-Layers)。使用启动器时如遇到激活提示，可查看[启动器激活教程](./launcher-activation/launcher-activation.mdx)。
 
 ## 项目介绍
-Lumina-layers在2026年1月开发并且完全开源发布在github上面的软件，lumina为了简化用户使用hueforge/flatforge等其他软件学习门槛过高或需要使用指定要求的耗材的问题，基于照片实测颜色校准，使用了穷举法和模拟前置的简化穷举法来获得实际打印颜色，目前的模式并未带来任何颜色理论计算（未来可能会在2.0的高级功能中推出基于颜色/td值等的颜色计算玩法），目前只是打印-拍摄-提取颜色-根据提取的颜色映射堆叠配方-打印（这像是一种颜色匹配功能，就像是你在autoforge和CMYK Lithophane那样会默认给你匹配一些颜色的功能一样，所以受此启发）
+Lumina Studio 是面向多材料 FDM 叠色打印的开源软件。它使用打印色卡的实测数据匹配图片颜色，生成可在切片软件中继续处理的模型。可以使用已有的 LUT 预设，也可以通过梯度卡建立耗材档案，再组合自己使用的耗材。
 
-:::info[为了方便用户，开发组自研了一款开源的高精度位图转 SVG 工具，并计划在未来的 2.0 版本中集成到软件内部。]
+项目从 1.x 公开发布，2.0 经内部开发后已转为公开开发，继续使用原有的 Lumina-Layers 仓库。
 
-工具地址：https://github.com/Neroued/neroued_vectorizer
+:::info[位图转 SVG]
+
+Lumina Studio 提供图像转矢量工具，操作方法见[从位图生成 SVG](../knowledge/bitmap-to-svg/bitmap-to-svg.mdx)。另有开源工具：https://github.com/Neroued/neroued_vectorizer
 :::
 
 我们积极的和很多耗材厂家进行沟通，在不影响耗材厂家生产的情况下，使用现有的耗材进行打印色卡校准，意思是不会要求任何厂家强行生产特定透光率和颜色的耗材，在这个基础上我们咨询一些厂家的意见，厂家提供现有颜色的耗材，我们不收取任何费用也不会收取任何佣金，即使是厂家需要挂推广链接，所获得的佣金项目组也用来抽奖做活动了，开发组去使用这些耗材打印对应的颜色的色卡，并且通过精校拍摄，来得到最准的色卡预设。同时也支持用户自行分享自己的使用的色卡预设

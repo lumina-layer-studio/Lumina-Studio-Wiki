@@ -1,15 +1,15 @@
 ---
 title: "更新日志"
-description: "Lumina Studio 公开版本历史与 2.0 内测开发进展"
+description: "Lumina Studio 公开版本历史与 2.0 开发进展"
 sidebar_position: 6
 ---
 
 # Lumina Studio 更新日志
 
-这里记录 Lumina Studio 的公开版本历史，以及 2.0 内测阶段已经完成证据核对的开发进展。
+这里记录 Lumina Studio 的公开版本历史，以及 2.0 开发期间已经完成核对的进展。
 
 :::info[当前状态]
-Lumina Studio 2.0 正在内部开发和分批验证，暂未确定最终功能范围和发布日期。“正在开发”不等于已经发布；月报只收录已经合并并经过整理的工作。
+Lumina Studio 已结束封闭内部开发，转为在 [Lumina-Layers 公开仓库](https://github.com/lumina-layer-studio/Lumina-Layers)继续开源开发。月报记录各阶段已经合并并经过整理的工作；具体可用功能以所用版本为准。
 :::
 
 ## 最新进展
@@ -19,7 +19,7 @@ Lumina Studio 2.0 正在内部开发和分批验证，暂未确定最终功能�
 统计至 10 月 19 日。项目保存补齐局部换色、区域配方和选区；颜色调整加入快速换色与相似配方，模型贴图使用独立面板，
 导出补齐耗材和打印板检查、独立背板工程，反馈改为直接上传。
 
-7 月下半月至 9 月记录也已补充。月报记录阶段开发进展，具体安装版本包含哪些变化，以对应版本说明为准。
+7 月下半月至 9 月记录也已补充。10 月 19 日之后的公开进展可查看 [Lumina-Layers 仓库](https://github.com/lumina-layer-studio/Lumina-Layers)。月报记录阶段开发进展，具体安装版本包含哪些变化，以对应版本说明为准。
 
 ## 2.0 开发月报
 

@@ -10,7 +10,7 @@ sidebar_position: 29
 
 [更新日志总览](/zh/docs/releases/overview) · [2.0 开发月报：2026 年 3 月](/zh/docs/releases/2026-03)
 
-本页根据旧公开仓库的正式中英文 `CHANGELOG` 整理。为了便于阅读，保留每个公开版本的用户可见变化与重要修复，不展开纯代码整理。
+本页根据 [Lumina-Layers 仓库](https://github.com/lumina-layer-studio/Lumina-Layers)中 1.x 时期的正式中英文 `CHANGELOG` 整理。为了便于阅读，保留每个公开版本的用户可见变化与重要修复，不展开纯代码整理。
 
 ## v1.6.4 · 2026-03-20
 

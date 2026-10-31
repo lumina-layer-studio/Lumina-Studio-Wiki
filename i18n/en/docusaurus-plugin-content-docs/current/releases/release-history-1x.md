@@ -10,7 +10,7 @@ sidebar_position: 29
 
 [Changelog overview](/en/docs/releases/overview) · [2.0 development report: March 2026](/en/docs/releases/2026-03)
 
-This page is based on the official Chinese and English changelogs from the former public repository. It preserves user-visible changes and important fixes for every public version while omitting purely internal code cleanup.
+This page is based on the official Chinese and English 1.x changelogs from the [Lumina-Layers repository](https://github.com/lumina-layer-studio/Lumina-Layers). It preserves user-visible changes and important fixes for every public version while omitting purely internal code cleanup.
 
 ## v1.6.4 · March 20, 2026
 

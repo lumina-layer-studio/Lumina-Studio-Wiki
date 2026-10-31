@@ -6,17 +6,17 @@ sidebar_position: 1
 
 # Lumina Studio
 
-New to the launcher? Start with the [launcher activation guide](./launcher-activation/launcher-activation.mdx).
+Find the source code and instructions for running it in the public [Lumina-Layers repository](https://github.com/lumina-layer-studio/Lumina-Layers). If your launcher asks for activation, see the [launcher activation guide](./launcher-activation/launcher-activation.mdx).
 
 ## Project overview
 
-Lumina Layers is a fully open-source application first released on GitHub in January 2026. It lowers the learning barrier of tools such as HueForge and FlatForge and avoids requiring one fixed set of specialty filaments.
+Lumina Studio is open-source software for multi-material FDM color printing. The 1.x series was released publicly; after a period of internal development, 2.0 is now developed openly in the original Lumina-Layers repository.
 
-Lumina uses photographed print samples for physical color calibration. Its current workflow is: print a calibration chart, photograph it, extract the measured colors, map them to layer-stacking recipes, and generate the final print. This is a color-matching workflow rather than a purely theoretical color calculation.
+Lumina uses photographed print samples to match image colors and generate models for slicing. You can use an existing LUT preset or make gradient cards to create material profiles and combine your own filaments.
 
-:::info[For easier image preparation, the team also created an open-source, high-precision bitmap-to-SVG converter. It is planned for integration into Lumina Studio 2.x.]
+:::info[Bitmap to SVG]
 
-Tool: https://github.com/Neroued/neroued_vectorizer
+Lumina Studio includes a Vectorizer; see [Convert a Bitmap to SVG](../knowledge/bitmap-to-svg/bitmap-to-svg.mdx). A separate open-source tool is available at https://github.com/Neroued/neroued_vectorizer.
 :::
 
 We work with filament manufacturers using their existing production colors. Manufacturers are not required to create proprietary colors or a specific light transmittance for Lumina. The team prints and photographs calibrated charts, while users remain free to create and share their own presets.
