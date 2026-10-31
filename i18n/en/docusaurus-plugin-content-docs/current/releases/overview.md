@@ -6,10 +6,10 @@ sidebar_position: 6
 
 # Lumina Studio Changelog
 
-This section records public releases and completed development work during the 2.0 beta.
+This section records public releases and reviewed development work, including the 2.0 beta period.
 
 :::info[Development status]
-Monthly reports describe completed and merged work. They do not announce a final 2.0 release date or guarantee that every change is included in every installer. Check the notes for your installed version.
+Lumina Studio has moved from closed internal development to open development in the public [Lumina-Layers repository](https://github.com/lumina-layer-studio/Lumina-Layers). Monthly reports describe completed and merged work; check your installed version for the features available to you.
 :::
 
 ## Latest progress
@@ -18,7 +18,7 @@ Monthly reports describe completed and merged work. They do not announce a final
 
 Updated through October 19. Saved projects preserve local edits, regional recipes and selections. Color Adjustment adds quick recoloring and similar recipes; Model Texture has its own panel. Export adds filament/plate checks and independent backing projects. Bug reports upload directly to the official collection service.
 
-The second half of July and the August and September reports have also been added.
+The second half of July and the August and September reports have also been added. For public development after October 19, see the [Lumina-Layers repository](https://github.com/lumina-layer-studio/Lumina-Layers).
 
 ## 2.0 development reports
 
