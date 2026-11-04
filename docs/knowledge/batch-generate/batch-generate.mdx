@@ -15,7 +15,7 @@ sidebar_position: 30
 批量生成适合这样的任务：你已经准备好多张图片，希望它们使用**同一套颜色来源和主要参数**，一次生成后
 得到一个可以直接检查和排版的合并 3MF。
 
-如果只想先记住最重要的几点：
+批量生成前先确认：
 
 - 一次选择多张图片，或在单图页面点击“添加更多图片”，都会进入批量流程；
 - 文件列表里的图片共用同一套 LUT / 耗材档案、目标宽度、厚度、结构和建模模式；
@@ -44,7 +44,7 @@ sidebar_position: 30
 
 需要逐张决定参数时，单图流程通常更清楚。可以先把一张图的来源和主要设置验证好，再把同类图片加入
 批量。来源选择不确定时，先阅读
-[现成耗材档案、自制档案、反推 LUT 与传统 LUT 怎么选？](pathname:///zh/docs/knowledge/material-profile-selection/)。
+[耗材档案和经典 LUT 怎么选？](../material-profile-selection/material-profile-selection.mdx)。
 
 ## 第一步：先把每张图片准备好
 
@@ -90,14 +90,16 @@ sidebar_position: 30
 
 <img
   src={require('./assets/02-shared-settings.webp').default}
-  alt="Lumina Studio 批量页面中共同使用的来源类型、品牌和已选传统 LUT"
+  alt="旧版 Lumina Studio 批量页面中的来源类型、品牌和已选传统 LUT"
 />
+
+上图为旧版界面示例；当前界面将“传统 LUT”称为“经典 LUT”，不再显示反推 LUT 入口。
 
 先选择来源类型，再选择对应的 LUT、数据库或耗材档案。按钮恢复可用前，至少要完成有效的颜色来源选择。
 
 当前批量任务会共同使用：
 
-- 颜色来源：传统 LUT、反推 LUT 或耗材档案；
+- 颜色来源：经典 LUT 或耗材档案；
 - 目标宽度；
 - 底板厚度；
 - 单面或双面结构；

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="960" viewBox="0 0 800 960" role="img" aria-labelledby="title desc">
+  <title id="title">底板实心保护区示意</title>
+  <desc id="desc">单面作品中，2 毫米底板全部实心；6 毫米底板靠近显色层的 3 毫米保持实心，其余部分使用所选填充率。</desc>
+  <rect width="800" height="960" rx="24" fill="#f3f6fa"/>
+  <g font-family="PingFang SC, Noto Sans CJK SC, Microsoft YaHei, sans-serif" fill="#172c45">
+    <text x="40" y="62" font-size="34" font-weight="700">底板实心保护区</text>
+    <text x="40" y="100" font-size="22" fill="#54687c">单面作品截面示意 · 非按比例，不代表实际切片路径</text>
+    <rect x="32" y="128" width="736" height="330" rx="20" fill="#fff"/>
+    <text x="60" y="176" font-size="30" font-weight="700">底板 2 mm</text>
+    <text x="60" y="211" font-size="22" fill="#54687c">全部位于 3 mm 保护区内</text>
+    <rect x="70" y="234" width="660" height="48" rx="6" fill="#6c8ed6"/>
+    <rect x="70" y="284" width="660" height="104" rx="6" fill="#b9dbf4"/>
+    <text x="400" y="266" text-anchor="middle" font-size="25" font-weight="600" fill="#fff">显色层</text>
+    <text x="400" y="344" text-anchor="middle" font-size="27" font-weight="600">整块底板保持实心</text>
+    <text x="60" y="426" font-size="22" fill="#54687c">例如：滑块设为 20%，底板仍实心</text>
+    <rect x="32" y="478" width="736" height="330" rx="20" fill="#fff"/>
+    <text x="60" y="526" font-size="30" font-weight="700">底板 6 mm</text>
+    <text x="60" y="561" font-size="22" fill="#54687c">保护区以外可以使用所选填充率</text>
+    <rect x="70" y="584" width="660" height="46" rx="6" fill="#6c8ed6"/>
+    <rect x="70" y="632" width="660" height="54" rx="6" fill="#b9dbf4"/>
+    <rect x="70" y="688" width="660" height="54" rx="6" fill="#b8e0ce"/>
+    <text x="400" y="615" text-anchor="middle" font-size="25" font-weight="600" fill="#fff">显色层</text>
+    <text x="400" y="667" text-anchor="middle" font-size="26" font-weight="600">3 mm 实心保护区</text>
+    <text x="400" y="723" text-anchor="middle" font-size="26" font-weight="600">其余 3 mm 使用所选填充率</text>
+    <text x="60" y="780" font-size="22" fill="#54687c">例如：滑块设为 20%，深层使用 20%</text>
+    <text x="40" y="858" font-size="24" font-weight="600">双面作品：两侧各有 3 mm 保护区；</text>
+    <text x="40" y="895" font-size="24" font-weight="600">底板不超过 6 mm 时，整块底板保持实心。</text>
+  </g>
+</svg>

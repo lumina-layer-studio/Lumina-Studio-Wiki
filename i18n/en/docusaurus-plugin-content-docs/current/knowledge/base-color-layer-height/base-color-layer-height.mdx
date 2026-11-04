@@ -12,12 +12,11 @@ This article was prepared with AI assistance based on an analysis of the current
 
 # How Should I Set Backing, Colour Layers, and Layer-Height Modifiers?
 
-If you remember only one rule: **backing thickness, Colour Layer Height, and the
-global slicer layer height are not the same setting.**
+Backing thickness, Colour Layer Height, and the global slicer layer height control
+different parts of the print.
 
 - **Colour Layer Height** controls how each layer contributes to the colour recipe.
-  It must match a value supported by the current Material Archives, Inferred LUT, or
-  Legacy LUT.
+  It must match a value supported by the selected Material Archives or Classic LUT.
 - **Backing Thickness** controls structural support and total thickness. It is not a
   count of colour layers.
 - **Backing Layer Height Modifier** applies a coarser layer height only to the backing
@@ -171,6 +170,10 @@ If the slicer does not show the local range, do not assume it worked. Use that
 slicer’s native local-parameter feature and inspect the resulting layers.
 
 ## Common questions
+
+### Why does the base still look solid after I lower its infill?
+
+The part of the base near each viewing surface stays solid. A thin base can fall entirely inside that protected region. The layer-height modifier controls layer thickness, not infill density. See [Base Plate Infill](../../reference/converter-basic/backing-infill/backing-infill.mdx) for the limits and how to check them.
 
 ### Why does the process header still say 0.08 mm when the backing is 0.20 mm?
 

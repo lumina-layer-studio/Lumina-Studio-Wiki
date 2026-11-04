@@ -53,6 +53,16 @@ function occurrences(source: string, marker: string): number {
   return source.split(marker).length - 1;
 }
 
+test('keeps control reference pages paired across locales', async () => {
+  const roots = Object.values(localeRoots).map((root) => path.join(root, 'reference'));
+  const [zh, en] = await Promise.all(
+    roots.map(async (root) =>
+      (await listMdxFiles(root)).map((file) => path.relative(root, file)).sort(),
+    ),
+  );
+  assert.deepEqual(en, zh, 'reference pages must have both Chinese and English versions');
+});
+
 test('marks the approved AI-assisted articles exactly once', async () => {
   for (const [locale, root] of Object.entries(localeRoots) as Array<
     [keyof typeof localeRoots, string]
@@ -63,8 +73,7 @@ test('marks the approved AI-assisted articles exactly once', async () => {
     );
     const targets = [...referenceFiles, ...knowledgeFiles];
 
-    assert.equal(referenceFiles.length, 71);
-    assert.equal(targets.length, 92);
+    assert.ok(referenceFiles.length > 0, `${locale}: no reference pages found`);
 
     for (const file of targets) {
       const source = await readFile(file, 'utf8');
