@@ -1,0 +1,97 @@
+---
+title: Local Preview and Pre-Submit Checks
+description: Set up Git and Node.js, clone the repository, preview the Chinese and English sites with Corepack and Yarn 4, and run typecheck and build before opening a pull request.
+---
+
+# Local Preview and Pre-Submit Checks
+
+This site is built with Docusaurus and managed with `yarn`. Before you open a pull request, run the local preview and the checks below.
+
+## 1. Environment setup
+
+### 1.1 Git and the source repository
+
+The preview and the checks both read the repository history, so you need Git and you must clone the source repository rather than running a downloaded ZIP archive: a directory extracted from a ZIP will fail.
+
+1. Install Git and make sure the command is available:
+
+```bash
+git --version
+```
+
+2. Clone the source repository and enter the directory:
+
+```bash
+git clone https://github.com/lumina-layer-studio/Lumina-Studio-Wiki.git
+cd Lumina-Studio-Wiki
+```
+
+### 1.2 Node.js and Corepack
+
+You need Node.js 20 or later, plus Corepack. If the system reports that `corepack` cannot be found (Node.js 25 no longer bundles Corepack), install user-level Corepack first as described in (待补充：具体官方文档 URL), then continue.
+
+Run them in order:
+
+```bash
+corepack enable
+yarn install --immutable
+```
+
+The project pins the Yarn 4 version declared in `package.json`.
+
+## 2. Local preview
+
+`yarn start` previews the Chinese site only by default:
+
+```bash
+yarn start
+```
+
+Previewing English requires the locale flag explicitly:
+
+```bash
+yarn start --locale en
+```
+
+Chinese and English are two independent builds, so the two previews must be **started separately**; you can run one command per terminal at the same time.
+
+## 3. Pre-submit checks
+
+Run them in order:
+
+```bash
+yarn typecheck
+yarn build
+```
+
+## 4. Directory and file conventions
+
+- Chinese pages live in `docs/`; English pages live in `i18n/en/docusaurus-plugin-content-docs/current/`.
+- Each tutorial uses its own directory, the MDX file has the same name as the directory, and images go into the `assets/` folder inside that page directory.
+
+Example:
+
+```
+docs/tutorials/example/example.mdx
+docs/tutorials/example/assets/step-01.webp
+```
+
+## 5. Writing conventions
+
+- This page uses Docusaurus Markdown/MDX features only; custom image components and path-related components must not be introduced in MDX bodies.
+- Do not write `import` statements in MDX bodies.
+- Reference images with the relative path syntax that points into the page directory:
+
+```jsx
+<img src={require('./assets/step-01.webp').default} alt="Step one" />
+```
+
+- Contribution rules and details: [CONTRIBUTING.md](https://github.com/lumina-layer-studio/Lumina-Studio-Wiki/blob/main/CONTRIBUTING.md).
+
+## 6. AI assistance
+
+The first draft and the Chinese-English translation of this page were produced with AI assistance; the commands, versions and paths were checked one by one before submission. Consistency with similar notes in existing Wiki articles: (待补充：现有 Wiki 文章的 AI 说明措辞或所在位置).
+
+## Contributing
+
+Corrections, new tutorials and translation improvements are welcome via Issues or Pull Requests; see [CONTRIBUTING.md](https://github.com/lumina-layer-studio/Lumina-Studio-Wiki/blob/main/CONTRIBUTING.md) for the detailed rules.

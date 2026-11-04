@@ -1,0 +1,97 @@
+---
+title: 本地预览与提交前检查
+description: 准备 Git 与 Node.js 环境，克隆仓库后用 Corepack 与 Yarn 4 分别预览中文与英文站点，并在提交 PR 前执行 typecheck 与 build。
+---
+
+# 本地预览与提交前检查
+
+本站基于 Docusaurus，使用 `yarn` 管理依赖。改完文档后，请先在本地跑通预览与检查，再提交 Pull Request。
+
+## 一、环境准备
+
+### 1. Git 与源码仓库
+
+预览与检查都会读取仓库历史，因此需要 Git，并且必须克隆源码仓库，而不是下载 ZIP 解压运行——直接运行解压得到的目录会失败。
+
+1. 安装 Git，并确认命令可用：
+
+```bash
+git --version
+```
+
+2. 克隆源码仓库并进入目录：
+
+```bash
+git clone https://github.com/lumina-layer-studio/Lumina-Studio-Wiki.git
+cd Lumina-Studio-Wiki
+```
+
+### 2. Node.js 与 Corepack
+
+需要 Node.js 20 或更高版本，以及 Corepack。若系统提示找不到 `corepack`（Node.js 25 不再自带 Corepack），请先按照 (待补充：具体官方文档 URL) 安装用户态 Corepack，再继续。
+
+依次执行：
+
+```bash
+corepack enable
+yarn install --immutable
+```
+
+项目固定使用 `package.json` 中声明的 Yarn 4 版本。
+
+## 二、本地预览
+
+`yarn start` 默认只预览中文：
+
+```bash
+yarn start
+```
+
+英文预览需要显式指定语言：
+
+```bash
+yarn start --locale en
+```
+
+中文与英文是两套独立的构建，需要**分别启动预览**；可以在两个终端里各跑一条命令，互不影响。
+
+## 三、提交前检查
+
+依次执行：
+
+```bash
+yarn typecheck
+yarn build
+```
+
+## 四、目录与文件约定
+
+- 中文正文位于 `docs/`，英文正文位于 `i18n/en/docusaurus-plugin-content-docs/current/`。
+- 每篇教程使用独立目录，MDX 文件与目录同名，图片放在页面目录内的 `assets/` 中。
+
+示例：
+
+```
+docs/tutorials/example/example.mdx
+docs/tutorials/example/assets/step-01.webp
+```
+
+## 五、写法约定
+
+- 该文档仅使用 Docusaurus 官方提供的 Markdown/MDX 功能，不允许在正文中引入自定义图片组件或路径相关组件。
+- MDX 正文中不写 `import` 语句。
+- 图片使用页面目录下的相对路径写法：
+
+```jsx
+<img src={require('./assets/step-01.webp').default} alt="步骤一" />
+```
+
+- 贡献与规范细节见 [CONTRIBUTING.md](https://github.com/lumina-layer-studio/Lumina-Studio-Wiki/blob/main/CONTRIBUTING.md)。
+
+## 六、AI 辅助说明
+
+本页初稿与中英翻译在 AI 辅助下完成，命令、版本与路径已在提交前逐条核对。与现有 Wiki 文章同类说明保持一致： (待补充：现有 Wiki 文章的 AI 说明措辞或所在位置)。
+
+## 参与贡献
+
+欢迎通过 Issue 或 Pull Request 来修正文案内容、补充相关教程以及改进翻译质量；详细规则请参见 [CONTRIBUTING.md](https://github.com/lumina-layer-studio/Lumina-Studio-Wiki/blob/main/CONTRIBUTING.md)。
