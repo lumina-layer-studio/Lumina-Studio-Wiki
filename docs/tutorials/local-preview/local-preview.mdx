@@ -5,13 +5,17 @@ description: 准备 Git 与 Node.js 环境，克隆仓库后用 Corepack 与 Yar
 
 # 本地预览与提交前检查
 
+:::info[AI 辅助编写说明]
+本文初稿以及其中文和英文译文均为在AI辅助下完成的。如果发现有任何错误，欢迎通过此页面进行反馈，或是在GitHub上提交修改建议。
+:::
+
 本站基于 Docusaurus，使用 `yarn` 管理依赖。改完文档后，请先在本地跑通预览与检查，再提交 Pull Request。
 
 ## 一、环境准备
 
 ### 1. Git 与源码仓库
 
-预览与检查都会读取仓库历史，因此需要 Git，并且必须克隆源码仓库，而不是下载 ZIP 解压运行——直接运行解压得到的目录会失败。
+预览与提交前检查都会读取仓库的 Git 历史记录，因此必须使用 Git，并且必须克隆源码仓库，而不是下载源码 ZIP 解压运行——解压得到的只是普通目录，没有 `.git` 历史，预览与检查命令会因此失败。
 
 1. 安装 Git，并确认命令可用：
 
@@ -28,12 +32,23 @@ cd Lumina-Studio-Wiki
 
 ### 2. Node.js 与 Corepack
 
-需要 Node.js 20 或更高版本，以及 Corepack。若系统提示找不到 `corepack`（Node.js 25 不再自带 Corepack），请先按照 (待补充：具体官方文档 URL) 安装用户态 Corepack，再继续。
+需要 Node.js 20 或更高版本，以及 Corepack。Corepack 随 Node.js 的 14.19.0 至 25.0.0 之前的版本一起分发；从 Node.js 25 版本开始，不会再附带 Corepack。
 
-依次执行：
+若系统提示找不到 `corepack`（例如使用 Node.js 25 或更高版本），需要先手动安装用户态 Corepack，步骤见 [Corepack 官方安装说明](https://github.com/nodejs/corepack#how-to-install)：
+
+```bash
+npm install -g corepack
+```
+
+否则直接使用随 Node.js 分发的 Corepack：
 
 ```bash
 corepack enable
+```
+
+再安装项目依赖：
+
+```bash
 yarn install --immutable
 ```
 
@@ -53,7 +68,7 @@ yarn start
 yarn start --locale en
 ```
 
-中文与英文是两套独立的构建，需要**分别启动预览**；可以在两个终端里各跑一条命令，互不影响。
+中文与英文是两套独立的构建，但两条默认命令使用同一个端口，所以**一次只能运行一种语言的预览**：切换语言时先用 `Ctrl+C` 停止当前预览，再启动另一条命令。
 
 ## 三、提交前检查
 
@@ -90,7 +105,7 @@ docs/tutorials/example/assets/step-01.webp
 
 ## 六、AI 辅助说明
 
-本页初稿与中英翻译在 AI 辅助下完成，命令、版本与路径已在提交前逐条核对。与现有 Wiki 文章同类说明保持一致： (待补充：现有 Wiki 文章的 AI 说明措辞或所在位置)。
+本页初稿与中英翻译在 AI 辅助下完成，命令、版本与路径已在提交前逐条核对；AI 参与方式与反馈渠道见文章开头的说明。
 
 ## 参与贡献
 

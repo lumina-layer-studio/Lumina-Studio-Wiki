@@ -5,13 +5,17 @@ description: Set up Git and Node.js, clone the repository, preview the Chinese a
 
 # Local Preview and Pre-Submit Checks
 
+:::info[AI-assisted article]
+The first draft of this article, together with its Chinese and English versions, was produced with AI assistance. If you find any errors, you are welcome to give feedback through this page, or to submit suggested changes on GitHub.
+:::
+
 This site is built with Docusaurus and managed with `yarn`. Before you open a pull request, run the local preview and the checks below.
 
 ## 1. Environment setup
 
 ### 1.1 Git and the source repository
 
-The preview and the checks both read the repository history, so you need Git and you must clone the source repository rather than running a downloaded ZIP archive: a directory extracted from a ZIP will fail.
+The preview and the pre-submit checks both read the Git history of the repository, so you must use Git and you must clone the source repository instead of downloading a source ZIP archive and extracting it: an extracted directory is an ordinary folder with no `.git` history, and the preview and check commands will fail.
 
 1. Install Git and make sure the command is available:
 
@@ -28,12 +32,23 @@ cd Lumina-Studio-Wiki
 
 ### 1.2 Node.js and Corepack
 
-You need Node.js 20 or later, plus Corepack. If the system reports that `corepack` cannot be found (Node.js 25 no longer bundles Corepack), install user-level Corepack first as described in (待补充：具体官方文档 URL), then continue.
+You need Node.js 20 or later, plus Corepack. Corepack ships with Node.js releases from 14.19.0 up to but not including 25.0.0; starting with Node.js 25 it is no longer bundled.
 
-Run them in order:
+If the system reports that `corepack` cannot be found (for example on Node.js 25 or later), install user-level Corepack manually first; the steps are in the [official Corepack installation guide](https://github.com/nodejs/corepack#how-to-install):
+
+```bash
+npm install -g corepack
+```
+
+Otherwise use the Corepack that ships with Node.js directly:
 
 ```bash
 corepack enable
+```
+
+Then install the project dependencies:
+
+```bash
 yarn install --immutable
 ```
 
@@ -53,7 +68,7 @@ Previewing English requires the locale flag explicitly:
 yarn start --locale en
 ```
 
-Chinese and English are two independent builds, so the two previews must be **started separately**; you can run one command per terminal at the same time.
+Chinese and English are two independent builds, but both default commands use the same port, so **only one language can be previewed at a time**: press `Ctrl+C` to stop the current preview before you start the other command.
 
 ## 3. Pre-submit checks
 
@@ -90,7 +105,7 @@ docs/tutorials/example/assets/step-01.webp
 
 ## 6. AI assistance
 
-The first draft and the Chinese-English translation of this page were produced with AI assistance; the commands, versions and paths were checked one by one before submission. Consistency with similar notes in existing Wiki articles: (待补充：现有 Wiki 文章的 AI 说明措辞或所在位置).
+The first draft and the Chinese-English translation of this page were produced with AI assistance; the commands, versions and paths were checked one by one before submission. How AI was involved and where to send feedback are described at the top of this article.
 
 ## Contributing
 
