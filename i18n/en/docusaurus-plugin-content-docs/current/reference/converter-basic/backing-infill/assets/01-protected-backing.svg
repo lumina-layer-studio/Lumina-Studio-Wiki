@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="960" viewBox="0 0 800 960" role="img" aria-labelledby="title desc">
+  <title id="title">Protected solid region in the base plate</title>
+  <desc id="desc">A 2 mm single-sided base remains solid. In a 6 mm base, the 3 mm next to the colour layers remains solid and the rest uses the selected infill density.</desc>
+  <rect width="800" height="960" rx="24" fill="#f3f6fa"/>
+  <g font-family="Arial, sans-serif" fill="#172c45">
+    <text x="40" y="62" font-size="34" font-weight="700">Solid protection in the base plate</text>
+    <text x="40" y="100" font-size="22" fill="#54687c">Single-sided schematic · not to scale or actual toolpaths</text>
+    <rect x="32" y="128" width="736" height="330" rx="20" fill="#fff"/>
+    <text x="60" y="176" font-size="30" font-weight="700">2 mm base plate</text>
+    <text x="60" y="211" font-size="22" fill="#54687c">Entirely inside the 3 mm protected zone</text>
+    <rect x="70" y="234" width="660" height="48" rx="6" fill="#6c8ed6"/>
+    <rect x="70" y="284" width="660" height="104" rx="6" fill="#b9dbf4"/>
+    <text x="400" y="266" text-anchor="middle" font-size="25" font-weight="600" fill="#fff">Colour layers</text>
+    <text x="400" y="344" text-anchor="middle" font-size="27" font-weight="600">Entire base stays solid</text>
+    <text x="60" y="426" font-size="22" fill="#54687c">Example: at 20%, the base is still solid</text>
+    <rect x="32" y="478" width="736" height="330" rx="20" fill="#fff"/>
+    <text x="60" y="526" font-size="30" font-weight="700">6 mm base plate</text>
+    <text x="60" y="561" font-size="22" fill="#54687c">Selected infill applies beyond the protected zone</text>
+    <rect x="70" y="584" width="660" height="46" rx="6" fill="#6c8ed6"/>
+    <rect x="70" y="632" width="660" height="54" rx="6" fill="#b9dbf4"/>
+    <rect x="70" y="688" width="660" height="54" rx="6" fill="#b8e0ce"/>
+    <text x="400" y="615" text-anchor="middle" font-size="25" font-weight="600" fill="#fff">Colour layers</text>
+    <text x="400" y="667" text-anchor="middle" font-size="26" font-weight="600">3 mm solid protected zone</text>
+    <text x="400" y="723" text-anchor="middle" font-size="26" font-weight="600">Selected infill in the remaining 3 mm</text>
+    <text x="60" y="780" font-size="22" fill="#54687c">Example: at 20%, the deeper part uses 20%</text>
+    <text x="40" y="858" font-size="24" font-weight="600">Double-sided: 3 mm is protected on each side.</text>
+    <text x="40" y="895" font-size="24" font-weight="600">A base up to 6 mm stays completely solid.</text>
+  </g>
+</svg>

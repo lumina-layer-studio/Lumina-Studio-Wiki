@@ -12,14 +12,16 @@ This article was prepared with AI assistance based on an analysis of the current
 
 # Base-Plate Thickness
 
-Thickness controls the foundation below the colour layers. The default is **1.20 mm**.
+**Base plate thickness** controls the foundation below the colour layers. The default is **1.20 mm**.
 
 <img
   src={require('./assets/01-backing-thickness.webp').default}
   alt="Base-plate Thickness slider in Lumina Studio"
 />
 
-The UI range is 0.24–3.44 mm in 0.08 mm steps; the generation schema accepts the safety range 0.20–3.50 mm. The UI step keeps
+*This screenshot shows an earlier interface; the setting is now named “Base plate thickness”.*
+
+The UI range is 0.24–10.00 mm in 0.08 mm steps; the generation schema accepts the safety range 0.20–10.00 mm. The UI step keeps
 the base aligned with a commonly used print-layer height.
 
 Base thickness does not include colour layers, relief height, or a transparent coating. Add those parts separately when estimating
@@ -30,3 +32,5 @@ also increase the effective spacer thickness to preserve wall thickness around a
 the saved base thickness.
 
 Choose the value for the output size, attached features, material, and slicer result. Changing it invalidates the existing 3MF.
+
+Thickness also affects whether [Base Plate Infill](../backing-infill/backing-infill.mdx) produces sparse infill: the region near each viewing surface stays solid.

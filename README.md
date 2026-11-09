@@ -19,9 +19,9 @@ yarn typecheck
 yarn build
 ```
 
-项目固定使用 `package.json` 中声明的 Yarn 4 版本。Node.js 25
+项目固定使用 `package.json` 中声明的 Yarn 4 版本。Node.js 25 起
 不再自带 Corepack；如果系统提示找不到 `corepack`，请先按照
-[Node.js 官方说明](https://nodejs.org/download/release/latest/docs/api/corepack.html)
+[Corepack 官方安装说明](https://github.com/nodejs/corepack#how-to-install)
 安装用户态 Corepack，再执行上述命令。
 
 中文正文位于 `docs/`，英文正文位于 `i18n/en/docusaurus-plugin-content-docs/current/`。每篇教程使用独立目录，MDX 文件与目录同名，图片放在页面目录内的 `assets/` 中。
