@@ -1,0 +1,112 @@
+---
+title: Local Preview and Pre-Submit Checks
+description: Set up Git and Node.js, clone the repository, preview the Chinese and English sites with Corepack and Yarn 4, and run typecheck and build before opening a pull request.
+---
+
+# Local Preview and Pre-Submit Checks
+
+:::info[AI-assisted article]
+The first draft of this article, together with its Chinese and English versions, was produced with AI assistance. If you find any errors, you are welcome to give feedback through this page, or to submit suggested changes on GitHub.
+:::
+
+This site is built with Docusaurus and managed with `yarn`. Before you open a pull request, run the local preview and the checks below.
+
+## 1. Environment setup
+
+### 1.1 Git and the source repository
+
+The preview and the pre-submit checks both read the Git history of the repository, so you must use Git and you must clone the source repository instead of downloading a source ZIP archive and extracting it: an extracted directory is an ordinary folder with no `.git` history, and the preview and check commands will fail.
+
+1. Install Git and make sure the command is available:
+
+```bash
+git --version
+```
+
+2. Clone the source repository and enter the directory:
+
+```bash
+git clone https://github.com/lumina-layer-studio/Lumina-Studio-Wiki.git
+cd Lumina-Studio-Wiki
+```
+
+### 1.2 Node.js and Corepack
+
+You need Node.js 20 or later, plus Corepack. Corepack ships with Node.js releases from 14.19.0 up to but not including 25.0.0; starting with Node.js 25 it is no longer bundled.
+
+If the system reports that `corepack` cannot be found (for example on Node.js 25 or later), install user-level Corepack manually first; the steps are in the [official Corepack installation guide](https://github.com/nodejs/corepack#how-to-install):
+
+```bash
+npm install -g corepack
+```
+
+Otherwise use the Corepack that ships with Node.js directly:
+
+```bash
+corepack enable
+```
+
+Then install the project dependencies:
+
+```bash
+yarn install --immutable
+```
+
+The project pins the Yarn 4 version declared in `package.json`.
+
+## 2. Local preview
+
+`yarn start` previews the Chinese site only by default:
+
+```bash
+yarn start
+```
+
+Previewing English requires the locale flag explicitly:
+
+```bash
+yarn start --locale en
+```
+
+Chinese and English are two independent builds, but both default commands use the same port, so **only one language can be previewed at a time**: press `Ctrl+C` to stop the current preview before you start the other command.
+
+## 3. Pre-submit checks
+
+Run them in order:
+
+```bash
+yarn typecheck
+yarn build
+```
+
+## 4. Directory and file conventions
+
+- Chinese pages live in `docs/`; English pages live in `i18n/en/docusaurus-plugin-content-docs/current/`.
+- Each tutorial uses its own directory, the MDX file has the same name as the directory, and images go into the `assets/` folder inside that page directory.
+
+Example:
+
+```
+docs/tutorials/example/example.mdx
+docs/tutorials/example/assets/step-01.webp
+```
+
+## 5. Writing conventions
+
+- This page uses Docusaurus Markdown/MDX features only; custom image components and path-related components must not be introduced in MDX bodies.
+- Do not write `import` statements in MDX bodies.
+- Reference images with the relative path syntax that points into the page directory:
+
+```jsx
+<img src={require('./assets/step-01.webp').default} alt="Step one" />
+```
+
+- Contribution rules and details: [CONTRIBUTING.md](https://github.com/lumina-layer-studio/Lumina-Studio-Wiki/blob/main/CONTRIBUTING.md).
+
+## 6. AI assistance
+
+The first draft and the Chinese-English translation of this page were produced with AI assistance; the commands, versions and paths were checked one by one before submission. How AI was involved and where to send feedback are described at the top of this article.
+
+## Contributing
+
+Corrections, new tutorials and translation improvements are welcome via Issues or Pull Requests; see [CONTRIBUTING.md](https://github.com/lumina-layer-studio/Lumina-Studio-Wiki/blob/main/CONTRIBUTING.md) for the detailed rules.
