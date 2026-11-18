@@ -3,6 +3,13 @@ import { readFileSync } from 'node:fs';
 import { test } from 'node:test';
 import { isPolymakerLogoAuthorized } from '../src/components/PolymakerLogo/authorization';
 
+test('the sponsor table preserves readable logo and description widths', () => {
+  const component = readFileSync('src/components/PolymakerLogo/index.tsx', 'utf8');
+  assert.match(component, /minWidth: 120/);
+  const chinese = readFileSync('docs/project/sponsors/sponsors.mdx', 'utf8');
+  assert.match(chinese, /minWidth: 260/);
+});
+
 test('the static Wiki checks the authorization at browser render time', () => {
   assert.equal(isPolymakerLogoAuthorized(new Date('2026-11-18T04:58:37Z')), false);
   assert.equal(isPolymakerLogoAuthorized(new Date('2026-11-18T04:58:38Z')), true);

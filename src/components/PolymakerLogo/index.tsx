@@ -4,7 +4,8 @@ import {isPolymakerLogoAuthorized} from './authorization';
 
 export default function PolymakerLogo(): React.JSX.Element {
   return (
-    <BrowserOnly fallback={<span>Polymaker</span>}>
+    <span style={{display: 'inline-block', width: 120, minWidth: 120}}>
+      <BrowserOnly fallback={<span>Polymaker</span>}>
       {() => isPolymakerLogoAuthorized() ? (
         <img
           src="https://luminastudio.com.cn/logos/polymaker-teal.svg"
@@ -14,6 +15,7 @@ export default function PolymakerLogo(): React.JSX.Element {
           loading="lazy"
         />
       ) : <span>Polymaker</span>}
-    </BrowserOnly>
+      </BrowserOnly>
+    </span>
   );
 }
