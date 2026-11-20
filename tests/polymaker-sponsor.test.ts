@@ -3,11 +3,9 @@ import { readFileSync } from 'node:fs';
 import { test } from 'node:test';
 import { isPolymakerLogoAuthorized } from '../src/components/PolymakerLogo/authorization';
 
-test('the sponsor table preserves readable logo and description widths', () => {
+test('the sponsor logo preserves a readable minimum width', () => {
   const component = readFileSync('src/components/PolymakerLogo/index.tsx', 'utf8');
   assert.match(component, /minWidth: 120/);
-  const chinese = readFileSync('docs/project/sponsors/sponsors.mdx', 'utf8');
-  assert.match(chinese, /minWidth: 260/);
 });
 
 test('the static Wiki checks the authorization at browser render time', () => {
@@ -21,7 +19,7 @@ test('the static Wiki checks the authorization at browser render time', () => {
   assert.match(component, /https:\/\/luminastudio\.com\.cn\/logos\/polymaker-teal\.svg/);
 });
 
-test('both sponsor pages include the same Panchroma PLA collaboration', () => {
+test('both sponsor pages keep the Polymaker row concise like other brands and keep the disclaimer in section copy', () => {
   for (const path of [
     'docs/project/sponsors/sponsors.mdx',
     'i18n/en/docusaurus-plugin-content-docs/current/project/sponsors/sponsors.mdx',
@@ -31,7 +29,9 @@ test('both sponsor pages include the same Panchroma PLA collaboration', () => {
     assert.ok(row, `${path} needs the Panchroma PLA row`);
     assert.match(row, /<PolymakerLogo \/>/);
     assert.match(row, /适配中|In progress/);
-    assert.doesNotMatch(row, /已适配|Adapted|CMYK/);
-    assert.match(source, /认证或保证|certification or a guarantee/);
+    assert.match(row, /\|\s*PLA\s*\|/);
+    assert.doesNotMatch(row, /已适配|Adapted|CMYK|minWidth: 260|认证或保证|certification or a guarantee|合作产品|sponsorship support/);
+    const outsideRow = source.split('\n').filter((line) => line !== row).join('\n');
+    assert.match(outsideRow, /认证或保证|certification or a guarantee/);
   }
 });
