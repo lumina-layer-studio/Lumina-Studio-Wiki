@@ -1,8 +1,8 @@
 import React, {useEffect, useRef, useState} from 'react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import {useLocation} from '@docusaurus/router';
-import type MeowCommentsInstance from 'meow-comment-ui';
-import 'meow-comment-ui/MeowCommentUI.css';
+import type MeowCommentsInstance from '@neko_vecter/meow-comment-ui';
+import '@neko_vecter/meow-comment-ui/MeowCommentUI.css';
 
 import {createMeowCommentOptions} from './meowCommentOptions';
 import styles from './styles.module.css';
@@ -29,7 +29,7 @@ export default function Comments(): React.ReactNode {
     let instance: MeowCommentsInstance | undefined;
     setLoadState('loading');
 
-    void import('meow-comment-ui')
+    void import('@neko_vecter/meow-comment-ui')
       .then(({default: MeowComments}) => {
         if (disposed || !containerRef.current) return;
         instance = new MeowComments({
