@@ -4,10 +4,6 @@ description: "Weight hue accuracy more heavily during color matching, adjust Dar
 sidebar_position: 1
 ---
 
-:::info[AI-Assisted Note]
-This page was drafted with AI assistance from the source code and interface. If you spot any inaccuracy, please share feedback below or open a PR on GitHub.
-:::
-
 # Hue Protection
 
 **Hue Protection** reduces noticeable hue shifts during color matching. Standard nearest-color matching minimizes overall CIELAB color difference, which can sometimes map a pure blue to a slightly purple recipe or a red to an orange one when total distance is smaller. Enabling **Hue Protection** increases the penalty for hue deviation so matches stay closer to the original hue family.

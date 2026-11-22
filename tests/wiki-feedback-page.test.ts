@@ -7,7 +7,6 @@ const pages = [
     locale: 'zh',
     file: 'docs/project/wiki-feedback/wiki-feedback.mdx',
     title: 'Wiki 反馈与建议',
-    marker: ':::info[AI 辅助编写说明]',
     template: '受影响的页面：',
     commentPrompt: '请直接使用本页底部的反馈表单',
   },
@@ -15,7 +14,6 @@ const pages = [
     locale: 'en',
     file: 'i18n/en/docusaurus-plugin-content-docs/current/project/wiki-feedback/wiki-feedback.mdx',
     title: 'Wiki Feedback and Suggestions',
-    marker: ':::info[AI-Assisted Note]',
     template: 'Affected page:',
     commentPrompt: 'use the feedback form at the bottom of this page',
   },
@@ -28,7 +26,11 @@ test('provides equivalent localized Wiki feedback pages', async () => {
     assert.match(source, new RegExp(`title: "${page.title}"`), page.file);
     assert.doesNotMatch(source, /^(?:id|slug|wikijs_[^:]+):/m, page.file);
     assert.match(source, /sidebar_position: 15/, page.file);
-    assert.equal(source.split(page.marker).length - 1, 1, page.file);
+    assert.doesNotMatch(
+      source,
+      /:::info\[(AI 辅助编写说明|AI-assisted article)\]/,
+      page.file,
+    );
     assert.ok(source.includes(page.template), page.file);
     assert.ok(source.includes(page.commentPrompt), page.file);
     assert.ok(

@@ -4,10 +4,6 @@ description: "Fine-tune Bézier curve precision, contour simplification, and are
 sidebar_position: 6
 ---
 
-:::info[AI-Assisted Note]
-This page was drafted with AI assistance from the source code and interface. If you spot any inaccuracy, please share feedback below or open a PR on GitHub.
-:::
-
 # Curve Fitting and Region Filtering
 
 Once color segmentation defines each region, the vectorizer simplifies its boundaries, fits cubic Bézier curves, and runs Potrace contour tracing. Region filtering controls then merge or remove tiny color patches, stray contours, and interior pinholes before writing the final SVG.

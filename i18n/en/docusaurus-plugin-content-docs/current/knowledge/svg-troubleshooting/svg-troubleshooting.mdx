@@ -4,10 +4,6 @@ description: "Diagnose SVG upload, canvas, path, fill, effect, and complexity pr
 sidebar_position: 25
 ---
 
-:::info[AI-Assisted Note]
-This page was drafted with AI assistance from the source code and interface. If you spot any inaccuracy, please share feedback below or open a PR on GitHub.
-:::
-
 # How Do I Fix SVG Upload Failures, White Backgrounds, Holes, or Missing Detail?
 
 The fastest way to isolate an SVG issue is to **work on a copy of your file and strip it down to a valid `viewBox`, one closed path, and one flat fill**. If that minimal file previews cleanly, add text, gradients, masks, and extra layers back one group at a time to spot the exact element causing trouble; if even the minimal file fails, you already have a clean test case for support.
