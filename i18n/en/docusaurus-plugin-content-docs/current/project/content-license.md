@@ -6,86 +6,55 @@ sidebar_position: 14
 
 # Content License and Intellectual Property
 
-Unless a page or asset says otherwise, the original public Wiki material for
-which Lumina Studio holds the copyright is licensed under the
-[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
-license (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+Unless a page or asset states otherwise, original public Wiki content for which Lumina Studio holds copyright is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International license (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
 ## Scope
 
-This notice covers original material published before this notice, material
-currently published, and future original public Wiki material. It includes
-original writing, tables, diagrams, annotations, and media only when Lumina
-Studio owns the necessary rights.
+This notice covers past, current, and future original public Wiki content—including original text, tables, diagrams, annotations, and media—where Lumina Studio holds the necessary rights.
 
-If a page, image, or video carries a separate credit, license, or
-“permission for this Wiki only” notice, that specific notice takes priority.
-Lumina Studio can license only material that it owns or is authorized to
-sublicense.
+If a specific page, image, or video carries a separate credit, license, or "permission for this Wiki only" notice, that specific notice governs. Lumina Studio licenses only material that it owns or is authorized to sublicense.
 
 ## What you may do
 
-Subject to the license conditions, you may:
+Under the license terms, you may:
 
-- copy and share the licensed material;
-- translate, rewrite, reformat, or otherwise adapt it; and
-- use it for learning, teaching, community discussion, and other
-  noncommercial purposes.
+- Copy and share the licensed material
+- Translate, rewrite, reformat, or adapt it
+- Use it for learning, teaching, community sharing, and other noncommercial purposes
 
-## Conditions
+## License conditions
 
-1. **Attribution:** credit Lumina Studio Wiki, link to the source page and the
-   license, and indicate whether you made changes.
-2. **NonCommercial:** do not use the licensed material for commercial purposes.
-3. **ShareAlike:** distribute adaptations under CC BY-NC-SA 4.0.
-4. **No additional restrictions:** do not apply legal or technical measures
-   that prevent others from exercising the licensed rights.
+1. **Attribution**: Credit Lumina Studio Wiki, link to the source page and license, and state whether changes were made.
+2. **NonCommercial**: Do not use the licensed material for commercial purposes.
+3. **ShareAlike**: Distribute adaptations under CC BY-NC-SA 4.0.
+4. **No additional restrictions**: Do not apply legal terms or technological measures that restrict others from exercising the rights granted by the license.
 
 Suggested attribution:
 
-> Source: Lumina Studio Wiki, original page: `<URL>`, licensed under CC BY-NC-SA
-> 4.0. Changes: `<describe changes or state none>`.
+> Source: Lumina Studio Wiki, original page: `<URL>`, licensed under CC BY-NC-SA 4.0. Changes: `<describe changes or state none>`.
 
-## Material not covered by this license
+## Material outside this license
 
-The following does not automatically become CC BY-NC-SA 4.0 material merely
-because it appears on the Wiki:
+The following items do not fall under CC BY-NC-SA 4.0 simply by appearing on the Wiki:
 
-- Lumina Studio or third-party source code, build and deployment scripts,
-  configuration, or infrastructure;
-- Third-party software interfaces, logos, trademarks, fonts, model designs,
-  characters, and brand assets;
-- photographs, videos, models, or other files supplied by users, testers, or
-  partners and marked as permission-only or separately licensed;
-- external links, embedded videos, and quoted third-party text or images; and
-- patent, trademark, privacy, publicity, personality, or other rights that a
-  Creative Commons copyright license does not grant.
+- Lumina Studio or third-party source code, build scripts, configuration, and infrastructure
+- Third-party software interfaces, logos, trademarks, fonts, model designs, characters, and brand assets
+- Photos, videos, models, or files supplied by users, testers, or partners under separate terms or Wiki-only permission
+- External links, embedded videos, and quoted third-party text or images
+- Patent, trademark, privacy, publicity, or other rights not granted by a Creative Commons copyright license
 
-Those items remain subject to their own terms and the rights of their respective
-owners. Check the credits and rights notice near the material before reusing it.
-If no permission is stated, do not assume that third-party material is open for
-reuse.
+Check any local credit or rights notice before reusing third-party assets.
 
-## Software code is separate from Wiki content
+## Software code is licensed separately
 
-CC BY-NC-SA 4.0 applies to original public Wiki material, not to Lumina Studio
-software code. Before reusing software, site components, or dependencies, check
-the applicable repository terms and dependency licenses separately.
+CC BY-NC-SA 4.0 applies to Wiki documentation, not to Lumina Studio software code. Refer to the respective repository licenses before reusing application code, site components, or third-party packages.
 
-## Contributions and supplied media
+## Community contributions and media
 
-Contributors retain copyright in their original work. A contributor submitting
-original writing, tables, diagrams, or annotations should confirm that the work
-may be published under this page's license. Photographs, videos, models, and
-other media may instead be identified as CC BY-NC-SA 4.0, separately licensed,
-or permission-only for Lumina Studio Wiki; the published page should record the
-credit and scope accurately.
+Contributors retain copyright in their original work. When submitting text, tables, diagrams, or annotations, confirm that you have the right to publish them under this page's license. Contributed photos, videos, or models may use CC BY-NC-SA 4.0, another specified license, or Wiki-only display permission, with attribution recorded on the page.
 
-If a credit is missing, a rights boundary is unclear, or you believe material
-was published without permission, contact Lumina Studio through a feedback
-channel listed on the Wiki and include the page URL and relevant rights details.
+If you spot a missing credit or rights issue, reach out through the Wiki feedback page with the page URL and relevant details.
 
-:::note[This page is a reader-friendly summary and does not replace the license text. If]
-this summary conflicts with the Creative Commons license, the license terms
-control.
+:::note[Summary notice]
+This page is a reader-friendly summary and does not replace the full license text. If anything here conflicts with the Creative Commons license, the license text governs.
 :::

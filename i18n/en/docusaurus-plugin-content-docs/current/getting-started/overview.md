@@ -6,44 +6,38 @@ sidebar_position: 1
 
 # Lumina Studio
 
-Find the source code and instructions for running it in the public [Lumina-Layers repository](https://github.com/lumina-layer-studio/Lumina-Layers). If your launcher asks for activation, see the [launcher activation guide](./launcher-activation/launcher-activation.mdx).
+Source code and local setup instructions are available in the [Lumina-Layers repository](https://github.com/lumina-layer-studio/Lumina-Layers). If Lumina Launcher prompts you to activate your device, see [Activate Lumina Studio with the Launcher](./launcher-activation/launcher-activation.mdx).
 
 ## Project overview
 
-Lumina Studio is open-source software for multi-material FDM color printing. The 1.x series was released publicly; after a period of internal development, 2.0 is now developed openly in the original Lumina-Layers repository.
+Lumina Studio is open-source software for multi-material FDM layered color printing. It matches image colors against measured print swatches and generates multi-color 3MF models ready for slicing. You can start right away with built-in LUT presets, or print gradient cards to build custom material profiles from your own filaments.
 
-Lumina uses photographed print samples to match image colors and generate models for slicing. You can use an existing LUT preset or make gradient cards to create material profiles and combine your own filaments.
+Following the public 1.x releases and a ground-up 2.0 rebuild, active development continues openly in the [Lumina-Layers repository](https://github.com/lumina-layer-studio/Lumina-Layers).
 
 :::info[Bitmap to SVG]
-
-Lumina Studio includes a Vectorizer; see [Convert a Bitmap to SVG](../knowledge/bitmap-to-svg/bitmap-to-svg.mdx). A separate open-source tool is available at https://github.com/Neroued/neroued_vectorizer.
+Lumina Studio includes a built-in Vectorizer; see [Convert a Bitmap to SVG](../knowledge/bitmap-to-svg/bitmap-to-svg.mdx). A standalone open-source tool is also available at https://github.com/Neroued/neroued_vectorizer.
 :::
 
-We work with filament manufacturers using their existing production colors. Manufacturers are not required to create proprietary colors or a specific light transmittance for Lumina. The team prints and photographs calibrated charts, while users remain free to create and share their own presets.
+We collaborate with filament makers to calibrate presets directly from their standard production colors—without requiring custom colors or special transmittance targets, and without charging fees. Users can also calibrate and share their own presets and material profiles.
 
-:::success[Lumina is built around open source, open collaboration, and co-creation.]
+:::tip[Project philosophy]
+Open source, open collaboration, and community co-creation.
 :::
 
-## Features
+## Key features
 
 ### Color modes
 
-2-color, 4-color, 5-color, 6-color, and 8-color workflows.
+- 2-color, 4-color, 5-color, 6-color, and 8-color workflows
 
 ### Generation modes
 
-High-fidelity, pixel-art, and SVG modes.
+- High-Fidelity, Pixel Art, and Vector (SVG) modes
 
-### Other tools
+### Modeling and color tools
 
-- custom color charts and color calibration;
-- adjustable output color count;
-- subject cutout and background removal;
-- independent backplates and outlines;
-- transparent layers and cloisonné-style output;
-- color replacement after preview generation.
-
-### Advanced tools
-
-- color recipe lookup;
-- color-chart merging.
+- Custom color-chart calibration and gradient-card material profiles
+- Adjustable quantized color count and recipe lookup
+- Post-preview local recoloring and Free Color object export
+- Subject cutout, separate backing, outlines, transparent coating, and 2.5D relief
+- LUT comparison and merging

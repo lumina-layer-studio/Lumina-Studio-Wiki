@@ -4,16 +4,9 @@ description: "Reference, placement, sampling, fitting, and result confirmation b
 sidebar_position: 6
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # ColorChecker Calibration
 
-With ColorChecker Calibration enabled, an uploaded calibration-board photograph first enters the calibration dialog. The
-confirmed full-resolution result is then passed to LUT Extractor; calibration is not performed on the UI thumbnail alone.
+When **ColorChecker Calibration** is enabled in LUT Extractor, uploading a calibration-board photo opens the calibration dialog first. Lumina Studio calibrates the full-resolution photograph and passes the confirmed image into the LUT extraction workflow.
 
 <img
   src={require('./assets/01-colorchecker-entry.webp').default}
@@ -22,27 +15,22 @@ confirmed full-resolution result is then passed to LUT Extractor; calibration is
 
 ## Reference and placement
 
-Choose a built-in or custom reference. A reference contains patch Lab values, white point, and a content hash. An uploaded
-`.xlsx` creates a session custom reference. Auto detection and calibration stay disabled until the reference is ready.
+Start by selecting a built-in reference or uploading an `.xlsx` file to create a custom reference for the current session (containing patch Lab values, white point, and content hash). Once a valid reference is ready, auto-detection and calibration controls become active.
 
-Auto Locate returns four corners and confidence. Corners can also be placed and dragged manually. Patch order supports
-normal, 180° rotation, horizontal flip, and vertical flip. Verify the rectified preview against the selected reference.
+Click **Auto Locate** to detect the four chart corners and view the confidence score, or place and drag the corners manually. Patch orientation supports normal, 180° rotation, horizontal flip, and vertical flip—check the rectified preview to verify that the patch order matches the selected reference.
 
 ## Sampling and fitting
 
-- **Sampling method:** mean or median.
-- **Sample radius:** centre area sampled from each patch.
-- **Output blur:** optional smoothing of the corrected output.
-- **Gray normalisation:** automatic, enabled, or fallback.
-- **Calibration algorithm:** 3×3 matrix, 3×4 matrix, root polynomial, or automatic selection.
-
-A larger sample is not automatically better: touching patch edges, glare, or shadows contaminates the fit.
+- **Sampling method:** Choose mean or median. Median is more resistant to minor dust or surface speckle inside a patch.
+- **Sample radius:** Controls the center region sampled within each patch. Increasing it averages out print or paper texture, while reducing it keeps sampling clear of patch borders, glare, or edge shadows.
+- **Output blur:** Applies optional smoothing to the calibrated output to suppress high-frequency noise.
+- **Gray normalization:** Supports automatic, enabled, or fallback modes to stabilize neutral-gray balance.
+- **Calibration algorithm:** Supports 3×3 matrix, 3×4 matrix, root polynomial, or automatic selection.
 
 ## Confirming the result
 
-The result reports mean, median, P95, and maximum ΔE00, plus the worst patch and gray checks. Excluded patches or risky
-neutral-reference deltas appear as warnings. Accept passes the image to extraction; Retry returns to the calibration
-parameters without applying the unconfirmed result.
+The results screen reports mean, median, P95, and maximum ΔE00, along with the highest-error patch and gray-balance checks. Warnings highlight excluded patches or elevated neutral-reference deviations. Click **Accept** to pass the calibrated image to extraction, or **Retry** to return to the parameter settings and adjust the fit.
 
-ColorChecker calibration can reduce camera and illumination bias. It cannot repair clipping, severe glare, missed focus,
-or an incorrectly printed board.
+:::tip[Photo quality]
+ColorChecker calibration compensates for camera response and ambient lighting casts. For accurate results, capture a sharply focused, evenly lit photograph without clipped highlights or specular glare.
+:::

@@ -1,19 +1,12 @@
 ---
 title: "Generate a LUT Calibration Board"
-description: "Colour mode, patch size, spacing, backing, and output of LUT calibration boards."
+description: "Color mode, block size, spacing, backing, and output of LUT calibration boards."
 sidebar_position: 3
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Generate a LUT Calibration Board
 
-A calibration board arranges the recipes of a colour mode as printable patches. After printing and photographing it, LUT
-Extractor can write the measured colours back into a LUT.
+A calibration board arranges the layering recipes of a selected color mode into printable color blocks. After printing and photographing the board, you can sample the measured colors in LUT Extractor to build a custom LUT.
 
 <img
   src={require('./assets/01-calibration-board.webp').default}
@@ -22,22 +15,18 @@ Extractor can write the measured colours back into a LUT.
 
 ## Parameters
 
-- **Colour Mode:** selects the recipe set and page count; BW, 4-colour, 5-colour Extended, 6-colour, and 8-colour modes
-  are supported.
-- **Patch Size:** `3–10 mm` in `0.5 mm` steps. Larger patches are easier to photograph but enlarge the board.
-- **Patch Gap:** `0.4–2.0 mm` in `0.01 mm` steps.
-- **Backing Thickness:** `0.4–3.5 mm` in `0.08 mm` steps.
+- **Color Mode:** Selects the recipe set and page count. Supports BW, 4-color, 5-color Extended, 6-color, and 8-color modes.
+- **Block Size:** `3–10 mm` in `0.5 mm` steps (default `5.00 mm`). Larger blocks make camera focusing and center sampling easier while increasing overall board dimensions; reduce the size when build-plate space is tight.
+- **Block Gap:** `0.4–2.0 mm` in `0.01 mm` steps (default `0.84 mm`). Separates adjacent blocks and preserves the grid boundary, helping prevent color bleed or edge-shadow overlap.
+- **Backing Thickness:** `0.4–3.5 mm` in `0.08 mm` steps (default `1.20 mm`). Increasing thickness improves board rigidity and reduces light bleed from behind.
 
-8-colour mode exposes Full Export. 5-colour Extended and 8-colour calibration may require multiple pages, so their result
-is delivered as a package rather than pretending every recipe fits one board.
+Selecting an 8-color mode exposes the **Full Export** toggle. Because 5-color Extended and 8-color calibrations contain more recipes than fit on a single plate, they split across multiple pages and export as a multi-page package.
 
 ## Output
 
-After generation, the right side shows the complete preview and per-layer images. Open a layer thumbnail to inspect it at
-full size. Slicer actions use the printer, nozzle, and slicer selected in System Settings.
+After generation, the right panel displays the full-board preview alongside per-layer thumbnails; click any thumbnail to inspect that layer at full size. Direct slicer actions (such as **Generate & open in Bambu Studio**) use the printer, nozzle, and slicer configured in **Settings**.
 
-The colour mode and page selected during extraction must match the generated board. Keep the positioning border intact
-and never combine photos from different calibration modes in one extraction session.
+Keep the outer positioning border intact when photographing and cropping the board. During extraction, select the exact color mode and page number used to generate each board, and keep each extraction session limited to photos from the same calibration mode.
 
 Next:
 

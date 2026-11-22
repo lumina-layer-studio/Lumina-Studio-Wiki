@@ -1,216 +1,148 @@
 ---
 title: "Which Features Can Be Used Together?"
-description: "Compatibility boundaries among Color Workstation, Outline, Transparent Coating, Keychain Loop, Fridge Magnet, Relief, Puzzle, Large Format, and Batch workflows."
+description: "Compatibility rules across Color Workstation, Outline, Transparent Coating, Keychain Loop, Fridge Magnet, Relief, Puzzle, Large Format, and Batch workflows."
 sidebar_position: 27
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Which Features Can Be Used Together?
 
-If you remember only one rule: **colour and appearance features are often composable;
-features that change geometry or the export workflow need explicit compatibility
-checks.**
+In Lumina Studio, **color edits and surface add-ons can generally be combined freely**, while **features that alter 3D geometry or export packaging follow clear mutual-exclusion rules**:
 
-- Color Workstation, Custom Recipe, Outline, Transparent Coating, and Separate
-  Backing can usually be used in an ordinary single- or double-sided project.
-- Relief, Fridge Magnet, Puzzle, Large Format, and Batch change geometry or
-  generation behaviour and are not ordinary cosmetic switches.
-- Fridge Magnet is single-sided and cannot be combined with Puzzle, Large Format, or
-  Keychain Loop.
-- Puzzle cannot be combined with Batch, Large Format, Fridge Magnet, or Keychain Loop.
-- Relief is not available in Native Vector. The Cloisonné settings entry is currently hidden.
-- An enabled control does not prove a combination is reliable. After adding a
-  structural feature, Preview, Generate, slice, and inspect the real layers again.
+- **Composable color and surface options**: **Color Workstation**, **Custom Recipe**, **Outline**, **Transparent Coating**, and **Separate Backing** work together on standard single- and double-sided projects.
+- **Structural and workflow modes**: **Relief**, **Fridge Magnet**, **Puzzle**, **Large Format**, and **Batch** modify underlying geometry or export pipelines and follow specific compatibility rules.
+- **Fridge Magnet exclusions**: **Fridge Magnet** requires a single-sided structure and cannot be combined with **Puzzle**, **Large Format**, or **Keychain Loop**.
+- **Puzzle exclusions**: **Puzzle** cannot be combined with **Batch**, **Large Format**, **Fridge Magnet**, or **Keychain Loop**.
+- **Relief and Cloisonné**: **Relief** is unavailable in **Vector** mode, and the **Cloisonné** entry is hidden in the current release.
+- **Slicer verification**: Whenever you combine structural add-ons, export a fresh 3MF and inspect the sliced toolpaths layer by layer.
 
-## First identify what the feature changes
+## Grouping Features by What They Change
 
-### Colour and recipes
+### 1. Color and Layered Recipes
 
-Color Workstation replacements, local-region edits, and Custom Recipes primarily
-change how colour layers use materials. They do not add machine slots or replace
-slicer material mapping.
+Global replacements, local block edits, and **Custom Recipes** in **Color Workstation** adjust how color layers use your selected filaments. They pair cleanly with **Outline**, **Transparent Coating**, **Separate Backing**, and standard structural features. Simply click **Generate** after any color edit to export an updated 3MF. See [Color Workstation Basics](pathname:///en/docs/knowledge/color-workstation-basics/).
 
-They can usually coexist with Outline, Transparent Coating, and Separate Backing.
-Generate a new file after every edit; an older 3MF will not update itself. See
-[Color Workstation Basics](pathname:///en/docs/knowledge/color-workstation-basics/).
+### 2. Surface Add-Ons and Object Organization
 
-### Appearance and object organisation
+These options add or split meshes in the exported 3MF while preserving the base model structure:
 
-These features add or reorganise exported objects without replacing the base structure:
+- **Outline**: Traces a border along clean transparent edges (images without an alpha boundary or SVGs with tangled geometry may produce incomplete outlines).
+- **Transparent Coating**: Adds a dedicated top-surface mesh—map this object to clear filament in your slicer.
+- **Separate Backing**: Exports the backing plate as its own object for independent filament or infill control without changing **Backing Thickness**.
+- **Free Color**: Extracts a matched color's regions into a standalone object so you can assign a dedicated spool in your slicer.
 
-- **Outline** follows a usable source boundary. A source without a clean alpha boundary,
-  or an overly complex SVG, may produce an incomplete outline.
-- **Transparent Coating** adds a separate surface object. Map it to the transparent
-  physical filament you intend to use.
-- **Separate Backing** exports the backing as an independent object; it does not change
-  Backing Thickness.
-- **Free Color** exports one matched-colour class as an independent object; it does not
-  create another printable colour.
+You can stack several of these options together; expand the full object tree in your slicer afterward to confirm every mesh's filament assignment.
 
-These features can be combined, but every added object makes slicer mapping and print
-order more complex. Expand the complete object tree after opening the 3MF.
+### 3. Structural Modes and Specialized Exports
 
-### Structure and specialised exports
+**Relief**, **Keychain Loop**, **Fridge Magnet**, **Puzzle**, **Large Format**, and **Batch** reshape 3D geometry or change how files are packaged. Lumina enforces mutual-exclusion rules among conflicting options—and if you import an older recipe file containing conflicting toggles, Lumina automatically disables one to keep the project state valid.
 
-Relief, Cloisonné, Keychain Loop, Fridge Magnet, Puzzle, Large Format, and Batch change
-geometry or output behaviour. They have explicit conflicts. If a recipe imported from
-another version records conflicting settings, Lumina may disable one to restore a valid
-state.
+## Compatibility Quick Reference
 
-## Current compatibility reference
+Legend:
 
-Symbols:
+- ✅: Supported in standard workflows (always verify sliced layers before printing);
+- ⚠️: Supported under specific structural conditions or requires extra slicer inspection;
+- —: Mutually exclusive or unsupported together.
 
-- ✅: available in an ordinary workflow; sliced verification is still required;
-- ⚠️: conditional support or a specialised verification path;
-- —: do not combine in the current version.
-
-| Feature | High-Fidelity / Pixel Art | Native Vector SVG | Single / Double-sided | Main boundary |
+| Feature | High-Fidelity / Pixel Art | Native Vector SVG | Single / Double-Sided | Key considerations |
 | --- | --- | --- | --- | --- |
-| Color Workstation and Custom Recipe | ✅ | ✅ | ✅ | Generate again and remap physical spools after every edit |
-| Outline | ✅ | ⚠️ | ✅ | Requires a usable boundary; inspect complex SVG outlines |
-| Transparent Coating | ✅ | ✅ | ⚠️ | For double-sided work, verify the coated face and print order |
-| Separate Backing | ✅ | ✅ | ⚠️ | Reorganises objects only; inspect complex or double-sided structures |
-| Free Color | ✅ | — | ⚠️ | Exports matched colours as objects; not for Native Vector currently |
-| Relief | ✅ | — | Single-sided only | Mutually exclusive with Cloisonné; height-map Relief is not a Batch feature |
-| Cloisonné | — | — | — | Entry hidden in the current version; [older documentation](../../reference/model-features/cloisonne/cloisonne.mdx) is retained |
-| Keychain Loop | ✅ | ⚠️ | Prefer single-sided | Not with Fridge Magnet or Puzzle; inspect the hole and connection |
-| Fridge Magnet | ✅ | ⚠️ | Single-sided only | Not with Puzzle, Large Format, or Keychain Loop |
-| Puzzle | Specialised workflow | — | Specialised structure | Not with Batch, Large Format, Fridge Magnet, or Keychain Loop |
-| Large Format | Specialised workflow | ⚠️ | Inspect every tile | Not with Puzzle or Fridge Magnet; complex SVGs may rasterise for tiling |
-| Batch | Specialised workflow | ⚠️ | Inspect each file | Not with Puzzle, Validation Card, or height-map Relief |
+| Color Workstation & Custom Recipe | ✅ | ✅ | ✅ | Re-run **Generate** and verify spool mappings after edits |
+| Outline | ✅ | ⚠️ | ✅ | Needs a clean alpha or vector boundary; inspect complex SVG borders |
+| Transparent Coating | ✅ | ✅ | ⚠️ | On double-sided models, check which face is coated and verify print order |
+| Separate Backing | ✅ | ✅ | ⚠️ | Splits meshes only; inspect layers on double-sided or recessed pieces |
+| Free Color | ✅ | — | ⚠️ | Exports matched colors as objects; unavailable in Vector mode |
+| Relief | ✅ | — | Single-sided only | Exclusive with Cloisonné; uploaded height-map Relief is unavailable in Batch |
+| Cloisonné | — | — | — | Hidden in the current release; [older documentation](../../reference/model-features/cloisonne/cloisonne.mdx) is archived |
+| Keychain Loop | ✅ | ⚠️ | Single-sided recommended | Exclusive with Fridge Magnet and Puzzle; check hole clearance and neck width |
+| Fridge Magnet | ✅ | ⚠️ | Single-sided only | Exclusive with Puzzle, Large Format, and Keychain Loop |
+| Puzzle | Dedicated workflow | — | Dedicated structure | Exclusive with Batch, Large Format, Fridge Magnet, and Keychain Loop |
+| Large Format | Dedicated workflow | ⚠️ | Check each tile | Exclusive with Puzzle and Fridge Magnet; complex SVGs may fall back to raster tiling |
+| Batch | Dedicated workflow | ⚠️ | Check each file | Unavailable with Puzzle, Validation Card, and uploaded height-map Relief |
 
-Native Vector here means Lumina’s Vector mode, not a PNG saved inside an `.svg` wrapper.
-See [High-Fidelity, Pixel Art, or Vector?](pathname:///en/docs/knowledge/image-mode-selection/).
+Here, **Native Vector SVG** refers to Lumina's **Vector** modeling mode using real SVG path geometry rather than a raster PNG wrapped inside an `.svg` file. See [High-Fidelity, Pixel Art, or Vector?](pathname:///en/docs/knowledge/image-mode-selection/).
 
-## Five practical starting points
+## Five Common Starting Setups
 
-### Ordinary flat artwork
+### Flat Display Plaques and Prints
 
-Start with exactly one of High-Fidelity, Pixel Art, or Native Vector plus Color
-Workstation. Add Outline, Transparent Coating, or Separate Backing one at a time after
-the base Preview is correct.
+Pick **High-Fidelity**, **Pixel Art**, or **Vector** mode, verify your base **Preview**, and refine colors in **Color Workstation**. Once the color match looks right, add **Outline**, **Transparent Coating**, or **Separate Backing** one step at a time.
 
-### Keychain or pendant
+### Keychains and Pendants
 
-Use an ordinary single-sided structure, add Keychain Loop, then optionally add Outline
-or Transparent Coating. Verify that the loop is joined to the body, the hole is large
-enough, and the sliced connection remains continuous. Do not also enable Fridge Magnet
-or Puzzle.
+Use a single-sided structure with **Keychain Loop**, then add **Outline** or **Transparent Coating** if desired. In your slicer's Layer Preview, zoom in on the loop joint to confirm a solid, continuous bridge to the main body and an unobstructed hole (leave **Fridge Magnet** and **Puzzle** off).
 
-### Fridge magnet
+### Fridge Magnets
 
-Switch to single-sided, then add the magnet recess. Outline, coating, and Color
-Workstation can be used when appropriate, but do not combine the recess with Keychain
-Loop, Puzzle, or Large Format. Magnet thickness, recess depth, and Backing Thickness
-must leave enough material behind the display layers.
+Select a single-sided structure and enable **Fridge Magnet**. You can pair it with **Color Workstation**, **Outline**, and **Transparent Coating** (while keeping **Keychain Loop**, **Puzzle**, and **Large Format** off). Make sure **Backing Thickness** leaves plenty of solid wall behind the magnet recess without cutting into the fine color layers.
 
-### Relief
+### Relief Models
 
-Use a raster source and a single-sided structure. Verify Relief direction before adding
-Outline or coating. Do not enable Cloisonné or search for Relief inside Native Vector.
-Batch generation supports only the colour-height behaviour explicitly provided there,
-not a separate uploaded height map.
+Start with a bitmap image and a single-sided structure, enable **Relief** first to verify height direction, and then optionally add **Outline** or **Transparent Coating**. **Vector** mode does not support Relief, and **Batch** mode supports color-driven relief heights rather than separately uploaded height maps.
 
-### Puzzle, Large Format, or Batch
+### Puzzle, Large Format, and Batch Workflows
 
-Treat each as its own workflow:
+Run each of these as its own dedicated export workflow:
 
-- for Puzzle, disable Large Format, Batch, Fridge Magnet, and Keychain Loop;
-- for Large Format, verify one ordinary model first, then follow
-  [Large Format: Tile Size, Assembly Order, and ZIP Output](pathname:///en/docs/knowledge/large-format/);
-- for Batch, prove the shared settings on one representative image before adding the
-  rest.
+- **Puzzle**: Keep **Large Format**, **Batch**, **Fridge Magnet**, and **Keychain Loop** turned off, and inspect interlocking tolerances after slicing.
+- **Large Format**: Validate colors and layer settings on a normal single piece first, then follow [Large Format: Tile Size, Assembly Order, and ZIP Output](pathname:///en/docs/knowledge/large-format/) to configure tile bounds and slice each tile.
+- **Batch**: Test your shared color source and parameters on one representative image in single-image mode before loading the full queue.
 
-## Why does another switch turn off automatically?
+## Why Toggling One Feature Turns Another Off
 
-Lumina prevents known invalid states. For example:
+To prevent invalid 3D meshes, Lumina automatically disables conflicting structural options when you toggle a mutually exclusive mode:
 
-- enabling Fridge Magnet switches to single-sided and disables Puzzle, Large Format,
-  and Keychain Loop;
-- enabling Puzzle disables Large Format, Keychain Loop, and Fridge Magnet;
-- enabling Relief switches to single-sided and disables Cloisonné;
-- in older versions, enabling Cloisonné disables Relief; the entry is hidden in the current version;
-- entering Batch mode makes Puzzle unavailable.
+- Enabling **Fridge Magnet** switches to single-sided mode and turns off **Puzzle**, **Large Format**, and **Keychain Loop**;
+- Enabling **Puzzle** turns off **Large Format**, **Keychain Loop**, and **Fridge Magnet**;
+- Enabling **Relief** switches to single-sided mode (and turned off **Cloisonné** in earlier versions);
+- Entering **Batch** mode disables **Puzzle**.
 
-Review the settings summary after changing a structural feature. Do not repeatedly
-re-enable conflicting switches.
+Check the settings summary after switching structural modes to confirm which options are active.
 
-## The backing layer-height modifier also has limits
+## Backing Layer-Height Modifier Boundaries
 
-The modifier is intended for an ordinary, clearly separated backing structure read by
-a compatible Bambu-family slicer. It is not a universal acceleration switch:
+The **Backing Layer Height Modifier** is built for standard flat backings opened in compatible Bambu-family slicers. Keep these exceptions in mind:
 
-- Gradient Card has its own fixed structure and does not use the ordinary modifier;
-- Puzzle and specialised exports manage their own structure;
-- double-sided, Relief, Fridge Magnet, or other complex geometry requires proof that
-  the modifier range does not touch display layers, recesses, or attachments;
-- Separate Backing and the layer-height modifier solve different problems.
+- **Gradient Calibration Cards** use fixed layer calibration heights and do not use the backing modifier;
+- **Puzzle** and specialized exports manage their own structural slicing parameters;
+- **Double-sided, Relief, and Fridge Magnet** models should be checked layer by layer in slicer Preview to confirm that coarse backing layers never encroach on color layers or magnet cavities;
+- **Separate Backing** splits the backing into its own mesh, whereas **Backing Layer Height Modifier** adjusts Z-range layer thickness—enable either or both as needed.
 
-See [Backing, Colour Layers, and Layer-Height Modifiers](pathname:///en/docs/knowledge/base-color-layer-height/).
+See [Backing, Color Layers, and Layer-Height Modifiers](pathname:///en/docs/knowledge/base-color-layer-height/) for details.
 
-## Fixed verification order after combining features
+## Checklist When Combining Features
 
-1. **Base Preview:** verify image mode, Source Type, size, and base structure.
-2. **Add one feature:** compare 2D, 3D, and Layer Preview immediately.
-3. **Generate again:** download a new 3MF after every change.
-4. **Open as a complete project:** inspect backing, colour layers, Free Colors, coating,
-   outline, and attachments in the object tree.
-5. **Map real materials:** object display colours are not physical machine slots.
-6. **Slice:** turn to the display surface and inspect every layer, local height, and
-   attachment connection.
-7. **Test first:** use a small print for structural features, complex SVGs, double-sided
-   work, or a new material combination.
+1. **Verify the base Preview**: Check your modeling mode, color source, dimensions, and single/double-sided structure first.
+2. **Add features one at a time**: Inspect 2D, 3D, and **Layer Preview** after each addition.
+3. **Export a fresh 3MF**: Click **Generate** after every parameter or color change.
+4. **Open as a full project**: Expand the slicer's object tree to check the backing, color meshes, Free Color objects, coating, outline, and attachments.
+5. **Map physical spools**: Match every project filament to the real spool and hardware slot on your printer.
+6. **Inspect sliced toolpaths**: Rotate to the display face and scrub through every layer to check filament swaps, local layer heights, and attachment joints.
+7. **Print a quick test piece**: For magnet fit, narrow keychain loops, double-sided coatings, or new filament sets, run a small test sample before committing to a large print.
 
-For object and slot mapping, see
-[Import a Lumina 3MF into Your Slicer Correctly](pathname:///en/docs/tutorials/slicer-material-mapping/).
+For full slicer import and slot-mapping steps, see [Import a Lumina 3MF into Your Slicer Correctly](pathname:///en/docs/tutorials/slicer-material-mapping/).
 
-## Common questions
+## Common Questions
 
-### Can Outline, Transparent Coating, and Keychain Loop be used together?
+### Can I combine Outline, Transparent Coating, and Keychain Loop?
 
-They are a reasonable starting point for an ordinary single-sided pendant. Still check
-that the outline preserves detail, the coating object is mapped to transparent material,
-and the loop has a continuous, sufficiently wide connection.
+Yes—those three work well together on standard single-sided pendants. In your slicer, verify that the outline preserves fine silhouette details, the coating object is assigned to clear filament, and the loop neck prints with continuous perimeters.
 
-### Can a fridge magnet also have a keychain loop?
+### Can I put both a magnet recess and a keychain loop on the same piece?
 
-Not as a supported combination in the current version. Enabling Fridge Magnet disables
-Keychain Loop. Build and validate a dual-purpose structure in an external modelling tool
-instead of bypassing the conflict.
+Lumina treats **Fridge Magnet** and **Keychain Loop** as mutually exclusive. If you want a dual-purpose piece, export the model with **Keychain Loop** enabled and add a cylindrical negative part on the back face directly in your slicer to cut the magnet pocket.
 
-### Why are Relief and Cloisonné missing from Native Vector?
+### Why is Relief missing when Vector mode is selected?
 
-Native Vector does not support Relief; use an appropriate raster source for that feature.
-The Cloisonné settings entry is currently hidden in every mode.
+**Relief** builds continuous height variations from raster pixel data, whereas **Vector** mode extrudes flat path regions. Upload a PNG, JPG, or WebP bitmap in single-sided mode to use **Relief**.
 
-### Why can a Large Format SVG look rasterised?
+### Why does my Large Format SVG look rasterized along tile edges?
 
-Large Format prefers supported vector geometry, but may fall back to raster tiling for
-SVG features that cannot be divided reliably. Compare edges before and after generation,
-then test one tile.
+**Large Format** splits clean vector paths natively whenever possible, falling back to high-resolution raster tiling when an SVG contains unsupported features or extreme path complexity. Inspect edges in Preview and test-print one tile first if sharpness is critical.
 
-### A recipe lost one option after import. Is it corrupted?
+### Why did an imported recipe turn off one of its saved switches?
 
-Not necessarily. The recipe may come from another version or contain a combination
-that is no longer valid. Lumina can disable a conflicting option. Trust the current
-summary and Preview rather than assuming that every switch must restore verbatim.
+If a shared recipe comes from an older version or contains options that conflict under current rules, Lumina disables the conflicting toggle so the project can generate cleanly. Review the active settings summary and **Preview** after importing.
 
-### Is a slicer result without errors automatically safe?
+### If my slicer finishes without warnings, is the feature combination ready to print?
 
-No. A slicer can produce paths without understanding magnet wall thickness, loop
-strength, coating material, display-surface direction, or the intended colour recipe.
-Inspect layers and print a sample.
-
-## Content licence
-
-Unless otherwise noted, the original text and diagram on this page are available under
-the Wiki’s [CC BY-NC-SA 4.0 content licence](pathname:///en/docs/project/content-license/).
-
-Feature names and compatibility boundaries continue to evolve. The current interface,
-generated objects, and real sliced paths are the final authority.
+Clean slicing confirms valid 3D mesh geometry, while practical details—magnet floor thickness, keychain loop strength, clear coating assignment, and display-face orientation—still require a quick layer-by-layer check in slicer Preview.

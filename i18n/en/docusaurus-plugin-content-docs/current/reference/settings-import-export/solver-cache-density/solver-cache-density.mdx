@@ -1,54 +1,41 @@
 ---
 title: "Exhaustive Cache Density"
-description: "Lab-grid density, cache creation, and resource limits for the material-profile solver."
+description: "Lab-grid resolution tiers, sparse caching, and memory budgets for the material-profile solver."
 sidebar_position: 3
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Exhaustive Cache Density
 
-A material profile enumerates recipes reachable with the selected materials and layer count, then indexes their predicted
-colours in a Lab grid. Exhaustive Cache Density controls the grid resolution. A finer grid makes it less likely that
-similar colours with different recipes collide in the same cell.
+A material profile enumerates the layer recipes reachable with your selected filaments and layer count, then indexes their predicted colors in a 3D Lab grid. **Exhaustive Cache Density** sets the resolution of that grid—finer grids keep closely spaced colors with distinct recipes from colliding in the same cell.
 
 <img
   src={require('./assets/01-solver-cache.webp').default}
   alt="Exhaustive cache density settings"
 />
 
-## Tiers
+## Resolution tiers
 
-Available tiers are `64³`, `128³`, `256³`, `512³`, `1024³`, and `2048³`. With Customise exhaustive density disabled,
-every build uses `64³`.
+Available tiers are `64³`, `128³`, `256³`, `512³`, `1024³`, and `2048³`. When custom exhaustive density is turned off, builds default to `64³`.
 
-Higher tiers primarily reduce candidate loss caused by grid collisions. They are useful when a material profile needs
-tighter colour matching. They cannot create physically unreachable colours or correct inaccurate material measurements.
+Higher tiers preserve more candidate recipes by reducing grid collisions, which helps when a material profile requires fine tonal separation. Overall gamut and color accuracy still depend on the underlying optical measurements of your filaments.
 
-## Cache and resource behaviour
+## Cache storage and resource budgets
 
-The cache is sparse: it stores physically reachable recipes rather than allocating every cell in the full 3D grid. Each
-resolution creates its own cache file, so selecting a new tier does not overwrite caches from other tiers.
+The cache uses sparse storage, saving only physically reachable recipes rather than allocating every cell of the 3D grid. Each tier writes its own cache file, so switching tiers leaves existing caches at other resolutions intact.
 
-Builds are still governed by safety budgets:
+Builds stay within automatic resource budgets:
 
-- small recipe spaces can use exact mode;
-- larger spaces are checked against estimated memory and total recipe counts;
-- a build that exceeds the active budget stops with guidance to reduce material or layer count instead of consuming
-  unbounded resources.
+- Small recipe spaces run in exact mode.
+- Larger combinations check estimated memory usage and total recipe count beforehand.
+- If a build exceeds the active safety budget, it stops cleanly and prompts you to lower the filament or layer count.
 
-The first build at a new tier therefore takes longer than loading an existing cache. Lookup cost may also increase mildly
-with density.
+Building a new tier for the first time takes noticeably longer than loading a saved cache, and color-lookup time increases slightly at higher densities.
 
-:::note[This setting belongs to the material-profile solver. A traditional LUT reads its existing colours and recipes and does]
-not use this grid density.
+:::note[Solver scope]
+This setting applies only to the material-profile solver. Traditional LUTs read their existing measured colors and recipes directly and do not use this grid density.
 :::
 
 Related pages:
 
 - [Material Profile Source](../../converter-basic/material-archive-source/material-archive-source.mdx)
-- [LUT Colour Grid](../../preview-and-palette/lut-color-grid/lut-color-grid.mdx)
+- [LUT Color Grid](../../preview-and-palette/lut-color-grid/lut-color-grid.mdx)

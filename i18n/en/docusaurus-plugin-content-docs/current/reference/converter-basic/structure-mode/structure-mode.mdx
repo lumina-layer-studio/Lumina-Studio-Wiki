@@ -1,18 +1,12 @@
 ---
 title: "Structure Mode"
-description: "Explains Double-sided and Single-sided geometry and the restrictions applied by relief, fridge-magnet, and extended five-colour modes."
+description: "Choose between Double-sided and Single-sided geometry, and see how Relief, Fridge Magnet, and 5-Color Extended affect availability."
 sidebar_position: 8
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Structure Mode
 
-Structure Mode determines whether colour layers are built on one side or both sides of the base plate.
+**Structure Mode** controls whether color layers are built on one side or both sides of the base plate.
 
 <img
   src={require('./assets/01-structure-mode.webp').default}
@@ -21,18 +15,16 @@ Structure Mode determines whether colour layers are built on one side or both si
 
 ## Double-sided
 
-Colour layers are built on both sides of the base, which is useful for tags or hanging pieces that must show artwork from either
-direction. It increases model height, material use, and sliced layers.
+Builds color layers on both sides of the base plate, making it ideal for hanging tags, charms, and keychains viewed from either side. Double-sided geometry increases overall model thickness, filament usage, and total sliced layers.
 
 ## Single-sided
 
-Colour layers remain on one side and the opposite side is the base plate. Relief, fridge-magnet, and other back-dependent
-features use the single-sided path.
+Builds color layers on one face while leaving the opposite face as the base plate. Standard plaques as well as back-side features such as Relief and Fridge Magnet use single-sided geometry.
 
-## Automatic restrictions
+## Mode Restrictions
 
-- Relief or Fridge Magnet disables or forces Single-sided geometry.
-- 5-Color Extended does not allow Double-sided and switches an existing Double-sided selection back to Single-sided.
-- Any change invalidates the previous 3MF and download.
+- Enabling **Relief** or **Fridge Magnet** locks Structure Mode to **Single-sided**.
+- **5-Color Extended** supports **Single-sided** only and automatically switches an active **Double-sided** selection back to **Single-sided**.
+- Changing Structure Mode clears any previously generated 3MF and download, so regenerate the model before slicing.
 
-This is model geometry, not the slicer's print-order setting. Inspect the underside in the slicer after generation.
+After opening the 3MF in your slicer, inspect both the top face and the underside to verify display-face orientation, build-plate contact, and any back-side features.

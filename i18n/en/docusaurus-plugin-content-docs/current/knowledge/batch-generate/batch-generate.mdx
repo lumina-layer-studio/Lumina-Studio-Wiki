@@ -1,268 +1,187 @@
 ---
 title: "Batch Generate Multiple Models: File List, Results, and Retry"
-description: "Import several images, apply one shared colour source and setting set, generate a merged 3MF, and interpret successes, failed files, bed Preview, and out-of-bounds warnings."
+description: "Import multiple images, apply one shared color source and parameter set, export a merged 3MF, and check success counts, failed files, bed preview, and bounds warnings."
 sidebar_position: 30
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Batch Generate Multiple Models: File List, Results, and Retry
 
-Batch Generate is for a prepared group of images that should use **one shared colour
-source and one shared set of primary settings**. Lumina processes the group and builds
-one merged 3MF for inspection and layout.
+**Batch Generate** processes multiple prepared images using **one shared color source and one shared set of modeling settings**, then packages the results into a single merged 3MF for layout and slicing.
 
-Remember these rules:
+Key points before starting:
 
-- selecting several files on the first upload, or choosing **Add more images**, enters
-  Batch mode;
-- every file uses the same LUT or Material Archives, Width, Thickness, Structure Mode,
-  and Modeling Mode;
-- crop, rotation, Color Workstation edits, and per-image Preview are not configured
-  separately inside the Batch; prepare those files first;
-- read **Success / Total** before downloading; if some files fail, the merged 3MF
-  contains only successful models;
-- the bed Preview may show fewer models than the merged 3MF can contain. Verify the
-  complete object list in the slicer.
+- **Entering Batch mode**: Select multiple files on initial upload, or click **Add more images** from the single-image converter.
+- **Shared settings**: Every file in the list uses the same Classic LUT or Material Archives, Width, Backing Thickness, Structure Mode, and Modeling Mode.
+- **Image preparation**: Cropping, rotation, Color Workstation edits, and per-image Preview are not available inside Batch mode—prepare your source images beforehand.
+- **Results and download**: Check **Success / Total** when generation finishes. If any files fail, the merged 3MF contains all successful models.
+- **Bed Preview**: When a batch contains many models or exceeds bed capacity, the 3D preview displays a subset while the downloaded 3MF retains every successful object.
 
-The screenshots below show a real run in an earlier English interface with two test
-images and a successful **2 / 2** result. Some labels have since changed.
+## When to Use Batch Generate
 
-## When is Batch Generate appropriate?
+**Good fit:**
 
-Use it for:
+- A set of badges, magnets, tags, or test pieces that share the same filaments and layer settings;
+- Pre-cropped artwork with finalized orientation, transparent margins, and framing;
+- Multiple models you want combined into one 3MF for multi-plate or single-plate arrangement in your slicer;
+- Large sets where you want to process everything in one pass and retry any failed files afterward.
 
-- a group of badges, magnets, tags, or test pieces using the same filaments and layer
-  settings;
-- images whose orientation, transparency, and composition are already prepared;
-- several models that should enter one 3MF for shared slicer layout;
-- processing the complete group first, then retrying only failed files.
+**Use the single-image workflow instead when:**
 
-Do not use it when:
+- Different images require different LUTs, Material Archives, thicknesses, structures, or Modeling Modes;
+- Individual files still need cropping, rotation, local recoloring, or cleanup;
+- You have not yet tested your color source and settings on a single representative image;
+- You need features unavailable in Batch mode, such as Puzzle, Validation Card, or uploaded height-map Relief.
 
-- every image needs a different LUT, archive set, thickness, structure, or Modeling Mode;
-- each file still needs independent crop, rotation, recolouring, or retouching;
-- even one representative image has not yet produced a trustworthy Preview;
-- the desired feature is not available in Batch, such as Puzzle, Validation Card, or a
-  separately uploaded height-map Relief workflow.
+If you are choosing between color sources, see [Material Archives or Classic LUT?](../material-profile-selection/material-profile-selection.mdx).
 
-When settings differ per model, use the single-image workflow. If Source Type is still
-uncertain, start with
-[Material Archives or Classic LUT?](../material-profile-selection/material-profile-selection.mdx).
+## Step 1: Prepare Every Image First
 
-## Step 1: prepare every image first
+Before adding images to a batch, make sure each file meets these criteria:
 
-Before adding a file to the Batch, confirm:
+1. Orientation is final;
+2. Transparent edges, drop shadows, outlines, and canvas margins are clean;
+3. The file opens normally and uses a clear, recognizable filename;
+4. It works well with the group's shared Source Type, structure, and target Width;
+5. You have saved a backup of the untouched original.
 
-1. its orientation is final;
-2. transparent edges, shadows, outline, and canvas margin are correct;
-3. the file opens normally and has an identifiable filename;
-4. it is suitable for the same Source Type, structure, and target width as the group;
-5. the original is stored separately.
+For cropping and rotation tips, see [Upload, Replace, Crop, and Rotate an Image](pathname:///en/docs/knowledge/image-upload-crop-rotate/).
 
-For crop and rotation, see
-[Upload, Replace, Crop, and Rotate an Image](pathname:///en/docs/knowledge/image-upload-crop-rotate/).
-
-:::warning[Batch does not apply each file’s last single-image settings independently. It reads]
-the shared settings currently visible in the Batch page. Remove any file that needs a
-different size, material set, or structure and process it separately.
+:::warning[Shared Batch Settings]
+Batch mode applies the settings currently selected on the Batch page rather than each image's previous single-image settings. If a file needs its own dimensions, color edits, or material set, remove it from the list and process it individually.
 :::
 
-## Step 2: build and inspect the file list
+## Step 2: Build and Check the File List
 
-Select several files in the first upload, or upload one and use **Add more images**.
-The file count and names appear at the top of Core Settings.
+Select multiple files during your initial upload, or upload one image and click **Add more images**. The total count and filenames appear at the top of **Core Settings**.
 
 <img
   src={require('./assets/01-batch-file-list.webp').default}
   alt="Current English Batch file list with two filenames, remove controls, and Add more images"
 />
 
-Check three things before configuring the Batch:
+Review three details before adjusting settings:
 
-- **Count:** does “N files selected” match the intended group?
-- **Names:** is any file duplicated, outdated, or accidentally included?
-- **Removal:** the × beside a filename removes only that task item and does not delete
-  the source from disk.
+- **Count**: Confirm that “N files selected” matches your intended batch size.
+- **Filenames**: Check for duplicates, older drafts, or accidental inclusions.
+- **List edits**: Clicking **×** beside a filename removes it from the queue without deleting the file on disk.
 
-Use **Add more images** to append files. Any change to the list invalidates an older
-Batch result. Removing files until one remains returns to the single-image workflow.
+Click **Add more images** to append additional files. Modifying the list clears any previous batch result so you can generate a fresh 3MF; removing files until one remains switches back to the single-image workflow. On long queues, the panel displays the first rows and summarizes the remainder—check the header count for the full total.
 
-With a long list, the interface may show only a subset of names and summarise the rest.
-Use the total count rather than the number of visible rows.
-
-## Step 3: choose one shared colour source and setting set
+## Step 3: Choose Shared Color and Model Settings
 
 <img
   src={require('./assets/02-shared-settings.webp').default}
   alt="Earlier English Batch interface with Legacy LUT, Inferred LUT, Material Archive, a brand, and a selected LUT highlighted"
 />
 
-This screenshot shows an older interface. The current name for Legacy LUT is Classic LUT,
-and the Inferred LUT option is no longer shown.
+This screenshot shows an earlier interface: **Legacy LUT** is now named **Classic LUT**, and **Inferred LUT** has been removed.
 
-Choose Source Type, then a valid LUT, database, or Material Archive set. Batch Generate
-remains unavailable until the required source is ready.
+Select a **Source Type**, then pick a valid Classic LUT or Material Archive set. **Batch Generate** becomes active once a valid color source is configured.
 
-The complete Batch shares:
+Every image in the queue shares:
 
 - Classic LUT or Material Archives;
-- target Width;
-- Backing Thickness;
-- single- or double-sided Structure Mode;
-- High-Fidelity, Pixel Art, or Vector Modeling Mode;
-- colour-detail, advanced matching, and device settings that Batch supports.
+- Target **Width** and **Backing Thickness**;
+- Single- or double-sided **Structure Mode**;
+- **High-Fidelity**, **Pixel Art**, or **Vector** Modeling Mode;
+- Color-detail, matching, and printer settings supported in Batch mode.
 
-The same Width is applied to every source. Different aspect ratios produce different
-heights and footprints, so the models will not necessarily occupy equal bed space.
+Each image is scaled to the same target **Width**, while its height follows its own aspect ratio and alpha bounds—so models in the same batch can have different footprints on the build plate.
 
-:::info[Test one representative image first]
-If this source and setting set has never been used, run one representative image through
-2D Preview, 3D Preview, Generate, and real slicing before building the Batch. This is
-faster than discovering a shared-setting mistake after every file has completed.
+:::info[Test One Image First]
+When using a new material set or parameter combination, run one representative image through 2D Preview, 3D Preview, Generate, and slicer inspection first. Catching a parameter issue on a single file is much faster than re-running an entire batch.
 :::
 
-For mode choice, see
-[High-Fidelity, Pixel Art, or Vector?](pathname:///en/docs/knowledge/image-mode-selection/).
-For advanced combinations, see
-[Which Features Can Be Used Together?](pathname:///en/docs/knowledge/feature-compatibility/).
+For guidance on modeling modes and feature combinations, see [High-Fidelity, Pixel Art, or Vector?](pathname:///en/docs/knowledge/image-mode-selection/) and [Which Features Can Be Used Together?](pathname:///en/docs/knowledge/feature-compatibility/).
 
-## Step 4: click Batch Generate once
+## Step 4: Run Batch Generate
 
-When the colour source is valid, **Batch Generate** becomes available. Click it once.
+Once your color source and parameters are set, click **Batch Generate**.
 
 <img
   src={require('./assets/03-batch-generating.webp').default}
   alt="Current English Batch interface while Batch Generate is disabled and showing an active task"
 />
 
-A disabled button and spinner mean that processing is still running. More files,
-larger images, more complex boundaries, greater Width, more colour detail, and higher
-Preview precision usually require more time.
+While the batch runs, the button shows a spinner. Processing time scales with file count, image resolution, outline complexity, target Width, and detail settings. Leave the tab open without refreshing or uploading new files until processing finishes.
 
-Do not click repeatedly, upload another file, or refresh the page. Lumina processes
-files in the list and merges successful results. One failure does not necessarily fail
-the entire Batch.
+Lumina processes the queue sequentially and merges all completed models into one 3MF. If an individual file fails, the remaining images still finish and export normally.
 
-## Step 5: read the result and download promptly
+## Step 5: Check Results and Download the 3MF
 
 <img
   src={require('./assets/04-batch-result.webp').default}
   alt="Current English Batch result showing Success 2, Total 2, Download batch 3MF, and two generated models on the bed"
 />
 
-Read four result areas:
+When processing finishes, check four items in the result summary:
 
-1. **Success:** files that actually generated;
-2. **Total:** files that participated in this Batch;
-3. **failed files:** shown by filename when failures exist;
-4. **Download batch 3MF:** available when at least one model succeeded and containing
-   only successful models.
+1. **Success**: Number of models generated successfully;
+2. **Total**: Total files processed in the batch;
+3. **Failed files**: Listed by filename whenever any item fails;
+4. **Download batch 3MF**: Available whenever at least one file succeeds, containing all successful models.
 
-The example’s **Success 2 / Total 2** means both images generated. Download the merged
-3MF soon after completion. Refreshing, changing the list, uploading another source, or
-letting temporary files expire can invalidate the download URL.
+In the example above, **Success 2 / Total 2** confirms that both images completed. Download and save the merged 3MF promptly—refreshing the page, editing the file list, or letting temporary session files expire will clear the download link.
 
-### Why can the bed Preview show fewer models than Success?
+### Why does the bed Preview show fewer models than Success?
 
-When many models succeed or the selected printer bed cannot display them all reliably,
-the page may Preview only a subset and explain that the Batch 3MF still contains all
-successful models. Judge the file from Success and the slicer object list, not only the
-number visible in Lumina’s bed Preview.
+When a batch produces many models or exceeds what the selected printer bed can display cleanly at once, the 3D viewport previews a subset and notes that the 3MF still includes every successful model. Open the downloaded 3MF in your slicer to view the full object list.
 
 ### What does “some models may be outside the bed” mean?
 
-Lumina still provides the merged 3MF, but automatic layout may place geometry beyond
-the selected bed. Re-arrange, rotate, scale, or split plates in the slicer. Never print
-an out-of-bounds layout directly.
+The merged 3MF includes all successful models, but automatic placement extended past your selected build plate boundaries. Rearrange, rotate, or split the models across multiple plates in your slicer before printing.
 
-## Step 6: complete the slicer check
+## Step 6: Arrange and Verify in Your Slicer
 
-Batch success means that models were generated and merged. It does not mean that the
-plate is ready to print. In Bambu Studio, OrcaSlicer, or the configured slicer, verify:
+Open the merged 3MF in Bambu Studio, OrcaSlicer, or your configured slicer and check the following before printing:
 
-- the object count equals Success;
-- every model is inside the bed and models do not overlap;
-- physical dimensions make sense for each source aspect ratio;
-- project filaments map to the intended real spools and machine slots;
-- printer, nozzle, and process settings are correct;
-- display surface, backing direction, and single/double-sided structure are correct;
-- sliced layers, material changes, and estimated usage are reasonable.
+- Total objects match the **Success** count;
+- All models sit inside the build plate boundaries without overlapping;
+- Millimeter dimensions match expectations for each image's aspect ratio;
+- Project filaments map to the right physical spools and AMS/slot positions;
+- Printer profile, nozzle diameter, display face orientation, and single/double-sided settings match your setup;
+- Layer Preview shows clean color transitions, filament swaps, and expected material usage.
 
-When Lumina Preview, slicer Preview, and the physical print disagree, follow
-[Why Do Lumina Preview, Slicer Preview, and the Physical Print Differ?](pathname:///en/docs/knowledge/preview-slicer-print-differences/).
+If your slicer preview differs from Lumina's viewport, see [Why Do Lumina Preview, Slicer Preview, and the Physical Print Differ?](pathname:///en/docs/knowledge/preview-slicer-print-differences/).
 
-## Retry failed files without losing successful work
+## Retrying Failed Files
 
-If the result says **Success 3 / Total 5**, use this order:
+If a batch finishes with **Success 3 / Total 5**, handle the remaining files in this order:
 
-1. download the merged 3MF containing the three successful models;
-2. record the two failed filenames;
-3. upload one failed file alone with the same source and primary settings;
-4. check for corruption, an abnormal canvas, complex SVG geometry, or excessive size
-   and precision;
-5. fix it, then generate alone or create a small Batch containing only corrected files.
+1. Click **Download batch 3MF** first to save the three completed models;
+2. Note the two filenames listed under failed files;
+3. Upload one failed file in single-image mode with the same color source and settings;
+4. Check for file corruption, oversized empty canvas margins, overly dense SVG nodes, or extreme width and precision settings;
+5. Fix the source image, then generate it individually or run a small batch containing only the repaired files.
 
-Do not overwrite a downloaded successful result merely to retry failures. A single-file
-test makes it easier to separate a source problem from unsuitable shared settings.
+If the file also fails in single-image mode, see [The Page Will Not Open, Keeps Spinning, or Generation Fails](pathname:///en/docs/knowledge/web-generation-troubleshooting/). For SVG artwork, see [SVG Troubleshooting](pathname:///en/docs/knowledge/svg-troubleshooting/).
 
-For a file that also fails alone, see
-[The Page Will Not Open, Keeps Spinning, or Generation Fails](pathname:///en/docs/knowledge/web-generation-troubleshooting/).
-For SVG-specific problems, see
-[SVG Troubleshooting](pathname:///en/docs/knowledge/svg-troubleshooting/).
+## Common Questions
 
-## Common questions
+### Why does Batch mode use one Batch Generate button instead of separate Preview and Generate steps?
 
-### Why does Batch mode have Batch Generate instead of separate Preview and Generate?
+Batch mode is designed for pre-verified settings, processing the entire queue in one run and presenting a combined bed preview and 3MF download. Switch to single-image mode whenever you want to inspect color layers, adjust colors in Color Workstation, or fine-tune structure per image.
 
-It processes the group directly, then shows a bed Preview and merged download for
-successful models. Use the single-image workflow when colour detail, manual replacement,
-or structure must be examined before generation.
+### Can each image in a batch use a different Width or Thickness?
 
-### Can each image use a different Width or Thickness?
+No—every file in a batch shares one Width, Backing Thickness, and parameter set. Group images by size into separate batches or generate custom-sized pieces individually.
 
-Not inside one Batch. Split the images into several Batches or Generate individually.
+### Does one failed file block the rest of the download?
 
-### Does one failed image prevent successful downloads?
+No. As long as at least one image succeeds, **Download batch 3MF** exports all successful models and lists any failed filenames separately.
 
-No. When at least one file succeeds, Lumina provides a merged 3MF containing successful
-models and lists failed filenames separately. No valid download is available if every
-file fails.
+### Does my previous download stay active if I add another image?
 
-### Is the old result valid after adding another file?
+Changing the file list resets the batch state for the new queue. Download your existing 3MF before adding or removing files, then run **Batch Generate** again.
 
-No. The file list has changed. Download important old results first, then Generate the
-new list again.
+### Why do models in the same batch have different heights or footprints?
 
-### Why do models with identical settings have different footprints or heights?
+Target **Width** sets the horizontal dimension, while vertical size and footprint follow each image's aspect ratio, transparent bounds, and attachments. Check exact millimeter dimensions in your slicer.
 
-Shared Width does not force identical aspect ratio, alpha boundary, geometry, or
-structure. Measure the real millimetre size and object bounds in the slicer.
+### Should I put all my images into one huge batch?
 
-### Does a larger Batch always save more time?
+Batch mode saves repeated setup clicks and slicer imports, while each image still requires full geometry calculation. Testing 2–3 files first helps confirm your shared settings before running larger queues.
 
-Batch reduces repeated setup, clicks, and slicer imports; it does not remove per-image
-computation. Test 2–3 files before scaling to a large group.
+### Can I print the merged 3MF right after downloading?
 
-### Can I print immediately after downloading?
-
-No. Check bed bounds, spacing, material mapping, nozzle, and Layer Preview first.
-
-## Image notes and content licence
-
-The screenshots are real captures of the current English Lumina Studio interface.
-`sample_logo.png` and `simple_shapes.png` are simple original project test assets. The
-visible brand, LUT, and slicer names explain the interface and are not recommendations.
-The captures contain no personal files, accounts, address bar, or local path.
-
-Unless otherwise noted, the original text, test graphics, and focus annotations are
-available under the Wiki’s
-[CC BY-NC-SA 4.0 content licence](pathname:///en/docs/project/content-license/).
-Third-party slicer, printer, and material brands belong to their respective owners.
-
-Batch compatibility, Preview limits, and control names can change. Treat the current
-interface, result message, downloaded file, and real slicer check as the final authority.
+Always open the 3MF in your slicer first to arrange models within bed bounds, verify filament slot mappings and nozzle size, and inspect the sliced Layer Preview.

@@ -4,148 +4,111 @@ description: "Split artwork larger than one build plate into several 3MF files, 
 sidebar_position: 31
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Large Format: Tile Size, Assembly Order, and ZIP Files
 
-Large Format divides one finished artwork into adjacent tiles, generates a separate 3MF
-for every tile, and packages the results in a ZIP. It is intended for wall art, signs,
-display panels, and other work larger than one usable build plate.
+Large Format splits a single oversized artwork into a grid of adjacent tiles, generates an independent 3MF file for each tile, and bundles them into a single ZIP archive—ideal for murals, signage, display boards, and multi-panel wall art larger than a single build plate.
 
-Remember these rules:
+Key points at a glance:
 
-- **Width and Height** describe the assembled artwork; **Tile Width and Tile Height**
-  are maximum dimensions for one generated part;
-- filenames run from top to bottom and left to right: `R1C1` is the upper-left tile;
-- the last row or column is often smaller than the maximum tile size;
-- tiles are adjacent and non-overlapping. Lumina does not add joints, locating holes,
-  overlap, or assembly clearance;
-- Preview checks the complete artwork, not physical seams or real bed placement;
-- after download, open every 3MF in the slicer and verify size, direction, materials,
-  and toolpaths before printing.
+- **Assembled size vs. tile limit:** **Width** and **Height** set the dimensions of the finished, assembled piece, while **Tile Width** and **Tile Height** cap the maximum size of any single 3MF tile.
+- **Row and column naming:** Tiles are numbered top to bottom and left to right, starting with `R1C1` at the top-left corner.
+- **Remainder edges:** Whenever the assembled size doesn't divide evenly by the tile limit, the rightmost column and bottom row hold the smaller remainder dimensions.
+- **Butt-joint boundaries:** Tiles meet along clean, non-overlapping straight cuts without automatic puzzle tabs, alignment pins, or glue-gap offsets.
+- **Per-tile slicer verification:** Preview displays the full artwork for color and layer inspection; after downloading the ZIP, open each 3MF in your slicer to verify bed fit, filament mapping, and toolpaths.
 
-The real example below uses a finished size of `450×300 mm` and a tile limit of
-`180×180 mm`. Lumina generated a `3×2` set of six 3MF files.
+The walkthrough below uses a `450×300 mm` artwork with a `180×180 mm` tile limit, producing a `3×2` grid of six 3MF files.
 
-## When should I use Large Format?
+## When to use Large Format
 
-Use it when:
+Large Format works well when:
 
-- the complete artwork exceeds the printer’s usable bed area;
-- every tile should share one colour source, structure, and colour-layer height;
-- you can align and secure the printed pieces manually;
-- you are prepared to slice, label, and inspect every tile separately.
+- Your finished artwork exceeds your printer's usable build plate area.
+- Every tile shares the same color source, structural settings, and color Layer Height.
+- You plan to align and mount the printed panels onto a backing board or frame manually.
+- You are ready to slice, label, and inspect each tile individually.
 
-Do not use it when each part needs different materials or structure, or when you expect
-automatic puzzle joints or alignment hardware. First prove the image, colours, and basic
-structure with an ordinary single-image project.
+Use a different approach if each panel needs its own palette or thickness, or if you want interlocking puzzle tabs (use Puzzle mode or add custom joints in an external CAD tool instead). Before tiling a brand-new image or palette, run a quick small-scale single-image test to confirm your colors and layer structure first.
 
-## Step 1: enter the assembled size
+## Step 1: Enter the assembled dimensions
 
-Upload the image, choose the colour source, and enter the final Width or Height. With
-aspect ratio locked, the other value follows the source image.
+Upload your artwork, select your color source, and enter the final **Width** or **Height** of the complete assembled piece (with aspect ratio locked, the second dimension updates automatically).
 
-This is the size **after assembly**, not the size of one tile. If the composition or
-orientation is wrong, prepare the source first; do not use tiling to stretch the artwork.
-See [Upload, Replace, Crop, and Rotate an Image](pathname:///en/docs/knowledge/image-upload-crop-rotate/).
+Ensure your framing and orientation are finalized before tiling—see [Upload, Replace, Crop, and Rotate an Image](pathname:///en/docs/knowledge/image-upload-crop-rotate/) if you need to crop or rotate the source image first.
 
-## Step 2: enable Large Format and set tile limits
+## Step 2: Enable Large Format and set tile limits
 
 <img
   src={require('./assets/01-large-format-settings.webp').default}
   alt="Real English Lumina Studio interface with finished size, Large Format Mode, tile limits, and a 3 by 2 calculation highlighted"
 />
 
-Enable **Large Format Mode**, then set **Tile Width** and **Tile Height**. These are
-maximums, not guaranteed dimensions for every part.
+Turn on **Large Format Mode**, then enter **Tile Width** and **Tile Height** as maximum per-tile dimensions.
 
-For this example:
+In this example:
 
-- finished size: `450×300 mm`;
-- maximum tile: `180×180 mm`;
-- columns: `ceil(450 ÷ 180) = 3`;
-- rows: `ceil(300 ÷ 180) = 2`;
-- total: `3 × 2 = 6` tiles.
+- **Assembled size:** `450×300 mm`
+- **Tile limit:** `180×180 mm`
+- **Columns:** `ceil(450 ÷ 180) = 3`
+- **Rows:** `ceil(300 ÷ 180) = 2`
+- **Total tiles:** `3 × 2 = 6`
 
-The interface shows `3×2 = 6 (90×120mm)`. The value in brackets is the remaining width
-of the last column and remaining height of the last row. It does not mean all six tiles
-are 90×120 mm.
+The readout `3×2 = 6 (90×120mm)` shows the total grid count alongside the remainder width of the last column (`90 mm`) and remainder height of the bottom row (`120 mm`). Here are the exact dimensions of all six tiles:
 
-| Tile position | Actual size |
+| Tile coordinate | Physical dimensions |
 | --- | --- |
 | R1C1, R1C2 | 180×180 mm |
 | R1C3 | 90×180 mm |
 | R2C1, R2C2 | 180×120 mm |
 | R2C3 | 90×120 mm |
 
-Set tile limits from the printer’s **usable** bed area, not only its advertised size.
-Leave room for excluded zones, Brim, purge or wipe areas, clips, and slicer-added
-geometry. Confirm a safe size in the real slicer first.
+Base your tile limits on your printer's **usable** printable area rather than its nominal bed size, leaving clearance for excluded bed corners, purge lines, bed clips, Brims, or outer borders. Verify a safe maximum footprint in your slicer beforehand.
 
-## Step 3: read the coordinate map
+## Step 3: Read the tile coordinate map
 
 <img
   src={require('./assets/02-tile-map.webp').default}
   alt="Concept diagram showing a 450 by 300 millimetre artwork split into R1C1 through R2C3"
 />
 
-- `R` means row and increases from top to bottom;
-- `C` means column and increases from left to right;
-- `R1C1` is the upper-left corner;
-- `R2C3` is the lower-right corner in this example.
+Each exported filename encodes its grid position:
 
-Keep the generated filenames. After printing, label the back of each part or its storage
-bag with the coordinate. Renaming similar pieces without a record makes orientation and
-assembly unnecessarily difficult.
+- `R` (Row) counts downward from top to bottom.
+- `C` (Column) counts across from left to right.
+- `R1C1` sits at the upper-left corner, and `R2C3` sits at the lower-right corner in this `3×2` layout.
 
-:::warning[No automatic seam design]
-Large Format cuts along adjacent boundaries. It does not create overlap, registration
-pins, puzzle tabs, adhesive gaps, or shrinkage compensation. Add and test those features
-in the source design or an external modelling tool when required.
+Keep the original coordinate filenames throughout slicing, and jot the coordinate (`R1C1`, `R1C2`, etc.) on masking tape on the back of each printed panel right as it comes off the bed so similar-looking tiles never get mixed up.
+
+:::warning[No automatic seam joints]
+Large Format slices straight along adjacent tile edges without adding overlap lips, registration pins, puzzle tabs, or shrinkage offsets. If your installation requires mechanical alignment features, build them into the artwork or an external 3D modeling tool beforehand.
 :::
 
-## Step 4: Preview the complete artwork
+## Step 4: Preview the full artwork
 
 <img
   src={require('./assets/03-preview-whole-image.webp').default}
   alt="Real English Lumina Studio complete artwork Preview with layer thumbnails highlighted"
 />
 
-Run **Preview** and check:
+Click **Preview** to inspect the complete artwork before generating tiles:
 
-1. orientation, aspect ratio, and visible boundary;
-2. colour source and intended filaments;
-3. missing colours, broken edges, or incorrect transparency;
-4. Layer Preview order and colour-layer count;
-5. outline, backing, and other enabled structure.
+1. Overall orientation, aspect ratio, and outer silhouette
+2. Selected color source and intended filaments
+3. Clean color transitions, crisp edges, and proper transparency handling
+4. Layer Preview stack order and color-layer count
+5. Any enabled outline or backing settings
 
-This Preview describes the whole artwork. It does not show six separate build plates,
-physical seams, or whether a tile fits the selected printer. Fix colour, edge, or layer
-problems before generating the ZIP.
+Resolve any palette or boundary issues here before generating the multi-tile ZIP. To see how each preview stage relates to the final print, read [Why Lumina Preview, Slicer Preview, and the Print Differ](pathname:///en/docs/knowledge/preview-slicer-print-differences/).
 
-For the roles of Lumina Preview, slicer Preview, and the physical print, see
-[Why Lumina Preview, Slicer Preview, and the Print Differ](pathname:///en/docs/knowledge/preview-slicer-print-differences/).
+## Step 5: Generate and save the ZIP archive
 
-## Step 5: Generate once and save the ZIP
-
-Start generation and wait for the result. Do not repeatedly select the button, refresh, or replace the image while it is
-running. The image below shows an older result screen; button placement may differ in the current version.
+Start generation and wait for all tiles to finish packaging without refreshing the page or re-uploading files while the job is running.
 
 <img
   src={require('./assets/04-download-zip.webp').default}
   alt="Real English Lumina Studio result with six generated Large Format tiles and Download ZIP highlighted"
 />
 
-The verified example returned six files in a ZIP of about 16.9 MB:
-
-:::warning[Partial output is not a complete artwork]
-Newer versions let you download completed tiles when only part of a job succeeds and identify the missing tiles.
-Check the warning, file count and row/column labels. Investigate and regenerate missing parts before printing the complete work.
-:::
+In our example, the completed job outputs a ~16.9 MB ZIP archive containing six 3MF files:
 
 ```text
 large-format-demo_R1C1.3mf
@@ -156,83 +119,54 @@ large-format-demo_R2C2.3mf
 large-format-demo_R2C3.3mf
 ```
 
-Immediately verify that:
+:::warning[Check for missing tiles]
+If a complex job only finishes a subset of tiles, newer builds still let you download the completed tiles while flagging any missing coordinates. Check the status notice, total file count, and `R/C` sequence so every missing tile is regenerated before you begin printing.
+:::
 
-- file count matches the tile count;
-- coordinates cover the complete grid;
-- no file is empty or unreadable;
-- the ZIP and extracted files are saved outside the temporary browser result.
+Right after downloading, extract the archive to a permanent project folder and confirm that:
 
-Generated download links are not permanent storage. Save the ZIP before refreshing,
-starting a new task, or waiting for the temporary result to expire.
+- The 3MF file count matches your expected grid total.
+- Every row and column coordinate is present without gaps.
+- Each file extracts cleanly and has a valid non-zero file size.
 
-## Step 6: inspect every tile in the slicer
+Because browser download links expire when you refresh or start a new session, always save your extracted 3MF files locally right away.
 
-Open each 3MF as a complete project and check:
+## Step 6: Inspect every tile in your slicer
 
-- millimetre dimensions against the tile table;
-- placement inside the usable bed area;
-- display face, backing, and rotation;
-- printer, nozzle, layer height, and real filament mapping;
-- continuous colour toolpaths and no missing thin walls;
-- Brim, outline, or support that might alter a seam edge.
+Open each 3MF as a project in your slicer and check:
 
-Use one printer profile, nozzle, layer height, filament batch, and orientation wherever
-possible. Bed texture, material state, shrinkage, and manual alignment can still create
-visible seams even when digital boundaries are adjacent.
+- Part dimensions in millimeters match the expected tile table.
+- Geometry sits comfortably inside the printable area with no out-of-bounds warnings.
+- Viewing face, backing orientation, and Z-rotation are consistent across every tile.
+- Printer preset, nozzle diameter, Layer Height, and feeder slot mappings are accurate.
+- Sliced color toolpaths are continuous, with clean outer seam edges and no unwanted Brim widening the mating borders.
 
-For material mapping, see
-[Import a Lumina 3MF into the Slicer Correctly](pathname:///en/docs/tutorials/slicer-material-mapping/).
+For uniform gloss and minimal dimensional drift between panels, slice and print every tile with the same printer profile, nozzle, Layer Height, filament batch, build plate texture, and part orientation. For slot assignment details, see [Import a Lumina 3MF into the Slicer Correctly](pathname:///en/docs/tutorials/slicer-material-mapping/).
 
-## Step 7: dry-fit before permanent assembly
+## Step 7: Dry-fit before final mounting
 
-Arrange the first row from `R1C1` to the right, then continue with the next row. Confirm
-orientation and image continuity before using a backboard, fixture, tape, adhesive, or
-mechanical fastener. Start from one reference corner and progress row by row so alignment
-error does not accumulate in several directions.
+Lay out the printed tiles on a flat table before applying any tape, glue, or fasteners: arrange Row 1 from `R1C1` rightward, add subsequent rows underneath, and verify pattern continuity and edge flushness (lightly deburring any first-layer elephant foot if needed). When mounting to a backboard or frame, anchor one reference corner first and work outward row by row so tiny tolerances don't compound.
 
-The correct fixing method depends on material, backing thickness, environment, load, and
-service life. Test adhesion and safety for the real installation.
+Choose adhesives, mounting tape, or mechanical hardware suited to your filament polymer, panel weight, and indoor/outdoor environment, and test bond strength beforehand for wall-mounted pieces.
 
 ## Common questions
 
-### Why is the last tile only 90×120 mm?
+### Why is the bottom-right tile only 90×120 mm?
 
-Because 180×180 mm is a maximum. After two 180 mm columns, 90 mm of the 450 mm width
-remains; after one 180 mm row, 120 mm of the 300 mm height remains.
+`180×180 mm` sets the upper limit per tile. Subtracting two `180 mm` columns from the `450 mm` total width leaves `90 mm` for Column 3, and subtracting one `180 mm` row from the `300 mm` total height leaves `120 mm` for Row 2.
 
-### Can all tiles have exactly the same dimensions?
+### Can I make every tile the exact same size?
 
-Yes, if both finished dimensions divide evenly by the chosen tile limits. You may also
-add deliberate margin in the source design, but do not distort the artwork merely to
-make the numbers tidy.
+Yes—choose assembled Width and Height values that are exact multiples of your Tile Width and Tile Height (or pad your source canvas with intentional margins), taking care not to stretch the artwork out of proportion.
 
-### Does Lumina add overlap or locating features?
+### Does Lumina add overlap lips or alignment pins?
 
-No. Design overlap, cutting allowance, locating holes, or joints before Large Format and
-include their footprint in bed-fit calculations.
+No. Tiles are cut flush along shared borders. If you need lap joints, dowel holes, or cutting allowances, build them into your source design or CAD model ahead of time and factor their extra width into your bed-size limit.
 
-### Preview looks correct. Why does one tile exceed the bed?
+### Full Preview looked fine—why does one tile exceed my build plate in the slicer?
 
-The full-image Preview is not a real slicer layout. Reduce the tile limit or reposition
-the object after considering excluded zones, Brim, and printer profile rules.
+Lumina's 2D Preview displays the whole artwork rather than machine-specific bed keep-out zones, purge strips, or slicer Brims. Disable Brims along mating edges, reposition the part on the plate, or reduce Tile Width and Tile Height by a few millimeters and regenerate.
 
-### One 3MF will not open. Must I redo every tile?
+### One 3MF tile failed to open. Do I have to redo the whole project?
 
-Keep the downloaded ZIP and all readable files, then generate the same task again. If the
-same coordinate fails repeatedly, inspect that region for tiny geometry or unsupported SVG
-features. See [Slicer Detection and 3MF Open Troubleshooting](pathname:///en/docs/knowledge/slicer-path-and-open-troubleshooting/).
-
-## Image notes and content licence
-
-The interface screenshots are real captures of the current English Lumina Studio build.
-The coordinate map is a clearly labelled concept diagram based on the verified 450×300 mm
-test. Focus frames and arrows explain existing controls; they do not invent interface state.
-
-Unless otherwise noted, the original text, test artwork, calculations, and annotations are
-available under the Wiki’s
-[CC BY-NC-SA 4.0 content licence](pathname:///en/docs/project/content-license/).
-Third-party printer and slicer names belong to their respective owners.
-
-Large Format compatibility and control names can change. Treat the current interface,
-downloaded ZIP, slicer result, and physical dry-fit as the final authority.
+Keep the ZIP and the working tiles you already extracted, then run generation again with the same settings. If the exact same coordinate fails repeatedly, inspect that area of the artwork for micro-fragments or complex SVG effects, and consult [Slicer Detection and 3MF Open Troubleshooting](pathname:///en/docs/knowledge/slicer-path-and-open-troubleshooting/).

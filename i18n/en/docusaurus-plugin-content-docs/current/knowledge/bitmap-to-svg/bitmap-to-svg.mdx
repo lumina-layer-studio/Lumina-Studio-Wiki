@@ -4,183 +4,134 @@ description: "Trace PNG, JPG, WebP, or BMP artwork into SVG in Lumina Studio, co
 sidebar_position: 33
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Convert a Bitmap to SVG, Then Continue in Image Converter
 
-Lumina’s Vectorizer traces a bitmap—such as PNG or JPG—into SVG paths. This can make a
-logo, icon, line drawing, or flat-colour illustration easier to scale and process with the
-native Vector workflow.
+Lumina's **Vectorizer** traces bitmap images—PNG, JPG, WebP, or BMP—into clean SVG paths so logos, icons, line art, and flat-color illustrations can scale smoothly and use the native Vector workflow.
 
-It does **not** restore detail missing from the source. A photograph or soft gradient may
-be divided into a limited set of flat regions, and a noisy image can create many complex
-paths. Always compare the result with the original before using it.
+Because automatic tracing fits new curves to existing pixels, it works best on artwork with clear edges rather than photographs or soft gradients, and it cannot recover detail that is missing or blurred in the original image.
 
-## Start by asking whether tracing is appropriate
+## Check Whether Tracing Fits Your Artwork
 
-Usually suitable:
+**Good candidates for tracing:**
 
-- logos, icons, signs, and symbols;
-- line art with clear boundaries;
-- limited-palette illustrations;
-- text already converted to visible shapes;
-- flat, closed colour regions.
+- Logos, icons, signs, and symbols;
+- Line art with crisp boundaries;
+- Flat-color illustrations with a limited palette;
+- Outlined lettering and clear geometric shapes.
 
-Usually unsuitable without cleanup:
+**Better kept as a bitmap (or cleaned up before tracing):**
 
-- ordinary photographs;
-- soft shadows and subtle gradients;
-- very small or heavily compressed images;
-- transparent edges with grey or white contamination;
-- artwork containing many isolated specks.
+- Photographs and natural textures;
+- Soft drop shadows and continuous gradients;
+- Tiny or heavily compressed JPG files;
+- Transparent edges with gray or white halos;
+- Pixel art or noisy scans full of isolated specks.
 
-If the source is already a valid SVG, upload it directly to Image Converter. Do not trace
-it again. For basic concepts, see
-[Bitmap vs Vector Images](pathname:///en/docs/knowledge/bitmap-vs-vector/).
+If your file is already a native SVG, upload it directly to **Image Converter** instead of tracing it again. For background on both formats, see [Bitmap vs Vector Images](pathname:///en/docs/knowledge/bitmap-vs-vector/).
 
-## Step 1: upload the original bitmap
+## Step 1: Upload the Bitmap and Run Defaults
 
-Open **Vectorizer** and upload a PNG, JPG, WebP, or BMP. Keep the original file separately.
+Open **Vectorizer** and upload a PNG, JPG, WebP, or BMP file while keeping a backup of the original image.
 
 <img
   src={require('./assets/01-upload-and-defaults.webp').default}
   alt="Real English Lumina Vectorizer interface with a bitmap uploaded and default vectorisation settings highlighted"
 />
 
-For the first attempt:
+Start with a baseline pass:
 
-1. leave **Colour Count** on **Auto**;
-2. keep Smoothness and Detail Level at their defaults;
-3. select **Start Vectorization** once;
-4. wait for the result instead of changing several controls while it runs.
+1. Leave **Color Count** set to **Auto**;
+2. Keep **Smoothness** and **Detail Level** at their default values;
+3. Click **Start Vectorization** and wait for the preview to finish.
 
-The first result gives you a baseline. Changing several parameters at once makes it hard
-to know which adjustment helped or damaged the paths.
+Running defaults first gives you a clear reference point before adjusting individual sliders.
 
-## Step 2: compare the source and SVG result
+## Step 2: Compare the Original and SVG Previews
 
 <img
   src={require('./assets/02-compare-result.webp').default}
   alt="Real English Lumina Vectorizer source and SVG result comparison with text, thin lines, corners, and colour regions called out"
 />
 
-Compare these areas:
+Inspect these key areas side by side:
 
-- **text and small symbols**: are counters and enclosed spaces still open?
-- **thin lines**: did they disappear, merge, or become uneven?
-- **sharp corners**: are they rounded or clipped?
-- **closed colour regions**: are there holes, leaks, or unexpected islands?
-- **transparent boundary**: did an unwanted background become a solid shape?
-- **gradients**: how many bands were created, and are those bands acceptable?
+- **Text and small symbols**: Check that letter counters and enclosed loops stay open.
+- **Thin lines**: Confirm that narrow strokes stay continuous and even.
+- **Sharp corners**: Make sure crisp points have not been overly rounded or clipped.
+- **Closed color regions**: Look for pinholes, color bleed, or stray islands.
+- **Transparent borders**: Check that empty background areas did not turn into a solid rectangle.
+- **Gradients**: Check whether banded color steps look clean at your intended print size.
 
-Zoom in and inspect the smallest feature that must survive at the final print size. A clean
-screen preview does not prove that the selected nozzle and line width can print it.
+Zoom in on the smallest feature that matters in your print, keeping in mind that features narrower than your nozzle's extrusion width at the final millimeter scale still cannot be printed physically.
 
 :::tip[Change one setting at a time]
-If the result is too rough, adjust Smoothness or Detail Level once and compare again. If it
-has too many small paths, first clean the bitmap and remove noise rather than simply asking
-for more colours.
+If edges look jagged, adjust **Smoothness** or **Detail Level** one step at a time and compare again. If the trace produces hundreds of tiny stray paths, clean up background noise in the bitmap or lower **Color Count** rather than increasing color steps.
 :::
 
-## Step 3: read the result before choosing an action
+## Step 3: Download the SVG or Send It to Image Converter
 
 <img
   src={require('./assets/03-result-actions.webp').default}
   alt="Real English Lumina Vectorization Result with shape count, Download SVG, and Send to Image Converter controls highlighted"
 />
 
-The result area reports information such as shape count. More shapes usually mean more
-path complexity, not automatically more useful detail.
+The result summary displays the generated shape count, color count, and palette swatches. Keep in mind that a higher shape count reflects greater path complexity rather than sharper detail.
 
-- **Download SVG** saves the traced file for archiving or external vector editing;
-- **Send to Image Converter** loads it directly into Lumina’s conversion workflow.
+Choose how to proceed:
 
-Keep the original bitmap beside the SVG. The traced file is a derived asset and should not
-replace the only source copy.
+- **Download SVG**: Saves the traced file locally so you can archive a copy or refine nodes, paths, and fills in an external vector editor.
+- **Send to Image Converter**: Loads the traced SVG directly into Lumina's converter and switches **Modeling Mode** to **Vector**.
 
-## Step 4: continue in Vector mode
+## Step 4: Finish Modeling in Vector Mode
 
 <img
   src={require('./assets/04-vector-mode.webp').default}
   alt="Real English Lumina Image Converter after the traced SVG is loaded and Vector mode is selected"
 />
 
-After **Send to Image Converter**, the SVG is already the current source and Vector mode
-is selected. Do not upload it a second time.
+Once **Send to Image Converter** loads your traced SVG in **Vector** mode, complete the conversion workflow:
 
-You still need to:
+1. Select **Source Type** and choose your Classic LUT or Material Archives;
+2. Set the finished millimeter dimensions, **Backing Thickness**, and structure mode;
+3. Click **Preview** to inspect matched color regions and layered recipes;
+4. Click **Generate** to export the 3MF, then open the full project in your slicer to verify layer toolpaths.
 
-1. choose Source Type and the real colour source;
-2. choose LUT or Material Archives;
-3. set finished millimetre size and structure;
-4. run Preview and inspect colour regions and layers;
-5. Generate the 3MF;
-6. open the complete project in the slicer and inspect actual toolpaths.
+## Troubleshooting Common Trace Issues
 
-Sending the SVG only completes the tracing hand-off; it does not complete a printable model.
-
-## If the trace looks wrong
-
-| Symptom | Check first |
+| Symptom | Recommended fix |
 | --- | --- |
-| A solid white rectangle appears | Remove the bitmap background or crop unused canvas before tracing |
-| Text holes fill in | Increase source size, simplify the font, or edit paths in a vector editor |
-| Thin lines disappear | Make the source lines thicker and verify final nozzle/line-width limits |
-| Too many tiny shapes | Remove compression noise and isolated specks; reduce unnecessary colours |
-| Gradient becomes visible bands | Expected for flat-path tracing; use High-Fidelity mode when continuous tone matters |
-| SVG opens but has holes or missing regions | Inspect closed paths, masks, fills, and compound paths |
-| Result is slower than expected | Reduce source complexity and avoid tracing photographic texture |
+| A solid white background appears | Remove the background or crop empty canvas margins before tracing |
+| Letter counters or small holes fill in | Start from a higher-resolution source, use bolder type, or clean up paths in a vector editor |
+| Thin lines vanish | Thicken strokes in the source artwork and check nozzle line-width limits at print size |
+| Hundreds of tiny stray shapes | Clean up JPG compression artifacts and specks, or reduce **Color Count** |
+| Smooth gradients split into visible bands | Expected for flat vector regions; switch to the original bitmap in **High-Fidelity** mode for smooth tonal transitions |
+| SVG loads with holes or missing fills | Check path closure, compound paths, masks, and fill rules |
+| Tracing takes a long time | Crop tightly and avoid tracing photographic textures or heavy noise |
 
-For SVG-specific diagnosis, see
-[SVG Upload, White Background, Holes, and Missing Detail](pathname:///en/docs/knowledge/svg-troubleshooting/).
+For deeper SVG diagnostics, see [SVG Upload, White Background, Holes, and Missing Detail](pathname:///en/docs/knowledge/svg-troubleshooting/).
 
-## Common questions
+## Common Questions
 
-### Does vectorisation increase image resolution?
+### Does vectorization increase the resolution of a blurry image?
 
-It replaces sampled pixels with fitted paths. Those paths can scale smoothly, but they do
-not recover facial detail, texture, or edges that were absent or blurred in the bitmap.
+Tracing replaces pixel grids with mathematical curves that scale smoothly without blocky edges, but it cannot reconstruct facial features, fine lettering, or textures that were already blurred in the source bitmap.
 
-### Should I always choose the highest Colour Count?
+### Should I set Color Count as high as possible?
 
-No. More colours can create more shapes and harder-to-print boundaries. Use the fewest
-colours that preserve the intended design.
+No. Extra colors often split anti-aliased edges and compression noise into fragile slivers. Use the lowest **Color Count** that captures the intended palette cleanly.
 
-### Why does a photo look posterised?
+### Why does a traced photo look posterized?
 
-The trace approximates continuous tone with a finite set of vector regions. For a photo,
-use High-Fidelity bitmap processing unless a deliberately posterised style is wanted.
+Vector tracing represents continuous tone using discrete flat-color shapes. Unless you want a stylized poster effect, keep photographs as bitmaps and use **High-Fidelity** mode.
 
-### Can I edit the SVG outside Lumina?
+### Can I edit the downloaded SVG in another app before converting?
 
-Yes. Download it, keep a backup, and use a vector editor. Prefer ordinary SVG paths and
-fills; external fonts, filters, masks, and embedded resources may not map cleanly to print
-geometry.
+Yes. Click **Download SVG**, edit paths and fills in Illustrator, Inkscape, or Affinity Designer, and upload the saved SVG to **Image Converter**. Stick to standard closed paths and solid fills—external fonts, blur filters, complex masks, and embedded rasters may not convert into 3D geometry.
 
-### Why is a clean SVG still missing a very small detail in the slicer?
+### Why does a clean detail in the SVG disappear after slicing?
 
-The vector path may exist but be narrower than the selected nozzle or toolpath width at the
-finished size. Check the real slicer layer Preview.
+A vector shape can be mathematically sharp yet narrower than your nozzle's minimum line width at the target print dimensions. Always check fine details in your slicer's Layer Preview.
 
-### Should I trace pixel art?
+### Should I trace pixel art into SVG?
 
-Usually not. Pixel Art mode preserves the grid directly. Tracing may smooth or merge the
-cells that define the design. See
-[Choose High-Fidelity, Pixel Art, or Vector Mode](pathname:///en/docs/knowledge/image-mode-selection/).
-
-## Image notes and content licence
-
-The screenshots show a real trace and hand-off in the current English Lumina Studio
-interface. The simple test artwork is an original tutorial asset. The focus annotations
-explain real controls and result state.
-
-Unless otherwise noted, the original text, test artwork, and annotations are available
-under the Wiki’s
-[CC BY-NC-SA 4.0 content licence](pathname:///en/docs/project/content-license/).
-
-Vectorizer output depends on source quality and settings. Treat the downloaded SVG,
-Lumina Preview, slicer toolpaths, and a small physical test as the final verification chain.
+Keep pixel art as a bitmap and select **Pixel Art** mode instead—it preserves crisp grid cells directly without rounding or merging corners. See [Choose High-Fidelity, Pixel Art, or Vector Mode](pathname:///en/docs/knowledge/image-mode-selection/).

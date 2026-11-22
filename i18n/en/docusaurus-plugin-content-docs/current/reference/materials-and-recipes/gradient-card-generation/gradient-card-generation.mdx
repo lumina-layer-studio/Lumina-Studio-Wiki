@@ -4,42 +4,40 @@ description: "Generate printable gradient cards and the extraction configuration
 sidebar_position: 5
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Gradient Card Generation
 
-Gradient cards measure how one material transmits and absorbs colour at different stack thicknesses and over different
-substrates. This page creates both the printable model and the Kit ZIP required by extraction.
+Gradient cards measure how a single filament transmits and absorbs color across varying stack thicknesses over white and black substrates. This page generates both the printable 3MF files and the Kit ZIP configuration package required for extraction.
 
 <img
   src={require('./assets/01-gradient-card-generation.webp').default}
   alt="Gradient Card Generation page"
 />
 
-Available layer heights are `0.04 mm`, `0.08 mm`, and `0.10 mm`. The selected value is written into the print jobs,
-extraction configuration, and resulting material archive. Do not change it after printing; extraction follows the Kit
-ZIP.
+## Layer height
 
-Generate Configuration Package creates the printable 3MF, card layout and layer-order configuration, extraction
-parameters, and instructions. Download the ZIP promptly.
+Available calibration layer heights are `0.04 mm`, `0.08 mm`, and `0.10 mm`. The selected layer height is recorded in the print files, the extraction configuration, and the final material archive. Because extraction reads the layer height directly from the Kit ZIP, select the exact layer height you plan to slice and print with before generating the package.
 
-Even when you obtain the identical 3MF from MakerWorld, extraction still requires the configuration package generated
-here.
+## Generate Configuration Package
 
-Print two cards for every material under test:
+Clicking **Generate Configuration Package** builds a Kit ZIP containing:
 
-1. one over a white substrate;
-2. one over a black substrate.
+- Printable 3MF files
+- Card patch layout and layer-sequence metadata
+- Reference parameters for mapping patches during extraction
+- Printing and photography instructions
 
-Use the same test material, layer height, print profile, and orientation for both. The linked online model has the same
-geometry as the local model; the page also links to a parametric storage box.
+Download and keep the generated ZIP file. Even if you print the identical gradient card model downloaded from MakerWorld, you still need this Kit ZIP when running extraction.
+
+## Printing requirements
+
+Print two gradient cards for each filament you want to calibrate:
+
+1. One card over a white substrate
+2. One card over a black substrate
+
+Print both cards with the same test spool, layer height, slicer profile, and build-plate orientation. The linked MakerWorld card shares the exact geometry of the locally generated model, alongside a customizable storage box:
 
 - [Lumina 2.0 trapezoid calibration card (0.08 mm layers)](https://makerworld.com.cn/zh/models/2394753-lumina2-0-ti-xing-xiao-se-se-qia-0-08ceng-gao-15ce#profileId-2721317)
 - [Parametric Lumina 2.0 gradient-card storage box](https://makerworld.com.cn/zh/models/2400920-can-shu-hua-lumina-2-0ti-du-se-qia-zi-ding-yi-shou#profileId-2729620)
 
-Continue with [Gradient Card Extraction](../gradient-card-extraction/gradient-card-extraction.mdx). Saved results appear
-in the [Material Library](../material-library/material-library.mdx).
+After printing and photographing both cards, proceed to [Gradient Card Extraction](../gradient-card-extraction/gradient-card-extraction.mdx). Saved archives appear in the [Material Library](../material-library/material-library.mdx).

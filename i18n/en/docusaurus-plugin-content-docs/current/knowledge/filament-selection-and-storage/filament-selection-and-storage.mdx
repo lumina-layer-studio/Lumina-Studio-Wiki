@@ -1,232 +1,171 @@
 ---
 title: "How Should I Choose and Store Filament for Lumina 2.0?"
-description: "Choose and manage real filament for Lumina Studio by checking hardware compatibility, material family, optical behaviour, Material Archive identity, storage, and drying."
+description: "Choose and manage real filament for Lumina Studio by checking hardware compatibility, material family, optical behavior, Material Archive identity, storage, and drying."
 sidebar_position: 27
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # How Should I Choose and Store Filament for Lumina 2.0?
 
-If you remember only one rule: **choose a physical filament that your machine can
-print reliably, that you can identify, and that matches a trustworthy Material
-Archive before chasing the closest screen colour.**
+When choosing filament for Lumina Studio, start with spools your printer handles reliably, whose exact product identity you know, and that match a verified Material Archive—before comparing approximate colors on screen.
 
-“Red PLA” is not a complete identity. Material family, brand, product line, shade,
-batch, finish, light transmission, moisture condition, and the selected archive can
-all change a layered-colour result.
+A generic label like "red PLA" is not enough to predict layered color results. Material family, brand, product line, shade, batch, surface finish, light transmission, moisture level, and the selected Material Archive all shape the final print.
 
 <img
   src={require('./assets/material-selection-gates.webp').default}
   alt="Five-stage filament selection from printer and nozzle compatibility through material identity and a real test print"
 />
 
-## Use five filters when choosing or buying filament
+## Five steps for choosing or buying filament
 
-### 1. Does the printer, feed system, and nozzle support it?
+### 1. Check printer, feed system, and nozzle compatibility
 
-Begin with the filament and printer manufacturers' current requirements:
+Review the specifications from both the filament and printer manufacturers first:
 
-- Can the printer and feed system handle this material, spool, flexibility, and
-  stiffness?
-- Is the nozzle material and diameter suitable for any filler?
-- Does the slicer provide an appropriate material preset for this printer?
-- Are the build plate, temperature range, enclosure, and ventilation suitable?
+- Does the printer and automatic feed system support this material, spool size, and stiffness?
+- Are the nozzle material and diameter rated for any fillers in the filament?
+- Does your slicer include a suitable material preset for your printer?
+- Do your build plate, temperature limits, enclosure, and ventilation meet the material's requirements?
 
-Glow, carbon-fibre, glass-fibre, metal-filled, wood-filled, and other highly filled
-filaments can be abrasive or more likely to clog. The fact that Lumina can select a
-colour does not mean a 0.2 mm nozzle, ordinary brass nozzle, or automatic material
-system can use that product safely. Follow the product and machine guidance and change
-hardware first when required.
+Glow-in-the-dark, carbon-fiber, glass-fiber, metal-filled, wood-filled, and other heavily filled filaments can be abrasive and prone to clogging fine nozzles. Before loading them through a 0.2 mm nozzle, standard brass nozzle, or automatic material system, verify hardware compatibility and switch to a hardened or larger-diameter nozzle when required.
 
-### 2. Choose the material family before the colour
+### 2. Choose the material family before the color
 
-PLA and PETG can both be used for flat multicolour prints, but they are not
-interchangeable merely because their colours look similar. They can differ in print
-temperature, first layer, flow, stringing, surface finish, and behaviour when stacked.
+Both PLA and PETG work well for flat multicolor prints, but they differ in print temperature, first-layer adhesion, flow behavior, stringing, surface gloss, and interlayer bonding. Because PLA and PETG adhere poorly to each other—a property often used for breakaway support interfaces—stacking them directly in a color print can cause delamination.
 
-**Prefer one material family within an artwork until a cross-material combination has
-been tested.** If you intend to mix PLA, PETG, or another family, confirm at least:
+Stick to a single material family within one artwork whenever possible. If you need to combine different materials in the same print, verify the following first:
 
-- the printer and slicer support the combination;
-- every project filament keeps the correct material preset;
-- adjacent materials bond reliably in this structure;
-- purge volume and transition temperature do not contaminate later colours;
-- a real test has passed before the finished artwork.
+- Your printer and slicer support the material combination.
+- Each project filament keeps its own material preset.
+- Adjacent layers bond reliably in your part geometry.
+- Purge volumes and nozzle temperature transitions prevent color contamination.
+- A small test swatch passes inspection before you start the full print.
 
-Some printer guidance uses poor adhesion between PLA and PETG for a support interface.
-That does not prove the same combination is suitable anywhere in a coloured object.
-Generating project filaments in Lumina is not a guarantee of machine compatibility,
-interlayer bonding, or material safety.
+### 3. Account for surface finish and light transmission
 
-### 3. Treat finish and light transmission as part of filament identity
+Spools that share a color label such as "white" or "red" can behave very differently when stacked and should not automatically share the same archive:
 
-Two spools labelled “white” or “red” should not automatically share one archive.
-
-| Filament type | How it can affect Lumina results | Check before use |
+| Filament type | Impact on layered color results | What to check before printing |
 | --- | --- | --- |
-| Basic colour | A useful stable baseline, but brands and batches still vary | Brand, product line, shade, and batch |
-| Matte | Additives and surface scattering can change brightness and transmission | Verify separately; do not assume a same-colour basic PLA archive applies |
-| Silk or metallic appearance | Viewing angle and lighting can change the appearance strongly | Compare tests under controlled light |
-| Clear, translucent, or natural | Backing and lower layers remain visible through more layers | Prefer a custom archive and inspect both white- and black-backed cards |
-| Glow, wood, metal, carbon fibre, and other fillers | Changes optics and can increase wear, clogging, or feed risk | Check hardware requirements before using a fine nozzle or multi-material system |
-| Recycled, mixed, or batch-variable material | Nominally identical spools can differ | Test a new batch; revalidate critical work |
+| Basic solid color | Consistent baseline, though brands and batches still vary | Brand, product line, shade, and batch |
+| Matte | Matte additives and surface scattering shift brightness and transmission | Validate separately rather than reusing a basic PLA archive of the same color |
+| Silk or metallic | Viewing angle and lighting direction strongly affect perceived color | Evaluate test prints under consistent lighting |
+| Clear, translucent, or natural | Backing and lower layers show through across more layers | Calibrate a custom archive and check both white- and black-backed cards |
+| Glow, wood, metal, carbon fiber, and other fillers | Alters optics while increasing nozzle wear, clogging, or feed resistance | Confirm nozzle and feeder requirements before using fine nozzles or multi-material units |
+| Recycled, blended, or batch-variable filament | Spools sold under the same name can shift noticeably | Print a test swatch for each new batch and re-verify for color-critical projects |
 
-### 4. Tie every physical spool to the correct Material Archive
+### 4. Match every physical spool to its Material Archive
 
-Verify at least:
+Before generating a print, confirm these five details:
 
-1. material family;
-2. brand and product line;
-3. commercial colour, shade code, and finish;
-4. the Layer Height used when the archive was measured;
-5. the spool and machine slot actually loaded for this print.
+1. Material family
+2. Brand and product line
+3. Commercial color name, shade code, and finish
+4. The Layer Height used when the archive was calibrated
+5. The physical spool and feeder slot loaded on the printer
 
-A screen swatch or HEX value helps a person recognise a material. It cannot describe
-how the filament behaves at different thicknesses, over different backing colours,
-or under different light. For choosing among archives and LUTs, see
-[Material Archives or Classic LUT?](../material-profile-selection/material-profile-selection.mdx).
+On-screen swatches and HEX codes help you identify filaments in the interface, but they cannot capture how light passes through stacked layers over different backing colors. To decide between color sources, see [Material Archives or Classic LUT?](../material-profile-selection/material-profile-selection.mdx).
 
-### 5. Finalise the choice with a physical test
+### 5. Confirm with a physical test swatch
 
-Before a finished artwork, complete a small **source → Lumina Preview → slicer layer
-preview → physical print** loop. Use the same spools, slicer material presets, nozzle,
-colour Layer Height, and backing conditions intended for the final print.
+Before committing to a full-size piece, run a quick end-to-end check: **source image → Lumina Preview → slicer layer preview → physical test print**. Print the swatch with the exact spools, slicer presets, nozzle, color Layer Height, and backing setup planned for the final artwork.
 
-If the test differs visibly from Preview, check spool identity, archive, material
-mapping, and moisture first. Do not immediately edit the source image to hide a
-material problem.
+If the printed swatch diverges from Preview, check spool identity, archive selection, slot mapping, and filament dryness first before editing the source image.
 
-## How does TD relate to a Lumina Material Archive?
+## How TD relates to a Lumina Material Archive
 
-TD means **Transmission Distance**. In common filament-painting workflows, it is a
-value in millimetres describing how much solid filament is needed to block most light.
-A lower TD generally hides the layer below more quickly; a higher TD lets underlying
-colours influence more layers.
+TD stands for **Transmission Distance**. In filament-painting workflows, it measures—in millimeters—the thickness of solid filament needed to block most transmitted light. Lower-TD filaments hide underlying colors in fewer layers, while higher-TD filaments let lower layers blend through a deeper stack.
 
-However, **TD is not a complete colour profile for one spool**:
+In Lumina 2.0, a single TD number cannot replace a full Material Archive:
 
-- it does not independently describe hue, brightness, and all three colour channels;
-- it does not replace gradients measured over both white and black backing;
-- it cannot capture every matte, silk, filler, and surface-scattering effect;
-- measurement method, lighting, thickness, and batch can all change the value.
+- TD alone does not capture hue shifts, brightness, or differences across red, green, and blue channels.
+- It cannot stand in for measured color gradients over both white and black backings.
+- It does not fully model matte additives, silk sheen, fillers, or surface light scattering.
+- Different measurement setups, light sources, sample thicknesses, and batches often yield different TD readings.
 
-Lumina 2.0 Material Archives are extracted from real gradient cards over white and
-black backing and record measurements used by the current prediction workflow. An
-online TD value can help describe transparency, but it cannot replace an archive tied
-to your physical filament.
+Lumina 2.0 Material Archives are extracted directly from photographed gradient cards printed over white and black backings, capturing full optical fitting data for color prediction. An online TD value is a handy gauge of general translucency, while a matched Material Archive provides the multi-channel data needed for accurate previews.
 
-## How should one spool be stored and tracked?
+## Storing and tracking individual spools
 
 <img
   src={require('./assets/spool-identity-storage.webp').default}
   alt="Spool identity card and a four-step workflow for recording, sealed storage, inspection, and active drying"
 />
 
-### Create an identity card when opening the spool
+### Label each spool when you open it
 
-Record on the spool or sealed bag:
+Attach a label to the spool or its storage bag with:
 
-- material, brand, product line, colour, shade code, and batch;
-- opening date;
-- corresponding Lumina Material Archive name;
-- archive test Layer Height and last validation date;
-- drying history, abnormal behaviour, and remaining amount.
+- Material, brand, product line, color, shade code, and batch
+- Date opened
+- Matching Lumina Material Archive name
+- Calibration Layer Height and last verification date
+- Drying log, print notes, and approximate remaining weight
 
-Do not put leftover filament into another spool's bag, and do not rely on memory such
-as “the darker blue.” Once the physical spool is confused, even a precise archive
-cannot restore the mapping.
+Keep leftover lengths with their original spool rather than combining similar shades in one bag, so every spool stays reliably linked to its calibrated archive.
 
-### Sealed storage is not active drying
+### Sealed storage vs. active drying
 
-When not in use, store filament in a sealed bag or box with active desiccant. Reduce
-unnecessary opening and inspect the seal and desiccant regularly.
+Store idle spools in resealable bags or airtight dry boxes with fresh desiccant. Keep containers closed between prints and check gaskets and desiccant indicators periodically.
 
-A dry box mainly **slows moisture uptake and maintains a low-humidity environment**.
-Already wet filament usually needs active drying. Placing it in a box with desiccant
-does not prove that moisture has left the material.
+A passive dry box maintains low humidity and slows further moisture absorption, whereas damp filament requires active heated drying to drive moisture out of the polymer.
 
-### There is no universal drying table
+### Dry according to manufacturer specifications
 
-Material formulas and spool heat limits differ. Too little heat may be ineffective;
-too much can fuse filament, deform the spool, or create other hazards.
+Heat tolerance varies across filament blends and spool plastics—too little heat leaves moisture behind, while excessive heat can fuse strands or warp the spool:
 
-1. Use the filament manufacturer's temperature and duration first.
-2. Confirm that the spool itself tolerates that temperature.
-3. Use equipment intended for filament with stable temperature control.
-4. Return the spool immediately to sealed, low-humidity storage after drying.
-5. Add the drying cycle to the spool identity record.
+1. Follow the drying temperature and duration specified by the filament manufacturer.
+2. Verify that the spool plastic is rated for that temperature.
+3. Use a dedicated filament dryer with steady temperature control.
+4. Transfer the spool straight into sealed, low-humidity storage once drying finishes.
+5. Log the drying date on the spool's label.
 
-### Stringing does not prove moisture
+### Troubleshooting stringing methodically
 
-Wet filament can cause a rough surface, bubbles, popping, blobs, weaker bonding, or
-more stringing. Stringing can also come from temperature, retraction, travel paths,
-the material itself, or slicer settings.
+Absorbed moisture often causes rough surfaces, micro-bubbles, popping sounds at the nozzle, blobs, weaker layer adhesion, or extra stringing. However, stringing can also stem from nozzle temperature, retraction settings, long travel moves, or the polymer's natural viscosity.
 
-Change one condition at a time. Compare the same small model before and after correct
-drying, then decide whether temperature or retraction also needs adjustment.
+Test one variable at a time: print the same small calibration piece before and after active drying first, then fine-tune temperature or retraction if stringing persists.
 
-## One-minute pre-print check
+## One-minute pre-print checklist
 
-- Spool label matches the archive selected in Lumina.
-- Every slicer project filament retains the correct material type.
-- The recorded spool is loaded in the expected physical slot.
-- Filament has no obvious moisture, brittleness, tangling, or feed problem.
-- Filled filament is approved for the current nozzle and feed system.
-- A new Preview and slicing pass were made after changing archive, Layer Height, or
-  spool.
-- A small test passed before a large finished print.
+- Spool labels match the Material Archives selected in Lumina.
+- Every project filament in the slicer uses the right material preset.
+- Each physical spool is loaded into its assigned feeder slot.
+- Filament is dry, unknotted, not brittle, and feeding smoothly.
+- Filled filaments meet nozzle material, diameter, and feeder requirements.
+- You ran Preview and sliced again after any change to archives, Layer Height, or spools.
+- A small test swatch passed before starting a large print.
 
-For mapping generated objects to physical slots, continue with
-[Open a Lumina 3MF in Your Slicer](pathname:///en/docs/tutorials/slicer-material-mapping/).
+For step-by-step slot assignment in your slicer, continue with [Open a Lumina 3MF in Your Slicer](pathname:///en/docs/tutorials/slicer-material-mapping/).
 
 ## Common questions
 
-### Can I use both PLA and PETG?
+### Can I calibrate archives for both PLA and PETG?
 
-Each can have its own archive when the printer, slicer, and workflow support it. One
-archive cannot represent both PLA and PETG. Mixing material families within one
-artwork requires separate tests for temperature, feed, bonding, and slicer settings.
+Yes. As long as your printer, slicer, and workflow support the material, you can create and use dedicated Material Archives for either PLA or PETG. Because print temperatures and optical behavior differ between polymers, keep separate archives for each material family, and test interlayer adhesion and purge temperatures before mixing materials in one print.
 
-### Should I search for the closest HEX when I cannot find an exact colour?
+### If I don't have an exact color match, should I shop by the closest HEX code?
 
-No exact HEX match is required. Start with a clearly identified filament that prints
-reliably and has usable archive data. Decide from Lumina Preview and a physical test.
-Similar display colour does not prove similar transmission or stacking behaviour.
+There is no need to hunt for an identical HEX code. Two filaments with similar on-screen swatches can transmit light very differently when stacked. Choose a dependable, clearly identified spool backed by a solid Material Archive, then evaluate the palette in Lumina Preview and with a quick test swatch.
 
-### Must I recalibrate every new batch of the same product?
+### Do I need to recalibrate every new batch of the same filament?
 
-Not necessarily. Begin with a small test using the existing archive. If colour,
-transmission, finish, or print behaviour has changed visibly, revalidate or create an
-archive for the new batch when the artwork requires consistency.
+Start with a small test swatch using your existing archive. If color, translucency, and surface finish match expectations, you can keep using it; if the new batch shifts noticeably and your project demands tight color consistency, run a re-verification or create a fresh archive.
 
-### Can matte PLA use the archive for the same colour in basic PLA?
+### Can matte PLA share an archive with basic PLA of the same color?
 
-Do not assume so. Matte additives change surface and light scattering. Test first,
-and create a separate archive when colour consistency matters.
+Validate it separately first. Matte additives alter surface reflection and internal light scattering, which often shifts stacked brightness and hue compared to standard PLA. Create a dedicated archive whenever color accuracy matters.
 
-### Is a higher TD always better for transparent filament?
+### Is a higher TD always better for translucent filaments?
 
-No. Higher and lower transmission create different blending ranges and hiding power.
-Choose for the artwork, Layer Height, and other filaments, then verify with archive
-data and a test print.
+Neither high nor low TD is inherently better—they serve different roles. High-transmission filaments create gradual multi-layer color transitions, while lower-transmission filaments provide stronger coverage and crisp highlights. Pick filaments that suit your artwork, Layer Height, and palette, then confirm with Preview and a swatch.
 
-### Can a 0.2 mm nozzle print wood-, carbon-fibre-, or glow-filled filament?
+### Can a 0.2 mm nozzle print wood-, carbon-fiber-, or glow-filled filaments?
 
-Do not apply one rule to every product. Filler size, abrasiveness, and feed
-requirements vary, and many products specify a hardened or larger nozzle. Use the
-material only when the filament and printer manufacturers support the current nozzle
-and feed system.
+Check both the filament and printer manufacturer specifications before trying. Fiber- and particle-filled materials frequently clog 0.2 mm nozzles, and abrasive additives like carbon fiber or glow powder typically require a hardened steel nozzle of 0.4 mm or larger. Only run filled filaments when both manufacturers explicitly support your nozzle and feeder setup.
 
-### Why does filament still string in a box with desiccant?
+### Why does my filament still string even though it's stored with desiccant?
 
-Sealed storage and desiccant mainly slow further moisture uptake. They may not remove
-moisture already inside the filament. Dry it according to the product instructions,
-then compare again while keeping temperature, retraction, and path causes in view.
+Desiccant inside a sealed box slows new moisture absorption, but it rarely pulls existing moisture out of damp filament. Dry the spool actively per the manufacturer's instructions and retest; if stringing continues, inspect nozzle temperature, retraction settings, and travel paths.
 
 ## Further reading
 
@@ -236,18 +175,3 @@ then compare again while keeping temperature, retraction, and path causes in vie
 - [Prusa: Prusa USS Drybox](https://help.prusa3d.com/article/prusa-uss-drybox_1014382)
 - [Prusa: Combining materials (XL)](https://help.prusa3d.com/article/combining-materials-xl_498103)
 - [Prusa: Prusament PETG Ultraglow troubleshooting](https://help.prusa3d.com/article/prusament-petg-ultraglow-troubleshooting_1043965)
-
-Third-party references explain general material boundaries. Product-specific settings
-apply only to the stated material and device. Use the current Lumina interface for
-Material Archive names and available functions.
-
-## Content licence
-
-The original text, tables, and diagrams on this page are covered by the Wiki's
-[CC BY-NC-SA 4.0 content licence](pathname:///en/docs/project/content-license/), unless
-otherwise stated. Rights in third-party materials, brands, trademarks, product
-instructions, and external documentation remain with their respective owners.
-
-This page does not replace filament, printer, nozzle, dryer, or ventilation safety
-instructions. Check the manufacturer's current guidance before buying, printing, or
-drying a special material.

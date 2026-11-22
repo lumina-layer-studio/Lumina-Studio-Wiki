@@ -5,25 +5,21 @@ description: Set up Git and Node.js, clone the repository, preview the Chinese a
 
 # Local Preview and Pre-Submit Checks
 
-:::info[AI-assisted article]
-The first draft of this article, together with its Chinese and English versions, was produced with AI assistance. If you find any errors, you are welcome to give feedback through this page, or to submit suggested changes on GitHub.
-:::
-
-This site is built with Docusaurus and managed with `yarn`. Before you open a pull request, run the local preview and the checks below.
+This documentation site is built with Docusaurus and managed with `yarn`. Run a local preview and both pre-submit checks before opening a pull request.
 
 ## 1. Environment setup
 
 ### 1.1 Git and the source repository
 
-The preview and the pre-submit checks both read the Git history of the repository, so you must use Git and you must clone the source repository instead of downloading a source ZIP archive and extracting it: an extracted directory is an ordinary folder with no `.git` history, and the preview and check commands will fail.
+Both local preview and pre-submit checks read the repository's `.git` history. Clone the repository with `git clone` rather than downloading a source ZIP archive, which lacks `.git` metadata and causes preview and build commands to fail.
 
-1. Install Git and make sure the command is available:
+1. Install Git and verify that it is available:
 
 ```bash
 git --version
 ```
 
-2. Clone the source repository and enter the directory:
+2. Clone the repository and enter the project directory:
 
 ```bash
 git clone https://github.com/lumina-layer-studio/Lumina-Studio-Wiki.git
@@ -32,47 +28,47 @@ cd Lumina-Studio-Wiki
 
 ### 1.2 Node.js and Corepack
 
-You need Node.js 20 or later, plus Corepack. Corepack ships with Node.js releases from 14.19.0 up to but not including 25.0.0; starting with Node.js 25 it is no longer bundled.
+You need Node.js 20 or later and Corepack. Corepack is bundled with Node.js 14.19.0 through 24.x, and is no longer included starting with Node.js 25.
 
-If the system reports that `corepack` cannot be found (for example on Node.js 25 or later), install user-level Corepack manually first; the steps are in the [official Corepack installation guide](https://github.com/nodejs/corepack#how-to-install):
+If `corepack` is not found (for example on Node.js 25 or later), install it globally first (see the [official Corepack installation guide](https://github.com/nodejs/corepack#how-to-install)):
 
 ```bash
 npm install -g corepack
 ```
 
-Otherwise use the Corepack that ships with Node.js directly:
+Enable Corepack:
 
 ```bash
 corepack enable
 ```
 
-Then install the project dependencies:
+Then install project dependencies:
 
 ```bash
 yarn install --immutable
 ```
 
-The project pins the Yarn 4 version declared in `package.json`.
+The repository pins the exact Yarn 4 version specified in `package.json`.
 
 ## 2. Local preview
 
-`yarn start` previews the Chinese site only by default:
+`yarn start` launches the Chinese site by default:
 
 ```bash
 yarn start
 ```
 
-Previewing English requires the locale flag explicitly:
+To preview the English site, pass the `--locale en` flag:
 
 ```bash
 yarn start --locale en
 ```
 
-Chinese and English are two independent builds, but both default commands use the same port, so **only one language can be previewed at a time**: press `Ctrl+C` to stop the current preview before you start the other command.
+Chinese and English build separately and share the same default port, so **only one locale can run at a time**. Press `Ctrl+C` to stop the active dev server before starting the other locale.
 
 ## 3. Pre-submit checks
 
-Run them in order:
+Run both checks in order before committing:
 
 ```bash
 yarn typecheck
@@ -81,8 +77,8 @@ yarn build
 
 ## 4. Directory and file conventions
 
-- Chinese pages live in `docs/`; English pages live in `i18n/en/docusaurus-plugin-content-docs/current/`.
-- Each tutorial uses its own directory, the MDX file has the same name as the directory, and images go into the `assets/` folder inside that page directory.
+- Chinese docs live in `docs/`; English docs live in `i18n/en/docusaurus-plugin-content-docs/current/`.
+- Each tutorial lives in its own directory, with the `.mdx` filename matching the directory name and images placed under `assets/`.
 
 Example:
 
@@ -93,20 +89,16 @@ docs/tutorials/example/assets/step-01.webp
 
 ## 5. Writing conventions
 
-- This page uses Docusaurus Markdown/MDX features only; custom image components and path-related components must not be introduced in MDX bodies.
-- Do not write `import` statements in MDX bodies.
-- Reference images with the relative path syntax that points into the page directory:
+- Use standard Docusaurus Markdown/MDX features only; do not introduce custom image or path components in MDX bodies.
+- Do not add `import` statements inside MDX files.
+- Reference local images with relative `require` paths inside the page directory:
 
 ```jsx
 <img src={require('./assets/step-01.webp').default} alt="Step one" />
 ```
 
-- Contribution rules and details: [CONTRIBUTING.md](https://github.com/lumina-layer-studio/Lumina-Studio-Wiki/blob/main/CONTRIBUTING.md).
-
-## 6. AI assistance
-
-The first draft and the Chinese-English translation of this page were produced with AI assistance; the commands, versions and paths were checked one by one before submission. How AI was involved and where to send feedback are described at the top of this article.
+- See [CONTRIBUTING.md](https://github.com/lumina-layer-studio/Lumina-Studio-Wiki/blob/main/CONTRIBUTING.md) for full authoring guidelines.
 
 ## Contributing
 
-Corrections, new tutorials and translation improvements are welcome via Issues or Pull Requests; see [CONTRIBUTING.md](https://github.com/lumina-layer-studio/Lumina-Studio-Wiki/blob/main/CONTRIBUTING.md) for the detailed rules.
+Bug fixes, new tutorials, and translation improvements are welcome via Issues or Pull Requests. See [CONTRIBUTING.md](https://github.com/lumina-layer-studio/Lumina-Studio-Wiki/blob/main/CONTRIBUTING.md) for details.

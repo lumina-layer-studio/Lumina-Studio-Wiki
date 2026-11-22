@@ -1,25 +1,16 @@
 ---
 title: "Inferred LUT (older versions)"
-description: "Explains native brand packages, database selection, supported layer modes, and when model-assisted matching appears."
+description: "Explains native brand packages, database selection, supported layer modes, and model-assisted matching in earlier versions."
 sidebar_position: 4
 ---
-
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
 
 # Inferred LUT
 
 :::warning[Older versions]
-The current source selector does not expose Inferred LUT. The information below is retained for users of older versions;
-the screenshot does not describe the current interface.
+Newer releases no longer include **Inferred LUT** under **Color Data Source**. This page is retained as a reference for earlier versions.
 :::
 
-Inferred LUT loads a brand package containing colour databases, supported layer modes, and an optional predictive model.
-Instead of choosing one fixed table, you first select a brand and then choose the databases and supported layer mode used for
-matching.
+Unlike a Classic LUT that loads a single fixed lookup table, **Inferred LUT** loads a filament brand package containing color databases, supported layer modes, and an optional predictive model. You select a brand first, then choose which databases and supported layer mode participate in color matching.
 
 <img
   src={require('./assets/01-inferred-lut-source.webp').default}
@@ -28,27 +19,23 @@ matching.
 
 ## Brand and databases
 
-Only databases declared by the selected brand can be enabled. At least one database must remain selected before the source is
-ready for preview.
+Selecting a brand displays only the databases declared in that brand package. At least one database must remain checked before **Preview** becomes available.
 
-Changing the brand clears the previous brand's database choices and applies the new package defaults. The old preview and 3MF
-are invalidated at the same time.
+Switching brands clears the previous database selection, applies the new brand package's defaults, and invalidates any existing preview and generated 3MF.
 
 ## Layer Count
 
-The slider does not create an arbitrary layer mode. Lumina Studio searches the brand's `supported_modes`:
+Moving the layer slider selects from the modes declared in the brand package's `supported_modes`:
 
-- an exact layer-count and layer-height pair is used when available;
-- if several heights exist for the count, the nearest current height is chosen;
-- if the count is unsupported, the previous valid mode remains active.
+- If an exact match for both layer count and current layer height exists, that pair is used directly;
+- If multiple layer heights exist for that count without an exact match, the closest layer height is selected;
+- If the requested layer count is unsupported by the package, the previous valid mode stays active.
 
-The Supported Modes line lists the actual “layers @ layer height” pairs used by generation.
+The **Supported Modes** line below the control lists every valid “layers @ layer height” pair used during preview and model generation.
 
 ## Model-assisted matching
 
-Model-Assisted Matching and Model only appear only when the brand package contains a usable predictive model. The measured
-database remains the baseline, while the model can replace weak database matches when its result is clearly better. See
-[Model-Assisted Matching](../../color-matching/model-assisted-matching/model-assisted-matching.mdx) for the exact decision rule.
+**Model-Assisted Matching** and **Model only** appear when the selected brand package includes a predictive model. Measured color databases remain the baseline, while the predictive model can step in to replace weak database matches when its prediction is substantially closer. See [Model-Assisted Matching](../../color-matching/model-assisted-matching/model-assisted-matching.mdx) for the full selection rules.
 
 ## Related pages
 

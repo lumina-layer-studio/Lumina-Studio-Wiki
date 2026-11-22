@@ -1,19 +1,12 @@
 ---
 title: "Puzzle"
-description: "Regular and irregular puzzles, three sizing modes, connectors, labels, and resolved layout values."
+description: "Regular and irregular puzzles, three sizing modes, connector profiles, piece labels, and resolved layout values."
 sidebar_position: 7
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Puzzle
 
-Puzzle mode computes a layout from the artwork's solid boundary, generates every piece from its own boundary, and assembles
-the pieces into one downloadable 3MF. It is more than decorative lines over the image.
+Puzzle mode computes a cut layout from the artwork's solid boundary, builds individual mesh geometry for every piece, and packages the complete set into a single downloadable 3MF.
 
 <img
   src={require('./assets/01-puzzle-settings.webp').default}
@@ -22,25 +15,22 @@ the pieces into one downloadable 3MF. It is more than decorative lines over the 
 
 ## Style and sizing
 
-- **Regular Puzzle:** an orderly grid with consistent connector behaviour.
-- **Irregular Puzzle:** displaced boundaries with Irregularity Strength and Minimum Neck Width controls.
-- **By Piece Size:** average width and height from 5–200 mm.
-- **By Grid:** 1–200 rows and 1–200 columns.
-- **By Piece Count:** 2–2000 target pieces, with the grid solved from the artwork aspect ratio.
+- **Regular Puzzle:** Uses an orderly grid with uniform connector behavior.
+- **Irregular Puzzle:** Offsets piece boundaries and unlocks **Irregularity Strength** and **Minimum Neck Width**.
+- **By Piece Size:** Sets target average piece width and height from 5–200 mm.
+- **By Grid:** Sets 1–200 rows and 1–200 columns.
+- **By Piece Count:** Sets 2–2000 target pieces and solves the grid from the artwork's aspect ratio.
 
-Targets are not guaranteed geometry. Transparency, an irregular silhouette, and minimum-feature constraints can change the
-resolved rows, columns, piece count, or average size. The summary therefore shows both requested and resolved values.
+Transparency silhouettes, irregular outer boundaries, and minimum-feature constraints can adjust the final rows, columns, piece count, or average piece size, so the summary displays both requested targets and resolved values.
 
 ## Connectors and labels
 
-Classic and Easy Cut use different connector profiles. Actual fit still depends on nozzle size, shrinkage, and slicer
-compensation.
+**Classic** and **Easy Cut** use different connector profiles, with **Easy Cut** smoothing out tight curves. Actual fit also depends on nozzle size, filament shrinkage, and slicer contour compensation.
 
-Show Piece Labels provides numbering information for the puzzle workflow. Engrave Back Labels is currently disabled because
-the labels are not embedded in exported geometry yet.
+**Show Piece Labels** provides piece numbering within the puzzle workflow. **Engrave Back Labels** is currently disabled and not yet written into exported geometry.
 
-Irregularity Strength ranges from 0–1. Minimum Neck Width ranges from 0.2–20 mm and prevents overly thin connector areas.
-Geometry adjustments appear in the Warnings section.
+In Irregular mode, **Irregularity Strength** ranges from 0–1, and **Minimum Neck Width** ranges from 0.2–20 mm to keep connector necks sturdy. Any automatic solver adjustments appear in the **Warnings** section.
 
-Puzzle is unavailable in Batch mode and disables Large Format, Keychain Loop, and Fridge Magnet mode. Generate a normal
-preview first because the layout needs the current solid mask and physical dimensions.
+## Mode compatibility
+
+Puzzle mode is unavailable in Batch mode and turns off Large Format, Keychain Loop, and Fridge Magnet mode. Run a standard preview first so Lumina has the active solid mask and physical dimensions before computing the puzzle layout.

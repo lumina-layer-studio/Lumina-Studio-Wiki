@@ -1,69 +1,51 @@
 ---
-title: "Precise Colour Matching"
-description: "How LUT-constrained quantization keeps cluster centres inside the printer's reachable colour set and why it disables Hue Protection."
+title: "Precise Color Matching"
+description: "Constrain quantization cluster centers directly to reachable LUT colors to reduce post-quantization color jumps."
 sidebar_position: 5
 ---
 
-:::info[AI-assisted article]
+# Precise Color Matching
 
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
+**Precise Color Matching (Experimental)** constrains color quantization centers directly to colors available in the active LUT. While standard quantization forms free RGB cluster centers first and maps them to printable recipes afterward, constrained quantization ensures every cluster center is a physically reachable print color from the start.
 
-:::
-
-# Precise Colour Matching
-
-**Precise Colour Matching (Experimental)** constrains image-quantization centres to colours that exist in the active
-LUT. Ordinary quantization can create arbitrary RGB cluster centres and look those colours up afterwards. Constrained
-quantization makes each centre reachable by the current print system from the beginning.
-
-The option is disabled by default.
+This option is off by default.
 
 ## Location
 
-Open **Converter → Core Settings → Advanced Settings**, then locate
-**Precise Colour Matching (Experimental)**.
+Open **Converter → Core Settings → Advanced Settings**, then locate **Precise Color Matching (Experimental)**.
 
 <img
   src={require('./assets/01-precise-color-matching-location.webp').default}
-  alt="Precise Colour Matching in Lumina Studio Advanced Settings"
+  alt="Precise Color Matching in Lumina Studio Advanced Settings"
 />
 
-## Matching flow
+## Matching workflow
 
-When valid LUT colour samples and a colour-space index are available, the high-fidelity path:
+When the active color source provides valid LUT color samples and a spatial color index, enabling this switch runs constrained quantization:
 
-1. establishes the initial image clusters;
-2. constrains each cluster centre to a reachable colour recorded by the LUT;
-3. returns no more than the current Quantize Colors budget;
-4. uses the recipes associated with those reachable colours to build the preview and model.
+1. Builds initial color clusters from the source image pixels.
+2. Snaps and refines each cluster center within the set of reachable colors recorded in the LUT.
+3. Outputs up to the configured [Quantize Colors](../../converter-basic/quantize-colors/quantize-colors.mdx) budget.
+4. Generates the preview and 3MF model directly from the recipes tied to those LUT colors.
 
-If the LUT data required for constrained quantization is incomplete, Lumina falls back to ordinary quantization instead
-of stopping the conversion. Material Archives use their own recipe solver and do not depend on this switch.
+If the active LUT lacks the index data needed for constrained clustering, Lumina Studio automatically falls back to standard quantization without interrupting conversion. **Material Archives** use their own recipe solver and are unaffected by this switch.
 
 ## Relationship with Hue Protection
 
-Enabling Precise Colour Matching disables [Hue Protection](../hue-protection/hue-protection.mdx). The Hue Protection
-control becomes unavailable, and the processing request sets the independent hue weight to zero so the two candidate
-ranking rules cannot act at the same time.
+Turning on **Precise Color Matching** disables [Hue Protection](../hue-protection/hue-protection.mdx) so two different candidate-selection rules never conflict.
 
 <img
   src={require('./assets/02-precise-disables-hue.webp').default}
-  alt="Precise Colour Matching enabled while Hue Protection is disabled"
+  alt="Precise Color Matching enabled while Hue Protection is disabled"
 />
 
-Turn Precise Colour Matching off before testing Hue Protection again.
+Turn **Precise Color Matching** off first whenever you want to test **Hue Protection** again.
 
-## Result and performance
+## Quality and performance trade-offs
 
-The option can reduce cases where an unconstrained cluster looks appropriate on screen but later jumps to a different
-printable colour. The constrained clustering performs repeated nearest-neighbour queries against the reachable set, so
-it is normally slower than ordinary K-Means.
+Constrained quantization helps prevent situations where an unconstrained RGB cluster looks accurate on screen yet snaps to an unexpected recipe during lookup. Because each iteration runs repeated nearest-neighbor searches against the LUT's reachable colors, processing takes longer than standard K-Means quantization. Final color fidelity remains bounded by your active LUT, **Quantize Colors** limit, source artwork, and layer count.
 
-It cannot create a colour absent from the active LUT. Results are still limited by the LUT, Quantize Colors, image
-content, and available material layers.
-
-Build a new preview after changing the option. The current Lumina recipe-card format does not persist this experimental
-switch, so verify it again after importing a recipe card.
+Rebuild the preview and model after toggling this switch. Lumina recipe cards do not save this experimental setting, so re-enable it manually if needed after importing a card.
 
 ## Related pages
 

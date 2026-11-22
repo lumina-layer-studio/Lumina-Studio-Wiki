@@ -4,16 +4,9 @@ description: "Fit and save a material archive from white- and black-substrate ca
 sidebar_position: 6
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Gradient Card Extraction
 
-Gradient Card Extraction fits a reusable layer-prediction archive from a white-substrate and a black-substrate card
-printed with the same material.
+Gradient Card Extraction fits optical transmission and absorption parameters from photos of white-substrate and black-substrate gradient cards printed with the same filament, then saves a reusable material archive for layer-stack color prediction.
 
 <img
   src={require('./assets/01-gradient-card-inputs.webp').default}
@@ -22,39 +15,37 @@ printed with the same material.
 
 ## Required files
 
-Provide the Kit ZIP from [Gradient Card Generation](../gradient-card-generation/gradient-card-generation.mdx), a complete
-photo of the white card, and a complete photo of the black card.
+Prepare three inputs before starting:
 
-Use the same camera, exposure, white balance, and calibration settings for both photos. Avoid glare, clipped highlights,
-and shadows over sample patches. If the current environment cannot decode HEIC/HEIF, convert the files to PNG or JPG.
+1. The Kit ZIP downloaded from [Gradient Card Generation](../gradient-card-generation/gradient-card-generation.mdx).
+2. A complete photo of the white-substrate gradient card.
+3. A complete photo of the black-substrate gradient card.
+
+Capture both cards with the same camera, exposure, white balance, and color calibration workflow, avoiding surface glare, clipped highlights, or shadows across sample patches. Standard formats such as PNG and JPG are supported along with camera formats your system can decode directly; if your environment cannot open HEIC/HEIF files, convert them to PNG or JPG first.
 
 ## Image source and ColorChecker
 
-The default source is a direct camera or scanner capture. Enabling ColorChecker Calibration lets you correct and confirm
-the white and black images separately; accepted images are explicitly recorded as corrected sources.
+By default, extraction processes direct camera or scanner captures. Turning on **ColorChecker Calibration** lets you calibrate and confirm the white-card and black-card photos individually, recording them as ColorChecker-calibrated sources.
 
-Repeated verification runs can merge only when their source class matches. Raw captures and ColorChecker-corrected
-images are not mixed into one history set.
+When re-verifying a material across multiple runs, only runs from the same image source class can be merged—uncalibrated captures and ColorChecker-calibrated images are tracked separately.
 
 ## Rotation, corners, and anchor patches
 
-After upload, rotate either image by 90° when needed. Mark the card corners in this order:
+After uploading an image, rotate it 90° clockwise or counterclockwise if needed, then click the four corners of the gradient card in order:
 
-1. top-left;
-2. top-right;
-3. bottom-right;
-4. bottom-left.
+1. Top-left
+2. Top-right
+3. Bottom-right
+4. Bottom-left
 
 <img
   src={require('./assets/02-corner-controls.webp').default}
   alt="Pure-patch position and corner nudge controls"
 />
 
-Pure White Block Position and Pure Black Block Position determine the sampling order. Keep Auto Detect unless
-orientation detection is unreliable, then identify the corner containing the exposed pure substrate patch.
+**Pure White Block Position** and **Pure Black Block Position** control the patch sampling orientation. Leave both set to **Auto Detect** unless automatic orientation detection fails, in which case select the corner containing the exposed pure substrate patch.
 
-Once corners exist, select corner 1–4, choose a `1–10` pixel nudge step, and move it with the directional buttons. Keep
-the quadrilateral on the usable card area rather than including the table, fingers, or outside background.
+After placing all four points, you can select corner 1–4, set a `1–10` pixel step size, and fine-tune its position with the directional buttons. Align the boundary tightly around the active card surface, keeping the table, fingers, and surrounding background outside the frame.
 
 ## Extract and save
 
@@ -63,18 +54,21 @@ the quadrilateral on the usable card area rather than including the table, finge
   alt="Black card area and Extract Material action"
 />
 
-Extract Material becomes available after the ZIP, both images, and both four-corner sets are complete. Results include
-the perspective-corrected sampling boxes, estimated RGB/HEX, mean and maximum ΔE, linear and per-channel RMSE,
-white/black orientation confidence, and raw fit data.
+**Extract Material** becomes available once the Kit ZIP, both photos, and both four-corner sets are in place. The results panel displays:
 
-A material name is required before saving. Brand is optional and may reuse an existing brand or create a new one. When
-re-verifying an existing archive, choose Merge or Override as explained in
-[Editing and Re-Verification](../material-edit-and-verification/material-edit-and-verification.mdx).
+- Perspective-corrected card views and actual patch sampling boxes
+- Estimated filament color (RGB / HEX)
+- Mean and maximum ΔE
+- Linear and per-channel RMSE
+- Detected white/black card orientations and orientation confidence
+- Fitted optical parameters and diagnostic summary
 
-During re-verification, **Cancel Re-Verification** exits the active verification target without deleting the existing
-library record. **Merge Result** adds the new samples to history of the same source class; **Override Result** replaces
-the archive's current fitted data. The details view can also download `stage_A_parameters.json` to preserve the fit
-parameters and diagnostic summary from this run.
+Enter a material name to save the archive. Selecting or typing a brand is optional—you can pick an existing brand or enter a new one. From the details view, you can also download `stage_A_parameters.json` to archive the fitted parameters and diagnostics from the current run.
 
-Review the saved archive in the [Material Library](../material-library/material-library.mdx), then validate its stack
-prediction with [Material Recipe Query](../material-recipe-query/material-recipe-query.mdx).
+When re-verifying an existing material archive, choose how to apply the new run (see [Editing and Re-Verification](../material-edit-and-verification/material-edit-and-verification.mdx)):
+
+- **Merge Result**: Appends the new samples to existing history of the same source class and refits jointly.
+- **Override Result**: Replaces the archive's current fitted data with this run.
+- **Cancel Re-Verification**: Exits re-verification mode while leaving the existing archive untouched in the library.
+
+Once saved, inspect the archive in the [Material Library](../material-library/material-library.mdx) and test its stack predictions in [Material Recipe Query](../material-recipe-query/material-recipe-query.mdx).

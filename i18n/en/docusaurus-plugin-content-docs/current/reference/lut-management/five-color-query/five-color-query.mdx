@@ -1,48 +1,37 @@
 ---
-title: "Five-Colour Recipe Query"
-description: "Ordered recipe queries, target-colour matching, collections, and printable swatches for five/six-layer LUTs."
+title: "Five-Color Recipe Query"
+description: "Ordered recipe queries, target-color matching, collections, and printable swatches for five/six-layer LUTs."
 sidebar_position: 9
 ---
 
-:::info[AI-assisted article]
+# Five-Color Recipe Query
 
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
-# Five-Colour Recipe Query
-
-Five-Colour Recipe Query inspects LUTs with five- or six-layer recipes. It can query an explicit base-colour order or find
-the closest available recipe to a target HEX.
+Five-Color Recipe Query inspects LUTs built around five- or six-layer recipes. You can step through an explicit base-color stacking order to preview its resulting color, or enter a target HEX value to find the closest available recipe.
 
 <img
   src={require('./assets/01-five-color-query.webp').default}
-  alt="Five-Colour Recipe Query before selecting a LUT"
+  alt="Five-Color Recipe Query before selecting a LUT"
 />
 
 ## Query by layer order
 
-After selecting a LUT, base-colour cards are filtered by the selected prefix. A dimmed card is not a UI failure: no valid
-recipe can use that colour as the next layer after the current sequence.
+After selecting a LUT under **Base Palette**, the color cards filter dynamically based on the layers chosen so far. Any color that cannot form a valid recipe after the current sequence appears dimmed.
 
-After completing a valid five- or six-layer sequence:
+Once you complete a valid five- or six-layer sequence, use **Actions** to inspect or adjust it:
 
-- Query returns the result colour and LUT row.
-- Undo removes the final layer.
-- Reverse flips a complete layer order and queries it again.
-- Clear starts over.
+- **Query:** Returns the resulting color and its LUT row.
+- **Undo:** Removes the last selected layer.
+- **Reverse:** Flips a complete layer sequence end-to-end and queries it again.
+- **Clear:** Resets the current sequence.
 
-Layer order changes the optical result; the same material set in another order is a different recipe.
+Because light transmission depends on the stacking order from **Bottom** to **Viewing Face**, using the same filaments in a different order produces a distinct optical recipe.
 
-## Match a target colour
+## Match a target color
 
-Enter `#RRGGBB` to find the closest result in the active LUT. The result reports target and matched colours, ΔE00, swatch
-coordinates, and layer order. Neighbourhood cells show nearby candidates, not recipes that are necessarily identical.
+Under **Match by color value**, enter a `#RRGGBB` value and click **Match recipe** to find the nearest entry in the active LUT. The result shows the target and matched colors, ΔE00 difference, swatch coordinates, and layer sequence, alongside neighboring candidate cells for comparing nearby alternatives.
 
 ## Collection and printable swatch
 
-Add results to the collection; an identical recipe is not added twice. Remove entries individually or use **Clear
-collection** to remove all of them. Set patch size `5–50 mm`, gap `0.5–10 mm`, columns `0–20`, and single- or
-double-sided structure, then generate and download the 3MF swatch. `0` columns lets the generator choose the layout.
+Save queried recipes to your collection (duplicate recipes are ignored automatically). You can remove items individually or click **Clear collection** to empty the list. Configure patch size (`5–50 mm`), gap (`0.5–10 mm`), columns (`0–20`, where `0` lets the generator arrange columns automatically), and single- or double-sided structure, then generate and download a printable 3MF swatch.
 
-Changing LUT clears the collection so row and recipe identities from different LUTs are not mixed.
+Switching to another LUT clears the active collection so every swatch card stays tied to a single LUT.

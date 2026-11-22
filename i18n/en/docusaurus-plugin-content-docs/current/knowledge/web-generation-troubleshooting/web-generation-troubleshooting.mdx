@@ -4,271 +4,164 @@ description: "Diagnose Lumina Studio entry, backend connection, input, preview, 
 sidebar_position: 26
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # What Should I Check When Lumina Will Not Open, Keeps Spinning, or Fails to Generate?
 
-Start at the **earliest stage that behaves abnormally**. Do not change the network,
-source image, cache, settings, and slicer installation at the same time. Even if the
-problem disappears, you will not know which change resolved it.
+When troubleshooting load or generation issues, start at the **earliest stage that behaves unexpectedly** and change one variable at a time so you can pinpoint the exact cause.
 
-The workflow has six stages: **open Lumina → connect to the backend → prepare a
-minimal input → complete a minimal Preview → Generate → download, open, or report**.
-When one stage has not passed, later stages usually cannot work correctly.
+Every session moves through six stages: **open Lumina → connect to the backend → prepare a minimal input → complete a minimal Preview → Generate → download, open, or report**. Resolving an upstream blocker restores everything downstream.
 
 <img
   src={require('./assets/symptom-map.webp').default}
   alt="Six diagnostic entry points covering page access, backend connection, upload, Preview, Generate, and file delivery"
 />
 
-## Before troubleshooting, avoid these four actions
+## Four ground rules before you start
 
-- Do not click **Preview** or **Generate** repeatedly while a task is spinning.
-- Do not use **Clear Cache** as the first response.
-- Do not disguise a file by changing its extension, such as renaming unsupported data
-  to `.png`.
-- Do not post private artwork, commercial files, credentials, or complete logs in a
-  public chat.
+- **Let active tasks finish**: wait for a spinning **Preview** or **Generate** job to complete or return an error rather than clicking repeatedly.
+- **Capture the error before clearing state**: save the first complete error message before running **Clear Cache**.
+- **Use genuine exported files**: renaming an unsupported file to `.png` leaves incompatible data inside and will still fail validation.
+- **Protect private work**: strip personal details, credentials, and unreleased commercial artwork before posting screenshots or files in public channels.
 
-Record the visible status, the first complete error message, and your exact steps.
-One controlled minimal test is usually more useful than many uncontrolled retries.
-
-## Follow this fixed six-step order
+## Six-step diagnostic sequence
 
 <img
   src={require('./assets/troubleshooting-flow.webp').default}
   alt="Six-step diagnostic order from opening Lumina and checking the backend to Preview, Generate, download, and reporting"
 />
 
-### Step 1: does the page open completely?
+### Step 1: Confirm the application loads completely
 
-If the browser shows an error, a blank page, or never displays the Lumina Studio
-interface, do not inspect the image or generation settings yet. The failure is still
-at the entry stage.
+If the browser shows an error page, a blank screen, or never renders the Lumina Studio workspace, focus on the entry point first:
 
-Check:
+1. Verify you are opening the current official URL or standard local launcher rather than an outdated bookmark, temporary link, or dev port.
+2. Refresh the page once to see whether the symptom persists.
+3. Test the same URL from another network (such as a mobile hotspot) or a second device at the same time.
+4. Note the time, region, and connection type.
 
-1. that you are using the current official entry point, not an old bookmark, temporary
-   chat link, or local development address;
-2. whether a normal refresh produces the same result;
-3. whether another device or network can open the same entry point at the same time;
-4. the time, region, and network type when the failure occurred.
+When only a single device fails, check browser extensions, VPN/proxy rules, or local firewall settings on that machine; when multiple devices and networks fail simultaneously, retry shortly or report a service outage.
 
-If only one device fails, inspect that device's browser, extensions, proxy, or network.
-If several devices and networks fail together, the service or route is more likely
-involved. Do not label it an image, DNS, or account problem without a comparison.
+### Step 2: Check the backend status in the top bar
 
-### Step 2: check the connection status in the header
+Seeing **Checking backend...** briefly on launch is normal and should transition to **Backend connected** within a few seconds.
 
-A short **Checking backend...** state after opening is normal. It should then change
-to **Backend connected**.
+If the header stays on **Backend unreachable**:
 
-If it remains **Backend unreachable**:
+- **Online edition**: note the timestamp and network, then retry shortly or submit a report.
+- **Local edition**: restart Lumina Studio via its standard launcher and reload the page.
 
-- online users should record the time, network, and page state, then retry later or
-  report the issue;
-- local users should restart Lumina Studio through the normal launcher and reopen the
-  page;
-- do not keep changing images, archives, or generation settings, because those cannot
-  repair a failed backend connection.
+Uploads, **Preview**, and **Generate** all run through the backend service, so wait until **Backend connected** appears before testing files.
 
-Seeing the interface does not prove that the service responsible for upload, Preview,
-and Generate is available. Restore the connection before continuing.
+### Step 3: Separate file issues from environment issues
 
-### Step 3: separate a file problem from a system problem
+Test with a small, clean JPG or PNG alongside a Material Archive or Classic LUT you know works. Turn off Batch processing, Large Format Mode, and optional hardware add-ons so only core conversion settings remain, and verify that:
 
-Prepare a small, simple JPG or PNG and use a Material Archive or LUT that has worked
-before. Disable Batch generation, Large Format Mode, and optional structures so that
-only the basic conversion remains.
+- Upload completed fully (a thumbnail appears, not just a filename).
+- **Source Type** and the required archive, brand, or LUT are selected.
+- Image dimensions, color channels, and PNG alpha transparency look normal.
+- If testing an SVG, no missing fonts, masks, filters, or out-of-bounds `viewBox` coordinates are blocking parsing—see [How Do I Fix SVG Upload Failures, White Backgrounds, Holes, or Missing Detail?](pathname:///en/docs/knowledge/svg-troubleshooting/).
 
-Confirm that:
+If the simple test image previews cleanly while your original file fails, the issue lies in that file or parameter combination; if even the minimal image fails, continue checking the connection and app state.
 
-- the image really finished uploading, rather than only displaying a filename;
-- the correct **Source Type** and required archive, brand, or LUT are selected;
-- image dimensions, content, and PNG transparency are valid;
-- an SVG does not depend on missing fonts, masks, filters, canvas bounds, or excessive
-  path complexity.
+### Step 4: Complete one minimal Preview
 
-If the minimal image previews correctly but the original does not, focus on the
-original file or its settings. If neither works, continue checking connection, source,
-and application state. For SVG-specific steps, see
-[How Do I Fix SVG Upload Failures, White Backgrounds, Holes, or Missing Detail?](pathname:///en/docs/knowledge/svg-troubleshooting/).
+Using standard single-plate dimensions and default parameters, run a single **Preview** and wait for it to finish or display an error.
 
-### Step 4: make one minimal Preview succeed
+If **Preview** hangs or fails:
 
-Use an ordinary finished size and default settings. Start one Preview task, then wait
-for it to complete or show an error.
+1. Check that the top bar still shows **Backend connected**.
+2. Confirm both the artwork and color source are selected.
+3. Turn off Large Format, Batch, Puzzle, and optional add-ons.
+4. Run a comparison test with a small flat image and copy the full error message.
 
-If Preview spins or fails:
+Once the minimal test succeeds, restore your original artwork, print dimensions, and advanced features one setting at a time until you find the exact option that triggers the failure.
 
-1. confirm that the header still says **Backend connected**;
-2. confirm that the image and colour source are ready;
-3. disable Large Format, Batch, Puzzle, and other optional features;
-4. compare with one small, simple image;
-5. keep the first complete error message.
+### Step 5: Resolve a disabled or failing Generate button
 
-When the simple task succeeds, restore the original image, size, and advanced options
-one condition at a time. The first condition that brings the failure back is the most
-useful diagnostic clue.
+Lumina unlocks **Generate** only after a **valid Preview** completes for your active settings. When **Generate** is grayed out, check in order:
 
-### Step 5: Generate is disabled or fails
+- Both your input artwork and color source are loaded.
+- You have completed a successful **Preview** with the current settings.
+- You ran **Preview** again after changing the image, color source, or modeling parameters.
+- Your active Modeling Mode, archive, add-ons, and export format are compatible.
+- Finished dimensions, Bed Size, and Large Format settings show no blocking warnings.
 
-Lumina requires a **valid Preview result** before it can generate final files. A
-disabled **Generate** button usually means that the image, source, required settings,
-or current Preview is not ready—not that the button itself is broken.
+If **Preview** succeeds yet **Generate** returns an error, copy the full message first, turn off optional add-ons, and test a minimal **Generate** run with your small sample image.
 
-Check in this order:
+### Step 6: Separate download issues from slicer issues
 
-- image and colour source are both ready;
-- the current settings completed a successful Preview;
-- you created a new Preview after changing the image, source, or a key setting;
-- the selected mode, archive, optional feature, and export method are compatible;
-- finished size, Bed Size, or Large Format settings do not show a blocking warning.
+Once **Generate** finishes, save the full `.3mf` or `.zip` file to disk before troubleshooting the slicer:
 
-If Preview succeeds but Generate fails, record the complete error before clearing any
-state. Disable optional features, then run a minimal Generate with the same small test
-image.
+- **Download link missing or expired**: temporary session files were cleaned up—run **Preview** and **Generate** again and save the file right away.
+- **Downloaded fine, one-click slicer launch failed**: verify **Slicer Software** and your custom app path in Settings, or open the file directly in your slicer—see [What If Lumina Cannot Find the Slicer or Open the 3MF?](pathname:///en/docs/knowledge/slicer-path-and-open-troubleshooting/).
+- **Opens in the slicer with wrong colors**: check object, project-filament, physical-spool, and AMS-slot assignments—see [Open a Lumina 3MF in Your Slicer](pathname:///en/docs/tutorials/slicer-material-mapping/) and [Why Do Lumina Preview, Slicer Preview, and the Physical Print Look Different?](pathname:///en/docs/knowledge/preview-slicer-print-differences/).
+- **Large Format or Batch `.zip` archive**: extract the entire ZIP to a folder on disk before opening the `.3mf` files inside.
 
-### Step 6: separate download failure from slicer failure
+## When to use Clear Cache
 
-After Generate completes, download the entire 3MF or ZIP before diagnosing the next
-stage.
+Use **Clear Cache** on a local installation only when temporary session, Preview, or download state becomes stuck and neither restarting the app nor running a minimal test clears it:
 
-- **The download is missing or no longer works:** the temporary output may have
-  expired; create a new Preview and Generate result.
-- **Lumina cannot launch the slicer automatically:** confirm the file was downloaded,
-  then check **Slicer Software** and the configured application path.
-- **The slicer opens but materials are wrong:** inspect object, project-filament,
-  physical-spool, and machine-slot mapping.
-- **Large Format or Batch output:** fully extract the ZIP and work from its contents;
-  do not rely on the archive preview.
+- Clearing cache invalidates active temporary previews and download links, so you will re-upload, **Preview**, and **Generate** afterward.
+- Your saved Material Library archives and configuration presets remain untouched.
+- File-format errors, incompatible parameters, and slicer slot mappings are unaffected by cache clearing.
 
-For mapping, see
-[Open a Lumina 3MF in Your Slicer](pathname:///en/docs/tutorials/slicer-material-mapping/).
-If the file opens but the three previews differ, see
-[Why Do Lumina Preview, Slicer Preview, and the Physical Print Look Different?](pathname:///en/docs/knowledge/preview-slicer-print-differences/).
-For detection, macOS application paths, and manual opening, see
-[What If Lumina Cannot Find the Slicer or Open the 3MF?](pathname:///en/docs/knowledge/slicer-path-and-open-troubleshooting/).
+## Decoding common error messages
 
-## When should I use Clear Cache?
+You do not need to memorize numeric error codes—focus on what the message describes:
 
-Use **Clear Cache** only when a local installation's temporary session, Preview, or
-download state is abnormal and a restart plus minimal test still does not recover it.
-It is not a network diagnostic and cannot repair an invalid source image or
-incompatible settings.
-
-Before clearing, understand that:
-
-- temporary Preview and download links can stop working;
-- you may need to upload, Preview, and Generate again;
-- cache clearing does not correct archives, LUTs, slicer settings, or material mapping;
-- normal user Material Archives and configuration libraries should not be removed by
-  clearing temporary cache.
-
-If you are unsure whether cache is involved, complete the minimal comparison first and
-preserve the error information.
-
-## What do common error messages mean?
-
-You do not need to memorise an error number. Identify the category expressed by the
-complete message.
-
-| Meaning | Common cause | First response |
+| Message meaning | Typical cause | Recommended action |
 | --- | --- | --- |
-| Invalid input or missing required information | No source selected, incomplete setting combination, or invalid file content | Return to the minimal input and complete each requirement |
-| Unsupported file | Content and extension do not match, or the workflow does not support the file | Export a real JPG, PNG, SVG, WebP, or HEIC |
-| File too large | Upload size or processing complexity exceeds a limit | Test a reduced copy without overwriting the source |
-| File or session not found | Temporary output expired, the page refreshed, or the session ended | Upload or select the input again, then Preview and Generate |
-| Too many current tasks | Repeated clicks or another task is still running | Stop clicking, wait, then run one task |
-| Service unavailable or timeout | Backend, route, or worker problem | Record the time and earliest error, then retry or report |
+| Invalid input or missing required field | Unselected color source, incomplete settings, or unreadable file payload | Step back to the minimal baseline and fill in each required field |
+| Unsupported file format | Internal file format mismatches its extension, or unsupported mode | Re-export a genuine JPG, PNG, SVG, WebP, or HEIC from your editor |
+| File too large or complex | Oversized pixel dimensions or extreme SVG node count | Test a downscaled copy while keeping your master file safe |
+| File or session not found | Temporary output expired, page refreshed, or session reset | Re-select your artwork, then run **Preview** and **Generate** |
+| Too many active tasks | Rapid repeated clicks or another job still running | Wait for the current job to finish, then submit once |
+| Service unavailable or timeout | Backend interruption, network drop, or heavy job timeout | Record the timestamp and error text, then retry with a small test image or report |
 
-“It failed” or an isolated error number is not enough. The complete message, failure
-stage, and reproduction steps are far more useful.
+## Baseline minimal test checklist
 
-## A controlled minimal reproduction
+Use this clean baseline whenever you want to verify core functionality:
 
-Use this fixed baseline:
+1. Current official URL or standard local launcher
+2. A small, clean JPG or PNG verified to open normally
+3. A previously working Material Archive or Classic LUT
+4. Standard finished dimensions and default parameters
+5. Batch, Large Format, and optional add-ons turned off
+6. One **Preview** run, followed by one **Generate** run once Preview completes
 
-1. the current official entry point or normal local launcher;
-2. a small, simple JPG or PNG that opens normally;
-3. a Material Archive or LUT already known to work;
-4. an ordinary finished size and default settings;
-5. Batch, Large Format, and optional structures disabled;
-6. one Preview, followed by one Generate only after Preview succeeds.
+## Helpful details to include in a bug report
 
-After the baseline passes, restore the original image, source, size, and advanced
-options one by one. The first condition that reproduces the problem defines the next
-area to inspect.
+- Lumina Studio version and edition (online vs. local)
+- Timestamp, region, and network type
+- Exact stage where the workflow stopped and the first complete error message
+- Step-by-step actions from opening Lumina
+- Original input file, or a privacy-safe minimal sample that reproduces the bug
+- Selected **Source Type**, archive or LUT name, **Modeling Mode**, print dimensions, and active options
+- Relevant screenshots, plus the untouched `.3mf` or `.zip` if generation completed
 
-## What should I preserve before reporting?
-
-Prepare:
-
-- Lumina Studio version and whether you use the online or local edition;
-- exact time, region, and network type;
-- the stage where the workflow stopped;
-- the first complete error message;
-- exact steps beginning with opening Lumina;
-- the original input or a privacy-safe minimal reproduction;
-- Source Type, archive or LUT, Modeling Mode, size, and key options;
-- only the screenshots necessary to show the failure;
-- the original 3MF or ZIP if Generate completed.
-
-Before submitting **Report a bug**, expand **Automatically collected info** and review
-it. The report can include page state, current selections, recent operations, and
-diagnostic logs; screenshots are optional. Do not attach passwords, API keys, private
-chat records, or unrelated commercial files. If online submission fails repeatedly,
-copy the backup report and send it through an official support channel.
+When using **Report a bug** inside the app, expand **Automatically collected info** first to review the captured UI state, parameter selections, and diagnostic logs (screenshots are optional; never attach passwords, API keys, or confidential commercial files). If network issues block direct submission, copy the backup report text and share it via an official support channel.
 
 ## Common questions
 
-### How long is “Checking backend...” normal?
+### How long should “Checking backend...” stay visible?
 
-A short check after opening is expected. If it does not change for a long time, or
-becomes **Backend unreachable**, diagnose the connection before editing the image or
-settings.
+Normally just a couple of seconds on initial load. If it hangs indefinitely or switches to **Backend unreachable**, troubleshoot the network or restart your local launcher before adjusting artwork settings.
 
-### Generate stays disabled. Is this an account permission problem?
+### Generate stays grayed out—is that an account permission restriction?
 
-Usually not. Confirm the image, colour source, and required options are ready and that
-the current settings have a successful Preview. A key change can invalidate an older
-Preview and require a new one.
+No. **Generate** activates automatically once valid artwork, a color source, and an up-to-date **Preview** for your current settings are all in place. Changing the image, color source, or key modeling parameters invalidates the previous Preview—click **Preview** once more to unlock **Generate**.
 
-### Why can one network open Lumina while another cannot?
+### Why does Lumina open on my phone hotspot but not on home Wi-Fi?
 
-That comparison makes the source image an unlikely first cause. Record both networks,
-the time, and region so maintainers can inspect the entry point, route, or service.
-Avoid changing DNS, proxy, browser, and operating-system settings all at once.
+That points to an ISP routing, local DNS, or proxy/firewall difference rather than an issue with your artwork or archives. Share both network details, the timestamp, and your region with the team rather than changing all browser and system settings at once.
 
-### Will Clear Cache delete my Material Archives?
+### Will Clear Cache erase my custom Material Archives?
 
-Normal cache clearing targets temporary sessions, previews, and outputs; it should not
-delete the user Material Library or configuration library. Current temporary links
-may expire, so you will need to Generate again.
+No. **Clear Cache** removes temporary session data, cached previews, and temporary outputs while preserving your user Material Library and saved presets.
 
-### Why did a download link stop working after a refresh?
+### Why did my download button stop working after refreshing the browser?
 
-Preview and generation outputs can belong to a temporary session. Refreshing,
-switching sessions, timing out, or clearing cache can invalidate an old link. Select
-or upload the input again, then Preview and Generate.
+Preview and generation outputs live inside a temporary session; refreshing the tab, timing out, or clearing cache releases old temporary links. Re-upload or reselect your artwork, run **Preview** and **Generate**, and save the `.3mf` directly to a local folder.
 
-### Must I upload my original artwork with a bug report?
+### Do I have to attach my private artwork when reporting a bug?
 
-No. Prefer the smallest file that still reproduces the issue. If the source contains
-private, commercial, or unreleased material, create a safe example with the same
-format and failure characteristics and describe what differs from the original.
-
-## Content licence
-
-The original text, tables, and diagrams on this page are covered by the Wiki's
-[CC BY-NC-SA 4.0 content licence](pathname:///en/docs/project/content-license/), unless
-otherwise stated. Rights in Lumina Studio, third-party software, browsers, slicers,
-device names, and trademarks remain with their respective owners.
-
-This page provides a general diagnostic sequence. Follow the official guidance for
-the relevant platform, printer, material, and security system when those areas are
-involved.
+Not at all. Recreate the issue with a simple geometric PNG or SVG that shares the same file format and settings, attach that safe reproduction file, and note any differences from your original piece.

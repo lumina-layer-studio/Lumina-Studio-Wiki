@@ -1,67 +1,48 @@
 ---
 title: "Image Import, Batch Selection, Crop, and Rotation"
-description: "Understand accepted artwork, single and batch input, share-card detection, crop ratios and coordinates, and persistent image rotation."
+description: "Understand accepted artwork formats, single and batch input, share-card detection, crop ratios and coordinates, and image rotation."
 sidebar_position: 1
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Image Import, Batch Selection, Crop, and Rotation
 
-The first Converter input determines the artwork used by Preview, colour matching, and model
-geometry. Select files through the picker or drop them onto the upload area. Once an image exists,
-the uploader collapses to one row and can be expanded again by selecting the filename area.
+Importing an image is the first step in Converter—subsequent previews, color matching, and model geometry all build on the artwork loaded here. Click the upload area to choose files or drag and drop them directly onto it. Once an image is loaded, the upload area collapses to a single row; click the filename row at any time to expand it again.
 
-## Accepted artwork
+## Accepted file formats
 
-Converter accepts:
+Converter accepts the following input formats:
 
 - JPEG, PNG, SVG, and WebP;
 - HEIC and HEIF;
-- DNG, CR2, CR3, NEF, ARW, ORF, RW2, RAF, PEF, SRW, and generic RAW;
+- DNG, CR2, CR3, NEF, ARW, ORF, RW2, RAF, PEF, SRW, and generic RAW formats;
 - Lumina `.lumina.json` project files.
 
-RAW, HEIC, and HEIF depend on the backend's available decoder. When the current environment cannot
-decode the file, convert it to PNG or JPEG first. SVG follows vector-input handling and does not
-automatically open the bitmap crop dialog.
+RAW, HEIC, and HEIF support depends on the decoders available in your system environment; if a file cannot be decoded directly, Lumina prompts you to convert it to PNG or JPEG first. SVG files are processed as vector artwork and do not automatically open the bitmap crop dialog when **Crop after upload** is enabled.
 
 ## Single image, add more, and batch mode
 
-With one ordinary image, the uploader shows the current Preview and offers:
+When a single standard image is loaded, the uploader displays the current image and provides two actions:
 
-- **Replace current image:** replace the image in the current task;
-- **Add more images:** append files and enter a batch task.
+- **Replace current image:** Replaces the artwork in the current task.
+- **Add more images:** Appends additional files and switches to batch mode.
 
-Batch mode lists files and allows additions or individual removal. It renders up to 40 filenames
-directly and reports the remaining count. The single-image crop switch is not shown in batch mode;
-prepare each input's framing and orientation before adding it to the batch.
+Batch mode lists queued files and lets you add more or remove individual items. Up to **40** filenames are listed directly, with any additional files summarized by count. Because the single-image crop toggle is hidden in batch mode, prepare each image's framing and orientation before adding it to a batch.
 
-When exactly one `.lumina.json` or Lumina recipe PNG is selected, the uploader routes it through
-project import before ordinary image handling. A PNG without valid embedded recipe data remains an
-ordinary image. See
-[Share Card and JSON: Export, Import, and Continue Editing](../../../knowledge/share-card-json/share-card-json.mdx).
+When you select a single `.lumina.json` file or a PNG share card containing an embedded Lumina recipe, Lumina imports it as a project and restores its saved parameters. Standard PNGs without valid recipe data are imported as regular images. For the full workflow, see [Share Card and JSON: Export, Import, and Continue Editing](../../../knowledge/share-card-json/share-card-json.mdx).
 
 ## Crop after upload
 
-When **Crop after upload** is enabled, selecting a new single bitmap opens the crop dialog. Turning
-the switch off affects future selections; it does not recover pixels already removed from the
-current image.
+When **Crop after upload** is turned on, selecting a new single bitmap automatically opens the crop dialog. Turning the toggle off applies only to future uploads and leaves your currently cropped image intact.
 
-The dialog provides:
+The crop dialog includes:
 
-- free ratio;
-- `1:1`, `4:3`, `3:2`, `16:9`, `9:16`, and `3:4`;
-- original and selected pixel dimensions;
-- pixel fields for `X`, `Y`, width, and height;
+- Free aspect ratio;
+- `1:1`, `4:3`, `3:2`, `16:9`, `9:16`, and `3:4` aspect presets;
+- Original image dimensions and current selection dimensions in pixels;
+- Numeric pixel inputs for `X`, `Y`, width, and height;
 - **Rotate left 90°**, **Rotate right 90°**, **Cancel**, and **Apply Changes**.
 
-Dragging the crop box and editing fields stay synchronised. The selection is constrained to the
-source image. Confirming replaces the current task's image, Preview, and aspect ratio with the
-cropped result. `Esc`, Close, or **Cancel** does not submit the current changes.
+Dragging the crop box and typing pixel coordinates stay synchronized in real time, and the selection stays constrained within the image bounds. Clicking **Apply Changes** updates the working image, preview, and aspect ratio to the cropped result. Pressing `Esc`, closing the dialog, or clicking **Cancel** discards uncommitted edits.
 
 ## Image rotation
 
@@ -70,16 +51,10 @@ cropped result. `Esc`, Close, or **Cancel** does not submit the current changes.
   alt="Crop & Rotate dialog with rotation buttons and Apply Changes highlighted"
 />
 
-After loading one image, choose **Crop & Rotate**. In the same dialog, use **Rotate left 90°** or
-**Rotate right 90°**; press either twice for 180°. Select **Apply Changes** to commit.
+With a single image loaded, click **Crop & Rotate**, then use **Rotate left 90°** or **Rotate right 90°** (click twice for 180°) and click **Apply Changes** to confirm.
 
-Applying rotation creates a new current image and updates its aspect ratio. Later 2D and 3D Preview,
-colour matching, share card, JSON, and 3MF use the rotated result. Repeated rotations operate on the
-current image rather than applying a temporary browser transform. SVG images can be rotated here while retaining vector
-content, but the dialog does not crop them as bitmaps.
+Applying rotation writes an updated working image and refreshes its aspect ratio, so all subsequent 2D and 3D previews, color matching, share cards, JSON exports, and 3MF models use the new orientation. Consecutive rotations build directly on the current working image. SVG files can also be rotated here while preserving vector paths, without bitmap cropping.
 
 ## Check after changing the image
 
-Replace, crop, and rotate operations make the previous Preview stale. Run Preview again and check
-outline, orientation, transparency, layer images, and target dimensions. For a complete walkthrough,
-see [Upload, Crop, and Rotate an Image](../../../knowledge/image-upload-crop-rotate/image-upload-crop-rotate.mdx).
+Replacing, cropping, or rotating an image makes the previous preview outdated. Click **Preview** again to verify the updated outline, orientation, transparent cutouts, layer images, and physical dimensions. For a step-by-step walkthrough, see [Upload, Crop, and Rotate an Image](../../../knowledge/image-upload-crop-rotate/image-upload-crop-rotate.mdx).

@@ -1,52 +1,38 @@
 ---
 title: "Custom Recipes"
-description: "Edit a region layer by layer, predict colour, apply, extend layer count, and reuse recipe history."
+description: "Edit a region layer by layer, predict color, apply to selection, extend layer count, and reuse recipe history."
 sidebar_position: 6
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Custom Recipes
 
-Custom Recipe assigns a colour to every optical layer of the selected spatial region. Select at least one region in the 2D
-preview, then open Custom Recipe.
+**Custom Recipe** lets you specify the exact filament color on each optical layer of a selected spatial region. Select at least one region in the 2D preview, then click **Custom Recipe** to open the editor.
 
 <img
   src={require('./assets/01-custom-recipe.webp').default}
   alt="Custom Recipe Editor assigning a colour to every layer of the current region"
 />
 
-## Editing the stack
+## Editing the layer stack
 
-Layers follow the active LUT's recorded order. Each layer can be recoloured, added, removed, or moved. Pattern Search
-supports compact entry:
+Layers are listed in the order defined by the active LUT. You can recolor any layer, **Add Layer**, **Remove Layer**, or reorder layers with **Move Up** and **Move Down**. Use the pattern search field at the top for quick shorthand entry:
 
-- a letter uses the first letter of a colour's English name, such as `W`, `B`, `C`, `M`, `Y`, `R`, or `G`;
-- `?` keeps the current layer;
-- `-` is an optional separator.
+- Enter the first letter of a color's English name, such as `W`, `B`, `C`, `M`, `Y`, `R`, or `G`.
+- Use `?` to keep the layer's current color.
+- Use `-` as an optional separator.
 
-Letters are resolved against the active palette. If a letter is not unique, inspect every resulting swatch instead of
-trusting the shorthand alone.
+Shorthand letters match against the active palette. When two palette colors share the same initial, inspect each layer swatch after clicking **Apply Pattern**.
 
 ## Predict Color
 
-Predict Color uses the forward model bundled with the active LUT and reports RGB and Lab. Manual editing and application
-still work without a forward model, but the editor explains that a reliable prediction is unavailable.
+**Predict Color** uses the forward model bundled with the active LUT to estimate the resulting RGB and Lab values. If the LUT has no forward model, the editor notes that prediction is unavailable, while manual stack editing and application continue to work normally.
 
-Prediction does not include variation from filament batches, build-plate texture, lighting, or camera white balance.
+Predicted values reflect the optical model; physical prints also vary with filament batch, build-plate texture, lighting, and camera white balance.
 
 ## Apply to Selection
 
-Apply to Selection stores the stack for one or more selected regions and rebuilds the preview. If the recipe contains more
-layers than the current preview, the whole image must be rendered with the higher optical-layer count; the editor asks for
-confirmation a second time.
+**Apply to Selection** saves the layer stack to one or more selected regions and rebuilds the preview. When your custom stack uses more layers than the current preview, the full image re-renders at the higher optical-layer count after a confirmation prompt.
 
-A recipe can refer to existing LUT materials and virtual materials introduced by the edit. Those declarations travel with
-the regional override into 3MF generation so that a colour visible in preview is not lost as a missing object.
+A custom recipe can use both existing LUT materials and virtual materials introduced during editing. Both are passed into 3MF generation alongside regional overrides so every previewed color produces its corresponding 3MF object.
 
-Every successful application creates a history snapshot that can be reused on another region. Undo Edit affects only
-changes not yet applied inside the editor; Undo in the workstation toolbar handles confirmed replacements.
+Each applied stack is saved to **Recipe History** for one-click reuse on other regions. **Undo edit** inside the dialog reverts only unapplied changes in the editor, whereas **Undo** in the workstation toolbar reverts confirmed replacements.

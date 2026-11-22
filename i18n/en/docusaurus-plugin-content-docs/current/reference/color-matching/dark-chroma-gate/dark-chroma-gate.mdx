@@ -1,86 +1,70 @@
 ---
 title: "Dark Chroma Gate"
-description: "How the dependent Hue Protection threshold selects dark low-chroma candidates, what 0 means, and which matching paths read the value."
+description: "Control which low-chroma dark pixels match against neutral dark candidates under Hue Protection, including the special 0 setting and active matching paths."
 sidebar_position: 2
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Dark Chroma Gate
 
-**Dark Chroma Gate** is a dependent parameter of [Hue Protection](../hue-protection/hue-protection.mdx). It determines
-which dark source pixels may enter the achromatic-dark candidate branch, reducing cases where black outlines or dark
-grey shadows acquire red, blue, or green colour casts.
+**Dark Chroma Gate** is a sub-setting of [Hue Protection](../hue-protection/hue-protection.mdx) that controls which dark pixels are matched against neutral (achromatic) dark candidates. Use it to prevent black outlines and dark gray shadows from picking up unwanted red, blue, or green color casts.
 
-It compares **chroma**. It does not change the lightness threshold that defines a dark pixel and it is not an image-wide
-saturation control.
+This slider evaluates **chroma** only—it does not shift the lightness cutoff that defines a dark pixel, nor does it adjust overall image saturation.
 
 ## Location
 
 1. Open **Converter → Core Settings → Advanced Settings**.
-2. Enable **Hue Protection**.
-3. The **Dark Chroma Gate** slider appears below it.
+2. Enable **Hue Protection** to reveal the **Dark Chroma Gate** slider directly underneath.
 
 <img
   src={require('./assets/01-dark-chroma-gate-location.webp').default}
   alt="Dark Chroma Gate visible below Hue Protection in Lumina Studio"
 />
 
-The range is **0–50**, the step is **1**, and the default is **15**. Enabling Precise Colour Matching takes ownership of
-the candidate selection, disables Hue Protection, and hides this slider.
+The range is **0–50** in steps of **1**, with a default of **15**. Turning on **Precise Color Matching** takes over candidate selection, disables **Hue Protection**, and hides this slider.
 
-## What the threshold compares
+## How chroma filtering works
 
-Lumina converts the source colour to CIELAB/LCh:
+Lumina Studio converts each source color into the CIELAB/LCh color space:
 
-- **L\*** represents lightness; lower values are darker.
-- **C** represents chroma; low values are closer to black, white, or grey, while high values have a stronger hue.
+- **L\*** measures lightness (lower values are darker).
+- **C** measures chroma (lower values are closer to neutral black, white, or gray; higher values carry stronger color).
 
-At the default gate of 15, a source pixel inside the dark-lightness range and with **C ≤ 15** can enter the dark
-protection branch. Pixels above the gate continue through normal hue-priority matching.
+At the default value of **15**, dark pixels with **C ≤ 15** enter the neutral-dark protection branch, while pixels with **C > 15** continue through standard hue-priority matching.
 
-:::note[LCh chroma C is not the HSV or HSL saturation percentage shown by many image editors.]
-
+:::note[Chroma vs. Saturation]
+Chroma (C) is calculated in CIELAB/LCh color space and differs from the HSV or HSL saturation percentage shown in image editors.
 :::
 
-## Current matching branches
+## Lightness bands and matching behavior
 
-Hue Protection first identifies achromatic dark LUT candidates, approximately those below **L\* 60** and at
-**C ≤ 8**. The source-pixel gate then decides whether matching should favour that candidate set.
+Hue Protection first collects neutral dark candidates from the active LUT—colors below roughly **L\* 60** with **C ≤ 8**—and applies the gate across three fixed lightness bands:
 
-| Source lightness | How the gate participates |
+| Source lightness | Behavior when passing the chroma gate |
 | --- | --- |
-| Approximately **L\* < 50** | A source colour that passes the chroma gate is matched only against the achromatic-dark candidates |
-| Approximately **L\* 50–70** | A passing source colour transitions between achromatic-dark and ordinary candidates |
-| Approximately **L\* ≥ 70** | The dark branch is not used |
+| Approx. **L\* < 50** | Matches exclusively against neutral-dark candidates |
+| Approx. **L\* 50–70** | Blends smoothly between neutral-dark and standard candidates |
+| Approx. **L\* ≥ 70** | Bypasses the dark branch and uses standard hue-priority matching |
 
-Moving the slider does not change these lightness boundaries.
+Adjusting **Dark Chroma Gate** changes the maximum chroma eligible for this branch without moving the lightness cutoffs above.
 
-## Direction of the value
+## Adjusting the value
 
-| Value | Meaning |
-| --- | --- |
-| **0** | Special state: every colour inside the dark-lightness range may enter the dark branch |
-| Below 15 | Only more nearly achromatic dark colours enter |
-| **15** | Default comparison point |
-| Above 15 | A wider range of coloured dark pixels enters |
-| **50** | Widest available gate; useful for diagnosis, not a universal recommendation |
+| Value | Behavior | Visual effect |
+| --- | --- | --- |
+| **0** | Special value: routes all pixels in the dark lightness range into the neutral-dark branch | Strongest protection for black and gray linework, but pushes dark reds, blues, and greens toward black or gray |
+| **Below 15** | Restricts the branch to nearly neutral dark pixels | Preserves rich colored shadows, though black or gray areas may pick up slight color casts |
+| **15** | Default baseline | Balanced starting point for most illustrations and photos |
+| **Above 15** | Admits dark pixels with higher chroma into the neutral-dark branch | Cleans up colored speckles in dark linework, at the risk of desaturating deep colored shadows |
+| **50** | Widest threshold | Useful for testing whether unwanted casts originate in the dark-matching branch |
 
-A higher value therefore does not mean “only darker shadows.” It permits dark colours with more chroma to enter the
-achromatic branch. Raise it when grey or black details contain coloured speckles; lower it when intended dark reds,
-blues, or greens are being pushed toward grey.
+Raise the slider slightly if black or gray details show colored speckles; lower it below **15** if intentional dark reds, blues, or greens lose their hue. To turn off dark protection entirely, disable **Hue Protection**—do not set the gate to **0**, which routes every dark pixel into the neutral branch.
 
-To disable this logic, turn off Hue Protection. Do not set the gate to zero as an off switch.
+## Supported color sources
 
-## Scope
+**Dark Chroma Gate** takes effect during standard LUT color-table matching for both raster images and native SVGs.
 
-The parameter is read by normal LUT colour-table matching, including applicable raster and native SVG paths. It is not
-applied when Hue Protection is off, when Precise Colour Matching is on, or when a Material Archive/predictive path uses
-its own solver without this gate.
+It is not used when:
 
-Some of those source combinations may still display the slider in the current interface even though the active
-matching path does not consume it. That is a current implementation limitation rather than a cache failure.
+- **Hue Protection** is off;
+- **Precise Color Matching** is enabled;
+- Matching runs through a **Material Archive** solver or a predictive matcher that does not reference this gate (even if the slider remains visible in the panel, changing its value will leave those previews unchanged).

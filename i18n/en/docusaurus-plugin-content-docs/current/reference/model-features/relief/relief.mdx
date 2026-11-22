@@ -1,19 +1,12 @@
 ---
 title: "Relief"
-description: "How Relief, maximum height, luminance direction, and custom heightmaps affect the generated geometry."
+description: "How Relief, maximum height, luminance direction, and custom heightmaps shape 2.5D model geometry."
 sidebar_position: 2
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Relief
 
-Relief turns a flat colour model into 2.5D geometry. Colour recipes still control the surface colour; the Relief settings
-control the height assigned to each region.
+Relief turns a flat color model into 2.5D textured geometry. Color recipes still determine surface colors, while Relief settings control the height assigned to each region.
 
 <img
   src={require('./assets/01-relief-settings.webp').default}
@@ -22,33 +15,30 @@ control the height assigned to each region.
 
 ## What enabling Relief changes
 
-- Structure Mode is forced to Single-sided.
-- Cloisonné is disabled because the two geometry paths are mutually exclusive.
-- If a palette exists but has no height data, Lumina creates an initial map using the selected luminance direction.
-- The old preview and 3MF become stale and must be regenerated.
-- Relief is currently unavailable in Vector mode.
+- Structure Mode switches to Single-sided.
+- Cloisonné turns off because the two geometry modes are mutually exclusive.
+- When a palette exists without height data, Lumina creates an initial height map using the selected luminance direction.
+- Regenerate the preview and 3MF to apply the updated geometry.
+- Relief is unavailable in Vector modeling mode.
 
 ## Maximum height
 
-The range is **0.08–15 mm** in **0.04 mm** steps. Changing the maximum rescales existing colour heights
-proportionally instead of flattening every colour to the same value.
+**Maximum Height** ranges from **0.08–15 mm** in **0.04 mm** steps. Changing the maximum rescales existing color heights proportionally, preserving relative relief across the palette.
 
-With Material Archive, the minimum also has to contain the current optical stack. Lumina derives a safe lower bound from
-the material layer count and backing thickness.
+With a Material Archive, the minimum height also accommodates the active optical stack and backing thickness so every color layer fits cleanly.
 
 ## Auto Height Mode
 
 | Mode | Height source | Result |
 | --- | --- | --- |
-| Darker Higher | Current palette luminance | Darker colours receive more height |
-| Lighter Higher | Current palette luminance | Lighter colours receive more height |
-| Use Heightmap | A separately uploaded image | Image luminance becomes continuous height |
+| Darker Higher | Current palette luminance | Darker colors receive greater height |
+| Lighter Higher | Current palette luminance | Lighter colors receive greater height |
+| Use Heightmap | A separately uploaded image | Image luminance maps to continuous height |
 
-Changing either luminance mode recalculates the map immediately. Use Heightmap accepts PNG, JPEG, BMP, or TIFF after a
-normal preview has created the active session.
+Switching between **Darker Higher** and **Lighter Higher** recalculates the height map immediately. **Use Heightmap** accepts PNG, JPEG, BMP, or TIFF files once a standard preview has created an active session.
 
-Start with a shallow value, inspect the 3D result, then increase it gradually. Always inspect the highest areas, thin edges,
-and backing again in the slicer.
+## Workflow tips
 
-Related: [Structure Mode](../../converter-basic/structure-mode/structure-mode.mdx) and
-[Transparent Coating](../transparent-coating/transparent-coating.mdx).
+Start with a shallow height, inspect the 3D result to verify relief direction and fine details, then increase height gradually. Before printing, inspect peak regions, thin edges, and backing continuity layer by layer in your slicer.
+
+Related: [Structure Mode](../../converter-basic/structure-mode/structure-mode.mdx) and [Transparent Coating](../transparent-coating/transparent-coating.mdx).

@@ -1,48 +1,36 @@
 ---
 title: "Color Data Source"
-description: "Compare Material Archive and Classic LUT sources and learn what to check after switching."
+description: "Compare Material Archive and Classic LUT color data sources and see what resets when you switch between them."
 sidebar_position: 2
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Color Data Source
 
-Color Data Source determines which colour data Lumina Studio uses to turn image colours into printable, layer-by-layer material
-recipes. It does not alter the source image, but it changes the brands, databases, layer modes, and backing materials available
-later in the workflow.
+**Color Data Source** selects which color data Lumina Studio uses to convert image colors into printable, layer-by-layer filament recipes. Changing the source leaves your artwork untouched while updating the material library, brand LUT, layer count, and base plate options shown below it.
 
 <img
   src={require('./assets/02-current-source.webp').default}
   alt="Color Data Source in Basic Settings, showing Material Archive and Classic LUT"
 />
 
-## The two sources
+## Comparing the Two Sources
 
-| Option | Data used | Typical use |
+| Option | Data used | When to use |
 | --- | --- | --- |
-| Material Archive | Individual filament profiles extracted from gradient cards | Freely combining measured materials and solving recipes for that set |
-| Classic LUT | A precomputed colour-to-recipe lookup table | Existing LUTs, compatible multi-LUT sets, or a LUT file you import |
+| Material Archive | Individual filament profiles measured from gradient cards and saved in your material library | Freely combining measured spools and letting the solver calculate recipes for that set |
+| Classic LUT | A precomputed color-to-recipe lookup table | Using built-in LUTs, combining compatible multi-LUT sets, or importing your own LUT file |
 
-The same image can produce different candidates and recipes under each source. Material Archive is selected by default if no
-preference has been saved; an existing source preference is retained.
+The same image can produce different candidate palettes and layer recipes under each source. **Material Archive** is selected by default when no preference has been saved; afterward, Lumina Studio remembers your last selection.
 
-Older versions also offered Inferred LUT. The current source selector does not expose that option; its
-[older documentation](../inferred-lut-source/inferred-lut-source.mdx) is retained for reference.
+Earlier versions also included an Inferred LUT option, which is no longer part of this selector; see its [older documentation](../inferred-lut-source/inferred-lut-source.mdx) for background.
 
-## What switching resets
+## Switching Sources
 
-Switching sources invalidates the current preview, 3MF, and download URL so results from the previous data source cannot be
-reused accidentally.
+Switching **Color Data Source** clears the active preview, generated 3MF, and download link, and resets settings specific to the previous source. After switching, confirm your chosen materials or LUT and generate a fresh preview and model.
 
-Confirm the selected materials or LUT and generate a fresh preview after every switch. A previously downloaded 3MF is not
-updated to use the new source.
-
-## Continue with the selected source
+## Continue with Your Selected Source
 
 - [Classic LUT](../legacy-lut-source/legacy-lut-source.mdx)
 - [Material Archive](../material-archive-source/material-archive-source.mdx)
+
+When working with individual spools measured from gradient cards in your material library, select **Material Archive** directly; **Classic LUT** is solely for prebuilt lookup tables.

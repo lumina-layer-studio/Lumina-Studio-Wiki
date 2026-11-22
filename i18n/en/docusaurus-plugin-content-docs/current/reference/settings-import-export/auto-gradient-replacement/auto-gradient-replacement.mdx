@@ -1,20 +1,12 @@
 ---
 title: "Auto Gradient Replacement"
-description: "Rules, scope, and manual alternative for automatically collapsing gradient bands after preview."
+description: "Workflow, default behavior, and manual Color Workstation controls for collapsing gradient bands after preview."
 sidebar_position: 5
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Auto Gradient Replacement
 
-When a material profile maps a continuous gradient to a finite set of recipes, a smooth area can become several similar
-bands. Auto Gradient Replacement detects these groups after preview and replaces every colour in a group with the
-representative colour that covers the most pixels.
+When a material profile maps a smooth gradient onto a finite set of filament recipes, subtle transitions can split into stepped color bands. **Auto Gradient Replacement** detects those band groups after preview and merges each group into the single color that covers the most pixels.
 
 <img
   src={require('./assets/01-auto-gradient.webp').default}
@@ -23,24 +15,21 @@ representative colour that covers the most pixels.
 
 ## Processing order
 
-1. Complete normal image processing and material colour matching.
-2. Analyse gradient-band groups in the preview.
-3. Select the colour with the largest pixel count in each group.
-4. Confirm the replacements as a batch and refresh the 2D and 3D previews.
+1. Complete standard image processing and material color matching.
+2. Analyze gradient-band groups in the preview.
+3. Pick the color with the highest pixel count in each group.
+4. Apply the replacements as a batch and refresh the 2D and 3D previews.
 
-Images with many gradients therefore perform one extra replacement pass after the initial preview, so the final image may
-appear slightly later.
+Because artwork with heavy gradients runs this extra pass right after matching, the final preview may take a moment longer to appear.
 
-## Default behaviour
+## Default behavior and manual refinement
 
-The option is off by default. With it off, the raw matched result remains available for inspection in Color Workstation.
-You can review each detected group and apply the same operation manually, then undo or refine individual changes.
+This option is off by default, keeping the raw matched palette intact so you can inspect detected groups in Color Workstation and merge only the ones you choose. Automatic and manual merges share the same grouping engine, and every change can still be undone or refined individually.
 
-The operation reduces banding caused by a finite recipe set. It does not increase the available colour count and does not
-change regions that were not detected as part of the same gradient group.
+Merging bands smooths stepped transitions within detected gradient groups while leaving total color capacity and unrelated regions untouched.
 
 Related pages:
 
 - [Color Workstation](../../preview-and-palette/color-workstation/color-workstation.mdx)
-- [Selection Modes, Palette, and Free Colours](../../preview-and-palette/selection-modes/selection-modes.mdx)
+- [Selection Modes, Palette, and Free Colors](../../preview-and-palette/selection-modes/selection-modes.mdx)
 - [Material Profile Source](../../converter-basic/material-archive-source/material-archive-source.mdx)

@@ -1,51 +1,38 @@
 ---
 title: "2D Preview and Hover Inspection"
-description: "Zoom, original-image comparison, hover inspection, and region outlines in the 2D preview."
+description: "Zoom, original-image comparison, hover layer inspection, and cyan region outlines in the 2D preview."
 sidebar_position: 2
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # 2D Preview and Hover Inspection
 
-The 2D preview is the colour result used by the active modelling session. It also drives colour selection, connected-region
-detection, and layer inspection; it is not merely a thumbnail.
+The 2D preview displays the exact color result used for 3D modeling and lets you pick colors, select connected regions, and inspect optical filament layers directly on the canvas.
 
 <img
   src={require('./assets/01-hover-inspector.webp').default}
   alt="Magnifier, pixel coordinates, predicted colour, and layer colours over the 2D preview"
 />
 
-## Inspecting detail
+## Zooming and comparing with the original
 
-- Use the wheel or trackpad to zoom from `50%` to `1000%`.
-- Drag with the right mouse button to pan; double-click to reset the view.
-- Hold the comparison button, or hold `Shift` outside an input, to show the uploaded original.
-- Releasing the button or `Shift`, or moving focus away from the window, restores the processed result.
+- **Zoom:** Scroll with the mouse wheel or trackpad to zoom between `50%` and `1000%`.
+- **Pan and reset:** Right-click and drag to pan across the canvas; double-click to reset the zoom level.
+- **Compare original:** Hold the compare button in the upper-right corner—or hold `Shift` when focus is outside a text field—to temporarily view the uploaded source image. Releasing the button or `Shift` (or switching window focus) immediately restores the processed preview.
 
-Pixel-crisp rendering keeps actual preview boundaries visible at high zoom instead of smoothing them away.
+Pixel-crisp rendering keeps individual preview pixels sharp at high zoom so you can inspect exact region edges without blur.
 
 ## Hover inspector
 
-Hovering over the image can show:
+Hovering over any pixel on the canvas displays:
 
-- the pixel coordinate;
-- predicted surface colour;
-- the colour at the same point in every optical layer;
-- either the magnifier or layer data when the other display toggle is off.
+- Exact pixel coordinates;
+- Predicted surface color;
+- Filament color on every optical layer at that point.
 
-Layer images are loaded only when first needed. Transparent pixels and layers with no material are not assigned a fake
-colour. These are Lumina recipe layers, not proof of the slicer's final filament-slot assignment.
+Use the **Magnifier** and **Layer Colors** toggles in the middle column to show or hide either section independently. Layer images load on demand when first inspected, and transparent pixels or empty layers appear blank. **Layer Colors** reflects the optical stack order in the Lumina recipe; final physical AMS slot assignments are mapped in your slicer.
 
-## Cyan outlines
+## Cyan selection outlines
 
-Clicks follow the active [selection mode](../selection-modes/selection-modes.mdx). Single- and multi-region modes send the
-real pixel coordinate to connected-component detection; All highlights the selected matched colours across the image.
+Clicking the canvas outlines your target based on the active [selection mode](../selection-modes/selection-modes.mdx). Region-based tools trace the connected component around the clicked pixel in cyan, whereas **Same color** highlights all matching pixels across the entire image.
 
-When a selection originates from one gradient region, the workstation uses the exact spatial mask returned by the backend.
-It does not outline every other pixel with the same HEX value, preventing a local gradient band from looking like a
-whole-image selection.
+When you select an individual area from **Gradient Groups**, Color Workstation outlines only that region's exact spatial mask rather than every pixel sharing the same HEX value elsewhere in the artwork.

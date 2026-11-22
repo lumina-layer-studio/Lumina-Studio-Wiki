@@ -1,19 +1,12 @@
 ---
 title: "Keychain Loop parameters"
-description: "Loop width, length, hole diameter, rotation and offsets, plus mutually exclusive modes."
+description: "Loop width, length, hole diameter, rotation, X/Y offsets, and mode compatibility."
 sidebar_position: 5
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Keychain Loop parameters
 
-The loop is real geometry in the final 3MF, not a preview marker. Its thickness follows the model's total layer stack and
-its material comes from the slot assigned during generation.
+Keychain Loop generates dedicated loop geometry in the exported 3MF. Its thickness matches the model's total layer stack, and its color comes from the filament slot assigned during generation.
 
 <img
   src={require('./assets/01-keychain-loop-settings.webp').default}
@@ -24,20 +17,20 @@ its material comes from the slot assigned during generation.
 
 | Parameter | Range | Effect |
 | --- | --- | --- |
-| Loop Width | 2–10 mm, 0.5 mm steps | Outer horizontal size |
-| Loop Length | 4–15 mm, 0.5 mm steps | Distance from the attachment end outward |
-| Loop Hole Diameter | 1–5 mm, 0.25 mm steps | Opening for a ring or lanyard |
+| Loop Width | 2–10 mm, 0.5 mm steps | Outer horizontal width |
+| Loop Length | 4–15 mm, 0.5 mm steps | Outward length from the attachment end |
+| Loop Hole Diameter | 1–5 mm, 0.25 mm steps | Inner opening for a jump ring or lanyard |
 
-The hole must leave enough printable wall around it. A value being accepted by the interface does not guarantee that every
-nozzle, material, or connector can print it reliably.
+Keep **Loop Hole Diameter** smaller than the outer width and length so a sturdy, printable wall remains around the hole for your nozzle and filament.
 
 ## Position
 
-- **Rotation Angle:** -180° to 180°; 0° points upward and positive values rotate clockwise.
-- **X Offset:** -200 to 200 mm; positive moves right.
-- **Y Offset:** -200 to 200 mm; positive moves up.
+- **Rotation Angle:** -180° to 180°; 0° points straight up, and positive values rotate clockwise.
+- **X Offset:** -200 to 200 mm; positive values move right.
+- **Y Offset:** -200 to 200 mm; positive values move up.
 
-Offsets are relative to the model centre. Excessive offsets detach the loop from the body.
+Offsets are measured from the model center. Overlap the base of the loop slightly with the model edge so the loop stays anchored to the body.
 
-Puzzle or Fridge Magnet mode disables the loop. Regenerate the 3MF after every change, then verify that the loop is joined
-to the body and that the opening survives slicing.
+## Mode compatibility and slicer check
+
+Enabling Puzzle or Fridge Magnet mode turns off and disables Keychain Loop. Regenerate the 3MF after changing any loop setting, then inspect the object list and sliced toolpaths to confirm that the loop merges cleanly into the body and the opening stays clear.

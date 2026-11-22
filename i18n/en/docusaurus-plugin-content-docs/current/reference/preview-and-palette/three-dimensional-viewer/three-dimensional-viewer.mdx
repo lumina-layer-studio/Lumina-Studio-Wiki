@@ -1,49 +1,37 @@
 ---
 title: "3D Viewer, Screenshot, Performance, and Diagnostics"
-description: "Use the 3D camera, Fullscreen and Screenshot, and interpret the Performance and Diagnostics panels."
+description: "Navigate the 3D viewport, capture screenshots, and read the Performance and Diagnostics panels."
 sidebar_position: 8
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # 3D Viewer, Screenshot, Performance, and Diagnostics
 
-After Preview or Generate, the 3D Viewer places the model on the selected machine's build-plate
-grid. Use it to inspect orientation, outline, structural additions, and approximate scale. It is
-not a slicer toolpath Preview.
+After running **Preview** or **Generate**, the 3D Viewer places your model on the active printer's build-plate grid so you can inspect orientation, silhouette, structural attachments, and overall scale. Check your slicer preview to inspect final toolpaths and printable layers.
 
 <img
   src={require('./assets/viewer-main.webp').default}
   alt="Real Lumina Studio English 3D Preview with build plate and viewer controls"
 />
 
-## Camera interaction
+## Camera controls
 
-- hold and drag on the canvas to orbit around the model;
-- scroll the mouse wheel to move nearer or farther;
-- camera movement uses damping and stops smoothly;
-- selecting the canvas outside a model clears the active magnet when Fridge Magnet editing is on.
+- **Orbit:** Click and drag on the canvas to rotate around the model.
+- **Zoom:** Scroll the mouse wheel to move closer or farther away.
+- **Smooth damping:** Camera motion decelerates smoothly when you release the pointer.
+- **Deselect magnet:** While editing Fridge Magnet slots, clicking empty space outside the model clears the active magnet selection.
 
-The camera permits a large distance range. If the model appears extremely small, verify target and
-Preview dimensions rather than using magnification alone to decide whether a feature is printable.
+The camera supports a wide zoom range; if your model looks tiny on the build plate, verify your target and preview dimensions first.
 
-## Four bottom-right controls
+## Bottom-right toolbar
 
-From left to right:
+From left to right, the four buttons in the lower-right corner open:
 
-1. **Performance;**
-2. **Diagnostics;**
-3. **Fullscreen;**
-4. **Screenshot.**
+1. **Performance**
+2. **Diagnostics**
+3. **Fullscreen**
+4. **Screenshot**
 
-Fullscreen appears only when the browser exposes the Fullscreen API. Exiting returns to the same
-workspace. Screenshot reads the current WebGL canvas and downloads
-`lumina-3d-screenshot-<timestamp>.png`. It is a picture of the 3D canvas, not a share card, and
-contains no recoverable recipe.
+**Fullscreen** appears automatically in browsers that support the Fullscreen API, and exiting returns directly to the same workspace. **Screenshot** captures the current WebGL viewport as `lumina-3d-screenshot-<timestamp>.png`. To save recoverable settings and filament recipes alongside an image, use **Export Share Card** or **Export JSON** instead.
 
 ## Performance
 
@@ -52,20 +40,19 @@ contains no recoverable recipe.
   alt="Lumina Studio Performance panel showing timing from a real Preview request"
 />
 
-The panel uses timing fields from the latest Preview and Generate responses:
+The **Performance** panel breaks down execution time from your latest **Preview** or **Generate** run:
 
-| Field | Meaning |
+| Metric | Meaning |
 | --- | --- |
-| Total | total request-to-completion time for that stage |
-| Upload processing | time spent receiving and preparing the input |
-| Worker | backend worker computation |
-| Cache load | reading existing intermediate data |
-| Preview GLB | building the segmented model shown by the 3D Viewer |
-| Palette | preparing Preview colours and recipe information |
-| Overhead | Generate time outside the core worker calculation |
+| Total | End-to-end duration for the completed stage |
+| Upload processing | Time spent receiving and preparing the source image |
+| Worker | Core color conversion and 3D geometry computation time |
+| Cache load | Time spent reading cached intermediate data |
+| Preview GLB | Time spent building the segmented GLB mesh for the 3D Viewer |
+| Palette | Time spent assembling preview color coverage and recipe data |
+| Overhead | Request handling and transfer time outside core computation |
 
-A section appears only when the backend returned its timing data. Performance and Diagnostics are
-mutually exclusive; opening either closes the other.
+Only stages involved in the latest run are displayed. **Performance** and **Diagnostics** are mutually exclusive—opening one closes the other.
 
 ## Diagnostics
 
@@ -74,24 +61,18 @@ mutually exclusive; opening either closes the other.
   alt="Lumina Studio Diagnostics panel showing source, FPS, heap, triangles, calls, textures, and canvas"
 />
 
-| Field | Meaning |
+| Metric | Meaning |
 | --- | --- |
-| Source | Preview GLB, generated model, batch Preview, or idle canvas |
-| FPS / frame time | actual browser refresh rate and estimated time per frame |
-| JS heap | used and total JavaScript heap when the browser exposes it |
-| Triangles | triangles submitted by the current renderer |
-| Calls | draw calls in the current frame |
-| Textures | textures held by the renderer |
-| Canvas | WebGL pixel dimensions and device pixel ratio |
+| Source | Active viewport content: preview GLB, generated model, batch preview, or idle canvas |
+| FPS / frame time | Live browser frame rate and estimated render time per frame |
+| JS heap | Used and total JavaScript heap memory (when exposed by the browser) |
+| Triangles | Total triangles submitted in the current frame |
+| Calls | WebGL draw calls per frame |
+| Textures | Active textures held by the renderer |
+| Canvas | WebGL canvas pixel dimensions and device pixel ratio |
 
-Use Diagnostics to separate slow backend generation from a model that has completed but renders
-slowly on the local browser. Low FPS with very high triangle or call counts can be improved by
-disabling unnecessary advanced 3D structures, reducing Preview complexity, and checking browser
-hardware acceleration. Diagnostics does not judge print quality and does not alter model settings.
+Use **Diagnostics** to tell whether a delay comes from model generation or from local WebGL rendering. If FPS drops alongside high triangle or draw-call counts, turn off unneeded 3D attachments, lower preview complexity, and check that browser hardware acceleration is enabled.
 
-## Relationship to High-precision 3D color Preview
+## Relationship to High-precision 3D Color Preview
 
-**High-precision 3D color Preview** changes how surface colour is displayed. Performance and
-Diagnostics only observe the current 3D canvas. See
-[High-precision 3D Color Preview](../high-precision-3d-preview/high-precision-3d-preview.mdx)
-for colour-rendering behaviour and limits.
+**High-precision 3D Color Preview** controls how many color meshes are retained on the preview surface, while **Performance** and **Diagnostics** monitor live viewport load. For details on mesh budgets and memory impact, see [High-precision 3D Color Preview](../high-precision-3d-preview/high-precision-3d-preview.mdx).

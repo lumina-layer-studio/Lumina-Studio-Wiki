@@ -1,43 +1,40 @@
 ---
 title: "Slicer and downloads"
-description: "Main output action, detected slicers, switching applications, 3MF downloads, and Large Format ZIP files."
+description: "Launch detected slicers directly, switch target applications, or download single 3MF files and tiled Large Format ZIP archives."
 sidebar_position: 13
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Slicer and downloads
 
-Lumina detects slicers it can launch and prioritises the application selected in Settings. The primary action depends on
-slicer availability, whether an artifact already exists, and Large Format state.
+Lumina Studio detects compatible slicers installed on your computer and prioritizes the preferred application configured in Settings. What the primary output button does depends on whether a slicer is available, whether a 3MF is already built, and whether Large Format or separate backing is enabled.
 
 <img
   src={require('./assets/01-slicer-list.webp').default}
   alt="Detected slicers and the Download 3MF option"
 />
 
-| State | Main-button action |
+## Primary Button Actions
+
+| Current state | Action when clicked |
 | --- | --- |
-| Slicer detected, no artifact | Generate the 3MF, then open it in the selected slicer |
-| Slicer detected, artifact ready | Open the current artifact directly |
-| No slicer detected | Generate and download, or download the existing 3MF |
-| Large Format | Generate or download a ZIP of tiled 3MF files; do not auto-open it |
-| Independent backing projects | Download a ZIP with separate model and backing 3MFs; unpack and open each |
+| Slicer detected, 3MF not yet built | Generates the 3MF and opens it in the selected slicer |
+| Slicer detected, 3MF ready | Opens the current 3MF directly in the selected slicer |
+| No slicer detected | Generates and downloads the 3MF (or downloads the ready file) |
+| Large Format enabled | Generates or downloads a ZIP archive of tiled 3MF files without auto-opening a slicer |
+| Separate backing project | Downloads a ZIP archive containing separate model and backing 3MFs to unpack and open individually |
 
-As of October 19, 2026, the menu provides Generate and download 3MF, which generates the file first when no current artifact exists. If the preferred application from Settings is missing, Lumina reports the mismatch instead of claiming a successful launch.
+You can also open the dropdown menu next to the button and select **Generate & Download 3MF** at any time—if no 3MF exists yet, Lumina Studio builds it first and saves it without launching a slicer. If the preferred slicer set in Settings is not installed, Lumina Studio notifies you so you can pick another detected slicer or download the file directly.
 
-Resolve filament-preset or build-plate selection prompts before generation. After changing artwork, colors, or structure, generate a file that matches the new state. Files already downloaded to disk do not update themselves.
+If a filament-preset or build-plate prompt appears before generation, confirm those choices first. Whenever you edit the artwork, color assignments, or structure settings, generate a fresh 3MF so your exported file reflects the latest changes. In the desktop app, you can configure a default save folder in Settings; save dialogs open there first while still letting you pick another folder per download.
 
-The desktop version lets you set a default save location. Save dialogs open there first, but you can choose another location for an individual download.
+## Checks in Your Slicer
 
-## Final slicer checks
+A 3MF carries mesh geometry and material metadata, while your slicer controls the final machine-specific settings. Before sending a print job, verify:
 
-Verify the printer and nozzle, physical filament assignment, build-plate placement, display-face direction, and every
-fine feature or attachment in the sliced layers. A 3MF can carry model and material metadata, but the slicer makes the final
-machine-specific decisions.
+1. Printer model and nozzle diameter;
+2. Physical filament slot assigned to each object;
+3. Flat contact between the model and the build plate;
+4. First-layer orientation and display-face direction;
+5. Fine lines, holes, and attached geometry in the layer-by-layer slice preview.
 
-Related: [Material mapping in a slicer](../../../tutorials/slicer-material-mapping/slicer-material-mapping.mdx).
+Related guide: [Material mapping in a slicer](../../../tutorials/slicer-material-mapping/slicer-material-mapping.mdx).

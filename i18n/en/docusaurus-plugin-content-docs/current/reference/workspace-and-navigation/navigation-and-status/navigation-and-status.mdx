@@ -1,20 +1,12 @@
 ---
 title: "Navigation, Language, Theme, and Connection Status"
-description: "Understand Lumina Studio's primary and secondary navigation, language and theme controls, backend status, and update announcements."
+description: "Overview of Lumina Studio's primary and secondary navigation, language and theme controls, backend connection indicator, and update announcements."
 sidebar_position: 1
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Navigation, Language, Theme, and Connection Status
 
-The header contains the product identity, workspace navigation, and global status controls.
-Changing pages does not start Preview, Generate, or Save, and the current editing state
-normally remains available.
+The top bar houses the app identity, workspace navigation, and global status controls. Switching pages preserves your current form values and editing state without automatically triggering Preview, Generate, or Save.
 
 <img
   src={require('./assets/02-current-navigation.webp').default}
@@ -25,58 +17,43 @@ normally remains available.
 
 | Page | Purpose |
 | --- | --- |
-| Converter | import artwork, choose a colour source and structure, Preview, and generate 3MF |
-| LUT Management | manage LUTs, create calibration boards, extract LUTs from photographs, and inspect or compare LUTs |
-| Material Management | manage material archives, generate or extract gradient cards, and query layer recipes |
-| Vectorizer | convert a bitmap into SVG for further editing or transfer to Converter |
-| Creative Workshop | browse and use creative modules |
-| Settings | select the machine, nozzle, and slicer, and manage compute, cache, and interface options |
+| Converter | Import artwork, choose a color source and structure, preview, and export 3MF |
+| LUT Management | Manage LUTs, generate calibration boards, extract LUTs from photos, and inspect or compare LUTs |
+| Material Management | Manage material archives, generate or extract gradient cards, and query layer recipes |
+| Vectorizer | Convert bitmaps into editable SVGs or send them directly to Converter |
+| Creative Workshop | Browse and launch creative modules |
+| Settings | Configure your printer, nozzle, and slicer, and manage compute, cache, and interface options |
 
-LUT Management and Material Management have their own secondary pages. Returning to either
-workspace keeps its current valid secondary page; an invalid stored page falls back to that
-workspace's default.
+**LUT Management** and **Material Management** each include secondary subpages. Returning to either workspace restores the last valid subpage you visited, or falls back to that workspace's default view.
 
 ## Converter secondary pages
 
-- **Core Settings:** image, source, dimensions, backing, mode, common advanced options, and Actions;
-- **Color Adjustment:** 2D Preview, selections, colour replacement, recipes, and colour groups;
-- **Creative Center:** Relief, Outline, Transparent Coating, Keychain Loop, Fridge Magnet, Puzzle, and related structure controls. The Cloisonné entry is currently hidden.
+- **Core Settings:** Artwork upload, color source, physical dimensions, backing, mode, common advanced options, and **Actions**.
+- **Color Adjustment:** 2D Preview, selection tools, color replacement, layer recipes, and color groups.
+- **Creative Center:** Relief, Outline, Transparent Coating, Keychain Loop, Fridge Magnet, Puzzle, and related structure features (the Cloisonné entry is currently hidden).
 
-Core Settings and Creative Center use movable panels. Color Adjustment is a full-screen colour
-workspace, so **Panel Controls** only lists panels that actually exist on the active page.
-See [Show, Collapse, Move, and Reset Panels](../panel-layout/panel-layout.mdx).
+**Core Settings** and **Creative Center** use movable panels, whereas **Color Adjustment** opens a full-screen color workspace—so **Panel Controls** in the header lists only the panels active on the current view. For layout details, see [Show, Collapse, Move, and Reset Panels](../panel-layout/panel-layout.mdx).
 
 ## Language and theme
 
-Choose Simplified Chinese or English under **Settings → General → Language / 界面语言**.
+Switch between Simplified Chinese and English under **Settings → General → Language / 界面语言**.
 
-Open **More options** at the top right and use **Dark mode** to change the theme. It does not change the image,
-recipe, model, or export. On a narrow window, some labels collapse to icons and the navigation
-rows can scroll horizontally.
+Open **More options** at the top right and toggle **Dark mode** to switch between light and dark themes without affecting your image, recipe, mesh, or exported files. On narrower windows, text labels compact into icons and navigation bars scroll horizontally.
 
-## Connection status
+## Backend connection status
 
-Open **More options** at the top right to see whether the frontend can reach the Lumina backend:
+Open **More options** at the top right to check communication between the interface and the local Lumina backend:
 
-- **green:** the latest connection check returned normally;
-- **red:** the latest check failed or the backend was unreachable;
-- **checking:** the first result has not arrived.
+- **Green:** Latest health check succeeded.
+- **Red:** Latest check failed or the backend is unreachable.
+- **Checking:** Waiting for the initial check result after page load.
 
-Lumina checks once when the page loads and then every five seconds. Green only confirms current
-frontend-to-backend communication; it does not prove that a particular LUT, image, temporary
-session, or generation task is valid. The menu button shows a red dot when the connection fails; verify that the Lumina backend is
-running before retrying the action.
+Lumina checks the connection on startup and every five seconds afterward. When communication drops, a red badge appears on the menu button—confirm that the Lumina backend service is running before retrying your task.
 
 ## Update announcements
 
-When a newer unread announcement exists, Lumina presents recent update entries after startup.
-Closing or choosing **Later** dismisses the dialog for the current session. **Got it** records
-the latest announcement version in local browser storage. That reading state is not uploaded and
-does not change Converter settings.
+When unread release notes are available at startup, Lumina displays recent update highlights. Closing the dialog or clicking **Later** dismisses it for the current session; clicking **Got it** saves the latest read version in local browser storage so the prompt stays dismissed until the next update.
 
-## What page changes preserve
+## What page switches preserve
 
-The interface retains current control values, selected pages, and panel layout. Device settings
-also use best-effort backend synchronisation. Temporary Previews, download links, and file sessions
-still expire. For durable work, keep the share card, JSON, 3MF, source artwork, and the actual LUT
-or material archive.
+Moving between pages preserves active control values, selected subpages, and panel layouts, while device settings sync to the backend automatically. Temporary previews, download links, and session files still expire when a session ends—export share cards, JSON recipes, 3MF files, source artwork, and your LUT or material archive whenever you want a permanent backup.

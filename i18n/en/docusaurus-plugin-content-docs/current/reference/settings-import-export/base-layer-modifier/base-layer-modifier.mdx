@@ -1,46 +1,35 @@
 ---
 title: "Base-plate Layer-height Modifier"
-description: "How the base-plate layer-height modifier is written, where it applies, and when it is skipped."
+description: "How the Base-plate Layer-height Modifier calculates variable layer ranges, where it applies, and when it is skipped."
 sidebar_position: 2
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Base-plate Layer-height Modifier
 
-The Base-plate Layer-height Modifier writes a variable-layer configuration into the generated 3MF. The plain base uses a
-coarser layer height while the coloured artwork keeps its original fine layers. It reduces base printing time without
-changing the entire model to coarse layers.
+**Base-plate Layer-height Modifier** writes variable layer-height ranges into the exported 3MF so the plain backing prints with coarser layers to save time, while the colored artwork above retains its fine layer height.
 
 <img
   src={require('./assets/01-base-layer-modifier.webp').default}
   alt="Base-plate layer-height modifier in System Settings"
 />
 
-## Written values
+## Layer-height rules
 
-The base-plate layer height is half the nozzle diameter:
+The base-plate layer height equals half the nozzle diameter:
 
 | Nozzle | Base-plate layer height |
 | --- | --- |
 | 0.2 mm | 0.1 mm |
 | 0.4 mm | 0.2 mm |
 
-Lumina Studio writes the range to the 3MF `layer_config_ranges` data. A compatible slicer can then apply separate layer
-heights to the base and coloured region of the same object.
+Lumina Studio writes this range into the 3MF `layer_config_ranges` metadata, allowing compatible slicers to apply separate layer heights to the backing and color layers within the same object.
 
 ## Scope
 
-- The modifier currently applies to Bambu-family slicer output, so it is hidden for other slicers.
-- Double-sided models require controlled structure and colour order on both faces, so generation skips the modifier.
-- Changing the switch or nozzle size requires a new 3MF generation.
+- Supported for Bambu-family slicer output only; hidden when another slicer is selected.
+- Automatically skipped on double-sided models, which require symmetric layer sequencing across both faces.
+- Regenerate the 3MF after toggling this option or changing the nozzle size.
 
-This setting optimises base-plate time; it is not a universal layer-height recommendation. Always inspect the sliced
-base, materials, and print quality before sending the job.
+Inspect the sliced layer-height preview before printing to confirm smooth transitions between the backing and color layers.
 
-See [Why Base-colour Layer Height Must Match](../../../knowledge/base-color-layer-height/base-color-layer-height.mdx)
-for the relationship between first layers, colour layers, and the base.
+See [Why Base-color Layer Height Must Match](../../../knowledge/base-color-layer-height/base-color-layer-height.mdx) for details on how first layers, color layers, and backing thickness work together.

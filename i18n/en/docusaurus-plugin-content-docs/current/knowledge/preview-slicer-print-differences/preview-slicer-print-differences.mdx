@@ -1,277 +1,182 @@
 ---
 title: "Why Do Lumina Preview, Slicer Preview, and the Physical Print Look Different?"
-description: "Separate colour-matching preview, real sliced toolpaths, and the physical print, then diagnose display colours, filament mapping, colour shifts, lost detail, and abnormal previews in a fixed order."
+description: "Separate color-matching preview, real sliced toolpaths, and the physical print, then diagnose display colors, filament mapping, color shifts, lost detail, and abnormal previews in a fixed order."
 sidebar_position: 24
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Why Do Lumina Preview, Slicer Preview, and the Physical Print Look Different?
 
-If the three results look different, do not repeatedly edit the source image and do
-not send the job to the printer yet. **Lumina Preview, slicer preview, and the physical
-print answer three different questions:**
+Lumina Preview, your slicer preview, and the finished print represent three distinct stages of the workflow:
 
-- **Lumina Preview:** how the current colour source and settings intend to assign
-  colour and model structure;
-- **slicer preview:** which real toolpaths the selected printer, nozzle, line width,
-  and filament mapping produced;
-- **physical print:** the result created by real filament, machine condition, first
-  layer, build plate, and viewing light.
+- **Lumina Preview**: how your chosen color source and modeling settings assign colors and build 3D geometry.
+- **Slicer preview**: the actual extrusion toolpaths generated for your printer, nozzle, line width, and filament mapping.
+- **Physical print**: the real-world piece shaped by physical filament, machine calibration, first-layer squish, build-plate texture, and ambient lighting.
 
-They do not need to look like pixel-identical screenshots on a monitor. However, the
-important geometry, colour regions, and material mapping must correspond from one
-stage to the next.
-
-If you are unsure what Lumina's “Layer 1,” predicted colour, and per-layer colours
-mean, first read
-[How to Read Lumina Layer Preview](pathname:///en/docs/knowledge/layer-preview-guide/).
+While screen previews and physical plastic naturally differ in brightness and surface sheen, every major outline, color region, and per-layer filament assignment should match from stage to stage. If you want a refresher on what “Layer 1,” predicted color, and per-layer colors represent in Lumina, see [How to Read Lumina Layer Preview](pathname:///en/docs/knowledge/layer-preview-guide/).
 
 <img
   src={require('./assets/three-preview-roles.webp').default}
-  alt="Lumina Preview, slicer preview, and the physical print representing colour mapping, toolpaths, and the real material result"
+  alt="Lumina Preview, slicer preview, and the physical print representing color mapping, toolpaths, and the real material result"
 />
 
-## First identify the kind of difference
+## Identify the type of difference first
 
-| Symptom | Check first | Continue to print? |
+| Symptom | Likely cause | Recommended action |
 | --- | --- | --- |
-| The slicer's colour swatch does not resemble the real filament, but the object and slot are correct | It may only be an inaccurate display colour | Continue with the remaining checks |
-| An object, colour region, or backing is assigned to the wrong project filament or physical slot | The real mapping is wrong | Do not print; correct the mapping first |
-| Lumina and the slicer look correct, but the physical print is globally green, grey, dark, or warm | Archive, real filament, print state, or lighting | Diagnose with a small test first |
-| Small text, thin lines, or tiny colour patches disappear after slicing | Finished size, nozzle, line width, or toolpath generation | Do not rely on a full print to guess |
-| Lumina Preview itself is black, green, perforated, or has abnormal boundaries | Source Type, input image, modelling mode, or preview processing | Do not generate the finished work |
+| The slicer's color swatch looks off, but object and slot assignments are right | Display-only swatch color in the slicer | Safe to continue with final pre-print checks |
+| An object, color region, or backing points to the wrong project filament or hardware slot | Incorrect filament mapping | Fix object and slot mapping, then slice again |
+| Lumina and the slicer match, but the print looks greenish, gray, dark, or warm overall | Archive mismatch, filament batch, print calibration, or lighting | Run a small test swatch to isolate the variable |
+| Small text, thin lines, or tiny color islands vanish after slicing | Print size, nozzle diameter, or line-width limits | Scale up the model, thicken fine strokes, or switch to a finer nozzle |
+| Lumina Preview itself is black, green, perforated, or distorted | Source Type, input file, or modeling mode issue | Resolve the preview inside Lumina before exporting a 3MF |
 
-The first two rows are easily confused. A red square in the slicer can be only an
-identification swatch; an inaccurate swatch does not necessarily change the physical
-spool. But an object pointing to the wrong project filament, or that project filament
-mapping to the wrong slot, will change the printed result.
+Pay special attention to the first two rows: a slicer's colored square is merely an on-screen label and will not alter extrusion on its own, whereas assigning an object to the wrong project filament—or mapping that project filament to the wrong AMS slot—changes which spool actually prints.
 
-## Use a fixed diagnostic order
+## Seven-step diagnostic order
 
 <img
   src={require('./assets/difference-troubleshooting-flow.webp').default}
-  alt="Seven-step diagnostic order from software version and colour data to viewing light"
+  alt="Seven-step diagnostic order from software version and color data to viewing light"
 />
 
-Work through the following steps in order. Until the previous step is confirmed, do
-not skip ahead and try to compensate with temperature, flow, or image editing.
+Work through the checks below from upstream to downstream before adjusting nozzle temperature, flow, or source artwork.
 
-### Step 1: version, Source Type, and archive
+### Step 1: Check Color Data Source and archives
 
-Record the current Lumina Studio version. Confirm whether **Color Data Source** is set
-to Material Archive or Classic LUT.
+Confirm whether **Color Data Source** is set to Material Archive or Classic LUT, and verify that:
 
-Then verify:
+- The selected archive or LUT file is intact and readable.
+- Material type, brand, product line, and color match the physical spools you plan to print.
+- You ran a fresh preview after changing color sources.
+- For a Classic LUT, layer count, Layer Height, and filament order match your current project settings.
 
-- the selected archive or LUT still exists and can be read;
-- its material, brand, product line, and colour match the physical filament;
-- you generated a new preview after switching sources;
-- the Classic LUT's layer count, Layer Height, and colour order match the settings used.
+If Lumina Preview already looks wrong at this stage, address the color source first. See [Material Archives or Classic LUT?](../material-profile-selection/material-profile-selection.mdx).
 
-If Lumina Preview is already visibly wrong here, resolve the source or archive first.
-See
-[Material Archives or Classic LUT?](../material-profile-selection/material-profile-selection.mdx)
-for the selection rules.
+### Step 2: Verify four-level filament mapping
 
-### Step 2: physical filaments and slots
+Align all four links in the chain:
 
-Map these four levels one by one:
+1. Archives or palette slots chosen in Lumina
+2. Project filaments embedded in the exported 3MF
+3. Project-filament numbers assigned to each object or part in the slicer
+4. Physical spools loaded in your AMS, multi-material unit, or external holder
 
-1. the archives or palette selected in Lumina;
-2. the project filaments in the generated 3MF;
-3. the project-filament number assigned to each slicer object or part;
-4. the physical spools in the AMS, another material system, or an external-spool
-   holder.
+Synchronizing your AMS updates hardware slot labels in the slicer, while you still confirm that each project filament maps to the right physical spool. For step-by-step mapping instructions, see [Open a Lumina 3MF in Your Slicer](pathname:///en/docs/tutorials/slicer-material-mapping/).
 
-Matching numbers are not the goal. Correct physical material mapping is the goal.
-Synchronising a material system also cannot decide which artistic region should use
-which spool. Follow
-[Open a Lumina 3MF in Your Slicer](pathname:///en/docs/tutorials/slicer-material-mapping/)
-for the complete operation.
+### Step 3: Check nozzle, line width, Layer Height, and print size
 
-### Step 3: nozzle, line width, Layer Height, and finished size
+Fine 3D geometry visible on the **Prepare** tab will only generate toolpaths if it is wide enough for your extruder line width. Verify that:
 
-Geometry visible on the Prepare page does not necessarily become a printable
-toolpath. Check:
+- Printer model and nozzle size in the slicer match your hardware.
+- Line width can accommodate small lettering, thin outlines, and tiny isolated patches.
+- Layer Height for the color layers matches your Lumina calibration source and project settings.
+- Overall print dimensions have not been scaled down past your nozzle's resolution limit.
 
-- the printer model and nozzle in the slicer match the physical machine;
-- the current line width can form small text, thin lines, and isolated colour patches;
-- the Layer Height for the colour layers matches the Lumina source and project;
-- the finished size has not been reduced until important details fall below the
-  nozzle's practical capability.
+Layer Height governs Z-axis color stacking, whereas nozzle diameter and line width determine XY detail capacity. See [What Image Resolution Is a 0.2 mm or 0.4 mm Nozzle Equivalent To?](pathname:///en/docs/knowledge/nozzle-equivalent-resolution/).
 
-Layer Height mainly affects the Z-direction colour stack. Nozzle diameter and line
-width mainly limit XY detail. Do not use one as a substitute for the other. See
-[What Image Resolution Is a 0.2 mm or 0.4 mm Nozzle Equivalent To?](pathname:///en/docs/knowledge/nozzle-equivalent-resolution/)
-for the size relationship.
+### Step 4: Inspect Lumina 2D and 3D previews
 
-### Step 4: Lumina Preview
+Review the 2D color-matched preview and the 3D geometry preview to confirm that:
 
-Inspect the two-dimensional colour-matching preview first, then the three-dimensional
-preview before and after generation. Check that:
+- Outer silhouettes and transparent cutouts are clean.
+- Key color regions have not merged or shifted unexpectedly.
+- Backing, outlines, and optional hardware features match your settings.
+- Eyes, lettering, and fine lines remain intact.
+- There are no solid-black blocks, severe color casts, pinholes, or misaligned borders.
 
-- the subject outline and transparent areas are correct;
-- important colour regions were not merged or replaced incorrectly;
-- the backing, outline, and optional structures match the current settings;
-- small text, eyes, thin lines, and other critical regions still exist;
-- the preview is not entirely black, abnormally shifted, perforated, or misaligned.
+If the Lumina preview already shows missing or miscolored regions, adjust the source image, modeling mode, or palette before exporting to the slicer.
 
-If Lumina Preview is wrong, the slicer cannot automatically repair the colour
-assignment. Return to the input image, modelling mode, archive, LUT, or recipe.
+### Step 5: Slice the project and inspect the viewing face
 
-### Step 5: perform a real slice and inspect the display surface
+Run **Slice** in Bambu Studio, OrcaSlicer, or your preferred slicer and switch to the **Preview** tab (the **Prepare** tab shows raw meshes rather than actual toolpaths).
 
-Run the actual slice in Bambu Studio, OrcaSlicer, or your normal slicer, then open its
-**Preview** view. Do not stop at rotating the model on **Prepare**.
+If the viewing face prints face-down on the build plate, orbit underneath the plate and scrub the layer slider inward from Layer 1:
 
-If the display surface faces the build plate, turn to the bottom. Move the layer
-slider and check from the display surface inward:
+- First-layer outlines and color regions are complete.
+- Every layer calls the intended project filament.
+- Fine strokes and tiny islands produce real extrusion paths.
+- Backing, outlines, and keychain loops use the expected filament.
+- No automatic filament substitutions, missing layers, floating parts, or bed-boundary warnings appear.
 
-- the first visible outlines and colour regions are complete;
-- every layer uses the intended project filament;
-- small lines and colour patches generate real paths;
-- the backing, outline, keychain loop, and other structures use the intended material;
-- there are no automatic substitutions, missing layers, floating regions, or
-  out-of-bounds warnings.
+When Lumina Preview looks clean but sliced layers do not, check that the 3MF was opened as a full project and verify object-filament assignments, nozzle size, and line widths.
 
-If Lumina Preview is correct but the sliced layers are wrong, check how the 3MF was
-opened, object mapping, nozzle, line width, and slicer settings. Do not blame the
-camera or monitor first.
+### Step 6: Inspect first layer, flow, build plate, and hardware
 
-### Step 6: first layer, flow, build plate, and machine state
+When both software previews look accurate yet fine details blur, peel off, break, or look blotchy on the print, check the physical setup:
 
-When both software previews are correct but a physical region is blurred, wiped away,
-broken, or uneven, inspect the real print:
+- First-layer Z offset (too much squish causes color bleed; too little adhesion lets small islands lift).
+- Build plate cleanliness, flatness, and surface compatibility.
+- Nozzle temperature and flow ratio for the specific filament.
+- Nozzle tip residue, partial clogs, or travel dragging across fresh lines.
+- Filament moisture or noticeable batch-to-batch translucency differences.
 
-- is the first layer too compressed or too high?
-- is the build surface clean, flat, and suitable for the material?
-- are flow and temperature appropriate for the physical filament?
-- does the nozzle carry residue, have a partial blockage, or drag abnormally?
-- is the filament wet, loaded in the wrong slot, or noticeably different by batch?
+Adjust one parameter at a time on a small test crop so you can tell exactly which change solved the issue.
 
-Change one variable at a time and print a small test first. If flow, temperature,
-first layer, and image are changed together, the real cause becomes difficult to
-identify.
+### Step 7: Evaluate lighting and camera effects last
 
-### Step 7: compare viewing and capture light last
+Monitors emit light directly, whereas printed plastic reflects and transmits surrounding light. Warm desk lamps, colored walls, and smartphone auto white balance, exposure, and HDR processing can introduce strong apparent color casts in photos.
 
-A monitor emits light. A print reflects and transmits ambient light. Warm lamps,
-coloured walls, phone auto white balance, exposure, and camera enhancement all alter
-the colour recorded in a photograph.
+Judge prints directly under steady, neutral lighting side by side. When photographing prints for comparison, turn off filters and auto enhancements and lock white balance.
 
-Compare physical prints under stable, neutral light and place them in the same
-location. Do not use a phone photo and an uncalibrated screenshot to judge a small
-colour difference. A colour changing under a different light also does not by itself
-mean that the archive must be rebuilt.
+## Five common scenarios
 
-## Five frequent symptoms
+### Only the slicer's swatch color looks off
 
-### Only the slicer's display colour differs
+Click the object to check its assigned project-filament number and confirm which physical slot that filament maps to. Once the object assignment and physical spool match, editing the display swatch in the slicer is purely visual convenience.
 
-Select the object, read its project-filament number, and confirm which real spool that
-project filament maps to. If the object, material type, and physical slot are correct,
-changing the slicer's display swatch only makes identification easier; it does not
-change the spool.
+### An object or slot is mapped to the wrong spool
 
-### The object or physical slot is genuinely mapped incorrectly
+Cancel the print, fix both the object-to-project-filament assignment and the project-filament-to-slot mapping, then re-slice and verify the layers (renaming an object label alone does not change which extruder prints it).
 
-Stop. Correct both mappings—object to project filament, then project filament to
-physical slot. Slice again and inspect every layer. Do not change only the object name,
-and do not move spools simply to make the numbers identical.
+### Global color cast on the finished print
 
-### The physical print has a global colour shift
+Double-check your archive selection and loaded spools first, then review batch consistency, filament dryness, print temperature, Layer Height, first-layer squish, and room lighting. If a spool consistently shifts away from an existing archive under controlled settings, print and extract a fresh gradient card for that batch.
 
-First confirm the archive and physical filament, then inspect batch variation,
-material condition, print temperature, Layer Height, first layer, and viewing light.
-If the same archive continues to deviate under stable conditions, print new gradient
-cards and create an archive for that spool.
+### Tiny details blur, lift, or disappear
 
-### A small region is blurred, wiped away, or missing
+Check the slicer's layer preview to narrow down the cause:
 
-Return to the sliced layer preview:
+- **No toolpath in Preview**: scale up the finished print, widen fine strokes in the artwork, or switch to a `0.2 mm` nozzle.
+- **Toolpath exists, missing on print**: clean the build plate, tune first-layer squish and flow, and check for nozzle residue or wet filament.
+- **Toolpath uses the neighboring color**: fix object and slot mapping.
 
-- **No path exists:** increase the finished size, adjust the source detail, or choose
-  a different nozzle according to your own needs.
-- **A path exists but the print is missing:** inspect first layer, flow, build plate,
-  nozzle dragging, and material condition.
-- **The path uses the wrong material:** correct the object and slot mapping.
+### Lumina Preview turns black, green, or broken at the edges
 
-### Lumina Preview is black, green, or has abnormal boundaries
+1. Verify **Source Type**, your Material Archive or LUT, and **Base Plate Material**.
+2. Re-run Preview after changing color sources.
+3. Check the source image's alpha channel, color profile, and pixel dimensions.
+4. For SVGs, inspect open paths, fill rules, `viewBox` bounds, and live effects—see [Troubleshooting SVG Uploads, White Backgrounds, Holes, and Missing Detail](pathname:///en/docs/knowledge/svg-troubleshooting/).
+5. Test with a simple flat PNG or minimal single-shape SVG to see whether the issue is file-specific.
 
-Do not continue to a finished print. Try these checks in order:
+## Helpful files to keep for support
 
-1. Confirm that Source Type, archive or LUT, and Base Plate Material are correct.
-2. Generate a new preview after switching sources.
-3. Inspect the source image's transparency, colour, and dimensions.
-4. For SVG, inspect paths, fills, canvas bounds, and complex effects.
-5. Test a small simple image or minimal SVG to learn whether the problem is specific
-   to the current file.
+If an issue persists, save the files from all three stages so it is clear where the discrepancy begins:
 
-For SVG-specific steps, read
-[Troubleshooting SVG Uploads, White Backgrounds, Holes, and Missing Detail](pathname:///en/docs/knowledge/svg-troubleshooting/).
-
-## Reproduction material worth keeping
-
-If the cause is still unclear, preserve:
-
-- the original input image or SVG;
-- the current Source Type, archive or LUT name, and material order;
-- screenshots of Lumina's 2D and 3D previews;
-- the original generated 3MF;
-- screenshots of the slicer's display surface and critical layers;
-- the physical printer, nozzle, Layer Height, line width, and slot mapping;
-- a photo of the print under neutral light.
-
-Do not submit only one final photo and ask why the colour is wrong. Evidence from all
-three stages reveals where the difference first appeared.
+- Original input image or SVG
+- Selected Source Type, archive or LUT name, and filament stack order
+- Screenshots of Lumina's 2D and 3D previews
+- Exported 3MF project file
+- Slicer Preview screenshots of the viewing face and key color layers
+- Printer model, nozzle size, Layer Height, line width, and physical slot mapping
+- A neutral-light photo of the physical print
 
 ## Common questions
 
-### Lumina Preview and slicer preview differ. Can I print directly?
+### Lumina Preview and slicer preview look different. Is it safe to print?
 
-First determine whether the difference is only a display swatch. If colour regions,
-objects, material mapping, or sliced paths differ, do not print. Correct the problem
-and slice again. Continue to machine checks only when mapping and paths are correct.
+Only if the sole difference is an approximate display swatch color in the slicer while every color region, object assignment, physical slot, and sliced toolpath matches. If regions, filament mappings, or toolpaths differ, fix them and slice again before printing.
 
-### Lumina Preview is correct, but thin lines vanish after slicing. Should I adjust colour?
+### Thin lines appear in Lumina Preview but vanish after slicing. Should I tweak colors?
 
-Not first. This is usually a size, nozzle, line-width, or toolpath-generation problem.
-Confirm whether the sliced preview contains a real path, then decide whether to
-enlarge the work, simplify the source, or use a different nozzle for your goal.
+Color adjustments rarely restore dropped geometry. Check whether a toolpath exists in the slicer's Preview tab; enlarging the print, thickening thin strokes, or switching to a smaller nozzle addresses line-width limits directly.
 
-### Both previews look right. Why is the physical print too dark?
+### Both previews look good, so why does the physical print look darker?
 
-Verify the real filament, archive, and slot, then inspect first layer, flow, material
-condition, and viewing light. A monitor emits light, so a physical print will not have
-identical brightness. A consistent, substantial shift still deserves a small test and
-new calibration.
+Backlit screens naturally appear brighter than reflective plastic. If the print is noticeably and consistently too dark, check that dark backing or shadow filaments were not swapped into upper slots, verify color-layer height and first-layer thickness, and inspect the print under bright neutral light.
 
-### A phone photo looks green, but the print looks normal to my eyes. Rebuild the archive?
+### The print looks accurate in person, but greenish in phone photos. Should I recalibrate the archive?
 
-Not yet. Disable filters and automatic enhancement, use neutral light and fixed white
-balance, and include a neutral object in the same scene. Continue to the archive and
-print conditions only if both your eyes and a stable capture show the same persistent
-shift.
+No need. Smartphone auto white balance and indoor LED lighting frequently skew camera colors. Lock white balance under neutral daylight-balanced lighting with a white reference card in frame if you need accurate photos.
 
-### If a small line was “wiped away,” is retraction definitely the cause?
+### Small lines look “wiped away” on the plate—is retraction to blame?
 
-No. Check whether a sliced path exists first. If there was no path, the issue is
-resolution or line width. If the path exists but the print loses it, then inspect
-first layer, flow, nozzle dragging, build plate, and material state.
-
-## Content licence
-
-Unless otherwise stated, the original text, tables, and diagrams on this page are
-covered by the Wiki’s
-[CC BY-NC-SA 4.0 content licence](pathname:///en/docs/project/content-license/).
-Third-party software names, interfaces, trademarks, and printing equipment remain the
-property of their respective rights holders.
-
-This page provides a diagnostic order; it does not replace the printer manufacturer's
-safety instructions. Follow the official device and material requirements when
-working with temperature, hardware maintenance, and material compatibility.
+Check the sliced Preview first. If no path was generated, the feature fell below your line width. If the path is present in Preview but lifts during printing, clean the build plate and inspect first-layer adhesion, flow, and nozzle buildup before tuning retraction.

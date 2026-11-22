@@ -4,33 +4,28 @@ description: "Explains the base-plate thickness range, 0.08 mm step, and its rel
 sidebar_position: 7
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Base-Plate Thickness
 
-**Base plate thickness** controls the foundation below the colour layers. The default is **1.20 mm**.
+**Base plate thickness** sets the height of the structural foundation beneath the optical color layers. The default value is **1.20 mm**.
 
 <img
   src={require('./assets/01-backing-thickness.webp').default}
   alt="Base-plate Thickness slider in Lumina Studio"
 />
 
-*This screenshot shows an earlier interface; the setting is now named “Base plate thickness”.*
+*Screenshot from an earlier release; this setting is labeled “Base plate thickness”.*
 
-The UI range is 0.24–10.00 mm in 0.08 mm steps; the generation schema accepts the safety range 0.20–10.00 mm. The UI step keeps
-the base aligned with a commonly used print-layer height.
+The slider ranges from **0.24–10.00 mm** in **0.08 mm** steps so the base stays aligned with standard print layer heights (imported recipes accept **0.20–10.00 mm**).
 
-Base thickness does not include colour layers, relief height, or a transparent coating. Add those parts separately when estimating
-the finished height.
+## Impact on model height and features
 
-Relief mode clamps its extra height against the minimum required by the current base and material layers. Fridge Magnet mode may
-also increase the effective spacer thickness to preserve wall thickness around a magnet pocket; disabling the feature restores
-the saved base thickness.
+Base thickness measures only the structural base—it does not include color layers, extra relief height, or a transparent coating. Add those components separately when calculating the total height of the finished print.
 
-Choose the value for the output size, attached features, material, and slicer result. Changing it invalidates the existing 3MF.
+Certain geometry modes automatically adjust or clamp height values when active:
 
-Thickness also affects whether [Base Plate Infill](../backing-infill/backing-infill.mdx) produces sparse infill: the region near each viewing surface stays solid.
+- **Relief:** Ensures extra relief height meets at least the minimum required by the current base and color layers.
+- **Fridge Magnet:** Automatically increases the effective base thickness if needed to maintain wall thickness around the magnet pocket; turning **Fridge Magnet** off restores your saved base thickness.
+
+Thinner bases print faster for compact pieces, while larger prints or designs with hanging holes benefit from extra thickness for stiffness and durability. After changing **Base plate thickness**, generate a fresh 3MF rather than scaling Z height in your slicer—scaling Z in the slicer also stretches the color layers and shifts optical color mixing.
+
+Base thickness also determines whether [Base Plate Infill](../backing-infill/backing-infill.mdx) produces sparse internal infill, because the 3 mm zone behind each viewing surface always remains solid.

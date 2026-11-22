@@ -1,18 +1,12 @@
 ---
 title: "Superpixel Segmentation and Antialiasing"
-description: "How SLIC size, edge sensitivity, refinement, and antialiasing tolerance form color boundaries."
+description: "Shape clean color boundaries using SLIC region size, edge sensitivity, boundary refinement passes, and antialiasing tolerance."
 sidebar_position: 5
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Superpixel Segmentation and Antialiasing
 
-For multicolor vectorization, the engine first divides the image into SLIC superpixels, then refines their labels using color and edge information. These controls primarily determine how color-region boundaries are formed.
+During multicolor vectorization, the engine divides the image into SLIC superpixels and refines their labels using local color and edge gradients. These controls govern how accurately color boundaries snap to edges and how antialiased transition pixels are handled.
 
 <img
   src={require('./assets/01-segmentation.webp').default}
@@ -21,31 +15,34 @@ For multicolor vectorization, the engine first divides the image into SLIC super
 
 ## SLIC Region Size
 
-The range is `5–100`, with a default of `20`. It is the target size for the initial SLIC regions:
+Ranges from `5–100`, with a default of `20`. Sets the target size for initial SLIC superpixels:
 
-- Smaller values create more, smaller superpixels and can follow finer local changes.
-- Larger values create fewer, larger superpixels, processing faster with more generalized regions.
+- **Smaller values** generate denser superpixels that capture finer local features.
+- **Larger values** generate fewer, broader superpixels for faster processing and cleaner generalization.
 
-It is not a fixed size for final SVG shapes. Color merging, boundary refinement, and filtering still change the regions afterward.
+Subsequent color merging, boundary refinement, and region filtering continue to reshape regions, so this setting does not lock final SVG shapes to a fixed size.
 
 ## Edge Sensitivity
 
-The range is `0–1`, with a default of `0.8`. It controls how strongly SLIC relaxes its spatial constraint when an edge is detected:
+Ranges from `0–1`, with a default of `0.8`. Controls how strongly SLIC relaxes spatial regularity when it encounters a color edge:
 
-- Higher values follow color boundaries more aggressively.
-- Lower values emphasize spatial regularity and generally smoother segmentation.
+- **Higher values** snap region boundaries tightly along color transitions.
+- **Lower values** favor uniform spatial cells and smoother, more regular boundaries.
 
 ## Refine Passes
 
-The range is `0–20`, with a default of `6`. Each pass refines region labels from their neighborhood. More passes can align boundaries more closely to the image, but take longer. `0` skips this stage.
+Ranges from `0–20`, with a default of `6`. Each pass refines boundary labels against neighboring pixels—adding passes aligns boundaries more tightly to intricate edges at the cost of extra processing time, while `0` skips boundary refinement altogether.
 
-## Antialiasing Detection
+## Antialiasing Detection and AA Tolerance
 
-When enabled, the engine identifies mixed pixels between two colors so that each antialiasing shade is less likely to become a separate region. It is useful for smoothly edged illustrations, icons, and text. Leave it off when pixel art must retain its exact stair-stepped pixels.
+Enabling **Antialiasing Detection** identifies blended transition pixels along the border between two colors so antialiased halos are merged cleanly instead of becoming thin, stray color bands.
 
-**AA Tolerance** ranges from `1–50`, defaults to `10`, and is measured in LAB ΔE. Higher values allow a wider color difference to be classified as a mixed edge pixel.
+- **Turn on** for smooth-edged illustrations, icons, logos, and typography.
+- **Turn off** for pixel art when you want crisp, stair-stepped pixel edges preserved intact.
 
-Related pages:
+**AA Tolerance** ranges from `1–50`, defaults to `10`, and is measured in LAB ΔE. Higher values allow a wider color difference to qualify as a blended edge pixel.
+
+## Related pages
 
 - [Colors, Smoothness, and Detail](../vectorizer-color-and-detail/vectorizer-color-and-detail.mdx)
 - [Image Preprocessing](../vectorizer-preprocessing/vectorizer-preprocessing.mdx)

@@ -4,16 +4,9 @@ description: "Offset, zoom, distortion, vignette, white balance, and corner nudg
 sidebar_position: 5
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Photo Correction and Corner Placement
 
-Photo correction aligns the board grid with the extraction template. It affects the active upload only and does not
-modify the photograph on disk.
+Photo correction aligns the photographed board grid with the extraction sampling template. Adjustments apply only to the current upload in memory and leave the original file on disk untouched.
 
 <img
   src={require('./assets/01-photo-correction.webp').default}
@@ -24,23 +17,19 @@ modify the photograph on disk.
 
 | Control | Range | Effect |
 | --- | --- | --- |
-| Horizontal Offset | `-30–30` | Moves the sampling template along X |
-| Vertical Offset | `-30–30` | Moves the sampling template along Y |
-| Zoom | `0.80–1.20` | Scales the sampling area uniformly |
-| Distortion Correction | `-0.20–0.20` | Compensates barrel or pincushion distortion |
-| Vignette Correction | On/off | Compensates edge darkening |
-| Auto White Balance | On/off | Produces a white-balanced preview for this image |
+| Horizontal Offset | `-30–30` | Shifts the sampling template along X |
+| Vertical Offset | `-30–30` | Shifts the sampling template along Y |
+| Zoom | `0.80–1.20` | Scales the patch sampling area uniformly |
+| Distortion Correction | `-0.20–0.20` | Compensates for lens barrel or pincushion distortion |
+| Vignette Correction | On/off | Compensates for brightness falloff near image edges |
+| Auto White Balance | On/off | Generates a white-balanced preview for the active photo |
 
-Use these controls for systematic image errors. If only one corner is displaced, move that corner instead of shifting the
-entire template.
+Use these controls to correct systematic shifts or lens distortion across the entire image. When only one corner is slightly displaced, move that corner directly rather than shifting the whole template.
 
-## Four corners
+## Corner placement and fine-tuning
 
-After placing four corners on the canvas, choose the active corner. Step accepts `1–10 px`; the direction buttons and
-keyboard arrow keys move the active corner by that amount. Clear Corners removes positioning points without deleting the
-uploaded photograph.
+After placing four corners on the canvas, select a corner to make it active. **Step (px)** accepts `1–10 px`; both the on-screen arrow buttons and your keyboard arrow keys nudge the active corner by that step size. **Clear Corners** removes the placed points while keeping the uploaded photo loaded.
 
-Place corners on the specified outer board marks, not on the nearest patch centre. If the rectified grid remains skewed,
-check corner order before increasing distortion correction.
+Align the four points with the outer border corners of the calibration board so the sampling grid registers cleanly over every block center. If the rectified grid still appears skewed or flipped, verify the corner placement order first, then adjust **Distortion Correction**.
 
 Continue with [LUT Extraction Workflow](../lut-extractor/lut-extractor.mdx).

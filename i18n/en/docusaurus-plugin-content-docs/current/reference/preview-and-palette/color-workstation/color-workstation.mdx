@@ -1,52 +1,39 @@
 ---
 title: "Color Workstation"
-description: "Entry point, three-column layout, and preview-session behaviour of Color Workstation."
+description: "Entry point, three-column layout, and preview-session behavior of Color Workstation."
 sidebar_position: 1
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Color Workstation
 
-After a successful preview, open Color Adjustment to enter Color Workstation. It is not a separate project: the 2D view,
-palette, and available-colour panel all read the active preview session, and confirmed edits are written back to that same
-session.
+After generating a preview, open **Color Adjustment** to enter Color Workstation. The 2D preview, palette, and target-color panels all share the active preview session, and confirmed edits write directly back to that session.
 
 <img
   src={require('./assets/01-workstation.webp').default}
   alt="Color Workstation opened with real preview data"
 />
 
-## The three areas
+## Layout
 
-- **2D preview:** inspect the result and click a colour or connected region to edit it.
-- **Palette:** review colours used by this preview, their coverage, selection mode, and edit history.
-- **Target colours:** a traditional LUT shows its colour library; a material archive shows colours achievable by the
-  selected material set.
+- **2D preview:** Inspect the color result and click a pixel or connected region to select what you want to edit.
+- **Palette:** View every color used in the active preview, its pixel coverage, selection tools, and edit history.
+- **Target colors:** Legacy LUT mode loads the LUT color library; Material Archive mode shows candidate colors achievable with the active material set.
 
-If an image exists but no preview has been created, opening the workstation attempts a preview automatically. When the
-image, colour source, or required parameters are incomplete, the panel stays empty instead of reusing data from an older
-session.
+If an image is uploaded without a preview, opening the workstation runs a preview automatically. If the image, color source, or required settings are incomplete, the workspace stays blank until ready.
 
-## Where edits are kept
+## How edits are applied and saved
 
-A confirmed replacement first updates the active 2D and 3D previews. Generate then uses those edits to create the 3MF.
-Closing the workstation or pressing `Esc` only returns to the 3D viewer; it does not undo confirmed edits. Recheck the
-palette after replacing the image, colour source, or preview session.
+Confirming a color replacement immediately updates the active 2D and 3D previews, and **Generate** applies those edits when building the 3MF. Closing the workstation or pressing `Esc` returns to the 3D viewer while keeping all confirmed replacements. Recheck the palette after changing the image or color source.
 
-As of October 19, 2026, confirmed local recoloring, regional recipes, and selections can be saved and restored with the project. Running Preview again also retains confirmed edits. See [Save projects and share cards](../../../knowledge/share-card-json/share-card-json.mdx) for saving and older-file limitations.
+Confirmed local recoloring, regional recipes, and selections are saved and restored with your project, and remain intact when you run **Preview** again. For saving options and legacy file behavior, see [Save projects and share cards](../../../knowledge/share-card-json/share-card-json.mdx).
 
-[Quick recolor & similar recipes](../quick-recolor/quick-recolor.mdx) on the right lets you set a target color for the current selection, pick from the image, or choose a similar material stack.
+Use [Quick recolor & similar recipes](../quick-recolor/quick-recolor.mdx) in the right column to set a target color for the active selection, sample a color from the image, or apply a similar material stack.
 
 Related pages:
 
 - [2D Preview and Hover Inspection](../two-dimensional-preview/two-dimensional-preview.mdx)
-- [Selection Modes, Palette, and Free Colours](../selection-modes/selection-modes.mdx)
-- [LUT Colour Grid](../lut-color-grid/lut-color-grid.mdx)
-- [Achievable Material Colours](../material-achievable-colors/material-achievable-colors.mdx)
+- [Selection Modes, Palette, and Free Colors](../selection-modes/selection-modes.mdx)
+- [LUT Color Grid](../lut-color-grid/lut-color-grid.mdx)
+- [Achievable Material Colors](../material-achievable-colors/material-achievable-colors.mdx)
 - [Custom Recipes](../custom-recipes/custom-recipes.mdx)
 - [Gradient Groups and Region Processing](../gradient-groups/gradient-groups.mdx)

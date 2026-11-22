@@ -1,63 +1,44 @@
 ---
-title: "High-precision 3D Colour Preview"
-description: "How the setting raises the GLB mesh-colour budget, when low-frequency colours are merged, and what it does not change in the printable model."
+title: "High-precision 3D Color Preview"
+description: "How High-precision 3D Color Preview raises the GLB mesh-color limit, interacts with Quantize Colors, and affects browser rendering."
 sidebar_position: 9
 ---
 
-:::info[AI-assisted article]
+# High-precision 3D Color Preview
 
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
-# High-precision 3D Colour Preview
-
-**High-precision 3D Colour Preview** raises the number of colour meshes retained in the browser's GLB preview. It does
-not add printable recipes and it does not add colours that were absent from the conversion result.
-
-The option is disabled by default.
+**High-precision 3D Color Preview** raises the maximum number of color meshes retained in the browser's GLB preview so high-color conversions show finer tonal detail on the 3D canvas. Disabled by default, it affects only the in-browser 3D display while leaving the 2D color preview and exported 3MF material recipes unchanged.
 
 ## Location
 
-Open **Converter → Core Settings → Advanced Settings**, then locate
-**High-precision 3D colour preview**.
+Open **Converter → Core Settings → Advanced Settings**, then locate **High-precision 3D color preview**.
 
 <img
   src={require('./assets/01-high-precision-3d-preview-location.webp').default}
   alt="High-precision 3D Colour Preview in Lumina Studio Advanced Settings"
 />
 
-## Default preview budget
+## Default preview limit
 
-The ordinary 3D preview retains at most 128 colour meshes. When the result exceeds that limit, Lumina keeps the most
-frequent colours and merges low-frequency colours into their nearest retained colour in colour space. This controls the
-number of meshes the browser must render.
+Standard 3D previews retain up to **128** color meshes. When a conversion contains more than 128 colors, Lumina keeps the most frequent colors by pixel coverage and merges lower-frequency shades into their nearest retained color in color space to keep browser rendering responsive.
 
-## Budget when enabled
+## Limit when enabled
 
-If [Quantize Colors](../../converter-basic/quantize-colors/quantize-colors.mdx) is above 128, enabling this option raises
-the GLB budget to the current quantize value.
+When [Quantize Colors](../../converter-basic/quantize-colors/quantize-colors.mdx) is set above 128, enabling this option raises the GLB mesh limit to match your active **Quantize Colors** setting:
 
-| Quantize Colors | Normal preview budget | High-precision preview |
+| Quantize Colors | Standard preview limit | High-precision preview |
 | ---: | ---: | ---: |
-| 64 | 128 | 128; normally unchanged |
+| 64 | 128 | 128 (unchanged) |
 | 128 | 128 | 128 |
 | 256 | 128 | 256 |
 | 512 | 128 | 512 |
 
-Pixel Art mode already uses the current quantize value as its preview budget, so the switch may not make an additional
-difference in that mode.
+Pixel Art mode already uses the current **Quantize Colors** value as its preview limit, so toggling this option has no extra effect in that mode.
 
-## Performance impact
+## Performance and export behavior
 
-More colour meshes increase GLB size, contour extraction, mesh construction, browser upload time, memory use, and
-Three.js rendering work. Combining a very high quantize value with the high-precision preview can materially increase
-both RAM and GPU-memory usage.
+Retaining more color meshes increases GLB file size as well as contour extraction, mesh building, transfer time, and Three.js rendering load. Combining a high **Quantize Colors** setting with **High-precision 3D Color Preview** increases both RAM and GPU memory usage.
 
-The option does not change the 2D colour preview or the material recipes in the 3MF. Use the slicer as the source of
-truth for printable structure.
-
-Changing the option invalidates the existing 3D preview and generated result. Lumina recipe cards store this setting.
+After toggling this option, re-run **Preview** or **Generate** to rebuild the 3D view. Always check your slicer preview to verify the final printable structure. Lumina recipe cards save this setting automatically.
 
 ## Related pages
 

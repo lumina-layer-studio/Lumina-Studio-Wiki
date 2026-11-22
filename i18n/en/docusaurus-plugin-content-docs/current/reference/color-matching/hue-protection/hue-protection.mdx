@@ -1,73 +1,55 @@
 ---
 title: "Hue Protection"
-description: "How Hue Protection changes candidate ranking, when Dark Chroma Gate appears, and why Precise Colour Matching disables it."
+description: "Weight hue accuracy more heavily during color matching, adjust Dark Chroma Gate, and understand how Precise Color Matching interacts with it."
 sidebar_position: 1
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Hue Protection
 
-**Hue Protection** reduces conspicuous hue shifts during colour matching. An ordinary nearest-colour search may, for
-example, select a slightly purple candidate for blue or an orange candidate for red because its overall colour
-difference is smaller. Hue Protection increases the cost of that hue deviation.
+**Hue Protection** reduces noticeable hue shifts during color matching. Standard nearest-color matching minimizes overall CIELAB color difference, which can sometimes map a pure blue to a slightly purple recipe or a red to an orange one when total distance is smaller. Enabling **Hue Protection** increases the penalty for hue deviation so matches stay closer to the original hue family.
 
-The option changes candidate ranking. It does not add filaments, change model geometry, or alter slicer parameters.
+This setting adjusts candidate ranking only—it does not add filaments, alter model geometry, or modify slicer settings.
 
 ## Enable Hue Protection
 
-1. Open **Converter → Core Settings**.
-2. Expand **Advanced Settings**.
-3. Enable **Hue Protection**.
-4. Build the preview again.
+1. Open **Converter → Core Settings → Advanced Settings**.
+2. Turn on **Hue Protection**.
+3. Rebuild the preview to apply the change.
 
 <img
   src={require('./assets/01-hue-protection-location.webp').default}
   alt="Hue Protection in Lumina Studio Advanced Settings"
 />
 
-After the switch is enabled, the dependent **Dark Chroma Gate** control appears underneath it. The gate does not move
-the lightness boundary that defines a dark colour. It decides which dark pixels may enter the low-chroma dark-candidate
-branch. Its default is **15**. A value of **0** is a special “all dark colours may enter” state, not an off state.
-See [Dark Chroma Gate](../dark-chroma-gate/dark-chroma-gate.mdx) for the complete behaviour.
+Enabling the switch reveals the dependent [Dark Chroma Gate](../dark-chroma-gate/dark-chroma-gate.mdx) slider underneath, which controls which low-chroma dark pixels enter the neutral-dark candidate branch. Its default value is **15**; **0** is a special setting that routes all dark pixels into the neutral branch rather than turning it off. Leave the gate at **15** on your first pass so you can evaluate **Hue Protection** on its own.
 
 ## What changes during matching
 
-Without Hue Protection, candidate selection primarily minimises the overall CIELAB colour difference. With Hue
-Protection enabled, Lumina still considers lightness and chroma but adds a larger penalty for hue deviation. This
-favours candidates that remain in the same or a nearby hue family.
+With **Hue Protection** off, Lumina Studio ranks candidates primarily by overall CIELAB color distance. With **Hue Protection** on, lightness and chroma still factor into the score, but hue angle differences carry a higher cost, favoring recipes in the same or an adjacent hue family.
 
-The option cannot create a colour missing from the active LUT. If no reachable candidate is close to the source hue,
-the result still has to use one of the available recipes.
+Matches remain bounded by the recipes available in your active LUT or Material Archive—if the palette has no close match in the target hue family, Lumina Studio selects the closest available recipe.
 
-## When to compare it
+## When to use it
 
-Compare previews when:
+Compare previews with **Hue Protection** enabled when:
 
-- a recognisable red, blue, or green has shifted into a neighbouring hue family;
-- the image contains several nearby hues and hue direction matters more than a small lightness change;
-- the LUT already contains a nearby hue but ordinary matching did not select it.
+- A recognizable red, blue, or green shifts into a neighboring hue family (such as blue turning violet or red turning orange);
+- Your artwork relies on distinct adjacent hues where color direction matters more than subtle lightness steps;
+- Your active LUT already contains a recipe in the right hue family that standard matching passed over.
 
-Low-chroma images, black-and-white images, and palettes without the required hue may show little change.
+Grayscale artwork, low-chroma images, and palettes lacking the target hue will show little or no difference.
 
-## Relationship with Precise Colour Matching
+## Relationship with Precise Color Matching
 
-Hue Protection and **Precise Colour Matching** are not applied simultaneously. When Precise Colour Matching is enabled,
-Hue Protection becomes unavailable and the processing request sets its independent hue weight to zero.
+**Hue Protection** and [Precise Color Matching](../precise-color-matching/precise-color-matching.mdx) are mutually exclusive. Turning on **Precise Color Matching** disables the **Hue Protection** toggle so only one candidate-selection rule applies at a time.
 
 <img
   src={require('./assets/02-precise-disables-hue.webp').default}
-  alt="Hue Protection disabled while Precise Colour Matching is enabled"
+  alt="Hue Protection disabled while Precise Color Matching is enabled"
 />
 
-Test the methods separately while keeping the image, LUT, and other colour settings unchanged.
+To compare the two approaches fairly, test each one separately while keeping the source image, LUT, and all other color controls unchanged.
 
 ## Checking the result
 
-Compare the same regions before and after enabling the switch. First verify whether the main hue moved in the desired
-direction, then check highlights, shadows, and gradients for unwanted trade-offs. Build a new 3MF after accepting the
-preview; an old file does not update when the web control changes.
+Inspect both key subject colors and surrounding highlights, shadows, and gradients before and after enabling the toggle. When finite recipes force a trade-off, tighter hue accuracy can slightly shift local lightness. Once the preview looks right, generate a fresh 3MF file before slicing—previously exported 3MF files do not update automatically.

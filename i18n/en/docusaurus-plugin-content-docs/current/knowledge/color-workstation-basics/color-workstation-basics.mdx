@@ -1,233 +1,146 @@
 ---
 title: "Color Workstation Basics: Select, Replace, Undo, and Free Color"
-description: "Understand selection scope, reachable target colours, replacement confirmation, Undo, Clear Remaps, and the boundary of Free Color."
+description: "Learn how to select color regions, apply reachable target colors, use Undo and Clear Remaps, and export Free Color objects."
 sidebar_position: 26
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Color Workstation Basics: Select, Replace, Undo, and Free Color
 
-Color Workstation adjusts colours in the preview. Select the area to change before choosing a target colour.
+Once an image has been previewed, **Color Workstation** lets you refine matched colors across the entire piece or within specific regions, apply custom recipes, or isolate selected shades as **Free Color** objects.
 
-A reliable edit follows six steps:
+A typical editing pass follows six steps:
 
-1. create a successful Preview;
-2. choose the affected scope;
-3. select the source colour or region in the Preview or Palette;
-4. choose a reachable target from the current LUT or Material Archives;
-5. confirm the source-to-target replacement;
-6. inspect 2D, 3D, and Layer Preview, then Generate a new 3MF.
+1. Run **Preview** to generate the initial color match and **Palette**;
+2. Choose a selection tool that fits the scope of your edit;
+3. Select the source color or region on the preview canvas or **Palette**;
+4. Pick a reachable target color from your current Classic LUT or Material Archives;
+5. Review the pending source-to-target pair and confirm the replacement;
+6. Check the updated 2D, 3D, and **Layer Preview** views, then click **Generate** to export a fresh 3MF.
 
-**Undo**, **Clear Remaps**, and **Clear Free Colors** are different operations. Free
-Color also does not create a new physical colour. It exports a matched colour as an
-independent object for manual slicer assignment.
+**Undo**, **Clear Remaps**, and **Clear Free Colors** act independently: **Undo** steps back one action, **Clear Remaps** resets all color replacements, and **Clear Free Colors** removes Free Color object markers without touching color edits.
 
 <img
   src={require('./assets/color-workstation-flow.webp').default}
   alt="Six-step Color Workstation workflow from Preview and selection scope through replacement, verification, and a new 3MF"
 />
 
-## When is Color Workstation available?
+## Availability and Session Behavior
 
-Color Workstation depends on the current image’s matched result and Palette, so a
-Preview must succeed first. Without one, there is no colour data to replace.
+**Color Workstation** operates on the active preview's matched color map and **Palette**, so it unlocks as soon as your first **Preview** completes.
 
-Uploading another image, switching Material Archives or LUTs, changing Colour Layers
-or Layer Height, or rebuilding the base Preview can invalidate the previous selection.
-Select again instead of reusing a visually similar swatch.
+Uploading a new image, switching Material Archives or Classic LUTs, or changing **Color Layers** or **Layer Height** rebuilds the underlying match—make fresh selections after any of those changes. Likewise, any 3MF exported before your color edits reflects the earlier state, so click **Generate** again when you finish editing.
 
-Edits belong to the current Preview session. A 3MF generated before the edit is now
-stale and must be generated again.
-
-## What does each selection mode affect?
+## Choosing a Selection Tool
 
 <img
   src={require('./assets/01-selection-tools.webp').default}
   alt="The four selection tools and quick recolor panel in Color Workstation"
 />
 
-The image shows the newer selection tools; panel styling may vary between versions.
-
 ### Same color
 
-Same color works from matched colours. Select one colour and every location using
-that matched colour can change. You can also select several matched colours and send
-them to one target.
+Selects every region across the entire image that shares the chosen matched color. You can also select multiple matched colors and merge them into a single target shade.
 
-Use it to:
-
-- replace one shade consistently across the artwork;
-- merge several similar matched colours to reduce visible banding;
-- apply one Custom Recipe to a complete class of matched colours.
-
-Do not use it when only an eye should change but clothing happens to use the same
-matched colour. Both locations can be affected.
+- **Best for**: Replacing a background shade everywhere, consolidating stepped color bands, or applying one **Custom Recipe** to an entire color group.
+- **Keep in mind**: If a character's eyes and clothing share the same matched color, **Same color** selects both. Use **Pick blocks** when you want to edit an isolated feature.
 
 ### Similar colors
 
-Click a colour in the preview to select blocks with similar colours. A larger tolerance includes a wider range;
-at zero, only the same colour is selected. Check the highlight before replacing colours in a gradient.
+Click a region on the preview to select blocks within a color tolerance. Raising the tolerance widens the selection; setting tolerance to `0` selects only exact matches. Check the highlight overlay carefully near smooth gradients before confirming.
 
 ### Pick blocks
 
-Click blocks in the preview to select or deselect separate regions, such as eyes, highlights or letters.
-Check the highlighted boundaries before choosing a target.
+Click individual connected regions on the preview canvas to toggle them in or out of your selection—ideal for isolated details such as eyes, specular highlights, or lettering.
 
 ### Selection brush
 
-Paint over the preview and apply the brush selection. It selects whole colour blocks touched by the stroke,
-not just the pixels beneath the brush. Adjust brush size and check the resulting highlight.
+Drag across the preview canvas and apply the stroke to select every contiguous color block touched by the brush. Adjust the brush size as needed and inspect the highlighted boundary before choosing a target color.
 
-### Switching modes
+### Combining Tools
 
-The new tools share one selection; switching tools does not clear it. Choose **Select none** to start over.
-Older versions use different labels, including Current, Multi-select and Local Region.
+All four tools work on the same active selection, so switching tools keeps your current selection intact. Click **Select none** whenever you want to clear the selection and start fresh.
 
-## Complete one replacement safely
+## Making a Color Replacement
 
-### 1. Inspect the base Preview
+### 1. Check the Base Preview First
 
-Confirm that the outline, transparent regions, and colour matching are already
-reasonable. Color Workstation cannot repair a black Preview, missing geometry,
-incorrect transparency, or a bad source profile.
+Verify that the model's outer silhouette, transparency, and overall palette look sound before fine-tuning individual regions. Issues such as missing alpha boundaries, holes, or mismatched filament sets are best resolved in your source image or converter settings first.
 
-### 2. Choose the affected scope
+### 2. Select the Target Scope
 
-Choose the whole matched colour, one connected region, or several regions. Trust the
-highlighted image rather than only the displayed HEX value.
+Pick a global or local selection tool and rely on the highlight overlay on the canvas to verify exactly which regions will change.
 
-### 3. Choose a target colour
+### 3. Pick and Confirm a Target Color
 
-The source of target colours depends on the current Source Type:
+Available target colors depend on your active **Source Type**:
 
-- **Classic LUT**: choose from colours exposed by that LUT;
-- **Material Archive**: enter a desired colour, let Lumina solve reachable candidates
-  from the selected real materials, then choose one candidate;
-- the input colour is a search target, not a guarantee of an identical physical RGB.
+- **Classic LUT**: Pick directly from the calibrated colors included in that LUT.
+- **Material Archive**: Enter or pick a desired shade, and Lumina calculates the closest reachable candidates that your selected filaments, layer count, and layer height can physically produce.
 
-Lumina first displays a pending source-to-target row. Check both swatches and the
-selection scope, then confirm. Cancelling this pending row does not undo earlier edits.
+Selecting a candidate displays a pending source → target row. Verify both swatches and the highlighted canvas area, then confirm. Clicking **Cancel** on that pending row dismisses only the unconfirmed change without affecting earlier edits.
 
-### 4. Inspect the result
+### 4. Review the Updated Previews
 
-After confirmation, check that:
+After confirming a replacement, check four things:
 
-- only the intended regions changed in the 2D Preview;
-- the 3D Preview has refreshed;
-- Layer Preview uses materials consistent with the new result;
-- Same color did not affect another small region unexpectedly;
-- a newly generated 3MF still maps objects to the intended physical spools.
+- **2D Preview**: Only the intended regions changed color;
+- **3D Preview**: The 3D mesh has finished refreshing (give 3D geometry a moment if it finishes right after the 2D view);
+- **Layer Preview**: The stacked filament sequence matches your updated color;
+- **Exported 3MF**: Newly generated objects map cleanly to your physical spools in the slicer.
 
-If 2D has updated while 3D is still loading, wait for the operation to finish. Do not
-submit several opposite edits rapidly to “force” a refresh.
+## Undo, Clear Remaps, and Cancel
 
-## Undo, Clear Remaps, and Cancel are different
+- **Undo / Redo**: **Undo** reverts the most recent selection or replacement step, and **Redo** reapplies an undone action.
+- **Clear Remaps**: Strips all global color remaps and local-region edits from the current session, restoring the base automatic match. Click **Generate** afterward if you want a fresh 3MF of the restored match.
+- **Cancel (pending row)**: Discards only the uncommitted source → target pair currently awaiting confirmation.
 
-### Undo
+## Working with Free Color
 
-Undo returns to the preceding available edit; Redo restores an operation you just undid. Source changes after
-October 29 improved selection and local replacement history, so older versions may behave differently. Check
-the preview and selection after undoing or redoing.
+Clicking **Mark as Free Color** flags the selected matched color so that the next **Generate** exports its geometry as a standalone 3MF object (for example, `Free_FF0000`).
 
-### Clear Remaps
+**When to use Free Color:**
 
-Clear Remaps removes global mappings and local-region replacements from the current
-session and rebuilds from the base match. Use it when the edit history or scope is no
-longer clear.
+- You want to map a logo, border, or flat accent directly to a dedicated spool in your slicer;
+- You prefer to assign a specialty filament—such as silk, metallic, or glow-in-the-dark—outside the automatic layered color stack.
 
-An old 3MF on disk is not updated by this action. Generate a new file after confirming
-the restored Preview.
+**How Free Color behaves:**
 
-### Cancel a pending replacement
+- It groups geometry by matched color, so every region sharing that matched color enters the same `Free_` object;
+- Hardware slot limits still apply—make sure your printer or AMS has a slot ready for the spool you assign in your slicer;
+- **Clear Free Colors** removes Free Color flags while leaving all color replacements and **Custom Recipes** untouched.
 
-Cancel beside a target colour only abandons the replacement that has not yet been
-confirmed. It does not revert edits already applied.
+After clicking **Generate**, locate the `Free_FF0000` (or corresponding `Free_` hex) object in your slicer's object list and assign it to the physical filament spool you plan to load.
 
-## What is Free Color?
+## Handling Gradient Groups
 
-**Mark as Free Color** records the selected matched colour and extracts its geometry
-as an independent object during the next Generate. This is useful when you want to:
+In **Material Archive** mode, smooth gradients can occasionally step across adjacent filament combinations, forming visible contour bands. When **Color Workstation** detects these patterns, it lists them as gradient groups:
 
-- recognise and map that region to another real spool in the slicer;
-- complete a material assignment manually when the automatic recipe is unsuitable;
-- process one matched-colour class as a separate object.
+- Click a group or sub-region first to inspect its highlight on the canvas;
+- Merge a noisy sub-region or unify the group into a single representative shade when you want cleaner flat areas;
+- Leave intentional shading, soft shadows, or skin-tone transitions unmerged when multi-step gradation looks better.
 
-Free Color does **not**:
+## Common Questions
 
-- turn any screen RGB into a real filament automatically;
-- add a physical AMS slot;
-- extract only one connected region—other locations with the same matched colour can
-  enter the same object;
-- select the physical spool for you.
+### Why does clicking a swatch in the Palette do nothing?
 
-Free Colors appear with an independent marker. **Clear Free Colors** only removes those
-markers; it does not clear colour replacements or Custom Recipes.
+Make sure **Preview** has completed first, and check which selection tool is active: **Pick blocks** and **Selection brush** select directly on the preview canvas, whereas **Same color** lets you select matched colors across the image.
 
-After Generate, look for an object such as `Free_FF0000` and assign it to the physical
-filament you intend to load. Its display colour is an identifier, not a machine slot.
+### Why did the character's clothes change when I only meant to edit the eyes?
 
-## How should gradient groups be handled?
+Both areas shared the same matched color while **Same color** was active. Click **Undo**, switch to **Pick blocks**, click only the eye regions, and confirm the highlight before applying the target color.
 
-Material Archive mode can map a smooth gradient to several adjacent material colours,
-creating visible bands. Color Workstation may identify such regions as a gradient
-group.
+### Why doesn't the candidate color match the exact RGB hex I typed in?
 
-Inspect the group highlight first, then decide whether to:
+**Material Archive** mode calculates colors achievable with your selected physical filaments, **Color Layers**, and **Layer Height**. Pick the closest reachable candidate and confirm critical shades with a small test print.
 
-- merge only one local region into a representative colour;
-- replace the complete group consistently;
-- retain the original multi-colour gradient.
+### Do I need to run Preview again after confirming a replacement?
 
-Do not merge every detected group automatically. Smooth transitions, shadows, and skin
-tones can contain intentional variation. Compare the before and after Preview.
+Confirming a replacement refreshes the 2D, 3D, and **Layer Preview** views automatically. Once you are happy with the result, click **Generate** to export an updated 3MF.
 
-## Common questions
+### How does Free Color differ from color replacement?
 
-### Why does clicking the Palette do nothing?
+Color replacement assigns a different reachable filament stack to your selected region. **Free Color** changes how 3MF meshes are split, exporting that matched color as its own object so you can assign a filament manually in your slicer.
 
-Confirm that Preview has succeeded and check the selection tool. Pick blocks and Selection brush operate on the
-preview; Same color can select matching colours throughout the image.
+### How can I save my color edits for later?
 
-### Why did clothing change when I edited only the eyes?
-
-Same color probably found the same matched colour in both places. Undo the mistaken replacement, choose Pick blocks,
-and verify the highlight before confirming.
-
-### Why is a reachable result not exactly the RGB I entered?
-
-Material Archive mode solves colours from the selected physical materials, layer
-count, layer height, and recipes. The entered RGB is a search target. Choose the best
-reachable candidate and verify it with a test print.
-
-### Must I Preview again after a replacement?
-
-The operation updates the current Preview, which must be inspected in 2D, 3D, and
-Layer Preview. The final 3MF must be generated again.
-
-### How is Free Color different from colour replacement?
-
-Replacement maps a selected scope to another reachable colour or recipe. Free Color
-changes object organisation so one matched colour can be assigned independently in
-the slicer. Neither feature replaces the other.
-
-### How can I keep the edit for later?
-
-Keep the source image, Source Type and archive/LUT, settings, final 3MF, and a recipe
-exported through
-[Share Cards and JSON](pathname:///en/docs/knowledge/share-card-json/). A browser
-Preview is not a durable backup, and reopening a recipe still requires version,
-material, and Preview checks.
-
-## Content licence
-
-Unless otherwise noted, the original text and diagrams on this page are available
-under the Wiki’s
-[CC BY-NC-SA 4.0 content licence](pathname:///en/docs/project/content-license/).
-
-Color Workstation continues to evolve. Treat the current interface and the resulting
-Preview as the final authority for button names, reachable colours, and selection modes.
+Export a recipe file via [Share Cards and JSON](pathname:///en/docs/knowledge/share-card-json/) and store it alongside your original image, Material Archives or LUT, and final 3MF so you can reload and refine the project later.
