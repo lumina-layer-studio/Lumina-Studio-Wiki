@@ -9,13 +9,14 @@ test('creates a stable Chinese page key for Meow Comment', () => {
       server: 'https://comments.luminastudio.com.cn/',
       pathname: '/zh/docs/knowledge/image-mode-selection/',
       pageTitle: '图像模式选择',
+      darkMode: true,
     }),
     {
       baseUrl: 'https://comments.luminastudio.com.cn',
       pageKey: '/zh/knowledge/image-mode-selection/',
       pageTitle: '图像模式选择',
       locale: 'zh-Hans',
-      darkMode: 'auto',
+      darkMode: true,
       captcha: 'auto',
       rememberUser: true,
     },
@@ -27,8 +28,10 @@ test('uses English UI messages without changing the legacy page key', () => {
     server: 'https://comments.luminastudio.com.cn',
     pathname: '/en/docs/tutorials/gradient-card/',
     pageTitle: 'Print a gradient card',
+    darkMode: false,
   });
 
   assert.equal(options.locale, 'en');
   assert.equal(options.pageKey, '/en/tutorials/gradient-card/');
+  assert.equal(options.darkMode, false);
 });
