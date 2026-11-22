@@ -1,142 +1,100 @@
 ---
 title: "How Do I Choose High-Fidelity, Pixel Art, or Vector Mode?"
-description: "Choose a Lumina Studio modelling mode for photos, detailed artwork, pixel art, logos, text, line art, and transparent PNGs by understanding what each mode preserves."
+description: "Choose a Lumina Studio modeling mode for photos, detailed artwork, pixel art, logos, text, line art, and transparent PNGs by understanding what each mode preserves."
 sidebar_position: 22
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # How Do I Choose High-Fidelity, Pixel Art, or Vector Mode?
 
-If you only want the short answer: **identify the most important property of the
-source, then choose the mode designed to preserve it.**
+Match the modeling mode to the visual structure that matters most in your source artwork:
 
-- For photos, detailed illustrations, soft gradients, and texture, start with
-  **High-Fidelity**.
-- For pixel art, grid patterns, and mosaic-style artwork, start with **Pixel Art**.
-- For native SVG logos, text, icons, line art, and flat-colour shapes, start with
-  **Vector**.
+- For photos, detailed illustrations, soft gradients, and rich textures, start with **High-Fidelity**.
+- For pixel art, grid patterns, and mosaic-style designs, start with **Pixel Art**.
+- For native SVG logos, text, icons, line art, and flat-color shapes, start with **Vector**.
 
-“Start with” is not a mandatory rule. The three modes preserve different structures;
-they are not a low-to-high quality ranking. You can preview the same source in more
-than one mode and decide from the finished size, visual style, model complexity, and
-your own preference.
+These three modes target different image structures rather than ranking quality from low to high. You can preview the same artwork in multiple modes and choose based on finished print size, geometry complexity, and visual style.
 
 <img
   src={require('./assets/mode-selection-overview.webp').default}
   alt="Overview matching photos, pixel art, logos, text, and line art to High-Fidelity, Pixel Art, and Vector modes"
 />
 
-:::info[Do not decide from the extension alone. A PNG can be a photograph or pixel art. An]
-SVG can contain native paths or only an embedded bitmap. The real question is whether
-you need to preserve continuous colour, a deliberate pixel grid, or editable path
-boundaries.
+:::info[Look beyond the file extension]
+A PNG can hold either a photograph or crisp pixel art, and an SVG can contain clean vector paths or nothing more than an embedded bitmap. Choose a mode based on whether you want to preserve continuous color transitions, a deliberate pixel grid, or sharp path boundaries.
 :::
 
-## What does each mode preserve?
+## What each mode preserves
 
 <img
   src={require('./assets/mode-comparison.webp').default}
   alt="Concept comparison showing High-Fidelity preserving continuous colour, Pixel Art preserving cells, and Vector preserving SVG paths"
 />
 
-The diagram explains the structures that the three modes focus on. It is not a
-comparison of the final Lumina output from one identical file. Real results also
-depend on the number of colours, finished size, nozzle line width, slicer settings,
-and the quality of the source image.
+*Note: This conceptual diagram illustrates what each modeling mode prioritizes rather than actual output from the same file. Final results also depend on color count, finished dimensions, nozzle line width, and slicer settings.*
 
-### High-Fidelity: continuous colour, texture, and detail changes
+### High-Fidelity: continuous color, texture, and shading
 
-High-Fidelity treats the input as a continuous image. It focuses on colour changes,
-texture, lighting, and gradients. It is a common starting point for:
+High-Fidelity processes the input as a continuous-tone image to preserve color transitions, brushwork, lighting, and subtle gradients. It works well for:
 
-- portraits, pets, landscapes, and product photos;
-- detailed illustrations with brush texture, shadows, glow, or soft gradients;
-- detailed PNGs with a transparent background;
-- content that came from SVG but should be processed from its final appearance rather
-  than its native paths.
+- Portraits, pets, landscapes, and product photography
+- Detailed illustrations with brush textures, drop shadows, glow effects, or smooth gradients
+- Complex PNGs with transparent backgrounds
+- SVG artwork that relies on raster effects or complex shading best evaluated from its rendered appearance
 
-“High-Fidelity” does not mean that every source detail can be printed unchanged.
-Eyelashes, tiny text, or noise thinner than the available line width can still merge
-during model generation or slicing. A source with many colour changes can also create
-more regions and increase processing cost. Always inspect the preview at the intended
-finished size instead of judging only from a zoomed screen image.
+Physical print resolution still depends on your nozzle: eyelashes, tiny lettering, or grain narrower than a single extrusion line may merge or drop out during generation or slicing, and dense color noise can create extra tiny regions. Always evaluate Preview at your actual target print dimensions.
 
-### Pixel Art: a deliberate grid and limited palette
+### Pixel Art: crisp cell grids and limited palettes
 
-Pixel Art treats regular cells as part of the artwork's structure. It is suitable for:
+Pixel Art treats regular pixel cells as deliberate structural units, making it ideal for:
 
-- pixel-art characters, objects, and scenes;
-- grid puzzles, mosaics, and cross-stitch-style patterns;
-- artwork deliberately reduced to a small palette with boundaries aligned to a grid;
-- designs whose finished print should retain a clear blocky appearance.
+- Pixel-art characters, sprites, items, and scenes
+- Perler-bead layouts, mosaics, and cross-stitch patterns
+- Artwork quantized to a small palette with crisp grid-aligned edges
+- Designs meant to keep a stepped, blocky aesthetic on the build plate
 
-When an ordinary photo uses Pixel Art mode, continuous faces, skies, and shadows are
-split into visible blocks. That may be an intentional style choice, but it does not
-automatically make a photo clearer.
+Applying Pixel Art mode to an ordinary photograph breaks smooth skin tones, skies, and shadows into visible blocks—useful if you want a stylized mosaic look, though High-Fidelity is better for natural photo detail.
 
-Keep the original grid when preparing pixel art. Avoid smoothing the edges before
-import. If the source must be enlarged, nearest-neighbour scaling is more likely to
-preserve the boundary of every cell. After import, check whether one source pixel is
-large enough at the intended finished size; otherwise it may disappear when sliced.
+When preparing pixel art, keep the native pixel grid intact. If you scale the image beforehand, use **nearest-neighbor** interpolation so anti-aliasing does not blur cell boundaries. After importing, confirm that each grid cell is wide enough at your target print size to clear your nozzle's line width.
 
-### Vector: rebuild boundaries from SVG paths
+### Vector: smooth geometry from SVG paths
 
-Vector mode generates geometry from the paths, outlines, and fills in an SVG. It is a
-common starting point for:
+Vector mode builds 3D geometry directly from the mathematical paths, outlines, and fills inside an SVG file. It is designed for:
 
-- native SVG logos, icons, and marks;
-- text already converted to paths;
-- line art with clear boundaries;
-- flat-colour graphics with a small number of well-defined regions.
+- Native SVG logos, badges, icons, and wordmarks
+- Typography converted to outlines (paths)
+- Clean monochrome or flat-color line art
+- Graphics with distinct solid-color regions and crisp edges
 
-In the current Lumina Studio version, Vector mode is available only for SVG input.
-Its boundaries come from paths rather than from a fixed pixel grid, so curves and
-diagonal edges are easier to keep smooth when the finished size changes.
+Vector mode is available only when you upload an SVG file (it is unavailable for raster uploads). Because edges come directly from vector paths rather than a fixed pixel grid, curves and diagonal lines stay sharp at any target print size.
 
-However, a filename ending in `.svg` does not guarantee that the file suits Vector
-mode. SVG can embed bitmaps and can also use filters, masks, complex gradients,
-clipping paths, stroke effects, and other advanced features. Support can differ
-between renderers. After import, inspect missing regions, fill colours, holes,
-overlaps, and the appearance of text.
+Keep in mind that `.svg` files can also contain embedded bitmaps, blur filters, masks, complex gradients, clipping paths, or live strokes that render differently across parsers. After importing, inspect Preview for missing shapes, shifted fills, lost cutouts, overlapping paths, or unoutlined text.
 
-## Common source types and a useful starting mode
+## Quick reference by artwork type
 
-| Source | Mode to check first | What to inspect |
+| Source artwork | Mode to try first | What to check in Preview |
 | --- | --- | --- |
-| Portrait, pet, or landscape photo | High-Fidelity | Facial features, fur, shadows, background noise, and small colour patches |
-| Detailed illustration with texture and soft gradients | High-Fidelity | Gradient banding and excessive tiny texture regions |
-| Native pixel art | Pixel Art | Grid alignment and accidental smoothing after scaling |
-| Mosaic or grid puzzle | Pixel Art | Whether each cell is large enough for the line width |
-| Native SVG logo or icon | Vector | Paths, holes, overlaps, fills, and canvas bounds |
-| Text and line art | Vector or High-Fidelity | Whether text is converted to paths and whether small lines can print |
-| Transparent PNG | Decide from the artwork | White or grey fringes, semi-transparent pixels, and background specks |
-| Auto-traced SVG | Compare Vector and High-Fidelity | Messy nodes, region count, and incorrect contours |
+| Portrait, pet, or landscape photo | High-Fidelity | Facial features, fur, shadow transitions, background noise, and tiny color islands |
+| Textured or soft-gradient illustration | High-Fidelity | Smoothness of gradients and whether fine texture breaks into excessive tiny regions |
+| Native pixel art | Pixel Art | Clean grid alignment and absence of blurred edges from prior scaling |
+| Mosaic or grid pattern | Pixel Art | Whether individual cells are wide enough for your nozzle line width |
+| Native SVG logo or icon | Vector | Closed paths, interior cutouts, overlapping shapes, fills, and canvas bounds |
+| Typography and line art | Vector or High-Fidelity | Outlined text paths and whether thin strokes or small letters will print cleanly |
+| Transparent PNG | Match to image style | White or gray edge fringes, stray semi-transparent pixels, and isolated specks |
+| Auto-traced SVG | Compare Vector and High-Fidelity | Excess anchor points, fragmented color patches, and distorted contours |
 
-This table provides a starting point, not a final decision. A three-colour PNG logo
-can work in High-Fidelity. If you also have a native SVG exported from the design
-software, compare it in Vector mode. If both previews satisfy your needs, choose from
-your editing workflow and visual preference.
+Treat this table as a starting point. A crisp three-color PNG logo works well in High-Fidelity; if you also have the original design SVG, you can preview it in Vector mode as well and pick whichever geometry slices cleaner.
 
 ## Which mode should a transparent PNG use?
 
-A transparent PNG is still a bitmap. Transparency does not turn it into vector data.
+A transparent background does not turn a PNG into vector paths—it is still a raster image:
 
-- For a photo, detailed illustration, or soft gradient, start with High-Fidelity.
-- For native pixel art, start with Pixel Art.
-- For a logo or line drawing without a native SVG, start with High-Fidelity. You can
-  also trace a separate SVG candidate and compare the Vector result.
+- Choose **High-Fidelity** for photos, shaded illustrations, or soft gradients.
+- Choose **Pixel Art** for native pixel art on a transparent canvas.
+- Choose **High-Fidelity** for flat logos or line art when you only have a PNG, or run a clean vector trace first if you want to compare it in **Vector** mode.
 
-Transparent edges often retain white fringes, grey fringes, or dirty semi-transparent
-pixels. A fringe that is hard to see on a dark preview can become a separate region
-in the model. Inspect the source once on a light background and once on a dark one
-before import.
+Cutout PNGs often carry faint white or gray halos or stray semi-transparent pixels along their silhouette. Halos that blend into a light or dark screen background can turn into an unwanted border ring in the 3D model. Preview your PNG against both dark and light backgrounds before importing.
 
-## Clean the source before choosing a mode
+## Clean up your source file before importing
 
 <img
   src={require('./assets/source-cleanup.webp').default}
@@ -145,135 +103,73 @@ before import.
 
 ### Transparent edges
 
-Remove unwanted white or grey fringes and dirty semi-transparent pixels. If the soft
-edge is intentional, do not delete all translucency merely to make the file look
-“clean.” First check whether the High-Fidelity preview preserves the appearance you
-need.
+Trim unwanted white or gray matte fringes and stray semi-transparent pixels around cutouts. If your artwork has intentional soft feathering or outer glow, check it in High-Fidelity Preview first before stripping translucent edges.
 
-### Specks and fragments
+### Stray specks and compression artifacts
 
-Remove isolated colour patches, compression noise, and scanning dust that do not
-belong to the subject. They can create many tiny independent model regions without
-adding useful detail to the print.
+Erase isolated background specks, JPEG artifacts, and scanner dust outside the main subject so they do not generate tiny disconnected islands in the model.
 
-### Thin lines and small text
+### Hairline strokes and tiny text
 
-Inspect lines and text at the intended physical size. Being visible on a zoomed screen
-does not prove that it will survive at 60 mm or 100 mm. When necessary, make a line
-thicker, enlarge text, or simplify decorations that are too small.
+Check stroke weights and font sizes at your actual print dimensions in millimeters. Details that look sharp when zoomed in on screen may fall below your nozzle's minimum line width once scaled to 60 mm or 100 mm. Thicken fine lines, enlarge small lettering, or simplify tiny ornaments as needed.
 
 ### Gradients, filters, and masks
 
-If gradients, shadows, blur, glow, or complex masks depend on continuous appearance,
-keep a bitmap version and check High-Fidelity first. If you must use SVG paths, verify
-that these effects were expanded correctly, or prepare a bitmap copy with the final
-appearance already rendered for comparison.
+When shadows, glows, blurs, or complex masks define the look of an artwork, export a clean high-resolution PNG and use High-Fidelity. If you prefer Vector mode, expand strokes, live text, and appearances into standard closed paths and solid fills in your vector editor before saving the SVG.
 
-:::note[Cleaning the source does not create missing detail. It removes dirty edges, fragments,]
-and elements that must disappear at the intended size, allowing the generated model
-to focus on the artwork you actually want to preserve.
+:::note[Why clean up the source image]
+Removing edge halos, stray noise, and sub-nozzle fragments upfront keeps region boundaries clean so model generation focuses on the details you want on the print.
 :::
 
-## Four common misunderstandings
+## Four helpful distinctions
 
-### Converting to SVG does not restore lost detail
+### Auto-tracing to SVG cannot restore missing detail
 
-Automatic vectorisation estimates new contours from existing pixels. It can regularise
-a simple logo, but it can also turn photo noise, compression blocks, and jagged edges
-into a large number of paths. Eyes, text, and texture already missing from the source
-do not return automatically.
+Automatic bitmap-to-vector tracing guesses contours from existing pixels. While it can tidy up a bold, simple logo, tracing a noisy photo or compressed image often shatters edges into thousands of jagged micro-paths—and cannot recover facial features or lettering already blurred in the source.
 
-### More source pixels do not guarantee a clearer print
+### Print sharpness is bounded by print size and line width
 
-A high-resolution source gives Lumina more information, but the final detail remains
-limited by the finished size, line width, colour regions, and sliced toolpaths. To
-understand the relationship between size and line width, read
-[What Image Resolution Is a 0.2 mm or 0.4 mm Nozzle Equivalent To?](pathname:///en/docs/knowledge/nozzle-equivalent-resolution/).
+A high-resolution image gives Lumina plenty of pixel data, while the finest printable detail is ultimately set by physical print dimensions, nozzle diameter, and extrusion line width. To see how image pixels map to nozzle width, read [What Image Resolution Is a 0.2 mm or 0.4 mm Nozzle Equivalent To?](pathname:///en/docs/knowledge/nozzle-equivalent-resolution/).
 
-### Vector mode does not create more colours
+### Vector mode defines boundaries rather than adding colors
 
-Vector paths describe boundaries. They do not add filament colours or turn flat fills
-into photographic gradients. The available materials, colour configuration, and
-generated result still determine the colours that can be represented.
+Vector paths keep curves and sharp corners crisp, while your available color palette is still governed by your selected Material Archives (or Classic LUT) and layer stack.
 
-### Pixel Art is not a low-quality mode
+### Pixel Art preserves intentional grid styling
 
-Pixel art deliberately uses a limited grid and palette. The square boundaries are
-part of the visual language. Smoothing those cells into blurred curves can damage the
-design. For the underlying format concepts, read
-[Bitmap vs. Vector Images: What’s the Difference?](pathname:///en/docs/knowledge/bitmap-vs-vector/).
+Pixel art relies on a visible cell grid and compact palette as part of its aesthetic; smoothing those crisp steps into rounded curves softens the original design. For a closer look at raster grids versus vector paths, see [Bitmap vs. Vector Images: What’s the Difference?](pathname:///en/docs/knowledge/bitmap-vs-vector/).
 
-## A one-minute decision sequence
+## One-minute selection workflow
 
-When you receive an image, check it in this order:
-
-1. **Identify the content:** is it a photo, detailed illustration, pixel art, logo,
-   text, or line art?
-2. **Inspect the internal structure:** does an SVG contain usable paths, or only an
-   embedded bitmap?
-3. **Decide what must be preserved:** continuous colour, a regular grid, or smooth
-   path boundaries?
-4. **Clean the input:** check transparent fringes, noise, fragments, thin lines, and
-   small text.
-5. **Preview at the intended size:** focus on facial features, text, thin lines, holes,
-   and isolated colour patches.
-6. **Compare two modes when useful:** judge from the preview and a real test print,
-   not from the mode name.
+1. **Check the subject:** Is it a photo/shaded illustration, pixel art, or a flat logo/text/line drawing?
+2. **Inspect the file contents:** If it's an SVG, does it contain real vector paths or just an embedded bitmap and live filters?
+3. **Pick what to preserve:** Smooth tonal transitions, crisp grid cells, or mathematical path edges?
+4. **Tidy up the file:** Clean up cutout fringes, stray specks, hairline strokes, and tiny text.
+5. **Preview at target size:** Zoom in on eyes, lettering, interior cutouts, and small isolated color islands.
+6. **Compare modes when close:** Preview both candidates and inspect the sliced toolpaths to pick the cleanest result.
 
 ## Common questions
 
-### Why does Lumina select Vector automatically when I upload one SVG?
+### Why does Lumina switch to Vector mode automatically when I upload an SVG?
 
-The current version sends a single SVG to Vector mode by default so that its path
-information can be preserved. This is only a starting point. If the file contains
-complex gradients, filters, or an embedded bitmap, switch to High-Fidelity and compare
-the visible result.
+Uploading a single SVG defaults to Vector mode so native path boundaries stay intact. If your SVG relies on complex gradients, blur filters, or embedded bitmaps, you can switch to High-Fidelity at any time to compare the rendered appearance.
 
-### Can JPG, PNG, and WebP use Vector mode?
+### Can JPG, PNG, or WebP files use Vector mode?
 
-They cannot be used directly as vector paths because they store pixels. To use Vector
-mode, obtain a native SVG or use a tracing tool to create an SVG candidate, then check
-whether its paths are correct. Renaming the extension to `.svg` does nothing.
+Vector mode is enabled only for SVG uploads because JPG, PNG, and WebP store pixel grids rather than vector paths. To use Vector mode, export a native SVG from your design app or trace the artwork in a vector editor and inspect the paths first (simply renaming a file extension to `.svg` will not convert pixel data).
 
-### Must a logo be converted to SVG?
+### Do I have to convert every logo to SVG?
 
-No. A clear PNG logo with enough pixels can use High-Fidelity. A native SVG makes path
-boundaries and resizing easier to preserve. If an auto-traced SVG introduces fringes
-or incorrect regions, continuing with the original PNG is reasonable.
+Not at all. A clean, high-resolution PNG logo prints well in High-Fidelity mode. Native SVG shines when scaling to large sizes or preserving razor-sharp curves, whereas sticking with the original PNG in High-Fidelity is often cleaner than using a messy auto-traced SVG.
 
-### Can pixel art use High-Fidelity?
+### Can I use High-Fidelity mode for pixel art?
 
-Yes. Compare whether the cell boundaries still look right. Pixel Art mode explicitly
-treats the grid as structure, while High-Fidelity treats it as a general image. Choose
-according to whether you want the blocky grid or another smoothed or region-based
-result.
+Yes. Pixel Art mode locks geometry to the cell grid, while High-Fidelity treats the image as continuous artwork. Preview both and choose whichever edge treatment fits your project.
 
-### What if part of the artwork disappears in Vector mode?
+### Why did part of my graphic disappear in Vector mode?
 
-Check for embedded bitmaps, filters, masks, clipping paths, stroke effects, text not
-converted to paths, and content outside the SVG canvas. In a vector editor, expand
-important appearances into ordinary paths and fills, then save a new copy. You can
-also export a high-resolution PNG and compare it in High-Fidelity.
+Check whether the SVG contains embedded bitmaps, live filters, masks, clipping paths, unexpanded strokes, unoutlined fonts, or artwork sitting outside the `viewBox` canvas. In your vector editor, convert text to outlines and expand strokes and appearances into standard filled paths, or export a high-resolution PNG and use High-Fidelity mode instead.
 
-### If all three modes generate successfully, which one is correct?
+### If more than one mode generates cleanly, how should I choose?
 
-Judge from the preview at the intended size, model complexity, important detail,
-sliced result, and your own preference. There is no universal priority between the
-three modes.
-
-## Image notes and content licence
-
-The flower photograph on this page was generated with AI and is used only as generic
-teaching material for photographic input. The three mode diagrams were created by
-the Lumina Studio Wiki to explain the decision logic. They are not real output
-comparisons from Lumina Studio and do not promise a specific print result.
-
-Unless otherwise stated, the original text, tables, layout, and diagrams on this page
-are covered by the Wiki’s
-[CC BY-NC-SA 4.0 content licence](pathname:///en/docs/project/content-license/).
-Lumina Studio, third-party software, file formats, trademarks, and other third-party
-content remain the property of their respective rights holders.
-
-This page helps new users understand the modelling modes in the current version.
-Features and format compatibility can change. Use the current interface, preview,
-sliced result, and a test print as the final reference.
+Compare Preview at your finished print dimensions, check how cleanly small regions slice, and pick whichever result looks best for your artwork.

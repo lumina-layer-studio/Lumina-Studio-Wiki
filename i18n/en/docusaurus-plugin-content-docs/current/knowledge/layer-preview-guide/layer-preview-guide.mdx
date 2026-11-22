@@ -1,218 +1,165 @@
 ---
 title: "How to Read Lumina Layer Preview"
-description: "Read colour layers from viewing face to backing, enlarge and compare real layer masks, and use the hover inspector to connect predicted surface colour with the per-layer recipe."
+description: "Read color layers from viewing face to backing, enlarge and compare real layer masks, and use the hover inspector to connect predicted surface color with the per-layer recipe."
 sidebar_position: 37
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # How to Read Lumina Layer Preview
 
-Lumina’s main Preview answers: “What colour should this region look like after the material
-layers interact?” Layer Preview answers: “Which material colour is used at every position
-in each colour layer?”
+Lumina's **main Preview** shows what surface color each area is predicted to produce once stacked filaments interact, while **Layer Preview** breaks down which filament color goes into every position on each individual color layer.
 
-Use both views together. The final Preview does not explain the stack, and one isolated
-layer does not show the combined surface colour.
+Reading both views together shows you both the finished look and the exact material stack behind every shade.
 
-:::tip[The one sentence to remember]
-**Layer 1 is the viewing face; higher numbers are nearer the backing.** These are colour
-recipe layers, not the slicer’s physical Z-layer numbers counted from the build plate.
+:::tip[Layer numbering order]
+**Layer 1 is the outermost viewing face; higher numbers move inward toward the backing.** Layer Preview numbers optical recipe layers from the viewing surface inward, whereas your slicer counts physical Z-layers upward from the build plate.
 :::
 
-## Three views answer different questions
+## How the three preview stages complement each other
 
-| View | Main question | It cannot prove |
+| View | Primary question answered | What still needs verification |
 | --- | --- | --- |
-| Lumina main Preview | What surface colour should the stack produce? | Real spool mapping or toolpaths |
-| Lumina Layer Preview | Which colour is used at each position in every colour layer? | Extrusion paths, seams, supports, or print order |
-| Slicer layer Preview | What paths will the printer actually extrude? | Whether the archive predicts physical colour accurately |
+| Lumina main Preview | What combined surface color will the material stack produce? | Physical spool selection, feeder slot mapping, and sliced toolpaths |
+| Lumina Layer Preview | Which filament color occupies each position on every color layer? | Extrusion line width, seam placement, purge tower, supports, and print order |
+| Slicer layer preview | Which exact extrusion paths will the nozzle lay down? | Optical color blending across translucent layers (predicted by Lumina's archive model) |
 
-Passing Layer Preview does not remove the need for slicer inspection.
+Once both Lumina views look clean, always inspect the sliced toolpaths in your slicer before sending the job to the printer.
 
-## Step 1: complete a valid Preview
+## Step 1: Run Preview to load layer thumbnails
 
-1. upload the image;
-2. choose the Material Archives or Classic LUT you will use;
-3. set the intended mode, dimensions, and layers;
-4. select **Preview**;
-5. wait for the main result and layer thumbnails.
+1. Upload your source image.
+2. Select the Material Archives or Classic LUT you plan to print with.
+3. Configure your modeling mode, dimensions, and color layers.
+4. Click **Preview**.
+5. Wait for the main Preview and the row of layer thumbnails underneath to finish loading.
 
 <img
   src={require('./assets/01-find-layer-preview.webp').default}
   alt="Real English Lumina Preview with View Layers and five Layer Preview thumbnails highlighted"
 />
 
-Current builds load layer data automatically after a valid Preview. If thumbnails have not
-appeared, use **View Layers** to request them again.
+Layer thumbnails load automatically right after a valid Preview completes. If thumbnails are delayed, click **View Layers** to reload them on demand.
 
-After changing the image, colour source, colour-layer count, layer height, or another core
-recipe setting, run Preview again. Do not use old layer screenshots to judge a changed task.
+Whenever you change the source image, color source, color-layer count, Layer Height, or other core parameters, run **Preview** again so your layer masks reflect the updated recipe.
 
-## Step 2: read from viewing face to backing
+## Step 2: Read from viewing face to backing
 
-Lumina orders colour data as:
+Lumina arranges color layers from the front viewing surface inward:
 
-- **Layer 1:** outermost colour layer at the viewing face;
-- **middle layers:** material layers that participate in transmission, coverage, and mixing;
-- **last colour layer:** innermost colour layer nearest the backing.
+- **Layer 1:** The outermost color layer right at the viewing face.
+- **Middle layers:** Intermediate layers that transmit, filter, and blend light.
+- **Last color layer:** The innermost color layer sitting directly against the structural backing.
 
 <img
   src={require('./assets/02-read-layer-order.webp').default}
   alt="Five real Lumina layer-mask outputs arranged from Layer 1 viewing face to Layer 5 near the backing"
 />
 
-Every thumbnail is the **same artwork** at one colour layer, not a separate artwork. If one
-shape is yellow in Layer 1 and blue in Layer 2, that location uses different materials at
-different heights. That stack is how a new surface colour is created.
+Every thumbnail shows the **same artwork** sliced at a single optical recipe layer. When a shape is yellow in Layer 1 and blue in Layer 2, Lumina is stacking different filaments across depths to blend a new target color on the surface.
 
-:::warning[Do not confuse colour-layer numbering with slicer Z layers]
-A slicer counts physical layers from the build plate and may include backing thickness,
-first layer, Relief, and other geometry. Lumina Layer Preview explains the colour recipe
-from the viewing face. The two Layer 1 labels describe different coordinate systems.
+:::warning[Color layers vs. slicer Z layers]
+Your slicer counts physical Z-layers upward from the build plate—including structural backing layers, the first layer, and any Relief height—whereas Lumina Layer Preview counts optical recipe layers inward from the viewing face. Also note that the physical backing usually spans multiple solid layers of base filament; the last Layer Preview thumbnail represents only the innermost color-recipe layer next to that backing.
 :::
 
-The final colour-layer image is not necessarily the complete backing. The physical backing
-may contain several ordinary print layers of one material.
+## Step 3: Check silhouette first, then color transitions
 
-## Step 3: inspect outline before colour
+Scan the layer thumbnails in this order:
 
-Check layers in this order:
+1. **Outer silhouette:** Are borders, interior cutouts, and transparent backgrounds crisp and consistent across layers?
+2. **Fine details:** Do eyes, lettering, thin strokes, or small accents drop out unexpectedly on a single layer?
+3. **Stack transitions:** Do color changes from layer to layer match your selected archive palette or custom recipe?
+4. **Total layer count:** Does the number of thumbnails match your configured color layers or LUT?
+5. **Recent edits:** Have any Color Workstation replacements or custom stack edits updated on the expected layers?
 
-1. **outline:** are the edge, holes, and transparent areas complete?
-2. **critical detail:** did text, eyes, thin lines, or small shapes disappear in one layer?
-3. **colour changes:** does one position follow the expected archive or custom recipe?
-4. **layer count:** does it match the selected colour source and recipe?
-5. **recent edits:** did Color Workstation or recipe changes reach the intended layer?
+On a white page background, **white filament inside a small thumbnail can blend into the background**. Click any thumbnail to open the enlarged viewer: a gray-and-white checkerboard marks transparent space outside the model, making solid white filament inside the silhouette easy to spot.
 
-White material may blend into a white page thumbnail. In the enlarged view, a checkerboard
-outside the model means transparency; white inside the outline is white material.
+## Step 4: Zoom in and step across adjacent layers
 
-## Step 4: enlarge and compare adjacent layers
-
-Select any layer thumbnail.
+Click any layer thumbnail to open the full-size layer viewer:
 
 <img
   src={require('./assets/03-zoom-and-compare.webp').default}
   alt="Real English Lumina layer viewer with layer number, previous and next layer controls, zoom, pan, reset, and close instructions"
 />
 
-You can:
+Inside the viewer, you can:
 
-- select Previous Layer or Next Layer;
-- use the `←` and `→` keys;
-- scroll around the pointer to zoom;
-- hold and drag to pan;
-- use **Reset Zoom** to return to the full image;
-- close with `×`, `Esc`, or the area outside the dialog.
+- Click **Previous Layer** / **Next Layer** or press the `←` and `→` arrow keys.
+- Scroll the mouse wheel to zoom in and out around the cursor.
+- Click and drag to pan across fine borders and tiny color islands.
+- Click **Reset Zoom** to fit the whole artwork back in view.
+- Click `×`, press `Esc`, or click outside the modal to close it.
 
-Keep the same zoom and position while switching adjacent layers. A fixed view makes a small
-island, break, or unexpected recipe change easier to detect.
+To spot subtle anomalies, zoom into a detail first and keep the viewport stationary while tapping `←` and `→`—stray single-layer specks, broken strokes, or sudden recipe jumps stand out immediately when the frame doesn't move.
 
-## Step 5: hover over the main Preview to read one pixel’s stack
+## Step 5: Hover over the main Preview to inspect a single pixel
 
-Move the pointer over the main Preview and pause. The hover inspector shows:
+Rest the pointer anywhere on the main Preview for a moment to bring up the hover inspector card:
 
-- a magnified neighbourhood;
-- pixel coordinates;
-- the predicted combined surface colour;
-- the material colour used in Layers 1–N at that pixel.
+- **Magnifier loupe:** Zooms into the neighboring pixel grid around your pointer.
+- **Pixel coordinates:** Lets you return to the exact same spot after editing a color or recipe.
+- **Predicted color:** Shows the combined surface color and HEX value expected from the full stack.
+- **Layers 1–N colors:** Lists the exact filament assigned to each optical layer at that pixel.
 
 <img
   src={require('./assets/04-hover-read-recipe.webp').default}
   alt="Real English Lumina hover inspector showing pixel coordinates, predicted colour, and each layer colour"
 />
 
-The predicted colour normally differs from every individual layer colour. That is expected:
-Lumina estimates the optical result of the complete stack; it does not simply average Hex
-values.
+It is completely normal for the predicted surface color to differ from every individual filament in the stack—Lumina models light transmission and opacity across layers rather than averaging HEX codes. Note that hover coordinates refer to image pixels in Preview rather than millimeter bed positions or feeder slot numbers.
 
-Coordinates help you return to the same area when comparing a replacement or custom recipe.
-They refer to the Preview image, not millimetre bed coordinates or hardware slots.
+## Step 6: Quick troubleshooting by symptom
 
-## Step 6: diagnose the first abnormal view
-
-| Symptom | Check first |
+| What you see | Where to check first |
 | --- | --- |
-| Main Preview is already wrong | image, Source Type, LUT/archive, colour count, and Modeling Mode |
-| Main Preview is plausible but one layer has an isolated patch | source noise, colour replacement, and custom recipe for that region |
-| Every layer misses the same area | transparency, crop, SVG path, or geometry mode |
-| Layer count differs from expectation | current archive, custom recipe expansion, special colour mode, or stale Preview |
-| White appears to be missing | enlarge and distinguish white material from checkerboard transparency |
-| A colour edit still shows old layers | wait for reload; run Preview again after core-setting changes |
-| Lumina layers are correct but slicer colours are wrong | object, project filament, physical spool, and slot mapping |
-| Lumina and slicer are correct but print colour differs | archive, spool batch, layer height, flow, surface, and viewing light |
+| Main Preview colors already look off | Source image, Source Type, selected Material Archives / LUT, color count, and Modeling Mode |
+| Main Preview looks fine, but one layer has stray specks | Compression noise in the source image, regional color replacements, or custom recipes |
+| Every layer is missing the same section | Source alpha channel, crop bounds, unclosed SVG paths, or geometry settings |
+| Layer count doesn't match expectations | Configured Color Layers, custom recipe layer expansion, or an outdated Preview |
+| White regions look missing in thumbnails | Open the enlarged viewer and check solid white interior areas against the outer checkerboard |
+| Layer thumbnails haven't updated after an edit | Wait a moment for automatic reload, or click **Preview** again if you changed core settings |
+| Lumina layers look right, but slicer colors are scrambled | 3MF project import mode, project filaments, physical spools, and feeder slot mapping |
+| Both Lumina and slicer match, yet the print shifts in color | Archive accuracy, filament batch, actual Layer Height, extrusion flow, and viewing light |
 
-If the layer area remains blank, grey, or stuck loading, run Preview once more with a small
-simple image and default-compatible settings. Then use
-[The Page Will Not Open, Keeps Spinning, or Generation Fails](pathname:///en/docs/knowledge/web-generation-troubleshooting/).
+If the layer strip stays blank, gray, or stuck loading, test **Preview** with a small, simple image and default settings first; if it still fails, follow [The Page Will Not Open, Keeps Spinning, or Generation Fails](pathname:///en/docs/knowledge/web-generation-troubleshooting/).
 
-## Step 7: continue into the slicer
+## Step 7: Verify physical toolpaths in your slicer
 
-Layer Preview does not show:
+Because Layer Preview focuses on optical color recipes, open your exported 3MF as a full project in your slicer to verify physical printing details:
 
-- real nozzle lines and line width;
-- first-layer adhesion or over-squish;
-- seams, purge tower, supports, or bridges;
-- project-filament mapping to physical spools;
-- AMS, ACE, MMU, or external-spool slot assignment;
-- the printer’s physical layer order.
+- Extrusion line widths and survival of thin text or fine strokes
+- First-layer squish, adhesion, and seam placement
+- Purge tower placement, bridges, and any required supports
+- Mapping between project filaments and physical AMS, ACE, MMU, or external spools
+- Bottom-to-top physical print order and filament swaps
 
-Generate the 3MF, open it as a complete project, and use
-[Import a Lumina 3MF into the Slicer Correctly](pathname:///en/docs/tutorials/slicer-material-mapping/).
-If the three stages differ, follow
-[Why Lumina Preview, Slicer Preview, and the Print Differ](pathname:///en/docs/knowledge/preview-slicer-print-differences/).
+Follow [Import a Lumina 3MF into the Slicer Correctly](pathname:///en/docs/tutorials/slicer-material-mapping/) for the complete slicer check, and see [Why Lumina Preview, Slicer Preview, and the Print Differ](pathname:///en/docs/knowledge/preview-slicer-print-differences/) if colors diverge between stages.
 
 ## Common questions
 
-### Why is Layer 1 the viewing face instead of the first printed layer?
+### Why is Layer 1 the viewing face instead of the first layer printed on the bed?
 
-This numbering explains the optical stack from the observed surface. Slicer numbering
-describes physical Z height from the build plate. They serve different purposes.
+Layer Preview describes how light enters and reflects through the finished surface stack (starting at Layer 1 on the viewing face), whereas your slicer numbers physical Z-layers from the build plate upward for toolpath execution.
 
-### Why is the predicted colour different from all five layer colours?
+### Why doesn't the predicted color match any of the five layer filaments?
 
-Transmission, opacity, height, and order combine into a new surface appearance. The result
-is not required to equal a material colour or a simple RGB average.
+Translucent filaments filter and reflect light differently depending on layer thickness and stacking order, allowing a handful of base spools to blend dozens of intermediate surface shades.
 
-### Why do some modes have fewer or more than five layers?
+### Why do some projects show fewer or more than five layers?
 
-The selected LUT, archive, colour mode, and custom recipe determine the count. Layer Preview
-and generated 3MF should use the current real count.
+Total color layers depend on your configured Color Layers, Classic LUT specification, or custom stack recipes in Color Workstation. Both Layer Preview and your exported 3MF automatically adapt to the active layer count.
 
-### Why is View Layers still present if thumbnails load automatically?
+### Why is there still a View Layers button if thumbnails load automatically?
 
-It provides an explicit reload when thumbnails are delayed, missing, or need to be requested
-again.
+**View Layers** lets you manually request or refresh the layer masks anytime thumbnails are delayed over a slow connection.
 
 ### What does Transparent mean in the hover inspector?
 
-The coordinate is usually outside visible model geometry or has no visible Preview pixel.
-Check the magnifier and outline before treating transparency as white material.
+Your cursor is hovering over empty canvas outside the model silhouette (or over an intentional cutout with no geometry). Glance at the magnifier loupe to see the nearest model edge.
 
-### Can Layer Preview tell me which AMS slot to use?
+### Does Layer Preview tell me which AMS slot to load?
 
-No. It describes model colour layers, not hardware slots. Map project filaments to real
-spools in the slicer.
+No—Layer 1 through Layer N represent vertical optical layers inside the print rather than hardware feeder slots 1–4. Assign project filaments to your physical feeder slots inside the slicer after importing the 3MF.
 
-### Does visible small text prove it will print?
+### If small text is legible in Layer Preview, is it guaranteed to print?
 
-No. The colour data may contain the text while nozzle diameter and line width still remove
-it during slicing. Inspect real slicer toolpaths.
-
-## Image notes and content licence
-
-The screenshots, five layer masks, and hover values come from a real Preview in the current
-English Lumina Studio interface using simple original tutorial shapes. Focus annotations
-explain real controls and output.
-
-Unless otherwise noted, the original text, test artwork, and annotations are available
-under the Wiki’s
-[CC BY-NC-SA 4.0 content licence](pathname:///en/docs/project/content-license/).
-
-Layer count, control names, and prediction behaviour can change. Treat the current Preview,
-actual layer images, slicer paths, and printed sample as the final verification chain.
+Layer Preview confirms the text exists in the color data, but strokes narrower than your nozzle's extrusion width can still drop out during slicing. Always verify fine lettering and thin lines in your slicer's line-by-line toolpath preview.

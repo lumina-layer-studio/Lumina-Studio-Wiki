@@ -4,14 +4,9 @@ description: "Save, apply, and manage conversion settings and understand what a 
 sidebar_position: 2.5
 ---
 
-:::info[AI-assisted article]
-This article was prepared with AI assistance based on the Lumina Studio source code and workflow. If you find an error or have a clearer explanation, please comment on this page or propose an edit on GitHub.
-:::
-
 # Preset
 
-Presets remember commonly used conversion settings so you can apply them to another image. Find **Preset** in
-**Converter → Core Settings → Image Import and Basic Settings**, between image import and the color source.
+**Preset** saves your commonly used conversion settings so you can apply them to future images in a single click. Find **Preset** under **Converter → Core Settings → Image Import and Basic Settings**, located between the image upload area and the color source selector.
 
 ## Save a preset
 
@@ -20,28 +15,21 @@ Presets remember commonly used conversion settings so you can apply them to anot
   alt="Save parameter preset dialog with its name, summary and optional setting groups"
 />
 
-1. Adjust the source, materials or LUTs, size, layer count, layer height and single- or double-sided settings.
-2. Choose **Save as preset** and enter a unique name of 1–40 characters.
-3. Review **Settings to save**. Advanced settings, outline and coating are optional and unchecked by default.
-4. Choose **Save preset**.
+1. Configure your color source, filament profiles or LUTs, dimensions, layer count, layer height, and single- or double-sided mode.
+2. Click **Save as preset** and enter a unique name between **1–40** characters.
+3. Review **Settings to save**. **Advanced settings**, **Outline**, and **Coating** are optional and unchecked by default—check any group you want included.
+4. Click **Save preset**.
 
-Size is saved as the image's **long edge**. For example, a 100 mm preset makes the long edge 100 mm for either a landscape
-or portrait image; the other dimension follows the image ratio. Saving a preset does not alter the original image.
+Preset dimensions are stored using the image's **long edge**. For example, a `100 mm` preset sets the long edge to `100 mm` on both landscape and portrait images, calculating the shorter edge automatically from each image's aspect ratio.
 
 ## Apply and manage presets
 
-Choose a name from the **Preset** menu to apply it. Optional groups not included in that preset keep their current values.
-Check the materials, dimensions and other settings, then preview again. A previously downloaded 3MF is not updated.
+Select any preset from the **Preset** dropdown menu to apply it. Optional setting groups omitted from that preset keep their current values. After applying a preset, verify your filaments and dimensions, then run **Preview** again—previously exported 3MF files are not updated automatically.
 
-If you change settings after selecting a preset, **Modified** appears. The saved preset is not overwritten automatically;
-choose **Update preset** to save the changes. You can also rename or delete the selected preset from the menu. Deleting it
-does not remove the settings currently in use.
+Editing any setting after selecting a preset displays **Modified** without overwriting the saved preset; click **Update preset** to save your changes back to it. You can also rename or delete the selected preset from the dropdown menu without clearing the parameters currently active on screen.
 
-**Last used** restores the saved previous conversion settings. When a project is imported, the menu also shows
-**Current project settings**.
+Choose **Last used** to restore the settings from your previous conversion session. When an external project is imported, the menu also includes **Current project settings**.
 
-## Preset or project file?
+## Preset vs. project file
 
-A preset stores common parameters and references to the selected materials or LUTs, not the original image, preview or
-local color edits. On another device, check that the required material archives or LUTs are available. To save or share a
-specific artwork, also keep the source image and see [Share Card and JSON](../../../knowledge/share-card-json/share-card-json.mdx).
+A preset stores reusable conversion parameters and references to selected filament profiles or LUTs—it does not embed source artwork, previews, or local color edits. When using a preset on another computer, make sure the referenced filament profiles or LUTs are available there. To archive or share a specific piece of artwork with its exact recipe, keep the source image or export a project file as described in [Share Card and JSON](../../../knowledge/share-card-json/share-card-json.mdx).

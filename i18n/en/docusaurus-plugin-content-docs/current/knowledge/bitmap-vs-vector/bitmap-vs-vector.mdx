@@ -1,247 +1,170 @@
 ---
 title: "Bitmap vs. Vector Images: What’s the Difference?"
-description: "Use enlarged comparisons, common formats, and practical examples to understand bitmap and vector images and choose the right source for Lumina Studio."
+description: "Compare enlarged views, file formats, and practical examples to understand bitmap and vector images and choose the best source for Lumina Studio."
 sidebar_position: 21
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Bitmap vs. Vector Images: What’s the Difference?
 
-If you only remember one distinction:
+Digital images store visual information in two main ways:
 
-- A **bitmap** records a grid of pixels, with each pixel storing its own color.
-- A **vector image** records points, lines, curves, outlines, fills, and the instructions used to draw those shapes.
+- A **bitmap** (or raster image) stores a fixed grid of pixels, with each pixel holding its own color value.
+- A **vector image** stores points, lines, curves, outlines, and fills, redrawing shapes mathematically at any size.
 
-Neither format is inherently better. Photos, complex gradients, and digital paintings
-usually suit bitmap images. Logos, icons, text outlines, line art, and flat-color
-graphics usually suit vector paths. The right choice depends on what the source
-actually contains, how you plan to edit it, and which details matter in the result.
+Each format excels at different kinds of artwork. Photographs, soft gradients, and digital paintings fit bitmap images naturally. Logos, icons, outlined text, line art, and flat-color graphics fit vector paths. Choosing the format that matches your original artwork gives you the cleanest result in Lumina Studio.
 
-:::info[A simple way to think about it: a bitmap is like graph paper with every square already]
-colored in. A vector image is more like a set of drawing instructions that says where
-to place points, how curves should run, and which areas should be filled.
+:::info[Quick Analogy]
+Think of a bitmap as graph paper with every square already colored in, and a vector image as a set of drawing instructions that defines where points sit, how curves bend, and which regions are filled.
 :::
 
-## Enlargement makes the difference easy to see
+## How Enlargement Reveals the Difference
 
-Both sides below use the same composition. The left side first converts it into a
-low-resolution pixel grid and then enlarges it. The right side keeps the original
-outlines and curves and redraws them at the same display size.
+Both sides below start from the same graphic. The left side converts it into a low-resolution pixel grid before enlarging it; the right side keeps the native curves and redraws them at the target size.
 
 <img
   src={require('./assets/raster-vector-zoom.png').default}
   alt="The same graphic enlarged as a bitmap and redrawn from vector paths"
 />
 
-- Left: the number of pixels is fixed, so the enlarged grid becomes visible.
-- Right: the software redraws the paths, keeping curves and diagonal edges smooth.
+- **Left (Bitmap)**: Because the pixel count is fixed, zooming in exposes individual square pixels.
+- **Right (Vector)**: The software recalculates the paths at the larger size, keeping curves and diagonal edges crisp.
 
-The screen still uses physical pixels to display both images. A vector file is not
-“pixel-free” once it reaches your monitor. Its advantage is that the source stores
-shape descriptions, so the graphic can be recalculated at a new size instead of only
-stretching the original pixel grid.
+Monitors still render both formats using physical screen pixels, of course—the key difference is that a vector file recalculates clean geometry whenever you resize it instead of stretching a fixed pixel grid.
 
-## Bitmap and vector quick reference
+## Quick Comparison
 
-| Comparison | Bitmap | Vector |
+| Aspect | Bitmap | Vector |
 | --- | --- | --- |
-| Main data | Pixel colors in a fixed grid | Points, lines, curves, paths, outlines, and fills |
-| When enlarged | Can become pixelated or blurry beyond the source resolution | Native paths can be redrawn at the new size |
-| Best suited to | Photos, complex lighting, textures, gradients, digital painting, pixel art | Logos, icons, text outlines, line art, flat-color graphics |
-| Common format clues | JPG/JPEG, PNG, WebP, HEIC/HEIF, BMP, TIFF | SVG, AI, EPS |
-| Typical editing | Painting, selections, pixel-level retouching and color correction | Editing nodes, paths, strokes, and fills |
-| Common Lumina workflow | Keep the original image and choose a workflow from the preview | Preserve native SVG paths whenever possible before import |
+| Core data | Pixel colors in a fixed grid | Points, lines, curves, closed paths, and fills |
+| Behavior when enlarged | Becomes blocky or soft past its native resolution | Redraws native paths smoothly at any scale |
+| Best suited for | Photos, subtle lighting, textures, gradients, digital paintings, pixel art | Logos, icons, outlined text, line art, flat-color graphics |
+| Common file extensions | JPG/JPEG, PNG, WebP, HEIC/HEIF, BMP, TIFF | SVG, AI, EPS |
+| Typical editing tools | Brushes, selections, pixel retouching, and color grading | Node editing, path operations, strokes, and solid fills |
+| Recommended Lumina workflow | Upload the original bitmap and choose High-Fidelity or Pixel Art mode | Keep native SVG paths intact and use Vector mode |
 
-An extension is only a clue; it cannot tell you everything inside the file. PDF can
-contain text, vector paths, and bitmap images at the same time. The SVG standard also
-allows mixed vector and embedded raster content. A filename ending in `.svg` therefore
-does not prove that every part of the file is a native vector path.
+File extensions are a helpful clue rather than a guarantee. Formats like PDF and SVG can hold both native vector paths and embedded raster images inside the same container, so a `.svg` filename can still wrap a flat bitmap image.
 
-## A more realistic comparison
+## A Side-by-Side Zoom Example
 
-This public-domain example enlarges the same graphic in vector and bitmap form. The
-vector portion stays smooth, while the bitmap portion reveals its pixel grid.
+This public-domain illustration enlarges the same artwork as vector paths (top) and as a bitmap (bottom). The vector curves remain smooth while stair-stepping appears along the enlarged bitmap edges.
 
 <img
   src={require('./assets/vector-bitmap-example.png').default}
   alt="Wikimedia Commons comparison of enlarged vector and bitmap graphics"
 />
 
-The image was created by **Althepal**, obtained from
-[Wikimedia Commons](https://commons.wikimedia.org/wiki/File:VectorBitmapExample.png),
-and released into the public domain by its author.
+Image by **Althepal** via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:VectorBitmapExample.png) (public domain).
 
-The example demonstrates different enlargement behavior. It does not mean every
-bitmap looks unclear at its intended size. A photograph with enough pixels for its
-display size can look very sharp. Problems usually appear when a fixed-resolution
-image is enlarged beyond its useful size or when the source never contained the
-required detail in the first place.
+A bitmap with sufficient resolution looks completely sharp at its intended print size; pixelation only becomes an issue when a low-resolution image is scaled beyond what its pixel grid can support.
 
-## Which content usually suits each format?
+## Matching the Format to Your Artwork
 
 <img
   src={require('./assets/use-case-map.png').default}
   alt="Guide to choosing bitmap or vector for photos, detailed artwork, pixel art, logos, text, and line art"
 />
 
-### Content that usually stays bitmap
+### Artwork That Works Best as a Bitmap
 
-- **Photos:** faces, hair, skies, shadows, and material textures contain many continuous changes.
-- **Detailed artwork:** brush texture, soft gradients, translucency, and small lighting details can be difficult to express with a small number of paths.
-- **Digital painting:** many works are created directly on a pixel canvas.
-- **Pixel art:** the grid itself is part of the design and should not be smoothed away automatically.
+- **Photographs**: Faces, hair, skies, shadows, and surface textures rely on continuous pixel-by-pixel tonal shifts.
+- **Painterly illustrations**: Brush grain, soft gradients, translucency, and fine lighting are natural fits for raster canvases.
+- **Digital paintings**: Most painted artwork is authored directly on a pixel grid.
+- **Pixel art**: Crisp square cells are an intentional part of the style and should stay intact.
 
-### Content that usually keeps vector paths
+### Artwork That Works Best as Vector Paths
 
-- **Logos and icons:** these often need to be resized or recolored while keeping clean edges.
-- **Text outlines:** converting type to paths preserves the letter shapes and reduces changes caused by missing fonts.
-- **Line art:** paths make it easier to adjust line width, nodes, and corners.
-- **Flat-color graphics:** clearly separated regions usually do not need a large pixel grid to describe their boundaries.
+- **Logos and icons**: Easy to scale to any millimeter width while maintaining razor-sharp borders.
+- **Outlined text**: Converting text to outlines preserves exact letterforms without font-substitution issues.
+- **Line art**: Editable strokes and nodes make adjusting line thickness straightforward.
+- **Flat-color graphics**: Distinct solid regions map cleanly to closed vector shapes.
 
-:::note[“Usually” does not mean “always.” A PNG logo can still be perfectly usable, and a]
-vector illustration can be extremely complex. The goal is to preserve the strengths
-of your source, not to force every file into one format.
+:::note[Choose by Content]
+A high-resolution PNG logo still works great in Lumina Studio, and an ultra-dense vector illustration can sometimes process more smoothly as a raster image. Pick whichever format preserves your source artwork cleanly.
 :::
 
-## Renaming an extension does not convert the file
+## File Extensions vs. Actual Contents
 
-Renaming `picture.png` to `picture.svg` does not turn pixels into paths. The internal
-data remains unchanged, and software may refuse to open the file when the extension
-no longer matches its actual contents.
+Simply renaming `picture.png` to `picture.svg` leaves the pixel data untouched and will cause most apps to reject the file. Watch out for two common container pitfalls as well:
 
-Two other situations are easy to misunderstand:
+1. **A PNG wrapped inside an SVG**: An `.svg` file can contain nothing more than an embedded bitmap. Scaling the SVG canvas will not add detail to that bitmap.
+2. **A bitmap saved as a PDF**: PDF is a container format that can hold vector paths, live text, raster photos, or all three together.
 
-1. **Putting a PNG inside an SVG container:** the outer file is SVG, but it may only
-   contain an embedded bitmap. Enlarging the canvas does not add pixels to that image.
-2. **Saving an image as PDF:** PDF is a container that can hold paths, text, bitmap
-   images, or a mixture. The `.pdf` extension alone does not prove that its contents
-   are vector.
+To confirm whether an SVG contains real vector geometry, open it in a vector editor such as Inkscape or Illustrator and click the artwork. If you can select individual anchor points, strokes, and fills, it has editable paths; if you can only select a single bounding box, it wraps an embedded bitmap.
 
-To check whether a file contains editable paths, open it in a vector editor and try to
-select individual outlines, nodes, strokes, or fills. If you can only select one
-rectangular image and cannot edit the shapes inside it, the file probably contains an
-embedded bitmap.
+## What Automatic Vectorization Can and Cannot Do
 
-## Automatic vectorization is not lossless detail recovery
+Image-tracing tools analyze pixel boundaries and fit new vector shapes over them. When tracing a bitmap into SVG, expect these trade-offs:
 
-Image-tracing tools inspect pixels and decide where new outlines, color regions, and
-paths should be created. They **redraw an interpretation** of the bitmap; they do not
-recover original detail that is no longer present.
+- Similar shades merge into flat color regions;
+- Smooth gradients step into discrete color bands;
+- Hair, paper grain, noise, and JPG artifacts can turn into thousands of tangled nodes;
+- Tiny lettering, thin strokes, and sharp corners may round off or drop out;
+- Complex scenes can generate heavy path counts that slow down editing and conversion.
 
-Automatic vectorization may:
+Logos, icons, and clean line drawings usually trace cleanly, whereas photographs and painterly artwork almost always look better kept as bitmaps.
 
-- merge similar colors into one region;
-- split a soft gradient into a limited number of bands;
-- turn hair, paper texture, noise, and compression artifacts into many messy nodes;
-- simplify or distort small text, thin lines, and sharp corners;
-- create so many paths that the result becomes harder to edit and process.
-
-Tracing is more likely to produce a useful result when the source is a logo, icon, or
-line drawing with clear boundaries and few colors. A photo or detailed painting will
-often look more natural as a bitmap. After tracing, zoom in and inspect edges, small
-text, closed regions, and the number of color areas rather than only checking whether
-an SVG was exported successfully.
-
-:::warning[After a low-resolution image is traced into SVG, the canvas can scale indefinitely,]
-but any incorrectly traced outlines scale with it. A file being scalable does not mean
-the missing source detail has been restored.
+:::warning[Scaling vs. Source Detail]
+Tracing a blurry, low-resolution image into SVG makes the canvas infinitely scalable, but any rounded corners or jagged artifacts traced from those pixels scale right along with it. Tracing cannot restore detail missing from the source.
 :::
 
-## How should you choose in Lumina Studio?
+## Choosing Your Workflow in Lumina Studio
 
-Keep an untouched copy of the original file, then decide from the source content.
+Save an untouched copy of your original file first, then follow the path that matches your artwork:
 
-### The source is a photo or detailed illustration
+### Photos and Detailed Illustrations
 
-Keep the original JPG, PNG, WebP, or other bitmap version. In Lumina Studio, choose a
-generation workflow based on the actual preview, color regions, and detail you need.
-There is no need to trace an entire photo just to use an SVG workflow.
+Upload the original PNG, JPG, or WebP directly and use **High-Fidelity** mode. There is no benefit to tracing a photograph into SVG first.
 
-### The source is a logo, icon, line drawing, or flat-color graphic
+### Native Logos, Icons, and Line Art
 
-If you received a native SVG exported by the design software, keep it. Before import,
-check the canvas bounds, transparent background, closed paths, overlapping shapes,
-and whether text has been converted correctly. Do not export it to a low-resolution
-PNG and then trace that PNG back into SVG simply for consistency.
+If you have the original SVG exported from your design app, upload it directly. Before importing, verify that the artboard bounds are tight, the background is transparent, paths are closed, and live text has been converted to outlines. Avoid exporting a clean vector design to a small PNG only to trace it back into SVG.
 
-### You only have a bitmap but genuinely need paths
+### Bitmap Logos When You Need Vector Paths
 
-Use an image-tracing tool to create a candidate SVG, then compare it beside the source:
+Run Lumina's **Vectorizer** to generate a candidate SVG, then compare it side by side with the original:
 
-1. Are eyes, text, thin lines, and sharp corners still present?
-2. Has a continuous gradient become unnatural color banding?
-3. Did the background, shadows, or compression noise become unnecessary paths?
-4. Do the number of colors and path complexity suit the model you want to make?
-5. Does the Lumina preview better match your goal than using the original bitmap?
+1. Are eyes, small letters, thin lines, and sharp corners intact?
+2. Did any gradients split into distracting bands?
+3. Did background noise or drop shadows turn into stray shapes?
+4. Are the color count and shape count clean and manageable?
+5. Does Lumina's converter Preview look cleaner than using the original bitmap directly?
 
-If both versions generate correctly, choose according to the model, your visual
-preference, and future editing needs. You do not need to choose a format only because
-the word “vector” sounds more advanced.
+If both versions preview cleanly, pick whichever matches your visual goal and editing workflow.
 
-## A quick check before you start
+## Pre-Import Checklist
 
-When you receive an image, work through these questions:
+1. **Check the origin**: Identify whether the file is a photo, a compressed web graphic, or a native design export.
+2. **Inspect at target size**: If a bitmap already looks crisp at your finished print dimensions, no format conversion is needed.
+3. **Zoom in**: Bitmaps show a pixel grid when enlarged; true vectors expose editable nodes in a vector editor.
+4. **Verify container files**: Remember that SVG, AI, EPS, and PDF files can embed raster images.
+5. **Keep backups**: Save traced or cropped files under new filenames so your original stays untouched.
+6. **Compare in Preview**: Check key edges, color regions, small text, and layer complexity in Lumina before exporting your 3MF.
 
-1. **Ask where it came from:** is it a camera photo, an image downloaded from the web, or a logo/SVG exported from design software?
-2. **Check it at the intended size:** if it already looks clear, do not convert it only for theoretical scalability.
-3. **Zoom in:** a bitmap reveals pixels when enlarged; native vector paths still expose editable nodes in a vector editor.
-4. **Inspect the contents:** SVG, AI, EPS, and PDF can all contain embedded bitmap images.
-5. **Preserve the original before converting:** save traced or converted versions as new files so you can compare again later.
-6. **Use the Lumina preview and your actual goal:** check important edges, separate color regions, small text, and model complexity before choosing.
+## Common Questions
 
-## Common questions
+### Is a PNG always a bitmap?
 
-### Is PNG always a bitmap?
+Yes. PNG is a raster format. Even when exported from a vector logo, the resulting PNG stores a fixed pixel grid without editable vector paths.
 
-Yes. PNG stores pixel images. Even if the PNG was exported from a vector logo, the
-exported file has a fixed pixel count and does not retain the original editable paths.
+### Is every `.svg` file guaranteed to be pure vector?
 
-### Is every SVG a true, purely vector image?
+No. Because SVG supports embedded raster images alongside vector paths, opening the file in a vector editor to check for selectable nodes and fills is the surest test.
 
-No. SVG can contain native paths, embedded bitmap images, or both. The reliable way to
-check is to open the file in a vector editor and see whether its nodes, paths, strokes,
-and fills are individually editable.
+### Are vector images always sharper than bitmaps?
 
-### Are vector images always clearer than bitmaps?
+Vector paths keep geometric edges smooth at any scale, while high-resolution bitmaps capture photographic texture, subtle lighting, and continuous color transitions that flat vector shapes cannot easily represent.
 
-No. Native vector paths keep their edges smooth when resized, but they do not
-necessarily retain more real-world detail than a high-resolution photo. Fine texture,
-lighting, and subtle color variation are naturally suited to bitmap images.
+### Can tracing a low-resolution image into SVG recover lost detail?
 
-### Can converting a low-resolution image to SVG restore its detail?
+No. Tracing estimates curves from existing pixels—it can smooth out stair-stepped edges on simple shapes, but missing letters, facial features, or textures will not return.
 
-Not automatically. The tool can only estimate outlines from the pixels it receives.
-It may make an edge more regular, or it may reproduce the jagged edge and compression
-artifacts. Missing eyes, letters, or texture do not return when the extension changes.
+### Does smaller file size mean an image is vector?
 
-### Does a smaller file mean it is probably vector?
+Not reliably. A simple SVG icon may be tiny while a complex traced illustration can grow huge; likewise, a heavily compressed JPG can be small while an SVG with an embedded photo can be megabytes in size.
 
-No. A simple SVG logo can be small, but a complex path file can be large. Bitmap
-compression can produce a small file, while an SVG may embed a large bitmap. File size
-is information, not proof.
+### Should I convert pixel art into SVG?
 
-### Should pixel art be converted to vector?
-
-Usually not. The pixel grid is part of the visual language. When enlarging pixel art,
-nearest-neighbor scaling can preserve the square edges. Smoothing or tracing it may
-change the intended shapes.
-
-## Rights and content license
-
-`VectorBitmapExample.png` was created by **Althepal** and is marked as public domain
-on Wikimedia Commons. It retains its own source and rights status independently of
-the Lumina Studio Wiki content license.
-
-Unless otherwise stated, the original text, table, layout, enlargement comparison,
-and use-case diagram in this page are covered by the Wiki’s
-[CC BY-NC-SA 4.0 content license](../../project/content-license.md). Software names,
-file formats, trademarks, and third-party material remain the property of their
-respective rights holders.
+No. Keep pixel art as a bitmap and use **Pixel Art** mode in Lumina Studio (or nearest-neighbor scaling when resizing) so every grid cell stays sharp instead of getting smoothed away.
 
 ## References
 
@@ -249,8 +172,3 @@ respective rights holders.
 - [W3C: Scalable Vector Graphics (SVG) 2](https://www.w3.org/TR/SVG/)
 - [MDN: SVG `<path>` element](https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element/path)
 - [Wikimedia Commons: VectorBitmapExample.png](https://commons.wikimedia.org/wiki/File:VectorBitmapExample.png)
-
-This page introduces common image structures and workflows for new users. Different
-applications may apply different import rules for formats, transparency, color, text,
-clipping masks, and embedded content. Always check the preview and generated result
-from the current software version.

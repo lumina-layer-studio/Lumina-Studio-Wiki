@@ -1,24 +1,16 @@
 ---
 title: "Cloisonné (older versions)"
-description: "Current Cloisonné wire width, height, compatibility limits, and development status."
+description: "Wire width, wire height, and mode limitations for Cloisonné in older versions."
 sidebar_position: 8
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Cloisonné (older versions)
 
-:::warning[No settings entry in the current version]
-The Cloisonné settings entry is currently hidden; existing settings data is retained. The information and screenshot below
-describe older versions, not an available control in the current interface.
+:::warning[Legacy feature]
+The Cloisonné settings entry is hidden in the current release, though existing configuration data is retained. The details and screenshot below apply to older versions that expose this control.
 :::
 
-Cloisonné extracts a wireframe from matched-colour boundaries, creates a separate **Wire** object, and forces a Single-sided
-base. The feature is still marked as under construction and may be incomplete on complex artwork.
+Cloisonné extracts a wireframe along matched-color boundaries, generates a separate **Wire** object, and switches Structure Mode to Single-sided. In versions that include it, the feature is experimental and may produce incomplete wireframes on intricate artwork.
 
 <img
   src={require('./assets/01-cloisonne-settings.webp').default}
@@ -27,18 +19,16 @@ base. The feature is still marked as under construction and may be incomplete on
 
 ## Parameters
 
-- **Wire Width:** 0.2–1.2 mm in 0.1 mm steps; controls horizontal wire thickness.
-- **Wire Height:** 0.04–1.0 mm in 0.04 mm steps; controls how far Wire rises above the colour regions.
+- **Wire Width:** 0.2–1.2 mm in 0.1 mm steps. Controls horizontal wireframe thickness.
+- **Wire Height:** 0.04–1.0 mm in 0.04 mm steps. Controls how far **Wire** rises above the color regions.
 
-A narrow wire can fall below reliable nozzle line width. A wide wire can cover adjacent colours. Extra height increases
-texture but also raises clearance and surface-collision risks.
+Setting **Wire Width** too low can fall below what the nozzle prints reliably, while setting it too high can cover adjacent colors. Increasing **Wire Height** creates stronger surface texture, though tall wires also increase the chance of nozzle contact during travel moves.
 
-## Current limits
+## Limitations
 
-- Relief and Cloisonné are mutually exclusive.
-- The option is disabled in Vector modeling mode.
-- Wire uses a fixed gold preview colour for identification; actual print colour depends on slicer material assignment.
-- Every change requires a newly generated 3MF.
+- Mutually exclusive with Relief; enabling one turns off the other.
+- Disabled in Vector modeling mode.
+- **Wire** uses a fixed gold preview color for visibility; actual print color follows the filament assignment in your slicer.
+- Regenerate the 3MF after changing any parameter.
 
-When using an older version that exposes this feature, validate the 3D preview, object list, sliced layers,
-and a small test piece before using it for a final print.
+When working in an older version that includes Cloisonné, check the 3D preview, object list, and sliced layers, and print a small test piece before starting a full build.

@@ -4,16 +4,9 @@ description: "Inspect and manage locally calibrated material archives."
 sidebar_position: 1
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Material Library
 
-The Material Library stores materials measured by Lumina. An archive contains both a display colour and the fitted
-parameters used for layer-stack prediction, so an ordinary colour swatch cannot replace it.
+The Material Library stores and organizes locally calibrated filament archives. Alongside a preview swatch for the interface, each archive holds the fitted optical parameters and calibration layer height required for layer-stack color prediction.
 
 <img
   src={require('./assets/01-material-library.webp').default}
@@ -22,30 +15,27 @@ parameters used for layer-stack prediction, so an ordinary colour swatch cannot 
 
 ## Brand groups and duplicate names
 
-Materials are collapsed by brand. Archives without a brand appear under Unassigned. Select a brand header to expand or
-collapse it.
+Materials are grouped by brand and collapsed by default, with unbranded archives listed under **Unassigned**. Click any brand header to expand or collapse its group.
 
-“N copies” means the brand and display name match while the directory or measured data differs. Lumina does not merge
-these entries by name; the directory name is the stable identity of each archive.
+An **N copies** indicator appears when multiple archives share the same brand and display name while differing in directory name or measured data. Each archive uses its directory name as a unique identifier and remains stored separately.
 
-An archive installed from the official cloud channel carries an Official badge. The badge identifies its origin; it does
-not guarantee that the archive is a better fit for your printer and capture conditions than your own measurements.
+Archives installed from the official cloud channel display an **Official** badge to indicate their source. Because printed color also depends on your specific printer, nozzle condition, and filament batch, choose between official archives and your own calibrated profiles based on your setup.
 
 ## Card fields
 
-- **Display colour**: the estimated RGB from the gradient-card fit. It can be overridden in the edit dialog.
-- **Created / Last Updated**: the first and most recent archive write time.
-- **Brand / Directory**: grouping information and the archive's stable identifier.
-- **Fit Error**: mean ΔE for the fit. It is a diagnostic, not an absolute ranking across materials.
-- **Verification Runs**: valid measurements incorporated into the archive.
-- **Usage Count**: how often colour modes actually used this archive, plus the last-use time when recorded.
-- **Layer Height**: the calibration layer height used to produce and fit the gradient cards.
+- **Display color**: The estimated RGB swatch from the gradient-card fit, which can be customized in the edit dialog.
+- **Created / Last Updated**: Timestamps for when the archive was first saved and most recently updated.
+- **Brand / Directory**: Brand grouping metadata and the archive's unique directory identifier.
+- **Fit Error**: Mean ΔE of the current fit, useful for evaluating sampling and fit quality for that material (because optical behavior varies by pigment, compare values across runs of the same filament rather than ranking different colors against one another).
+- **Verification Runs**: Number of valid calibration runs incorporated into the archive.
+- **Usage Count**: How many times color modes have used this archive, along with its most recent use timestamp when recorded.
+- **Layer Height**: The calibration layer height used when printing and fitting the gradient cards.
 
-Select All changes only the current selection. Refresh Library rereads backend storage without recalibrating anything.
+## Top toolbar
 
-See [Material Import and Export](../material-import-export/material-import-export.mdx) for migration and backup. See
-[Editing and Re-Verification](../material-edit-and-verification/material-edit-and-verification.mdx) for Edit Details,
-Re-Verify, Verification History, and Delete Material.
+In the top toolbar, **Select All** selects every archive in the list for batch export, and **Refresh Library** reloads the latest archives from local storage.
+
+For batch backups and transfers, see [Material Import and Export](../material-import-export/material-import-export.mdx). For **Edit Details**, **Re-Verify**, **Verification History**, and **Delete Material**, see [Editing and Re-Verification](../material-edit-and-verification/material-edit-and-verification.mdx).
 
 Related pages:
 

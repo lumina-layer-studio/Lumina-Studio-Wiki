@@ -1,58 +1,52 @@
 ---
 title: "Report a bug and diagnostic information"
-description: "Describe reproduction steps, review attachments, and check upload status and the ticket identifier."
+description: "Write clear reproduction steps, review collected diagnostic files, track ticket upload status, and use fallback submission options."
 sidebar_position: 3
 ---
 
-:::info[AI-assisted article]
-This article was prepared with AI assistance using the application source code and existing tutorials. If anything is inaccurate, or you have a clearer method, please suggest a correction through this page's feedback.
-:::
-
 # Report a bug and diagnostic information
 
-For generation failures, unusual previews, or unexpected behavior, open Report a bug from the top bar. Lumina collects the current task's diagnostic information and submits it to the official issue-collection service when you send the report. You do not need to configure a personal sending email account.
-
-Checked against the source code available on October 19, 2026.
+When you run into a generation error, unexpected preview, or broken workflow, open **Report a bug** from the top bar. Lumina packages diagnostic data from your active task and sends it directly to the official issue-collection service—no personal sending email account required.
 
 ## Reproduce the issue before opening the form
 
-Keep the affected artwork, recipe, and settings. Perform the operation that triggers the issue, then open the form so its context reflects that state. If you replace the image or repeat the operation afterward, use the form's recollection control to update the report.
+Keep the affected artwork, recipe, and settings active, trigger the issue once, and then open the form so it captures the exact session state. If you swap artwork or repeat actions while the form is open, use its recollection button to refresh the captured context.
 
-In the description, include:
+In your description, include:
 
-1. The input and color source, such as SVG with a material archive.
-2. The operation order and the step where the problem begins.
-3. What you expected and what actually happened.
-4. Whether it happens every time or only with a particular file.
+1. Input format and color source (for example, SVG with a material archive).
+2. Exact steps taken and the step where things went wrong.
+3. Expected result versus what actually happened.
+4. Whether the issue occurs every time or only with a specific file.
 
-Contact email is optional and lets the maintainer reply. It is not a sending-account configuration. Optional screenshot formats include PNG, JPG, WebP, and GIF. Follow the form's message if a file is not accepted.
+Contact email is optional and lets maintainers follow up with you. You can also attach PNG, JPG, WebP, or GIF screenshots; adjust the file if the form flags a size or format limit.
 
 <img src={require('./assets/01-bug-report.webp').default} alt="English bug-report form with description, optional email, screenshot and attachment notice; no report was sent" />
 
 ## What may be attached
 
-Depending on the current task, a report can collect conversion parameters, device selections, recent actions, errors, and available source images, SVGs, models, LUTs, material archives, and generated results. Not every report has every attachment; it depends on what the session actually contains.
+Depending on your active session, a report can bundle conversion parameters, device selections, recent actions, error logs, and available source images, SVGs, meshes, LUTs, material archives, and generated outputs. Included files reflect whatever is currently loaded in the session.
 
-These files help developers reproduce the issue. Review the context and attachment notices before sending, particularly when using customer designs or artwork and models you may not redistribute. Check screenshots for account information, notifications, and other private content too.
+Developers use these files to reproduce the fault. Before sending, check the attachment summary to make sure you have permission to share any client artwork or proprietary models, and check screenshots for account names, notifications, or other private details.
 
-## A ticket number does not mean upload is complete
+## Ticket ID and upload status
 
-Keep the ticket identifier and watch the final upload state:
+After submitting, note your ticket ID and watch the upload status until it finishes:
 
-| State | Meaning and next step |
+| Status | Meaning and next step |
 | --- | --- |
-| Submitting or waiting for upload | Still processing; wait for the final result |
-| Upload succeeded | The service received the report; this does not mean the bug is fixed |
-| Upload failed | Retry and check the new result |
-| Some attachments were not collected or sent | Check which files are missing and recollect if needed |
-| Upload unavailable | Keep the ticket identifier and use the offered fallback report and contact options |
+| Submitting or waiting for upload | Transfer in progress; keep the dialog open |
+| Upload succeeded | Your report and diagnostic package have been received |
+| Upload failed | Click **Retry** and check the updated status |
+| Some attachments were not collected or sent | Review which files were skipped and recollect if needed |
+| Upload unavailable | Save the ticket ID and use the fallback report and contact options |
 
-Do not close the form merely because a ticket number has appeared. The maintainer may not yet have the complete report while upload is pending.
+Wait until the status shows **Upload succeeded** before closing the dialog so all diagnostic attachments finish transferring.
 
-## If sending fails
+## If submission fails
 
-Check the connection and retry. If it still fails, copy the fallback report and send it to the maintainer with the ticket identifier and reproduction steps. System mail or QQ Mail is a fallback in the relevant failure flow, not a prerequisite for normal submission.
+Check your network connection and click **Retry**. If direct upload remains unavailable, copy the fallback report text and share it with the maintainers alongside your ticket ID and reproduction steps. Fallback options such as system mail or QQ Mail are used only when direct submission fails.
 
-If the original task was closed, its session was replaced, or files were not collected, reopen the task and collect a fresh report rather than repeatedly sending the same incomplete description.
+If the original task was closed, replaced by a new session, or missing key files, reopen the project, trigger the issue again, and collect a fresh report.
 
-For missing illustrations, errors, or suggestions about documentation, use the [Wiki feedback page](../../../project/wiki-feedback/wiki-feedback.mdx). Report software faults inside Lumina so the diagnostic context can accompany them.
+To report typos, missing screenshots, or suggestions for this documentation, visit the [Wiki feedback page](../../../project/wiki-feedback/wiki-feedback.mdx). For software bugs, submit through **Report a bug** inside Lumina so diagnostic data is included.

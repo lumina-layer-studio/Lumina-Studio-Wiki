@@ -1,52 +1,41 @@
 ---
-title: "Selection Modes, Palette, and Free Colours"
-description: "Same-color, similar-color, region and brush selection, undo, clear remaps, and Free Colour behavior."
+title: "Selection Modes, Palette, and Free Colors"
+description: "Same-color, similar-color, block, and brush selection tools, undo and clear remaps, and standalone Free Color objects."
 sidebar_position: 3
 ---
 
-:::info[AI-assisted article]
+# Selection Modes, Palette, and Free Colors
 
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
-# Selection Modes, Palette, and Free Colours
-
-The palette contains only colours present in the active preview. The percentage below each swatch is pixel coverage for
-that matched colour. After selection, the header shows the quantized colour, matched colour, and replacement in order.
+The palette lists every color currently used in the active preview, with the percentage below each swatch showing its pixel coverage across the image. Selecting a swatch displays its quantized source color, matched color, and replacement color in order at the top of the column.
 
 <img
   src={require('./assets/01-selection-modes.webp').default}
   alt="Selection modes, Free Colour controls, and palette in Color Workstation"
 />
 
-## Four selection modes
+## Selection tools
 
-| Mode | Target after clicking the 2D preview | Typical use |
+| Tool | Action on the 2D preview | Typical use |
 | --- | --- | --- |
-| Same color | Toggle every region with the clicked color | Change a color across the image |
-| Similar colors | Toggle visible regions within the color-difference tolerance | Change nearby shades together |
-| Pick blocks | Select or deselect individual regions | Change one or several isolated shapes |
-| Selection brush | Select whole blocks touched by brush strokes | Select several blocks at once |
+| Same color | Toggles every region using the clicked color | Replace a color globally across the artwork |
+| Similar colors | Toggles visible regions within the ΔE00 tolerance | Group and adjust nearby shades together |
+| Pick blocks | Selects or deselects individual connected regions | Edit one or several isolated shapes |
+| Selection brush | Selects whole connected blocks touched by the brush | Sweep across multiple neighboring regions quickly |
 
-These tools use a shared selection. Current, Multi, and Region are older entry-point names. Use the tools above in the new interface and check the visible selection boundary to confirm the actual edit area.
+All four tools operate on a shared selection (superseding the earlier **All**, **Current**, **Multi**, and **Region** mode switches); check the highlighted outline on the 2D preview to verify the exact edit area.
 
-Similar-color tolerance defaults to 6 and runs from 0 to 30. At 0, only identical colors are selected. Brush size runs from 2 to 160 px. See [Quick recolor & similar recipes](../quick-recolor/quick-recolor.mdx) for selection and target-color details.
+**Similar colors** tolerance defaults to **6** and ranges from **0** to **30** (at **0**, only identical colors match). **Selection brush** size ranges from **2** to **160 px**. For step-by-step recoloring workflows, see [Quick recolor & similar recipes](../quick-recolor/quick-recolor.mdx).
 
-## Replace, undo, and clear
+## Replace, Undo, and Clear Remaps
 
-Choosing a target colour creates a source-to-target confirmation first. Only Confirm Replace rebuilds the preview. Multiple
-colours or regions are sent as one batch so the 3D result is not rebuilt once per item.
+Picking a target color stages a `source → target` preview first, rebuilding the 2D and 3D views only after you click **Confirm Replace**. Multi-color and multi-region edits are processed together in a single batch so the 3D preview rebuilds only once.
 
-- **Undo** returns to the available previous editing state; check both colors and selection afterward.
-- **Clear Remaps** clears global and regional replacements and rebuilds 2D/3D output from the original matched result.
-- **Cancel** discards only the target colour that has not yet been confirmed.
+- **Undo:** Steps back to the previous confirmed edit state; check both the colors and active selection afterward.
+- **Clear Remaps:** Removes all global and regional color replacements and rebuilds the 2D and 3D previews from the initial match.
+- **Cancel:** Discards only the currently staged, unconfirmed target color.
 
-## Free Colour
+## Free Color
 
-Mark as Free Colour extracts every solid voxel of the selected matched colour into a standalone generated object named
-like `Free_FFFFFF`. This lets the slicer assign or process that object independently. It does not invent or automatically
-select a real filament.
+Select a palette color and click **Mark as Free Color** to extract all solid voxels of that matched color into a standalone object (named like `Free_FFFFFF`) when generating the 3MF. In your slicer, you can then assign that object to any filament slot or apply dedicated print settings independently.
 
-Free Colour changes the structure of the generated 3MF, so Generate must be run again after marking or clearing it. It does
-not recolour the current 2D preview.
+Because **Mark as Free Color** and **Clear Free Colors** change how objects are split inside the 3MF, run **Generate** again after updating them. Marking a Free Color leaves the 2D preview colors unchanged.

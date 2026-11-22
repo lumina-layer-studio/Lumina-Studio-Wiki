@@ -4,43 +4,39 @@ description: "Predict a real material stack and generate a verification-swatch 3
 sidebar_position: 7
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Material Recipe Query
 
-Material Recipe Query uses the Beer–Lambert forward model stored in material archives. It does not depend on a
-traditional LUT and does not impose a five-layer limit.
+Material Recipe Query predicts stacked filament colors of arbitrary layer counts using the Beer–Lambert forward optical model stored in your material archives, with no five-layer cap or traditional LUT requirement.
 
 <img
   src={require('./assets/01-recipe-result.webp').default}
   alt="Predicted result for a four-layer material recipe"
 />
 
-White or Black selects the final substrate. Layer height can be `0.04`, `0.08`, or `0.10 mm` and should match the actual
-slicer setting. Changing either value invalidates the current prediction.
+## Substrate and layer height
+
+Choose **White** or **Black** to set the underlying substrate color. Set the layer height to `0.04`, `0.08`, or `0.10 mm` to match your actual slicer layer height.
+
+After changing either the substrate or the layer height, click **Compute Color** again to refresh the prediction.
 
 ## Build the stack
 
-The library is grouped by brand and searchable by material name, brand, or directory. Selecting a material appends one
-layer on the **substrate side**.
+Materials are grouped by brand and searchable by material name, brand, or directory. Clicking a material appends one layer on the **substrate side** of the stack.
 
-The displayed order is always:
+The stack is always displayed from outside to inside:
 
 `viewing face → … → substrate`
 
-Undo Last Layer removes the latest substrate-side append. The × control removes any individual layer. Reverse flips the
-entire stack, and Clear removes it.
+- **Undo Last Layer**: Removes the most recently appended layer on the substrate side.
+- **×**: Removes any individual layer from the stack.
+- **Reverse**: Flips the entire layer sequence end to end.
+- **Clear**: Removes all layers from the current recipe.
 
-Compute Color converts the display order to the substrate-first order used by the solver, then runs the forward model
-layer by layer. Results include predicted HEX and RGB, layer count, height, substrate, and the estimated colour after
-each layer.
+## Compute Color
 
-This is a calibrated model prediction, not a monitor swatch guarantee. Printer behaviour, material batch, surface
-texture, and viewing light still require a physical check.
+Clicking **Compute Color** evaluates the forward optical model layer by layer from the substrate up to the viewing face. The output displays the predicted HEX and RGB values, total layer count, layer height, substrate, and intermediate color previews after each layer.
+
+Screen swatches show the calibrated model prediction; because physical appearance also varies with extrusion behavior, filament batch, surface texture, and viewing illumination, print a verification swatch to confirm critical colors.
 
 ## Queue and verification swatch
 
@@ -49,17 +45,14 @@ texture, and viewing light still require a physical check.
   alt="Recipe queue after adding one prediction"
 />
 
-Add to Queue stores the current order, height, and substrate; an identical result is not added twice. Remove entries
-individually or clear the complete queue. Swatch generation supports:
+Click **Add to Queue** to save the current layer order, layer height, and substrate to the batch queue (identical recipes are skipped automatically). You can remove queued recipes individually or clear the entire queue at once. When generating verification swatches, configure:
 
-- **Block size**: `5–50 mm`;
-- **Gap**: `0.5–10 mm`;
-- **Columns**: `0–20`, where `0` selects an automatic layout;
-- **Structure mode**: Single-sided or Double-sided.
+- **Block size**: `5–50 mm`
+- **Gap**: `0.5–10 mm`
+- **Columns**: `0–20` (`0` arranges columns automatically)
+- **Structure mode**: **Single-sided** or **Double-sided**
 
-Generation also reads the printer, slicer, nozzle, and device profile from Settings to create the matching 3MF. The
-legend preview identifies block positions. **Download 3MF** appears after a successful build; the queue remains
-available for another layout and build.
+Swatch generation uses the printer, slicer, nozzle, and device profile configured in **Settings** to build a ready-to-slice 3MF alongside a layout legend preview. Once generation finishes, click **Download 3MF** to save the file; your queued recipes remain in place so you can adjust layout settings and generate again if needed.
 
 Related pages:
 

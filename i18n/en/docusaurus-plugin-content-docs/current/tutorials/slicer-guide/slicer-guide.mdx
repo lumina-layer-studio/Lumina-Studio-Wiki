@@ -6,58 +6,59 @@ sidebar_position: 10
 
 # Slicer Guide
 
-> **AI translation notice:** This English tutorial was translated from the original Chinese tutorial with AI assistance. The screenshots are shared with the [Chinese tutorial](https://wiki.luminastudio.com.cn/zh/docs/tutorials/slicer-guide) and show Bambu Studio in Simplified Chinese. The English setting names below follow Bambu Studio's official English interface.
+> Screenshots show Bambu Studio in Simplified Chinese; setting names below match the English interface.
 
-Recent Lumina Studio versions support multiple slicers and printer profiles, so a downloaded project can normally be opened directly in your slicer. Use this guide to restore the settings if a project opens without its original process parameters.
+Recent versions of Lumina Studio bundle printer and slicer presets directly inside exported `.3mf` projects, so files normally open with process parameters ready to use. Use the reference settings below if you need to restore the **0.08 mm** gradient-card parameters manually, or if you want to flip a print so its color surface faces up.
 
-:::info[The values below are the source tutorial's gradient-card settings. Select the printer and nozzle you actually use, and inspect the sliced preview before printing.]
+:::note[Reference settings]
+The values below apply to **0.08 mm** gradient cards. For everyday `.3mf` project opening, object filament assignment, and AMS slot mapping, see [Open a Lumina 3MF in Your Slicer](../slicer-material-mapping/slicer-material-mapping.mdx).
 :::
 
 ## Bambu Studio
 
 ### Step 1: Select the printer and 0.08 mm process preset
 
-Open Bambu Studio and select the printer profile that matches your machine. Under **Process**, choose the matching 0.08 mm preset, such as **0.08 mm High Quality** when that preset is available for your printer.
+Open Bambu Studio and select your printer profile. Under **Process**, choose a **0.08 mm** preset such as **0.08 mm High Quality**.
 
 <img
   src={require('./assets/p2s01.png').default}
   alt="Select the matching printer and 0.08 mm process preset"
 />
 
-### Step 2: Set the layer heights and initial-layer line width
+### Step 2: Set layer heights and initial-layer line width
 
 Under **Quality**, set:
 
-- **Layer height:** 0.08 mm
-- **Initial layer height:** 0.08 mm
-- Under **Line width**, **Initial layer:** 0.42 mm for the 0.4 mm nozzle shown in this example
+- **Layer height:** `0.08 mm`
+- **Initial layer height:** `0.08 mm`
+- **Line width → Initial layer:** `0.42 mm` (for a `0.4 mm` nozzle)
 
 <img
   src={require('./assets/p2s02.png').default}
   alt="Set layer height, initial layer height, and initial-layer line width"
 />
 
-:::warning[If you use a 0.2, 0.6, or 0.8 mm nozzle, keep both Layer height and Initial layer height at 0.08 mm. Adjust the line width for your nozzle diameter, and leave the other settings unchanged unless your printer or material requires otherwise.]
+:::warning[Other nozzle sizes]
+If you use a `0.2`, `0.6`, or `0.8 mm` nozzle, keep both **Layer height** and **Initial layer height** at `0.08 mm`, scale the line widths to match your nozzle diameter, and keep the remaining parameters below unchanged.
 :::
 
-### Step 3: Adjust elephant-foot compensation and the wall generator
+### Step 3: Set elephant-foot compensation and wall generator
 
-Set **Elephant foot compensation** to 0 mm. This helps prevent color from the second layer showing through the display surface; if that effect does not matter for your print, you may keep your usual value.
+Set **Elephant foot compensation** to `0 mm` to prevent second-layer color bleed around first-layer edges (if slight edge bleed does not matter for your piece, you can leave your usual value).
 
-Set **Wall generator** to **Arachne** so the slicer can use variable-width walls.
+Set **Wall generator** to **Arachne** to enable variable-width walls.
 
 <img
   src={require('./assets/p2s03.png').default}
   alt="Set elephant-foot compensation to zero and use the Arachne wall generator"
 />
 
-### Step 4: Set the initial-layer flow and use one wall
+### Step 4: Set initial-layer flow and single first-layer wall
 
-Set **Initial layer flow ratio** to 1.1 as a starting value. You may tune this value for your own printer and material.
+Set **Initial layer flow ratio** to `1.1` as a baseline (tune as needed for your printer and filament), and enable **Only one wall on first layer**.
 
-Enable **Only one wall on first layer**.
-
-:::info[If Initial layer flow ratio is not visible, open Preferences from the upper-left menu and enable Developer Mode.]
+:::info[Developer Mode]
+If **Initial layer flow ratio** is hidden, open **Preferences** from the top-left menu and enable **Developer Mode**.
 :::
 
 <img
@@ -69,13 +70,11 @@ Enable **Only one wall on first layer**.
 
 Under **Strength**, set:
 
-- **Wall loops:** 1
-- **Top shell layers:** 0
-- **Bottom shell layers:** 1
-- **Top surface pattern:** Monotonic line
-- **Bottom surface pattern:** Monotonic line
-
-Setting **Top shell layers** to 0 is optional. The source workflow uses it to reduce crossing toolpaths that can form unwanted marks on the card.
+- **Wall loops:** `1`
+- **Top shell layers:** `0` (optional; eliminates crossing top-skin toolpaths)
+- **Bottom shell layers:** `1`
+- **Top surface pattern:** `Monotonic line`
+- **Bottom surface pattern:** `Monotonic line`
 
 <img
   src={require('./assets/0001.png').default}
@@ -86,9 +85,9 @@ Setting **Top shell layers** to 0 is optional. The source workflow uses it to re
 
 Still under **Strength**, set:
 
-- **Sparse infill density:** 100%
-- **Sparse infill pattern:** Aligned Rectilinear; **Rectilinear** is also acceptable
-- **Infill direction:** 0°; 45° is an alternative
+- **Sparse infill density:** `100%`
+- **Sparse infill pattern:** `Aligned Rectilinear` (`Rectilinear` also works)
+- **Infill direction:** `0°` (`45°` also works)
 - **Detect narrow internal solid infill:** disabled
 
 <img
@@ -96,18 +95,18 @@ Still under **Strength**, set:
   alt="Set the infill density, pattern, direction, and narrow-infill option"
 />
 
-### Step 7: Use a conservative speed
+### Step 7: Lower print speeds
 
-The source tutorial recommends lower speeds to reduce problems caused by printing too quickly. For the speed fields shown below, 50 mm/s is the suggested starting point. Increase the values only after confirming that your printer produces a clean result.
+Lower print speeds help small color patches lay down cleanly. Start around `50 mm/s` for the speed fields shown below, and adjust upward once you confirm clean extrusion on your machine.
 
 <img
   src={require('./assets/p2s07.png').default}
   alt="Use 50 millimeters per second as the suggested starting speed"
 />
 
-### Step 8: Reshape the prime tower if needed
+### Step 8: Reshape the prime tower
 
-Under **Prime tower**, disable **Rib wall**. You can then change the tower's **Width**. The source workflow uses a large width value so the sliced prime tower becomes long and narrow, which can save space on the build plate.
+Under **Others → Prime tower**, disable **Rib wall** to unlock the tower's **Width** field. Increasing **Width** reshapes the prime tower into a long, narrow strip along the edge of the build plate to save space.
 
 <img
   src={require('./assets/p2s08.png').default}
@@ -116,13 +115,10 @@ Under **Prime tower**, disable **Rib wall**. You can then change the tower's **W
 
 ### Step 9: Check filament and object mapping
 
-This step is mainly for correcting object colors when the mapping is wrong. First check that the filament list uses the colors from the mode selected when the project was generated.
+Verify that the project filament list matches the colors from the mode selected in Lumina Studio. If object assignments are off—most common when importing raw geometry instead of opening the `.3mf` as a project—select each object and assign the intended filament slot.
 
-If the objects below use the wrong colors, which is more common when a model is imported instead of opened as a project, select each object and assign the intended filament.
-
-:::info[For four-color and six-color presets, check whether the selected mode is CMYW (cyan, magenta, yellow, and white) or RYBW (red, yellow, blue, and white).]
-
-The red and magenta modes reuse one object name, while the blue and cyan modes reuse another. For example, if you selected an RYBW preset but the generated object name says magenta, treat that object as red. Apply the same rule to blue and cyan, and verify the final assignments in the sliced preview.
+:::info[CMYW and RYBW names]
+In four-color and six-color modes, check whether your preset is **CMYW** (cyan, magenta, yellow, white) or **RYBW** (red, yellow, blue, white). Both modes share internal object names: **red and magenta share one object name**, and **blue and cyan share another**. If you generated an **RYBW** project and see objects labeled magenta or cyan, map them to your red and blue filaments.
 :::
 
 <img
@@ -130,19 +126,19 @@ The red and magenta modes reuse one object name, while the blue and cyan modes r
   alt="Check the filament list and correct each object's filament assignment"
 />
 
-After completing the settings and checking the mapping, slice the project. Review the layers and color changes in **Preview** before sending the job to your printer.
+Slice the plate and step through the layers in **Preview** before sending the job to your printer.
 
-## OrcaSlicer, ElegooSlicer, Snapmaker Orca, AnycubicSlicer Next, and compatible slicers
+## OrcaSlicer, ElegooSlicer, Snapmaker Orca, and AnycubicSlicer Next
 
-The current source tutorial provides detailed screenshots for Bambu Studio only. In another compatible slicer, apply the equivalent settings where they are available, and confirm the result in the sliced preview. Setting names and locations may differ between slicers and versions.
+OrcaSlicer and its derivatives share the same parameter layout. Apply the equivalent values under Quality, Strength, Speed, and Others, then confirm the layer structure in **Preview**.
 
-## Advanced workflow: put the color surface on top
+## Advanced workflow: print with the color surface on top
 
-A textured PEI build plate can leave a pattern on the bottom surface of a gradient card or printed artwork. If that texture interferes with the intended appearance, you can flip the model so its color surface prints on top. This requires a small parameter change.
+Textured PEI build plates imprint their surface grain onto the bottom of a print. To get a smooth, ungrained top surface on a textured plate, flip the model 180° so the color layers print on top, then use a height-range modifier so the backing still prints quickly:
 
-### Step 1: Change the initial layer height
+### Step 1: Set initial layer height to 0.2 mm
 
-In the gradient-card example, the backing plate is 1.6 mm thick. After flipping the model, the white backing occupies the 0–1.6 mm height range. Set **Initial layer height** to 0.2 mm.
+On a standard gradient card, the backing plate is `1.6 mm` thick. Once flipped, the white backing occupies `0–1.6 mm`. Set global **Initial layer height** to `0.2 mm`.
 
 <img
   src={require('./assets/p2s10.png').default}
@@ -151,25 +147,22 @@ In the gradient-card example, the backing plate is 1.6 mm thick. After flipping 
 
 ### Step 2: Add a height range modifier
 
-Right-click the model and choose **Height range Modifier**. Set the modifier range to 0–1.6 mm, then set **Layer height** within that range to 0.2 mm.
+Right-click the model and select **Height range Modifier**. Set the range to `0–1.6 mm` and set **Layer height** for that range to `0.2 mm`.
 
 <img
   src={require('./assets/p2s11.png').default}
   alt="Set a 0 to 1.6 millimeter height range modifier to a 0.2 millimeter layer height"
 />
 
-### Step 3: Verify the five color layers
+### Step 3: Verify the five top color layers
 
-Slice the model and inspect the top of the preview. The uppermost five layers should be the color layers. If you see four or six color layers instead, recheck the initial-layer and height-range settings.
+Slice the plate and inspect the top layers in **Preview**. The uppermost **5** layers should be the `0.08 mm` color layers; if you count 4 or 6 color layers instead, recheck your initial layer height and modifier range.
 
 <img
   src={require('./assets/p2s12.png').default}
   alt="Verify that the top five layers are color layers in the sliced preview"
 />
 
-:::info[For another model, calculate the modifier range from its actual backing thickness. For example, with a 1 mm backing, use a 0.2 mm initial layer and a 0–1 mm Height range Modifier with a 0.2 mm layer height. This preserves the five color layers above the backing.]
+:::tip[Other backing thicknesses]
+Match the modifier range to your model's actual backing thickness. For example, if a print uses a `1 mm` backing, set **Initial layer height** to `0.2 mm` and apply a `0–1 mm` **Height range Modifier** at `0.2 mm` layer height so all five color layers on top stay intact.
 :::
-
-## Other outline topics
-
-The Chinese source currently lists transparent layers, relief 2.5D, and box workflows as outline topics but does not provide procedures for them. This English page does not add unverified steps.

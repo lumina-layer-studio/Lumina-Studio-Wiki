@@ -3,29 +3,36 @@ title: "TD值/HEX值分享"
 description: ""
 sidebar_position: 14
 ---
-# 什么是TD值
-什么是TD值？Hueforge给你的答案是：光线照射透过99%光线的距离就是TD值，单位是mm比如一个耗材TD值为0.1那么对应的就是99%光线透过的是0.1mm。
-# 为什么共享这个值？
-在包括Hueforge，Hicolor，彩色版画生成器等等生成器/软件中，会使用HEX值和TD值，Lumina目前的方案并未直接使用TD值，只是在更多颜色色卡中进行了通用td值的理论排列去重和简化，在校准过程中还未涉及到TD值。
+# TD值/HEX值分享
 
+## 什么是 TD 值
 
-**但为什么要分享这个值，共享这个值难道不是为了给所谓的“竞争对手软件”图方便吗？**
-**这是因为我们从一开始就秉持着开放包容合作共创的主旨，希望所有类似的软件无论是否开源都可以互相帮助，互相提出建议从而可以一起进步，我觉得这个精神才是推动这类技术不断创新进步的源泉，而不是闭门造车 圈地自萌。**
+按 HueForge 的测试定义，TD 值（Transmission Distance，透光距离）表示光线穿透耗材 99% 透光衰减对应的距离，单位为 `mm`。例如某款耗材的 TD 值为 `0.1`，对应透光距离即为 `0.1 mm`；数值越大，代表耗材透光性越强。
 
-所以在我们每次打印耗材厂家提供的耗材的时候，我们会顺手把TD值和颜色值进行同步测试，方便其他用户另作他用（需要td值的软件）。这就分享这个值的原因，另一层原因是为了长远发展，如果后面做更多扩展功能，涉及到了td值和hex值的计算，这样就节省了很多时间和精力。
+## 为什么公开这份数据
 
-# 这个值怎么测的？
-这是根据AJAX X BIQU的 TD1S测试盒测出的数据，符合Hueforge软件的对于TD值的测试方法，即99%光线透过耗材的距离（单位mm），颜色是基于td1s灰度校准后校准颜色偏差后的测出的结果，相对准确。
+在 HueForge、HiColor、彩色版画生成器等软件中，建模配色常需填写耗材的 HEX 色值与 TD 值。Lumina Studio 当前的色彩校准流程并不直接依赖 TD 值，仅在“更多颜色”色卡中借用了通用 TD 值做理论排列去重与简化。
 
-# 这个数值怎么用？
-:::info[你可以在Hueforge里面添加对应的td值和颜色，可以在hicolor里面同样添加，在彩色版画生成器需要自己新建耗材库的时候添加td值。]
+之所以同步公开这批实测数据，一方面是因为我们始终秉持开放、包容、合作共创的理念——无论同类工具是否开源，希望社区与开发者都能彼此借鉴、共同推动多层混色打印技术进步，而非闭门造车、圈地自萌；每次测试厂家寄送或日常购入的耗材时，我们都会顺手测出 TD 值与 HEX 色值，方便同时使用其他软件的玩家直接查阅。另一方面，预先积累实测光学数据也能为后续扩展功能节省大量重复测试成本。
+
+## 测试设备与方法
+
+表中数据均使用 **AJAX × BIQU TD1S** 测试盒实测得出：
+
+- **TD 值**：遵循 HueForge 的 TD 测试标准，测量 99% 光线透过耗材对应的距离（单位：`mm`）；
+- **HEX 色值**：在 TD1S 完成灰度校准与色偏校正后实测读取。
+
+## 适用软件与用法
+
+你可以将下表中的 TD 值与 HEX 色值直接录入 **HueForge**、**HiColor**，或在**彩色版画生成器**等工具中自建耗材库时填写使用。
+
+## 品牌列表
+
+:::info[数据说明]
+以下数据均为日常使用各款软件与耗材时实测整理，不涉及任何商业广告推广。欢迎补充共享或反馈纠错（联系 QQ：374612153）。
 :::
 
-# 品牌列表
-:::info[本列表不涉及任何广告推广，都是长期用各种软件和耗材日积月累和顺手测的，也欢迎共享和纠错。联系QQ：374612153]
-:::
-
-## 爱丽兹
+### 爱丽兹
 | 类型 | 颜色 | 颜色名称 | TD值 | 潘通色号 | HEX色值 |
 | ---- | ---- | -------- | ---- | -------- | ------- |
 | PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#FFFFFF"><rect width="30" height="20" fill="#FFFFFF"></rect></svg> | 白色 | 7.0 | / | #FFFFFF |
@@ -85,7 +92,8 @@ sidebar_position: 14
 | PETG | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#B87333"><rect width="30" height="20" fill="#B87333"></rect></svg> | 金属铜色 | 0.1 | PANTONE 875C | #B87333 |
 | PETG | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#8B4513"><rect width="30" height="20" fill="#8B4513"></rect></svg> | 金属红铜色 | 0.1 | PANTONE 7610C | #8B4513 |
 
-## FULLJOY
+### FULLJOY
+
 | 耗材类型 | 颜色 | 颜色名称 | TD值 | HEX色值 |
 | -------- | ---- | -------- | ---- | ------- |
 | PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#FFFFFF"><rect width="30" height="20" fill="#FFFFFF"></rect></svg> | 骨白色 | 7.5 | #FFFFFF |
@@ -103,66 +111,68 @@ sidebar_position: 14
 | PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#000000"><rect width="30" height="20" fill="#000000"></rect></svg> | 黑色 | 0.2 | #000000 |
 | PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#474643"><rect width="30" height="20" fill="#474643"></rect></svg> | 金属钛 | 0.2 | #474643 |
 
+### 赛纳
 
-## 赛纳
 | 类型 | 颜色 | 颜色名称 | TD值 | HEX色值 |
 | ---- | ---- | -------- | ---- | -------- |
-| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#000000"><rect width="30" height="20" fill="#000000"></rect></svg> | 黑色 | 0.1 |  #000000 |
+| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#000000"><rect width="30" height="20" fill="#000000"></rect></svg> | 黑色 | 0.1 | #000000 |
 | PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#FFFFFF"><rect width="30" height="20" fill="#FFFFFF"></rect></svg> | 白色 | 2.6 | #FFFFFF |
-| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#FFFF4A"><rect width="30" height="20" fill="#FFFF4A"></rect></svg> | 黄色 | 4.8 |  #FFFF4A |
-| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#15215E"><rect width="30" height="20" fill="#15215E"></rect></svg> | 深蓝色 | 3.2 |  #15215E |
-| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#3F8BD8"><rect width="30" height="20" fill="#3F8BD8"></rect></svg> | 蓝色 | 2.1 |  #3F8BD8 |
-| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#861E15"><rect width="30" height="20" fill="#861E15"></rect></svg> | 红色 | 4.9 |  #861E15 |
-| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#B9FF7B"><rect width="30" height="20" fill="#B9FF7B"></rect></svg> | 浅绿色 | 3.6 |  #B9FF7B |
-| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#A73D81"><rect width="30" height="20" fill="#A73D81"></rect></svg> | 品红色 | 2.8 |  #A73D81 |
+| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#FFFF4A"><rect width="30" height="20" fill="#FFFF4A"></rect></svg> | 黄色 | 4.8 | #FFFF4A |
+| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#15215E"><rect width="30" height="20" fill="#15215E"></rect></svg> | 深蓝色 | 3.2 | #15215E |
+| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#3F8BD8"><rect width="30" height="20" fill="#3F8BD8"></rect></svg> | 蓝色 | 2.1 | #3F8BD8 |
+| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#861E15"><rect width="30" height="20" fill="#861E15"></rect></svg> | 红色 | 4.9 | #861E15 |
+| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#B9FF7B"><rect width="30" height="20" fill="#B9FF7B"></rect></svg> | 浅绿色 | 3.6 | #B9FF7B |
+| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#A73D81"><rect width="30" height="20" fill="#A73D81"></rect></svg> | 品红色 | 2.8 | #A73D81 |
 
-## 纵维立方
+### 纵维立方
+
 | 类型 | 颜色 | 颜色名称 | TD值 | HEX色值 |
 | ---- | ---- | -------- | ---- | -------- |
-| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#000000"><rect width="30" height="20" fill="#000000"></rect></svg> | 黑色 | 0.1 |  #000000 |
+| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#000000"><rect width="30" height="20" fill="#000000"></rect></svg> | 黑色 | 0.1 | #000000 |
 | PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#FFFFFF"><rect width="30" height="20" fill="#FFFFFF"></rect></svg> | 白色 | 5.9 | #FFFFFF |
-| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#FFFF3F"><rect width="30" height="20" fill="#FFFF3F"></rect></svg> | 黄色 | 5.8 |  #FFFF3F |
-| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#2946B5"><rect width="30" height="20" fill="#2946B5"></rect></svg> | 蓝色 | 1.6 |  #2946B5 |
-| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#BB4680"><rect width="30" height="20" fill="#BB4680"></rect></svg> | 品红色 | 3.6 |  #BB4680 |
-| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#8A1E1D"><rect width="30" height="20" fill="#8A1E1D"></rect></svg> | 红色 | 5.1 |  #8A1E1D |
-| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#519F47"><rect width="30" height="20" fill="#519F47"></rect></svg> | 绿色 | 1.5 |  #519F47 |
-| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#53A0F2"><rect width="30" height="20" fill="#53A0F2"></rect></svg> | 青色 | 2.4 |  #53A0F2 |
+| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#FFFF3F"><rect width="30" height="20" fill="#FFFF3F"></rect></svg> | 黄色 | 5.8 | #FFFF3F |
+| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#2946B5"><rect width="30" height="20" fill="#2946B5"></rect></svg> | 蓝色 | 1.6 | #2946B5 |
+| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#BB4680"><rect width="30" height="20" fill="#BB4680"></rect></svg> | 品红色 | 3.6 | #BB4680 |
+| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#8A1E1D"><rect width="30" height="20" fill="#8A1E1D"></rect></svg> | 红色 | 5.1 | #8A1E1D |
+| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#519F47"><rect width="30" height="20" fill="#519F47"></rect></svg> | 绿色 | 1.5 | #519F47 |
+| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#53A0F2"><rect width="30" height="20" fill="#53A0F2"></rect></svg> | 青色 | 2.4 | #53A0F2 |
 
+### 魔创
 
-
-## 魔创
 | 类型 | 颜色 | 颜色名称 | TD值 | HEX色值 |
 | ---- | ---- | -------- | ---- | -------- |
 | PETG | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#000000"><rect width="30" height="20" fill="#000000"></rect></svg> | 黑色 | 0.2 | #000000 |
 | PETG | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#FFFFFF"><rect width="30" height="20" fill="#FFFFFF"></rect></svg> | 白色 | 6.8 | #FFFFFF |
-| PETG | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#90BB2E"><rect width="30" height="20" fill="#90BB2E"></rect></svg> | 草绿色 | 4.5  | #90BB2E |
-| PETG | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#B93875"><rect width="30" height="20" fill="#B93875"></rect></svg> | 品红色 | 3.4  | #B93875 |
+| PETG | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#90BB2E"><rect width="30" height="20" fill="#90BB2E"></rect></svg> | 草绿色 | 4.5 | #90BB2E |
+| PETG | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#B93875"><rect width="30" height="20" fill="#B93875"></rect></svg> | 品红色 | 3.4 | #B93875 |
 | PETG | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#FFFA50"><rect width="30" height="20" fill="#FFFA50"></rect></svg> | 黄色 | 6.9 | #FFFA50 |
-| PETG | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#7D1B1A"><rect width="30" height="20" fill="#7D1B1A"></rect></svg> | 红色 | 4.7  | #7D1B1A |
+| PETG | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#7D1B1A"><rect width="30" height="20" fill="#7D1B1A"></rect></svg> | 红色 | 4.7 | #7D1B1A |
 | PETG | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#56A69A"><rect width="30" height="20" fill="#56A69A"></rect></svg> | 青碧色 | 6.6 | #56A69A |
-| PETG | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#1C367A"><rect width="30" height="20" fill="#1C367A"></rect></svg> | 蓝色 | 2.7  | #1C367A |
+| PETG | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#1C367A"><rect width="30" height="20" fill="#1C367A"></rect></svg> | 蓝色 | 2.7 | #1C367A |
 
-## 快造
+### 快造
+
 | 类型 | 颜色 | 颜色名称 | TD值 | HEX色值 |
 | ---- | ---- | -------- | ---- | -------- |
-| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#000000"><rect width="30" height="20" fill="#000000"></rect></svg> | 黑色 | 0.1 |  #000000 |
-| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#FFFFFF"><rect width="30" height="20" fill="#FFFFFF"></rect></svg> | 白色 | 6.7 |  #FFFFFF |
-| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#FFCB30"><rect width="30" height="20" fill="#FFCB30"></rect></svg> | 黄色 | 4.8 |  #FFCB30 |
-| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#162145"><rect width="30" height="20" fill="#162145"></rect></svg> | 蓝色 | 0.3 |  #162145 |
+| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#000000"><rect width="30" height="20" fill="#000000"></rect></svg> | 黑色 | 0.1 | #000000 |
+| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#FFFFFF"><rect width="30" height="20" fill="#FFFFFF"></rect></svg> | 白色 | 6.7 | #FFFFFF |
+| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#FFCB30"><rect width="30" height="20" fill="#FFCB30"></rect></svg> | 黄色 | 4.8 | #FFCB30 |
+| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#162145"><rect width="30" height="20" fill="#162145"></rect></svg> | 蓝色 | 0.3 | #162145 |
 | PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#A41A17"><rect width="30" height="20" fill="#A41A17"></rect></svg> | 红色 | 1.9 | #A41A17 |
-| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#D03060"><rect width="30" height="20" fill="#D03060"></rect></svg> | 品红色 | 3.0 |  #D03060 |
+| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#D03060"><rect width="30" height="20" fill="#D03060"></rect></svg> | 品红色 | 3.0 | #D03060 |
 
-## 必趣
+### 必趣
+
 | 类型 | 颜色 | 颜色名称 | TD值 | HEX色值 |
 | ---- | ---- | -------- | ---- | -------- |
-| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#000000"><rect width="30" height="20" fill="#000000"></rect></svg> | 黑色 | 0.1 |#000000 |
-| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#FFFFFF"><rect width="30" height="20" fill="#FFFFFF"></rect></svg> | 白色 | 6.1 |#FFFFFF |
-| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#D2FF6D"><rect width="30" height="20" fill="#D2FF6D"></rect></svg> | 绿色 | 1.4 |#D2FF6D |
+| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#000000"><rect width="30" height="20" fill="#000000"></rect></svg> | 黑色 | 0.1 | #000000 |
+| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#FFFFFF"><rect width="30" height="20" fill="#FFFFFF"></rect></svg> | 白色 | 6.1 | #FFFFFF |
+| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#D2FF6D"><rect width="30" height="20" fill="#D2FF6D"></rect></svg> | 绿色 | 1.4 | #D2FF6D |
 | PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#8B2523"><rect width="30" height="20" fill="#8B2523"></rect></svg> | 红色 | 1.6 | #8B2523 |
-| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#2950CA"><rect width="30" height="20" fill="#2950CA"></rect></svg> | 蓝色 | 0.7 |#2950CA |
+| PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#2950CA"><rect width="30" height="20" fill="#2950CA"></rect></svg> | 蓝色 | 0.7 | #2950CA |
 | PLA | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#FFFF41"><rect width="30" height="20" fill="#FFFF41"></rect></svg> | 黄色 | 4.8 | #FFFF41 |
 
-## 必应
+### 必应
 
 | 类型 | 颜色 | 颜色名称 | TD值 | HEX 色值 |
 | ---- | ---- | -------- | ---- | -------- |
@@ -170,34 +180,36 @@ sidebar_position: 14
 | PETGHF | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#294FB8"><rect width="30" height="20" fill="#294FB8"></rect></svg> | 蓝色 | 2.6 | #294FB8 |
 | PETGHF | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#81221C"><rect width="30" height="20" fill="#81221C"></rect></svg> | 红色 | 4.4 | #81221C |
 | PETGHF | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#FFFFFF"><rect width="30" height="20" fill="#FFFFFF"></rect></svg> | 白色 | 6.6 | #FFFFFF |
-| 类型   | 颜色 | 颜色名称 | TD值 | HEX 色值 |
-| PLA-F  | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#FFFFFF"><rect width="30" height="20" fill="#FFFFFF"></rect></svg> | 白色 | 5.7 | #FFFFFF |
-| PLA-F  | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#F8DA39"><rect width="30" height="20" fill="#F8DA39"></rect></svg> | 黄色 | 5.9 | #F8DA39 |
-| PLA-F  | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#141B45"><rect width="30" height="20" fill="#141B45"></rect></svg> | 蓝色 | 3.1 | #141B45 |
-| PLA-F  | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#871919"><rect width="30" height="20" fill="#871919"></rect></svg> | 红色 | 5.1 | #871919 |
-
-
-## Inslogic
 
 | 类型 | 颜色 | 颜色名称 | TD值 | HEX 色值 |
 | ---- | ---- | -------- | ---- | -------- |
-|  PLA PRO | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#2F4C94"><rect width="30" height="20" fill="#2F4C94"></rect></svg> | 蓝色 | 7.2 | #2F4C94 |
-|  PLA PRO | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#601C18"><rect width="30" height="20" fill="#601C18"></rect></svg> | 红色 | 6.3 | #601C18 |
-|  PLA PRO | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#FFFFFF"><rect width="30" height="20" fill="#FFFFFF"></rect></svg> | 白色 | 2.7 | #FFFFFF |
-|  PLA PRO | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#FFDB43"><rect width="30" height="20" fill="#FFDB43"></rect></svg> | 黄色 | 5.5 | #FFDB43 |
-|  PLA PRO | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#449434"><rect width="30" height="20" fill="#449434"></rect></svg> | 绿色 | 1.9 | #449434 |
+| PLA-F | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#FFFFFF"><rect width="30" height="20" fill="#FFFFFF"></rect></svg> | 白色 | 5.7 | #FFFFFF |
+| PLA-F | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#F8DA39"><rect width="30" height="20" fill="#F8DA39"></rect></svg> | 黄色 | 5.9 | #F8DA39 |
+| PLA-F | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#141B45"><rect width="30" height="20" fill="#141B45"></rect></svg> | 蓝色 | 3.1 | #141B45 |
+| PLA-F | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#871919"><rect width="30" height="20" fill="#871919"></rect></svg> | 红色 | 5.1 | #871919 |
+
+### Inslogic
+
+| 类型 | 颜色 | 颜色名称 | TD值 | HEX 色值 |
+| ---- | ---- | -------- | ---- | -------- |
+| PLA PRO | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#2F4C94"><rect width="30" height="20" fill="#2F4C94"></rect></svg> | 蓝色 | 7.2 | #2F4C94 |
+| PLA PRO | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#601C18"><rect width="30" height="20" fill="#601C18"></rect></svg> | 红色 | 6.3 | #601C18 |
+| PLA PRO | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#FFFFFF"><rect width="30" height="20" fill="#FFFFFF"></rect></svg> | 白色 | 2.7 | #FFFFFF |
+| PLA PRO | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#FFDB43"><rect width="30" height="20" fill="#FFDB43"></rect></svg> | 黄色 | 5.5 | #FFDB43 |
+| PLA PRO | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#449434"><rect width="30" height="20" fill="#449434"></rect></svg> | 绿色 | 1.9 | #449434 |
 | PLA PRO | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#131715"><rect width="30" height="20" fill="#131715"></rect></svg> | 黑色 | 0.1 | #131715 |
 
+### 三绿
 
-
-## 三绿
 | 类型 | 颜色 | 颜色名称 | TD值 | HEX 色值 |
 | ---- | ---- | -------- | ---- | -------- |
-|PETG | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#172368"><rect width="30" height="20" fill="#172368"></rect></svg> | 蓝色 | 2.8 | #172368 |
-|  PETG | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#711919"><rect width="30" height="20" fill="#711919"></rect></svg> | 红色 | 4.2 | #711919 |
-|  PETG | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#FFFF14"><rect width="30" height="20" fill="#FFFF14"></rect></svg> | 黄色 | 3.8 | #FFFF14 |
-|  PETG | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#FFFFFF"><rect width="30" height="20" fill="#FFFFFF"></rect></svg> | 白色 | 2.4 | #FFFFFF |
-## 蚁在云端
+| PETG | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#172368"><rect width="30" height="20" fill="#172368"></rect></svg> | 蓝色 | 2.8 | #172368 |
+| PETG | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#711919"><rect width="30" height="20" fill="#711919"></rect></svg> | 红色 | 4.2 | #711919 |
+| PETG | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#FFFF14"><rect width="30" height="20" fill="#FFFF14"></rect></svg> | 黄色 | 3.8 | #FFFF14 |
+| PETG | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#FFFFFF"><rect width="30" height="20" fill="#FFFFFF"></rect></svg> | 白色 | 2.4 | #FFFFFF |
+
+### 蚁在云端
+
 | 类型 | 颜色 | 颜色名称 | TD值 | HEX 色值 |
 | ---- | ---- | -------- | ---- | -------- |
 | PLA+ | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#FFFFFF"><rect width="30" height="20" fill="#FFFFFF"></rect></svg> | 白色 | 4.1 | #FFFFFF |
@@ -206,4 +218,3 @@ sidebar_position: 14
 | PLA+ | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#51C4B4"><rect width="30" height="20" fill="#51C4B4"></rect></svg> | 绿色 | 2.8 | #51C4B4 |
 | PLA+ | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#FFFF47"><rect width="30" height="20" fill="#FFFF47"></rect></svg> | 黄色 | 6.1 | #FFFF47 |
 | PLA+ | <svg class="legacy-color-swatch" viewBox="0 0 30 20" role="img" aria-label="#1D33AA"><rect width="30" height="20" fill="#1D33AA"></rect></svg> | 蓝色 | 1.9 | #1D33AA |
-##

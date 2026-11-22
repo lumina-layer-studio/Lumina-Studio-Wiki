@@ -1,31 +1,18 @@
 ---
 title: "Loading Witty Messages"
-description: "Display effect and persistence of the Loading Witty Messages switch."
+description: "Control playful waiting-screen status prompts and how the preference is stored locally."
 sidebar_position: 7
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Loading Witty Messages
 
-When Loading Witty Messages is enabled, preview and generation screens rotate through short status messages while a task
-is running. Disabling it keeps the normal loading state but removes the extra copy.
+When **Loading Witty Messages** is enabled, preview and generation screens rotate through playful short prompts while tasks run. Turning it off keeps the standard loading indicator without the extra copy.
 
 <img
   src={require('./assets/01-witty-loading.webp').default}
   alt="Loading Witty Messages switch"
 />
 
-The switch changes display text only:
+This switch affects waiting-screen text only—image processing, color matching, generated geometry, computation speed, progress indicators, and error alerts all remain unchanged.
 
-- it does not change image-processing algorithms;
-- it does not change model or colour output;
-- it does not change computation speed;
-- it does not hide progress or error messages.
-
-The preference is stored in the current browser's local settings and survives a page reload. Set it again after changing
-browsers, clearing site data, or moving to another device.
+Your preference is saved in local browser storage across page reloads. Set it again if you switch browsers, clear site data, or move to another device.

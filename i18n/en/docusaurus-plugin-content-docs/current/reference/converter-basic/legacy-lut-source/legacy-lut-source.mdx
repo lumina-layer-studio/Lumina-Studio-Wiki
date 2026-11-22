@@ -4,16 +4,9 @@ description: "Choose, refresh, and upload Classic LUTs, including compatible sel
 sidebar_position: 3
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Classic LUT
 
-A Classic LUT is a precomputed colour lookup table. Each printable colour is paired with a fixed layer-by-layer material recipe,
-and Lumina Studio selects the closest table entry while previewing an image.
+A **Classic LUT** is a precomputed color lookup table in which each printable color maps to a fixed layer-by-layer filament recipe. During preview, Lumina Studio matches each area of your artwork to the closest entry in the table.
 
 ## Select LUTs
 
@@ -22,27 +15,23 @@ and Lumina Studio selects the closest table entry while previewing an image.
   alt="Classic LUT picker with the brand list, search field and Confirm button"
 />
 
-1. Select **Classic LUT** under Color Data Source and open the LUT selection window.
-2. Search or browse the list and select your LUTs. You can select LUTs from different brands.
-3. Confirm the selection, generate a preview, and inspect key colours, greys, and shadows.
+1. Under **Color Data Source**, choose **Classic LUT** and open the LUT selection dialog.
+2. Search or browse by brand and check the LUTs you want to use—compatible LUTs from different brands can be combined.
+3. Confirm your selection, click **Preview**, and inspect key colors, neutral grays, and shadow detail.
 
-Compatible LUTs can be selected together. The first selected item remains the primary LUT and the selected
-tables form one candidate set; no merged file is written to disk. Do not combine tables with incompatible layer counts,
-layer heights, or material channels.
+When multiple compatible LUTs are selected together, the first item serves as the primary LUT while all selected tables merge in memory into a single candidate color pool without creating a new file on disk. Only combine LUTs that share compatible layer counts, layer heights, and filament channels.
 
 ## Refresh and upload
 
-The refresh button inside the selection window reloads the LUT list without modifying LUT files.
+After adding or replacing LUT files on disk, click the refresh button inside the picker to reload the list.
 
-Upload accepts `.npy`, `.json`, `.npz`, and `.msgpack`. After uploading, confirm which LUT is actually selected. A readable
-file can still contain incomplete colour-mode, layer, or recipe metadata, so inspect LUT Details if the preview is unexpected.
+**Upload** accepts `.npy`, `.json`, `.npz`, and `.msgpack` files. After uploading a file, verify in the list that the intended LUT is checked. If a preview produces unexpected colors, open **LUT Details** to check that its color mode, layer count, layer height, and recipe metadata are complete.
 
 ## Dynamic layers
 
-Colour Layers and Layer Height only appear when LUT metadata declares `supports_dynamic_layer_count`. The store limits the
-layer count to 1–20 and the layer height to 0.04–0.20 mm, then invalidates old outputs.
+**Color Layers** and **Layer Height** appear in basic settings only when the selected LUT declares `supports_dynamic_layer_count` in its metadata. Layer count can be adjusted from **1–20** and layer height from **0.04–0.20 mm**; changing either clears any previous preview and generated output.
 
-Ordinary legacy LUTs continue to use their stored layer count and height when these controls are not shown.
+Standard Classic LUTs use the fixed layer count and layer height stored inside the LUT file itself, so these two controls stay hidden during normal use.
 
 ## Related pages
 

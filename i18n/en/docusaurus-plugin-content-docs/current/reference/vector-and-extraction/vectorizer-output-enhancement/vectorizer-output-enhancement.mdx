@@ -1,48 +1,45 @@
 ---
 title: "Stroke, Thin Lines, and Coverage Fix"
-description: "How SVG strokes, thin-line detection, and canvas coverage repair work."
+description: "Eliminate hairline seams between adjacent SVG paths, preserve fine linework, and patch uncovered canvas pixels."
 sidebar_position: 3
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Stroke, Thin Lines, and Coverage Fix
 
-Output Enhancement reduces tiny seams between adjacent color regions and helps preserve thin structures from the source image.
+**Output Enhancement** eliminates hairline gaps between adjacent color regions and helps preserve fine linework from the source image.
 
 <img
   src={require('./assets/01-output-enhancement.webp').default}
   alt="Image Vectorizer output enhancement controls"
 />
 
-## Enable Stroke
+## Enable Stroke and Stroke Width
 
-When enabled, each SVG path is emitted with a stroke as well as a fill. The default width is `0.5`:
+When **Enable Stroke** is on, each SVG path is exported with a matching stroke alongside its fill. **Stroke Width** ranges from `0–20` and defaults to `0.5`:
 
-- Increasing the width slightly overlaps adjacent paths and can hide white seams during rendering or scaling.
-- Excessive width intrudes into neighboring colors and thickens fine details.
+- **Moderate values** overlap neighboring paths slightly, hiding hairline white seams during rendering or scaling.
+- **Excessive values** expand strokes into neighboring regions and thicken fine details.
 
-The range is `0–20`. Turning **Enable Stroke** off hides Stroke Width and emits fill-only paths.
+Turning **Enable Stroke** off hides **Stroke Width** and exports fill-only SVG paths.
 
 ## Thin Line Max Radius
 
-The range is `0.5–10 px`, with a default of `2.5 px`. The engine uses a distance transform to identify narrow structures at or below this radius and preserve them more aggressively.
+Ranges from `0.5–10 px`, with a default of `2.5 px`. Using a distance transform, the vectorizer identifies narrow strokes up to this radius and protects them from breaking apart during segmentation and fitting:
 
-A value that is too small can miss thin lines. A value that is too large treats more narrow regions as line features. This is a radius in the internal working image, not a printed width in millimeters.
+- **Too low**: delicate linework may drop out or fragment.
+- **Too high**: ordinary narrow regions may also be treated as thin-line features.
 
-## Coverage Fix
+This radius is measured in pixels on the internal working image, not in millimeters on the printed model.
 
-When **Enable Coverage Fix** is on, the engine checks canvas coverage after contour tracing. If the measured coverage is below **Min Coverage Ratio**, it patches pixels not covered by any SVG path to reduce tiny gaps between regions.
+## Enable Coverage Fix and Min Coverage Ratio
 
-Min Coverage Ratio ranges from `0–1` and defaults to `0.998`. Values closer to `1` make the repair trigger more readily.
+When **Enable Coverage Fix** is enabled, the engine measures total canvas coverage after contour tracing. Whenever coverage falls below **Min Coverage Ratio**, it patches uncovered pixels to seal tiny gaps between regions.
 
-Coverage only measures whether SVG paths cover the canvas. It is not a score for color or contour accuracy. If the boundary itself is wrong, adjust segmentation or curve parameters instead of only raising this threshold.
+**Min Coverage Ratio** ranges from `0–1`, with a default of `0.998`. Values closer to `1` trigger gap patching more readily.
 
-Related pages:
+Coverage repair is designed specifically to close tiny inter-path gaps. If the shape boundaries themselves follow the wrong contours, adjust [Superpixel Segmentation and Antialiasing](../vectorizer-segmentation/vectorizer-segmentation.mdx) or [Curve Fitting and Region Filtering](../vectorizer-curve-and-filtering/vectorizer-curve-and-filtering.mdx) first.
+
+## Related pages
 
 - [Image Vectorizer](../vectorizer-overview/vectorizer-overview.mdx)
 - [Superpixel Segmentation and Antialiasing](../vectorizer-segmentation/vectorizer-segmentation.mdx)

@@ -1,88 +1,68 @@
 ---
 title: "Quantize Colors"
-description: "How the colour-cluster budget affects conversion, how Auto Detect calculates a starting value, and where the setting is actually used."
+description: "Set the color-cluster ceiling before recipe matching, use Auto Detect for an initial estimate, and understand how each mode uses this value."
 sidebar_position: 10
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Quantize Colors
 
-**Quantize Colors** is the colour-cluster budget used before printable recipes are matched. It is not the number of
-filament spools and it is not the number of objects in the final 3MF. One quantized colour may resolve to a multilayer
-filament recipe, while several source colours may resolve to the same recipe.
+**Quantize Colors** sets the maximum number of color clusters retained from your image before Lumina Studio matches printable recipes. The default is **48**, adjustable from **8–256** in steps of **8** under the standard ceiling.
 
-The default is **48**. With the normal ceiling, the available range is **8–256** in steps of 8.
+This setting controls image color clustering and is independent of both your physical filament count and the object count in the final 3MF: a single quantized color maps to a multilayer filament recipe, and multiple quantized colors can match the same recipe.
 
 ## Location
 
-Open **Converter → Core Settings → Basic Settings**. The control appears below **Modeling Mode**.
+Go to **Converter → Core Settings → Basic Settings**. **Quantize Colors** is located directly below **Modeling Mode**.
 
 <img
   src={require('./assets/01-quantize-colors-control.webp').default}
   alt="Quantize Colors and Auto Detect in Lumina Studio Basic Settings"
 />
 
-## What the value changes
+## How It Works
 
-In the high-fidelity raster path, Lumina first scales the image to its target dimensions. K-Means then groups similar
-pixels into no more than the selected number of cluster centres. A larger value can retain more local colour variation
-and gradient steps. A smaller value produces fewer colour regions and normally processes faster.
+In High-Fidelity raster mode, Lumina Studio first scales the artwork to your target dimensions, then uses K-Means clustering to group similar pixels into no more than the selected number of color centers. Higher values preserve subtler local shading and smoother gradients; lower values consolidate color regions and speed up processing.
 
-The value is a ceiling, not a required count. If the resized image contains fewer effective colours, Lumina does not
-invent extra colours merely to reach the selected value. Recipe matching against the selected LUT or Material Archive
-happens after quantization.
+The number acts as an upper limit. If a resized image already contains fewer distinct colors than the slider value, Lumina Studio keeps the actual palette as-is without inventing extra clusters. Once quantization completes, each cluster is matched to a printable recipe using the active LUT or Material Archive set.
 
-## Behaviour by conversion path
+## Behavior by Conversion Path
 
-| Path | How the value is used |
+| Conversion path | How the value is used |
 | --- | --- |
-| High-fidelity raster | Maximum number of whole-image K-Means clusters |
-| Pixel Art | Pixel-colour reduction budget; existing colours are retained when their count is already within the budget |
-| Native SVG Vector | Shapes use their SVG fills and strokes directly; whole-image K-Means is not run |
-| SVG + Material Archive gradients | Caps the number of discrete gradient bands; the internal safe range is 16–32 |
-| Colour Card | The card layout and recipes define the result; do not read this as ordinary image detail |
+| High-Fidelity raster | Maximum number of whole-image K-Means clusters |
+| Pixel Art | Pixel-color reduction limit; preserves the original palette untouched when visible colors already fit within the limit |
+| Native SVG Vector | Uses SVG fills and strokes directly without running whole-image K-Means |
+| SVG + Material Archive gradients | Caps the number of discrete gradient bands, clamped internally to 16–32 |
+| Color Card | Builds calibration swatches directly from active recipes without image quantization |
 
-The statement that this setting has no effect in Vector mode therefore applies to whole-image quantization of native
-vector shapes. A Material Archive gradient path can still read the value, then clamp it to its own safe range.
+In Vector mode, solid SVG shapes and strokes always retain their source colors; **Quantize Colors** comes into play only when discretizing SVG gradients under Material Archive (clamped to 16–32).
 
 ## Auto Detect
 
-After an image is uploaded, **Auto Detect** analyses the image at the current target width and writes a suggested value
-back to the slider. The analyser:
+Once an image is uploaded, click **Auto Detect** to analyze the artwork at the current target width and populate the slider with a suggested value (the button is disabled until an image is loaded). The analyzer evaluates five factors:
 
-1. scales the image to about 5 pixels/mm, with a maximum analysis width of 600 pixels;
-2. counts coarsely quantized unique colours;
-3. measures significant hue groups and the coloured-pixel ratio;
-4. measures how concentrated the dominant colours are;
-5. measures edge density and adjusts the result by the square root of the target width.
+1. Resizes the image to roughly 5 px/mm (capped at a 600-pixel analysis width);
+2. Counts coarsely quantized unique colors;
+3. Measures significant hue groups and the ratio of colored pixels;
+4. Evaluates how concentrated the dominant colors are;
+5. Measures edge density and scales the estimate by the square root of the target width.
 
-The result is aligned to 8, 16, 24, 32, 48, 64, 96, 128, 160, 192, or 256. The width multiplier is bounded between
-0.8 and 2.5.
+The suggested value snaps to 8, 16, 24, 32, 48, 64, 96, 128, 160, 192, or 256, with the width multiplier bounded between 0.8 and 2.5.
 
-Auto Detect is a starting point. It does not inspect which colours the selected LUT can reproduce, and it does not
-replace a visual preview. The button is unavailable until an image has been uploaded.
+**Auto Detect** estimates image complexity to give you a practical starting point without factoring in the gamut of a specific LUT or filament set—fine-tune the slider after checking your preview.
 
-## Adjusting and checking the result
+## Tuning Tips
 
-- Increase the value gradually when visible gradients or edges are being merged.
-- If the result contains many one-pixel speckles, first check source noise and final print size. A larger budget often
-  preserves more speckles.
-- If a high value still appears simplified in the 3D viewer, check
-  [High-precision 3D Colour Preview](../../preview-and-palette/high-precision-3d-preview/high-precision-3d-preview.mdx).
-- To go above 256, use [Unlock Quantize Ceiling](../../color-matching/unlock-quantize-ceiling/unlock-quantize-ceiling.mdx).
-  Unlocking the ceiling does not change the current value by itself.
+- **Merged edges or banded gradients**: Increase the value step by step and regenerate the preview.
+- **Single-pixel speckles**: Check source image noise and target dimensions first; raising the budget further often preserves more stray speckles. Pair with Isolated Pixel Cleanup if needed.
+- **High value still looks simplified in 3D**: Check whether [High-Precision 3D Color Preview](../../preview-and-palette/high-precision-3d-preview/high-precision-3d-preview.mdx) is enabled.
+- **Need more than 256 colors**: Enable [Unlock Quantize Ceiling](../../color-matching/unlock-quantize-ceiling/unlock-quantize-ceiling.mdx), then raise the slider manually.
 
-Changing the value invalidates an existing 3MF and download result. Build a new preview or model. Lumina recipe cards
-store the selected quantize value.
+Changing **Quantize Colors** clears any generated 3MF, so regenerate your preview or model afterward. Exported Lumina recipe cards record the active quantize value.
 
 ## Related pages
 
 - [Unlock Quantize Ceiling](../../color-matching/unlock-quantize-ceiling/unlock-quantize-ceiling.mdx)
 - [Isolated Pixel Cleanup](../../color-matching/isolated-pixel-cleanup/isolated-pixel-cleanup.mdx)
-- [Precise Colour Matching](../../color-matching/precise-color-matching/precise-color-matching.mdx)
-- [High-precision 3D Colour Preview](../../preview-and-palette/high-precision-3d-preview/high-precision-3d-preview.mdx)
+- [Precise Color Matching](../../color-matching/precise-color-matching/precise-color-matching.mdx)
+- [High-Precision 3D Color Preview](../../preview-and-palette/high-precision-3d-preview/high-precision-3d-preview.mdx)

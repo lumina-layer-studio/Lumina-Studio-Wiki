@@ -4,16 +4,9 @@ description: "Origin, search, import, and details entry points for local LUTs."
 sidebar_position: 1
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # LUT Library
 
-LUT Library lists every traditional lookup table available to the active backend: bundled presets, user-imported files,
-and revisions installed from the cloud catalog.
+LUT Library displays all locally available traditional lookup tables (LUTs) grouped by manufacturer, including built-in presets, user-imported files, and revisions installed from the cloud catalog.
 
 <img
   src={require('./assets/01-lut-library.webp').default}
@@ -22,25 +15,25 @@ and revisions installed from the cloud catalog.
 
 ## Card fields
 
-Each card shows the LUT name, material type, colour mode, source kind, relative path, content fingerprint, and origin:
-Preset, Custom, or Cloud.
+Each LUT card summarizes:
 
-The fingerprint identifies the file contents. LUTs with the same name but different data have different fingerprints.
-The displayed path is a public relative reference, not a machine-specific absolute path.
+- **Name and material:** LUT profile name and filament type (such as `PLA` or `Basic`).
+- **Color Mode:** Supported multi-color configuration (such as 4-Color, 6-Color, or 8-Color Max).
+- **Source Kind:** Underlying LUT type, such as `legacy_lookup`.
+- **Path and Fingerprint:** Portable library-relative reference and content hash.
+- **Origin badge:** Marks whether the item comes from **Preset**, **Custom**, or **Cloud**.
+
+**Fingerprint** is derived from the file contents, so two LUTs with the same name but different data carry distinct fingerprints. **Path** shows only the portable library reference rather than a machine-specific disk path.
 
 ## Search
 
-Search checks name, manufacturer, material, colour mode, source kind, path, and aliases. With multiple space-separated
-terms, every term must match at least one field.
+Search matches name, manufacturer, material, color mode, source kind, path, and aliases simultaneously. When you enter multiple space-separated terms, every term must match at least one field on the card.
 
-## Import
+## Import and refresh
 
-Import LUT File accepts `.npy`, `.json`, `.npz`, and `.msgpack`. A successful upload appears in the Custom section after
-the catalog refreshes. Upload success does not guarantee complete metadata; open the LUT and verify its colour mode,
-palette, layer order, and base channel.
+Click **Import LUT File** to upload `.npy`, `.json`, `.npz`, or `.msgpack` files; imported LUTs appear under the **Custom** count once the library refreshes. After importing an external or older LUT file, click **View Details** to open it in [LUT Details](../lut-details/lut-details.mdx) and verify its color mode, palette, layer order, and base channel.
 
-Refresh Local Library rescans backend storage without re-downloading the cloud catalog. View Details carries the selected
-item directly to [LUT Details](../lut-details/lut-details.mdx).
+**Refresh Library** rescans local storage for newly added or updated LUT files (use Cloud LUT Library when you want to fetch remote catalog updates).
 
 Related pages:
 

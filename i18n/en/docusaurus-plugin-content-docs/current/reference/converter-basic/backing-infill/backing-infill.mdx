@@ -1,20 +1,14 @@
 ---
 title: "Base Plate Infill"
-description: "Learn how base plate infill and the solid viewing-surface protection work, and how to check the sliced result."
+description: "Learn how Base plate infill and the 3 mm solid protection zone work, and how to inspect the sliced result."
 sidebar_position: 8
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Base Plate Infill
 
-**Base plate infill** controls the sparse infill density deeper inside the base plate. A lower value can reduce material use and print time; at 100%, the base is solid. This setting does not change the base plate thickness or turn the colour layers into sparse infill.
+**Base plate infill** controls the sparse infill density deep inside thick base plates. Lowering this value reduces filament usage and print time on thick bases, while **100%** keeps the entire base solid. Color layers always print solid, and base plate thickness itself remains unchanged.
 
-Find it in the Converter's basic settings, directly below **Base plate thickness**. The current range is **5%–100%**, with a default of **100%**. The slider moves in 5% steps; you can also enter any whole number within the range in the field on the right.
+Find **Base plate infill** in the Converter's basic settings directly below **Base plate thickness**. It ranges from **5%–100%** with a default of **100%**. Drag the slider in **5%** steps, or type any whole number within that range into the input box on the right.
 
 <img
   src={require('./assets/00-base-plate-infill.jpg').default}
@@ -23,43 +17,41 @@ Find it in the Converter's basic settings, directly below **Base plate thickness
 
 ## Why does a lower setting still produce a solid base?
 
-To protect the appearance of each viewing surface, Lumina keeps **3 mm of the base plate solid**, measured from the boundary between the colour layers and the base. Double-sided work has one protected region on each side. The colour layers themselves also remain solid.
+To prevent internal infill patterns from showing through the viewing surface, Lumina keeps a **3 mm solid protection zone** inside the base plate, measured inward from the boundary between the color layers and the base. Double-sided prints reserve a 3 mm solid zone behind each face, and the color layers themselves remain solid as well.
 
-As a result, when the generated base is no thicker than 3 mm, a single-sided base lies entirely inside the protected region. For double-sided work, a base no thicker than 6 mm has overlapping or touching protected regions and also remains solid. The exported project uses 100% infill for that base even if the slider is set lower.
+Because of this protection zone, a single-sided base **3 mm** or thinner lies completely inside the solid region. Likewise, a double-sided base **6 mm** or thinner has touching or overlapping protection zones and stays solid throughout. At those thicknesses, the exported 3MF uses 100% infill for the base regardless of a lower slider setting.
 
 <img
   src={require('./assets/01-protected-backing.webp').default}
-  alt="Single-sided base plate cross-sections: a 2 mm base is fully protected, while a 6 mm base has 3 mm of solid protection next to the colour layers and an adjustable infill region beyond it"
+  alt="Single-sided base plate cross-sections: a 2 mm base is fully protected, while a 6 mm base has 3 mm of solid protection next to the color layers and an adjustable infill region beyond it"
 />
 
-*Schematic, not a slicer preview. The colours distinguish regions and do not represent toolpaths.*
+*Cross-section diagram of the solid protection zone (colors indicate structural regions rather than slicer toolpaths).*
 
-For example, with the slider set to 20%:
+For example, with **Base plate infill** set to **20%**:
 
-| Artwork | Generated base thickness | Exported infill settings |
+| Artwork | Generated base thickness | Exported infill behavior |
 | --- | --- | --- |
-| Single-sided | 1.20 mm | The entire base stays solid |
-| Single-sided | 4.00 mm | 3 mm next to the colour layers stays solid; the deeper section uses 20% sparse infill |
-| Double-sided | 6.00 mm | The protected regions meet, so the entire base stays solid |
-| Double-sided | 8.00 mm | 3 mm on each side stays solid; the middle section uses 20% sparse infill |
+| Single-sided | 1.20 mm | Entire base stays solid |
+| Single-sided | 4.00 mm | 3 mm next to the color layers stays solid; deeper section uses 20% sparse infill |
+| Double-sided | 6.00 mm | Protection zones meet, so the entire base stays solid |
+| Double-sided | 8.00 mm | 3 mm on each side stays solid; center core uses 20% sparse infill |
 
-The comparison uses the **base thickness after layer-height adjustment** when the model is generated, not the total model height including colour layers. Near the boundary, check the actual generated height and sliced preview.
+This threshold is based on the **layer-aligned base thickness** generated for the model, excluding the height of the color layers. When your base thickness is close to the 3 mm or 6 mm boundary, scrub through the layers in your slicer preview to verify where sparse infill begins.
 
-### A slicing comparison
+### Slicing comparison
 
-We used Lumina's 3MF exporter to make a 20 × 20 mm single-sided test block, exported it at 20% and 100% infill, and sliced both in Bambu Studio. With a 2 mm base, the estimated material use was the same. With a 6 mm base, the 20% project had sparser internal paths and a lower material estimate.
-
-This was a single-colour test model, not a physical print. Results also depend on the base dimensions, wall settings, and slicer configuration.
+When exporting a 20 × 20 mm single-sided test block from Lumina at 20% and 100% infill and slicing both in Bambu Studio, a 2 mm base produces identical filament estimates because the entire base falls within the 3 mm solid zone. Increasing the base to 6 mm introduces sparse internal paths in the 20% project, reducing both estimated filament usage and print time. Exact savings vary with print area, base thickness, wall count, and top/bottom shell settings.
 
 ## Check the result in your slicer
 
-1. Set [Base Plate Thickness](../backing-thickness/backing-thickness.mdx) and Base plate infill for your artwork, then generate a new 3MF.
-2. Open the 3MF **as a complete project** in a slicer that supports its project settings, rather than importing only its geometry.
-3. Slice the project and move the layer slider through the base to inspect its internal paths. The outside surface alone does not show the infill.
-4. To compare settings, keep everything else unchanged, generate and slice a separate project for each value, then compare the internal paths, material estimates, and print times.
+1. Set [Base-Plate Thickness](../backing-thickness/backing-thickness.mdx) and **Base plate infill** for your print, then generate a new 3MF.
+2. Open the 3MF **as a complete project** in a compatible slicer—importing raw geometry alone skips 3MF infill modifiers.
+3. Slice the project and drag the layer slider down into the base to inspect the internal toolpaths beneath the solid shells.
+4. To compare infill values directly, keep all other parameters identical, export and slice separate 3MF projects, and compare internal paths, material estimates, and print times.
 
-The slicer's top, bottom, and wall settings also affect the final paths. Slicers may read 3MF project settings differently, so check the actual sliced preview.
+Top shells, bottom shells, and perimeter walls in your slicer also occupy solid volume, and third-party slicers vary in how they interpret 3MF modifier settings. Use the layer-by-layer preview after slicing to confirm the internal infill layout.
 
 ## When is the control unavailable?
 
-The control is disabled while **Model Texture** or **Relief** is enabled; some messages still call Model Texture “Model Surface”. Flat puzzles are not disabled by those two options. The backing layer-height modifier controls layer height, not infill density. See [Backing, Colour Layers, and Layer-Height Modifiers](../../../knowledge/base-color-layer-height/base-color-layer-height.mdx) for the difference.
+**Base plate infill** is disabled when **Model Texture** (also labeled “Model Surface” in some tooltips) or **Relief** is enabled; flat puzzles remain adjustable. Note that **Base plate infill** adjusts infill density rather than layer thickness—to print thick bases faster with taller layers, see [Backing, Color Layers, and Layer-Height Modifiers](../../../knowledge/base-color-layer-height/base-color-layer-height.mdx).

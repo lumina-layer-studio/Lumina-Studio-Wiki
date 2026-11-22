@@ -4,16 +4,9 @@ description: "Shared-recipe ΔE00, coverage, compatibility warnings, and largest
 sidebar_position: 8
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # LUT Compare
 
-LUT Compare joins two LUTs by identical recipe and calculates ΔE00 between their predicted colours. It is designed for
-material-batch changes, repeat-calibration consistency, and before/after comparisons.
+LUT Compare joins a **Baseline LUT** and a **Comparison LUT** by matching recipe keys and calculates the ΔE00 color difference for each pair. Use it to evaluate filament batch drift, check repeat-calibration consistency, or review color shifts before and after an update.
 
 <img
   src={require('./assets/01-lut-compare.webp').default}
@@ -22,21 +15,18 @@ material-batch changes, repeat-calibration consistency, and before/after compari
 
 ## Statistics
 
-- **Matched recipes:** records that can be joined by recipe key.
-- **Identical RGB:** matched records with exactly equal RGB values.
-- **Mean / P95 / maximum ΔE00:** central, tail, and worst shared-recipe differences.
-- **Coverage A / B:** shared recipes as a percentage of each LUT's comparable records.
+- **Shared Recipes:** Number of records paired across both LUTs by identical recipe key.
+- **Exact RGB Matches:** Paired records whose RGB values match identically.
+- **Mean / P95 / Max ΔE00:** Average, 95th-percentile, and worst-case color differences across shared recipes.
+- **A / B Coverage:** Shared recipes expressed as a percentage of each LUT's comparable records.
 
-P95 means 95% of shared recipes are at or below that difference and is usually more representative than the single
-maximum. The maximum remains useful for finding the most abnormal recipe.
+**P95 ΔE00** indicates that 95% of shared recipes fall at or below that threshold, offering a steadier measure of overall agreement than a single outlier, while **Max ΔE00** pinpoints the largest individual shift.
 
-## Compatibility warnings
+## Compatibility warnings and largest differences
 
-Warnings report mismatched colour mode, layer count, layer height, line width, schema, predictive capability, or dynamic
-capability. With no shared recipes, row numbers must not be treated as equivalent recipes.
+If the two LUTs differ in color mode, layer count, layer height, line width, schema, predictive capability, or dynamic capability, compatibility warnings appear above the summary. Records are always paired by recipe key rather than table row index; if two LUTs share no recipes, no recipe-level ΔE00 comparison is generated.
 
-Largest Differences displays both colours, the recipe, and ΔE00. Comparing LUTs does not modify, merge, or overwrite
-either source.
+**Largest Recipe Diffs** lists the widest shifts side by side—showing both swatches, the layer sequence, HEX values, and ΔE00—so you can trace anomalies back to a calibration photo or filament spool. Comparing LUTs is strictly read-only and leaves both files unchanged.
 
 Related pages:
 

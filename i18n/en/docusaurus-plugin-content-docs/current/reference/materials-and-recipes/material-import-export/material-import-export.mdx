@@ -4,16 +4,9 @@ description: "Back up, transfer, and restore complete Lumina material archives."
 sidebar_position: 2
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Material Import and Export
 
-The Material Library can export several archives into one ZIP and import them into another Lumina installation. The ZIP
-is a complete material package, not a screenshot or a list of display colours.
+You can export multiple material archives from the Material Library into a single ZIP package and import them into another Lumina installation. Each exported ZIP preserves the complete material metadata, optical fit parameters, and manifests needed for layer-stack prediction and image conversion.
 
 <img
   src={require('./assets/01-material-selection.webp').default}
@@ -22,29 +15,29 @@ is a complete material package, not a screenshot or a list of display colours.
 
 ## Export
 
-1. Select the materials to preserve, or use Select All.
-2. Select Export Selected.
-3. Save the generated `lumina_materials_<count>_<time>.zip`.
+1. Check the materials you want to back up, or click **Select All**.
+2. Click **Export Selected**.
+3. Download and save the generated `lumina_materials_<count>_<time>.zip`.
 
-One ZIP may contain several materials. Lumina writes an export manifest, a package manifest, each archive's
-`material.json`, fitted parameters, and the other public files needed by the archive. The download URL is temporary, so
-save the file promptly.
+A single ZIP can bundle multiple materials, including an export manifest, a package manifest, and each archive's `material.json`, fitted parameters, and supporting files. Download and save the generated package promptly.
 
 ## Import
 
-Import Material ZIP accepts several ZIP files in one selection. Before installation, the backend checks safe archive
-paths, manifests and material directories, UTF-8 JSON, Stage A solver parameters, and—when a versioned package manifest
-is present—file sizes and content hashes.
+**Import Material ZIP** lets you select multiple ZIP files at once. Before installing any archive, Lumina validates the package structure and contents:
 
-If the requested directory already exists, Lumina creates another directory with a timestamp suffix instead of
-overwriting the existing archive. Newly imported materials are selected automatically for review.
+- Archive paths, manifests, and material directory layouts are complete and valid
+- `material.json` and fitted parameter files contain valid UTF-8 JSON with usable Stage A optical parameters
+- For packages that include a versioned manifest, file sizes and content hashes match the recorded values
 
-If any file in a multi-ZIP import fails, archives already written by that request are rolled back so the transfer does
-not stop half complete.
+If a matching directory name already exists locally, Lumina appends a timestamp suffix to create a separate directory rather than overwriting the existing archive. Newly imported materials are automatically selected so you can review them right away.
 
-Use this workflow before moving computers or servers, handing measured materials to a collaborator, restoring a NAS
-backup, or preserving a reproducible experiment set.
+When importing multiple ZIP files in one batch, if any file fails validation, all changes from that batch are rolled back automatically to keep your library consistent.
 
-After import, verify brand, directory, layer height, and run count in the
-[Material Library](../material-library/material-library.mdx) before using the archives for
-[Material Recipe Query](../material-recipe-query/material-recipe-query.mdx) or image conversion.
+## Common use cases
+
+- Backing up your local library before switching computers, migrating environments, or reinstalling Lumina
+- Sharing calibrated material archives across a team
+- Restoring archived materials from a NAS or offline backup
+- Archiving the exact set of materials used in a project for reproducible results
+
+After importing, review the brand, directory, layer height, and verification run count in the [Material Library](../material-library/material-library.mdx) before using the archives in [Material Recipe Query](../material-recipe-query/material-recipe-query.mdx) or image conversion.

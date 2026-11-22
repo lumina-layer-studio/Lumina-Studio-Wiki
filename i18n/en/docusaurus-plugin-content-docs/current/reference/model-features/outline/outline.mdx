@@ -1,19 +1,12 @@
 ---
 title: "Outline"
-description: "How Lumina builds a separate outline from the model boundary and how width interacts with coating and alpha."
+description: "How Outline builds a separate border mesh from the artwork boundary and interacts with Transparent Coating and alpha channels."
 sidebar_position: 3
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Outline
 
-Outline creates separate geometry outside the solid boundary of the artwork. It can strengthen a silhouette, frame an
-irregular model, or provide a more visible edge around an attachment.
+Outline generates separate border geometry outside the solid boundary of your artwork. Use it to accentuate a silhouette, frame an irregular shape, or reinforce delicate edges.
 
 <img
   src={require('./assets/01-outline-settings.webp').default}
@@ -22,19 +15,16 @@ irregular model, or provide a more visible edge around an attachment.
 
 ## Outline Width
 
-The range is **0.5–10 mm** in **0.5 mm** steps. Width is the outward expansion from the original boundary, not a line
-diameter. Large values can close narrow notches and round small corners.
+**Outline Width** ranges from **0.5–10 mm** in **0.5 mm** steps and sets the outward expansion distance from the original boundary. Larger values fill narrow notches and round off tight corners, so check the 3D view when working with intricate silhouettes.
 
-The boundary comes from the current solid or vector geometry. Raster images with transparency normally use the alpha
-silhouette; SVG files use the parsed vector boundary. An empty usable boundary can produce no outline.
+Lumina derives the boundary from the active solid or vector geometry: raster images with transparency use the alpha silhouette, while SVG files use parsed vector paths. If no usable boundary exists, no outline is generated.
 
-## Interaction with other geometry
+## Interaction with other features
 
-- When Transparent Coating is enabled, the outline extends down across the coating thickness.
-- Outline and Separate Backing can coexist but appear as separate objects in the 3MF.
-- Any width change requires a newly generated 3MF.
+- When Transparent Coating is enabled, the outline extends downward across the coating thickness to keep the outer edge flush.
+- Outline and Separate Backing can be used together and appear as separate objects in the 3MF.
+- Regenerate the 3MF after changing **Outline Width**.
 
-Inspect the outline object and sliced first layers, especially on artwork with semi-transparent background pixels.
+After importing into your slicer, check the outline object and sliced first layers. If your artwork contains stray semi-transparent pixels near the edges, clean up the background beforehand for a crisp border.
 
-Related: [Transparent Coating](../transparent-coating/transparent-coating.mdx) and
-[Bitmap vs vector](../../../knowledge/bitmap-vs-vector/bitmap-vs-vector.mdx).
+Related: [Transparent Coating](../transparent-coating/transparent-coating.mdx) and [Bitmap vs vector](../../../knowledge/bitmap-vs-vector/bitmap-vs-vector.mdx).

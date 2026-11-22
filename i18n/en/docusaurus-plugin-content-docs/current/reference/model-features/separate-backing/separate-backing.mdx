@@ -1,24 +1,14 @@
 ---
 title: "Separate Backing"
-description: "How Separate Backing changes the 3MF object structure, retains the selected backing material, and should be checked in a slicer."
+description: "How Separate Backing structures 3MF objects, handles backing output modes, and maps backing filament in your slicer."
 sidebar_position: 1
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Separate Backing
 
-**Separate Backing** controls whether the backing mesh is merged into the base-colour object or written as its own
-object in the final model. It changes the 3MF object structure. It does not automatically make the backing thicker and
-it does not create another filament slot by itself.
+**Separate Backing** controls whether the backing mesh merges into the base-color object or exports as its own object in the 3MF, while keeping backing thickness and filament assignment unchanged. Eligible single-sided projects also offer **Backing output**, which can save the artwork and backing as separate 3MF projects.
 
-The option is disabled by default.
-
-Checked against the source code available on October 19, 2026. Eligible single-sided projects also offer Backing output, which can export the model and backing as separate projects.
+This option is off by default.
 
 ## Location
 
@@ -31,28 +21,22 @@ Open **Converter → Core Settings → Advanced Settings**, then locate **Separa
 
 ## When disabled
 
-The backing is merged into the object that uses the selected backing material. A slicer normally presents it together
-with image geometry assigned to the same material, which keeps the object list simpler.
+The backing merges into the object assigned to the selected backing filament. Your slicer presents it alongside artwork geometry that shares the same filament, keeping the object list compact.
 
 ## When enabled
 
-Lumina preserves a separate backing mesh:
+Lumina writes a dedicated backing mesh:
 
-- raster and high-fidelity models use a separate object named `Backing`;
-- native vector models use a separate object named `Board`;
-- the object retains the selected backing-material metadata;
-- an independent object does not mean an additional material slot;
-- large-format generation applies the same rule to every valid tile.
+- Raster and High-Fidelity models create a separate `Backing` object.
+- Native Vector models create a separate `Board` object.
+- The backing retains the selected backing-filament metadata without adding an extra filament slot.
+- Large-format tiled exports apply the same rule to every valid tile.
 
-After importing the project into a slicer, verify that the backing object is present and mapped to the intended
-filament. Slicers group multi-object projects differently, so do not rely only on the colours shown on the build plate.
+After importing the 3MF into your slicer, check the object list to confirm that the backing object is present and mapped to the intended filament.
 
 ## Preview and regeneration
 
-The normal 2D colour preview shows the colour-matching result and is not authoritative for backing separation. The
-regenerated 3MF and the slicer's object list are the source of truth.
-
-Changing this option requires a new model build. Lumina recipe cards store the setting.
+The 2D color preview shows color matching only. Regenerate the 3MF after toggling **Separate Backing** and inspect the resulting structure in your slicer's object list. Lumina recipe cards save this setting.
 
 ## Typical uses
 
@@ -60,25 +44,23 @@ Changing this option requires a new model build. Lumina recipe cards store the s
 
 | Option | Download | Purpose |
 | --- | --- | --- |
-| Same project | Model and separate backing object in one project | Manage them together in the slicer |
-| Independent plate projects (ZIP) | Separate model and backing 3MF projects in a ZIP | Slice and print each project separately |
+| Same project | Artwork and separate backing object in one 3MF | Manage and slice them together |
+| Independent plate projects (ZIP) | Separate model and backing 3MF files in a ZIP archive | Slice and print each plate independently |
 
-Independent projects retain the original dimensions. Lumina does not shrink the artwork to fit the bed. Unpack the ZIP, open each 3MF, and check the object, brim, and wipe-tower positions before slicing. A downloaded file is not proof that placement is safe; resolve any manual-check warning in the corresponding project.
+Independent projects preserve exact physical dimensions without scaling artwork down to fit the bed. Extract the ZIP, open each 3MF, resolve any placement warnings, and verify object, brim, and wipe-tower positions before slicing.
 
-This option is for single-sided, non-relief, single-model export. It is unavailable for double-sided, relief, five-color extended, batch, puzzle, large-format, and Model texture workflows. If a mode change makes it unavailable, use Same project or that workflow's existing tiled output.
-
-Separate backing does not change color-layer order or determine how the finished parts should be bonded or assembled.
+**Independent plate projects (ZIP)** is available for single-sided, non-relief, single-model exports. For double-sided, relief, five-color extended, batch, puzzle, large-format, or Model texture workflows, use **Same project** or that workflow's built-in tiled output. Exporting separate plates preserves the color-layer order; bond or assemble the printed parts after printing.
 
 ### When a separate backing object helps
 
-- Select, hide, or inspect the backing independently in a slicer.
-- Treat the backing as a separate part during post-processing.
-- Satisfy a printer or slicer workflow that manages backing and image objects separately.
+- Select, hide, or configure the backing independently in your slicer.
+- Print or post-process the backing as a standalone part.
+- Match a printer or slicer workflow that manages backing and color objects separately.
 
-If the backing does not require independent handling, leaving the option off produces a simpler object list.
+If you do not need separate control over the backing, leave this option off for a simpler object list.
 
 ## Related pages
 
-- [Base-colour Layer Height and Backing Thickness](../../../knowledge/base-color-layer-height/base-color-layer-height.mdx)
+- [Base-color Layer Height and Backing Thickness](../../../knowledge/base-color-layer-height/base-color-layer-height.mdx)
 - [Why Lumina Preview, Slicer Preview, and the Print Differ](../../../knowledge/preview-slicer-print-differences/preview-slicer-print-differences.mdx)
 - [Material Mapping in a Slicer](../../../tutorials/slicer-material-mapping/slicer-material-mapping.mdx)

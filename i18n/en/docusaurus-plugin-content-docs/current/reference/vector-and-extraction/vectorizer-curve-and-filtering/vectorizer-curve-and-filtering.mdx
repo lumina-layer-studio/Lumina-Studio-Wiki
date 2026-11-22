@@ -1,18 +1,12 @@
 ---
 title: "Curve Fitting and Region Filtering"
-description: "Bézier fitting, contour simplification, and small-region, contour, and hole filtering."
+description: "Fine-tune Bézier curve precision, contour simplification, and area-based filtering for small regions, stray contours, and pinholes."
 sidebar_position: 6
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Curve Fitting and Region Filtering
 
-After color segmentation defines regions, their boundaries are simplified, fitted with Bézier curves, and traced. Filtering controls decide which small regions, contours, and holes survive into the final SVG.
+Once color segmentation defines each region, the vectorizer simplifies its boundaries, fits cubic Bézier curves, and runs Potrace contour tracing. Region filtering controls then merge or remove tiny color patches, stray contours, and interior pinholes before writing the final SVG.
 
 ## Curve Fitting
 
@@ -23,18 +17,18 @@ After color segmentation defines regions, their boundaries are simplified, fitte
 
 ### Curve Fit Error
 
-The range is `0.1–5 px`, with a default of `0.8 px`. This is the maximum error allowed by Schneider Bézier fitting:
+Ranges from `0.1–5 px`, with a default of `0.8 px`. Sets the maximum pixel error allowed during Schneider Bézier curve fitting:
 
-- Smaller values follow the source contour more closely, with more control points.
-- Larger values use fewer control points and smoother curves, but may lose detail.
+- **Smaller values** hug the source boundary more tightly using more control points.
+- **Larger values** generate smoother curves with fewer control points, softening fine detail.
 
 ### Contour Simplification
 
-The range is `0–2`, with a default of `0.45`. Increasing it removes more contour points before fitting, producing simpler paths. Both this control and Curve Fit Error affect complexity, but one simplifies contour points while the other limits Bézier fitting error.
+Ranges from `0–2`, with a default of `0.45`. Raising this value prunes raw boundary vertices before Bézier fitting begins, reducing overall path complexity, whereas **Curve Fit Error** governs how closely the fitted curves track those simplified vertices.
 
 ### Merge Segment Tolerance
 
-The range is `0–0.5`, with a default of `0.05`. It permits nearly linear Bézier segments to merge when their control-point deviation is small enough. Increasing it reduces segmentation along near-straight lines; excessive values can straighten subtle bends.
+Ranges from `0–0.5`, with a default of `0.05`. Merges adjacent, nearly collinear Bézier segments whose control-point deviation falls within this threshold. Raising it cleans up redundant nodes along straight edges; setting it too high can flatten subtle bends.
 
 ## Region Filtering
 
@@ -43,23 +37,22 @@ The range is `0–0.5`, with a default of `0.05`. It permits nearly linear Bézi
   alt="Image Vectorizer region-filtering controls"
 />
 
-### Min Region Area
+### Min Region Area and Max Merge Color Dist
 
-The range is `0–1000 px²`, with a default of `50 px²`. Segmented color regions below this area are candidates for merging into a neighbor.
-
-**Max Merge Color Dist** constrains that merge. Its UI range is `0–500`, defaults to `200`, and is measured as LAB ΔE². Higher values permit small regions with larger color differences to merge.
+- **Min Region Area**: ranges from `0–1000 px²`, with a default of `50 px²`. Segmented color regions smaller than this area become candidates to merge into a neighboring region.
+- **Max Merge Color Dist**: ranges from `0–500`, with a default of `200` (measured in LAB ΔE²). Caps how different a neighbor's color may be when absorbing a small region—higher values allow higher-contrast speckles to merge.
 
 ### Min Contour Area
 
-The range is `0–500 px²`, with a default of `10 px²`. After contour tracing, independent shapes below this area are discarded. It runs later than Min Region Area, so the two controls solve different problems.
+Ranges from `0–500 px²`, with a default of `10 px²`. Discards standalone shapes smaller than this area after contour tracing. Because it runs after **Min Region Area**, it catches isolated fragments that could not merge into an adjacent color.
 
 ### Min Hole Area
 
-The range is `0–100 px²`, with a default of `4 px²`. Holes smaller than this are filled, while larger holes remain as empty structures in the path.
+Ranges from `0–100 px²`, with a default of `4 px²`. Fills enclosed interior pinholes smaller than this area while preserving larger cutouts as open holes in the SVG path.
 
-When cleaning up fragments, first determine whether the problem is a segmented color region, an independent traced contour, or a hole inside a region, then adjust the corresponding control.
+When cleaning up artifacts, zoom in first to see whether the unwanted specks are adjacent segmented patches, isolated contours, or tiny interior pinholes, then raise the matching threshold.
 
-Related pages:
+## Related pages
 
 - [Image Vectorizer](../vectorizer-overview/vectorizer-overview.mdx)
 - [Stroke, Thin Lines, and Coverage Fix](../vectorizer-output-enhancement/vectorizer-output-enhancement.mdx)

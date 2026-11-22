@@ -1,19 +1,12 @@
 ---
 title: "Device and Slicer"
-description: "How slicer, printer, nozzle, device profile, and manual slicer path settings work together."
+description: "How slicer, printer model, nozzle size, device profile, build plate, and manual slicer path settings work together."
 sidebar_position: 1
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Device and Slicer
 
-The device settings control how Lumina Studio prepares the 3MF and which slicer opens it after generation. Select the
-slicer, printer, and installed nozzle that you actually use; the devices shown in examples are not required choices.
+Device settings determine how Lumina Studio structures exported 3MF files and which slicer opens them after generation. Select the slicer, printer model, and installed nozzle size that match your actual hardware setup.
 
 <img
   src={require('./assets/01-device-slicer.webp').default}
@@ -22,42 +15,39 @@ slicer, printer, and installed nozzle that you actually use; the devices shown i
 
 ## How the settings work together
 
-1. **Slicer Software** determines the compatible printer list and output adapter.
-2. **Printer Model** determines the build plate, machine capabilities, and available device profiles.
-3. **Nozzle Size** contributes to model resolution, line width, and selected layer-height calculations.
-4. **Device Profile** distinguishes hardware or toolhead variants of the same printer.
-5. **Build Plate** selects a native plate type supported by the current slicer and printer, to be written into the generated project.
+1. **Slicer Software** sets the compatible printer list and 3MF output adapter.
+2. **Printer Model** defines build volume, machine capabilities, and available device profiles.
+3. **Nozzle Size** drives model resolution, line width, and variable layer-height calculations.
+4. **Device Profile** selects specific hardware or toolhead variants of the same printer.
+5. **Build Plate** writes a native plate type supported by the active slicer and printer into the exported project.
 
-Changing the slicer immediately filters the printer list. If the previous printer, nozzle, or profile is no longer valid,
-Lumina Studio selects a valid option from the new list instead of retaining an unusable combination.
+Switching slicers immediately filters the printer list. If a previously selected printer, nozzle, or profile is unavailable under the new slicer, Lumina Studio automatically selects a valid option from the updated list.
 
-These changes invalidate previously generated downloads. Preview and generate again to create a 3MF for the new device.
+After changing any device setting, run Preview and Generate again to export a 3MF configured for the new hardware.
 
 ## Manual slicer path
 
-On macOS, you can enter a slicer `.app` path, such as `/Applications/Bambu Studio.app`. Validate & Save checks the path
-before storing it. A validated path takes priority when you choose to open a generated 3MF in the slicer.
+On macOS, you can specify an application path such as `/Applications/Bambu Studio.app`. Click **Validate & Save** to verify and store the path; once validated, Lumina uses it first when opening a generated 3MF in your slicer.
 
-The manual path only selects the application used to open the file. It does not convert one slicer's output format into
-another, so the Slicer Software selection must still match that application.
+Because the manual path only chooses which app launches the file, keep **Slicer Software** set to the matching slicer family so Lumina exports the right 3MF format.
 
-:::note[Device-list loading]
-The installed machine registry supplies the device list. Lumina retries a temporarily empty list. If it stays unavailable, check the local service and configuration loading.
+:::note[Device list]
+The local machine registry supplies the device list. If the list is temporarily empty, Lumina retries automatically; if it remains unavailable, check that the local backend service is running.
 :::
 
-## Choose filaments and build plate before generation
+## Filament presets and build-plate compatibility
 
-As of October 19, 2026, generation checks native filament presets against the build plate. When a material matches multiple native presets, choose the intended candidate. If the plate is incompatible, adjust the plate or material selection before continuing.
+Before generation, Lumina checks native filament presets against the selected build plate. When a material matches multiple native presets, pick the specific preset you plan to print with; if a plate-compatibility warning appears, switch to a compatible build plate or filament type before continuing.
 
-Choose the filaments you actually use rather than picking another material just to dismiss a warning. Temperature, flow, and other process settings affect slicing; similar screen colors do not make filament processes interchangeable. Choices are saved separately for devices and nozzles. Projects also record supported filament selections.
+Select presets that match the physical filaments loaded on your printer so nozzle temperatures, flow rates, and bed temperatures slice accurately. Preferences are saved per device and nozzle, and exported projects record the selected filament presets.
 
-## Custom templates and wipe tower
+## Custom templates and wipe-tower placement
 
-To reuse slicer process settings, import a [custom 3MF project template](../custom-3mf-template/custom-3mf-template.mdx). It must match the slicer, printer, and nozzle. A template does not turn one machine's project into a valid configuration for another.
+To reuse process tuning from your slicer, import a [custom 3MF project template](../custom-3mf-template/custom-3mf-template.mdx) saved for the same slicer, printer, and nozzle.
 
-Automatic wipe-tower placement is enabled by default. Disabling it keeps the template's wipe-tower settings for manual placement in the slicer. When enabled, Lumina handles placement for the current device. If safe placement cannot be confirmed, inspect the object, brim, and tower in the slicer.
+**Automatic wipe-tower placement** is enabled by default so Lumina positions the model and wipe tower for your active build plate; turn it off to keep the template's wipe-tower coordinates for manual arrangement in your slicer. Whenever Lumina flags a layout warning, check the object, brim, and wipe-tower clearance in your slicer before printing.
 
-The current device list is authoritative. QIDI Studio, PrusaSlicer, Flash Studio, and other integrations have their own printer, nozzle, and multicolor-capacity limits. Do not assume that an example model's support extends to every device.
+Integrations such as QIDI Studio, PrusaSlicer, and Flash Studio each support specific printer models, nozzle sizes, and multicolor channel limits—select a slicer to view its supported hardware in the dropdown menus.
 
 Related pages:
 

@@ -1,63 +1,45 @@
 ---
 title: "Gradient Groups and Region Processing"
-description: "Detection rules, group and region selection, flattening, local re-quantisation, and highlight inspection in Material Archive mode."
+description: "Detection rules, group and region selection, flattening, local re-quantization, and highlight inspection in Material Archive mode."
 sidebar_position: 7
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Gradient Groups and Region Processing
 
-A smooth source gradient can turn into visible bands after it is matched to a finite set of material colours. Gradient
-Groups identifies those bands and exposes whole-group and spatial-region tools for replacement, flattening, and local
-re-quantisation.
+When a smooth gradient is matched to a finite set of filaments, subtle transitions can split into visible stepped bands. **Gradient groups (banding)** detects those bands automatically and provides whole-group and spatial-region tools to recolor, flatten, or locally re-quantize them.
 
-The panel appears only when all three conditions are met:
+The panel appears when all three conditions are met:
 
-1. the colour source is a [Material Archive](../../converter-basic/material-archive-source/material-archive-source.mdx);
-2. the current image has completed a successful preview;
-3. the analyser has found at least one qualifying gradient group.
+1. The color source is [Material Archive](../../converter-basic/material-archive-source/material-archive-source.mdx).
+2. The current image has a completed preview.
+3. At least one qualifying gradient group is detected.
 
-The panel is hidden when no group is detected. Legacy LUT and Inferred LUT previews do not run this analysis.
+When no banding group is found, the panel stays hidden. Legacy LUT and Inferred LUT modes do not run gradient-group detection.
 
 <img
   src={require('./assets/01-gradient-groups-panel.webp').default}
   alt="Three gradient groups detected in a Material Archive preview"
 />
 
-## How Lumina identifies a smooth gradient
+## How smooth gradients are detected
 
-The analyser compares the quantised source image with the material-matched result. A boundary can join a gradient group
-only when the source is still smooth at that location but the material-matched image changes colour there.
+Lumina compares the quantized source image against the material-matched preview. A color boundary joins a gradient group only when the source artwork transitions smoothly across that edge while the matched preview steps from one material color to another. Detection uses the following fixed thresholds:
 
-The current implementation uses these fixed conditions. They are not user-adjustable controls:
-
-| Condition | Current value | Purpose |
+| Condition | Fixed threshold | Purpose |
 | --- | ---: | --- |
-| Median source colour difference along a boundary | ΔE no greater than 8 | Excludes edges already present in the artwork |
-| Shared boundary between two material colours | At least 15 pixels | Filters incidental contact and isolated noise |
-| Contribution from each material colour | At least 30 pixels | Removes colours with negligible coverage |
-| Maximum colour difference within one group | ΔE no greater than 30 | Prevents a chain of nearby colours from crossing into a different hue |
-| Expandable connected region | At least 500 pixels, four-way connectivity | Filters very small spatial components |
+| Median source color difference along a boundary | ΔE no greater than 8 | Preserves intentional crisp edges in the artwork |
+| Shared boundary between two material colors | At least 15 pixels | Ignores brief contact and isolated noise |
+| Coverage of each material color | At least 30 pixels | Excludes negligible stray colors |
+| Maximum color difference within one group | ΔE no greater than 30 | Stops nearby shades from chaining into a different hue |
+| Expandable connected region | At least 500 pixels, four-way connectivity | Filters out tiny isolated fragments |
 
-Groups are ordered by pixel coverage. The material colour with the largest contribution becomes the group's
-**representative colour**; Flatten uses that colour. The colour and pixel counts shown in each row report the number of
-matched material colours and their combined coverage.
+Groups are listed from largest to smallest pixel area. Within each group, the material color covering the most pixels becomes its **representative color**, which **Flatten** uses as the fill target. Each row also displays the number of matched colors in the group and their combined pixel count.
 
-## Select all and select region
+## Select all vs. Select region
 
-Select all places every material colour in the group into [All mode](../selection-modes/selection-modes.mdx) and
-highlights those colours in the 2D preview. Choosing a target colour afterwards replaces every occurrence of the selected
-material colours in the current image. If the same matched colour also appears outside this gradient, those pixels change
-as well.
+**Select all** loads every matched color in the group into [All mode](../selection-modes/selection-modes.mdx) and highlights them on the 2D preview. Picking a replacement color then updates every occurrence of those matched colors across the entire image, including any unrelated elements that share the same matched color.
 
-Expand regions lists the separate connected areas that belong to the group. Select region still exposes the material
-colours used by that area, but its highlight and subsequent replacement use the exact region mask rather than a bounding
-box or a whole-image colour match.
+Click **Expand regions** to list each connected area within the group. **Select region** displays the colors inside that specific area and restricts both the highlight and any subsequent replacement to the region's exact pixel mask, leaving matching colors elsewhere in the image untouched.
 
 <img
   src={require('./assets/02-region-actions.webp').default}
@@ -66,61 +48,45 @@ box or a whole-image colour match.
 
 ## Flattening
 
-| Action | Scope | Replacement colour |
+| Action | Scope | Fill color |
 | --- | --- | --- |
-| Flatten all gradients | Matching colours from every detected group | Each group's own representative colour |
-| Flatten on a group row | The exact spatial extent of that group | The group's representative colour |
-| Flatten on a region row | The exact pixels of that region | The parent group's representative colour |
-| Merge flatten | Two or more checked regions in one group | The colour with the highest combined pixel count inside the checked regions |
+| Flatten all gradients | Matched colors in all detected groups | Each group's representative color |
+| Flatten (group row) | Exact spatial mask of that group | The group's representative color |
+| Flatten (region row) | Exact pixel mask of that region | The parent group's representative color |
+| Merge flatten | Two or more checked regions in one group | Most frequent color across the checked regions |
 
-Flatten all gradients and [Auto-replace Gradient Banding](../../settings-import-export/auto-gradient-replacement/auto-gradient-replacement.mdx)
-use whole-image colour remaps. They retain existing manual remaps, then map every non-representative group colour to the
-representative colour. An identical matched colour outside a detected region is therefore replaced too.
+**Flatten all gradients** and [Auto-replace Gradient Banding](../../settings-import-export/auto-gradient-replacement/auto-gradient-replacement.mdx) apply whole-image color remaps: they preserve any manual remaps already in place and map each group's remaining colors to its representative color across the entire canvas.
 
-Group, region, and Merge flatten actions use spatial masks. Region checkboxes only build the batch list; checking one does
-not highlight the canvas. The list is limited to one gradient group at a time. Checking a region in another group clears
-the previous list.
+Group-row **Flatten**, region-row **Flatten**, and **Merge flatten** apply spatial masks so edits stay strictly inside the targeted area. Use the region checkboxes to build a batch list within one group (checking a box does not highlight the canvas, and checking a region in a different group clears the previous selection).
 
-After a spatial operation succeeds, Lumina refreshes the 2D and 3D previews and invalidates old layer images, 3MF output,
-and download links. Spatial operations are not added to the ordinary colour-remap undo history; run Preview again to
-restore the original matched result.
+Spatial edits immediately refresh the 2D and 3D previews; regenerate layer views and 3MF files before exporting. Because spatial masks are stored separately from standard color-remap undo steps, run **Preview** again whenever you want to return to the initial matched result.
 
-## Region re-quantisation
+## Region re-quantization
 
-Re-quantise does not collapse a region to one colour. It quantises the selected area again and sends the local result
-through the active material solver. This preserves gradual low-frequency changes while reducing dense material bands.
+**Re-quantize** builds a dedicated local palette for the selected region and re-matches it through the active material solver, preserving soft shading transitions while collapsing dense alternating bands.
 
 <img
   src={require('./assets/03-requantize-dialog.webp').default}
   alt="Region re-quantisation dialog with a range of 12 to 256 colours"
 />
 
-- The accepted range is **12–256**; the dialog opens at **64**.
-- A larger value preserves more local steps. A smaller value moves closer to a flat result.
-- A region-row action affects only that region and preserves any batch checklist already in progress.
-- Batch re-quantise processes the checked regions and clears the checklist after a successful submission.
-- Each region receives its own local palette before being matched by the material solver.
-- The backend re-runs gradient-group analysis afterwards, so the panel reflects the new matched result.
+- **Range:** **12–256**, defaulting to **64**.
+- **Effect:** Higher values retain finer tonal steps; lower values produce a flatter, more uniform transition.
+- **Single vs. batch:** Clicking **Re-quantize** on a region row processes only that region without clearing your checked batch list. Clicking **Batch re-quantize** processes all checked regions and clears the checkboxes once complete.
+- **Local solving:** Each region generates its own local palette before material matching, and the gradient-group list refreshes automatically afterward.
 
-## View highlight
+## Highlight inspection
 
-The eye button opens a separate cyan mask for checking what the analyser actually selected. A whole-group highlight
-searches for the group's matched colours across the complete canvas. A region highlight uses the exact region identifier
-saved during analysis. This dialog is read-only and does not change the current selection, main preview, or replacement
-history.
+Click the eye icon on any group or region row to open a read-only cyan mask preview showing the exact pixels included: group-level masks highlight matching colors across the full image, while region-level masks show that region's exact spatial mask. Opening or closing this preview leaves your active selection, main preview, and edit history unchanged.
 
-## Relationship to automatic processing
+## Working with automatic replacement
 
-Auto-replace Gradient Banding is off by default. When enabled, Lumina applies the same representative-colour remap as
-Flatten all gradients whenever a Material Archive preview returns gradient groups. The panel remains available and shows
-an automatic-processing notice so the detected groups can still be reviewed.
-
-Turning the setting off does not hide the panel or disable its manual actions.
+**Auto-replace Gradient Banding** in Settings is off by default. When enabled, every Material Archive preview that detects gradient groups automatically applies the same representative-color remap as **Flatten all gradients** and displays a status notice at the top of the panel so you can still inspect detected groups. When turned off, all manual actions in the panel remain available.
 
 Related pages:
 
 - [Color Workstation](../color-workstation/color-workstation.mdx)
 - [2D Preview and Hover Inspection](../two-dimensional-preview/two-dimensional-preview.mdx)
-- [Selection Modes, Palette, and Free Colours](../selection-modes/selection-modes.mdx)
+- [Selection Modes, Palette, and Free Colors](../selection-modes/selection-modes.mdx)
 - [Auto-replace Gradient Banding](../../settings-import-export/auto-gradient-replacement/auto-gradient-replacement.mdx)
-- [Material Archive Colour Source](../../converter-basic/material-archive-source/material-archive-source.mdx)
+- [Material Archive Color Source](../../converter-basic/material-archive-source/material-archive-source.mdx)

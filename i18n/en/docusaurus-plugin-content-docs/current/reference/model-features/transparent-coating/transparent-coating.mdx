@@ -1,19 +1,12 @@
 ---
 title: "Transparent Coating"
-description: "The Coating object, effective layer height, bed placement, and transparent material assignment."
+description: "The Coating object, effective layer-height rounding, bed placement, and transparent filament assignment."
 sidebar_position: 4
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Transparent Coating
 
-Transparent Coating adds a separate **Coating** object outside the display face. It is not automatically assigned a real
-transparent filament; map the object to the transparent material you intend to print in your slicer.
+Transparent Coating generates a separate **Coating** object across the outer display face. After importing the 3MF into your slicer, assign **Coating** to a transparent filament to print a clear protective surface layer.
 
 <img
   src={require('./assets/01-transparent-coating-settings.webp').default}
@@ -22,23 +15,16 @@ transparent filament; map the object to the transparent material you intend to p
 
 ## Coating height
 
-The interface offers **0.04, 0.08, and 0.12 mm**, with **0.08 mm** as the default. The generator cannot create a
-fractional layer: it divides coating height by the active model layer height, rounds the result, and keeps at least one
-layer. Effective thickness is therefore `complete layers × model layer height`; the UI value is a request, not a
-guarantee that the slicer will receive that exact physical thickness.
+Available heights are **0.04, 0.08, and 0.12 mm** (default **0.08 mm**). Because prints build in whole layers, Lumina divides the selected coating height by the active model layer height, rounds to the nearest whole number (minimum one layer), and outputs an effective thickness of `complete layers × model layer height`.
 
-For example, with a 0.08 mm model layer height, a 0.04 mm request still becomes one 0.08 mm layer, while a 0.12 mm
-request becomes two layers, or 0.16 mm. Use an exact multiple of the active layer height when physical thickness matters.
+For example, with a 0.08 mm model layer height, selecting 0.04 mm produces one 0.08 mm layer, while selecting 0.12 mm produces two layers (0.16 mm). Choose an exact multiple of the active layer height when you want a specific physical thickness.
 
-Coating follows the model silhouette. When Outline is enabled, coverage expands over the outline edge as well.
+**Coating** follows the model silhouette and expands across the border as well when Outline is enabled.
 
-## Why the coating may disappear after slicing
+## If the coating disappears after slicing
 
-Coating is generated outside the model's bottom face and can initially sit below the build plate. The slicer may show the
-object in its list while omitting the below-bed geometry.
+Because **Coating** is generated outside the model's bottom face, it can import slightly below the build plate—visible in the object list, yet omitted from sliced toolpaths.
 
-Select the complete model, use **Place on Bed** or **Auto Arrange**, then slice again. Verify that the first layer contains
-the transparent-material path.
+Select the complete model assembly, run **Place on Bed** or **Auto Arrange**, and slice again. Then check Layer 1 to verify that the transparent-filament toolpath is present.
 
-Transparent PETG is a common option, not a required brand or material. Test material compatibility and temperatures on a
-small sample first.
+Materials such as transparent PETG are a popular choice; print a small test sample first to dial in temperatures and verify interlayer adhesion with your color filaments.

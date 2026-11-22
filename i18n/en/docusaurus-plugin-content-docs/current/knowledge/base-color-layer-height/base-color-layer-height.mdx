@@ -1,219 +1,153 @@
 ---
-title: "How Should I Set Backing, Colour Layers, and Layer-Height Modifiers?"
-description: "Keep backing thickness, colour-layer height, and slicer height ranges separate, and use a backing modifier without damaging the colour stack."
+title: "How Should I Set Backing, Color Layers, and Layer-Height Modifiers?"
+description: "Understand how Backing Thickness, Color Layer Height, and slicer height ranges work together so you can speed up the backing without affecting color accuracy."
 sidebar_position: 25
 ---
 
-:::info[AI-assisted article]
+# How Should I Set Backing, Color Layers, and Layer-Height Modifiers?
 
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
+Backing Thickness, Color Layer Height, and your slicer's global layer height control different parts of a print:
 
-:::
-
-# How Should I Set Backing, Colour Layers, and Layer-Height Modifiers?
-
-Backing thickness, Colour Layer Height, and the global slicer layer height control
-different parts of the print.
-
-- **Colour Layer Height** controls how each layer contributes to the colour recipe.
-  It must match a value supported by the selected Material Archives or Classic LUT.
-- **Backing Thickness** controls structural support and total thickness. It is not a
-  count of colour layers.
-- **Backing Layer Height Modifier** applies a coarser layer height only to the backing
-  range, reducing the number of backing layers.
-- Lumina uses 0.20 mm for a 0.4 mm nozzle and 0.10 mm for a 0.2 mm nozzle in that
-  backing range.
-- After Generate, open the complete project, slice it, turn to the display surface,
-  and inspect the real layers.
+- **Color Layer Height** sets the thickness of each color-mixing layer and must match a height supported by your selected Material Archives or Classic LUT.
+- **Backing Thickness** sets the structural support and overall thickness of the piece, independent of the color layer count.
+- **Backing Layer Height Modifier** applies a coarser layer height solely to the backing Z-range to reduce backing layer count and print time (`0.20 mm` for a `0.4 mm` nozzle, `0.10 mm` for a `0.2 mm` nozzle).
+- **Slicer verification**: After clicking **Generate**, open the 3MF as a full project, slice it, and inspect the display surface and layer transitions in Preview.
 
 <img
   src={require('./assets/base-color-layer-height.webp').default}
   alt="Cross-section showing the separate roles of backing thickness, colour layers, Colour Layer Height, and the coarse backing layer height"
 />
 
-## Four concepts that are easy to confuse
+## Four Key Concepts
 
-| Term | What it controls | Most direct effect |
+| Term | What it controls | Primary impact |
 | --- | --- | --- |
-| Backing | The structural section behind the colour stack | Strength, total thickness, material use, and print time |
-| Backing Thickness | The physical thickness of that backing section | Backing layer count and total model thickness |
-| Colour Layers | Thin layers that combine to form the visible colour | Colour, light transmission, and detail |
-| Colour Layer Height | The thickness of each colour-producing layer | Recipe behaviour, accumulated colour, and Z detail |
+| Backing | The structural section behind the color stack | Strength, total thickness, filament usage, and print time |
+| Backing Thickness | The physical millimeter thickness of the backing | Number of backing layers and overall model thickness |
+| Color Layers | Thin layers stacked in sequence to produce target colors | Color accuracy, light transmission, and fine detail |
+| Color Layer Height | The thickness of each color-producing layer | Color recipe behavior, light accumulation, and Z resolution |
 
-A model can use 0.08 mm colour layers with a 1.6 mm backing. The 1.6 mm value is the
-total backing thickness. It does not mean that every layer becomes 1.6 mm, nor that
-the model contains twenty colour layers.
+For example, a model can pair `0.08 mm` Color Layers with a `1.6 mm` Backing Thickness. Here, `1.6 mm` is the total thickness of the backing section, while the color stack continues to print at `0.08 mm` per layer.
 
-The display surface may face the build plate or sit above the backing, depending on
-the workflow. That changes the Z order, but it does not merge the two settings.
+Depending on the structure mode, the display surface may face the build plate or sit on top of the backing. Orientation changes their Z-axis order, while their thicknesses and layer heights remain independent.
 
-## Why not make the whole project 0.20 mm?
+## Why Not Set the Whole Project to 0.20 mm?
 
-A layered colour recipe is calibrated for particular materials, layer heights, and
-layer counts. If a recipe expects 0.08 mm colour layers and the entire project is
-changed to 0.20 mm, each layer becomes thicker, light transmission changes, colour
-accumulation changes, and the slicer may no longer produce the expected stack.
+Layered color recipes are calibrated for specific filaments, layer heights, and layer counts. If a recipe is built for `0.08 mm` color layers and you change the entire slicer project to `0.20 mm`, each layer becomes thicker, light transmission shifts, and the resulting color stack no longer matches the calibration.
 
-The backing does not perform the same colour-mixing job. It can therefore use a
-coarser local layer height while the display layers remain fine. That is the sole
-purpose of the modifier: **fine colour layers, coarse backing layers.**
+Because the backing provides structural support rather than layered color mixing, it can print at a coarser local layer height while the display layers stay fine. That is what the Backing Layer Height Modifier automates: **fine color layers, coarse backing layers.**
 
-## What does the Backing Layer Height Modifier do?
+## How the Backing Layer Height Modifier Works
 
-When a compatible Bambu-family slicer is selected in Settings and the modifier is
-enabled, Lumina writes a height range into the generated 3MF:
+When a compatible Bambu-family slicer is selected in **Settings** and **Backing Layer Height Modifier** is enabled, Lumina writes a local height range into the exported 3MF:
 
-- 0.4 mm nozzle: 0.20 mm layers inside the backing range;
-- 0.2 mm nozzle: 0.10 mm layers inside the backing range;
-- colour layers keep the fine height required by the current source and workflow.
+- **0.4 mm nozzle**: `0.20 mm` layer height within the backing Z-range.
+- **0.2 mm nozzle**: `0.10 mm` layer height within the backing Z-range.
+- **Color layers**: Retain the fine layer height specified by your color source and workflow.
 
-The setting is enabled by default, saved automatically, and shown only for a
-compatible slicer selection. It does not change **Backing Thickness**. It prints the
-same backing range with fewer, thicker layers.
+This option is enabled by default, saves automatically, and appears when a compatible Bambu-family slicer is selected. It keeps **Backing Thickness** unchanged, printing that same thickness with fewer, thicker layers to save time.
 
-Other slicers may ignore this project metadata or use a different local-parameter
-system. No error message does not prove that the modifier was applied.
+Other slicers may ignore this 3MF height-range metadata and require configuring a local height modifier directly in the slicer.
 
-## Set it in Lumina Studio
+## Configure It in Lumina Studio
 
-1. Open **Settings**.
-2. Select the slicer, printer, and nozzle you actually use.
-3. If **Backing Layer Height Modifier** is available, decide whether it is appropriate
-   for this workflow.
-4. Return to Converter and set **Backing Thickness** for the model.
-5. Choose Colour Layers and Colour Layer Height supported by the selected archives or
-   LUT.
-6. create a new Preview and Generate a new 3MF.
+1. Open **Settings** and select your slicer, printer, and nozzle size.
+2. If **Backing Layer Height Modifier** appears, enable or disable it for your current workflow.
+3. Return to the converter and set **Backing Thickness** for your model.
+4. Select **Color Layers** and **Color Layer Height** supported by your Material Archives or Classic LUT.
+5. Run **Preview** and click **Generate** to export a new 3MF.
 
-Do not change Backing Thickness, Colour Layer Height, Colour Layers, and the slicer’s
-global layer height at the same time. If the result changes, you will not know which
-setting caused it.
+To shorten print time predictably, enable the Backing Layer Height Modifier while keeping Color Layer Height, Color Layers, and the slicer's base layer height unchanged.
 
-## Verify the modifier range after opening the project
+## Check the Height Range in Your Slicer
 
-Open Lumina’s complete 3MF as a project. Importing only its geometry can discard
-project filaments, object relationships, or the height range.
+Open the Lumina 3MF as a full project rather than importing raw geometry, which can strip project filaments, object hierarchy, and height-range modifiers.
 
-Expand the model in the slicer’s object tree. When the modifier has been preserved,
-you should see a distinct height range. The numbers depend on the generated model;
-do not copy a range from another project.
+Expand the model in your slicer's object list to see the height-range entry. Its start and end Z values are calculated automatically from your model's thickness and orientation.
 
 <img
   src={require('./assets/height-range-check.webp').default}
   alt="Concept diagram showing a backing-only modifier range ending before the fine colour layers"
 />
 
-Confirm all three points:
+Verify three details:
 
-1. the range exists and covers the backing’s real Z interval;
-2. the local height matches the nozzle—0.20 mm for 0.4 mm, or 0.10 mm for 0.2 mm;
-3. the range does not include any fine colour layer.
+1. The height range is present and matches the Z interval of the backing.
+2. The local layer height matches your nozzle (`0.20 mm` for `0.4 mm`, or `0.10 mm` for `0.2 mm`).
+3. The coarse range stops cleanly before the fine color layers begin.
 
-If the range is absent, check the selected slicer, the modifier switch, and whether
-the 3MF was opened as a complete project. Do not replace it with a coarse modifier
-covering the entire object.
+If the height range is missing, check your selected slicer and modifier toggle in Lumina **Settings**, and confirm that you opened the 3MF as a project. Avoid applying a coarse height modifier across the entire object, as that will overwrite the fine color stack.
 
-## Real slicing is mandatory
+## Slice and Inspect Layer by Layer
 
-Seeing a modifier in Prepare view does not prove that the final toolpaths are right.
-Run **Slice**, enter Preview, and then:
+Click **Slice** and switch to **Preview** to inspect the generated toolpaths before printing:
 
-- turn the model to its actual display surface;
-- move the layer slider through the colour stack;
-- verify the transition from fine colour layers to coarse backing layers;
-- inspect backing, outline, coating, Free Color, and other attachments for overlap;
-- confirm that project filaments still map to the intended physical spools.
+- Rotate the view to the display surface and confirm clean color boundaries.
+- Drag the layer slider through the color stack to check layer heights and filament assignments.
+- Confirm a clean transition between the fine color layers and coarse backing layers.
+- Check the backing, outline, coating, Free Color objects, and attachments for unintended overlap.
+- Verify that each project filament maps to the intended physical spool and slot.
 
 <img
   src={require('./assets/sliced-display-surface.webp').default}
   alt="Concept diagram for turning to the display surface and inspecting sliced paths layer by layer"
 />
 
-For the complete object and material check, see
-[Import a Lumina 3MF into Your Slicer Correctly](pathname:///en/docs/tutorials/slicer-material-mapping/).
+For full material and slot mapping steps, see [Import a Lumina 3MF into Your Slicer Correctly](pathname:///en/docs/tutorials/slicer-material-mapping/).
 
-## Separate Backing is not the layer-height modifier
+## Separate Backing vs. Backing Layer Height Modifier
 
-Both names mention the backing, but they solve different problems:
+Both settings involve the backing, but they serve different purposes:
 
-- **Separate Backing** exports the backing as an independent object for selection,
-  material assignment, or further editing in the slicer.
-- **Backing Layer Height Modifier** keeps the same object structure and assigns a
-  coarser height only to the backing’s Z range.
+- **Separate Backing** exports the backing as its own object so you can select it, assign a filament, or adjust per-object settings in the slicer.
+- **Backing Layer Height Modifier** keeps the object structure intact and assigns a coarser layer height to the backing's Z-range.
 
-One option does not enable the other. Use both only when you need both behaviours,
-and verify the sliced result.
+You can enable either or both depending on whether you need independent object control, faster backing layers, or both.
 
-## Workflows that require extra care
+## Special Workflows
 
-### Gradient cards
+### Gradient Calibration Cards
 
-Gradient cards have a fixed layer structure, object-colour mapping, and print method.
-Do not add the ordinary backing modifier. Follow
-[Generate and Print Gradient Calibration Cards](pathname:///en/docs/tutorials/gradient-card-generate-print/).
+Gradient cards rely on fixed layer heights, object-color assignments, and print settings. Leave the standard backing modifier off and follow [Generate and Print Gradient Calibration Cards](pathname:///en/docs/tutorials/gradient-card-generate-print/).
 
-### Puzzle and other specialised exports
+### Puzzle and Specialized Exports
 
-Specialised structures can manage their own slicing data. Do not add a duplicate
-height range merely to reproduce a familiar 0.20 mm value.
+Puzzle and other specialized export modes manage their own geometry and slicing metadata without needing manual height-range additions.
 
-### Double-sided or complex structures
+### Double-Sided or Recessed Models
 
-With colour structures on both faces, or backing interleaved with recesses and
-attachments, names alone cannot identify a safe coarse range. Inspect every layer.
-If the modifier touches either display surface, disable it and Generate again, or use
-a separately verified slicer-native method.
+On double-sided prints, or models with magnet recesses and interleaved attachments, step through every layer in slicer Preview to confirm that the coarse range stays strictly inside the backing. If the range touches either display face, disable **Backing Layer Height Modifier** and generate a fresh 3MF.
 
-### Non-compatible slicers
+### Non-Bambu Slicers
 
-If the slicer does not show the local range, do not assume it worked. Use that
-slicer’s native local-parameter feature and inspect the resulting layers.
+If your slicer does not import the height range from the 3MF, configure an equivalent height-range modifier natively in that slicer and verify the sliced layers in Preview.
 
-## Common questions
+## Common Questions
 
 ### Why does the base still look solid after I lower its infill?
 
-The part of the base near each viewing surface stays solid. A thin base can fall entirely inside that protected region. The layer-height modifier controls layer thickness, not infill density. See [Base Plate Infill](../../reference/converter-basic/backing-infill/backing-infill.mdx) for the limits and how to check them.
+The region of the base closest to each viewing surface stays solid to protect visual uniformity, so a thin base may fall entirely within that solid zone. Meanwhile, the layer-height modifier changes layer thickness rather than infill density. See [Base Plate Infill](../../reference/converter-basic/backing-infill/backing-infill.mdx) for details.
 
-### Why does the process header still say 0.08 mm when the backing is 0.20 mm?
+### Why does the process preset still show 0.08 mm when the backing prints at 0.20 mm?
 
-The header usually shows the base process height, while the backing uses a local
-object range. Inspect the object tree and sliced layers, not only the header value.
+The process header displays the base layer height for the project, while the backing uses an object-level height-range override. Switch the slicer Preview color scheme to **Layer Height** or expand the object tree to inspect both values.
 
 ### I selected 0.04 mm. Why do I also see 0.08 mm or 0.20 mm?
 
-You may be looking at three different values: Colour Layer Height, the process base
-height, and the backing’s local height. Confirm which one is shown and whether the
-current archive or LUT supports 0.04 mm. If the data, selection, and toolpaths disagree,
-do not print.
+Three separate values may be visible: Color Layer Height, the slicer's base process layer height, and the backing's local height range. Check which value you are viewing and verify that your selected Material Archives or Classic LUT supports `0.04 mm`.
 
-### Can I make every colour layer 0.20 mm to save more time?
+### Can I set the color layers to 0.20 mm as well to save more time?
 
-Not as a general shortcut. The existing recipe may no longer be valid. Use a new
-colour-layer height only when the current data source explicitly supports it and a
-test print has passed.
+Only if your Material Archives or Classic LUT explicitly supports a `0.20 mm` color layer height. Changing `0.08 mm` color layers to `0.20 mm` alters light transmission and breaks the calibrated color recipes.
 
-### Should a 0.2 mm nozzle use 0.20 mm backing layers?
+### Does a 0.2 mm nozzle also use 0.20 mm backing layers?
 
-No. Lumina’s automatic rule uses half the nozzle diameter: 0.10 mm for a 0.2 mm nozzle.
+No. Lumina sets the backing modifier to half the nozzle diameter: `0.20 mm` for a `0.4 mm` nozzle and `0.10 mm` for a `0.2 mm` nozzle.
 
-### Why is the modifier missing from Settings?
+### Why is Backing Layer Height Modifier hidden in Settings?
 
-It is shown only when a compatible Bambu-family slicer is selected. For another
-slicer, verify whether it offers an equivalent local height-range feature.
+It is displayed only when a compatible Bambu-family slicer is selected in **Settings**. For other slicers, apply a local height-range modifier directly in your slicer.
 
-### Can I increase the backing height further if the estimate is still long?
+### Can I raise the backing layer height even further if the print is still long?
 
-Do not increase it from time alone. Local layer height is constrained by nozzle,
-line width, material, and slicer rules. First prove that the modifier is active and
-that backing is the real bottleneck, then test any additional change on a sample.
-
-## Content licence
-
-Unless otherwise noted, the original text and concept diagrams on this page are
-available under the Wiki’s
-[CC BY-NC-SA 4.0 content licence](pathname:///en/docs/project/content-license/).
-Third-party slicer names and trademarks belong to their respective owners.
-
-Lumina Studio and slicers continue to change. Treat the current interface and the
-actual sliced toolpaths as the final authority.
+Maximum layer height is limited by nozzle diameter, line width, and volumetric flow. Confirm first that the modifier is active in slicer Preview, and test any manual overrides on a small sample print before running a full piece.

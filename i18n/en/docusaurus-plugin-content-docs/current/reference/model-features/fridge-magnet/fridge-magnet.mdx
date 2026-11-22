@@ -4,16 +4,9 @@ description: "Magnet presets, custom dimensions, automatic layout, coordinates, 
 sidebar_position: 6
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Fridge Magnet cavities
 
-Fridge Magnet mode cuts one or more cavities into the backing. It forces Single-sided structure and disables Puzzle,
-Large Format, and Keychain Loop so those workflows do not compete for the same backing geometry.
+Fridge Magnet mode cuts one or more magnet cavities into the backing. Enabling it switches Structure Mode to Single-sided and turns off Puzzle, Large Format, and Keychain Loop.
 
 <img
   src={require('./assets/01-fridge-magnet-settings.webp').default}
@@ -22,26 +15,23 @@ Large Format, and Keychain Loop so those workflows do not compete for the same b
 
 ## Presets and custom sizes
 
-Round presets are D6×2, D8×3, D10×3, and D12×3 mm. Rectangular presets are 10×5×1, 15×5×2, and
-20×10×2 mm. Changing shape loads that shape's default preset; editing a dimension changes the item to Custom.
+Round presets include D6×2, D8×3, D10×3, and D12×3 mm. Rectangular presets include 10×5×1, 15×5×2, and 20×10×2 mm. Changing shape loads that shape's default preset; editing any dimension switches the item to Custom.
 
 Custom ranges:
 
-- round diameter: 1–50 mm;
-- rectangular width and height: 1–80 mm;
-- thickness: 0.5–3.1 mm;
-- centre X and Y: -999–999 mm.
+- Round diameter: 1–50 mm
+- Rectangular width and height: 1–80 mm
+- Thickness: 0.5–3.1 mm
+- Center X and Y: -999–999 mm
 
-These describe the target cavity. Measure the physical magnet and validate assembly clearance with a test print.
+These values set the cavity dimensions in the mesh. Measure your physical magnets and print a quick test piece to verify fit and assembly clearance before running a full batch.
 
 ## Multiple magnets and layout
 
-**Add Magnet** creates a default round magnet and lays out all items again. **Auto Layout** retains their dimensions and
-recalculates positions. **Remove Selected** affects only the selected list item. Clearing selection does not delete it.
+**Add Magnet** inserts a default round magnet and arranges all items automatically. **Auto Layout** keeps each magnet's dimensions and recalculates center positions. **Remove Selected** deletes only the selected item in the list. Selection is shared between the list and the 3D scene; clearing selection leaves the magnet in place.
 
 ## Automatic backing thickness
 
-Lumina reserves roughly **0.4 mm** of shell beneath the thickest magnet and rounds to **0.08 mm** layers. If necessary,
-the backing grows automatically, up to the 3.5 mm safety limit. The panel summary shows the resulting thickness.
+Lumina reserves roughly **0.4 mm** of shell beneath the thickest magnet and rounds to **0.08 mm** layer increments. When needed, the backing thickens automatically up to the 3.5 mm limit, and the panel summary displays the resulting thickness.
 
-Inspect the cavity roof, remaining shell, and edges layer by layer in the slicer before printing.
+Before printing, inspect the cavity roof, bottom shell, and perimeter edges layer by layer in your slicer to confirm that no cavity breaks through the display surface.

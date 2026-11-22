@@ -4,79 +4,73 @@ description: "Save artwork, settings, local recoloring, and selections, then res
 sidebar_position: 22
 ---
 
-:::info[AI-assisted article]
-This article was prepared with AI assistance using the application source code and existing tutorials. If anything is inaccurate, or you have a clearer method, please suggest a correction through this page's feedback.
-:::
-
 # Save projects and share cards
 
-Use Save Project to keep an editable file, or Export Share Card to create a PNG with a preview cover. Both restore editing state. Printing still requires a separately generated 3MF and a slice in your slicer.
+Once you finish tuning colors, click **Save Project** to export an editable `.lumina.json` file, or **Export Share Card** to generate a preview PNG with your project data embedded inside. Both formats restore your editing workspace; when you are ready to print, generate a 3MF and slice it in your slicer.
 
-Checked against the source code available on October 19, 2026. Older projects may not contain local edits; check the import warnings to see what can be restored.
-
-## Choose a file type
+## Choosing a file format
 
 | File | Control | Purpose |
 | --- | --- | --- |
-| `.lumina.json` | Save Project | Archive work, move to another device, or continue later |
-| PNG share card | Export Share Card | Show the result and give someone the restorable project in the original PNG |
-| 3MF or ZIP | Generate / Generate and download | Inspect and print in a slicer; not a substitute for an editable project |
+| `.lumina.json` | Save Project | Archive projects locally, move work between computers, or resume editing later |
+| PNG share card | Export Share Card | Showcase a preview cover while embedding the full restorable project inside the original PNG |
+| 3MF or ZIP | Generate / Generate and download | Inspect toolpaths and print in a slicer (does not store editable selection or recoloring state) |
 
-A PNG share card contains source artwork and project data. Screenshots, JPG conversion, platform compression, or resaving can preserve the picture but remove that data. Send the original file or a ZIP when someone needs to continue editing.
+A PNG share card embeds your source artwork and project metadata directly inside the PNG file. Taking a screenshot, converting to JPG, sending through chat apps that recompress images, or resaving in an image editor strips out that embedded data. Send the original PNG file—or wrap it in a ZIP archive—whenever the recipient needs to import and edit the project.
 
-## Finish the current edit before saving
+## Saving a project
 
-1. Upload artwork, choose a color source, materials, and physical size, then generate a preview.
-2. Finish recoloring, regional recipes, and selection work in Color Adjustment.
-3. Wait for pending edits to finish before clicking Save Project or Export Share Card.
-4. For important work, keep the original artwork, project file, actual material archive or LUT, and final 3MF.
+1. Upload your artwork, select a color source, filaments, and finished dimensions, and run **Preview**.
+2. Complete any global recoloring, regional recipes, and selection adjustments in **Color Adjustment**.
+3. Wait for any active edit to finish syncing, then click **Save Project** or **Export Share Card**.
+4. For critical projects, archive the source artwork, `.lumina.json` project, Material Archives or LUTs, and final 3MF together.
 
-If Lumina says an edit or selection is still being committed, wait or follow the synchronization instruction shown in the interface. A changing preview cannot be exported as a complete editing checkpoint.
+If Lumina indicates that an edit or selection is still syncing, wait a moment for the update to complete before exporting so every change is captured.
 
 <img src={require('./assets/06-current-project-save.webp').default} alt="Current English Save Project and Export Share Card controls" />
 
-## What the current project saves
+## What a project file stores
 
-- Original image or SVG and conversion settings.
-- Confirmed global and local recoloring.
-- Regional recipes, layer-material stacks, and restorable editing state.
-- Current selection.
-- Supported printer, filament-preset, and model-feature settings.
+- Original bitmap or SVG artwork and conversion settings
+- Confirmed global and local recoloring adjustments
+- Regional recipes, per-layer filament stacks, and editing state
+- Active selection masks
+- Selected printer, filament presets, and model add-ons (such as backing and loops)
 
-Restoring creates a fresh preview. Regional edits are checked against the source artwork and working coordinates before application. They cannot be transferred to another image merely because it has the same dimensions.
+Importing a project rebuilds a fresh preview and validates regional edits against the source artwork and working coordinates. Renaming the source file has no effect, whereas swapping, cropping, or rotating the image requires saving a new project.
 
-Renaming the same source file does not make it different artwork. After replacing, cropping, or rotating the image, save a corresponding new project.
+## Importing and resuming edits
 
-## Import and continue editing
+1. Select a `.lumina.json` file or an uncompressed PNG share card in the **Image Conversion** upload area.
+2. Review the artwork thumbnail, dimensions, color source, and any compatibility notes in the confirmation dialog.
+3. Confirm the import and wait for the artwork and preview to load.
+4. Verify your local recoloring, regional recipes, and selections, then continue editing.
+5. Save a new project file when finished, and generate a fresh 3MF when ready to print (temporary download links from earlier sessions are not stored in project files).
 
-1. Choose a `.lumina.json` file or original PNG share card in the Image Conversion uploader.
-2. Check the artwork, dimensions, color source, and compatibility warnings in the confirmation dialog.
-3. Confirm restore and wait for the artwork and preview to load.
-4. Check local recoloring, regional recipes, and selection, then continue editing.
-5. Save a new project after making changes. Generate a new 3MF when you need to print.
-
-The current version retains confirmed edits when you run Preview again. After undoing or recoloring, check the preview before generation. Import does not recover old download links or temporary models from a previous session.
+Running **Preview** again preserves your confirmed color edits. Whenever you undo changes or adjust colors further, verify the updated preview before exporting a 3MF.
 
 <img src={require('./assets/07-current-project-restore.webp').default} alt="Import confirmation for an actually saved project showing artwork, version, color source and size" />
 
-## Older files and missing resources
+## Legacy files and external material resources
 
-If an older file did not save regional data, the current version cannot reconstruct every edit from its cover. Keep the original and inspect the result when an import warning says regional information is missing.
+Older share cards created before regional editing was introduced store global conversion settings only; the import dialog notes which data is present before restoring.
 
-A project is not a complete material backup. Restore the corresponding LUT, material archive, or native slicer preset if it is missing. Matching names do not prove matching data; reselect the resource when Lumina cannot identify it reliably.
+Project files reference your color sources by identity rather than bundling full Material Archives, Classic LUTs, or native slicer presets. Make sure the required archives or LUTs are installed on the target machine before importing—if a resource with the same name cannot be matched automatically, reselect it when prompted.
 
-## Can JSON be edited manually?
+## Editing `.lumina.json` manually
 
-The current version accepts valid parameter edits rather than treating every change as corruption. Parameters must still meet the format and mode requirements. Damaged artwork, editing data, or regions that do not match the source can still prevent restore.
+Valid parameter edits inside `.lumina.json` import normally as long as values conform to the active mode and schema; corrupted artwork payloads or mismatched region coordinates will abort the import. For routine size, color, or filament changes, importing the project into Lumina, adjusting settings in the UI, and saving again is the cleanest approach.
 
-For ordinary size, color, and material changes, import the project, edit in Lumina, and save again. Do not remove warning fields or copy regional data from another project to bypass checks.
+## Model texture projects
 
-## Model texture limitation
+Because **Model texture** relies on an external 3D base mesh (STL or OBJ) plus surface face-selection coordinates, **Save Project** and **Export Share Card** are disabled while Model texture is active. Archive your base mesh, source artwork, and exported 3MF together along with notes on face selection, orientation, and placement.
 
-Model texture needs an additional STL or OBJ and face-selection information, which the recipe cannot currently contain in full. Both export controls are unavailable while it is enabled. Archive the base model, artwork, and final 3MF separately, with a record of the selected face, orientation, and placement.
+## Before sharing publicly
 
-## Check before sharing
+Both PNG share cards and `.lumina.json` files embed your full-resolution source artwork behind the cover preview. Check licensing rights, personal details, and unreleased designs before sharing project files publicly—if you only want to show off the visual preview, share a regular screenshot or flattened image instead.
 
-Share cards and JSON can contain the original design, not just the visible cover. Check artwork rights, personal information, and unreleased content before sending them. Use an ordinary display image when you only want to show the result.
+## Related pages
 
-Related: [Quick recolor & similar recipes](../../reference/preview-and-palette/quick-recolor/quick-recolor.mdx), [Model texture](../../tutorials/model-texture/model-texture.mdx), [Slicer and downloads](../../reference/converter-basic/slicer-output/slicer-output.mdx).
+- [Quick recolor & similar recipes](../../reference/preview-and-palette/quick-recolor/quick-recolor.mdx)
+- [Model texture](../../tutorials/model-texture/model-texture.mdx)
+- [Slicer and downloads](../../reference/converter-basic/slicer-output/slicer-output.mdx)

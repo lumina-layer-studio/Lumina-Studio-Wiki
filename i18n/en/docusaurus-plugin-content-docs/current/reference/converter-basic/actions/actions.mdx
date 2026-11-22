@@ -1,55 +1,42 @@
 ---
 title: "Preview, Generate, and Export"
-description: "Responsibilities of Preview, Generate, View Layers, Share Card, JSON, and Bed Size."
+description: "Use Preview, 3MF generation, View Layers, Share Card, JSON export, and Bed Size in the Converter action bar."
 sidebar_position: 12
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Preview, Generate, and Export
 
-Actions separates inspection, model generation, and delivery for the same parameter set. Previewing first catches image,
-colour, and geometry issues before a printable 3MF is created.
+The action bar at the bottom of the Converter brings together color preview, layer inspection, 3MF export, and recipe sharing. Running a preview first lets you verify color matching and model geometry before generating a printable 3MF file.
 
 ## Preview
 
-Preview reads the current image, colour source, and settings and creates a new preview session. A successful run supplies:
+Clicking **Preview** processes the current image, color source, and settings to generate:
 
-- the matched 2D result;
-- the model used by the 3D viewer;
-- palette, layer-image, and Color Workstation data;
-- session state required by Generate.
+- The matched 2D preview;
+- The 3D model shown in the 3D viewer;
+- Palette data, layer images, and **Color Workstation** color assignments.
 
-The button is disabled until both an image and a complete colour source are available. Re-preview after changing a setting
-that affects output; layer images from an old session are not reused for the new one.
+**Preview** stays disabled until both an image and a complete color source are ready, and indicates what is missing. After changing any setting that affects the output, run **Preview** again to refresh the model and layer images.
 
 ## Download 3MF or open the slicer
 
-Once the preview looks right, generate and download a 3MF or open it in a detected slicer. The button label depends on the
-detected slicer and file state, for example **Generate & open in Bambu Studio**, **Generate & Download 3MF**, or
-**Download 3MF**. Use the adjacent arrow to choose an action. If no slicer is detected, you can still generate and download
-the file; there is no separate Generate control to press first.
+Once the preview looks right, use the primary export button to generate and deliver your 3MF in one step—there is no separate **Generate** button to press first. The button label updates automatically based on detected slicers and file status, such as **Generate & open in Bambu Studio**, **Generate & Download 3MF**, or **Download 3MF**. Use the dropdown arrow next to the button to switch actions. If no slicer is detected on your system, you can still generate and download the 3MF file directly.
 
-Puzzle and Large Format use their own generation paths. A previously downloaded file does not change when settings are
-edited; check the new preview and generate again.
+**Puzzle** and **Large Format** modes use their own dedicated export workflows. Editing settings does not modify a previously downloaded 3MF; inspect the updated preview and export a new file after making changes.
 
 ## View Layers
 
-View Layers creates one image for each optical layer in the current session. Thumbnails open at a larger size. Hover
-inspection reads the surface colour and the colours at the same point in every layer. This verifies the recipe; it does not
-prove that the slicer has assigned the intended physical filaments.
+**View Layers** renders an image for each optical color layer in the current preview. Click any thumbnail to inspect it at a larger size, or hover over the main preview to read both the finished surface color and the layer-by-layer color stack at that exact point. Use this view to verify the optical recipe before confirming physical filament assignments in your slicer.
 
 ## Share Card and JSON
 
-- **Export Share Card** packages a cover image with a reproducible Lumina recipe.
-- **Export JSON** saves the recipe sidecar alone for inspection, automation, or version control.
+Once an image has been imported and previewed, you can export the current conversion recipe in two formats:
 
-Both need an image and completed preview. They contain Lumina parameters rather than sliced G-code. See
-[Share Card and JSON](../../../knowledge/share-card-json/share-card-json.mdx).
+- **Export Share Card:** Packages a cover image with a reproducible Lumina recipe in a single file for sharing with other Lumina users.
+- **Export JSON:** Saves the standalone JSON recipe file for backups, version control, or automation workflows.
 
-Bed Size comes from the selected printer in Settings and is used for preview scale and bounds. Confirm the real printer,
-nozzle, and plate again in the slicer.
+Both formats store editable Lumina conversion parameters that can be re-imported later. For details on file contents and import behavior, see [Share Card and JSON](../../../knowledge/share-card-json/share-card-json.mdx).
+
+## Bed Size
+
+**Bed Size** displays the build-plate dimensions of the printer selected in **Settings**, providing scale and boundary references in the 2D and 3D previews. When preparing the print in your slicer, confirm that the target printer, nozzle, and build plate match your hardware.

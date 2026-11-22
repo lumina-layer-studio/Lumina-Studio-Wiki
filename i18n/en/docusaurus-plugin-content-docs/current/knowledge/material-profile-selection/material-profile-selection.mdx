@@ -4,214 +4,137 @@ description: "Compare Material Archives and Classic LUTs, and decide when to use
 sidebar_position: 23
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Material Archives or Classic LUTs?
 
-Choose colour data that matches the physical filament, intended layer height, and workflow for the print.
+Pick the color data source that matches your physical spools, target Layer Height, and project workflow:
 
-- If a verified Material Archive fully matches your filament, start with it.
-- If no archive fully matches, or colour consistency is important, create archives
-  from your own filaments.
-- Use a **Classic LUT** when reopening a 1.x project or reusing an older colour set that
-  was already verified.
+- Start with an **installed Material Archive** when a verified profile already matches your exact filament brand, product line, and shade.
+- Create a **custom Material Archive** when your spool isn't in the library yet or when your artwork demands tight color accuracy.
+- Choose a **Classic LUT** when reopening a Lumina 1.x project or reusing a fixed multi-spool palette you have already validated.
 
-“Installed” and “custom” describe where a Material Archive came from. The current Color Data Source choices are Material
-Archive and Classic LUT. The older name Legacy LUT is now Classic LUT; the [Inferred LUT](../../reference/converter-basic/inferred-lut-source/inferred-lut-source.mdx)
-entry is not currently shown.
+In Lumina 2.0, **Color Data Source** offers **Material Archive** and **Classic LUT** (previously called Legacy LUT; the [Inferred LUT](../../reference/converter-basic/inferred-lut-source/inferred-lut-source.mdx) option is currently hidden). Terms like "installed" and "custom" simply describe how a Material Archive was created.
 
-## How do the two sources differ?
+## How the two color sources compare
 
-| Source Type | Main purpose | Most important selection evidence | Pay particular attention to |
+| Source Type | Best suited for | Key selection criteria | Keep in mind |
 | --- | --- | --- | --- |
-| Material Archive | Freely combine several single-spool archives for the current artwork | The real filament's material, product line, colour, and archive source | If an installed archive does not fully match the physical spool, its preview is only a reference |
-| Classic LUT | Use a verified fixed colour set or compatible LUT files | The original filament order, Color Mode, layer count, and layer height | Matching names do not prove identical internal data; verify again after changing filament |
+| Material Archive | Mixing and matching individual single-spool profiles freely per artwork | Exact polymer family, brand, product line, shade, and calibrated Layer Height | If an installed archive doesn't match your physical spool, treat Preview colors as a rough estimate |
+| Classic LUT | Reproducing a fixed, pre-validated color set or opening 1.x LUT files | Original Color Mode, channel filament order, layer count, and Layer Height | Swapping any physical spool in the set invalidates the original color mapping until retested |
 
-One image uses only the currently selected Source Type. After changing the source,
-generate a new preview. Do not treat a preview from the previous source as the result
-of the new one.
+Each conversion uses one active Source Type at a time. Whenever you switch sources, click **Preview** again to compute fresh recipes for the new palette.
 
-## Material Archive: flexible combinations for the current 2.0 workflow
+## Material Archive: flexible palettes for Lumina 2.0
 
-A Material Archive records how one physical spool behaves in gradient cards printed
-over white and black backing. For conversion, select several archives from the
-Material Library, then set the Color Layers, Layer Height, and Base Plate Material for
-this artwork.
+Each Material Archive captures how a single spool transmits and reflects light across printed gradient cards over white and black backings. During conversion, you pick whichever single-spool archives you want from the Material Library, then set **Color Layers**, **Layer Height**, and **Base Plate Material** for your artwork.
 
-A Material Archive can come from:
+Archives in your local Material Library typically come from three places:
 
-- an archive supplied by Lumina or an official resource and installed locally;
-- an archive shared by another user and imported after you verify its origin;
-- a custom archive extracted after printing gradient cards with your own filament.
+- Built-in or official cloud profiles installed with Lumina
+- Community-shared ZIP archives imported after checking their source details
+- Custom archives you calibrated yourself from printed gradient cards
 
-They are selected in the same way once installed in the Material Library, but their
-reliable scope differs. An installed archive is convenient for a quick start. A custom
-archive better represents your physical spool, measurement, and print conditions.
+All three work identically in the converter picker: installed profiles get you started right away, while custom profiles reflect your exact spool, printer, and lighting conditions.
 
-### When can I start with an installed archive?
+### When an installed archive is a good starting point
 
-Start with a small test image when all of these are true:
+Test an installed archive on a small swatch first when all of the following line up:
 
-- the material type matches, such as PLA with PLA or PETG with PETG;
-- the brand, product line, and colour name match;
-- the archive is not reported as damaged, missing, or clearly outdated;
-- the intended Layer Height is compatible with the archive and current conversion;
-- you can identify the exact physical spool rather than a similarly coloured one.
+- Polymer family matches (PLA with PLA, PETG with PETG).
+- Brand, product line (such as Basic, Matte, or Silk), and color name match.
+- The archive loads cleanly with valid verification metrics.
+- Your planned Layer Height matches the archive's calibrated Layer Height.
+- You know the exact spool loaded on the machine rather than guessing from a similar shade.
 
-Even products with identical names can vary by batch, moisture, print temperature,
-and actual colour. “Same product” means it is reasonable to test first; it does not
-guarantee an identical physical result.
+Because pigment batches, moisture levels, and nozzle temperatures still introduce subtle shifts between spools sold under the same name, a quick physical test swatch is the fastest way to confirm accuracy before a large print.
 
-### When should I create my own archive?
+### When to calibrate your own Material Archive
 
-Consider a custom archive when any of these apply:
+Create a custom archive whenever:
 
-- the Material Library has no exact match for the brand, product line, material, or
-  colour;
-- a test print from an installed archive differs visibly from the real result;
-- the filament has unusual translucency, filler, surface finish, or batch variation;
-- the artwork requires more consistent skin tones, greys, or brand colours;
-- you want a reusable, traceable material library tied to your real spools.
+- Your filament brand, product line, polymer, or shade isn't in the Material Library.
+- A test swatch using a similarly named archive shifts noticeably from Preview.
+- Your filament uses translucent resins, silk sheen, matte additives, or specialty fillers, or varies visibly between batches.
+- Your artwork relies on accurate portraits, smooth neutral grays, or exact brand colors.
+- You want a dependable, traceable library tied directly to the labeled spools on your shelf.
 
-Follow
-[Generate and Print Gradient Calibration Cards](pathname:///en/docs/tutorials/gradient-card-generate-print/)
-and
-[Photograph and Extract Gradient Cards](pathname:///en/docs/tutorials/gradient-card-extract-profile/)
-to create one.
+To calibrate a new spool, follow [Generate and Print Gradient Calibration Cards](pathname:///en/docs/tutorials/gradient-card-generate-print/) and [Photograph and Extract Gradient Cards](pathname:///en/docs/tutorials/gradient-card-extract-profile/).
 
-## Classic LUT: fixed, verified combinations and older projects
+## Classic LUT: fixed palettes and 1.x projects
 
-A Classic LUT is a precomputed mapping from target colours to layered recipes. It
-remains useful for verified older projects, fixed material combinations, and LUT files
-created by the 1.x workflow.
+A Classic LUT stores a precomputed lookup table mapping target colors directly to multi-layer filament stacks. It remains handy for reproducing validated fixed palettes and working with LUT files saved from Lumina 1.x.
 
-Keep and verify all of the following together:
+When printing with a Classic LUT, keep these four details aligned:
 
-- the original Color Mode and filament order;
-- the physical filament used by every channel;
-- the supported layer count and Layer Height;
-- the slicer and print conditions used for the original validation.
+- The LUT's original **Color Mode** and channel order
+- The exact physical filament assigned to each channel
+- Supported layer count and **Layer Height**
+- The nozzle and slicer settings used when that LUT was validated
 
-Some Classic LUTs support dynamic layer counts and heights; others only support a
-fixed combination. If the current interface says dynamic settings are unsupported,
-use the modes stored in that LUT instead of forcing parameters from another file.
+Some Classic LUTs allow dynamic layer counts and heights, while others lock to a fixed configuration; if the interface indicates dynamic settings aren't supported for a given LUT, stick with its built-in layer parameters.
 
-The current upload control accepts `.npy`, `.json`, `.npz`, and `.msgpack` Classic LUT
-files. A file being readable only proves that its format can be parsed. It does not
-prove that the data matches your physical filament.
+The Classic LUT uploader accepts `.npy`, `.json`, `.npz`, and `.msgpack` files. Keep in mind that a valid file load only confirms readable syntax—accurate print colors still depend on loading the exact spools the LUT was built for.
 
-## Verify four identities after choosing
+## Four details to double-check after selecting a source
 
 <img
   src={require('./assets/profile-identity-check.webp').default}
   alt="Four checks for material type, brand and colour, layer settings, and physical spools and slots"
 />
 
-### 1. Material type
+### 1. Material family
 
-PLA, PETG, and other materials differ not only in slicing temperature but also in
-light transmission and layered colour behaviour. A similar visible colour does not
-make archives interchangeable across materials.
+PLA, PETG, and other polymers differ in print temperature, crystallinity, light transmission, and surface gloss. Even if two spools look identical on the reel, keep separate archives for each material family.
 
-### 2. Brand, product line, and colour
+### 2. Brand, product line, and shade
 
-“Red” and “white” are product labels. Match the specific brand, product line, and
-shade whenever possible. For a shared archive, verify which physical product the
-contributor measured.
+Generic labels like "red" or "white" span wide optical ranges. Match the exact brand, product line (for example, Basic PLA vs. Matte PLA), and shade code—and check which exact product a contributor measured before relying on a shared archive.
 
 ### 3. Layer Height and Color Layers
 
-A Material Archive records the Layer Height used for measurement. The Converter also
-lets you choose the Color Layers and Layer Height for this work. Changing the layer
-height changes how much colour and light transmission accumulates in each layer.
-Classic LUTs may only support their listed fixed combinations.
+Every Material Archive logs the Layer Height used during calibration, while the converter lets you configure **Color Layers** and **Layer Height** for the artwork. Because changing layer thickness alters how much light each layer absorbs and transmits, keep your archive, converter settings, and slicer Layer Height aligned.
 
-### 4. Physical spool and slot
+### 4. Physical spools and feeder slots
 
-The archive name in Lumina, the project-filament number in the slicer, and the
-physical machine slot are separate identities. After generation, map every project
-filament to the real spool it should use. Do not rely on colour swatches alone. See
-[Open a Lumina 3MF in Your Slicer](pathname:///en/docs/tutorials/slicer-material-mapping/)
-for the complete check.
+Lumina archive names, slicer project-filament slots, and physical feeder bays on your printer are three distinct links in the chain. After exporting your 3MF, map each project filament to its matching physical spool in the slicer rather than trusting approximate screen swatches—see [Open a Lumina 3MF in Your Slicer](pathname:///en/docs/tutorials/slicer-material-mapping/).
 
-## What happens when the wrong archive is used?
+## Signs of a mismatched archive or LUT
 
-Common symptoms include:
+Using an archive or LUT that doesn't match your loaded spools typically shows up as:
 
-- the Lumina preview is already too grey, green, dark, or clipped in highlights;
-- the preview looks close but the whole physical print shifts noticeably in hue or
-  brightness;
-- target colours map to unexpected material combinations;
-- the slicer's material type, project filament, or physical slot does not match the
-  actual spool;
-- the same settings produce different prints because the physical filament or batch
-  changed.
+- Washed-out grays, unexpected color casts, crushed shadows, or clipped highlights right inside Lumina Preview
+- A clean on-screen Preview that prints noticeably warmer, cooler, darker, or flatter on the build plate
+- Unexpected filament combinations assigned to neutral or skin-tone regions
+- Slicer material presets or feeder slots pointing to the wrong physical spool
+- Repeat prints shifting in color after swapping to a different brand or fresh spool batch
 
-Do not immediately hide the problem with image editing. First verify the Source Type,
-archive identity, Layer Height, physical spools, and slots. Then decide whether new
-calibration is needed. For the fixed diagnostic order across the three result stages,
-read
-[Why Do Lumina Preview, Slicer Preview, and the Physical Print Look Different?](pathname:///en/docs/knowledge/preview-slicer-print-differences/).
+Instead of editing your source artwork to compensate for a color shift, verify Source Type, archive identity, Layer Height, and slicer slot mapping first, then recalibrate if needed. For a step-by-step diagnostic order, read [Why Do Lumina Preview, Slicer Preview, and the Physical Print Look Different?](pathname:///en/docs/knowledge/preview-slicer-print-differences/).
 
-## What if an archive is missing, removed, or changed?
+## Recovering missing or removed archives
 
-1. Refresh the current source catalogue or Material Library to rule out a stale list.
-2. Confirm that the archive still exists and is not damaged.
-3. If you exported a Material Archive ZIP earlier, import it again using the
-   [Material Archive management guide](pathname:///en/docs/knowledge/material-library-management/).
-4. If the origin can no longer be verified, create a new archive from the physical
-   filament.
-5. For an important project, retain the source image, Lumina settings, archive or LUT,
-   generated 3MF, and sliced result together.
-
-Do not preserve only an archive name shown in a screenshot. A name cannot reproduce
-the original data or identify the real spool later.
+1. Click **Refresh** in the converter picker or Material Library to rule out an unrefreshed list.
+2. Open **Material Management → Material Library** to check whether the archive is still installed and intact.
+3. If you saved an offline backup ZIP earlier, reinstall it via **Import Material ZIP**—see the [Material Archive management guide](pathname:///en/docs/knowledge/material-library-management/).
+4. If an older archive's origin is unknown, calibrate a fresh archive directly from your physical spool.
+5. For repeatable production jobs, archive the source image, Lumina Share Card or settings, Material Archive ZIP (or LUT file), exported 3MF, and sliced project together in one folder rather than saving only a screenshot of profile names.
 
 ## Common questions
 
-### An archive with the same brand and colour already exists. Must I calibrate my own?
+### An installed archive already matches my filament's brand and color—should I still calibrate my own?
 
-Not necessarily. Generate a small test with the installed archive and compare the
-preview, sliced result, and physical print. If the material, product line, colour, or
-print conditions differ, or the test is visibly wrong, create an archive from your
-own filament.
+Run a small test swatch with the installed archive first and compare Preview, sliced paths, and the physical print. If the colors match well, you're set; if your spool comes from a different sub-line (such as Matte vs. Basic) or shifts noticeably on the bed, calibrate a custom archive for your spool.
 
-### No archive matches exactly. Can I choose the closest colour?
+### If no archive matches my spool, can I pick the closest swatch color?
 
-You can use it to learn the workflow, but do not treat it as reliable colour data.
-White, black, translucent, and highly filled materials can behave very differently
-when layered even if their surface colours look similar. Test before a finished work
-and calibrate when necessary.
+Using a rough color stand-in is fine while learning the interface, but avoid relying on it for finished prints. White, black, translucent, and filled filaments with similar surface swatches can have dramatically different transmission depths when stacked—print a test swatch or calibrate the spool first.
 
-### Can one archive represent both PLA and PETG?
+### Can one Material Archive cover both PLA and PETG?
 
-That is not a safe assumption. An archive describes one measured filament. Material
-changes can alter temperature, light transmission, and surface finish. Use an archive
-and slicer preset matching the physical material.
+No. Each archive models the measured optics of one specific filament formula; switching polymers changes print temperature, translucency, and surface finish. Maintain separate archives and slicer presets for each material family.
 
-### Can an old LUT be converted directly into Material Archives?
+### Can I convert an older Classic LUT directly into 2.0 Material Archives?
 
-They store and combine different information. Renaming the file or changing its
-extension does not migrate it. Continue using Classic LUT for an older project, or
-create single-spool archives with the gradient-card workflow when moving to Material
-Archives.
+No—a Classic LUT stores pre-blended multi-spool combinations, whereas 2.0 Material Archives store single-spool optical models, so renaming file extensions will not convert one into the other. Keep using **Classic LUT** mode for legacy projects, and print single-spool gradient cards when moving spools into the Material Archive workflow.
 
-### Why must I preview again after changing Source Type?
+### Why did my Preview clear when I switched Source Type?
 
-The available palette, layered recipes, and material order can all change. A new
-preview is the only preview of the currently selected source.
-
-## Content licence
-
-Unless otherwise stated, the original text, tables, and diagrams on this page are
-covered by the Wiki’s
-[CC BY-NC-SA 4.0 content licence](pathname:///en/docs/project/content-license/).
-Third-party materials, brands, trademarks, and file formats remain the property of
-their respective rights holders.
-
-The software and resource libraries continue to change. Use the names, installed
-archives, and supported modes shown in the current interface as the final reference.
+Switching between Material Archives and Classic LUTs changes the active palette, channel order, and optical recipe engine. Click **Preview** again to generate an accurate preview for the newly selected source.

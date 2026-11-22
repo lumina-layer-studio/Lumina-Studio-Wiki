@@ -4,16 +4,9 @@ description: "Complete path from a calibration-board photograph to a downloadabl
 sidebar_position: 4
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # LUT Extraction Workflow
 
-LUT Extractor samples every patch in a printed calibration-board photograph and creates a LUT containing measured
-colours, recipes, and palette metadata.
+LUT Extractor samples every color block in a photographed calibration board and builds a LUT containing measured colors, layering recipes, and palette metadata.
 
 <img
   src={require('./assets/01-lut-extractor.webp').default}
@@ -22,27 +15,23 @@ colours, recipes, and palette metadata.
 
 ## Workflow
 
-1. Select the colour mode and page used to generate the board.
-2. Upload the photograph. Common images and DNG, CR2/CR3, NEF, ARW, ORF, RW2, RAF, PEF, SRW, and RAW camera files are
-   accepted.
-3. Place the four corners in the displayed order, then apply photo correction or pixel nudging if required.
-4. Select Extract Colors and inspect the rectified board, patch preview, and invalid cells.
-5. For a multi-page mode, extract every page and then merge the set.
-6. Enter manufacturer, material type, and each base colour's name and value, then confirm the palette.
-7. Download the LUT.
+1. Select the exact **Color Mode** (and page number, for multi-page boards) used to generate the printed board.
+2. Upload the board photograph. Standard image formats as well as `DNG`, `CR2/CR3`, `NEF`, `ARW`, `ORF`, `RW2`, `RAF`, `PEF`, `SRW`, and `RAW` camera files are supported.
+3. Place the four outer corners in the prompted order, then apply photo correction or pixel-level corner fine-tuning as needed.
+4. Click **Extract Colors** and review the rectified board, sampled swatch grid, and any flagged cells.
+5. For multi-page modes, extract each required page in turn and then merge the set.
+6. Enter the manufacturer, material type, and each base color's name and HEX value, then confirm the palette.
+7. Download the resulting LUT file.
 
-Replacing or rotating the image, or changing colour mode, clears corners and incomplete results so stale geometry is not
-applied to the new photograph.
+Replacing or rotating the photo—or switching **Color Mode**—clears current corners and in-progress results so you can align the new image cleanly.
 
 ## Multi-page modes
 
-Standard 8-colour and 5-colour Extended use multi-page results; full 8-colour export can contain additional pages. The
-status list marks each required page. Merge becomes available only after the required set has been extracted.
+5-color Extended and standard 8-color modes use multi-page calibration sets, with additional pages when full 8-color export is enabled. The page checklist tracks extraction progress for each required page and unlocks **Merge** once every page in that calibration set is complete.
 
 ## Manual patch correction
 
-If one sampled patch is wrong, edit that cell in the extraction preview. Corrections remain in the current extraction
-session and are written into the final LUT after palette confirmation.
+If an individual block is misread due to dust or localized glare, click that cell in the extraction preview to override its color manually. Edits stay in the active session and are written into the exported LUT once you confirm the palette.
 
 Related pages:
 

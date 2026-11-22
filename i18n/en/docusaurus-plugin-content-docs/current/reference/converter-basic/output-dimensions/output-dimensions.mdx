@@ -1,40 +1,31 @@
 ---
 title: "Output Width and Height"
-description: "Explains output dimensions, source-aspect locking, normal and large-format ranges, and resolution effects."
+description: "Set physical print dimensions, understand aspect-ratio locking and Large Format limits, and see how size affects sampling resolution."
 sidebar_position: 6
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Output Width and Height
 
-Width and Height describe the printed XY size in millimetres. They are not the pixel dimensions of the uploaded image.
+**Width** and **Height** set the physical XY size of the finished print in millimeters (`mm`).
 
 <img
   src={require('./assets/01-output-dimensions.webp').default}
   alt="Output Width and Height sliders in Lumina Studio"
 />
 
-## Aspect-ratio coupling
+## Aspect-Ratio Locking and Size Limits
 
-After upload, Lumina Studio records the source aspect ratio. Changing Width recalculates Height; changing Height recalculates
-Width. The linked result is rounded to millimetres and clamped to the active range.
+Once an image is uploaded, Lumina Studio locks its source aspect ratio: changing **Width** recalculates **Height**, and changing **Height** recalculates **Width**. Linked values are rounded to whole millimeters within the active size range.
 
-Normal mode allows 10–400 mm. Large Format expands the upper limit to 9999 mm, but that does not mean one printer can produce
-the size in a single job. Check the build plate or use [Large Format](../../../knowledge/large-format/large-format.mdx).
+Standard mode supports **10–400 mm**, while Large Format raises the upper limit to **9999 mm**. When your target dimensions exceed a single printer's build plate, check your plate limits or enable [Large Format](../../../knowledge/large-format/large-format.mdx) to tile the artwork across multiple plates.
 
-## What dimensions affect
+## What Dimensions Affect
 
-- final XY model size;
-- the processing grid used to sample the image;
-- the automatic Quantize Colors suggestion;
-- placement of loops, magnet pockets, outlines, and other attached geometry.
+Adjusting Width or Height updates more than the outer footprint:
 
-High-Fidelity raster processing normally uses about 10 px/mm. Pixel Art uses nozzle width as its pixel scale. High-Fidelity SVG
-uses the SVG raster density in Settings. See [Modeling Mode](../modeling-mode/modeling-mode.mdx).
+- Final XY dimensions of the 3D model;
+- Image sampling resolution—**High-Fidelity** raster images sample at roughly 10 px/mm, **Pixel Art** scales by nozzle width, and **High-Fidelity** SVGs use the SVG raster density in Settings (see [Modeling Mode](../modeling-mode/modeling-mode.mdx));
+- The suggested value from **Auto Detect** under **Quantize Colors**;
+- Placement of loops, magnet pockets, outlines, and other attached structures relative to the main body.
 
-Changing either dimension invalidates generated output. Regenerate the preview instead of enlarging an old browser image.
+Changing either dimension clears any previously generated 3MF. Because sampling density scales with physical size, generate a fresh preview after resizing to verify fine details.

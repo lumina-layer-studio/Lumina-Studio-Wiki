@@ -4,15 +4,9 @@ description: "Edit display metadata, append verification runs, and inspect fit h
 sidebar_position: 3
 ---
 
-:::info[AI-assisted article]
-
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
 # Editing and Re-Verification
 
-The four actions on a material card change different parts of an archive.
+Each material card provides four actions—**Edit Details**, **Re-Verify**, **Verification History**, and **Delete Material**—to manage display metadata, append new calibration measurements, inspect fit diagnostics, or remove a local archive.
 
 ## Edit Details
 
@@ -21,23 +15,23 @@ The four actions on a material card change different parts of an archive.
   alt="Dialog for editing material name, brand, and display colour"
 />
 
-Edit Details changes the display name, brand, and display colour. The colour accepts either the picker or `#RGB` /
-`#RRGGBB`.
+**Edit Details** updates an archive's display metadata:
 
-This colour overrides the estimated RGB shown in selectors; it does not refit E, k, or substrate parameters. The
-directory remains unchanged, so existing references survive a display-name edit.
+- **Display name**
+- **Brand**
+- **Display color**: Choose a swatch from the picker or enter a `#RGB` / `#RRGGBB` hex value.
+
+Changing the display color updates only the preview swatch shown in material selectors; the fitted E, k, and substrate optical parameters remain unchanged. Because the underlying directory name stays fixed, renaming a material or changing its brand keeps existing project and recipe references intact.
 
 ## Re-Verify
 
-Re-Verify opens Gradient Extractor with the current directory as the target. After extracting a new white/black image
-pair, choose:
+Clicking **Re-Verify** opens **Gradient Extractor** with the current material directory targeted for re-verification. After extracting a new pair of white- and black-substrate card photos, choose how to handle the result:
 
-- **Merge Result** to retain history and jointly refit the valid old and new samples;
-- **Override** to discard old runs and replace the result;
-- **Cancel Re-Verification** to leave without writing the archive.
+- **Merge Result**: Keeps prior verification runs and jointly refits all valid historical and new samples.
+- **Override**: Discards prior verification history and replaces the archive with the new fit.
+- **Cancel Re-Verification**: Exits re-verification mode without modifying the archive.
 
-Raw captures and ColorChecker-corrected images are separate source classes and cannot be merged directly. Capture with
-the same source type or intentionally override the old archive.
+Uncalibrated captures and ColorChecker-corrected images belong to separate source classes and cannot be merged together. To update an archive when switching calibration workflows, either process the images with matching source settings or select **Override**.
 
 ## Verification History
 
@@ -46,14 +40,16 @@ the same source type or intentionally override the old archive.
   alt="Verification History dialog for a material archive"
 />
 
-Each available run summary records estimated colour, mean ΔE, linear RMSE, detected white/black orientation, and E, k,
-white C0, and black C0 parameters. Merge diagnostics also identify accepted and excluded historical measurements.
+Each recorded run in **Verification History** lists the estimated color, mean ΔE, linear RMSE, detected white/black card orientations, and the fitted E, k, white C0, and black C0 parameters. When runs have been merged, merge diagnostics also indicate which historical measurements were included or excluded.
 
-Use these fields to check repeatability, spot exposure or orientation problems, and decide whether a new measurement
-should be merged or should replace the archive.
+Reviewing these diagnostics helps you:
 
-Delete Material removes only this local directory from the active server and cannot be undone. It does not delete a
-cloud revision or another machine's copy. Export it first through
-[Material Import and Export](../material-import-export/material-import-export.mdx) when a backup is required.
+- Check consistency across repeated prints and photo sessions for the same filament
+- Spot exposure shifts, white-balance drift, or card orientation errors
+- Decide whether a new measurement should be merged into history or used to override the archive
 
-See [Gradient Card Extraction](../gradient-card-extraction/gradient-card-extraction.mdx) for the complete capture flow.
+## Delete Material
+
+**Delete Material** permanently deletes this local archive directory from the current installation and cannot be undone. Cloud catalog revisions and copies stored on other machines are unaffected. To keep a backup before deleting, export the archive first via [Material Import and Export](../material-import-export/material-import-export.mdx).
+
+For the full photography and extraction workflow, see [Gradient Card Extraction](../gradient-card-extraction/gradient-card-extraction.mdx).

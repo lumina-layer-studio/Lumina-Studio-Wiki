@@ -1,53 +1,41 @@
 ---
-title: "LUT Colour Grid"
-description: "Available and recommended colours, search, hue filters, favourites, and card layout."
+title: "LUT Color Grid"
+description: "Available and recommended colors, search, hue filters, favorites, and physical card layout in Legacy LUT mode."
 sidebar_position: 4
 ---
 
-:::info[AI-assisted article]
+# LUT Color Grid
 
-This article was prepared with AI assistance based on an analysis of the current Lumina Studio source code, existing Wiki content, and relevant workflows. It has been checked against the current version, but omissions or details that become outdated may remain as the software evolves. If you find an error or have a clearer explanation, example, or suggestion, please leave a comment on this page or propose an edit on GitHub.
-
-:::
-
-# LUT Colour Grid
-
-After previewing with a traditional LUT, the right column loads every colour that LUT can produce. Colours used in the
-current image are separated from the remaining entries. Selecting a source colour adds twelve recommendations ordered by
-RGB distance.
+After previewing with a Legacy LUT, the right column of Color Workstation loads every color that LUT can produce, grouped into **Used in image** and **Other available**. Selecting a source color on the left adds **Recommended Replacements (12)** at the top, ranked by RGB distance.
 
 <img
   src={require('./assets/01-lut-grid.webp').default}
   alt="LUT grid with recommended replacements, colours used in the image, and other available colours"
 />
 
-## Finding a colour
+## Searching and filtering
 
-The search field accepts:
+Use the search bar and filter pills to narrow down the palette:
 
-- HEX, such as `#8B5055` or `8b50`;
-- RGB, such as `139, 80, 85`;
-- hue filters for red, orange, yellow, green, cyan, blue, purple, and neutral colours.
+- **HEX:** Full or partial hex codes, such as `#8B5055` or `8b50`.
+- **RGB:** Comma-separated values, such as `139, 80, 85`.
+- **Hue filters:** Quick filters for **Red**, **Orange**, **Yellow**, **Green**, **Cyan**, **Blue**, **Purple**, and **Neutral** shades, plus **Favorites**.
 
-Used in Image comes from the active preview palette. Other Available contains the remaining entries from the same LUT.
-Recommendations are numerical neighbours, not a guarantee of the closest physical print under a particular light, build
-plate, or filament batch.
+**Used in image** reflects the active preview palette, while **Other available** lists all remaining entries in the LUT. Recommended replacements are ranked by numerical color distance; physical appearance also depends on viewing light, build-plate surface, and filament batch.
 
-## Favourites and display modes
+## Favorites and Card view
 
-Double-click a swatch to favourite or unfavourite it. Favourites are stored locally and separately for each LUT.
+Double-click any swatch to add or remove it from **Favorites**. Favorites are saved locally in your browser per LUT so separate libraries stay independent.
 
-Compatible LUTs can switch between Swatch and Card views. Card view follows the physical page, row, column, and A/B labels
-recorded in the LUT. A LUT without card-layout metadata remains in Swatch view.
+LUTs with physical layout metadata let you switch between **Swatch** and **Card** views. **Card** view mirrors the physical calibration pages, rows, columns, and A/B labels recorded in the LUT for side-by-side comparison with printed swatches. LUTs without layout metadata stay in **Swatch** view.
 
 ## Confirming a replacement
 
-Clicking a target colour creates a pending source-to-target item:
+Clicking a target swatch stages a `source → target` preview at the top of the palette column:
 
-- Confirm Replace recalculates the 2D and 3D previews.
-- Cancel leaves the session unchanged.
-- A gradient-region source keeps its exact spatial mask instead of falling back to a whole-image HEX remap.
-- Multiple colours and regions are handled in one batch.
+- Click **Confirm Replace** to recalculate the 2D and 3D previews.
+- Click **Cancel** to discard the staged color without changing the session.
+- Selections created from a spatial region keep their exact pixel mask rather than remapping matching HEX values across the entire image.
+- Multi-color and multi-region selections are applied together in a single batch.
 
-Material archives have no fixed LUT grid and use
-[Achievable Material Colours](../material-achievable-colors/material-achievable-colors.mdx) instead.
+Material Archive mode uses the dynamic solver in [Achievable Material Colors](../material-achievable-colors/material-achievable-colors.mdx) instead of a fixed LUT grid.
