@@ -3,23 +3,68 @@ import {readdir, readFile} from 'node:fs/promises';
 import path from 'node:path';
 import test from 'node:test';
 
+const knowledgeSlugs = [
+  'base-color-layer-height',
+  'batch-generate',
+  'bitmap-to-svg',
+  'bitmap-vs-vector',
+  'color-count-free-color-object-slot',
+  'color-workstation-basics',
+  'feature-compatibility',
+  'filament-selection-and-storage',
+  'image-mode-selection',
+  'image-upload-crop-rotate',
+  'large-format',
+  'layer-preview-guide',
+  'material-library-management',
+  'material-profile-selection',
+  'material-recipe-query',
+  'nozzle-equivalent-resolution',
+  'preview-slicer-print-differences',
+  'share-card-json',
+  'slicer-path-and-open-troubleshooting',
+  'svg-troubleshooting',
+  'web-generation-troubleshooting',
+] as const;
+
+const additionalApprovedPaths = [
+  'getting-started/launcher-activation/launcher-activation.mdx',
+  'project/wiki-feedback/wiki-feedback.mdx',
+  'tutorials/local-preview/local-preview.mdx',
+  'tutorials/model-texture/model-texture.mdx',
+] as const;
+
+const englishTranslatedTutorialSlugs = [
+  'gradient-card-extract-profile',
+  'gradient-card-generate-print',
+  'slicer-guide',
+  'slicer-material-mapping',
+] as const;
+
+const markers = {
+  zh: ':::info[AI 辅助编写说明]',
+  en: ':::info[AI-Assisted Note]',
+} as const;
+
 const localeRoots = {
   zh: 'docs',
   en: 'i18n/en/docusaurus-plugin-content-docs/current',
 } as const;
 
-async function listDocFiles(root: string): Promise<string[]> {
+async function listMdxFiles(root: string): Promise<string[]> {
   const entries = await readdir(root, {withFileTypes: true});
   const files = await Promise.all(
     entries.map(async (entry) => {
       const fullPath = path.join(root, entry.name);
-      if (entry.isDirectory()) return listDocFiles(fullPath);
-      return entry.isFile() && /\.(?:md|mdx)$/i.test(entry.name)
-        ? [fullPath]
-        : [];
+      if (entry.isDirectory()) return listMdxFiles(fullPath);
+      return entry.isFile() && entry.name.endsWith('.mdx') ? [fullPath] : [];
     }),
   );
   return files.flat();
+}
+
+function occurrences(source: string, marker: string): number {
+  return source.split(marker).length - 1;
 }
 
 test('keeps control reference pages paired across locales', async () => {
@@ -28,10 +73,7 @@ test('keeps control reference pages paired across locales', async () => {
   );
   const [zh, en] = await Promise.all(
     roots.map(async (root) =>
-      (await listDocFiles(root))
-        .filter((file) => file.endsWith('.mdx'))
-        .map((file) => path.relative(root, file))
-        .sort(),
+      (await listMdxFiles(root)).map((file) => path.relative(root, file)).sort(),
     ),
   );
   assert.deepEqual(
@@ -41,25 +83,85 @@ test('keeps control reference pages paired across locales', async () => {
   );
 });
 
-test('does not include AI-assistance or machine-translation disclaimers in public docs', async () => {
-  const allDocs = [
-    ...(await listDocFiles(localeRoots.zh)),
-    ...(await listDocFiles(localeRoots.en)),
+test('marks the approved AI-assisted articles exactly once', async () => {
+  for (const [locale, root] of Object.entries(localeRoots) as Array<
+    [keyof typeof localeRoots, string]
+  >) {
+    const referenceFiles = await listMdxFiles(path.join(root, 'reference'));
+    const knowledgeFiles = knowledgeSlugs.map((slug) =>
+      path.join(root, 'knowledge', slug, `${slug}.mdx`),
+    );
+    const otherFiles = additionalApprovedPaths.map((relPath) =>
+      path.join(root, relPath),
+    );
+    const targets = [...referenceFiles, ...knowledgeFiles, ...otherFiles];
+
+    assert.ok(referenceFiles.length > 0, `${locale}: no reference pages found`);
+
+    for (const file of targets) {
+      const source = await readFile(file, 'utf8');
+      const frontMatter = source.match(/^---\r?\n[\s\S]*?\r?\n---\r?\n/);
+
+      assert.ok(frontMatter, file);
+      assert.equal(occurrences(source, markers[locale]), 1, file);
+      assert.ok(
+        source.slice(frontMatter[0].length).trimStart().startsWith(markers[locale]),
+        file,
+      );
+      assert.doesNotMatch(
+        source,
+        /:::info\[AI-assisted article\]|:::note\[Translation notice\]/,
+        file,
+      );
+      assert.doesNotMatch(source, /<iframe|<video/i, file);
+    }
+  }
+
+  for (const slug of englishTranslatedTutorialSlugs) {
+    const file = path.join(
+      localeRoots.en,
+      'tutorials',
+      slug,
+      `${slug}.mdx`,
+    );
+    const source = await readFile(file, 'utf8');
+    assert.match(source, /^> \*\*AI translation notice:\*\*/m, file);
+  }
+});
+
+test('does not mark embedded-video or older human-authored pages', async () => {
+  const allMdx = [
+    ...(await listMdxFiles(localeRoots.zh)),
+    ...(await listMdxFiles(localeRoots.en)),
   ];
 
-  assert.ok(allDocs.length > 0, 'expected public documentation files');
-
-  for (const file of allDocs) {
+  for (const file of allMdx) {
     const source = await readFile(file, 'utf8');
-    assert.doesNotMatch(
-      source,
-      /:::info\[(AI 辅助编写说明|AI-assisted article|AI-Assisted Documentation Note)\]/i,
-      file,
-    );
-    assert.doesNotMatch(
-      source,
-      /:::\w+\[Translation notice\]|\*\*AI translation notice:\*\*/i,
-      file,
-    );
+    if (/<iframe|<video/i.test(source)) {
+      assert.doesNotMatch(
+        source,
+        /:::info\[(AI 辅助编写说明|AI-Assisted Note|AI-assisted article)\]/,
+        file,
+      );
+    }
+  }
+
+  for (const locale of Object.keys(localeRoots) as Array<
+    keyof typeof localeRoots
+  >) {
+    for (const slug of ['color-chart-calibration', 'filament-selection']) {
+      const file = path.join(
+        localeRoots[locale],
+        'knowledge',
+        slug,
+        `${slug}.mdx`,
+      );
+      const source = await readFile(file, 'utf8');
+      assert.doesNotMatch(
+        source,
+        /:::info\[(AI 辅助编写说明|AI-Assisted Note|AI-assisted article)\]/,
+        file,
+      );
+    }
   }
 });
