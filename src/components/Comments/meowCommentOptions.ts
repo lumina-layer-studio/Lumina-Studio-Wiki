@@ -1,4 +1,4 @@
-import type {MeowCommentsConfig} from 'meow-comment-ui';
+import type {MeowCommentsConfig} from '@neko_vecter/meow-comment-ui';
 
 import {resolveLegacyPageKey} from '@site/src/lib/legacyPageKeys';
 
