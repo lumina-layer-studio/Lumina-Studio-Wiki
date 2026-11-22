@@ -1,6 +1,7 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useEffectEvent, useRef, useState} from 'react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import {useLocation} from '@docusaurus/router';
+import {useColorMode} from '@docusaurus/theme-common';
 import type MeowCommentsInstance from '@neko_vecter/meow-comment-ui';
 import '@neko_vecter/meow-comment-ui/MeowCommentUI.css';
 
@@ -10,45 +11,71 @@ import styles from './styles.module.css';
 type LoadState = 'idle' | 'loading' | 'ready' | 'failed';
 
 export default function Comments(): React.ReactNode {
+  const sectionRef = useRef<HTMLElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const instanceRef = useRef<MeowCommentsInstance | null>(null);
   const [loadState, setLoadState] = useState<LoadState>('idle');
   const {siteConfig} = useDocusaurusContext();
   const {pathname} = useLocation();
+  const {colorMode} = useColorMode();
   const server = String(
     siteConfig.customFields?.meowCommentServer ?? '',
   ).replace(/\/+$/, '');
   const isEnglish = pathname.startsWith('/en/');
+  const darkMode = colorMode === 'dark';
+  const getDarkMode = useEffectEvent(() => darkMode);
 
   useEffect(() => {
-    if (!server || !containerRef.current) {
-      setLoadState('idle');
-      return undefined;
-    }
+    instanceRef.current?.update({darkMode});
+  }, [darkMode]);
 
+  useEffect(() => {
+    const section = sectionRef.current;
+    const container = containerRef.current;
+    if (!server || !section || !container) return;
+
+    setLoadState('idle');
     let disposed = false;
-    let instance: MeowCommentsInstance | undefined;
-    setLoadState('loading');
+    let started = false;
 
-    void import('@neko_vecter/meow-comment-ui')
-      .then(({default: MeowComments}) => {
-        if (disposed || !containerRef.current) return;
-        instance = new MeowComments({
-          el: containerRef.current,
-          ...createMeowCommentOptions({
-            server,
-            pathname,
-            pageTitle: document.title,
-          }),
+    const loadEditor = () => {
+      if (disposed || started) return;
+      started = true;
+      observer?.disconnect();
+      setLoadState('loading');
+
+      void import('@neko_vecter/meow-comment-ui')
+        .then(({default: MeowComments}) => {
+          if (disposed) return;
+          instanceRef.current = new MeowComments({
+            el: container,
+            ...createMeowCommentOptions({
+              server,
+              pathname,
+              pageTitle: document.title,
+              darkMode: getDarkMode(),
+            }),
+          });
+          setLoadState('ready');
+        })
+        .catch(() => {
+          if (!disposed) setLoadState('failed');
         });
-        if (!disposed) setLoadState('ready');
-      })
-      .catch(() => {
-        if (!disposed) setLoadState('failed');
-      });
+    };
+
+    const observer = typeof IntersectionObserver === 'undefined'
+      ? null
+      : new IntersectionObserver((entries) => {
+          if (entries.some((entry) => entry.isIntersecting)) loadEditor();
+        });
+    if (observer) observer.observe(section);
+    else loadEditor();
 
     return () => {
       disposed = true;
-      instance?.destroy();
+      observer?.disconnect();
+      instanceRef.current?.destroy();
+      instanceRef.current = null;
     };
   }, [pathname, server]);
 
@@ -56,8 +83,10 @@ export default function Comments(): React.ReactNode {
 
   return (
     <section
+      ref={sectionRef}
       className={styles.comments}
       aria-label={isEnglish ? 'Submit feedback' : '提交反馈'}
+      tabIndex={loadState === 'idle' || loadState === 'loading' ? 0 : undefined}
     >
       <h2>{isEnglish ? 'Submit feedback' : '提交反馈'}</h2>
       <p className={styles.description}>

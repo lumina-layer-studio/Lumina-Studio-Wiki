@@ -8,19 +8,21 @@ interface CreateMeowCommentOptionsInput {
   server: string;
   pathname: string;
   pageTitle: string;
+  darkMode: boolean;
 }
 
 export function createMeowCommentOptions({
   server,
   pathname,
   pageTitle,
+  darkMode,
 }: CreateMeowCommentOptionsInput): MeowCommentOptions {
   return {
     baseUrl: server.replace(/\/+$/, ''),
     pageKey: resolveLegacyPageKey(pathname),
     pageTitle,
     locale: pathname.startsWith('/en/') ? 'en' : 'zh-Hans',
-    darkMode: 'auto',
+    darkMode,
     captcha: 'auto',
     rememberUser: true,
   };
