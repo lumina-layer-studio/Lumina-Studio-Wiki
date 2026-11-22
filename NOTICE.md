@@ -21,5 +21,6 @@ owners.
 
 The feedback form uses Neko.vecter's
 [`@neko_vecter/meow-comment-ui` 1.0.6](https://github.com/Neko-vecter/meow-comment/releases/tag/v1.0.6)
-from the npm registry. The package ships with its
-[MIT license](https://github.com/Neko-vecter/meow-comment/blob/v1.0.6/LICENSE).
+from the npm registry. Its MIT license and the bundled editor's third-party
+notices ship with the Wiki in
+[`licenses/meow-comment-ui.txt`](static/licenses/meow-comment-ui.txt).
