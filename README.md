@@ -1,10 +1,12 @@
 # Lumina Studio Wiki
 
-[Lumina Studio Wiki](https://wiki.luminastudio.com.cn/) 的中英文公开源文件，包含使用文档、教程图片和站点代码。欢迎通过 Issue 或 Pull Request 帮助完善教程与翻译。
+[English](README.md) · [简体中文](README_CN.md) · [Live site](https://wiki.luminastudio.com.cn/) · [Local preview](#local-preview-and-build) · [Contributing](#contributing) · [Lumina Studio](https://github.com/lumina-layer-studio/Lumina-Layers)
 
-## 本地预览
+Bilingual Docusaurus source for the [Lumina Studio Wiki](https://wiki.luminastudio.com.cn/) — user guides, slicer tutorials, UI control references, calibration notes, and release summaries in Simplified Chinese and English.
 
-需要 Node.js 20 或更高版本，以及 Corepack：
+## Local preview and build
+
+Requires **Node.js 20+** and **Corepack** (for the Yarn 4 version pinned in `package.json`). Node.js 25+ no longer bundles Corepack; see the [Corepack installation guide](https://github.com/nodejs/corepack#how-to-install) if `corepack` is missing.
 
 ```bash
 corepack enable
@@ -12,35 +14,35 @@ yarn install --immutable
 yarn start
 ```
 
-提交前请运行：
+Before opening a Pull Request, check types and build both locales:
 
 ```bash
 yarn typecheck
 yarn build
 ```
 
-项目固定使用 `package.json` 中声明的 Yarn 4 版本。Node.js 25 起
-不再自带 Corepack；如果系统提示找不到 `corepack`，请先按照
-[Corepack 官方安装说明](https://github.com/nodejs/corepack#how-to-install)
-安装用户态 Corepack，再执行上述命令。
+## Content layout
 
-中文正文位于 `docs/`，英文正文位于 `i18n/en/docusaurus-plugin-content-docs/current/`。每篇教程使用独立目录，MDX 文件与目录同名，图片放在页面目录内的 `assets/` 中。
+| Path | Contents |
+| --- | --- |
+| `docs/` | Simplified Chinese docs (`getting-started/`, `tutorials/`, `reference/`, `knowledge/`, `releases/`, `project/`, `legacy/`) |
+| `i18n/en/docusaurus-plugin-content-docs/current/` | English docs mirroring `docs/` |
+| `updates/` | Release update entries |
+| `src/` & `static/` | Site components, styles, and static assets |
+
+Each article uses a same-named folder and `.mdx` file with local images under `assets/`:
 
 ```text
 docs/tutorials/example/example.mdx
 docs/tutorials/example/assets/step-01.webp
 ```
 
-文档只使用 Docusaurus 官方 Markdown/MDX 能力，不在 MDX 正文中导入自定义图片或路径组件。欢迎通过 Issue 或 Pull Request 修正文案、补充教程和改进翻译；详细规则见 [CONTRIBUTING.md](CONTRIBUTING.md)。
+## Contributing
 
-## 许可
+Issues and Pull Requests for fixes, tutorials, control references, and translations are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for authoring conventions and [SECURITY.md](SECURITY.md) for security reports.
 
-- 站点源代码采用 [MIT License](LICENSE)。
-- 原创 Wiki 正文与适用媒体采用 [CC BY-NC-SA 4.0](CONTENT-LICENSE.md)。
-- 第三方软件界面、商标、模型、角色、照片及单独标注的素材仍归各自权利人所有。
+## Licensing
 
----
-
-This repository contains the bilingual source for the [Lumina Studio Wiki](https://wiki.luminastudio.com.cn/), including user documentation, tutorial images, and the website code.
-
-Contributions are welcome through issues and pull requests. See [CONTRIBUTING.md](CONTRIBUTING.md) for localization, AI-assisted translation, media-rights, and validation requirements.
+- **Website and build code:** [MIT License](LICENSE)
+- **Original Wiki text and covered media:** [CC BY-NC-SA 4.0](CONTENT-LICENSE.md)
+- **Third-party UIs, trademarks, models, characters, photos, and credited media:** retained by their respective rights holders; see [NOTICE.md](NOTICE.md).
