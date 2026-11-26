@@ -36,7 +36,7 @@ origin = '''
 “色域覆盖”用于比较一组耗材能表现的颜色范围，以及每卷耗材在这组配色中的作用。它使用耗材档案预测叠层颜色，不需要先生成模型或打印测试件。
 '''
 translate = '''
-**Gamut coverage** compares the color range of a material combination and the role of each filament in that palette. It predicts stacked colors from material profiles, without first generating a model or printing a test piece.
+**Gamut Coverage** compares the color range of a material combination and the role of each filament in that palette. It predicts stacked colors from material profiles, without first generating a model or printing a test piece.
 '''
 
 [[block]]
@@ -84,7 +84,7 @@ origin = '''
 打开“耗材管理 → 色域覆盖”，选择至少一种耗材。
 '''
 translate = '''
-Open **Gamut coverage** under material management and select at least one material.
+Open **Gamut Coverage** under **Material Management** and select at least one material.
 '''
 
 [[block]]
@@ -358,7 +358,7 @@ origin = '''
 动态模式还会展示不同有效层数上限的累计覆盖率。首次计算需要建立逐层候选和合并目录，保存后可供后续转换复用。固定层数、动态范围或耗材组合改变后，对应的可用缓存也会不同，详见[求解缓存](../material-solver-cache/material-solver-cache.mdx)。
 '''
 translate = '''
-Dynamic mode also shows cumulative coverage at different effective layer-count limits. Its first calculation builds per-layer candidates and a combined catalog, which later conversions can reuse. Changing the fixed count, dynamic range or material combination changes which caches apply. See [Solver cache](../material-solver-cache/material-solver-cache.mdx).
+Dynamic mode also shows cumulative coverage at different effective layer-count limits. Its first calculation builds per-layer candidates and a combined catalog, which later conversions can reuse. Changing the fixed count, dynamic range or material combination changes which caches apply. See [Solver Cache](../material-solver-cache/material-solver-cache.mdx).
 '''
 
 [[block]]

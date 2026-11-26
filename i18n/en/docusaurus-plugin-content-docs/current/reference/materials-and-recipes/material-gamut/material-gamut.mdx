@@ -6,11 +6,11 @@ sidebar_position: 8
 
 # Gamut Coverage and Material Contributions
 
-**Gamut coverage** compares the color range of a material combination and the role of each filament in that palette. It predicts stacked colors from material profiles, without first generating a model or printing a test piece.
+**Gamut Coverage** compares the color range of a material combination and the role of each filament in that palette. It predicts stacked colors from material profiles, without first generating a model or printing a test piece.
 
 ## Choose a combination and calculate
 
-1. Open **Gamut coverage** under material management and select at least one material.
+1. Open **Gamut Coverage** under **Material Management** and select at least one material.
 2. Set the layer height and fixed layer count, or enable dynamic layers and choose the minimum, maximum and backing material.
 3. Check the simulated white or black substrate, then select **Calculate coverage**.
 4. Inspect coverage, match error, lightness range, color distribution and material contributions.
@@ -43,6 +43,6 @@ Per-filament comparisons use the same fixed layer count and a one-million-candid
 
 ## Dynamic layers and caching
 
-Dynamic mode also shows cumulative coverage at different effective layer-count limits. Its first calculation builds per-layer candidates and a combined catalog, which later conversions can reuse. Changing the fixed count, dynamic range or material combination changes which caches apply. See [Solver cache](../material-solver-cache/material-solver-cache.mdx).
+Dynamic mode also shows cumulative coverage at different effective layer-count limits. Its first calculation builds per-layer candidates and a combined catalog, which later conversions can reuse. Changing the fixed count, dynamic range or material combination changes which caches apply. See [Solver Cache](../material-solver-cache/material-solver-cache.mdx).
 
 The calculation uses the selected profiles' measured and fitted data. Compare combinations under consistent layer-height, substrate and candidate conditions; actual prints are also affected by filament batch, temperature and measurement conditions.

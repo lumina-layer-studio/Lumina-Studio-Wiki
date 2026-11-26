@@ -56,7 +56,7 @@ origin = '''
 在“耗材管理 → 求解缓存”中选择耗材组合与层数设置，或从转换页点击“管理缓存”带入当前选择。缓存概览读取已有状态，不会因为打开页面就自动开始一次完整构建。
 '''
 translate = '''
-Open **Solver cache** under material management and select a combination and layer settings, or choose **Manage cache** in the converter to bring in its current selection. The overview reads existing status; opening it does not automatically start a full build.
+Open **Solver Cache** under **Material Management** and select a combination and layer settings, or choose **Manage caches** in the converter to bring in its current selection. The overview reads existing status; opening it does not automatically start a full build.
 '''
 
 [[block]]
@@ -66,7 +66,7 @@ origin = '''
 这里与“色域覆盖”共用工作台的耗材及层数选择。工作台里的改动不会替换转换页的当前参数。转换使用白底条件，缓存页面也按白底管理，不显示色域分析中的黑底切换。
 '''
 translate = '''
-It shares the workbench's material and layer selection with **Gamut coverage**. Changes in the workbench do not replace the converter's current parameters. Conversion uses a white substrate, so cache management also uses white and does not show the gamut view's black-substrate option.
+It shares the workbench's material and layer selection with **Gamut Coverage**. Changes in the workbench do not replace the converter's current parameters. Conversion uses a white substrate, so cache management also uses white and does not show the gamut view's black-substrate option.
 '''
 
 [[block]]

@@ -1,5 +1,5 @@
 [metadata]
-reviewed_source = "bd5e8a6e48311bb2e41e69db6c91f2c9f6c8b2e7436f6aefd2b3af6724bb5bfa"
+reviewed_source = "952e047c3db3c7f7881218602d32c197ffddc09744cbc4d92ece401f2ca916e8"
 
 [[block]]
 key = "56855d4b24829995"
@@ -191,13 +191,13 @@ Public resources display like, save and download counts without requiring sign-i
 '''
 
 [[block]]
-key = "f794f8d16dd933c8"
+key = "cdc7c59b7333ff4d"
 type = "paragraph"
 origin = '''
-收藏只记录想保留的条目，不会自动下载全部收藏。需要使用尚未安装的资源时，再从云端选择并下载。纯本地档案仍可设为“本机常用”，它与账号收藏是两种记录。
+在桌面版中，收藏只记录想保留的条目，不会自动下载全部收藏。需要使用尚未安装的资源时，再从云端选择并下载。纯本地档案仍可设为“本机常用”，它与账号收藏是两种记录。在线站使用预装资源，见下方[在线预览站与桌面版](#在线预览站与桌面版)。
 '''
 translate = '''
-Saving records an entry you want to keep; it does not download all saved resources. Select and download an uninstalled item when you need it. Purely local profiles can still be marked as local favorites, separately from account-saved resources.
+In the desktop edition, saving records an entry you want to keep; it does not download all saved resources. Select and download an uninstalled item when you need it. Purely local profiles can still be marked as local favorites, separately from account-saved resources. The online site uses preinstalled resources; see [Online preview and desktop use](#online-preview-and-desktop-use) below.
 '''
 
 [[block]]
@@ -231,58 +231,58 @@ translate = '''
 '''
 
 [[block]]
-key = "ba8df81eeaf915ed"
+key = "db7ddca782b36ed9"
 type = "list"
 composite = true
 origin = '''
-{{ba8df81eeaf915ed-bf973ae866c1aab5}}
-{{ba8df81eeaf915ed-d10ced1534e7a174}}
-{{ba8df81eeaf915ed-9e9707de88cc34c9}}
-{{ba8df81eeaf915ed-983496c95f8a8842}}
-{{ba8df81eeaf915ed-6fcc93c36372af4a}}
+{{db7ddca782b36ed9-8d74a9af082839c0}}
+{{db7ddca782b36ed9-d10ced1534e7a174}}
+{{db7ddca782b36ed9-9e9707de88cc34c9}}
+{{db7ddca782b36ed9-983496c95f8a8842}}
+{{db7ddca782b36ed9-6fcc93c36372af4a}}
 '''
 translate = '''
-{{ba8df81eeaf915ed-bf973ae866c1aab5}}
-{{ba8df81eeaf915ed-d10ced1534e7a174}}
-{{ba8df81eeaf915ed-9e9707de88cc34c9}}
-{{ba8df81eeaf915ed-983496c95f8a8842}}
-{{ba8df81eeaf915ed-6fcc93c36372af4a}}
+{{db7ddca782b36ed9-8d74a9af082839c0}}
+{{db7ddca782b36ed9-d10ced1534e7a174}}
+{{db7ddca782b36ed9-9e9707de88cc34c9}}
+{{db7ddca782b36ed9-983496c95f8a8842}}
+{{db7ddca782b36ed9-6fcc93c36372af4a}}
 '''
 
 [[block]]
-key = "ba8df81eeaf915ed-bf973ae866c1aab5"
+key = "db7ddca782b36ed9-8d74a9af082839c0"
 type = "listItem"
 composite = true
 origin = '''
-1. {{ba8df81eeaf915ed-bf973ae866c1aab5-a2a60b9fe5537b12}}
+1. {{db7ddca782b36ed9-8d74a9af082839c0-3810a398bc77829d}}
 '''
 translate = '''
-1. {{ba8df81eeaf915ed-bf973ae866c1aab5-a2a60b9fe5537b12}}
+1. {{db7ddca782b36ed9-8d74a9af082839c0-3810a398bc77829d}}
 '''
 
 [[block]]
-key = "ba8df81eeaf915ed-bf973ae866c1aab5-a2a60b9fe5537b12"
+key = "db7ddca782b36ed9-8d74a9af082839c0-3810a398bc77829d"
 type = "paragraph"
 origin = '''
-在本地资源详情中点击“贡献到公共库”。梯度卡保存后也可直接进入；LUT 提取页可选择“保存到本地并贡献”。
+在桌面版的本地资源详情中点击“贡献到公共库”。梯度卡保存后也可直接进入；LUT 提取页可选择“保存到本地并贡献”。
 '''
 translate = '''
-Open a local resource's details and choose **Share to public library**. This is also available after saving a gradient-card profile; LUT extraction offers a save-and-share action.
+In the desktop edition, open a local resource's details and choose **Share to public library**. This is also available after saving a gradient-card profile; LUT extraction offers a save-and-share action.
 '''
 
 [[block]]
-key = "ba8df81eeaf915ed-d10ced1534e7a174"
+key = "db7ddca782b36ed9-d10ced1534e7a174"
 type = "listItem"
 composite = true
 origin = '''
-2. {{ba8df81eeaf915ed-d10ced1534e7a174-67ae1978ae7ef671}}
+2. {{db7ddca782b36ed9-d10ced1534e7a174-67ae1978ae7ef671}}
 '''
 translate = '''
-2. {{ba8df81eeaf915ed-d10ced1534e7a174-67ae1978ae7ef671}}
+2. {{db7ddca782b36ed9-d10ced1534e7a174-67ae1978ae7ef671}}
 '''
 
 [[block]]
-key = "ba8df81eeaf915ed-d10ced1534e7a174-67ae1978ae7ef671"
+key = "db7ddca782b36ed9-d10ced1534e7a174-67ae1978ae7ef671"
 type = "paragraph"
 origin = '''
 核对当前投稿账号、名称、品牌、材质、系列、色号与校准资料。LUT 要逐个通道核对耗材，不能只填一卷。
@@ -292,18 +292,18 @@ Check the submitting account, name, brand, material, series, color code and cali
 '''
 
 [[block]]
-key = "ba8df81eeaf915ed-9e9707de88cc34c9"
+key = "db7ddca782b36ed9-9e9707de88cc34c9"
 type = "listItem"
 composite = true
 origin = '''
-3. {{ba8df81eeaf915ed-9e9707de88cc34c9-0c3a057b5fc3a620}}
+3. {{db7ddca782b36ed9-9e9707de88cc34c9-0c3a057b5fc3a620}}
 '''
 translate = '''
-3. {{ba8df81eeaf915ed-9e9707de88cc34c9-0c3a057b5fc3a620}}
+3. {{db7ddca782b36ed9-9e9707de88cc34c9-0c3a057b5fc3a620}}
 '''
 
 [[block]]
-key = "ba8df81eeaf915ed-9e9707de88cc34c9-0c3a057b5fc3a620"
+key = "db7ddca782b36ed9-9e9707de88cc34c9-0c3a057b5fc3a620"
 type = "paragraph"
 origin = '''
 根据实际情况填写本人原创、改编或代传的来源。改编和代传需补原作者、来源及授权说明。
@@ -313,18 +313,18 @@ State whether the data is your original work, an adaptation or a redistribution.
 '''
 
 [[block]]
-key = "ba8df81eeaf915ed-983496c95f8a8842"
+key = "db7ddca782b36ed9-983496c95f8a8842"
 type = "listItem"
 composite = true
 origin = '''
-4. {{ba8df81eeaf915ed-983496c95f8a8842-3c29437e20c9d5c4}}
+4. {{db7ddca782b36ed9-983496c95f8a8842-3c29437e20c9d5c4}}
 '''
 translate = '''
-4. {{ba8df81eeaf915ed-983496c95f8a8842-3c29437e20c9d5c4}}
+4. {{db7ddca782b36ed9-983496c95f8a8842-3c29437e20c9d5c4}}
 '''
 
 [[block]]
-key = "ba8df81eeaf915ed-983496c95f8a8842-3c29437e20c9d5c4"
+key = "db7ddca782b36ed9-983496c95f8a8842-3c29437e20c9d5c4"
 type = "paragraph"
 origin = '''
 核对使用许可和公开署名，主动确认后提交审核。
@@ -334,18 +334,18 @@ Check the license and public attribution, then explicitly confirm and submit for
 '''
 
 [[block]]
-key = "ba8df81eeaf915ed-6fcc93c36372af4a"
+key = "db7ddca782b36ed9-6fcc93c36372af4a"
 type = "listItem"
 composite = true
 origin = '''
-5. {{ba8df81eeaf915ed-6fcc93c36372af4a-bcfa0b818cc445c1}}
+5. {{db7ddca782b36ed9-6fcc93c36372af4a-bcfa0b818cc445c1}}
 '''
 translate = '''
-5. {{ba8df81eeaf915ed-6fcc93c36372af4a-bcfa0b818cc445c1}}
+5. {{db7ddca782b36ed9-6fcc93c36372af4a-bcfa0b818cc445c1}}
 '''
 
 [[block]]
-key = "ba8df81eeaf915ed-6fcc93c36372af4a-bcfa0b818cc445c1"
+key = "db7ddca782b36ed9-6fcc93c36372af4a-bcfa0b818cc445c1"
 type = "paragraph"
 origin = '''
 在“我的投稿”查看状态和审核意见；待审条目可先撤回再修改，已公开资源可提交新修订。
@@ -405,13 +405,23 @@ translate = '''
 '''
 
 [[block]]
-key = "3e1605e0642b65b2"
+key = "4f6451cb99f493ba"
 type = "paragraph"
 origin = '''
-[在线预览站](https://test.luminastudio.com.cn/)免登录即可试用，每天可导出 3 张不同原图。连接社区账号后可同步个人收藏，并额外获得每天 3 张新图的导出额度。具体操作与计数方式见[在线预览与导出额度](../../../getting-started/online-preview/online-preview.mdx)。
+[在线预览站](https://test.luminastudio.com.cn/)免登录即可试用，每天可导出 3 张不同原图。通过右下角“登录 Lumina 账号 · 再享 +3 张/天”或耗材／LUT 库的社区账号入口连接后，可同步个人点赞与收藏，并额外获得每天 3 张新图的导出额度，合计每天 6 张。具体连接步骤与计数方式见[在线预览与导出额度](../../../getting-started/online-preview/online-preview.mdx)。
 '''
 translate = '''
-The [online preview site](https://test.luminastudio.com.cn/) can be used without signing in, with exports for 3 distinct source images per day. Connecting a community account syncs saved resources and grants 3 additional new-image exports daily. See [Online preview and export allowance](../../../getting-started/online-preview/online-preview.mdx) for the workflow and counting rules.
+The [online preview site](https://test.luminastudio.com.cn/) allows exports for 3 distinct source images per day without signing in. Connect using the Lumina sign-in button offering +3 images/day in the bottom-right status card, or the community-account entry in the material or LUT library. This syncs your likes and saved resources and unlocks 3 additional new-image exports per day, for a total of 6. See [Online Preview and Export Allowance](../../../getting-started/online-preview/online-preview.mdx) for connection steps and counting rules.
+'''
+
+[[block]]
+key = "0560118b8c7d2a07"
+type = "paragraph"
+origin = '''
+在线站已预装公开耗材与 LUT 库，可在选择器中按点赞或收藏筛选这些资源，无需逐条下载安装。按需下载到私人库、管理个人耗材与 LUT，以及“贡献到公共库”和“我的投稿”管理，请在桌面版完成；在线站的投稿入口会引导前往桌面版。
+'''
+translate = '''
+The online site has public materials and LUTs preinstalled. Filter them by your likes or saved resources in the pickers without downloading or installing each item. Use the desktop edition for on-demand downloads into a private library, personal material and LUT management, **Share to public library**, and **My submissions**. Submission entries on the online site direct you to the desktop edition.
 '''
 
 [[block]]

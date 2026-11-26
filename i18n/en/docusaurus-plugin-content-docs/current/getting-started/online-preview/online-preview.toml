@@ -1,5 +1,5 @@
 [metadata]
-reviewed_source = "cd300bf2de3576d59f0cda6653ff35ce2165280a023ea5b2f823f76db006ef0b"
+reviewed_source = "0224d74d121efc9a119fe819ecf62bce8fd575c76692b2ee52d3f3282d655803"
 
 [[block]]
 key = "5fd8fef9f5ce2f96"
@@ -50,19 +50,19 @@ translate = '''
 '''
 
 [[block]]
-key = "0b1e49691705be17"
+key = "664e5c9af745e685"
 type = "table"
 origin = '''
 | 使用方式 | 每日新图导出额度 |
 | --- | --- |
 | 免登录试用 | 3 张不同原图 |
-| 连接 Lumina 社区账号 | 在免登录额度之外，额外赠送 3 张新图 |
+| 连接 Lumina 社区账号 | 免登录 3 张 + 额外赠送 3 张，共 6 张不同原图 |
 '''
 translate = '''
 | Access | Daily allowance for new-image exports |
 | --- | --- |
 | Without signing in | 3 distinct source images |
-| With a connected Lumina community account | 3 additional new images on top of the anonymous allowance |
+| With a connected Lumina community account | 3 anonymous + 3 additional exports: 6 distinct source images in total |
 '''
 
 [[block]]
@@ -96,23 +96,33 @@ translate = '''
 '''
 
 [[block]]
-key = "5875bfd42791d969"
+key = "6a830511b459eca8"
 type = "paragraph"
 origin = '''
-打开社区账号入口，按登录页提示完成验证，核对连接码后允许连接。成功连接后可同步个人资源收藏，并获得每天额外 3 张新图的导出额度。不是每次登录再领一份，也不需要反复断开连接。
+在在线站右下角状态卡点击 **“登录 Lumina 账号 · 再享 +3 张/天”**，也可从耗材／LUT 库的社区账号入口连接。按登录页提示完成验证，核对网页与 Studio 显示的 **10 位一次性连接码**，确认账号正确后允许连接。连接成功当天即可在免登录 3 张新图的基础上，再获赠 3 张新图额度，合计每天 6 张。反复登录不会重复赠送额度。
 '''
 translate = '''
-Open the community-account entry, follow the sign-in page's verification steps, check the connection code and allow the connection. A successful connection syncs saved resources and grants 3 additional new-image exports each day. Signing in repeatedly does not grant another allowance, so there is no need to disconnect and reconnect.
+In the bottom-right status card, choose the Lumina sign-in button offering **+3 new images per day**. You can also connect through the community-account entry in the material or LUT library. Follow the sign-in verification steps, check that the **10-character one-time connection code** matches the one in Studio, confirm the account and allow the connection. The additional 3 new-image exports become available that day, on top of the 3 anonymous exports: 6 per day in total. Signing in repeatedly does not grant the bonus again.
 '''
 
 [[block]]
-key = "501da46de34f4a98"
+key = "29e65535071672f4"
 type = "paragraph"
 origin = '''
-资源收藏不会自动把全部耗材下载到当前环境；选用时再按需获取。完整连接步骤见[社区账号、收藏与投稿](../../reference/materials-and-recipes/community-resources/community-resources.mdx)。
+**在线站已由服务端统一预装公开耗材与 LUT 库**。连接账号后，可直接在选择器中按个人点赞、收藏筛选预装资源，无需在网页端逐条下载安装。网页中的“下载到本地”会提示“公开耗材与色卡已在线预装”，不会将这些资源另存到你的电脑。
 '''
 translate = '''
-Saved resources are not all downloaded automatically; obtain them when selected for use. For the full connection procedure, see [Community account, saved resources and submissions](../../reference/materials-and-recipes/community-resources/community-resources.mdx).
+**The online site's public material and LUT libraries are preinstalled on the server.** Once connected, use your likes and saved resources to filter the preinstalled items directly in the pickers; there is no need to download and install each item in the browser. The local-download action on the online site displays a notice that public materials and color charts are already preinstalled; it does not save those resources to your computer.
+'''
+
+[[block]]
+key = "4b6dec57dfb272a5"
+type = "paragraph"
+origin = '''
+如需按需下载云端资源到自己的私人库、管理本地耗材，或将自测校准结果“贡献到公共库”，请使用桌面版；“我的投稿”管理也在桌面版完成。账号连接与投稿步骤见[社区账号、收藏与投稿](../../reference/materials-and-recipes/community-resources/community-resources.mdx)。
+'''
+translate = '''
+Use the desktop edition to download cloud resources on demand into your own private library, manage local materials or submit your calibration results with **Share to public library**. **My submissions** is also managed in the desktop edition. See [Community Account, Saved Resources and Submissions](../../reference/materials-and-recipes/community-resources/community-resources.mdx) for account connection and submission steps.
 '''
 
 [[block]]
