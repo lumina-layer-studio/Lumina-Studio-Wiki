@@ -39,6 +39,8 @@ Chroma (C) is calculated in CIELAB/LCh color space and differs from the HSV or H
 
 Hue Protection first collects neutral dark candidates from the active LUT—colors below roughly **L\* 60** with **C ≤ 8**—and applies the gate across three fixed lightness bands:
 
+
+
 | Source lightness | Behavior when passing the chroma gate |
 | --- | --- |
 | Approx. **L\* < 50** | Matches exclusively against neutral-dark candidates |
@@ -49,6 +51,8 @@ Adjusting **Dark Chroma Gate** changes the maximum chroma eligible for this bran
 
 ## Adjusting the value
 
+
+
 | Value | Behavior | Visual effect |
 | --- | --- | --- |
 | **0** | Special value: routes all pixels in the dark lightness range into the neutral-dark branch | Strongest protection for black and gray linework, but pushes dark reds, blues, and greens toward black or gray |
@@ -57,7 +61,11 @@ Adjusting **Dark Chroma Gate** changes the maximum chroma eligible for this bran
 | **Above 15** | Admits dark pixels with higher chroma into the neutral-dark branch | Cleans up colored speckles in dark linework, at the risk of desaturating deep colored shadows |
 | **50** | Widest threshold | Useful for testing whether unwanted casts originate in the dark-matching branch |
 
+
+
 Raise the slider slightly if black or gray details show colored speckles; lower it below **15** if intentional dark reds, blues, or greens lose their hue. To turn off dark protection entirely, disable **Hue Protection**—do not set the gate to **0**, which routes every dark pixel into the neutral branch.
+
+
 
 ## Supported color sources
 
@@ -68,3 +76,17 @@ It is not used when:
 - **Hue Protection** is off;
 - **Precise Color Matching** is enabled;
 - Matching runs through a **Material Archive** solver or a predictive matcher that does not reference this gate (even if the slider remains visible in the panel, changing its value will leave those previews unchanged).
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,374 @@
+[metadata]
+reviewed_source = "e2237dcabfed17f9d12ef6bc0f87a804e27e5f422b54762aee4fec769c9acf78"
+
+[[block]]
+key = "a2eb181399bada46"
+type = "yaml"
+origin = '''
+---
+title: "LUT 提取流程"
+description: "从校准板照片到可下载 LUT 的完整提取顺序。"
+sidebar_position: 4
+---
+'''
+translate = '''
+---
+title: "LUT Extraction Workflow"
+description: "Complete path from a calibration-board photograph to a downloadable LUT."
+sidebar_position: 4
+---
+'''
+
+[[block]]
+key = "a327f9e70eacfbf1"
+type = "heading"
+origin = '''
+# LUT 提取流程
+'''
+translate = '''
+# LUT Extraction Workflow
+'''
+
+[[block]]
+key = "44484751fbb7e8bb"
+type = "paragraph"
+origin = '''
+LUT 提取器用于从打印完成的校准板实拍照片中采样全部色块，生成包含实测颜色、叠色配方与调色板元数据的 LUT 文件。
+'''
+translate = '''
+LUT Extractor samples every color block in a photographed calibration board and builds a LUT containing measured colors, layering recipes, and palette metadata.
+'''
+
+[[block]]
+key = "80d4887e2cf0f4dc"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-lut-extractor.webp').default}
+  alt="等待上传校准板照片的 LUT 提取器"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-lut-extractor.webp').default}
+  alt="LUT Extractor waiting for a calibration-board photograph"
+/>
+'''
+
+[[block]]
+key = "16e33c25c99576f2"
+type = "heading"
+origin = '''
+## 操作步骤
+'''
+translate = '''
+## Workflow
+'''
+
+[[block]]
+key = "509d22d9886fb985"
+type = "list"
+composite = true
+origin = '''
+{{509d22d9886fb985-723222abd151fe8f}}
+{{509d22d9886fb985-f2dacec976a8815d}}
+{{509d22d9886fb985-322c5eca0775214f}}
+{{509d22d9886fb985-cce63e9e048c3d7f}}
+{{509d22d9886fb985-3c75dc560f925e2a}}
+{{509d22d9886fb985-e8e2613127aae331}}
+{{509d22d9886fb985-5ea8c11af88952ef}}
+'''
+translate = '''
+{{509d22d9886fb985-723222abd151fe8f}}
+{{509d22d9886fb985-f2dacec976a8815d}}
+{{509d22d9886fb985-322c5eca0775214f}}
+{{509d22d9886fb985-cce63e9e048c3d7f}}
+{{509d22d9886fb985-3c75dc560f925e2a}}
+{{509d22d9886fb985-e8e2613127aae331}}
+{{509d22d9886fb985-5ea8c11af88952ef}}
+'''
+
+[[block]]
+key = "509d22d9886fb985-723222abd151fe8f"
+type = "listItem"
+composite = true
+origin = '''
+1. {{509d22d9886fb985-723222abd151fe8f-d731b6e881e544bb}}
+'''
+translate = '''
+1. {{509d22d9886fb985-723222abd151fe8f-d731b6e881e544bb}}
+'''
+
+[[block]]
+key = "509d22d9886fb985-723222abd151fe8f-d731b6e881e544bb"
+type = "paragraph"
+origin = '''
+选择与生成校准板时一致的**颜色模式**（多页模式下同时选择对应页码）。
+'''
+translate = '''
+Select the exact **Color Mode** (and page number, for multi-page boards) used to generate the printed board.
+'''
+
+[[block]]
+key = "509d22d9886fb985-f2dacec976a8815d"
+type = "listItem"
+composite = true
+origin = '''
+2. {{509d22d9886fb985-f2dacec976a8815d-a61dbdc30bb439d1}}
+'''
+translate = '''
+2. {{509d22d9886fb985-f2dacec976a8815d-a61dbdc30bb439d1}}
+'''
+
+[[block]]
+key = "509d22d9886fb985-f2dacec976a8815d-a61dbdc30bb439d1"
+type = "paragraph"
+origin = '''
+上传校准板照片，支持常见图像格式以及 `DNG`、`CR2/CR3`、`NEF`、`ARW`、`ORF`、`RW2`、`RAF`、`PEF`、`SRW`、`RAW` 等相机原始格式。
+'''
+translate = '''
+Upload the board photograph. Standard image formats as well as `DNG`, `CR2/CR3`, `NEF`, `ARW`, `ORF`, `RW2`, `RAF`, `PEF`, `SRW`, and `RAW` camera files are supported.
+'''
+
+[[block]]
+key = "509d22d9886fb985-322c5eca0775214f"
+type = "listItem"
+composite = true
+origin = '''
+3. {{509d22d9886fb985-322c5eca0775214f-d9c20d3db550ac76}}
+'''
+translate = '''
+3. {{509d22d9886fb985-322c5eca0775214f-d9c20d3db550ac76}}
+'''
+
+[[block]]
+key = "509d22d9886fb985-322c5eca0775214f-d9c20d3db550ac76"
+type = "paragraph"
+origin = '''
+按画布提示顺序依次点击校准板外框四角，必要时配合照片校正与像素级角点微调完成对齐。
+'''
+translate = '''
+Place the four outer corners in the prompted order, then apply photo correction or pixel-level corner fine-tuning as needed.
+'''
+
+[[block]]
+key = "509d22d9886fb985-cce63e9e048c3d7f"
+type = "listItem"
+composite = true
+origin = '''
+4. {{509d22d9886fb985-cce63e9e048c3d7f-337cf40631f8140e}}
+'''
+translate = '''
+4. {{509d22d9886fb985-cce63e9e048c3d7f-337cf40631f8140e}}
+'''
+
+[[block]]
+key = "509d22d9886fb985-cce63e9e048c3d7f-337cf40631f8140e"
+type = "paragraph"
+origin = '''
+点击**提取颜色**，检查拉正预览、色块采样结果以及异常标记单元格。
+'''
+translate = '''
+Click **Extract Colors** and review the rectified board, sampled swatch grid, and any flagged cells.
+'''
+
+[[block]]
+key = "509d22d9886fb985-3c75dc560f925e2a"
+type = "listItem"
+composite = true
+origin = '''
+5. {{509d22d9886fb985-3c75dc560f925e2a-9814768fdb68b77e}}
+'''
+translate = '''
+5. {{509d22d9886fb985-3c75dc560f925e2a-9814768fdb68b77e}}
+'''
+
+[[block]]
+key = "509d22d9886fb985-3c75dc560f925e2a-9814768fdb68b77e"
+type = "paragraph"
+origin = '''
+若为多页模式，按页码依次完成每页提取后执行合并。
+'''
+translate = '''
+For multi-page modes, extract each required page in turn and then merge the set.
+'''
+
+[[block]]
+key = "509d22d9886fb985-e8e2613127aae331"
+type = "listItem"
+composite = true
+origin = '''
+6. {{509d22d9886fb985-e8e2613127aae331-4d2da1b501c89c0c}}
+'''
+translate = '''
+6. {{509d22d9886fb985-e8e2613127aae331-4d2da1b501c89c0c}}
+'''
+
+[[block]]
+key = "509d22d9886fb985-e8e2613127aae331-4d2da1b501c89c0c"
+type = "paragraph"
+origin = '''
+填写制造商、耗材类型及各基础通道的颜色名称与色值，确认调色板信息。
+'''
+translate = '''
+Enter the manufacturer, material type, and each base color's name and HEX value, then confirm the palette.
+'''
+
+[[block]]
+key = "509d22d9886fb985-5ea8c11af88952ef"
+type = "listItem"
+composite = true
+origin = '''
+7. {{509d22d9886fb985-5ea8c11af88952ef-272d3b1ece4dc491}}
+'''
+translate = '''
+7. {{509d22d9886fb985-5ea8c11af88952ef-272d3b1ece4dc491}}
+'''
+
+[[block]]
+key = "509d22d9886fb985-5ea8c11af88952ef-272d3b1ece4dc491"
+type = "paragraph"
+origin = '''
+下载生成的 LUT 文件。
+'''
+translate = '''
+Download the resulting LUT file.
+'''
+
+[[block]]
+key = "4c0ea2acdccc3ad3"
+type = "paragraph"
+origin = '''
+更换照片、旋转图像或切换颜色模式时，系统会自动清空当前角点与未完成的提取缓存，以便按新画面重新定位。
+'''
+translate = '''
+Replacing or rotating the photo—or switching **Color Mode**—clears current corners and in-progress results so you can align the new image cleanly.
+'''
+
+[[block]]
+key = "59bc2ef7d0421ed9"
+type = "heading"
+origin = '''
+## 多页模式合并
+'''
+translate = '''
+## Multi-page modes
+'''
+
+[[block]]
+key = "f94952d596b01203"
+type = "paragraph"
+origin = '''
+5 色扩展与标准 8 色模式使用多页校准板；开启 8 色全量导出时包含更多分页。页面列表会实时标示各页的提取状态，待同一校准方案所需的全部页面均提取完毕后，即可合并生成完整 LUT。
+'''
+translate = '''
+5-color Extended and standard 8-color modes use multi-page calibration sets, with additional pages when full 8-color export is enabled. The page checklist tracks extraction progress for each required page and unlocks **Merge** once every page in that calibration set is complete.
+'''
+
+[[block]]
+key = "a075afb37c98f423"
+type = "heading"
+origin = '''
+## 手动修正色块
+'''
+translate = '''
+## Manual patch correction
+'''
+
+[[block]]
+key = "acec6e87f3cc859d"
+type = "paragraph"
+origin = '''
+若提取预览中个别色块受局部灰尘或反光影响出现采样偏差，可直接点击对应单元格手动修正色值。手动修改会保存在当前提取会话中，并在确认调色板后一并写入最终导出的 LUT。
+'''
+translate = '''
+If an individual block is misread due to dust or localized glare, click that cell in the extraction preview to override its color manually. Edits stay in the active session and are written into the exported LUT once you confirm the palette.
+'''
+
+[[block]]
+key = "8e598e329cd91d51"
+type = "paragraph"
+origin = '''
+相关页面：
+'''
+translate = '''
+Related pages:
+'''
+
+[[block]]
+key = "de9bb5356cfab6fa"
+type = "list"
+composite = true
+origin = '''
+{{de9bb5356cfab6fa-c4e33fe12df05035}}
+{{de9bb5356cfab6fa-406e351975d40f36}}
+{{de9bb5356cfab6fa-d4ccdb9919097865}}
+'''
+translate = '''
+{{de9bb5356cfab6fa-c4e33fe12df05035}}
+{{de9bb5356cfab6fa-406e351975d40f36}}
+{{de9bb5356cfab6fa-d4ccdb9919097865}}
+'''
+
+[[block]]
+key = "de9bb5356cfab6fa-c4e33fe12df05035"
+type = "listItem"
+composite = true
+origin = '''
+- {{de9bb5356cfab6fa-c4e33fe12df05035-ef29a4c00246a0ca}}
+'''
+translate = '''
+- {{de9bb5356cfab6fa-c4e33fe12df05035-ef29a4c00246a0ca}}
+'''
+
+[[block]]
+key = "de9bb5356cfab6fa-c4e33fe12df05035-ef29a4c00246a0ca"
+type = "paragraph"
+origin = '''
+[照片校正与角点定位](../extractor-photo-correction/extractor-photo-correction.mdx)
+'''
+translate = '''
+[Photo Correction and Corner Placement](../extractor-photo-correction/extractor-photo-correction.mdx)
+'''
+
+[[block]]
+key = "de9bb5356cfab6fa-406e351975d40f36"
+type = "listItem"
+composite = true
+origin = '''
+- {{de9bb5356cfab6fa-406e351975d40f36-393cc669302c5c46}}
+'''
+translate = '''
+- {{de9bb5356cfab6fa-406e351975d40f36-393cc669302c5c46}}
+'''
+
+[[block]]
+key = "de9bb5356cfab6fa-406e351975d40f36-393cc669302c5c46"
+type = "paragraph"
+origin = '''
+[ColorChecker 校色](../colorchecker-calibration/colorchecker-calibration.mdx)
+'''
+translate = '''
+[ColorChecker Calibration](../colorchecker-calibration/colorchecker-calibration.mdx)
+'''
+
+[[block]]
+key = "de9bb5356cfab6fa-d4ccdb9919097865"
+type = "listItem"
+composite = true
+origin = '''
+- {{de9bb5356cfab6fa-d4ccdb9919097865-c99edfc875f5d02c}}
+'''
+translate = '''
+- {{de9bb5356cfab6fa-d4ccdb9919097865-c99edfc875f5d02c}}
+'''
+
+[[block]]
+key = "de9bb5356cfab6fa-d4ccdb9919097865-c99edfc875f5d02c"
+type = "paragraph"
+origin = '''
+[LUT 详情](../lut-details/lut-details.mdx)
+'''
+translate = '''
+[LUT Details](../lut-details/lut-details.mdx)
+'''

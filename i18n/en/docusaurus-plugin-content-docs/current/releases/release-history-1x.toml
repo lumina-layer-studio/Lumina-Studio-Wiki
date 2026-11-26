@@ -1,0 +1,1780 @@
+[metadata]
+reviewed_source = "6bb7b3b50489f2d1dab4d92b64abfc68003eab8aea599851b7ae6933c1309786"
+
+[[block]]
+key = "5550b984e0351a40"
+type = "yaml"
+origin = '''
+---
+title: "1.x 公开版本历史"
+description: "Lumina Studio 1.0 至 1.6.4 的完整公开版本历史"
+sidebar_position: 29
+---
+'''
+translate = '''
+---
+title: "1.x Public Release History"
+description: "Complete public release history for Lumina Studio 1.0 through 1.6.4"
+sidebar_position: 29
+---
+'''
+
+[[block]]
+key = "22b019bae6404bbb"
+type = "heading"
+origin = '''
+# Lumina Studio 1.x 公开版本历史
+'''
+translate = '''
+# Lumina Studio 1.x Public Release History
+'''
+
+[[block]]
+key = "3c195218a377b464"
+type = "blockquote"
+composite = true
+origin = '''
+> {{3c195218a377b464-a48e6a2946af8c8e}}
+'''
+translate = '''
+> {{3c195218a377b464-a48e6a2946af8c8e}}
+'''
+
+[[block]]
+key = "3c195218a377b464-a48e6a2946af8c8e"
+type = "paragraph"
+origin = '''
+公开版本周期：2026 年 1 月 15 日—3 月 20 日
+'''
+translate = '''
+Public release period: January 15–March 20, 2026
+'''
+
+[[block]]
+key = "31205d620d62966e"
+type = "paragraph"
+origin = '''
+[更新日志总览](/zh/docs/releases/overview) · [2.0 开发月报：2026 年 3 月](/zh/docs/releases/2026-03)
+'''
+translate = '''
+[Changelog overview](/en/docs/releases/overview) · [2.0 development report: March 2026](/en/docs/releases/2026-03)
+'''
+
+[[block]]
+key = "9bd8ec5cc0b1083d"
+type = "paragraph"
+origin = '''
+本页整理自 [Lumina-Layers 仓库](https://github.com/lumina-layer-studio/Lumina-Layers) 1.x 时期的官方中英文 `CHANGELOG`，汇总各公开版本面向用户的功能变化与关键修复。
+'''
+translate = '''
+Compiled from the official Chinese and English 1.x changelogs in the [Lumina-Layers repository](https://github.com/lumina-layer-studio/Lumina-Layers), this page summarizes user-facing features and key fixes across every public 1.x release.
+'''
+
+[[block]]
+key = "523922977e22b3f8"
+type = "heading"
+origin = '''
+## v1.6.4 · 2026-03-20
+'''
+translate = '''
+## v1.6.4 · March 20, 2026
+'''
+
+[[block]]
+key = "02c7b19b702891e1"
+type = "heading"
+origin = '''
+### 改进与修复
+'''
+translate = '''
+### Improvements and fixes
+'''
+
+[[block]]
+key = "df63bfbf90ce4dbc"
+type = "list"
+composite = true
+origin = '''
+{{df63bfbf90ce4dbc-16b8b7eb5b683b76}}
+{{df63bfbf90ce4dbc-1f4054d82ec11b72}}
+{{df63bfbf90ce4dbc-24f49ade01e76556}}
+{{df63bfbf90ce4dbc-f8e1e89292ce7800}}
+'''
+translate = '''
+{{df63bfbf90ce4dbc-16b8b7eb5b683b76}}
+{{df63bfbf90ce4dbc-1f4054d82ec11b72}}
+{{df63bfbf90ce4dbc-24f49ade01e76556}}
+{{df63bfbf90ce4dbc-f8e1e89292ce7800}}
+'''
+
+[[block]]
+key = "df63bfbf90ce4dbc-16b8b7eb5b683b76"
+type = "listItem"
+composite = true
+origin = '''
+- {{df63bfbf90ce4dbc-16b8b7eb5b683b76-b65897e27c710d3f}}
+'''
+translate = '''
+- {{df63bfbf90ce4dbc-16b8b7eb5b683b76-b65897e27c710d3f}}
+'''
+
+[[block]]
+key = "df63bfbf90ce4dbc-16b8b7eb5b683b76-b65897e27c710d3f"
+type = "paragraph"
+origin = '''
+优化 3D 场景渲染，减少不必要的重复重绘。
+'''
+translate = '''
+Reduced unnecessary rerenders in the 3D scene.
+'''
+
+[[block]]
+key = "df63bfbf90ce4dbc-1f4054d82ec11b72"
+type = "listItem"
+composite = true
+origin = '''
+- {{df63bfbf90ce4dbc-1f4054d82ec11b72-aad2cecc9d2702e5}}
+'''
+translate = '''
+- {{df63bfbf90ce4dbc-1f4054d82ec11b72-aad2cecc9d2702e5}}
+'''
+
+[[block]]
+key = "df63bfbf90ce4dbc-1f4054d82ec11b72-aad2cecc9d2702e5"
+type = "paragraph"
+origin = '''
+统一设置面板的卡片、状态提示和控件样式，提升滑块数值显示精度。
+'''
+translate = '''
+Unified settings-panel cards, status banners, and controls, with finer slider display precision.
+'''
+
+[[block]]
+key = "df63bfbf90ce4dbc-24f49ade01e76556"
+type = "listItem"
+composite = true
+origin = '''
+- {{df63bfbf90ce4dbc-24f49ade01e76556-e8119b37738477d5}}
+'''
+translate = '''
+- {{df63bfbf90ce4dbc-24f49ade01e76556-e8119b37738477d5}}
+'''
+
+[[block]]
+key = "df63bfbf90ce4dbc-24f49ade01e76556-e8119b37738477d5"
+type = "paragraph"
+origin = '''
+设置加载加入异步重试，自动标准化旧版切片器与打印机选项 ID。
+'''
+translate = '''
+Added async retry handling for settings loading and normalized legacy slicer and printer option IDs.
+'''
+
+[[block]]
+key = "df63bfbf90ce4dbc-f8e1e89292ce7800"
+type = "listItem"
+composite = true
+origin = '''
+- {{df63bfbf90ce4dbc-f8e1e89292ce7800-399854c289e0f0b9}}
+'''
+translate = '''
+- {{df63bfbf90ce4dbc-f8e1e89292ce7800-399854c289e0f0b9}}
+'''
+
+[[block]]
+key = "df63bfbf90ce4dbc-f8e1e89292ce7800-399854c289e0f0b9"
+type = "paragraph"
+origin = '''
+自动检测颜色后及时清理临时文件。
+'''
+translate = '''
+Cleaned up temporary files reliably after automatic color detection.
+'''
+
+[[block]]
+key = "6646b45ddb07f4a4"
+type = "paragraph"
+origin = '''
+感谢 `@sandboxdream` 对本次界面改进、设置可靠性与项目维护工作的贡献。
+'''
+translate = '''
+Thanks to `@sandboxdream` for contributing to UI polish, settings reliability, and project maintenance in this release.
+'''
+
+[[block]]
+key = "8f6738211379ef91"
+type = "heading"
+origin = '''
+## v1.6.3 · 2026-03-08
+'''
+translate = '''
+## v1.6.3 · March 8, 2026
+'''
+
+[[block]]
+key = "44c9e047738b582f"
+type = "heading"
+origin = '''
+### 新功能
+'''
+translate = '''
+### Features
+'''
+
+[[block]]
+key = "0e003bc406ed330b"
+type = "list"
+composite = true
+origin = '''
+{{0e003bc406ed330b-bd1d439cec9faeeb}}
+{{0e003bc406ed330b-79672ff7aacbb380}}
+{{0e003bc406ed330b-5ad8714f0ba93031}}
+{{0e003bc406ed330b-fadbdf38cdf8fa68}}
+{{0e003bc406ed330b-9a594bf323ac7f06}}
+{{0e003bc406ed330b-14c57301854d2b0b}}
+{{0e003bc406ed330b-0be722cf13a21899}}
+{{0e003bc406ed330b-8c5991ddbf31a9b3}}
+'''
+translate = '''
+{{0e003bc406ed330b-bd1d439cec9faeeb}}
+{{0e003bc406ed330b-79672ff7aacbb380}}
+{{0e003bc406ed330b-5ad8714f0ba93031}}
+{{0e003bc406ed330b-fadbdf38cdf8fa68}}
+{{0e003bc406ed330b-9a594bf323ac7f06}}
+{{0e003bc406ed330b-14c57301854d2b0b}}
+{{0e003bc406ed330b-0be722cf13a21899}}
+{{0e003bc406ed330b-8c5991ddbf31a9b3}}
+'''
+
+[[block]]
+key = "0e003bc406ed330b-bd1d439cec9faeeb"
+type = "listItem"
+composite = true
+origin = '''
+- {{0e003bc406ed330b-bd1d439cec9faeeb-996918c7cd976393}}
+'''
+translate = '''
+- {{0e003bc406ed330b-bd1d439cec9faeeb-996918c7cd976393}}
+'''
+
+[[block]]
+key = "0e003bc406ed330b-bd1d439cec9faeeb-996918c7cd976393"
+type = "paragraph"
+origin = '''
+**掐丝珐琅模式**：自动提取颜色边界生成独立金属丝对象，可调节丝线宽度与高度。
+'''
+translate = '''
+**Cloisonné**: Extracted color boundaries into independent metal-wire objects with adjustable width and height.
+'''
+
+[[block]]
+key = "0e003bc406ed330b-79672ff7aacbb380"
+type = "listItem"
+composite = true
+origin = '''
+- {{0e003bc406ed330b-79672ff7aacbb380-463e4f44980a3293}}
+'''
+translate = '''
+- {{0e003bc406ed330b-79672ff7aacbb380-463e4f44980a3293}}
+'''
+
+[[block]]
+key = "0e003bc406ed330b-79672ff7aacbb380-463e4f44980a3293"
+type = "paragraph"
+origin = '''
+**自由配色模式**：突破固定 LUT 色域限制，支持使用任意 RGB 颜色并为每种颜色导出独立 3MF 对象。
+'''
+translate = '''
+**Free Color**: Supported arbitrary RGB colors outside a fixed LUT, exporting each color as a separate 3MF object.
+'''
+
+[[block]]
+key = "0e003bc406ed330b-5ad8714f0ba93031"
+type = "listItem"
+composite = true
+origin = '''
+- {{0e003bc406ed330b-5ad8714f0ba93031-9772aab273c295b0}}
+'''
+translate = '''
+- {{0e003bc406ed330b-5ad8714f0ba93031-9772aab273c295b0}}
+'''
+
+[[block]]
+key = "0e003bc406ed330b-5ad8714f0ba93031-9772aab273c295b0"
+type = "paragraph"
+origin = '''
+**透明镀层与外轮廓**：新增独立透明保护层与可调外边框对象，支持同时启用。
+'''
+translate = '''
+**Transparent coating and outline**: Added independent protective coating and adjustable border objects that can be used together.
+'''
+
+[[block]]
+key = "0e003bc406ed330b-fadbdf38cdf8fa68"
+type = "listItem"
+composite = true
+origin = '''
+- {{0e003bc406ed330b-fadbdf38cdf8fa68-67b287a72e309198}}
+'''
+translate = '''
+- {{0e003bc406ed330b-fadbdf38cdf8fa68-67b287a72e309198}}
+'''
+
+[[block]]
+key = "0e003bc406ed330b-fadbdf38cdf8fa68-67b287a72e309198"
+type = "paragraph"
+origin = '''
+**色卡布局与颜色搜索**：按实体校准板布局展示 LUT，支持取色器、Hex/RGB 输入和色系筛选。
+'''
+translate = '''
+**Card layout and color search**: Matched the physical calibration-board layout and added eyedropper, Hex/RGB, and hue-family filtering.
+'''
+
+[[block]]
+key = "0e003bc406ed330b-9a594bf323ac7f06"
+type = "listItem"
+composite = true
+origin = '''
+- {{0e003bc406ed330b-9a594bf323ac7f06-9e7a152d115de035}}
+'''
+translate = '''
+- {{0e003bc406ed330b-9a594bf323ac7f06-9e7a152d115de035}}
+'''
+
+[[block]]
+key = "0e003bc406ed330b-9a594bf323ac7f06-9e7a152d115de035"
+type = "paragraph"
+origin = '''
+**2.5D 浮雕**：按颜色或高度图分配 Z 高度，同时保留顶部光学叠色层。
+'''
+translate = '''
+**2.5D relief**: Assigned Z heights by color or heightmap while preserving the top optical color layers.
+'''
+
+[[block]]
+key = "0e003bc406ed330b-14c57301854d2b0b"
+type = "listItem"
+composite = true
+origin = '''
+- {{0e003bc406ed330b-14c57301854d2b0b-50ca640779419a25}}
+'''
+translate = '''
+- {{0e003bc406ed330b-14c57301854d2b0b-50ca640779419a25}}
+'''
+
+[[block]]
+key = "0e003bc406ed330b-14c57301854d2b0b-50ca640779419a25"
+type = "paragraph"
+origin = '''
+**颜色整理**：新增孤立像素清理、连通区域换色、CIELAB 感知匹配与低占比颜色自动合并。
+'''
+translate = '''
+**Color cleanup**: Introduced isolated-pixel cleanup, connected-region replacement, CIELAB perceptual matching, and automatic low-usage color merging.
+'''
+
+[[block]]
+key = "0e003bc406ed330b-0be722cf13a21899"
+type = "listItem"
+composite = true
+origin = '''
+- {{0e003bc406ed330b-0be722cf13a21899-a5e20c7afb4034c8}}
+'''
+translate = '''
+- {{0e003bc406ed330b-0be722cf13a21899-a5e20c7afb4034c8}}
+'''
+
+[[block]]
+key = "0e003bc406ed330b-0be722cf13a21899-a5e20c7afb4034c8"
+type = "paragraph"
+origin = '''
+**切片器集成**：支持直接启动 Bambu Studio、OrcaSlicer 或 ElegooSlicer，并自动记忆上次选择。
+'''
+translate = '''
+**Slicer integration**: Launched Bambu Studio, OrcaSlicer, or ElegooSlicer directly and remembered the last selected slicer.
+'''
+
+[[block]]
+key = "0e003bc406ed330b-8c5991ddbf31a9b3"
+type = "listItem"
+composite = true
+origin = '''
+- {{0e003bc406ed330b-8c5991ddbf31a9b3-cb7af4c97960999e}}
+'''
+translate = '''
+- {{0e003bc406ed330b-8c5991ddbf31a9b3-cb7af4c97960999e}}
+'''
+
+[[block]]
+key = "0e003bc406ed330b-8c5991ddbf31a9b3-cb7af4c97960999e"
+type = "paragraph"
+origin = '''
+**完整多材料 3MF**：规范对象命名与材料元数据；新增 5 色扩展、大画幅、配方日志和输出目录管理。
+'''
+translate = '''
+**Complete multi-material 3MF**: Improved object naming and material metadata; added 5-color extended, large-canvas, recipe-log, and output-directory workflows.
+'''
+
+[[block]]
+key = "1bc5bd5bac56a7e2"
+type = "heading"
+origin = '''
+### 重要修复与性能
+'''
+translate = '''
+### Important fixes and performance
+'''
+
+[[block]]
+key = "5f332c448f574013"
+type = "list"
+composite = true
+origin = '''
+{{5f332c448f574013-85319e97990f9f99}}
+{{5f332c448f574013-697f56e4a244c54b}}
+{{5f332c448f574013-b36185a6db100b75}}
+{{5f332c448f574013-ece4a27e31ccd7ba}}
+{{5f332c448f574013-6c323e578eb21bda}}
+'''
+translate = '''
+{{5f332c448f574013-85319e97990f9f99}}
+{{5f332c448f574013-697f56e4a244c54b}}
+{{5f332c448f574013-b36185a6db100b75}}
+{{5f332c448f574013-ece4a27e31ccd7ba}}
+{{5f332c448f574013-6c323e578eb21bda}}
+'''
+
+[[block]]
+key = "5f332c448f574013-85319e97990f9f99"
+type = "listItem"
+composite = true
+origin = '''
+- {{5f332c448f574013-85319e97990f9f99-afc4f40eef38061f}}
+'''
+translate = '''
+- {{5f332c448f574013-85319e97990f9f99-afc4f40eef38061f}}
+'''
+
+[[block]]
+key = "5f332c448f574013-85319e97990f9f99-afc4f40eef38061f"
+type = "paragraph"
+origin = '''
+修正 8 色堆叠顺序、RYBW/BW 识别、模型正反面、5 色朝向与材料矩阵更新。
+'''
+translate = '''
+Corrected 8-color stack order, RYBW/BW detection, model face orientation, 5-color orientation, and material-matrix updates.
+'''
+
+[[block]]
+key = "5f332c448f574013-697f56e4a244c54b"
+type = "listItem"
+composite = true
+origin = '''
+- {{5f332c448f574013-697f56e4a244c54b-f6ddbc241f456aca}}
+'''
+translate = '''
+- {{5f332c448f574013-697f56e4a244c54b-f6ddbc241f456aca}}
+'''
+
+[[block]]
+key = "5f332c448f574013-697f56e4a244c54b-f6ddbc241f456aca"
+type = "paragraph"
+origin = '''
+修复外轮廓边缘、浮雕状态、SVG 子路径/裁剪/填充规则、HEIC 上传及缓存失效问题。
+'''
+translate = '''
+Fixed outline edges, relief state, SVG subpaths/clipping/fill rules, HEIC uploads, and cache invalidation.
+'''
+
+[[block]]
+key = "5f332c448f574013-b36185a6db100b75"
+type = "listItem"
+composite = true
+origin = '''
+- {{5f332c448f574013-b36185a6db100b75-d99507ffcca254bc}}
+'''
+translate = '''
+- {{5f332c448f574013-b36185a6db100b75-d99507ffcca254bc}}
+'''
+
+[[block]]
+key = "5f332c448f574013-b36185a6db100b75-d99507ffcca254bc"
+type = "paragraph"
+origin = '''
+完善 PyInstaller 资源打包、切片器启动、3MF 压缩与 Gradio 6.x 兼容性。
+'''
+translate = '''
+Improved PyInstaller asset bundling, slicer launch reliability, 3MF compression, and Gradio 6.x compatibility.
+'''
+
+[[block]]
+key = "5f332c448f574013-ece4a27e31ccd7ba"
+type = "listItem"
+composite = true
+origin = '''
+- {{5f332c448f574013-ece4a27e31ccd7ba-55bee95a2becb803}}
+'''
+translate = '''
+- {{5f332c448f574013-ece4a27e31ccd7ba-55bee95a2becb803}}
+'''
+
+[[block]]
+key = "5f332c448f574013-ece4a27e31ccd7ba-55bee95a2becb803"
+type = "paragraph"
+origin = '''
+典型 SVG 工作流耗时由约 140 秒降至 51 秒，并通过向量化网格、并行生成、流式导出和 SVG 缓存进一步提速。
+'''
+translate = '''
+Cut a representative SVG workflow from roughly 140 seconds to 51 seconds, with additional speedups from vectorized meshing, parallel generation, streaming export, and SVG caching.
+'''
+
+[[block]]
+key = "5f332c448f574013-6c323e578eb21bda"
+type = "listItem"
+composite = true
+origin = '''
+- {{5f332c448f574013-6c323e578eb21bda-1574424be42414a5}}
+'''
+translate = '''
+- {{5f332c448f574013-6c323e578eb21bda-1574424be42414a5}}
+'''
+
+[[block]]
+key = "5f332c448f574013-6c323e578eb21bda-1574424be42414a5"
+type = "paragraph"
+origin = '''
+项目开源协议变更为 GPLv3。
+'''
+translate = '''
+Relicensed the project under GPLv3.
+'''
+
+[[block]]
+key = "8e2a97768bb381b6"
+type = "heading"
+origin = '''
+## v1.5.9 · 2026-02-26
+'''
+translate = '''
+## v1.5.9 · February 26, 2026
+'''
+
+[[block]]
+key = "4746184ba901e2d8"
+type = "list"
+composite = true
+origin = '''
+{{4746184ba901e2d8-4746184ba901e2d8}}
+'''
+translate = '''
+{{4746184ba901e2d8-4746184ba901e2d8}}
+'''
+
+[[block]]
+key = "4746184ba901e2d8-4746184ba901e2d8"
+type = "listItem"
+composite = true
+origin = '''
+- {{4746184ba901e2d8-4746184ba901e2d8-43ed42b260def49b}}
+'''
+translate = '''
+- {{4746184ba901e2d8-4746184ba901e2d8-43ed42b260def49b}}
+'''
+
+[[block]]
+key = "4746184ba901e2d8-4746184ba901e2d8-43ed42b260def49b"
+type = "paragraph"
+origin = '''
+规范异常处理逻辑，移除会吞掉进程退出信号的裸异常捕获，提升异常可追踪性。
+'''
+translate = '''
+Standardized exception handling and removed bare catch blocks that could swallow process-exit signals.
+'''
+
+[[block]]
+key = "8b0c1efb37f16222"
+type = "heading"
+origin = '''
+## v1.5.8 · 2026-02-25
+'''
+translate = '''
+## v1.5.8 · February 25, 2026
+'''
+
+[[block]]
+key = "5a7157d40f5954fb"
+type = "list"
+composite = true
+origin = '''
+{{5a7157d40f5954fb-e4ec4bedf57f0a19}}
+{{5a7157d40f5954fb-6c5e27cb49c8b1f4}}
+'''
+translate = '''
+{{5a7157d40f5954fb-e4ec4bedf57f0a19}}
+{{5a7157d40f5954fb-6c5e27cb49c8b1f4}}
+'''
+
+[[block]]
+key = "5a7157d40f5954fb-e4ec4bedf57f0a19"
+type = "listItem"
+composite = true
+origin = '''
+- {{5a7157d40f5954fb-e4ec4bedf57f0a19-45e3d6747436b47d}}
+'''
+translate = '''
+- {{5a7157d40f5954fb-e4ec4bedf57f0a19-45e3d6747436b47d}}
+'''
+
+[[block]]
+key = "5a7157d40f5954fb-e4ec4bedf57f0a19-45e3d6747436b47d"
+type = "paragraph"
+origin = '''
+高保真模式自动检测并合并孤立细碎色块，减少打印噪点。
+'''
+translate = '''
+Automatically detected and merged isolated color speckles in High-Fidelity mode.
+'''
+
+[[block]]
+key = "5a7157d40f5954fb-6c5e27cb49c8b1f4"
+type = "listItem"
+composite = true
+origin = '''
+- {{5a7157d40f5954fb-6c5e27cb49c8b1f4-aa4e2056fbcace1b}}
+'''
+translate = '''
+- {{5a7157d40f5954fb-6c5e27cb49c8b1f4-aa4e2056fbcace1b}}
+'''
+
+[[block]]
+key = "5a7157d40f5954fb-6c5e27cb49c8b1f4-aa4e2056fbcace1b"
+type = "paragraph"
+origin = '''
+底板改为独立 3MF 对象导出，修复底板层数固定不变与参数未生效的问题。
+'''
+translate = '''
+Exported the backing plate as an independent 3MF object and fixed hard-coded backing layer counts and dropped parameters.
+'''
+
+[[block]]
+key = "49c36d38ba12fdc6"
+type = "heading"
+origin = '''
+## v1.5.7 · 2026-02-10
+'''
+translate = '''
+## v1.5.7 · February 10, 2026
+'''
+
+[[block]]
+key = "44c9e047738b582f"
+type = "heading"
+origin = '''
+### 新功能
+'''
+translate = '''
+### Features
+'''
+
+[[block]]
+key = "d6119e13edd8c312"
+type = "list"
+composite = true
+origin = '''
+{{d6119e13edd8c312-cd1e02edd9b8d8db}}
+{{d6119e13edd8c312-74b43bba4a99f522}}
+{{d6119e13edd8c312-396ccedecf64e5de}}
+{{d6119e13edd8c312-b1b8abfa59df5755}}
+'''
+translate = '''
+{{d6119e13edd8c312-cd1e02edd9b8d8db}}
+{{d6119e13edd8c312-74b43bba4a99f522}}
+{{d6119e13edd8c312-396ccedecf64e5de}}
+{{d6119e13edd8c312-b1b8abfa59df5755}}
+'''
+
+[[block]]
+key = "d6119e13edd8c312-cd1e02edd9b8d8db"
+type = "listItem"
+composite = true
+origin = '''
+- {{d6119e13edd8c312-cd1e02edd9b8d8db-8c8df9eb23889f69}}
+'''
+translate = '''
+- {{d6119e13edd8c312-cd1e02edd9b8d8db-8c8df9eb23889f69}}
+'''
+
+[[block]]
+key = "d6119e13edd8c312-cd1e02edd9b8d8db-8c8df9eb23889f69"
+type = "paragraph"
+origin = '''
+新增 6 色扩展（1296 色）、8 色专业（2738 色）和 32 级黑白灰度模式。
+'''
+translate = '''
+Added 6-color extended (1,296 colors), 8-color professional (2,738 colors), and 32-level grayscale modes.
+'''
+
+[[block]]
+key = "d6119e13edd8c312-74b43bba4a99f522"
+type = "listItem"
+composite = true
+origin = '''
+- {{d6119e13edd8c312-74b43bba4a99f522-5b43fc5b67f95711}}
+'''
+translate = '''
+- {{d6119e13edd8c312-74b43bba4a99f522-5b43fc5b67f95711}}
+'''
+
+[[block]]
+key = "d6119e13edd8c312-74b43bba4a99f522-5b43fc5b67f95711"
+type = "paragraph"
+origin = '''
+8 色模式采用双页校准流程，支持手动修正色块并按模式自动识别角点。
+'''
+translate = '''
+Introduced a two-page 8-color calibration workflow with manual cell correction and mode-aware corner detection.
+'''
+
+[[block]]
+key = "d6119e13edd8c312-396ccedecf64e5de"
+type = "listItem"
+composite = true
+origin = '''
+- {{d6119e13edd8c312-396ccedecf64e5de-b89d2fc4c59faf7d}}
+'''
+translate = '''
+- {{d6119e13edd8c312-396ccedecf64e5de-b89d2fc4c59faf7d}}
+'''
+
+[[block]]
+key = "d6119e13edd8c312-396ccedecf64e5de-b89d2fc4c59faf7d"
+type = "paragraph"
+origin = '''
+LUT 合并时完整保留堆叠配方，支持组合 4/6/8 色与灰度 LUT，并兼容颜色替换。
+'''
+translate = '''
+Preserved stack recipes when merging 4-, 6-, and 8-color and grayscale LUTs, with full color-replacement support.
+'''
+
+[[block]]
+key = "d6119e13edd8c312-b1b8abfa59df5755"
+type = "listItem"
+composite = true
+origin = '''
+- {{d6119e13edd8c312-b1b8abfa59df5755-b586c378e60b0205}}
+'''
+translate = '''
+- {{d6119e13edd8c312-b1b8abfa59df5755-b586c378e60b0205}}
+'''
+
+[[block]]
+key = "d6119e13edd8c312-b1b8abfa59df5755-b586c378e60b0205"
+type = "paragraph"
+origin = '''
+新增 Docker 部署支持，统一 4 色模式架构并补充自动化测试。
+'''
+translate = '''
+Added Docker deployment, a unified 4-color architecture, and automated test coverage.
+'''
+
+[[block]]
+key = "287aff3a4d20d9a6"
+type = "heading"
+origin = '''
+### 修复
+'''
+translate = '''
+### Fixes
+'''
+
+[[block]]
+key = "57decd6f4f1ef006"
+type = "list"
+composite = true
+origin = '''
+{{57decd6f4f1ef006-b1e0242db577d3b1}}
+{{57decd6f4f1ef006-a9ea0ab5771780b1}}
+'''
+translate = '''
+{{57decd6f4f1ef006-b1e0242db577d3b1}}
+{{57decd6f4f1ef006-a9ea0ab5771780b1}}
+'''
+
+[[block]]
+key = "57decd6f4f1ef006-b1e0242db577d3b1"
+type = "listItem"
+composite = true
+origin = '''
+- {{57decd6f4f1ef006-b1e0242db577d3b1-727956f4c248d89e}}
+'''
+translate = '''
+- {{57decd6f4f1ef006-b1e0242db577d3b1-727956f4c248d89e}}
+'''
+
+[[block]]
+key = "57decd6f4f1ef006-b1e0242db577d3b1-727956f4c248d89e"
+type = "paragraph"
+origin = '''
+修复 8 色堆叠、正反面朝向、RYBW 识别、手动校色保存及 macOS 界面显示问题。
+'''
+translate = '''
+Fixed 8-color stacking and face orientation, RYBW detection, manual calibration persistence, and macOS UI layout issues.
+'''
+
+[[block]]
+key = "57decd6f4f1ef006-a9ea0ab5771780b1"
+type = "listItem"
+composite = true
+origin = '''
+- {{57decd6f4f1ef006-a9ea0ab5771780b1-924bae4e2582e402}}
+'''
+translate = '''
+- {{57decd6f4f1ef006-a9ea0ab5771780b1-924bae4e2582e402}}
+'''
+
+[[block]]
+key = "57decd6f4f1ef006-a9ea0ab5771780b1-924bae4e2582e402"
+type = "paragraph"
+origin = '''
+宽高输入框改为失焦后再联动计算，解决输入过程中数值频繁跳动的问题。
+'''
+translate = '''
+Deferred linked width/height recalculation until input blur so numbers no longer jump while typing.
+'''
+
+[[block]]
+key = "64cc6d5e7378987e"
+type = "heading"
+origin = '''
+## v1.5.6 · 2026-02-08
+'''
+translate = '''
+## v1.5.6 · February 8, 2026
+'''
+
+[[block]]
+key = "70958743d88cde4e"
+type = "list"
+composite = true
+origin = '''
+{{70958743d88cde4e-f5c2e24948071d9a}}
+{{70958743d88cde4e-02fec80133870765}}
+'''
+translate = '''
+{{70958743d88cde4e-f5c2e24948071d9a}}
+{{70958743d88cde4e-02fec80133870765}}
+'''
+
+[[block]]
+key = "70958743d88cde4e-f5c2e24948071d9a"
+type = "listItem"
+composite = true
+origin = '''
+- {{70958743d88cde4e-f5c2e24948071d9a-3431dfdc7cae7152}}
+'''
+translate = '''
+- {{70958743d88cde4e-f5c2e24948071d9a-3431dfdc7cae7152}}
+'''
+
+[[block]]
+key = "70958743d88cde4e-f5c2e24948071d9a-3431dfdc7cae7152"
+type = "paragraph"
+origin = '''
+图像转换器完整接入 8 色模式，支持按 LUT 规模自动识别色彩模式。
+'''
+translate = '''
+Completed 8-color image conversion with automatic mode recognition from LUT size.
+'''
+
+[[block]]
+key = "70958743d88cde4e-02fec80133870765"
+type = "listItem"
+composite = true
+origin = '''
+- {{70958743d88cde4e-02fec80133870765-d1d412c81501c86a}}
+'''
+translate = '''
+- {{70958743d88cde4e-02fec80133870765-d1d412c81501c86a}}
+'''
+
+[[block]]
+key = "70958743d88cde4e-02fec80133870765-d1d412c81501c86a"
+type = "paragraph"
+origin = '''
+统一建模模式内部表示，修复 8 色混色效果与关于页版本号缺失问题。
+'''
+translate = '''
+Unified internal modeling-mode representation and fixed 8-color optical mixing and a missing version label on the About page.
+'''
+
+[[block]]
+key = "925f3b7102a6a9bd"
+type = "heading"
+origin = '''
+## v1.5.5 · 2026-02-07
+'''
+translate = '''
+## v1.5.5 · February 7, 2026
+'''
+
+[[block]]
+key = "0e4f03234d785877"
+type = "list"
+composite = true
+origin = '''
+{{0e4f03234d785877-0e4f03234d785877}}
+'''
+translate = '''
+{{0e4f03234d785877-0e4f03234d785877}}
+'''
+
+[[block]]
+key = "0e4f03234d785877-0e4f03234d785877"
+type = "listItem"
+composite = true
+origin = '''
+- {{0e4f03234d785877-0e4f03234d785877-73602e639008b437}}
+'''
+translate = '''
+- {{0e4f03234d785877-0e4f03234d785877-73602e639008b437}}
+'''
+
+[[block]]
+key = "0e4f03234d785877-0e4f03234d785877-73602e639008b437"
+type = "paragraph"
+origin = '''
+优化 8 色校准板布局算法与生成质量。
+'''
+translate = '''
+Improved the 8-color calibration-board layout algorithm and output quality.
+'''
+
+[[block]]
+key = "cbd6ddf0b0d4dc69"
+type = "heading"
+origin = '''
+## v1.5.4 · 2026-02-06
+'''
+translate = '''
+## v1.5.4 · February 6, 2026
+'''
+
+[[block]]
+key = "5943e21807b1ec5b"
+type = "list"
+composite = true
+origin = '''
+{{5943e21807b1ec5b-2084290c97b062ed}}
+{{5943e21807b1ec5b-85c10257bc00920a}}
+{{5943e21807b1ec5b-563804a6a97e55c7}}
+'''
+translate = '''
+{{5943e21807b1ec5b-2084290c97b062ed}}
+{{5943e21807b1ec5b-85c10257bc00920a}}
+{{5943e21807b1ec5b-563804a6a97e55c7}}
+'''
+
+[[block]]
+key = "5943e21807b1ec5b-2084290c97b062ed"
+type = "listItem"
+composite = true
+origin = '''
+- {{5943e21807b1ec5b-2084290c97b062ed-a6baf09a513581cf}}
+'''
+translate = '''
+- {{5943e21807b1ec5b-2084290c97b062ed-a6baf09a513581cf}}
+'''
+
+[[block]]
+key = "5943e21807b1ec5b-2084290c97b062ed-a6baf09a513581cf"
+type = "paragraph"
+origin = '''
+改进矢量模式下的颜色重叠布尔运算、SVG 层叠顺序与细小特征保护。
+'''
+translate = '''
+Improved vector overlap booleans, SVG stacking order, and small-feature preservation.
+'''
+
+[[block]]
+key = "5943e21807b1ec5b-85c10257bc00920a"
+type = "listItem"
+composite = true
+origin = '''
+- {{5943e21807b1ec5b-85c10257bc00920a-73c7cefb770dc7fa}}
+'''
+translate = '''
+- {{5943e21807b1ec5b-85c10257bc00920a-73c7cefb770dc7fa}}
+'''
+
+[[block]]
+key = "5943e21807b1ec5b-85c10257bc00920a-73c7cefb770dc7fa"
+type = "paragraph"
+origin = '''
+引入极小 Z 轴偏移，保持相邻细节在切片时互为独立结构。
+'''
+translate = '''
+Applied a minimal Z offset to keep neighboring details separated as distinct structures.
+'''
+
+[[block]]
+key = "5943e21807b1ec5b-563804a6a97e55c7"
+type = "listItem"
+composite = true
+origin = '''
+- {{5943e21807b1ec5b-563804a6a97e55c7-61b2b51c87a70a26}}
+'''
+translate = '''
+- {{5943e21807b1ec5b-563804a6a97e55c7-61b2b51c87a70a26}}
+'''
+
+[[block]]
+key = "5943e21807b1ec5b-563804a6a97e55c7-61b2b51c87a70a26"
+type = "paragraph"
+origin = '''
+修复矢量 2D 预览黑底、预览点击坐标偏移及依赖缺失问题。
+'''
+translate = '''
+Fixed black backgrounds in 2D vector previews, click-coordinate offsets, and a missing dependency.
+'''
+
+[[block]]
+key = "5f680059d65b6e90"
+type = "heading"
+origin = '''
+## v1.5.3 · 2026-02-05
+'''
+translate = '''
+## v1.5.3 · February 5, 2026
+'''
+
+[[block]]
+key = "6c7e17b8543c49e0"
+type = "list"
+composite = true
+origin = '''
+{{6c7e17b8543c49e0-43c72451f98e4f62}}
+{{6c7e17b8543c49e0-ca3db408ac85d798}}
+{{6c7e17b8543c49e0-b6cb52894ae61072}}
+{{6c7e17b8543c49e0-ed0df35921c6d0b3}}
+'''
+translate = '''
+{{6c7e17b8543c49e0-43c72451f98e4f62}}
+{{6c7e17b8543c49e0-ca3db408ac85d798}}
+{{6c7e17b8543c49e0-b6cb52894ae61072}}
+{{6c7e17b8543c49e0-ed0df35921c6d0b3}}
+'''
+
+[[block]]
+key = "6c7e17b8543c49e0-43c72451f98e4f62"
+type = "listItem"
+composite = true
+origin = '''
+- {{6c7e17b8543c49e0-43c72451f98e4f62-d8caa4b3fe9b5b65}}
+'''
+translate = '''
+- {{6c7e17b8543c49e0-43c72451f98e4f62-d8caa4b3fe9b5b65}}
+'''
+
+[[block]]
+key = "6c7e17b8543c49e0-43c72451f98e4f62-d8caa4b3fe9b5b65"
+type = "paragraph"
+origin = '''
+新增非破坏式图片裁剪与常用宽高比预设。
+'''
+translate = '''
+Added non-destructive image cropping with common aspect-ratio presets.
+'''
+
+[[block]]
+key = "6c7e17b8543c49e0-ca3db408ac85d798"
+type = "listItem"
+composite = true
+origin = '''
+- {{6c7e17b8543c49e0-ca3db408ac85d798-db65b77a79b74bb6}}
+'''
+translate = '''
+- {{6c7e17b8543c49e0-ca3db408ac85d798-db65b77a79b74bb6}}
+'''
+
+[[block]]
+key = "6c7e17b8543c49e0-ca3db408ac85d798-db65b77a79b74bb6"
+type = "paragraph"
+origin = '''
+独立拆分颜色分析器，自动色彩细节计算支持宽度系数。
+'''
+translate = '''
+Extracted the standalone Color Analyzer and added width-aware automatic color-detail calculation.
+'''
+
+[[block]]
+key = "6c7e17b8543c49e0-b6cb52894ae61072"
+type = "listItem"
+composite = true
+origin = '''
+- {{6c7e17b8543c49e0-b6cb52894ae61072-e173c84cd31f9796}}
+'''
+translate = '''
+- {{6c7e17b8543c49e0-b6cb52894ae61072-e173c84cd31f9796}}
+'''
+
+[[block]]
+key = "6c7e17b8543c49e0-b6cb52894ae61072-e173c84cd31f9796"
+type = "paragraph"
+origin = '''
+颜色替换支持撤销，修复量化颜色数参数未生效的问题。
+'''
+translate = '''
+Added undo support for color replacement and fixed unapplied quantized-color counts.
+'''
+
+[[block]]
+key = "6c7e17b8543c49e0-ed0df35921c6d0b3"
+type = "listItem"
+composite = true
+origin = '''
+- {{6c7e17b8543c49e0-ed0df35921c6d0b3-e93bdc1e450c4c98}}
+'''
+translate = '''
+- {{6c7e17b8543c49e0-ed0df35921c6d0b3-e93bdc1e450c4c98}}
+'''
+
+[[block]]
+key = "6c7e17b8543c49e0-ed0df35921c6d0b3-e93bdc1e450c4c98"
+type = "paragraph"
+origin = '''
+使用 NumPy 向量化加速颜色匹配与矩形网格合并。
+'''
+translate = '''
+Accelerated color matching and rectangular mesh merging with NumPy vectorization.
+'''
+
+[[block]]
+key = "f72283761ddb5ce3"
+type = "heading"
+origin = '''
+## v1.5.1 · 2026-02-03
+'''
+translate = '''
+## v1.5.1 · February 3, 2026
+'''
+
+[[block]]
+key = "7461b53199aa0562"
+type = "list"
+composite = true
+origin = '''
+{{7461b53199aa0562-4c59d9ae3842f2fc}}
+{{7461b53199aa0562-2c16805de40e950b}}
+{{7461b53199aa0562-3c44d161dd6e8426}}
+{{7461b53199aa0562-6e304685ff465a00}}
+'''
+translate = '''
+{{7461b53199aa0562-4c59d9ae3842f2fc}}
+{{7461b53199aa0562-2c16805de40e950b}}
+{{7461b53199aa0562-3c44d161dd6e8426}}
+{{7461b53199aa0562-6e304685ff465a00}}
+'''
+
+[[block]]
+key = "7461b53199aa0562-4c59d9ae3842f2fc"
+type = "listItem"
+composite = true
+origin = '''
+- {{7461b53199aa0562-4c59d9ae3842f2fc-bc981b0f314959c3}}
+'''
+translate = '''
+- {{7461b53199aa0562-4c59d9ae3842f2fc-bc981b0f314959c3}}
+'''
+
+[[block]]
+key = "7461b53199aa0562-4c59d9ae3842f2fc-bc981b0f314959c3"
+type = "paragraph"
+origin = '''
+完成界面重构、批量模式与多语言框架，预览视图自动跟随当前建模模式。
+'''
+translate = '''
+Delivered a full UI redesign, batch mode, and internationalization framework, with previews following the active modeling mode.
+'''
+
+[[block]]
+key = "7461b53199aa0562-2c16805de40e950b"
+type = "listItem"
+composite = true
+origin = '''
+- {{7461b53199aa0562-2c16805de40e950b-e3b3ca5d52fb4e83}}
+'''
+translate = '''
+- {{7461b53199aa0562-2c16805de40e950b-e3b3ca5d52fb4e83}}
+'''
+
+[[block]]
+key = "7461b53199aa0562-2c16805de40e950b-e3b3ca5d52fb4e83"
+type = "paragraph"
+origin = '''
+引入贪婪矩形合并算法以降低 3MF 三角面数。
+'''
+translate = '''
+Added greedy rectangle merging to reduce 3MF triangle counts.
+'''
+
+[[block]]
+key = "7461b53199aa0562-3c44d161dd6e8426"
+type = "listItem"
+composite = true
+origin = '''
+- {{7461b53199aa0562-3c44d161dd6e8426-1f914a6915bd6910}}
+'''
+translate = '''
+- {{7461b53199aa0562-3c44d161dd6e8426-1f914a6915bd6910}}
+'''
+
+[[block]]
+key = "7461b53199aa0562-3c44d161dd6e8426-1f914a6915bd6910"
+type = "paragraph"
+origin = '''
+大图 K-Means 预缩放带来约 20—50 倍提速。
+'''
+translate = '''
+Accelerated large-image K-Means clustering by roughly 20–50× via prescaling.
+'''
+
+[[block]]
+key = "7461b53199aa0562-6e304685ff465a00"
+type = "listItem"
+composite = true
+origin = '''
+- {{7461b53199aa0562-6e304685ff465a00-93d6ae63691b6651}}
+'''
+translate = '''
+- {{7461b53199aa0562-6e304685ff465a00-93d6ae63691b6651}}
+'''
+
+[[block]]
+key = "7461b53199aa0562-6e304685ff465a00-93d6ae63691b6651"
+type = "paragraph"
+origin = '''
+修复单面模型 X 轴镜像、网格缺失及多语言词条合并冲突。
+'''
+translate = '''
+Fixed X-axis mirroring in single-sided models, missing meshes, and localization merge conflicts.
+'''
+
+[[block]]
+key = "dfa1671096a9ef14"
+type = "heading"
+origin = '''
+## v1.5.0 · 2026-02-01
+'''
+translate = '''
+## v1.5.0 · February 1, 2026
+'''
+
+[[block]]
+key = "afbaa3ff5b4a2d34"
+type = "list"
+composite = true
+origin = '''
+{{afbaa3ff5b4a2d34-afbaa3ff5b4a2d34}}
+'''
+translate = '''
+{{afbaa3ff5b4a2d34-afbaa3ff5b4a2d34}}
+'''
+
+[[block]]
+key = "afbaa3ff5b4a2d34-afbaa3ff5b4a2d34"
+type = "listItem"
+composite = true
+origin = '''
+- {{afbaa3ff5b4a2d34-afbaa3ff5b4a2d34-217c3c06ea6b22a8}}
+'''
+translate = '''
+- {{afbaa3ff5b4a2d34-afbaa3ff5b4a2d34-217c3c06ea6b22a8}}
+'''
+
+[[block]]
+key = "afbaa3ff5b4a2d34-afbaa3ff5b4a2d34-217c3c06ea6b22a8"
+type = "paragraph"
+origin = '''
+统一代码注释与公开接口文档规范，便于后续协作维护。
+'''
+translate = '''
+Standardized code comments and public API documentation across the codebase.
+'''
+
+[[block]]
+key = "9195ade1784639a6"
+type = "heading"
+origin = '''
+## v1.4.2 · 2026-01-31
+'''
+translate = '''
+## v1.4.2 · January 31, 2026
+'''
+
+[[block]]
+key = "20d845d4fb585f61"
+type = "list"
+composite = true
+origin = '''
+{{20d845d4fb585f61-90e5329310be156d}}
+{{20d845d4fb585f61-056c902401fef2d9}}
+'''
+translate = '''
+{{20d845d4fb585f61-90e5329310be156d}}
+{{20d845d4fb585f61-056c902401fef2d9}}
+'''
+
+[[block]]
+key = "20d845d4fb585f61-90e5329310be156d"
+type = "listItem"
+composite = true
+origin = '''
+- {{20d845d4fb585f61-90e5329310be156d-9e643b3771327a19}}
+'''
+translate = '''
+- {{20d845d4fb585f61-90e5329310be156d-9e643b3771327a19}}
+'''
+
+[[block]]
+key = "20d845d4fb585f61-90e5329310be156d-9e643b3771327a19"
+type = "paragraph"
+origin = '''
+系统托盘菜单新增多语言支持。
+'''
+translate = '''
+Added localized system-tray menu items.
+'''
+
+[[block]]
+key = "20d845d4fb585f61-056c902401fef2d9"
+type = "listItem"
+composite = true
+origin = '''
+- {{20d845d4fb585f61-056c902401fef2d9-337db1df87348832}}
+'''
+translate = '''
+- {{20d845d4fb585f61-056c902401fef2d9-337db1df87348832}}
+'''
+
+[[block]]
+key = "20d845d4fb585f61-056c902401fef2d9-337db1df87348832"
+type = "paragraph"
+origin = '''
+修正版本元数据，回退尚不稳定的“3MF 颜色注入”方案。
+'''
+translate = '''
+Fixed version metadata and reverted an unstable 3MF color-injection implementation.
+'''
+
+[[block]]
+key = "d37fef3616893d5a"
+type = "heading"
+origin = '''
+## v1.4.1 · 2026-01-29
+'''
+translate = '''
+## v1.4.1 · January 29, 2026
+'''
+
+[[block]]
+key = "6b3a10769b61915b"
+type = "list"
+composite = true
+origin = '''
+{{6b3a10769b61915b-710024c8179586db}}
+{{6b3a10769b61915b-75b0546a543c2687}}
+{{6b3a10769b61915b-8a4ffa74ba148145}}
+{{6b3a10769b61915b-cd4128468f23cd18}}
+'''
+translate = '''
+{{6b3a10769b61915b-710024c8179586db}}
+{{6b3a10769b61915b-75b0546a543c2687}}
+{{6b3a10769b61915b-8a4ffa74ba148145}}
+{{6b3a10769b61915b-cd4128468f23cd18}}
+'''
+
+[[block]]
+key = "6b3a10769b61915b-710024c8179586db"
+type = "listItem"
+composite = true
+origin = '''
+- {{6b3a10769b61915b-710024c8179586db-d8df7b87ca8269c5}}
+'''
+translate = '''
+- {{6b3a10769b61915b-710024c8179586db-d8df7b87ca8269c5}}
+'''
+
+[[block]]
+key = "6b3a10769b61915b-710024c8179586db-d8df7b87ca8269c5"
+type = "paragraph"
+origin = '''
+将早期矢量与版画模式整合为高保真模式，主界面梳理为高保真与像素艺术两条清晰路径。
+'''
+translate = '''
+Consolidated early Vector and Woodblock modes into High-Fidelity, streamlining the main workflow into High-Fidelity and Pixel Art paths.
+'''
+
+[[block]]
+key = "6b3a10769b61915b-75b0546a543c2687"
+type = "listItem"
+composite = true
+origin = '''
+- {{6b3a10769b61915b-75b0546a543c2687-ffd08f609df988a3}}
+'''
+translate = '''
+- {{6b3a10769b61915b-75b0546a543c2687-ffd08f609df988a3}}
+'''
+
+[[block]]
+key = "6b3a10769b61915b-75b0546a543c2687-ffd08f609df988a3"
+type = "paragraph"
+origin = '''
+支持免刷新动态切换中英文界面。
+'''
+translate = '''
+Added live Chinese/English switching without reloading the page.
+'''
+
+[[block]]
+key = "6b3a10769b61915b-8a4ffa74ba148145"
+type = "listItem"
+composite = true
+origin = '''
+- {{6b3a10769b61915b-8a4ffa74ba148145-7d9547152ed87390}}
+'''
+translate = '''
+- {{6b3a10769b61915b-8a4ffa74ba148145-7d9547152ed87390}}
+'''
+
+[[block]]
+key = "6b3a10769b61915b-8a4ffa74ba148145-7d9547152ed87390"
+type = "paragraph"
+origin = '''
+输出文件与 Gradio 临时文件改存项目本地目录，避免占用系统盘临时空间。
+'''
+translate = '''
+Moved output and Gradio temporary files into project-local directories instead of the system temp drive.
+'''
+
+[[block]]
+key = "6b3a10769b61915b-cd4128468f23cd18"
+type = "listItem"
+composite = true
+origin = '''
+- {{6b3a10769b61915b-cd4128468f23cd18-bda232d62a78b316}}
+'''
+translate = '''
+- {{6b3a10769b61915b-cd4128468f23cd18-bda232d62a78b316}}
+'''
+
+[[block]]
+key = "6b3a10769b61915b-cd4128468f23cd18-bda232d62a78b316"
+type = "paragraph"
+origin = '''
+修复缺色 3MF 文件命名与透明背景识别问题。
+'''
+translate = '''
+Fixed missing-color 3MF filenames and transparent-background detection.
+'''
+
+[[block]]
+key = "beb3d5e9f46398fd"
+type = "heading"
+origin = '''
+## v1.4 · 2026-01-20
+'''
+translate = '''
+## v1.4 · January 20, 2026
+'''
+
+[[block]]
+key = "94063f7a4aacf386"
+type = "list"
+composite = true
+origin = '''
+{{94063f7a4aacf386-deb23761f2670139}}
+{{94063f7a4aacf386-81d25e64375fbda7}}
+{{94063f7a4aacf386-0f3bad5583eca9da}}
+{{94063f7a4aacf386-69bcdcd846bd5cf6}}
+'''
+translate = '''
+{{94063f7a4aacf386-deb23761f2670139}}
+{{94063f7a4aacf386-81d25e64375fbda7}}
+{{94063f7a4aacf386-0f3bad5583eca9da}}
+{{94063f7a4aacf386-69bcdcd846bd5cf6}}
+'''
+
+[[block]]
+key = "94063f7a4aacf386-deb23761f2670139"
+type = "listItem"
+composite = true
+origin = '''
+- {{94063f7a4aacf386-deb23761f2670139-31fa8ce23143d1cb}}
+'''
+translate = '''
+- {{94063f7a4aacf386-deb23761f2670139-31fa8ce23143d1cb}}
+'''
+
+[[block]]
+key = "94063f7a4aacf386-deb23761f2670139-31fa8ce23143d1cb"
+type = "paragraph"
+origin = '''
+引入矢量、版画与体素三种建模模式，以及“先聚类、后匹配”的色彩量化引擎。
+'''
+translate = '''
+Introduced Vector, Woodblock, and Voxel modeling alongside a “cluster first, match second” color-quantization engine.
+'''
+
+[[block]]
+key = "94063f7a4aacf386-81d25e64375fbda7"
+type = "listItem"
+composite = true
+origin = '''
+- {{94063f7a4aacf386-81d25e64375fbda7-4c1d24e0e80c058d}}
+'''
+translate = '''
+- {{94063f7a4aacf386-81d25e64375fbda7-4c1d24e0e80c058d}}
+'''
+
+[[block]]
+key = "94063f7a4aacf386-81d25e64375fbda7-4c1d24e0e80c058d"
+type = "paragraph"
+origin = '''
+各模式采用独立分辨率参数；大型模型自动简化 3D 预览网格，超出安全阈值时停用预览以保护浏览器内存。
+'''
+translate = '''
+Decoupled per-mode resolution settings; large models automatically simplified 3D preview meshes and paused preview above a safety threshold to protect browser memory.
+'''
+
+[[block]]
+key = "94063f7a4aacf386-0f3bad5583eca9da"
+type = "listItem"
+composite = true
+origin = '''
+- {{94063f7a4aacf386-0f3bad5583eca9da-1f0f5b9007dd8e29}}
+'''
+translate = '''
+- {{94063f7a4aacf386-0f3bad5583eca9da-1f0f5b9007dd8e29}}
+'''
+
+[[block]]
+key = "94063f7a4aacf386-0f3bad5583eca9da-1f0f5b9007dd8e29"
+type = "paragraph"
+origin = '''
+新增系统托盘、端口自动选择以及模块化 Core/UI/Utils 架构。
+'''
+translate = '''
+Added system-tray integration, automatic port selection, and a modular Core/UI/Utils project layout.
+'''
+
+[[block]]
+key = "94063f7a4aacf386-69bcdcd846bd5cf6"
+type = "listItem"
+composite = true
+origin = '''
+- {{94063f7a4aacf386-69bcdcd846bd5cf6-79af0fa98ac2ee43}}
+'''
+translate = '''
+- {{94063f7a4aacf386-69bcdcd846bd5cf6-79af0fa98ac2ee43}}
+'''
+
+[[block]]
+key = "94063f7a4aacf386-69bcdcd846bd5cf6-79af0fa98ac2ee43"
+type = "paragraph"
+origin = '''
+修复 Gradio 6.x、macOS 内存占用、语言切换按钮与 Windows 临时图片清理问题。
+'''
+translate = '''
+Fixed Gradio 6.x, macOS memory usage, language-toggle, and Windows temporary-image cleanup issues.
+'''
+
+[[block]]
+key = "1b298bc8a0d828fd"
+type = "heading"
+origin = '''
+## v1.3 · 2026-01-18
+'''
+translate = '''
+## v1.3 · January 18, 2026
+'''
+
+[[block]]
+key = "7891cc02426be40c"
+type = "list"
+composite = true
+origin = '''
+{{7891cc02426be40c-ee4547e8fd35512c}}
+{{7891cc02426be40c-347c878a9fedf9b0}}
+'''
+translate = '''
+{{7891cc02426be40c-ee4547e8fd35512c}}
+{{7891cc02426be40c-347c878a9fedf9b0}}
+'''
+
+[[block]]
+key = "7891cc02426be40c-ee4547e8fd35512c"
+type = "listItem"
+composite = true
+origin = '''
+- {{7891cc02426be40c-ee4547e8fd35512c-75d8c13ec3ee2452}}
+'''
+translate = '''
+- {{7891cc02426be40c-ee4547e8fd35512c-75d8c13ec3ee2452}}
+'''
+
+[[block]]
+key = "7891cc02426be40c-ee4547e8fd35512c-75d8c13ec3ee2452"
+type = "paragraph"
+origin = '''
+新增完整中英文双语界面、交互式实时 3D 预览以及 CMYW/RYBW 双色彩系统支持。
+'''
+translate = '''
+Added a complete bilingual UI, interactive live 3D preview, and full CMYW/RYBW color-system support.
+'''
+
+[[block]]
+key = "7891cc02426be40c-347c878a9fedf9b0"
+type = "listItem"
+composite = true
+origin = '''
+- {{7891cc02426be40c-347c878a9fedf9b0-6ddeba20dbe6a65f}}
+'''
+translate = '''
+- {{7891cc02426be40c-347c878a9fedf9b0-6ddeba20dbe6a65f}}
+'''
+
+[[block]]
+key = "7891cc02426be40c-347c878a9fedf9b0-6ddeba20dbe6a65f"
+type = "paragraph"
+origin = '''
+修正切片器内的颜色名称显示，优化适配标准线宽的默认间隙。
+'''
+translate = '''
+Fixed color names shown in slicers and tuned default gaps for standard nozzle line widths.
+'''
+
+[[block]]
+key = "73f68d5e17ba9151"
+type = "heading"
+origin = '''
+## v1.2 · 2026-01-17
+'''
+translate = '''
+## v1.2 · January 17, 2026
+'''
+
+[[block]]
+key = "fb2c69c13add9423"
+type = "list"
+composite = true
+origin = '''
+{{fb2c69c13add9423-fb2c69c13add9423}}
+'''
+translate = '''
+{{fb2c69c13add9423-fb2c69c13add9423}}
+'''
+
+[[block]]
+key = "fb2c69c13add9423-fb2c69c13add9423"
+type = "listItem"
+composite = true
+origin = '''
+- {{fb2c69c13add9423-fb2c69c13add9423-be63d4a63ec97a49}}
+'''
+translate = '''
+- {{fb2c69c13add9423-fb2c69c13add9423-be63d4a63ec97a49}}
+'''
+
+[[block]]
+key = "fb2c69c13add9423-fb2c69c13add9423-be63d4a63ec97a49"
+type = "paragraph"
+origin = '''
+将校准板生成器、计算机视觉颜色提取器与图像转 3D 转换器整合为统一应用。
+'''
+translate = '''
+Combined the calibration-board generator, computer-vision color extractor, and image-to-3D converter into a single unified app.
+'''
+
+[[block]]
+key = "cebee391094952ec"
+type = "heading"
+origin = '''
+## v1.0 · 2026-01-15
+'''
+translate = '''
+## v1.0 · January 15, 2026
+'''
+
+[[block]]
+key = "918c660a39d0fc40"
+type = "list"
+composite = true
+origin = '''
+{{918c660a39d0fc40-880759025de0f8d4}}
+{{918c660a39d0fc40-d36c3ff0b0e797bb}}
+'''
+translate = '''
+{{918c660a39d0fc40-880759025de0f8d4}}
+{{918c660a39d0fc40-d36c3ff0b0e797bb}}
+'''
+
+[[block]]
+key = "918c660a39d0fc40-880759025de0f8d4"
+type = "listItem"
+composite = true
+origin = '''
+- {{918c660a39d0fc40-880759025de0f8d4-51f242dfa8e49efc}}
+'''
+translate = '''
+- {{918c660a39d0fc40-880759025de0f8d4-51f242dfa8e49efc}}
+'''
+
+[[block]]
+key = "918c660a39d0fc40-880759025de0f8d4-51f242dfa8e49efc"
+type = "paragraph"
+origin = '''
+首次公开发布，支持校准板生成、颜色提取、LUT 色彩匹配及兼容 Bambu Studio 的 3MF 导出。
+'''
+translate = '''
+Initial public release featuring calibration-board generation, color extraction, LUT color matching, and Bambu Studio-compatible 3MF export.
+'''
+
+[[block]]
+key = "918c660a39d0fc40-d36c3ff0b0e797bb"
+type = "listItem"
+composite = true
+origin = '''
+- {{918c660a39d0fc40-d36c3ff0b0e797bb-685d93b399af2111}}
+'''
+translate = '''
+- {{918c660a39d0fc40-d36c3ff0b0e797bb-685d93b399af2111}}
+'''
+
+[[block]]
+key = "918c660a39d0fc40-d36c3ff0b0e797bb-685d93b399af2111"
+type = "paragraph"
+origin = '''
+首版即支持 CMYW 与 RYBW 两套色彩系统。
+'''
+translate = '''
+Supported both CMYW and RYBW color systems out of the box.
+'''
+
+[[block]]
+key = "cb3f91d54eee30e5"
+type = "thematicBreak"
+origin = '''
+---
+'''
+translate = '''
+---
+'''
+
+[[block]]
+key = "143288e3ea51b227"
+type = "paragraph"
+origin = '''
+[返回更新日志总览](/zh/docs/releases/overview)
+'''
+translate = '''
+[Back to the changelog overview](/en/docs/releases/overview)
+'''

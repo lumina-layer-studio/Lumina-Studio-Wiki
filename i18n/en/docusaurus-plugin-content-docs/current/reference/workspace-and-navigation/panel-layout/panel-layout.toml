@@ -1,0 +1,463 @@
+[metadata]
+reviewed_source = "9b3da0c2908c214d38106b5466cba9544621ae063d6e0f73f04fb20ae287dda8"
+
+[[block]]
+key = "c44f9cc25d5bf9b3"
+type = "yaml"
+origin = '''
+---
+title: "面板显示、折叠、拖动与重置"
+description: "使用面板控件菜单管理浮动面板显示，通过标题栏拖动停靠或折叠，以及本地布局记忆与重置布局规则。"
+sidebar_position: 2
+---
+'''
+translate = '''
+---
+title: "Show, Collapse, Move, and Reset Panels"
+description: "Manage floating panels from Panel Controls, drag title bars to dock or float, collapse sections, and reset local workspace layout."
+sidebar_position: 2
+---
+'''
+
+[[block]]
+key = "c0089322f6ee2c97"
+type = "heading"
+origin = '''
+# 面板显示、折叠、拖动与重置
+'''
+translate = '''
+# Show, Collapse, Move, and Reset Panels
+'''
+
+[[block]]
+key = "2ff82012f9f00e17"
+type = "paragraph"
+origin = '''
+“图像转换”中的“核心设置”与“创意中心”由多个可移动面板组成。面板既可吸附停靠在工作区左右两侧，也可临时拖到画布上方自由浮动，为中央 3D 视图腾出更大视野。
+'''
+translate = '''
+In Converter, **Core Settings** and **Creative Center** are organized into movable panels. Panels can dock along the left or right edge of the window or float freely over the canvas when you want an unobstructed 3D view.
+'''
+
+[[block]]
+key = "18e4a95813b0682d"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-panel-controls.webp').default}
+  alt="Lumina Studio 面板控件菜单，包含当前页面面板和重置布局"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-panel-controls.webp').default}
+  alt="Lumina Studio Panel Controls menu with active-page panels and Reset Layout"
+/>
+'''
+
+[[block]]
+key = "9e62bfd41cd4d9c1"
+type = "heading"
+origin = '''
+## 面板控件菜单
+'''
+translate = '''
+## Panel Controls
+'''
+
+[[block]]
+key = "e480ccbb4d0120c4"
+type = "paragraph"
+origin = '''
+点击顶栏的“面板控件”，菜单仅列出**当前一级页面与当前二级页面**所包含的面板：
+'''
+translate = '''
+Click **Panel Controls** in the top bar to view the panels used by the **active primary page and active secondary page**:
+'''
+
+[[block]]
+key = "b139480e3274fd8c"
+type = "list"
+composite = true
+origin = '''
+{{b139480e3274fd8c-dd4372611ce06a9a}}
+{{b139480e3274fd8c-d9db2907b9c29514}}
+{{b139480e3274fd8c-57e8612d0b2d634c}}
+{{b139480e3274fd8c-16446c0c69ff86a9}}
+'''
+translate = '''
+{{b139480e3274fd8c-dd4372611ce06a9a}}
+{{b139480e3274fd8c-d9db2907b9c29514}}
+{{b139480e3274fd8c-57e8612d0b2d634c}}
+{{b139480e3274fd8c-16446c0c69ff86a9}}
+'''
+
+[[block]]
+key = "b139480e3274fd8c-dd4372611ce06a9a"
+type = "listItem"
+composite = true
+origin = '''
+- {{b139480e3274fd8c-dd4372611ce06a9a-d9d57543993b7be3}}
+'''
+translate = '''
+- {{b139480e3274fd8c-dd4372611ce06a9a-d9d57543993b7be3}}
+'''
+
+[[block]]
+key = "b139480e3274fd8c-dd4372611ce06a9a-d9d57543993b7be3"
+type = "paragraph"
+origin = '''
+面板名称旁的蓝色圆点表示该面板当前处于显示状态。
+'''
+translate = '''
+A blue dot indicates that a panel is currently visible.
+'''
+
+[[block]]
+key = "b139480e3274fd8c-d9db2907b9c29514"
+type = "listItem"
+composite = true
+origin = '''
+- {{b139480e3274fd8c-d9db2907b9c29514-a5077763c24b1874}}
+'''
+translate = '''
+- {{b139480e3274fd8c-d9db2907b9c29514-a5077763c24b1874}}
+'''
+
+[[block]]
+key = "b139480e3274fd8c-d9db2907b9c29514-a5077763c24b1874"
+type = "paragraph"
+origin = '''
+点击面板名称即可隐藏或重新显示对应面板。
+'''
+translate = '''
+Click a panel name to hide or show it.
+'''
+
+[[block]]
+key = "b139480e3274fd8c-57e8612d0b2d634c"
+type = "listItem"
+composite = true
+origin = '''
+- {{b139480e3274fd8c-57e8612d0b2d634c-bf73bcc3f9e517d0}}
+'''
+translate = '''
+- {{b139480e3274fd8c-57e8612d0b2d634c-bf73bcc3f9e517d0}}
+'''
+
+[[block]]
+key = "b139480e3274fd8c-57e8612d0b2d634c-bf73bcc3f9e517d0"
+type = "paragraph"
+origin = '''
+切换到其他二级页面时，菜单列表会随之动态更新。
+'''
+translate = '''
+Switching secondary pages updates the list to match that view.
+'''
+
+[[block]]
+key = "b139480e3274fd8c-16446c0c69ff86a9"
+type = "listItem"
+composite = true
+origin = '''
+- {{b139480e3274fd8c-16446c0c69ff86a9-31a456330af91a38}}
+'''
+translate = '''
+- {{b139480e3274fd8c-16446c0c69ff86a9-31a456330af91a38}}
+'''
+
+[[block]]
+key = "b139480e3274fd8c-16446c0c69ff86a9-31a456330af91a38"
+type = "paragraph"
+origin = '''
+“颜色调整”采用全屏工作台布局，不包含可停靠的浮动面板。
+'''
+translate = '''
+**Color Adjustment** uses a full-screen workspace without dockable panels.
+'''
+
+[[block]]
+key = "014b02c77fd4ac5e"
+type = "paragraph"
+origin = '''
+隐藏面板仅收起界面显示，不会关闭对应功能或清空已设参数；重新勾选显示后，原有数值照常保留。
+'''
+translate = '''
+Hiding a panel only removes it from view—its feature stays active and all parameter values remain intact when you show it again.
+'''
+
+[[block]]
+key = "3e2d240a949fc5da"
+type = "heading"
+origin = '''
+## 拖动与边缘停靠
+'''
+translate = '''
+## Move and dock
+'''
+
+[[block]]
+key = "331d039b5b928e22"
+type = "paragraph"
+origin = '''
+按住面板标题栏即可拖动位置。将面板拖至工作区左边缘或右边缘松开时，面板会自动吸附并插入到对应一侧的面板栈中；同侧面板会自动上下排布，无需手动对齐。
+'''
+translate = '''
+Drag any panel by its title bar. Releasing it near the left or right window edge snaps it into that dock at the drop position, and panels in the same dock stack cleanly without manual alignment.
+'''
+
+[[block]]
+key = "5602314987561f6e"
+type = "paragraph"
+origin = '''
+调整窗口大小后，软件会自动重算当前页面的面板位置；若自由浮动的面板超出可视边界，会自动归位到左侧停靠栏，确保所有控件始终可见可控。
+'''
+translate = '''
+When you resize the window, Lumina recalculates panel positions automatically. Any floating panel that would fall outside the visible viewport returns to the left dock so controls stay reachable.
+'''
+
+[[block]]
+key = "35121c56996fe3b5"
+type = "heading"
+origin = '''
+## 折叠与展开
+'''
+translate = '''
+## Collapse and expand
+'''
+
+[[block]]
+key = "a9686377188dc437"
+type = "paragraph"
+origin = '''
+点击标题栏右侧的三角图标可折叠或展开面板，此外也支持：
+'''
+translate = '''
+Click the arrow on the right side of a panel's title bar to collapse or expand it. You can also:
+'''
+
+[[block]]
+key = "8dc150835de4d445"
+type = "list"
+composite = true
+origin = '''
+{{8dc150835de4d445-20ae67d20a8b8849}}
+{{8dc150835de4d445-fac2d9027d352128}}
+'''
+translate = '''
+{{8dc150835de4d445-20ae67d20a8b8849}}
+{{8dc150835de4d445-fac2d9027d352128}}
+'''
+
+[[block]]
+key = "8dc150835de4d445-20ae67d20a8b8849"
+type = "listItem"
+composite = true
+origin = '''
+- {{8dc150835de4d445-20ae67d20a8b8849-04353f209f62574c}}
+'''
+translate = '''
+- {{8dc150835de4d445-20ae67d20a8b8849-04353f209f62574c}}
+'''
+
+[[block]]
+key = "8dc150835de4d445-20ae67d20a8b8849-04353f209f62574c"
+type = "paragraph"
+origin = '''
+双击面板标题栏。
+'''
+translate = '''
+Double-click the title bar.
+'''
+
+[[block]]
+key = "8dc150835de4d445-fac2d9027d352128"
+type = "listItem"
+composite = true
+origin = '''
+- {{8dc150835de4d445-fac2d9027d352128-6957dfd2afb24926}}
+'''
+translate = '''
+- {{8dc150835de4d445-fac2d9027d352128-6957dfd2afb24926}}
+'''
+
+[[block]]
+key = "8dc150835de4d445-fac2d9027d352128-6957dfd2afb24926"
+type = "paragraph"
+origin = '''
+将键盘焦点移至标题栏后按 `Enter` 键。
+'''
+translate = '''
+Focus the title bar with the keyboard and press `Enter`.
+'''
+
+[[block]]
+key = "e153e9dda6467085"
+type = "paragraph"
+origin = '''
+折叠后仅收起面板内容区，标题栏与停靠位置保持不变。拖动面板期间，软件会临时按折叠高度计算落点，松开鼠标后再恢复原有的展开状态与内容高度。
+'''
+translate = '''
+Collapsing hides the panel body while keeping its title bar in place. While dragging, Lumina temporarily measures the panel at its collapsed height for smooth placement, then restores its previous expanded state and height once dropped.
+'''
+
+[[block]]
+key = "2b93682e5552d60b"
+type = "heading"
+origin = '''
+## 布局记忆
+'''
+translate = '''
+## Layout memory
+'''
+
+[[block]]
+key = "e3368ca22d01b010"
+type = "paragraph"
+origin = '''
+面板的坐标、左右停靠归属、折叠状态与显示开关均保存在当前浏览器的本地存储中。这些界面偏好不属于工程参数，不会写入分享卡、JSON 或 3MF，也不会跨设备同步。
+'''
+translate = '''
+Panel coordinates, dock side, collapsed state, and visibility are saved in local browser storage. Because they are workspace preferences rather than project parameters, they are excluded from share cards, JSON files, and 3MF exports, and do not sync across devices.
+'''
+
+[[block]]
+key = "4264739f0e437fe2"
+type = "paragraph"
+origin = '''
+软件版本升级后，已移除旧面板的历史记录会自动清理，新增面板则按当前版本的默认位置摆放。
+'''
+translate = '''
+After an app update, stored entries for retired panels are cleaned up automatically, and newly introduced panels appear in their default positions.
+'''
+
+[[block]]
+key = "894b2e1d6d843ad3"
+type = "heading"
+origin = '''
+## 重置布局
+'''
+translate = '''
+## Reset Layout
+'''
+
+[[block]]
+key = "9a6e921900ae1726"
+type = "paragraph"
+origin = '''
+点击“重置布局”可将所有面板一键恢复至默认位置、默认显示状态与默认折叠状态，且不影响当前工作内容：
+'''
+translate = '''
+**Reset Layout** restores every panel to its default position, visibility, and collapsed state while keeping your active project intact:
+'''
+
+[[block]]
+key = "ff159d3091cd8156"
+type = "list"
+composite = true
+origin = '''
+{{ff159d3091cd8156-d3465a670e97f7cc}}
+{{ff159d3091cd8156-6301c3c3b35687aa}}
+{{ff159d3091cd8156-803fb7f8690e13f2}}
+{{ff159d3091cd8156-0448cb90789bd2b1}}
+'''
+translate = '''
+{{ff159d3091cd8156-d3465a670e97f7cc}}
+{{ff159d3091cd8156-6301c3c3b35687aa}}
+{{ff159d3091cd8156-803fb7f8690e13f2}}
+{{ff159d3091cd8156-0448cb90789bd2b1}}
+'''
+
+[[block]]
+key = "ff159d3091cd8156-d3465a670e97f7cc"
+type = "listItem"
+composite = true
+origin = '''
+- {{ff159d3091cd8156-d3465a670e97f7cc-421da39ba815beef}}
+'''
+translate = '''
+- {{ff159d3091cd8156-d3465a670e97f7cc-421da39ba815beef}}
+'''
+
+[[block]]
+key = "ff159d3091cd8156-d3465a670e97f7cc-421da39ba815beef"
+type = "paragraph"
+origin = '''
+已上传的图片与生成的预览保持不变。
+'''
+translate = '''
+Uploaded artwork and generated previews stay in place.
+'''
+
+[[block]]
+key = "ff159d3091cd8156-6301c3c3b35687aa"
+type = "listItem"
+composite = true
+origin = '''
+- {{ff159d3091cd8156-6301c3c3b35687aa-a909237dc0b23fdc}}
+'''
+translate = '''
+- {{ff159d3091cd8156-6301c3c3b35687aa-a909237dc0b23fdc}}
+'''
+
+[[block]]
+key = "ff159d3091cd8156-6301c3c3b35687aa-a909237dc0b23fdc"
+type = "paragraph"
+origin = '''
+LUT、耗材档案与结构参数保持不变。
+'''
+translate = '''
+LUT, material-archive, and structure settings remain unchanged.
+'''
+
+[[block]]
+key = "ff159d3091cd8156-803fb7f8690e13f2"
+type = "listItem"
+composite = true
+origin = '''
+- {{ff159d3091cd8156-803fb7f8690e13f2-24b9495ed3a66089}}
+'''
+translate = '''
+- {{ff159d3091cd8156-803fb7f8690e13f2-24b9495ed3a66089}}
+'''
+
+[[block]]
+key = "ff159d3091cd8156-803fb7f8690e13f2-24b9495ed3a66089"
+type = "paragraph"
+origin = '''
+颜色替换记录与自定义叠层配方保持不变。
+'''
+translate = '''
+Color replacements and custom layer recipes are preserved.
+'''
+
+[[block]]
+key = "ff159d3091cd8156-0448cb90789bd2b1"
+type = "listItem"
+composite = true
+origin = '''
+- {{ff159d3091cd8156-0448cb90789bd2b1-c46d1e72fb93f8d3}}
+'''
+translate = '''
+- {{ff159d3091cd8156-0448cb90789bd2b1-c46d1e72fb93f8d3}}
+'''
+
+[[block]]
+key = "ff159d3091cd8156-0448cb90789bd2b1-c46d1e72fb93f8d3"
+type = "paragraph"
+origin = '''
+系统设置中的打印机、喷嘴与切片软件配置保持不变。
+'''
+translate = '''
+Printer, nozzle, and slicer selections in Settings are untouched.
+'''
+
+[[block]]
+key = "052842b895b90289"
+type = "paragraph"
+origin = '''
+当面板出现遮挡重叠、移出视野或停靠顺序杂乱时，可随时放心使用“重置布局”整理界面。
+'''
+translate = '''
+Use **Reset Layout** anytime panels overlap, drift out of place, or end up in an inconvenient dock order.
+'''

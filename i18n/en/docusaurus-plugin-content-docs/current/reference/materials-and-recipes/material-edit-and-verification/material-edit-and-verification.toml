@@ -1,0 +1,426 @@
+[metadata]
+reviewed_source = "a60fc7c605ceeb730d095ed602b65946efce876e53a69791a44903b3b95f624c"
+
+[[block]]
+key = "257c3051587eded1"
+type = "yaml"
+origin = '''
+---
+title: "编辑与复验耗材"
+description: "修改耗材显示信息、追加复验记录和查看拟合历史。"
+sidebar_position: 3
+---
+'''
+translate = '''
+---
+title: "Editing and Re-Verification"
+description: "Edit display metadata, append verification runs, and inspect fit history."
+sidebar_position: 3
+---
+'''
+
+[[block]]
+key = "3f84cf8376856e82"
+type = "heading"
+origin = '''
+# 编辑与复验耗材
+'''
+translate = '''
+# Editing and Re-Verification
+'''
+
+[[block]]
+key = "91ca2dc7e7e9fb47"
+type = "paragraph"
+origin = '''
+耗材卡片提供编辑信息、再次验证、验证历史和删除耗材四项操作，分别用于调整界面展示属性、追加实测样本、排查拟合质量以及清理本地档案。
+'''
+translate = '''
+Each material card provides four actions—**Edit Details**, **Re-Verify**, **Verification History**, and **Delete Material**—to manage display metadata, append new calibration measurements, inspect fit diagnostics, or remove a local archive.
+'''
+
+[[block]]
+key = "4fd8467246c5fc7e"
+type = "heading"
+origin = '''
+## 编辑信息
+'''
+translate = '''
+## Edit Details
+'''
+
+[[block]]
+key = "c0c5ae78b63cd1dd"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-edit-material.webp').default}
+  alt="编辑耗材名称、品牌和显示颜色的窗口"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-edit-material.webp').default}
+  alt="Dialog for editing material name, brand, and display colour"
+/>
+'''
+
+[[block]]
+key = "daf37cda8966329e"
+type = "paragraph"
+origin = '''
+点击“编辑信息”可修改以下属性：
+'''
+translate = '''
+**Edit Details** updates an archive's display metadata:
+'''
+
+[[block]]
+key = "442ecb63d1a17c08"
+type = "list"
+composite = true
+origin = '''
+{{442ecb63d1a17c08-147415385aa5227c}}
+{{442ecb63d1a17c08-d836e166ca063432}}
+{{442ecb63d1a17c08-4534299b2b8216ab}}
+'''
+translate = '''
+{{442ecb63d1a17c08-147415385aa5227c}}
+{{442ecb63d1a17c08-d836e166ca063432}}
+{{442ecb63d1a17c08-4534299b2b8216ab}}
+'''
+
+[[block]]
+key = "442ecb63d1a17c08-147415385aa5227c"
+type = "listItem"
+composite = true
+origin = '''
+- {{442ecb63d1a17c08-147415385aa5227c-827dbe08d3482748}}
+'''
+translate = '''
+- {{442ecb63d1a17c08-147415385aa5227c-827dbe08d3482748}}
+'''
+
+[[block]]
+key = "442ecb63d1a17c08-147415385aa5227c-827dbe08d3482748"
+type = "paragraph"
+origin = '''
+**显示名称**
+'''
+translate = '''
+**Display name**
+'''
+
+[[block]]
+key = "442ecb63d1a17c08-d836e166ca063432"
+type = "listItem"
+composite = true
+origin = '''
+- {{442ecb63d1a17c08-d836e166ca063432-d89c28a8fd1c8dab}}
+'''
+translate = '''
+- {{442ecb63d1a17c08-d836e166ca063432-d89c28a8fd1c8dab}}
+'''
+
+[[block]]
+key = "442ecb63d1a17c08-d836e166ca063432-d89c28a8fd1c8dab"
+type = "paragraph"
+origin = '''
+**品牌**
+'''
+translate = '''
+**Brand**
+'''
+
+[[block]]
+key = "442ecb63d1a17c08-4534299b2b8216ab"
+type = "listItem"
+composite = true
+origin = '''
+- {{442ecb63d1a17c08-4534299b2b8216ab-c54d838aae1393e6}}
+'''
+translate = '''
+- {{442ecb63d1a17c08-4534299b2b8216ab-c54d838aae1393e6}}
+'''
+
+[[block]]
+key = "442ecb63d1a17c08-4534299b2b8216ab-c54d838aae1393e6"
+type = "paragraph"
+origin = '''
+**显示颜色**：支持通过取色器选取，或直接输入 `#RGB` / `#RRGGBB` 色值。
+'''
+translate = '''
+**Display color**: Choose a swatch from the picker or enter a `#RGB` / `#RRGGBB` hex value.
+'''
+
+[[block]]
+key = "a579a8c104ac855f"
+type = "paragraph"
+origin = '''
+显示颜色仅调整材料选择器中的预览色块，方便快速辨认，已拟合的 E、k 与基底光学参数保持不变。修改名称或品牌时底层目录名固定不变，已有工程或配方对该档案的引用不受影响。
+'''
+translate = '''
+Changing the display color updates only the preview swatch shown in material selectors; the fitted E, k, and substrate optical parameters remain unchanged. Because the underlying directory name stays fixed, renaming a material or changing its brand keeps existing project and recipe references intact.
+'''
+
+[[block]]
+key = "1db4fd78f9e429df"
+type = "heading"
+origin = '''
+## 再次验证
+'''
+translate = '''
+## Re-Verify
+'''
+
+[[block]]
+key = "4c860c744e453f76"
+type = "paragraph"
+origin = '''
+点击“再次验证”会跳转至“梯度卡提取”页面，并将当前耗材目录设为复验目标。完成新一组白底、黑底梯度卡照片提取后，可选择：
+'''
+translate = '''
+Clicking **Re-Verify** opens **Gradient Extractor** with the current material directory targeted for re-verification. After extracting a new pair of white- and black-substrate card photos, choose how to handle the result:
+'''
+
+[[block]]
+key = "8df0a7d0366f69fd"
+type = "list"
+composite = true
+origin = '''
+{{8df0a7d0366f69fd-490b5e4f8e822b55}}
+{{8df0a7d0366f69fd-c8910df445967b66}}
+{{8df0a7d0366f69fd-069d17701e7262cd}}
+'''
+translate = '''
+{{8df0a7d0366f69fd-490b5e4f8e822b55}}
+{{8df0a7d0366f69fd-c8910df445967b66}}
+{{8df0a7d0366f69fd-069d17701e7262cd}}
+'''
+
+[[block]]
+key = "8df0a7d0366f69fd-490b5e4f8e822b55"
+type = "listItem"
+composite = true
+origin = '''
+- {{8df0a7d0366f69fd-490b5e4f8e822b55-67f0477b215f5e55}}
+'''
+translate = '''
+- {{8df0a7d0366f69fd-490b5e4f8e822b55-67f0477b215f5e55}}
+'''
+
+[[block]]
+key = "8df0a7d0366f69fd-490b5e4f8e822b55-67f0477b215f5e55"
+type = "paragraph"
+origin = '''
+**合并结果**：保留原有验证记录，将本次有效样本与历史样本一并重新拟合。
+'''
+translate = '''
+**Merge Result**: Keeps prior verification runs and jointly refits all valid historical and new samples.
+'''
+
+[[block]]
+key = "8df0a7d0366f69fd-c8910df445967b66"
+type = "listItem"
+composite = true
+origin = '''
+- {{8df0a7d0366f69fd-c8910df445967b66-101e137fab686de5}}
+'''
+translate = '''
+- {{8df0a7d0366f69fd-c8910df445967b66-101e137fab686de5}}
+'''
+
+[[block]]
+key = "8df0a7d0366f69fd-c8910df445967b66-101e137fab686de5"
+type = "paragraph"
+origin = '''
+**覆盖结果**：清空原有验证记录，以本次拟合结果替换档案数据。
+'''
+translate = '''
+**Override**: Discards prior verification history and replaces the archive with the new fit.
+'''
+
+[[block]]
+key = "8df0a7d0366f69fd-069d17701e7262cd"
+type = "listItem"
+composite = true
+origin = '''
+- {{8df0a7d0366f69fd-069d17701e7262cd-7f86bc3f2a53f049}}
+'''
+translate = '''
+- {{8df0a7d0366f69fd-069d17701e7262cd-7f86bc3f2a53f049}}
+'''
+
+[[block]]
+key = "8df0a7d0366f69fd-069d17701e7262cd-7f86bc3f2a53f049"
+type = "paragraph"
+origin = '''
+**取消复验**：退出复验模式，原档案保持不变。
+'''
+translate = '''
+**Cancel Re-Verification**: Exits re-verification mode without modifying the archive.
+'''
+
+[[block]]
+key = "ee63bedbd7d2a5bd"
+type = "paragraph"
+origin = '''
+相机原图与 ColorChecker 校正图属于不同图像来源，不支持直接合并。若与原档案的图像来源不同，请改用相同校色方式重新处理图像，或直接选择覆盖结果。
+'''
+translate = '''
+Uncalibrated captures and ColorChecker-corrected images belong to separate source classes and cannot be merged together. To update an archive when switching calibration workflows, either process the images with matching source settings or select **Override**.
+'''
+
+[[block]]
+key = "e7993b52a7883688"
+type = "heading"
+origin = '''
+## 验证历史
+'''
+translate = '''
+## Verification History
+'''
+
+[[block]]
+key = "78ce103d5ab51bb5"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/02-verification-history.webp').default}
+  alt="耗材档案的验证历史窗口"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/02-verification-history.webp').default}
+  alt="Verification History dialog for a material archive"
+/>
+'''
+
+[[block]]
+key = "3b3064738ec3912a"
+type = "paragraph"
+origin = '''
+展开验证历史可查看历次测量的诊断摘要，包括估算颜色、平均 ΔE、线性 RMSE、白底与黑底识别方向，以及 E、k、白底 C0、黑底 C0 参数；执行过合并重拟合时，还会列出各次历史测量被采纳或剔除的情况。
+'''
+translate = '''
+Each recorded run in **Verification History** lists the estimated color, mean ΔE, linear RMSE, detected white/black card orientations, and the fitted E, k, white C0, and black C0 parameters. When runs have been merged, merge diagnostics also indicate which historical measurements were included or excluded.
+'''
+
+[[block]]
+key = "91b96d01b05f306d"
+type = "paragraph"
+origin = '''
+通过验证历史可以直观检查：
+'''
+translate = '''
+Reviewing these diagnostics helps you:
+'''
+
+[[block]]
+key = "ac1437e53e95714a"
+type = "list"
+composite = true
+origin = '''
+{{ac1437e53e95714a-42e60e9bb26b3082}}
+{{ac1437e53e95714a-09feb0a86d46bd29}}
+{{ac1437e53e95714a-a4aa33683c75809f}}
+'''
+translate = '''
+{{ac1437e53e95714a-42e60e9bb26b3082}}
+{{ac1437e53e95714a-09feb0a86d46bd29}}
+{{ac1437e53e95714a-a4aa33683c75809f}}
+'''
+
+[[block]]
+key = "ac1437e53e95714a-42e60e9bb26b3082"
+type = "listItem"
+composite = true
+origin = '''
+- {{ac1437e53e95714a-42e60e9bb26b3082-caaac1fa7aa2d43b}}
+'''
+translate = '''
+- {{ac1437e53e95714a-42e60e9bb26b3082-caaac1fa7aa2d43b}}
+'''
+
+[[block]]
+key = "ac1437e53e95714a-42e60e9bb26b3082-caaac1fa7aa2d43b"
+type = "paragraph"
+origin = '''
+同一耗材多次拍摄与打印的一致性；
+'''
+translate = '''
+Check consistency across repeated prints and photo sessions for the same filament
+'''
+
+[[block]]
+key = "ac1437e53e95714a-09feb0a86d46bd29"
+type = "listItem"
+composite = true
+origin = '''
+- {{ac1437e53e95714a-09feb0a86d46bd29-8c90c85b759f1d15}}
+'''
+translate = '''
+- {{ac1437e53e95714a-09feb0a86d46bd29-8c90c85b759f1d15}}
+'''
+
+[[block]]
+key = "ac1437e53e95714a-09feb0a86d46bd29-8c90c85b759f1d15"
+type = "paragraph"
+origin = '''
+是否存在曝光偏移、白平衡漂移或色卡方向识别异常；
+'''
+translate = '''
+Spot exposure shifts, white-balance drift, or card orientation errors
+'''
+
+[[block]]
+key = "ac1437e53e95714a-a4aa33683c75809f"
+type = "listItem"
+composite = true
+origin = '''
+- {{ac1437e53e95714a-a4aa33683c75809f-a5e08f6c3ef65338}}
+'''
+translate = '''
+- {{ac1437e53e95714a-a4aa33683c75809f-a5e08f6c3ef65338}}
+'''
+
+[[block]]
+key = "ac1437e53e95714a-a4aa33683c75809f-a5e08f6c3ef65338"
+type = "paragraph"
+origin = '''
+新测得的数据适合并入历史样本，还是直接覆盖旧档案。
+'''
+translate = '''
+Decide whether a new measurement should be merged into history or used to override the archive
+'''
+
+[[block]]
+key = "d5ca1be982a8fb8e"
+type = "heading"
+origin = '''
+## 删除
+'''
+translate = '''
+## Delete Material
+'''
+
+[[block]]
+key = "3d3bf16480f35ad5"
+type = "paragraph"
+origin = '''
+点击“删除耗材”会永久移除当前环境中的这份本地档案目录，操作不可撤销；云端目录中的版本或其他设备上的副本不受影响。如需留存备份，请在删除前通过[导入与导出耗材](../material-import-export/material-import-export.mdx)导出 ZIP 包。
+'''
+translate = '''
+**Delete Material** permanently deletes this local archive directory from the current installation and cannot be undone. Cloud catalog revisions and copies stored on other machines are unaffected. To keep a backup before deleting, export the archive first via [Material Import and Export](../material-import-export/material-import-export.mdx).
+'''
+
+[[block]]
+key = "60f424e0b16a15c9"
+type = "paragraph"
+origin = '''
+复验的完整拍摄与提取步骤见[梯度卡提取](../gradient-card-extraction/gradient-card-extraction.mdx)。
+'''
+translate = '''
+For the full photography and extraction workflow, see [Gradient Card Extraction](../gradient-card-extraction/gradient-card-extraction.mdx).
+'''

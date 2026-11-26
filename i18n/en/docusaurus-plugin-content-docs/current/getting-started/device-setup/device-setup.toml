@@ -1,0 +1,437 @@
+[metadata]
+migration_layout = "preserved English structure; root blocks retain grouped or omitted source sections"
+reviewed_source = "44d59967ada985e74efbf6cb039214d3482b562f681d941c208e067d01175f21"
+
+[[block]]
+key = "ad6e99510f29b618"
+type = "yaml"
+origin = '''
+---
+title: "首次使用：配置切片软件、打印机与喷嘴"
+description: "第一次使用 Lumina Studio 时，按实际设备选择切片软件、打印机型号和喷嘴尺寸。"
+sidebar_position: 16
+---
+'''
+translate = '''
+---
+title: "First Use: Configure Your Slicer, Printer, and Nozzle"
+description: "Choose the slicer, printer model, and nozzle size that match your actual equipment before using Lumina Studio."
+sidebar_position: 16
+---
+'''
+
+[[block]]
+key = "84150841e4b96975"
+type = "heading"
+origin = '''
+# 首次使用：配置切片软件、打印机与喷嘴
+'''
+translate = '''
+# First Use: Configure Your Slicer, Printer, and Nozzle
+'''
+
+[[block]]
+key = "6918ff5c32cab5c9"
+type = "paragraph"
+origin = '''
+首次打开 Lumina Studio 时，请先按你的真实硬件配置切片软件、打印机型号与喷嘴尺寸。后续生成的 3MF 工程、打印盘尺寸与线宽尺度都会直接基于这三项设置计算。
+'''
+translate = '''
+When you open Lumina Studio for the first time, set your slicer, printer model, and nozzle diameter to match your hardware. Lumina Studio uses these three settings to size build plates, compute pixel line scales, and generate compatible 3MF projects.
+'''
+
+[[block]]
+key = "af4b89b8fbaf4cb1"
+type = "blockquote"
+composite = true
+origin = '''
+> {{af4b89b8fbaf4cb1-a5179de2d79f2102}}
+'''
+translate = '''
+> Screenshots below show **BambuStudio**, **Bambu Lab P1S**, and a **0.4 mm** nozzle as examples—select the software and hardware you actually run.
+'''
+
+[[block]]
+key = "af4b89b8fbaf4cb1-a5179de2d79f2102"
+type = "paragraph"
+origin = '''
+下方截图以 **BambuStudio**、**Bambu Lab P1S** 和 **0.4 毫米**喷嘴为例，操作时请按你实际使用的软件和硬件选择。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8b86513eaa740231"
+type = "heading"
+origin = '''
+## 开始前确认
+'''
+translate = '''
+## Before you start
+
+Have three details ready:
+'''
+
+[[block]]
+key = "551c5fc1629f29a1"
+type = "list"
+composite = true
+origin = '''
+{{551c5fc1629f29a1-3f6a80941f2e457c}}
+{{551c5fc1629f29a1-dd04faea8df6b05b}}
+{{551c5fc1629f29a1-797018a29e595e49}}
+'''
+translate = '''
+- Your everyday slicer
+- Your exact printer model
+- The nozzle diameter currently installed on your printer (check your printer screen or the marking stamped on the nozzle if unsure)
+'''
+
+[[block]]
+key = "551c5fc1629f29a1-3f6a80941f2e457c"
+type = "listItem"
+composite = true
+origin = '''
+- {{551c5fc1629f29a1-3f6a80941f2e457c-12c8f029b2c62554}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "551c5fc1629f29a1-3f6a80941f2e457c-12c8f029b2c62554"
+type = "paragraph"
+origin = '''
+平时使用的切片软件
+'''
+translate = '''
+'''
+
+[[block]]
+key = "551c5fc1629f29a1-dd04faea8df6b05b"
+type = "listItem"
+composite = true
+origin = '''
+- {{551c5fc1629f29a1-dd04faea8df6b05b-4045f842d81b1a1a}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "551c5fc1629f29a1-dd04faea8df6b05b-4045f842d81b1a1a"
+type = "paragraph"
+origin = '''
+打印机的完整型号
+'''
+translate = '''
+'''
+
+[[block]]
+key = "551c5fc1629f29a1-797018a29e595e49"
+type = "listItem"
+composite = true
+origin = '''
+- {{551c5fc1629f29a1-797018a29e595e49-da7adacdd0269fe0}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "551c5fc1629f29a1-797018a29e595e49-da7adacdd0269fe0"
+type = "paragraph"
+origin = '''
+当前安装在机器上的喷嘴口径（不确定时可查看机身设置或喷嘴本体刻字）
+'''
+translate = '''
+'''
+
+[[block]]
+key = "697bc4d3462c4f0a"
+type = "heading"
+origin = '''
+## 配置步骤
+'''
+translate = '''
+## Setup steps
+'''
+
+[[block]]
+key = "2e3466fb55b2431f"
+type = "heading"
+origin = '''
+### 1. 打开系统设置
+'''
+translate = '''
+### 1. Open System Settings
+'''
+
+[[block]]
+key = "9d38c395d28e1bf6"
+type = "paragraph"
+origin = '''
+点击顶部导航栏右侧的 **“设置”**，进入系统设置页面。
+'''
+translate = '''
+Click **Settings** in the top navigation bar.
+
+<img
+  src={require('./assets/settings-device-en-01-open-settings.webp').default}
+  alt="Open Settings at the top of the page"
+/>
+'''
+
+[[block]]
+key = "e3b2cbfac329e47c"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/settings-device-zh-01-open-settings.webp').default}
+  alt="点击页面顶部的设置"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c4eca2ccbc29268c"
+type = "heading"
+origin = '''
+### 2. 展开切片软件列表
+'''
+translate = '''
+### 2. Open the Slicer menu
+'''
+
+[[block]]
+key = "6cbbb7f832695dc4"
+type = "paragraph"
+origin = '''
+在“系统设置”中找到 **“切片软件”**，点击下拉菜单查看当前受支持的切片软件。
+'''
+translate = '''
+Locate **Slicer** under System Settings and open the dropdown menu to see supported slicers.
+
+<img
+  src={require('./assets/settings-device-en-02-open-slicer.webp').default}
+  alt="Open the slicer menu"
+/>
+'''
+
+[[block]]
+key = "d7a4b910cecce04a"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/settings-device-zh-02-open-slicer.webp').default}
+  alt="打开切片软件下拉菜单"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c1db0899c8d722f4"
+type = "heading"
+origin = '''
+### 3. 选择切片软件
+'''
+translate = '''
+### 3. Select your slicer
+'''
+
+[[block]]
+key = "80b9638e6c7e665f"
+type = "paragraph"
+origin = '''
+在下拉列表中选择你日常使用的切片软件。
+'''
+translate = '''
+Choose the slicer you use for printing.
+
+<img
+  src={require('./assets/settings-device-en-03-select-slicer.webp').default}
+  alt="Select the slicer you actually use"
+/>
+'''
+
+[[block]]
+key = "e46835dc67b98701"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/settings-device-zh-03-select-slicer.webp').default}
+  alt="选择实际使用的切片软件"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0f8e4c0aaee6f9e2"
+type = "heading"
+origin = '''
+### 4. 选择打印机型号
+'''
+translate = '''
+### 4. Select your printer model
+'''
+
+[[block]]
+key = "dc5e492fb655e7ee"
+type = "paragraph"
+origin = '''
+在下方机型列表中点选你的打印机完整型号。
+'''
+translate = '''
+Click your exact printer model in the device list.
+
+<img
+  src={require('./assets/settings-device-en-04-select-printer.webp').default}
+  alt="Select your actual printer model"
+/>
+'''
+
+[[block]]
+key = "4e51cd62f60195c6"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/settings-device-zh-04-select-printer.webp').default}
+  alt="选择实际使用的打印机型号"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "88c0a87f0a92c9ab"
+type = "heading"
+origin = '''
+### 5. 选择喷嘴尺寸
+'''
+translate = '''
+### 5. Select the installed nozzle size
+'''
+
+[[block]]
+key = "295a2fd7ebe19104"
+type = "paragraph"
+origin = '''
+在所选打印机卡片上点击当前实际安装的喷嘴规格。
+'''
+translate = '''
+On the selected printer card, click the nozzle diameter installed on your machine.
+
+<img
+  src={require('./assets/settings-device-en-05-select-nozzle.webp').default}
+  alt="Select the installed nozzle size"
+/>
+'''
+
+[[block]]
+key = "ffa534c9857d0b64"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/settings-device-zh-05-select-nozzle.webp').default}
+  alt="选择当前安装的喷嘴尺寸"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "928fa259278cbbf2"
+type = "heading"
+origin = '''
+### 6. 核对设置摘要
+'''
+translate = '''
+### 6. Review the summary
+'''
+
+[[block]]
+key = "f626a697ab39d167"
+type = "paragraph"
+origin = '''
+在页面底部确认切片软件、打印机型号与喷嘴尺寸均准确无误。更改会自动立即保存，无需手动点击保存按钮。
+'''
+translate = '''
+Check the summary bar at the bottom to confirm your slicer, printer model, and nozzle size. Changes are saved automatically—there is no separate Save button.
+
+<img
+  src={require('./assets/settings-device-en-06-check-summary.webp').default}
+  alt="Check the equipment settings summary"
+/>
+'''
+
+[[block]]
+key = "3348ebe6c2554387"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/settings-device-zh-06-check-summary.webp').default}
+  alt="核对设备设置摘要"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "be2a309564cc0c91"
+type = "paragraph"
+origin = '''
+后续如果更换了打印机、切片软件或喷嘴口径，请随时回到 **“设置”** 同步更新，再重新生成模型。
+'''
+translate = '''
+Whenever you switch slicers, printers, or nozzles later on, update **Settings** first before generating new 3MF files.
+'''
+
+[[block]]
+key = "3b30b685be5af364"
+type = "heading"
+origin = '''
+## 常见问题
+'''
+translate = '''
+## Troubleshooting
+'''
+
+[[block]]
+key = "2e05935340049a58"
+type = "heading"
+origin = '''
+### 列表中找不到我的打印机型号？
+'''
+translate = '''
+### My printer is not listed
+'''
+
+[[block]]
+key = "0882131d6dce8725"
+type = "paragraph"
+origin = '''
+可选机型列表随所选切片软件变化，请先确认第 3 步选对了切片软件。如果核对后仍无对应型号，说明当前版本暂未内置该机型配置。
+'''
+translate = '''
+Available printer profiles depend on the selected slicer—double-check Step 3 first. If your printer still does not appear, a built-in profile for that model is not yet included in your current build.
+'''
+
+[[block]]
+key = "23c4b4be472e1261"
+type = "heading"
+origin = '''
+### 为什么页面上没有“保存”按钮？
+'''
+translate = '''
+### Why is there no Save button?
+'''
+
+[[block]]
+key = "1da0c6bcc67407c1"
+type = "paragraph"
+origin = '''
+设备配置在选择后即自动生效并持久保存，可以直接切回其他工作区继续使用。
+'''
+translate = '''
+Selections take effect and persist immediately. Once the summary matches your setup, you can head straight back to the workspace.
+'''

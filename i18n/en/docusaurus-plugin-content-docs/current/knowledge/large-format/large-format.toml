@@ -1,0 +1,1851 @@
+[metadata]
+migration_layout = "preserved English structure; root blocks retain grouped or omitted source sections"
+reviewed_source = "d29ec37bf6330fe48acbd20388d210f8c714cae11500d8ba136bd22d2d3d5305"
+
+[[block]]
+key = "377de30de3b72670"
+type = "yaml"
+origin = '''
+---
+title: "大画幅：分块尺寸、拼接顺序和 ZIP 文件"
+description: "把超过单张热床范围的作品切分为多个 3MF，读懂行列坐标、末行末列尺寸，并完成切片检查与实体拼接。"
+sidebar_position: 31
+---
+'''
+translate = '''
+---
+title: "Large Format: Tile Size, Assembly Order, and ZIP Files"
+description: "Split artwork larger than one build plate into several 3MF files, read row and column coordinates, and verify every tile before assembly."
+sidebar_position: 31
+---
+'''
+
+[[block]]
+key = "134c3bf34b65e5aa"
+type = "heading"
+origin = '''
+# 大画幅：分块尺寸、拼接顺序和 ZIP 文件
+'''
+translate = '''
+# Large Format: Tile Size, Assembly Order, and ZIP Files
+'''
+
+[[block]]
+key = "d242a1905bd942e7"
+type = "paragraph"
+origin = '''
+大画幅模式会将超过单张热床打印范围的完整作品按行、列切分为多个相邻分块，为每一块独立生成 3MF 模型并统一打包为 ZIP 下载，适合壁画、门牌与大幅展示板等大型作品。
+'''
+translate = '''
+Large Format splits a single oversized artwork into a grid of adjacent tiles, generates an independent 3MF file for each tile, and bundles them into a single ZIP archive—ideal for murals, signage, display boards, and multi-panel wall art larger than a single build plate.
+'''
+
+[[block]]
+key = "dbbf9c34779b946b"
+type = "paragraph"
+origin = '''
+核心规则一览：
+'''
+translate = '''
+Key points at a glance:
+'''
+
+[[block]]
+key = "e06d4be6981c05f1"
+type = "list"
+composite = true
+origin = '''
+{{e06d4be6981c05f1-db73e63659726b6f}}
+{{e06d4be6981c05f1-d026a5c511184ad8}}
+{{e06d4be6981c05f1-f98ebf378b502d44}}
+{{e06d4be6981c05f1-28b17f6610e83f0f}}
+{{e06d4be6981c05f1-40b9b1fb5a0b9313}}
+'''
+translate = '''
+- **Assembled size vs. tile limit:** **Width** and **Height** set the dimensions of the finished, assembled piece, while **Tile Width** and **Tile Height** cap the maximum size of any single 3MF tile.
+- **Row and column naming:** Tiles are numbered top to bottom and left to right, starting with `R1C1` at the top-left corner.
+- **Remainder edges:** Whenever the assembled size doesn't divide evenly by the tile limit, the rightmost column and bottom row hold the smaller remainder dimensions.
+- **Butt-joint boundaries:** Tiles meet along clean, non-overlapping straight cuts without automatic puzzle tabs, alignment pins, or glue-gap offsets.
+- **Per-tile slicer verification:** Preview displays the full artwork for color and layer inspection; after downloading the ZIP, open each 3MF in your slicer to verify bed fit, filament mapping, and toolpaths.
+'''
+
+[[block]]
+key = "e06d4be6981c05f1-db73e63659726b6f"
+type = "listItem"
+composite = true
+origin = '''
+- {{e06d4be6981c05f1-db73e63659726b6f-33239e57775d0ada}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "e06d4be6981c05f1-db73e63659726b6f-33239e57775d0ada"
+type = "paragraph"
+origin = '''
+**总尺寸与分块上限**：总宽、总高代表拼接完成后的完整成品尺寸；分块宽度、分块高度则是单个 3MF 允许占用的最大尺寸上限；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "e06d4be6981c05f1-d026a5c511184ad8"
+type = "listItem"
+composite = true
+origin = '''
+- {{e06d4be6981c05f1-d026a5c511184ad8-fe4e02c4824b9e5d}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "e06d4be6981c05f1-d026a5c511184ad8-fe4e02c4824b9e5d"
+type = "paragraph"
+origin = '''
+**行列坐标命名**：文件按从上到下、从左到右编号，`R1C1` 代表左上角第一块，`R2C3` 代表第 2 行第 3 列；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "e06d4be6981c05f1-f98ebf378b502d44"
+type = "listItem"
+composite = true
+origin = '''
+- {{e06d4be6981c05f1-f98ebf378b502d44-8aefebf3ba7bd2cf}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "e06d4be6981c05f1-f98ebf378b502d44-8aefebf3ba7bd2cf"
+type = "paragraph"
+origin = '''
+**末行与末列尺寸**：当总尺寸无法被分块上限整除时，最后一列与最后一行仅保留剩余尺寸，因此会小于设定的上限值；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "e06d4be6981c05f1-28b17f6610e83f0f"
+type = "listItem"
+composite = true
+origin = '''
+- {{e06d4be6981c05f1-28b17f6610e83f0f-b8a7c15f40fc2ba7}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "e06d4be6981c05f1-28b17f6610e83f0f-b8a7c15f40fc2ba7"
+type = "paragraph"
+origin = '''
+**平切边界设计**：各分块沿相邻边界直接平切，不带重叠量，也不会自动生成榫卯、定位孔或胶缝间隙；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "e06d4be6981c05f1-40b9b1fb5a0b9313"
+type = "listItem"
+composite = true
+origin = '''
+- {{e06d4be6981c05f1-40b9b1fb5a0b9313-39d150215d5532b0}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "e06d4be6981c05f1-40b9b1fb5a0b9313-39d150215d5532b0"
+type = "paragraph"
+origin = '''
+**逐块切片核对**：网页端的 2D 预览与分层预览用于检查整幅画面的配色与叠层，下载解压后仍需将每个 3MF 逐一导入切片器确认热床排版、耗材映射与走线路径。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7f182baf1cf49c31"
+type = "paragraph"
+origin = '''
+下文以总尺寸 `450×300 mm`、单块上限 `180×180 mm` 的实操案例演示完整流程（最终生成 `3×2` 共 6 个 3MF 文件）。
+'''
+translate = '''
+The walkthrough below uses a `450×300 mm` artwork with a `180×180 mm` tile limit, producing a `3×2` grid of six 3MF files.
+'''
+
+[[block]]
+key = "79a89aacbdb5990a"
+type = "heading"
+origin = '''
+## 适用场景与边界
+'''
+translate = '''
+## When to use Large Format
+'''
+
+[[block]]
+key = "6dfe28419b9f002e"
+type = "paragraph"
+origin = '''
+适合开启大画幅模式的场景：
+'''
+translate = '''
+Large Format works well when:
+'''
+
+[[block]]
+key = "ada5c411c6bfc6a4"
+type = "list"
+composite = true
+origin = '''
+{{ada5c411c6bfc6a4-4d52a706feb3472f}}
+{{ada5c411c6bfc6a4-52a42cc4f4925133}}
+{{ada5c411c6bfc6a4-6854d6fb93ae674b}}
+{{ada5c411c6bfc6a4-04844c80fcb33378}}
+'''
+translate = '''
+- Your finished artwork exceeds your printer's usable build plate area.
+- Every tile shares the same color source, structural settings, and color Layer Height.
+- You plan to align and mount the printed panels onto a backing board or frame manually.
+- You are ready to slice, label, and inspect each tile individually.
+'''
+
+[[block]]
+key = "ada5c411c6bfc6a4-4d52a706feb3472f"
+type = "listItem"
+composite = true
+origin = '''
+- {{ada5c411c6bfc6a4-4d52a706feb3472f-428e595e3de34cb0}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ada5c411c6bfc6a4-4d52a706feb3472f-428e595e3de34cb0"
+type = "paragraph"
+origin = '''
+成品总尺寸超出打印机单张热床的实际可用范围；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ada5c411c6bfc6a4-52a42cc4f4925133"
+type = "listItem"
+composite = true
+origin = '''
+- {{ada5c411c6bfc6a4-52a42cc4f4925133-c45ef97c38269767}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ada5c411c6bfc6a4-52a42cc4f4925133-c45ef97c38269767"
+type = "paragraph"
+origin = '''
+所有分块共用同一套色彩来源、模型结构与显色层高；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ada5c411c6bfc6a4-6854d6fb93ae674b"
+type = "listItem"
+composite = true
+origin = '''
+- {{ada5c411c6bfc6a4-6854d6fb93ae674b-c05e89366b3dd160}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ada5c411c6bfc6a4-6854d6fb93ae674b-c05e89366b3dd160"
+type = "paragraph"
+origin = '''
+打印完成后可在背板、夹具或平整工作台上对齐拼接与固定；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ada5c411c6bfc6a4-04844c80fcb33378"
+type = "listItem"
+composite = true
+origin = '''
+- {{ada5c411c6bfc6a4-04844c80fcb33378-6e0cc37af473c738}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ada5c411c6bfc6a4-04844c80fcb33378-6e0cc37af473c738"
+type = "paragraph"
+origin = '''
+计划按行列编号逐盘切片与打印。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c9fd8ebbd45af757"
+type = "paragraph"
+origin = '''
+以下场景建议采用其他方案：
+'''
+translate = '''
+Use a different approach if each panel needs its own palette or thickness, or if you want interlocking puzzle tabs (use Puzzle mode or add custom joints in an external CAD tool instead). Before tiling a brand-new image or palette, run a quick small-scale single-image test to confirm your colors and layer structure first.
+'''
+
+[[block]]
+key = "f2d8aebe91cfc8a2"
+type = "list"
+composite = true
+origin = '''
+{{f2d8aebe91cfc8a2-da8801416b28c7c6}}
+{{f2d8aebe91cfc8a2-5d6d83b53c1801a3}}
+{{f2d8aebe91cfc8a2-d3e03e1d29c66999}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f2d8aebe91cfc8a2-da8801416b28c7c6"
+type = "listItem"
+composite = true
+origin = '''
+- {{f2d8aebe91cfc8a2-da8801416b28c7c6-45fbeff8050217d0}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f2d8aebe91cfc8a2-da8801416b28c7c6-45fbeff8050217d0"
+type = "paragraph"
+origin = '''
+需要拼图卡扣连接时，请改用拼图模式，或在外部三维软件中设计定位销与搭接结构；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f2d8aebe91cfc8a2-5d6d83b53c1801a3"
+type = "listItem"
+composite = true
+origin = '''
+- {{f2d8aebe91cfc8a2-5d6d83b53c1801a3-cc41fb19cb309798}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f2d8aebe91cfc8a2-5d6d83b53c1801a3-cc41fb19cb309798"
+type = "paragraph"
+origin = '''
+各区域需要不同的色彩来源、底板厚度或建模方式时，建议拆分为独立单图工程；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f2d8aebe91cfc8a2-d3e03e1d29c66999"
+type = "listItem"
+composite = true
+origin = '''
+- {{f2d8aebe91cfc8a2-d3e03e1d29c66999-bf95a4f6fe43ce5f}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f2d8aebe91cfc8a2-d3e03e1d29c66999-bf95a4f6fe43ce5f"
+type = "paragraph"
+origin = '''
+需要使用冰箱贴磁铁槽或批量生成功能时（大画幅与拼图、磁铁槽及批量生成互斥）。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f0f5d498960d32fd"
+type = "admonition"
+composite = true
+origin = '''
+:::info[先测普通单图]
+{{f0f5d498960d32fd-f1fe2c616024096b}}
+:::
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f0f5d498960d32fd-f1fe2c616024096b"
+type = "paragraph"
+origin = '''
+首次测试新素材或新耗材档案时，建议先关闭大画幅，用较小幅面跑通一次单图预览、生成与切片，确认配色、层数、透明边缘与基础结构无误后再开启大画幅分块。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "098e4d7e7921a75a"
+type = "heading"
+origin = '''
+## 第一步：填写拼接完成后的总尺寸
+'''
+translate = '''
+## Step 1: Enter the assembled dimensions
+'''
+
+[[block]]
+key = "3e4bf323598891d5"
+type = "paragraph"
+origin = '''
+上传图片并选定色彩来源后，先输入作品拼接完成后的目标总宽度或总高度（开启长宽比锁定时，修改一边会自动按原图比例计算另一边）。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "11103e9141f93d20"
+type = "paragraph"
+origin = '''
+本例参数如下：
+'''
+translate = '''
+Upload your artwork, select your color source, and enter the final **Width** or **Height** of the complete assembled piece (with aspect ratio locked, the second dimension updates automatically).
+'''
+
+[[block]]
+key = "21389da443246b03"
+type = "list"
+composite = true
+origin = '''
+{{21389da443246b03-ba5683028aa54f3e}}
+{{21389da443246b03-51ee8e2d1d5e603b}}
+{{21389da443246b03-a4034a2216b6947c}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "21389da443246b03-ba5683028aa54f3e"
+type = "listItem"
+composite = true
+origin = '''
+- {{21389da443246b03-ba5683028aa54f3e-c3a8e5a6124704f1}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "21389da443246b03-ba5683028aa54f3e-c3a8e5a6124704f1"
+type = "paragraph"
+origin = '''
+总宽度：`450 mm`
+'''
+translate = '''
+'''
+
+[[block]]
+key = "21389da443246b03-51ee8e2d1d5e603b"
+type = "listItem"
+composite = true
+origin = '''
+- {{21389da443246b03-51ee8e2d1d5e603b-3d417106ce18b094}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "21389da443246b03-51ee8e2d1d5e603b-3d417106ce18b094"
+type = "paragraph"
+origin = '''
+总高度：`300 mm`
+'''
+translate = '''
+'''
+
+[[block]]
+key = "21389da443246b03-a4034a2216b6947c"
+type = "listItem"
+composite = true
+origin = '''
+- {{21389da443246b03-a4034a2216b6947c-02799a29865023cf}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "21389da443246b03-a4034a2216b6947c-02799a29865023cf"
+type = "paragraph"
+origin = '''
+成品长宽比：`3:2`
+'''
+translate = '''
+'''
+
+[[block]]
+key = "6879f7a2f1b74e5a"
+type = "paragraph"
+origin = '''
+若原图构图比例或朝向需要调整，请先通过裁剪或旋转处理好素材，具体步骤见[上传、替换、裁剪和旋转图片](pathname:///zh/docs/knowledge/image-upload-crop-rotate/)。
+'''
+translate = '''
+Ensure your framing and orientation are finalized before tiling—see [Upload, Replace, Crop, and Rotate an Image](pathname:///en/docs/knowledge/image-upload-crop-rotate/) if you need to crop or rotate the source image first.
+'''
+
+[[block]]
+key = "c99548e6b30c6a34"
+type = "heading"
+origin = '''
+## 第二步：开启大画幅并设定分块上限
+'''
+translate = '''
+## Step 2: Enable Large Format and set tile limits
+'''
+
+[[block]]
+key = "2e2ec930021f30d6"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-large-format-settings.webp').default}
+  alt="Lumina Studio 大画幅设置中的总尺寸、大画幅开关、分块宽度、分块高度和 3×2 计算结果"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-large-format-settings.webp').default}
+  alt="Real English Lumina Studio interface with finished size, Large Format Mode, tile limits, and a 3 by 2 calculation highlighted"
+/>
+
+Turn on **Large Format Mode**, then enter **Tile Width** and **Tile Height** as maximum per-tile dimensions.
+'''
+
+[[block]]
+key = "87d0bd9a13cdc2e3"
+type = "paragraph"
+origin = '''
+开启“大画幅模式”开关，填入**分块宽度**与**分块高度**上限。软件会自动计算所需的列数、行数及末列末行余量：
+'''
+translate = '''
+In this example:
+'''
+
+[[block]]
+key = "767352a3fd7df7a7"
+type = "list"
+composite = true
+origin = '''
+{{767352a3fd7df7a7-e662aaeb3356da24}}
+{{767352a3fd7df7a7-b782efd31f2ee13f}}
+{{767352a3fd7df7a7-6e43343739d9ef3a}}
+{{767352a3fd7df7a7-978e8adce7937949}}
+{{767352a3fd7df7a7-892236fc5c548559}}
+'''
+translate = '''
+- **Assembled size:** `450×300 mm`
+- **Tile limit:** `180×180 mm`
+- **Columns:** `ceil(450 ÷ 180) = 3`
+- **Rows:** `ceil(300 ÷ 180) = 2`
+- **Total tiles:** `3 × 2 = 6`
+'''
+
+[[block]]
+key = "767352a3fd7df7a7-e662aaeb3356da24"
+type = "listItem"
+composite = true
+origin = '''
+- {{767352a3fd7df7a7-e662aaeb3356da24-0d92bb2dda5c3f64}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "767352a3fd7df7a7-e662aaeb3356da24-0d92bb2dda5c3f64"
+type = "paragraph"
+origin = '''
+总尺寸：`450×300 mm`
+'''
+translate = '''
+'''
+
+[[block]]
+key = "767352a3fd7df7a7-b782efd31f2ee13f"
+type = "listItem"
+composite = true
+origin = '''
+- {{767352a3fd7df7a7-b782efd31f2ee13f-1b4c44c9ec5fca8a}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "767352a3fd7df7a7-b782efd31f2ee13f-1b4c44c9ec5fca8a"
+type = "paragraph"
+origin = '''
+分块上限：`180×180 mm`
+'''
+translate = '''
+'''
+
+[[block]]
+key = "767352a3fd7df7a7-6e43343739d9ef3a"
+type = "listItem"
+composite = true
+origin = '''
+- {{767352a3fd7df7a7-6e43343739d9ef3a-178e304afbaa0f2f}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "767352a3fd7df7a7-6e43343739d9ef3a-178e304afbaa0f2f"
+type = "paragraph"
+origin = '''
+列数：`向上取整(450 ÷ 180) = 3`
+'''
+translate = '''
+'''
+
+[[block]]
+key = "767352a3fd7df7a7-978e8adce7937949"
+type = "listItem"
+composite = true
+origin = '''
+- {{767352a3fd7df7a7-978e8adce7937949-fe263f90f2fae2eb}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "767352a3fd7df7a7-978e8adce7937949-fe263f90f2fae2eb"
+type = "paragraph"
+origin = '''
+行数：`向上取整(300 ÷ 180) = 2`
+'''
+translate = '''
+'''
+
+[[block]]
+key = "767352a3fd7df7a7-892236fc5c548559"
+type = "listItem"
+composite = true
+origin = '''
+- {{767352a3fd7df7a7-892236fc5c548559-93f5e67d17ed19db}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "767352a3fd7df7a7-892236fc5c548559-93f5e67d17ed19db"
+type = "paragraph"
+origin = '''
+分块总数：`3 × 2 = 6`
+'''
+translate = '''
+'''
+
+[[block]]
+key = "208ecc19a93947af"
+type = "paragraph"
+origin = '''
+界面提示 `3×2 = 6 (90×120mm)`，其中括号内的 `90×120mm` 表示最后一列的剩余宽度（`450 - 180 - 180 = 90 mm`）与最后一行的剩余高度（`300 - 180 = 120 mm`）。六个分块的实际物理尺寸分布如下：
+'''
+translate = '''
+The readout `3×2 = 6 (90×120mm)` shows the total grid count alongside the remainder width of the last column (`90 mm`) and remainder height of the bottom row (`120 mm`). Here are the exact dimensions of all six tiles:
+'''
+
+[[block]]
+key = "6703bccf669888fa"
+type = "table"
+origin = '''
+| 行列坐标 | 实际物理尺寸 |
+| --- | --- |
+| R1C1、R1C2 | 180×180 mm |
+| R1C3 | 90×180 mm |
+| R2C1、R2C2 | 180×120 mm |
+| R2C3 | 90×120 mm |
+'''
+translate = '''
+| Tile coordinate | Physical dimensions |
+| --- | --- |
+| R1C1, R1C2 | 180×180 mm |
+| R1C3 | 90×180 mm |
+| R2C1, R2C2 | 180×120 mm |
+| R2C3 | 90×120 mm |
+'''
+
+[[block]]
+key = "4dd0f10f19d1d34e"
+type = "heading"
+origin = '''
+### 如何确定合理的分块上限？
+'''
+translate = '''
+'''
+
+[[block]]
+key = "5d20c2ea36c33a32"
+type = "paragraph"
+origin = '''
+分块上限应按切片器中的**实际可用打印面积**填写，在热床标称尺寸基础上预留出以下余量：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "94e7343b73e1c8d9"
+type = "list"
+composite = true
+origin = '''
+{{94e7343b73e1c8d9-80c56815f9f42a5a}}
+{{94e7343b73e1c8d9-586fc476a3f12fce}}
+{{94e7343b73e1c8d9-0fcf78cb31906eb4}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "94e7343b73e1c8d9-80c56815f9f42a5a"
+type = "listItem"
+composite = true
+origin = '''
+- {{94e7343b73e1c8d9-80c56815f9f42a5a-aa4af07c06885691}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "94e7343b73e1c8d9-80c56815f9f42a5a-aa4af07c06885691"
+type = "paragraph"
+origin = '''
+裙边（Skirt）、Brim、喷嘴擦拭线与热床安全边距；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "94e7343b73e1c8d9-586fc476a3f12fce"
+type = "listItem"
+composite = true
+origin = '''
+- {{94e7343b73e1c8d9-586fc476a3f12fce-04779960bfc158d2}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "94e7343b73e1c8d9-586fc476a3f12fce-04779960bfc158d2"
+type = "paragraph"
+origin = '''
+打印板定位卡扣、切刀避让区或机型配置中的禁打区域（Excluded Area）；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "94e7343b73e1c8d9-0fcf78cb31906eb4"
+type = "listItem"
+composite = true
+origin = '''
+- {{94e7343b73e1c8d9-0fcf78cb31906eb4-fd37168ef2da5b1c}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "94e7343b73e1c8d9-0fcf78cb31906eb4-fd37168ef2da5b1c"
+type = "paragraph"
+origin = '''
+外轮廓边框或切片辅助结构占用的额外宽度。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "06512e7d12bf6fb2"
+type = "paragraph"
+origin = '''
+例如标称 `180×180 mm` 的机型，若开启 Brim 或存在角落避让区，可将分块上限设为 `170×170 mm` 等已在切片器中验证稳妥的尺寸。
+'''
+translate = '''
+Base your tile limits on your printer's **usable** printable area rather than its nominal bed size, leaving clearance for excluded bed corners, purge lines, bed clips, Brims, or outer borders. Verify a safe maximum footprint in your slicer beforehand.
+'''
+
+[[block]]
+key = "60082133ad0c7552"
+type = "heading"
+origin = '''
+## 第三步：读懂行列坐标与拼接顺序
+'''
+translate = '''
+## Step 3: Read the tile coordinate map
+'''
+
+[[block]]
+key = "812ccf73cec5889f"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/02-tile-map.webp').default}
+  alt="450×300 毫米作品被分成 3 列 2 行，并标注 R1C1 到 R2C3 拼接坐标的示意图"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/02-tile-map.webp').default}
+  alt="Concept diagram showing a 450 by 300 millimetre artwork split into R1C1 through R2C3"
+/>
+'''
+
+[[block]]
+key = "42d13e54b409f72b"
+type = "paragraph"
+origin = '''
+导出的文件名通过 `R` 与 `C` 标明每块在整幅作品中的位置：
+'''
+translate = '''
+Each exported filename encodes its grid position:
+'''
+
+[[block]]
+key = "b9cba6082078966e"
+type = "list"
+composite = true
+origin = '''
+{{b9cba6082078966e-735fd47736a382b0}}
+{{b9cba6082078966e-d45fd17747c48f74}}
+{{b9cba6082078966e-d880f8b6c91ce278}}
+{{b9cba6082078966e-c4793c422c2e7976}}
+'''
+translate = '''
+- `R` (Row) counts downward from top to bottom.
+- `C` (Column) counts across from left to right.
+- `R1C1` sits at the upper-left corner, and `R2C3` sits at the lower-right corner in this `3×2` layout.
+'''
+
+[[block]]
+key = "b9cba6082078966e-735fd47736a382b0"
+type = "listItem"
+composite = true
+origin = '''
+- {{b9cba6082078966e-735fd47736a382b0-333e59032db91d86}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b9cba6082078966e-735fd47736a382b0-333e59032db91d86"
+type = "paragraph"
+origin = '''
+`R`（Row，行）：从上往下递增；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b9cba6082078966e-d45fd17747c48f74"
+type = "listItem"
+composite = true
+origin = '''
+- {{b9cba6082078966e-d45fd17747c48f74-d5491666104efd11}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b9cba6082078966e-d45fd17747c48f74-d5491666104efd11"
+type = "paragraph"
+origin = '''
+`C`（Column，列）：从左往右递增；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b9cba6082078966e-d880f8b6c91ce278"
+type = "listItem"
+composite = true
+origin = '''
+- {{b9cba6082078966e-d880f8b6c91ce278-ebe999553bdd711f}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b9cba6082078966e-d880f8b6c91ce278-ebe999553bdd711f"
+type = "paragraph"
+origin = '''
+`R1C1` 为整幅作品左上角，`R1C3` 为第一行最右侧；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b9cba6082078966e-c4793c422c2e7976"
+type = "listItem"
+composite = true
+origin = '''
+- {{b9cba6082078966e-c4793c422c2e7976-89b5a5ae3d8694ac}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b9cba6082078966e-c4793c422c2e7976-89b5a5ae3d8694ac"
+type = "paragraph"
+origin = '''
+`R2C1` 为第二行最左侧，`R2C3` 为整幅作品右下角。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4c2a20b496b71c19"
+type = "paragraph"
+origin = '''
+从下载、切片到下机收纳，建议全程保留原始坐标文件名；打印取件后可立即在模型背面用美纹纸或记号笔标明 `R1C1` 等编号，方便后续快速拼装。
+'''
+translate = '''
+Keep the original coordinate filenames throughout slicing, and jot the coordinate (`R1C1`, `R1C2`, etc.) on masking tape on the back of each printed panel right as it comes off the bed so similar-looking tiles never get mixed up.
+'''
+
+[[block]]
+key = "fd3c7dbfe99fce8f"
+type = "admonition"
+composite = true
+origin = '''
+:::warning[平切无重叠]
+{{fd3c7dbfe99fce8f-8dd214f4997887b9}}
+:::
+'''
+translate = '''
+:::warning[No automatic seam joints]
+Large Format slices straight along adjacent tile edges without adding overlap lips, registration pins, puzzle tabs, or shrinkage offsets. If your installation requires mechanical alignment features, build them into the artwork or an external 3D modeling tool beforehand.
+:::
+'''
+
+[[block]]
+key = "fd3c7dbfe99fce8f-8dd214f4997887b9"
+type = "paragraph"
+origin = '''
+大画幅模式沿分块交界线直接垂直切开，不包含搭接边、榫卯卡扣、定位销孔或胶缝补偿余量。如需机械定位结构，请在源图设计或外部三维建模工具中预先留好。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "e73880922ba9f307"
+type = "heading"
+origin = '''
+## 第四步：预览整幅画面
+'''
+translate = '''
+## Step 4: Preview the full artwork
+'''
+
+[[block]]
+key = "b30f6ac8f21c52c5"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/03-preview-whole-image.webp').default}
+  alt="Lumina Studio 大画幅任务的整图 2D 预览和分层缩略图"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/03-preview-whole-image.webp').default}
+  alt="Real English Lumina Studio complete artwork Preview with layer thumbnails highlighted"
+/>
+'''
+
+[[block]]
+key = "f6c074200237450a"
+type = "paragraph"
+origin = '''
+点击“预览”，在导出前集中检查整幅作品：
+'''
+translate = '''
+Click **Preview** to inspect the complete artwork before generating tiles:
+'''
+
+[[block]]
+key = "9c500992368c528c"
+type = "list"
+composite = true
+origin = '''
+{{9c500992368c528c-c94ee8c4d3b8ec52}}
+{{9c500992368c528c-d5bed918c28fab8e}}
+{{9c500992368c528c-bef12b5f51a31f74}}
+{{9c500992368c528c-ba10fdffe20de8c1}}
+{{9c500992368c528c-8baf3838896ff185}}
+'''
+translate = '''
+1. Overall orientation, aspect ratio, and outer silhouette
+2. Selected color source and intended filaments
+3. Clean color transitions, crisp edges, and proper transparency handling
+4. Layer Preview stack order and color-layer count
+5. Any enabled outline or backing settings
+'''
+
+[[block]]
+key = "9c500992368c528c-c94ee8c4d3b8ec52"
+type = "listItem"
+composite = true
+origin = '''
+- {{9c500992368c528c-c94ee8c4d3b8ec52-4464b8ce84225144}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "9c500992368c528c-c94ee8c4d3b8ec52-4464b8ce84225144"
+type = "paragraph"
+origin = '''
+画面朝向、长宽比例与有效外轮廓是否准确；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "9c500992368c528c-d5bed918c28fab8e"
+type = "listItem"
+composite = true
+origin = '''
+- {{9c500992368c528c-d5bed918c28fab8e-c009a1e9eff1c8a8}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "9c500992368c528c-d5bed918c28fab8e-c009a1e9eff1c8a8"
+type = "paragraph"
+origin = '''
+所选色彩来源与计划装机的耗材是否匹配；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "9c500992368c528c-bef12b5f51a31f74"
+type = "listItem"
+composite = true
+origin = '''
+- {{9c500992368c528c-bef12b5f51a31f74-5b78bf075e7e1b3a}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "9c500992368c528c-bef12b5f51a31f74-5b78bf075e7e1b3a"
+type = "paragraph"
+origin = '''
+2D 预览是否存在局部偏色、断边或透明抠图残留；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "9c500992368c528c-ba10fdffe20de8c1"
+type = "listItem"
+composite = true
+origin = '''
+- {{9c500992368c528c-ba10fdffe20de8c1-a787ec103386be67}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "9c500992368c528c-ba10fdffe20de8c1-a787ec103386be67"
+type = "paragraph"
+origin = '''
+分层缩略图中的显色层数与叠色顺序是否符合预期；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "9c500992368c528c-8baf3838896ff185"
+type = "listItem"
+composite = true
+origin = '''
+- {{9c500992368c528c-8baf3838896ff185-11e54d1e5e6713a0}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "9c500992368c528c-8baf3838896ff185-11e54d1e5e6713a0"
+type = "paragraph"
+origin = '''
+外轮廓、底板等结构设置是否正常生效。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "699a653660ae0256"
+type = "paragraph"
+origin = '''
+若有配色或边缘问题，在此阶段先行调好再开始分块生成。关于三个阶段预览的差异排查，可参阅[为什么 Lumina 预览、切片器预览和打印实物不一样？](pathname:///zh/docs/knowledge/preview-slicer-print-differences/)。
+'''
+translate = '''
+Resolve any palette or boundary issues here before generating the multi-tile ZIP. To see how each preview stage relates to the final print, read [Why Lumina Preview, Slicer Preview, and the Print Differ](pathname:///en/docs/knowledge/preview-slicer-print-differences/).
+'''
+
+[[block]]
+key = "047c4ba5f07510a7"
+type = "heading"
+origin = '''
+## 第五步：生成并下载分块 ZIP
+'''
+translate = '''
+## Step 5: Generate and save the ZIP archive
+'''
+
+[[block]]
+key = "2b53f4f37a1f59ed"
+type = "paragraph"
+origin = '''
+确认预览无误后点击生成，耐心等待全部区块计算打包完成（生成期间无需重复点击按钮或刷新页面）。
+'''
+translate = '''
+Start generation and wait for all tiles to finish packaging without refreshing the page or re-uploading files while the job is running.
+'''
+
+[[block]]
+key = "ab748607466d2013"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/04-download-zip.webp').default}
+  alt="Lumina Studio 大画幅生成完成后的分层预览和下载 ZIP 按钮"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/04-download-zip.webp').default}
+  alt="Real English Lumina Studio result with six generated Large Format tiles and Download ZIP highlighted"
+/>
+'''
+
+[[block]]
+key = "4b08c48df4939039"
+type = "paragraph"
+origin = '''
+本例完成后界面显示 `Generated 6/6 tiles (3×2)`，下载得到的 ZIP 约 16.9 MB，解压后包含以下 6 个文件：
+'''
+translate = '''
+In our example, the completed job outputs a ~16.9 MB ZIP archive containing six 3MF files:
+'''
+
+[[block]]
+key = "964f436fc48d6ecc"
+type = "code"
+origin = '''
+```text
+large-format-demo_R1C1.3mf
+large-format-demo_R1C2.3mf
+large-format-demo_R1C3.3mf
+large-format-demo_R2C1.3mf
+large-format-demo_R2C2.3mf
+large-format-demo_R2C3.3mf
+```
+'''
+translate = '''
+```text
+large-format-demo_R1C1.3mf
+large-format-demo_R1C2.3mf
+large-format-demo_R1C3.3mf
+large-format-demo_R2C1.3mf
+large-format-demo_R2C2.3mf
+large-format-demo_R2C3.3mf
+```
+'''
+
+[[block]]
+key = "84c40a8e34a344b6"
+type = "admonition"
+composite = true
+origin = '''
+:::warning[核对分块数量]
+{{84c40a8e34a344b6-bb891ee2994b0da3}}
+:::
+'''
+translate = '''
+:::warning[Check for missing tiles]
+If a complex job only finishes a subset of tiles, newer builds still let you download the completed tiles while flagging any missing coordinates. Check the status notice, total file count, and `R/C` sequence so every missing tile is regenerated before you begin printing.
+:::
+'''
+
+[[block]]
+key = "84c40a8e34a344b6-bb891ee2994b0da3"
+type = "paragraph"
+origin = '''
+当个别分块因复杂几何生成失败时，界面仍允许先行下载已成功的分块并标出缺失编号。解压后请核对文件总数与 `R1C1` 至末行末列的连续坐标，补齐缺失分块后再安排整套打印。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "29286fb798745589"
+type = "paragraph"
+origin = '''
+下载完成后建议立即解压并完成四项检查：
+'''
+translate = '''
+Right after downloading, extract the archive to a permanent project folder and confirm that:
+'''
+
+[[block]]
+key = "8cd08f30fb938619"
+type = "list"
+composite = true
+origin = '''
+{{8cd08f30fb938619-cc2871783636c019}}
+{{8cd08f30fb938619-ea69bba53cb041cd}}
+{{8cd08f30fb938619-12b1b79a9e942bfe}}
+{{8cd08f30fb938619-a1a225ac004b6062}}
+'''
+translate = '''
+- The 3MF file count matches your expected grid total.
+- Every row and column coordinate is present without gaps.
+- Each file extracts cleanly and has a valid non-zero file size.
+
+Because browser download links expire when you refresh or start a new session, always save your extracted 3MF files locally right away.
+'''
+
+[[block]]
+key = "8cd08f30fb938619-cc2871783636c019"
+type = "listItem"
+composite = true
+origin = '''
+1. {{8cd08f30fb938619-cc2871783636c019-39690bca6773bdca}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8cd08f30fb938619-cc2871783636c019-39690bca6773bdca"
+type = "paragraph"
+origin = '''
+3MF 文件数量与界面提示的总块数一致；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8cd08f30fb938619-ea69bba53cb041cd"
+type = "listItem"
+composite = true
+origin = '''
+2. {{8cd08f30fb938619-ea69bba53cb041cd-1c956921ccd1d05c}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8cd08f30fb938619-ea69bba53cb041cd-1c956921ccd1d05c"
+type = "paragraph"
+origin = '''
+行列编号从 `R1C1` 连续覆盖至最后一块，无跳号缺漏；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8cd08f30fb938619-12b1b79a9e942bfe"
+type = "listItem"
+composite = true
+origin = '''
+3. {{8cd08f30fb938619-12b1b79a9e942bfe-b272a091d5fcb00c}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8cd08f30fb938619-12b1b79a9e942bfe-b272a091d5fcb00c"
+type = "paragraph"
+origin = '''
+每个文件大小正常，均可顺利解压打开；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8cd08f30fb938619-a1a225ac004b6062"
+type = "listItem"
+composite = true
+origin = '''
+4. {{8cd08f30fb938619-a1a225ac004b6062-81c85d5a985daeda}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8cd08f30fb938619-a1a225ac004b6062-81c85d5a985daeda"
+type = "paragraph"
+origin = '''
+已将 ZIP 与解压后的 3MF 保存到本地项目文件夹（网页端临时下载链接在刷新页面或发起新任务后会失效）。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "72e1f5b2e171a18f"
+type = "heading"
+origin = '''
+## 第六步：逐块导入切片器核对
+'''
+translate = '''
+## Step 6: Inspect every tile in your slicer
+'''
+
+[[block]]
+key = "307908d7d9c29874"
+type = "paragraph"
+origin = '''
+按坐标顺序将每个 3MF 导入切片器，逐盘核对以下项目：
+'''
+translate = '''
+Open each 3MF as a project in your slicer and check:
+'''
+
+[[block]]
+key = "98105154c252dde8"
+type = "list"
+composite = true
+origin = '''
+{{98105154c252dde8-46d9c45ba7e54e9d}}
+{{98105154c252dde8-8a6b3b3c1e053e63}}
+{{98105154c252dde8-f49d50d84c695412}}
+{{98105154c252dde8-7978ab052ab6076d}}
+{{98105154c252dde8-ee062c906ae35a6b}}
+{{98105154c252dde8-8cdb916d6446476c}}
+'''
+translate = '''
+- Part dimensions in millimeters match the expected tile table.
+- Geometry sits comfortably inside the printable area with no out-of-bounds warnings.
+- Viewing face, backing orientation, and Z-rotation are consistent across every tile.
+- Printer preset, nozzle diameter, Layer Height, and feeder slot mappings are accurate.
+- Sliced color toolpaths are continuous, with clean outer seam edges and no unwanted Brim widening the mating borders.
+'''
+
+[[block]]
+key = "98105154c252dde8-46d9c45ba7e54e9d"
+type = "listItem"
+composite = true
+origin = '''
+- {{98105154c252dde8-46d9c45ba7e54e9d-ac24ed67091a60c1}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "98105154c252dde8-46d9c45ba7e54e9d-ac24ed67091a60c1"
+type = "paragraph"
+origin = '''
+模型的毫米长宽与前文分块尺寸表一致；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "98105154c252dde8-8a6b3b3c1e053e63"
+type = "listItem"
+composite = true
+origin = '''
+- {{98105154c252dde8-8a6b3b3c1e053e63-7e47a1182468d3c1}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "98105154c252dde8-8a6b3b3c1e053e63-7e47a1182468d3c1"
+type = "paragraph"
+origin = '''
+模型完整落在热床可打印范围内，无越界报警；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "98105154c252dde8-f49d50d84c695412"
+type = "listItem"
+composite = true
+origin = '''
+- {{98105154c252dde8-f49d50d84c695412-37ff9c368f29b1ae}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "98105154c252dde8-f49d50d84c695412-37ff9c368f29b1ae"
+type = "paragraph"
+origin = '''
+观赏面朝向、底板位置与旋转角度保持统一；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "98105154c252dde8-7978ab052ab6076d"
+type = "listItem"
+composite = true
+origin = '''
+- {{98105154c252dde8-7978ab052ab6076d-081d3386996fdce1}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "98105154c252dde8-7978ab052ab6076d-081d3386996fdce1"
+type = "paragraph"
+origin = '''
+机型配置、喷嘴口径、层高及实体料槽映射准确无误；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "98105154c252dde8-ee062c906ae35a6b"
+type = "listItem"
+composite = true
+origin = '''
+- {{98105154c252dde8-ee062c906ae35a6b-c88c8417eb3cb8a7}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "98105154c252dde8-ee062c906ae35a6b-c88c8417eb3cb8a7"
+type = "paragraph"
+origin = '''
+逐层预览中各色挤出路径连续完整，接缝边缘无缺口或悬空细丝；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "98105154c252dde8-8cdb916d6446476c"
+type = "listItem"
+composite = true
+origin = '''
+- {{98105154c252dde8-8cdb916d6446476c-fd861207964d8d20}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "98105154c252dde8-8cdb916d6446476c-fd861207964d8d20"
+type = "paragraph"
+origin = '''
+检查切片器是否自动添加了 Brim 或裙边，避免边缘加宽影响后续严密拼接。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1b8622a5102126f2"
+type = "paragraph"
+origin = '''
+同一幅作品的所有分块建议固定使用同一台机器配置、同一喷嘴、同一批次耗材与相同的打印板表面及摆放角度，以尽量减少不同盘之间的光泽差与热收缩误差。关于对象与料槽的对应方法，请参阅[把 Lumina 3MF 正确导入切片器](pathname:///zh/docs/tutorials/slicer-material-mapping/)。
+'''
+translate = '''
+For uniform gloss and minimal dimensional drift between panels, slice and print every tile with the same printer profile, nozzle, Layer Height, filament batch, build plate texture, and part orientation. For slot assignment details, see [Import a Lumina 3MF into the Slicer Correctly](pathname:///en/docs/tutorials/slicer-material-mapping/).
+'''
+
+[[block]]
+key = "544b157eb1d38916"
+type = "heading"
+origin = '''
+## 第七步：先干拼对齐，再固定安装
+'''
+translate = '''
+## Step 7: Dry-fit before final mounting
+'''
+
+[[block]]
+key = "ac71fdac0f699313"
+type = "paragraph"
+origin = '''
+全部打印完成后，建议先在桌面上干拼确认无误，再做粘接或上墙固定：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "dbe1e52223756a8a"
+type = "list"
+composite = true
+origin = '''
+{{dbe1e52223756a8a-33937079e8f7da46}}
+{{dbe1e52223756a8a-177becd35141e547}}
+{{dbe1e52223756a8a-08acf1cb0a0d1102}}
+{{dbe1e52223756a8a-e5a566a50aaee666}}
+{{dbe1e52223756a8a-2b0de651425cebc0}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "dbe1e52223756a8a-33937079e8f7da46"
+type = "listItem"
+composite = true
+origin = '''
+1. {{dbe1e52223756a8a-33937079e8f7da46-5ddf950e8cd54861}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "dbe1e52223756a8a-33937079e8f7da46-5ddf950e8cd54861"
+type = "paragraph"
+origin = '''
+在平整台面或背板上从左上角 `R1C1` 开始向右依次排出第一行；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "dbe1e52223756a8a-177becd35141e547"
+type = "listItem"
+composite = true
+origin = '''
+2. {{dbe1e52223756a8a-177becd35141e547-9ba50162e9cd6c0b}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "dbe1e52223756a8a-177becd35141e547-9ba50162e9cd6c0b"
+type = "paragraph"
+origin = '''
+接着排布第二行及后续各行，核对跨块图案线条自然衔接；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "dbe1e52223756a8a-08acf1cb0a0d1102"
+type = "listItem"
+composite = true
+origin = '''
+3. {{dbe1e52223756a8a-08acf1cb0a0d1102-5e1ae9c69556f8f2}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "dbe1e52223756a8a-08acf1cb0a0d1102-5e1ae9c69556f8f2"
+type = "paragraph"
+origin = '''
+检查各块朝向、底边平整度与拼缝间隙（如有轻微首层象脚毛刺，可先用修边刀轻刮平整）；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "dbe1e52223756a8a-e5a566a50aaee666"
+type = "listItem"
+composite = true
+origin = '''
+4. {{dbe1e52223756a8a-e5a566a50aaee666-2abafca5531a391a}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "dbe1e52223756a8a-e5a566a50aaee666-2abafca5531a391a"
+type = "paragraph"
+origin = '''
+根据耗材材质、作品重量与展示环境，选用合适的背板、定位夹具、结构胶带、胶黏剂或机械固定件；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "dbe1e52223756a8a-2b0de651425cebc0"
+type = "listItem"
+composite = true
+origin = '''
+5. {{dbe1e52223756a8a-2b0de651425cebc0-13dd9766d24f40fa}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "dbe1e52223756a8a-2b0de651425cebc0-13dd9766d24f40fa"
+type = "paragraph"
+origin = '''
+正式粘接固定时以一个直角边为基准逐行推进，避免定位误差向四周发散累积。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "66703204b549bc0c"
+type = "paragraph"
+origin = '''
+大型上墙或户外长期展示的作品，正式安装前建议先用同材质边角料测试胶黏剂强度与耐候安全性。
+'''
+translate = '''
+Lay out the printed tiles on a flat table before applying any tape, glue, or fasteners: arrange Row 1 from `R1C1` rightward, add subsequent rows underneath, and verify pattern continuity and edge flushness (lightly deburring any first-layer elephant foot if needed). When mounting to a backboard or frame, anchor one reference corner first and work outward row by row so tiny tolerances don't compound.
+'''
+
+[[block]]
+key = "9d921e6aeb561a69"
+type = "heading"
+origin = '''
+## 功能兼容与 SVG 分块提示
+'''
+translate = '''
+'''
+
+[[block]]
+key = "47dca98941f627b0"
+type = "list"
+composite = true
+origin = '''
+{{47dca98941f627b0-ae998118e54f8179}}
+{{47dca98941f627b0-3a02ea35de849f87}}
+{{47dca98941f627b0-89b3aa5590fec53c}}
+{{47dca98941f627b0-b3031649f8c5b5d9}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "47dca98941f627b0-ae998118e54f8179"
+type = "listItem"
+composite = true
+origin = '''
+- {{47dca98941f627b0-ae998118e54f8179-fd515a87b7ddbe2d}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "47dca98941f627b0-ae998118e54f8179-fd515a87b7ddbe2d"
+type = "paragraph"
+origin = '''
+大画幅属于独立导出流程，不可与拼图、冰箱贴磁铁槽或批量生成同时开启；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "47dca98941f627b0-3a02ea35de849f87"
+type = "listItem"
+composite = true
+origin = '''
+- {{47dca98941f627b0-3a02ea35de849f87-da84fb4136345f0f}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "47dca98941f627b0-3a02ea35de849f87-da84fb4136345f0f"
+type = "paragraph"
+origin = '''
+挂件孔环等依赖整体轮廓定位的附件，不建议在分块后再单独盲加；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "47dca98941f627b0-89b3aa5590fec53c"
+type = "listItem"
+composite = true
+origin = '''
+- {{47dca98941f627b0-89b3aa5590fec53c-01196ef489d13d7e}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "47dca98941f627b0-89b3aa5590fec53c-01196ef489d13d7e"
+type = "paragraph"
+origin = '''
+当复杂 SVG 含有暂不支持直接矢量切分的特性时，系统会自动回退为栅格分块并在界面提示；回退后建议放大检查曲线、细线与小字边缘清晰度；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "47dca98941f627b0-b3031649f8c5b5d9"
+type = "listItem"
+composite = true
+origin = '''
+- {{47dca98941f627b0-b3031649f8c5b5d9-ba3eac3446e7fa0f}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "47dca98941f627b0-b3031649f8c5b5d9-ba3eac3446e7fa0f"
+type = "paragraph"
+origin = '''
+修改总尺寸、分块上限、色彩来源或结构参数后，需重新点击生成以获取更新后的 ZIP 包。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "85c0de156d3f56c6"
+type = "paragraph"
+origin = '''
+完整功能互斥表请参阅[哪些功能可以一起用？](pathname:///zh/docs/knowledge/feature-compatibility/)；若 SVG 出现白底、破洞或细节丢失，可按[SVG 上传失败、白底、破洞和细节异常怎么排查？](pathname:///zh/docs/knowledge/svg-troubleshooting/)逐步处理。
+'''
+translate = '''
+Choose adhesives, mounting tape, or mechanical hardware suited to your filament polymer, panel weight, and indoor/outdoor environment, and test bond strength beforehand for wall-mounted pieces.
+'''
+
+[[block]]
+key = "cbbf3b866f003400"
+type = "heading"
+origin = '''
+## 常见问题 Q&A
+'''
+translate = '''
+## Common questions
+'''
+
+[[block]]
+key = "1e6dbb7090a63370"
+type = "heading"
+origin = '''
+### 为什么分块上限填了 180×180 mm，最后一块却只有 90×120 mm？
+'''
+translate = '''
+'''
+
+[[block]]
+key = "758ef0d649af0bb7"
+type = "paragraph"
+origin = '''
+`180×180 mm` 是单块的最大尺寸上限。当总尺寸无法被上限整除时，末列与末行只生成剩余部分：本例总宽 `450 mm` 扣除前两列各 `180 mm` 后末列宽 `90 mm`；总高 `300 mm` 扣除第一行 `180 mm` 后末行高 `120 mm`。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "9376a54b2a98a10d"
+type = "heading"
+origin = '''
+### 能让所有分块的尺寸完全一致吗？
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c5422244450c0ba3"
+type = "paragraph"
+origin = '''
+可以。只需将成品总宽与总高设为分块上限的整数倍（或在原图四周预先留白补齐比例），每一块切出来就会完全等大。调整时请注意保持原图纵横比，避免画面拉伸变形。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7bbf095d7273b152"
+type = "heading"
+origin = '''
+### 软件会在拼缝处自动预留重叠边或卡扣吗？
+'''
+translate = '''
+### Why is the bottom-right tile only 90×120 mm?
+'''
+
+[[block]]
+key = "163c18be559f7e83"
+type = "paragraph"
+origin = '''
+不会。大画幅输出的是相邻无重叠的平切分块。如需搭接边、定位孔或榫卯结构，请在前期图形设计或三维建模软件中预先制作，并将附加结构一并计入热床可用尺寸。
+'''
+translate = '''
+`180×180 mm` sets the upper limit per tile. Subtracting two `180 mm` columns from the `450 mm` total width leaves `90 mm` for Column 3, and subtracting one `180 mm` row from the `300 mm` total height leaves `120 mm` for Row 2.
+'''
+
+[[block]]
+key = "6dcc5b1fc38f3631"
+type = "heading"
+origin = '''
+### 网页整图预览很正常，为什么导入切片器后提示某一块超出打印范围？
+'''
+translate = '''
+### Can I make every tile the exact same size?
+'''
+
+[[block]]
+key = "55b77a694a21b03b"
+type = "paragraph"
+origin = '''
+网页端的 2D 预览展示的是拼接后的整幅画面，不包含具体机型的热床禁打区、擦拭线或 Brim 宽度。可在切片器中关闭不必要的 Brim、调整模型位置，或返回 Lumina 将分块上限调小几毫米后重新生成。
+'''
+translate = '''
+Yes—choose assembled Width and Height values that are exact multiples of your Tile Width and Tile Height (or pad your source canvas with intentional margins), taking care not to stretch the artwork out of proportion.
+'''
+
+[[block]]
+key = "d942f2227c940bff"
+type = "heading"
+origin = '''
+### 能把六个 3MF 同时摆进同一盘打印吗？
+'''
+translate = '''
+### Does Lumina add overlap lips or alignment pins?
+'''
+
+[[block]]
+key = "3d4414c681892b83"
+type = "paragraph"
+origin = '''
+若单张热床本身就放得下整幅作品，直接关闭大画幅导出单个完整 3MF 即可，还能省去后期拼接。大画幅专为超出单盘面积的作品设计；对于较窄的末列或末行小分块，只要不越界、不重叠，也可以在切片器中视剩余空间合理拼盘。
+'''
+translate = '''
+No. Tiles are cut flush along shared borders. If you need lap joints, dowel holes, or cutting allowances, build them into your source design or CAD model ahead of time and factor their extra width into your bed-size limit.
+'''
+
+[[block]]
+key = "610e7aa4632add67"
+type = "heading"
+origin = '''
+### 解压后发现其中某一个 3MF 打不开，需要重改整套参数吗？
+'''
+translate = '''
+### Full Preview looked fine—why does one tile exceed my build plate in the slicer?
+'''
+
+[[block]]
+key = "5ccee0220c598acf"
+type = "paragraph"
+origin = '''
+先保留已正常解压的其余分块，用相同参数重新生成一次对比。若固定某一个坐标反复报错，重点检查原图对应区域是否有极细碎的噪点或特殊 SVG 路径。若网页持续转圈或生成中断，请按[打不开、一直转圈或生成失败，应该先查什么？](pathname:///zh/docs/knowledge/web-generation-troubleshooting/)排查。
+'''
+translate = '''
+Lumina's 2D Preview displays the whole artwork rather than machine-specific bed keep-out zones, purge strips, or slicer Brims. Disable Brims along mating edges, reposition the part on the plate, or reduce Tile Width and Tile Height by a few millimeters and regenerate.
+'''
+
+[[block]]
+key = "94382a8284816ece"
+type = "heading"
+origin = '''
+### 拼接后为什么拼缝依然明显？
+'''
+translate = '''
+### One 3MF tile failed to open. Do I have to redo the whole project?
+'''
+
+[[block]]
+key = "aaa0fd623eca092f"
+type = "paragraph"
+origin = '''
+数字模型严丝合缝，但实体打印会受到热胀冷缩、首层象脚（Elephant Foot）外扩、打印板局部纹理差异与光线折射影响。保持各盘切片参数与摆放方向一致、适度开启切片器的象脚补偿、打印后轻修边缘毛刺并借助平整背板定位，能显著改善拼缝观感。
+'''
+translate = '''
+Keep the ZIP and the working tiles you already extracted, then run generation again with the same settings. If the exact same coordinate fails repeatedly, inspect that area of the artwork for micro-fragments or complex SVG effects, and consult [Slicer Detection and 3MF Open Troubleshooting](pathname:///en/docs/knowledge/slicer-path-and-open-troubleshooting/).
+'''

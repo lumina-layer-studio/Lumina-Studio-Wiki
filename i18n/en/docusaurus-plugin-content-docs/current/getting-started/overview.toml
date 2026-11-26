@@ -1,0 +1,358 @@
+[metadata]
+reviewed_source = "25ede923ab74362af433950c74a3b31cb54bd2092de60666fb64780412502e07"
+
+[[block]]
+key = "5d4992b7c16e47e5"
+type = "yaml"
+origin = '''
+---
+title: "Lumina Studio"
+description: "基于物理校准的多色FDM色彩系统"
+sidebar_position: 1
+---
+'''
+translate = '''
+---
+title: "Lumina Studio"
+description: "A physically calibrated multi-color FDM workflow"
+sidebar_position: 1
+---
+'''
+
+[[block]]
+key = "6e216ecd389143fc"
+type = "heading"
+origin = '''
+# Lumina Studio
+'''
+translate = '''
+# Lumina Studio
+'''
+
+[[block]]
+key = "5476abac7a200e27"
+type = "paragraph"
+origin = '''
+项目源码与本地运行说明见 [Lumina-Layers 公开仓库](https://github.com/lumina-layer-studio/Lumina-Layers)。如果通过启动器安装时遇到激活提示，请查看[使用启动器激活 Lumina Studio](./launcher-activation/launcher-activation.mdx)。
+'''
+translate = '''
+Source code and local setup instructions are available in the [Lumina-Layers repository](https://github.com/lumina-layer-studio/Lumina-Layers). If Lumina Launcher prompts you to activate your device, see [Activate Lumina Studio with the Launcher](./launcher-activation/launcher-activation.mdx).
+'''
+
+[[block]]
+key = "6921280d6f1165e5"
+type = "heading"
+origin = '''
+## 项目介绍
+'''
+translate = '''
+## Project overview
+'''
+
+[[block]]
+key = "12111b9616364801"
+type = "paragraph"
+origin = '''
+Lumina Studio 是面向多材料 FDM 叠色打印的开源软件。它基于实测打印色卡数据匹配图像颜色，直接生成可导入切片软件的多色模型。你可以直接使用现成的经典 LUT 预设，也可以打印梯度色卡建立自己的耗材档案，自由组合手头的耗材。
+'''
+translate = '''
+Lumina Studio is open-source software for multi-material FDM layered color printing. It matches image colors against measured print swatches and generates multi-color 3MF models ready for slicing. You can start right away with built-in LUT presets, or print gradient cards to build custom material profiles from your own filaments.
+'''
+
+[[block]]
+key = "989af0191231f2b7"
+type = "paragraph"
+origin = '''
+项目自 1.x 系列起公开发布；2.0 版本完成重构后，现已在原有的 [Lumina-Layers 仓库](https://github.com/lumina-layer-studio/Lumina-Layers)公开维护。
+'''
+translate = '''
+Following the public 1.x releases and a ground-up 2.0 rebuild, active development continues openly in the [Lumina-Layers repository](https://github.com/lumina-layer-studio/Lumina-Layers).
+'''
+
+[[block]]
+key = "ec73cdc03b9c7677"
+type = "admonition"
+composite = true
+origin = '''
+:::info[位图转 SVG]
+{{ec73cdc03b9c7677-cffa70c40f6a87bd}}
+:::
+'''
+translate = '''
+:::info[Bitmap to SVG]
+{{ec73cdc03b9c7677-cffa70c40f6a87bd}}
+:::
+'''
+
+[[block]]
+key = "ec73cdc03b9c7677-cffa70c40f6a87bd"
+type = "paragraph"
+origin = '''
+Lumina Studio 内置图像矢量化工具，使用方法见[从位图生成 SVG](../knowledge/bitmap-to-svg/bitmap-to-svg.mdx)。你也可以使用独立开源工具：https://github.com/Neroued/neroued_vectorizer
+'''
+translate = '''
+Lumina Studio includes a built-in Vectorizer; see [Convert a Bitmap to SVG](../knowledge/bitmap-to-svg/bitmap-to-svg.mdx). A standalone open-source tool is also available at https://github.com/Neroued/neroued_vectorizer.
+'''
+
+[[block]]
+key = "686ec88a500405ac"
+type = "paragraph"
+origin = '''
+我们与多家耗材厂商合作，直接基于各品牌现有的量产颜色打印并精校拍摄色卡预设，不要求厂商定制特定颜色或透光率，也不收取合作费用。部分渠道推广链接产生的少量佣金全部用于社区抽奖与项目开发。同时，软件完全支持用户自制并分享色卡与耗材档案。
+'''
+translate = '''
+We collaborate with filament makers to calibrate presets directly from their standard production colors—without requiring custom colors or special transmittance targets, and without charging fees. Users can also calibrate and share their own presets and material profiles.
+'''
+
+[[block]]
+key = "83e5b437f508308d"
+type = "admonition"
+composite = true
+origin = '''
+:::tip[项目理念]
+{{83e5b437f508308d-0177dfccbe9d56d2}}
+:::
+'''
+translate = '''
+:::tip[Project philosophy]
+{{83e5b437f508308d-0177dfccbe9d56d2}}
+:::
+'''
+
+[[block]]
+key = "83e5b437f508308d-0177dfccbe9d56d2"
+type = "paragraph"
+origin = '''
+开源开放，合作共创。
+'''
+translate = '''
+Open source, open collaboration, and community co-creation.
+'''
+
+[[block]]
+key = "c3b62dc61efefa52"
+type = "heading"
+origin = '''
+## 核心能力
+'''
+translate = '''
+## Key features
+'''
+
+[[block]]
+key = "348eae7426a0522d"
+type = "heading"
+origin = '''
+### 颜色模式
+'''
+translate = '''
+### Color modes
+'''
+
+[[block]]
+key = "f17cc2feffc31fbb"
+type = "list"
+composite = true
+origin = '''
+{{f17cc2feffc31fbb-f17cc2feffc31fbb}}
+'''
+translate = '''
+{{f17cc2feffc31fbb-f17cc2feffc31fbb}}
+'''
+
+[[block]]
+key = "f17cc2feffc31fbb-f17cc2feffc31fbb"
+type = "listItem"
+composite = true
+origin = '''
+- {{f17cc2feffc31fbb-f17cc2feffc31fbb-c26071bcd2e8cd2f}}
+'''
+translate = '''
+- {{f17cc2feffc31fbb-f17cc2feffc31fbb-c26071bcd2e8cd2f}}
+'''
+
+[[block]]
+key = "f17cc2feffc31fbb-f17cc2feffc31fbb-c26071bcd2e8cd2f"
+type = "paragraph"
+origin = '''
+支持 2 色、4 色、5 色、6 色与 8 色叠色方案
+'''
+translate = '''
+2-color, 4-color, 5-color, 6-color, and 8-color workflows
+'''
+
+[[block]]
+key = "01bbcb02ba3b3064"
+type = "heading"
+origin = '''
+### 生成模式
+'''
+translate = '''
+### Generation modes
+'''
+
+[[block]]
+key = "26efd1e6b6ab0cbd"
+type = "list"
+composite = true
+origin = '''
+{{26efd1e6b6ab0cbd-26efd1e6b6ab0cbd}}
+'''
+translate = '''
+{{26efd1e6b6ab0cbd-26efd1e6b6ab0cbd}}
+'''
+
+[[block]]
+key = "26efd1e6b6ab0cbd-26efd1e6b6ab0cbd"
+type = "listItem"
+composite = true
+origin = '''
+- {{26efd1e6b6ab0cbd-26efd1e6b6ab0cbd-3d6663a3efc295ad}}
+'''
+translate = '''
+- {{26efd1e6b6ab0cbd-26efd1e6b6ab0cbd-3d6663a3efc295ad}}
+'''
+
+[[block]]
+key = "26efd1e6b6ab0cbd-26efd1e6b6ab0cbd-3d6663a3efc295ad"
+type = "paragraph"
+origin = '''
+高保真模式、像素艺术模式、矢量（SVG）模式
+'''
+translate = '''
+High-Fidelity, Pixel Art, and Vector (SVG) modes
+'''
+
+[[block]]
+key = "0290e3405a1a04d8"
+type = "heading"
+origin = '''
+### 模型与色彩调整
+'''
+translate = '''
+### Modeling and color tools
+'''
+
+[[block]]
+key = "cc709b159a921f21"
+type = "list"
+composite = true
+origin = '''
+{{cc709b159a921f21-c9379acb0c2655d3}}
+{{cc709b159a921f21-2314d729f730ad7c}}
+{{cc709b159a921f21-0b1e28b80b2f2c8b}}
+{{cc709b159a921f21-3cb1b4a1e9f534a4}}
+{{cc709b159a921f21-be56d2f069719198}}
+'''
+translate = '''
+{{cc709b159a921f21-c9379acb0c2655d3}}
+{{cc709b159a921f21-2314d729f730ad7c}}
+{{cc709b159a921f21-0b1e28b80b2f2c8b}}
+{{cc709b159a921f21-3cb1b4a1e9f534a4}}
+{{cc709b159a921f21-be56d2f069719198}}
+'''
+
+[[block]]
+key = "cc709b159a921f21-c9379acb0c2655d3"
+type = "listItem"
+composite = true
+origin = '''
+- {{cc709b159a921f21-c9379acb0c2655d3-579675059a2e3aa8}}
+'''
+translate = '''
+- {{cc709b159a921f21-c9379acb0c2655d3-579675059a2e3aa8}}
+'''
+
+[[block]]
+key = "cc709b159a921f21-c9379acb0c2655d3-579675059a2e3aa8"
+type = "paragraph"
+origin = '''
+自定义色卡校准与耗材档案提取
+'''
+translate = '''
+Custom color-chart calibration and gradient-card material profiles
+'''
+
+[[block]]
+key = "cc709b159a921f21-2314d729f730ad7c"
+type = "listItem"
+composite = true
+origin = '''
+- {{cc709b159a921f21-2314d729f730ad7c-528cab76944eec92}}
+'''
+translate = '''
+- {{cc709b159a921f21-2314d729f730ad7c-528cab76944eec92}}
+'''
+
+[[block]]
+key = "cc709b159a921f21-2314d729f730ad7c-528cab76944eec92"
+type = "paragraph"
+origin = '''
+量化颜色数调节与颜色配方查询
+'''
+translate = '''
+Adjustable quantized color count and recipe lookup
+'''
+
+[[block]]
+key = "cc709b159a921f21-0b1e28b80b2f2c8b"
+type = "listItem"
+composite = true
+origin = '''
+- {{cc709b159a921f21-0b1e28b80b2f2c8b-b5dacd8c1c53051f}}
+'''
+translate = '''
+- {{cc709b159a921f21-0b1e28b80b2f2c8b-b5dacd8c1c53051f}}
+'''
+
+[[block]]
+key = "cc709b159a921f21-0b1e28b80b2f2c8b-b5dacd8c1c53051f"
+type = "paragraph"
+origin = '''
+预览后局部选区换色与自由色导出
+'''
+translate = '''
+Post-preview local recoloring and Free Color object export
+'''
+
+[[block]]
+key = "cc709b159a921f21-3cb1b4a1e9f534a4"
+type = "listItem"
+composite = true
+origin = '''
+- {{cc709b159a921f21-3cb1b4a1e9f534a4-c74dd093d750b825}}
+'''
+translate = '''
+- {{cc709b159a921f21-3cb1b4a1e9f534a4-c74dd093d750b825}}
+'''
+
+[[block]]
+key = "cc709b159a921f21-3cb1b4a1e9f534a4-c74dd093d750b825"
+type = "paragraph"
+origin = '''
+主体抠图、独立背板、外轮廓描边、透明镀层与浮雕结构
+'''
+translate = '''
+Subject cutout, separate backing, outlines, transparent coating, and 2.5D relief
+'''
+
+[[block]]
+key = "cc709b159a921f21-be56d2f069719198"
+type = "listItem"
+composite = true
+origin = '''
+- {{cc709b159a921f21-be56d2f069719198-8b5bba2865f7f433}}
+'''
+translate = '''
+- {{cc709b159a921f21-be56d2f069719198-8b5bba2865f7f433}}
+'''
+
+[[block]]
+key = "cc709b159a921f21-be56d2f069719198-8b5bba2865f7f433"
+type = "paragraph"
+origin = '''
+色卡对比与合并
+'''
+translate = '''
+LUT comparison and merging
+'''

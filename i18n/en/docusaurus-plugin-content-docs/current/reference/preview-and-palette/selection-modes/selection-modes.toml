@@ -1,0 +1,234 @@
+[metadata]
+reviewed_source = "d9b02b2cfe40aa45e32edb593445e841d9ca57a9c73587c1f19dbafbb3cbcb49"
+
+[[block]]
+key = "d6562f7c3a547d0c"
+type = "yaml"
+origin = '''
+---
+title: "选择模式、调色板与自由色"
+description: "四种选区工具、调色板色块占比、撤销与清空替换，以及自由色独立对象拆分。"
+sidebar_position: 3
+---
+'''
+translate = '''
+---
+title: "Selection Modes, Palette, and Free Colors"
+description: "Same-color, similar-color, block, and brush selection tools, undo and clear remaps, and standalone Free Color objects."
+sidebar_position: 3
+---
+'''
+
+[[block]]
+key = "157a2b6335304372"
+type = "heading"
+origin = '''
+# 选择模式、调色板与自由色
+'''
+translate = '''
+# Selection Modes, Palette, and Free Colors
+'''
+
+[[block]]
+key = "d468cf46f4166eb0"
+type = "paragraph"
+origin = '''
+中间栏下方的调色板仅列出当前预览实际使用到的颜色。每个色块下方的百分比表示该匹配色在画面中的像素面积占比；选中色块后，栏位顶部会依次展示原图量化色、当前匹配色与替换目标色。
+'''
+translate = '''
+The palette lists every color currently used in the active preview, with the percentage below each swatch showing its pixel coverage across the image. Selecting a swatch displays its quantized source color, matched color, and replacement color in order at the top of the column.
+'''
+
+[[block]]
+key = "ce828c3474c356ec"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-selection-modes.webp').default}
+  alt="颜色工作站中的选择模式、自由色和调色板"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-selection-modes.webp').default}
+  alt="Selection modes, Free Colour controls, and palette in Color Workstation"
+/>
+'''
+
+[[block]]
+key = "58ca1f469a4defa5"
+type = "heading"
+origin = '''
+## 四种选择工具
+'''
+translate = '''
+## Selection tools
+'''
+
+[[block]]
+key = "f2c3d3f51faaee5e"
+type = "table"
+origin = '''
+| 工具 | 点击 2D 预览后的作用 | 适用场景 |
+| --- | --- | --- |
+| 同颜色全选 | 选中或取消该颜色在全图中的全部色块 | 将同一种颜色全局统一替换 |
+| 相近颜色 | 选中或取消色差在容差范围内的可见色块 | 合并处理深浅相近的过渡色块 |
+| 点选色块 | 逐个添加或取消独立的连通色块 | 单独修改一处或几处局部图案 |
+| 选区画笔 | 选中画笔涂抹经过的完整色块 | 连贯扫选相邻的多块区域 |
+'''
+translate = '''
+| Tool | Action on the 2D preview | Typical use |
+| --- | --- | --- |
+| Same color | Toggles every region using the clicked color | Replace a color globally across the artwork |
+| Similar colors | Toggles visible regions within the ΔE00 tolerance | Group and adjust nearby shades together |
+| Pick blocks | Selects or deselects individual connected regions | Edit one or several isolated shapes |
+| Selection brush | Selects whole connected blocks touched by the brush | Sweep across multiple neighboring regions quickly |
+'''
+
+[[block]]
+key = "16aea4d5ced26289"
+type = "paragraph"
+origin = '''
+四种工具共用同一套活动选区（涵盖早期界面的“全选 / 当前 / 多选 / 局部区域”操作），实际改动范围以 2D 预览中的高亮选区轮廓为准。
+'''
+translate = '''
+All four tools operate on a shared selection (superseding the earlier **All**, **Current**, **Multi**, and **Region** mode switches); check the highlighted outline on the 2D preview to verify the exact edit area.
+'''
+
+[[block]]
+key = "cca34ee40518c071"
+type = "paragraph"
+origin = '''
+**相近颜色**容差默认为 **6**，调节范围 **0–30**（设为 **0** 时仅匹配完全相同的颜色）；**选区画笔**直径范围为 **2–160 px**。选区组合与局部换色流程详见[快速换色与相似配方](../quick-recolor/quick-recolor.mdx)。
+'''
+translate = '''
+**Similar colors** tolerance defaults to **6** and ranges from **0** to **30** (at **0**, only identical colors match). **Selection brush** size ranges from **2** to **160 px**. For step-by-step recoloring workflows, see [Quick recolor & similar recipes](../quick-recolor/quick-recolor.mdx).
+'''
+
+[[block]]
+key = "186c55006765ddbb"
+type = "heading"
+origin = '''
+## 确认替换、撤销与清空
+'''
+translate = '''
+## Replace, Undo, and Clear Remaps
+'''
+
+[[block]]
+key = "66238b9ae0665188"
+type = "paragraph"
+origin = '''
+在右侧选定目标色后，中间栏顶部会先展示“源色 → 目标色”预览，点击确认后才会重建图像预览。同时修改多种颜色或多个区域时，系统会自动合并为单次批处理，避免逐块重复生成 3D 模型。
+'''
+translate = '''
+Picking a target color stages a `source → target` preview first, rebuilding the 2D and 3D views only after you click **Confirm Replace**. Multi-color and multi-region edits are processed together in a single batch so the 3D preview rebuilds only once.
+'''
+
+[[block]]
+key = "eccf85c45acac6ed"
+type = "list"
+composite = true
+origin = '''
+{{eccf85c45acac6ed-aaae6074405ba1de}}
+{{eccf85c45acac6ed-b08d0cd21b1704f2}}
+{{eccf85c45acac6ed-6e41c5e4fc0179a5}}
+'''
+translate = '''
+{{eccf85c45acac6ed-aaae6074405ba1de}}
+{{eccf85c45acac6ed-b08d0cd21b1704f2}}
+{{eccf85c45acac6ed-6e41c5e4fc0179a5}}
+'''
+
+[[block]]
+key = "eccf85c45acac6ed-aaae6074405ba1de"
+type = "listItem"
+composite = true
+origin = '''
+- {{eccf85c45acac6ed-aaae6074405ba1de-73c962fb688b2325}}
+'''
+translate = '''
+- {{eccf85c45acac6ed-aaae6074405ba1de-73c962fb688b2325}}
+'''
+
+[[block]]
+key = "eccf85c45acac6ed-aaae6074405ba1de-73c962fb688b2325"
+type = "paragraph"
+origin = '''
+**撤销：** 回退到上一步已确认的编辑状态，回退后可同步核对画面颜色与当前选区。
+'''
+translate = '''
+**Undo:** Steps back to the previous confirmed edit state; check both the colors and active selection afterward.
+'''
+
+[[block]]
+key = "eccf85c45acac6ed-b08d0cd21b1704f2"
+type = "listItem"
+composite = true
+origin = '''
+- {{eccf85c45acac6ed-b08d0cd21b1704f2-7fc6d77a43f61947}}
+'''
+translate = '''
+- {{eccf85c45acac6ed-b08d0cd21b1704f2-7fc6d77a43f61947}}
+'''
+
+[[block]]
+key = "eccf85c45acac6ed-b08d0cd21b1704f2-7fc6d77a43f61947"
+type = "paragraph"
+origin = '''
+**清空替换：** 清除全部全局与局部换色记录，按初始匹配结果重新生成 2D 与 3D 预览。
+'''
+translate = '''
+**Clear Remaps:** Removes all global and regional color replacements and rebuilds the 2D and 3D previews from the initial match.
+'''
+
+[[block]]
+key = "eccf85c45acac6ed-6e41c5e4fc0179a5"
+type = "listItem"
+composite = true
+origin = '''
+- {{eccf85c45acac6ed-6e41c5e4fc0179a5-a0d1a1df6d7c7f94}}
+'''
+translate = '''
+- {{eccf85c45acac6ed-6e41c5e4fc0179a5-a0d1a1df6d7c7f94}}
+'''
+
+[[block]]
+key = "eccf85c45acac6ed-6e41c5e4fc0179a5-a0d1a1df6d7c7f94"
+type = "paragraph"
+origin = '''
+**取消：** 仅放弃当前尚未确认的待选目标色。
+'''
+translate = '''
+**Cancel:** Discards only the currently staged, unconfirmed target color.
+'''
+
+[[block]]
+key = "719ef1c7809fa812"
+type = "heading"
+origin = '''
+## 自由色
+'''
+translate = '''
+## Free Color
+'''
+
+[[block]]
+key = "e274001964cb30b7"
+type = "paragraph"
+origin = '''
+选中任一颜色后点击**标记为自由色**，生成 3MF 时会将该匹配色的全部实体体素拆分为独立模型对象（命名格式如 `Free_FFFFFF`），便于导入切片软件后单独指定 AMS 耗材槽位或自定义局部打印参数。
+'''
+translate = '''
+Select a palette color and click **Mark as Free Color** to extract all solid voxels of that matched color into a standalone object (named like `Free_FFFFFF`) when generating the 3MF. In your slicer, you can then assign that object to any filament slot or apply dedicated print settings independently.
+'''
+
+[[block]]
+key = "4c22af89fce1363c"
+type = "paragraph"
+origin = '''
+标记或点击**清除自由色**会改变最终 3MF 的对象拆分结构，修改后需重新点击**生成**以导出新模型；该标记不会改变当前 2D 预览的显示颜色。
+'''
+translate = '''
+Because **Mark as Free Color** and **Clear Free Colors** change how objects are split inside the 3MF, run **Generate** again after updating them. Marking a Free Color leaves the 2D preview colors unchanged.
+'''

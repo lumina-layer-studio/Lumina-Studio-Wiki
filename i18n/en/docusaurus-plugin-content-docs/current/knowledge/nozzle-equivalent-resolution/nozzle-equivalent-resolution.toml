@@ -1,0 +1,1050 @@
+[metadata]
+reviewed_source = "1de38d4132ee8550ae8c55734754b15235937bfced0a35b08f112acd78f18d20"
+
+[[block]]
+key = "02e90b2fd8c09100"
+type = "yaml"
+origin = '''
+---
+title: "0.2 和 0.4 喷嘴相当于多少分辨率？"
+description: "用线宽、成品尺寸和 60 mm 实拍对比，理解 0.2 与 0.4 喷嘴打印平面彩色作品时的等效分辨率。"
+sidebar_position: 20
+---
+'''
+translate = '''
+---
+title: "What Image Resolution Do 0.2 and 0.4 mm Nozzles Provide?"
+description: "Use line width, finished size, and a real 60 mm comparison to understand the equivalent resolution of flat color prints made with 0.2 and 0.4 mm nozzles."
+sidebar_position: 20
+---
+'''
+
+[[block]]
+key = "60a4ab8a9bfbbbe2"
+type = "paragraph"
+origin = '''
+按 Bambu Studio 默认线宽换算：**0.4 mm 喷嘴约相当于 60 PPI**，**0.2 mm 喷嘴约相当于 115 PPI**。
+'''
+translate = '''
+Using standard Bambu Studio default line widths, a **0.4 mm nozzle provides roughly 60 PPI**, and a **0.2 mm nozzle provides roughly 115 PPI**.
+'''
+
+[[block]]
+key = "9159027cada91a68"
+type = "paragraph"
+origin = '''
+FDM 3D 打印通过喷嘴挤出具有一定物理宽度的塑料走线，决定平面细节上限的核心参数是切片软件中的**线宽**。把单条参考线宽看作一个采样间隔，就能直观估算不同尺寸作品所能呈现的细节密度。
+'''
+translate = '''
+Because an FDM printer extrudes continuous plastic toolpaths with real physical width, the slicer's **line width** determines how much flat detail fits into a given print size. Treating one reference line width as one sampling interval gives you a practical way to estimate detail capacity before printing.
+'''
+
+[[block]]
+key = "ad63aafe1bc72f7d"
+type = "admonition"
+composite = true
+origin = '''
+:::tip[核心结论]
+{{ad63aafe1bc72f7d-4a373ef8c9c8d135}}
+:::
+'''
+translate = '''
+:::tip[Key takeaway]
+{{ad63aafe1bc72f7d-4a373ef8c9c8d135}}
+:::
+'''
+
+[[block]]
+key = "ad63aafe1bc72f7d-4a373ef8c9c8d135"
+type = "paragraph"
+origin = '''
+相同尺寸下，0.2 mm 喷嘴在单边方向能排下接近两倍数量的细线，人物五官、细小文字、衣物纹理和独立小色块更容易清晰分离。
+'''
+translate = '''
+At the same physical dimensions, a 0.2 mm nozzle fits nearly twice as many lines across each edge—giving facial features, small text, fine textures, and isolated color patches far more room to stay distinct.
+'''
+
+[[block]]
+key = "11149a9755017f8c"
+type = "heading"
+origin = '''
+## 60 mm 实拍横向对比
+'''
+translate = '''
+## Side-by-side comparison at 60 mm
+'''
+
+[[block]]
+key = "2e27892b508140a9"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/real-print-comparison.webp').default}
+  alt="同一个 60 mm 模型使用 0.4 和 0.2 喷嘴打印的真实横向对比"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/real-print-comparison.webp').default}
+  alt="Real side-by-side comparison of the same 60 mm model printed with 0.4 and 0.2 mm nozzles"
+/>
+'''
+
+[[block]]
+key = "9fe436320aab2615"
+type = "list"
+composite = true
+origin = '''
+{{9fe436320aab2615-10f76c21d48047d3}}
+{{9fe436320aab2615-7925be55094a46f0}}
+{{9fe436320aab2615-a92676449f9c9628}}
+'''
+translate = '''
+{{9fe436320aab2615-10f76c21d48047d3}}
+{{9fe436320aab2615-7925be55094a46f0}}
+{{9fe436320aab2615-a92676449f9c9628}}
+'''
+
+[[block]]
+key = "9fe436320aab2615-10f76c21d48047d3"
+type = "listItem"
+composite = true
+origin = '''
+- {{9fe436320aab2615-10f76c21d48047d3-9dba64c6d2151e63}}
+'''
+translate = '''
+- {{9fe436320aab2615-10f76c21d48047d3-9dba64c6d2151e63}}
+'''
+
+[[block]]
+key = "9fe436320aab2615-10f76c21d48047d3-9dba64c6d2151e63"
+type = "paragraph"
+origin = '''
+**左侧**：0.4 mm 喷嘴（默认参考线宽 0.42 mm）
+'''
+translate = '''
+**Left**: 0.4 mm nozzle (0.42 mm default line width)
+'''
+
+[[block]]
+key = "9fe436320aab2615-7925be55094a46f0"
+type = "listItem"
+composite = true
+origin = '''
+- {{9fe436320aab2615-7925be55094a46f0-dbc670b6ec5aeecc}}
+'''
+translate = '''
+- {{9fe436320aab2615-7925be55094a46f0-dbc670b6ec5aeecc}}
+'''
+
+[[block]]
+key = "9fe436320aab2615-7925be55094a46f0-dbc670b6ec5aeecc"
+type = "paragraph"
+origin = '''
+**右侧**：0.2 mm 喷嘴（默认参考线宽 0.22 mm）
+'''
+translate = '''
+**Right**: 0.2 mm nozzle (0.22 mm default line width)
+'''
+
+[[block]]
+key = "9fe436320aab2615-a92676449f9c9628"
+type = "listItem"
+composite = true
+origin = '''
+- {{9fe436320aab2615-a92676449f9c9628-a83daa248e86d927}}
+'''
+translate = '''
+- {{9fe436320aab2615-a92676449f9c9628-a83daa248e86d927}}
+'''
+
+[[block]]
+key = "9fe436320aab2615-a92676449f9c9628-a83daa248e86d927"
+type = "paragraph"
+origin = '''
+**条件**：同一模型、相同 60 mm 成品尺寸（实拍图由内测用户 **C SINGing** 提供，照片著作权归提供者所有）
+'''
+translate = '''
+**Setup**: identical model printed at 60 mm (comparison photo courtesy of beta user **C SINGing**; photo copyright remains with the contributor)
+'''
+
+[[block]]
+key = "25513bb9163e2481"
+type = "paragraph"
+origin = '''
+按 0.42 mm 与 0.22 mm 参考线宽估算单边采样数：
+'''
+translate = '''
+Estimating reference line counts across a 60 mm span:
+'''
+
+[[block]]
+key = "11a4e64d5d1dab35"
+type = "code"
+origin = '''
+```text
+0.4 喷嘴：60 / 0.42 ≈ 143
+0.2 喷嘴：60 / 0.22 ≈ 273
+```
+'''
+translate = '''
+```text
+0.4 mm nozzle: 60 / 0.42 ≈ 143
+0.2 mm nozzle: 60 / 0.22 ≈ 273
+```
+'''
+
+[[block]]
+key = "4dbbe10a16a5b7d4"
+type = "paragraph"
+origin = '''
+同样在 60 mm 长度内，0.4 mm 喷嘴约可容纳 143 条参考线宽，0.2 mm 喷嘴约可容纳 273 条。观察人物的眼睛与嘴巴、衣服细条纹、手脚边缘及微小独立色块：右侧 0.2 mm 版本保留了更多细线，相邻小色块分界清晰；左侧 0.4 mm 版本主体结构完整，但更细微的局部已合并或变粗。此外，耗材状态、流量、首层挤压程度与打印板纹理也会共同影响实物的表面细节。
+'''
+translate = '''
+Across the same 60 mm width, the 0.4 mm setup fits about 143 reference line widths, whereas the 0.2 mm setup fits about 273. Notice the eyes and mouth, thin stripes on the clothing, outlines around the hands and feet, and tiny standalone color patches: the 0.2 mm print keeps fine strokes separated, while the 0.4 mm print captures the main silhouette clearly with finer strokes merged or thickened. Filament condition, flow calibration, first-layer squish, and build-plate texture also shape the final look.
+'''
+
+[[block]]
+key = "cf6e9c6961307eaf"
+type = "heading"
+origin = '''
+## 为什么按切片线宽而不是喷嘴直径计算？
+'''
+translate = '''
+## Why calculate from line width instead of nozzle diameter?
+'''
+
+[[block]]
+key = "d475cd5aaf1a2e02"
+type = "paragraph"
+origin = '''
+喷嘴直径与实际挤出线宽是两个不同的物理量：
+'''
+translate = '''
+Nozzle diameter and extruded line width measure two different things:
+'''
+
+[[block]]
+key = "c63ed887de896ad3"
+type = "list"
+composite = true
+origin = '''
+{{c63ed887de896ad3-8c850d26ebe562ae}}
+{{c63ed887de896ad3-0b22bf560ac2406c}}
+{{c63ed887de896ad3-f818ad75d96546cf}}
+'''
+translate = '''
+{{c63ed887de896ad3-8c850d26ebe562ae}}
+{{c63ed887de896ad3-0b22bf560ac2406c}}
+{{c63ed887de896ad3-f818ad75d96546cf}}
+'''
+
+[[block]]
+key = "c63ed887de896ad3-8c850d26ebe562ae"
+type = "listItem"
+composite = true
+origin = '''
+- {{c63ed887de896ad3-8c850d26ebe562ae-3203f1758f764050}}
+'''
+translate = '''
+- {{c63ed887de896ad3-8c850d26ebe562ae-3203f1758f764050}}
+'''
+
+[[block]]
+key = "c63ed887de896ad3-8c850d26ebe562ae-3203f1758f764050"
+type = "paragraph"
+origin = '''
+**喷嘴直径**：喷嘴孔径规格与硬件预设基准，如 0.2 mm、0.4 mm。
+'''
+translate = '''
+**Nozzle diameter**: the physical orifice size and hardware preset baseline (`0.2 mm`, `0.4 mm`).
+'''
+
+[[block]]
+key = "c63ed887de896ad3-0b22bf560ac2406c"
+type = "listItem"
+composite = true
+origin = '''
+- {{c63ed887de896ad3-0b22bf560ac2406c-aa13f1f05563f0f6}}
+'''
+translate = '''
+- {{c63ed887de896ad3-0b22bf560ac2406c-aa13f1f05563f0f6}}
+'''
+
+[[block]]
+key = "c63ed887de896ad3-0b22bf560ac2406c-aa13f1f05563f0f6"
+type = "paragraph"
+origin = '''
+**线宽**：熔融耗材挤出后压合在打印板或下层表面形成的目标宽度。
+'''
+translate = '''
+**Line width**: the target width of extruded plastic pressed onto the build plate or underlying layer.
+'''
+
+[[block]]
+key = "c63ed887de896ad3-f818ad75d96546cf"
+type = "listItem"
+composite = true
+origin = '''
+- {{c63ed887de896ad3-f818ad75d96546cf-3ef7af67aafa83b0}}
+'''
+translate = '''
+- {{c63ed887de896ad3-f818ad75d96546cf-3ef7af67aafa83b0}}
+'''
+
+[[block]]
+key = "c63ed887de896ad3-f818ad75d96546cf-3ef7af67aafa83b0"
+type = "paragraph"
+origin = '''
+**等效像素**：将一条参考线宽近似视作一个平面采样位置，便于换算对比。
+'''
+translate = '''
+**Equivalent pixel**: a practical approximation that treats one reference line width as one planar sample.
+'''
+
+[[block]]
+key = "6bcc438d47609e7c"
+type = "paragraph"
+origin = '''
+在 Bambu Studio 常用默认工艺配置中，0.4 mm 喷嘴默认线宽为 `0.42 mm`，0.2 mm 喷嘴默认线宽为 `0.22 mm`。切片软件还会分别为外墙、内墙、首层、顶面和填充指定线宽；启用 Arachne 可变线宽墙生成器时，局部线宽更会随几何窄缝动态缩放。因此，用切片预设中的参考线宽估算，比直接套用喷嘴孔径更贴近实际走线。
+'''
+translate = '''
+In standard Bambu Studio presets, a 0.4 mm nozzle defaults to a `0.42 mm` line width and a 0.2 mm nozzle defaults to `0.22 mm`. Slicers also assign separate widths to outer walls, inner walls, first layers, top surfaces, and infill—and with the Arachne variable-width wall generator, local widths adapt dynamically to narrow features. Using your preset's reference line width gives a closer estimate than dividing by the nominal orifice size.
+'''
+
+[[block]]
+key = "30fcbe5f1da7ee49"
+type = "admonition"
+composite = true
+origin = '''
+:::note[查看实际线宽]
+{{30fcbe5f1da7ee49-67b58fe3ff2afbc1}}
+:::
+'''
+translate = '''
+:::note[Use actual line width]
+{{30fcbe5f1da7ee49-67b58fe3ff2afbc1}}
+:::
+'''
+
+[[block]]
+key = "30fcbe5f1da7ee49-67b58fe3ff2afbc1"
+type = "paragraph"
+origin = '''
+0.2 mm 喷嘴并不代表单根线条宽度严格等于 0.2 mm。若你在切片预设中手动调整过线宽，请代入修改后的实际线宽计算。
+'''
+translate = '''
+A 0.2 mm nozzle profile does not extrude lines that are literally 0.20 mm wide by default. If you customize line widths in your slicer preset, substitute your configured line width into the formulas below.
+'''
+
+[[block]]
+key = "b6d5a35b3597822f"
+type = "heading"
+origin = '''
+## 如何换算自己作品的等效分辨率？
+'''
+translate = '''
+## Calculating equivalent resolution for your print
+'''
+
+[[block]]
+key = "04267724231ed739"
+type = "paragraph"
+origin = '''
+已知成品边长与切片线宽，即可估算该边方向可容纳的参考采样数：
+'''
+translate = '''
+Divide any finished edge length by your slicer's line width to estimate how many reference samples fit along that edge:
+'''
+
+[[block]]
+key = "32cd3a33180a3240"
+type = "code"
+origin = '''
+```text
+某一边的等效像素数量 ≈ 成品该边尺寸（mm）÷ 实际线宽（mm）
+```
+'''
+translate = '''
+```text
+Equivalent samples on one side ≈ side length (mm) / actual line width (mm)
+```
+'''
+
+[[block]]
+key = "2ff1884a57e8474b"
+type = "paragraph"
+origin = '''
+以高度 100 mm 的作品为例：
+'''
+translate = '''
+For a 100 mm tall print:
+'''
+
+[[block]]
+key = "f184e2a7f9dfef85"
+type = "code"
+origin = '''
+```text
+0.4 喷嘴：100 ÷ 0.42 ≈ 238
+0.2 喷嘴：100 ÷ 0.22 ≈ 455
+```
+'''
+translate = '''
+```text
+0.4 mm nozzle: 100 / 0.42 ≈ 238
+0.2 mm nozzle: 100 / 0.22 ≈ 455
+```
+'''
+
+[[block]]
+key = "0b3583dfaa037ced"
+type = "paragraph"
+origin = '''
+即高度方向分别约有 238 个或 455 个参考采样位置；若宽度为 80 mm，再用 `80 ÷ 实际线宽` 即可算出横向采样数。
+'''
+translate = '''
+That gives roughly 238 or 455 reference samples vertically; for an 80 mm width, divide `80` by the same line width to find the horizontal count.
+'''
+
+[[block]]
+key = "89fd3a98b3fc5cf2"
+type = "paragraph"
+origin = '''
+折算为每英寸等效像素（PPI）：
+'''
+translate = '''
+To convert directly into equivalent pixels per inch (PPI):
+'''
+
+[[block]]
+key = "b427a46d6a3f9b3a"
+type = "code"
+origin = '''
+```text
+等效 PPI ≈ 25.4 ÷ 实际线宽（mm）
+
+0.4 喷嘴：25.4 ÷ 0.42 ≈ 60 PPI
+0.2 喷嘴：25.4 ÷ 0.22 ≈ 115 PPI
+```
+'''
+translate = '''
+```text
+Equivalent PPI ≈ 25.4 / actual line width (mm)
+
+0.4 mm nozzle: 25.4 / 0.42 ≈ 60 PPI
+0.2 mm nozzle: 25.4 / 0.22 ≈ 115 PPI
+```
+'''
+
+[[block]]
+key = "e86db5cf378ae5d2"
+type = "paragraph"
+origin = '''
+从 0.4 mm 换用 0.2 mm 喷嘴，单边参考采样数接近翻倍，二维平面的理论采样密度约为原来的 3.6 倍；具体到肉眼清晰度，还会受走线规划、色块对比与耗材流动性共同决定。
+'''
+translate = '''
+Switching from 0.4 mm to 0.2 mm nearly doubles linear sample density along each axis—roughly `3.6×` across two dimensions—while actual visual sharpness also depends on toolpath routing, color contrast, and extrusion behavior.
+'''
+
+[[block]]
+key = "3339553201b00f8d"
+type = "heading"
+origin = '''
+## 60、100、150、200 mm 常见尺寸对照
+'''
+translate = '''
+## What 60, 100, 150, and 200 mm look like in practice
+'''
+
+[[block]]
+key = "81c2c36a2f3aae2f"
+type = "table"
+origin = '''
+| 成品某一边尺寸 | 0.4 喷嘴（0.42 mm 线宽） | 0.2 喷嘴（0.22 mm 线宽） | 直观类比 |
+| ---: | ---: | ---: | --- |
+| 60 mm | 约 143 | 约 273 | 小型冰箱贴：单边采样约 144p 对 270p |
+| 100 mm | 约 238 | 约 455 | 手掌 / 杯垫大小：单边采样约 240p 对接近 480p |
+| 150 mm | 约 357 | 约 682 | 明信片高度：单边采样约 360p 对接近 720p |
+| 200 mm | 约 476 | 约 909 | 接近 A4 短边：单边采样约 480p 对 900p |
+'''
+translate = '''
+| Side length | 0.4 mm nozzle (0.42 mm width) | 0.2 mm nozzle (0.22 mm width) | Practical scale |
+| ---: | ---: | ---: | --- |
+| 60 mm | about 143 | about 273 | Small fridge magnet: ~144p vs. ~270p along one edge |
+| 100 mm | about 238 | about 455 | Coaster / palm-sized piece: ~240p vs. ~480p |
+| 150 mm | about 357 | about 682 | Postcard height: ~360p vs. ~720p |
+| 200 mm | about 476 | about 909 | Short edge of A4 paper: ~480p vs. ~900p |
+'''
+
+[[block]]
+key = "9ec72b601a7af89b"
+type = "paragraph"
+origin = '''
+表中的 `144p`、`240p`、`480p` 仅借用常见视频短边行数来类比单边采样数量，方便建立直觉（实体打印件由连续曲线走线构成，表面带有纹理与挤出接触边界，不同于发光屏幕的方形像素阵列）：
+'''
+translate = '''
+Labels like `144p`, `240p`, and `480p` borrow familiar video line counts solely to illustrate one-dimensional sample counts along a single edge (printed toolpaths form curved plastic lines with surface texture rather than glowing square pixels):
+'''
+
+[[block]]
+key = "b83ff1006e30d7e9"
+type = "list"
+composite = true
+origin = '''
+{{b83ff1006e30d7e9-c612f1968a8ab50f}}
+{{b83ff1006e30d7e9-8ef0ce2361fb1d32}}
+{{b83ff1006e30d7e9-d7af871d484cffc5}}
+{{b83ff1006e30d7e9-cdcfff43ff1e14a7}}
+'''
+translate = '''
+{{b83ff1006e30d7e9-c612f1968a8ab50f}}
+{{b83ff1006e30d7e9-8ef0ce2361fb1d32}}
+{{b83ff1006e30d7e9-d7af871d484cffc5}}
+{{b83ff1006e30d7e9-cdcfff43ff1e14a7}}
+'''
+
+[[block]]
+key = "b83ff1006e30d7e9-c612f1968a8ab50f"
+type = "listItem"
+composite = true
+origin = '''
+- {{b83ff1006e30d7e9-c612f1968a8ab50f-d586d88a0f94cae1}}
+'''
+translate = '''
+- {{b83ff1006e30d7e9-c612f1968a8ab50f-d586d88a0f94cae1}}
+'''
+
+[[block]]
+key = "b83ff1006e30d7e9-c612f1968a8ab50f-d586d88a0f94cae1"
+type = "paragraph"
+origin = '''
+**60 mm**（冰箱贴、钥匙扣挂件）：画面紧凑，两种喷嘴在线条容纳量上的差距最为直观。
+'''
+translate = '''
+**60 mm** (fridge magnets, keychains): tight dimensions make the jump from ~143 to ~273 lines immediately noticeable.
+'''
+
+[[block]]
+key = "b83ff1006e30d7e9-8ef0ce2361fb1d32"
+type = "listItem"
+composite = true
+origin = '''
+- {{b83ff1006e30d7e9-8ef0ce2361fb1d32-cb9a5331491e6093}}
+'''
+translate = '''
+- {{b83ff1006e30d7e9-8ef0ce2361fb1d32-cb9a5331491e6093}}
+'''
+
+[[block]]
+key = "b83ff1006e30d7e9-8ef0ce2361fb1d32-cb9a5331491e6093"
+type = "paragraph"
+origin = '''
+**100 mm**（杯垫、掌心摆件）：0.4 mm 约 238 线、0.2 mm 约 455 线，可按画面精细度与打印耗时权衡。
+'''
+translate = '''
+**100 mm** (coasters, desk miniatures): ~238 vs. ~455 lines—pick based on how intricate your artwork is and how long you want to print.
+'''
+
+[[block]]
+key = "b83ff1006e30d7e9-d7af871d484cffc5"
+type = "listItem"
+composite = true
+origin = '''
+- {{b83ff1006e30d7e9-d7af871d484cffc5-48698709b7f49115}}
+'''
+translate = '''
+- {{b83ff1006e30d7e9-d7af871d484cffc5-48698709b7f49115}}
+'''
+
+[[block]]
+key = "b83ff1006e30d7e9-d7af871d484cffc5-48698709b7f49115"
+type = "paragraph"
+origin = '''
+**150 mm**（明信片尺寸）：两种喷嘴均可胜任，差异集中在细微轮廓保留度与打印时长。
+'''
+translate = '''
+**150 mm** (postcard size): both nozzles work well; the main trade-off is fine-line retention versus print time.
+'''
+
+[[block]]
+key = "b83ff1006e30d7e9-cdcfff43ff1e14a7"
+type = "listItem"
+composite = true
+origin = '''
+- {{b83ff1006e30d7e9-cdcfff43ff1e14a7-1e66f2d5d7318814}}
+'''
+translate = '''
+- {{b83ff1006e30d7e9-cdcfff43ff1e14a7-1e66f2d5d7318814}}
+'''
+
+[[block]]
+key = "b83ff1006e30d7e9-cdcfff43ff1e14a7-1e66f2d5d7318814"
+type = "paragraph"
+origin = '''
+**200 mm**（A4 短边尺寸）：0.4 mm 已具备约 476 线的单边采样空间，适合绝大多数装饰画；追求极致细线时可选 0.2 mm（约 909 线）。
+'''
+translate = '''
+**200 mm** (short side of A4): a 0.4 mm nozzle already fits ~476 lines vertically, plenty for bold illustrations, while 0.2 mm (~909 lines) excels on intricate linework.
+'''
+
+[[block]]
+key = "a27b3572e1f0c163"
+type = "heading"
+origin = '''
+## 其他影响平面细节的关键因素
+'''
+translate = '''
+## Other factors that shape fine detail
+'''
+
+[[block]]
+key = "824cee95a0a45a40"
+type = "heading"
+origin = '''
+### 原图质量
+'''
+translate = '''
+### Source image quality
+'''
+
+[[block]]
+key = "04cb6b6bf53071e6"
+type = "paragraph"
+origin = '''
+干净的边缘、明确的色块与适度对比度是精细打印的前提。若原图本身带有严重 JPG 压缩块、噪点或模糊虚边，更换 0.2 mm 喷嘴也会将这些瑕疵一并放大保留。
+'''
+translate = '''
+Clean silhouettes, crisp color regions, and clear contrast matter more than raw megapixel count. Compression blocks, sensor noise, or blurry edges in the source image cannot be recovered by switching to a smaller nozzle.
+'''
+
+[[block]]
+key = "abee59625f9a87e4"
+type = "heading"
+origin = '''
+### 建模模式
+'''
+translate = '''
+### Modeling mode
+'''
+
+[[block]]
+key = "90e194e164c008f4"
+type = "paragraph"
+origin = '''
+像素艺术模式贴近规则网格；高保真与矢量模式则沿颜色区域边界生成连续曲线路径，因此平滑斜线与圆弧不会呈现生硬的方形锯齿。
+'''
+translate = '''
+Pixel Art mode aligns geometry to a regular grid, whereas High-Fidelity and Vector modes trace color regions into smooth, continuous curves—so diagonal lines and arcs print smoothly without stair-stepping.
+'''
+
+[[block]]
+key = "94904f7820edd40c"
+type = "heading"
+origin = '''
+### 墙生成器
+'''
+translate = '''
+### Wall generator
+'''
+
+[[block]]
+key = "d3cefa406a970254"
+type = "paragraph"
+origin = '''
+经典墙生成器倾向于保持固定参考线宽；Arachne 可变线宽墙生成器会根据局部窄缝动态收窄或加宽走线，有助于在 0.4 mm 喷嘴下多保留一部分尖角与细线，但仍受喷嘴孔径的物理下限约束。
+'''
+translate = '''
+Classic wall generation stays close to fixed reference widths. Arachne varies extrusion width locally to squeeze into narrow tapers and thin strokes, helping preserve extra detail even on a 0.4 mm nozzle within physical extrusion limits.
+'''
+
+[[block]]
+key = "4094f73c09b53c41"
+type = "heading"
+origin = '''
+### 首层、流量与打印板
+'''
+translate = '''
+### First layer, flow, and build plate
+'''
+
+[[block]]
+key = "e93066c2aa60042b"
+type = "paragraph"
+origin = '''
+当显色面贴合打印板朝下打印时，首层线宽、首层流量与打印板纹理直接决定观赏面质量：首层压得过低会让相邻颜色互相挤占溢色，压得过高或流量不足则会留下间隙。
+'''
+translate = '''
+When the viewing face prints face-down against the build plate, first-layer line width, flow ratio, and plate texture directly define surface crispness. Over-squishing causes adjacent colors to bleed into each other, while under-extrusion leaves tiny pinholes.
+'''
+
+[[block]]
+key = "634e1af7ed24d639"
+type = "heading"
+origin = '''
+### 耗材遮盖力与色彩对比
+'''
+translate = '''
+### Filament opacity and color contrast
+'''
+
+[[block]]
+key = "abce06d75b4702be"
+type = "paragraph"
+origin = '''
+深浅高对比边界（如黑线白底）在视觉上更锐利；色相与明度接近的相邻小色块，在半透明耗材透光交叠时更容易显得柔和。
+'''
+translate = '''
+High-contrast boundaries (such as dark outlines against white) read sharply to the eye, whereas tiny details between two similarly toned translucent filaments blend together more softly.
+'''
+
+[[block]]
+key = "4ee9268b2510bf58"
+type = "heading"
+origin = '''
+### 观看距离
+'''
+translate = '''
+### Viewing distance
+'''
+
+[[block]]
+key = "0e51a460bbd57a8d"
+type = "paragraph"
+origin = '''
+60–100 mm 的小挂件常拿在手中近看，细线缺失一目了然；200 mm 以上的摆画通常在半米外欣赏，0.4 mm 喷嘴在合理视距下同样干净利落。
+'''
+translate = '''
+Keychains and 60–100 mm magnets are held inches from the eye, making fine detail critical. Wall art at 200 mm or larger is typically viewed from arm's length or across a room, where a 0.4 mm print looks crisp and balanced.
+'''
+
+[[block]]
+key = "a1d810cf953adf43"
+type = "heading"
+origin = '''
+## 0.2 与 0.4 喷嘴怎么选？
+'''
+translate = '''
+## Choosing between 0.2 mm and 0.4 mm
+'''
+
+[[block]]
+key = "ffe4d266d786c142"
+type = "list"
+composite = true
+origin = '''
+{{ffe4d266d786c142-4b93c164774cfe6d}}
+{{ffe4d266d786c142-9d31ccd54deef83c}}
+'''
+translate = '''
+{{ffe4d266d786c142-4b93c164774cfe6d}}
+{{ffe4d266d786c142-9d31ccd54deef83c}}
+'''
+
+[[block]]
+key = "ffe4d266d786c142-4b93c164774cfe6d"
+type = "listItem"
+composite = true
+origin = '''
+- {{ffe4d266d786c142-4b93c164774cfe6d-553731ffa9289011}}
+'''
+translate = '''
+- {{ffe4d266d786c142-4b93c164774cfe6d-553731ffa9289011}}
+'''
+
+[[block]]
+key = "ffe4d266d786c142-4b93c164774cfe6d-553731ffa9289011"
+type = "paragraph"
+origin = '''
+**选 0.2 mm 喷嘴**：适合小尺寸作品（如 60–100 mm 徽章、冰箱贴），或包含密集五官、细小文字、纤细描边与独立碎色块的图案；代价是路径数更多、打印耗时更长。
+'''
+translate = '''
+**Choose a 0.2 mm nozzle** for compact pieces (60–100 mm) or artwork packed with small eyes, lettering, thin outlines, and tiny isolated color islands, when you are comfortable with longer print times.
+'''
+
+[[block]]
+key = "ffe4d266d786c142-9d31ccd54deef83c"
+type = "listItem"
+composite = true
+origin = '''
+- {{ffe4d266d786c142-9d31ccd54deef83c-4fa14805bd1ca993}}
+'''
+translate = '''
+- {{ffe4d266d786c142-9d31ccd54deef83c-4fa14805bd1ca993}}
+'''
+
+[[block]]
+key = "ffe4d266d786c142-9d31ccd54deef83c-4fa14805bd1ca993"
+type = "paragraph"
+origin = '''
+**选 0.4 mm 喷嘴**：适合中大尺寸装饰画、大色块插画与日常快速打样，打印效率高、不易堵头，也是大多数机器的默认装机喷嘴。
+'''
+translate = '''
+**Choose a 0.4 mm nozzle** for medium-to-large prints, bold graphic art, faster turnaround, and everyday reliability with standard printer setups.
+'''
+
+[[block]]
+key = "cfa7b0b75ba16cef"
+type = "admonition"
+composite = true
+origin = '''
+:::tip[选型建议]
+{{cfa7b0b75ba16cef-ae319749be3dc0b2}}
+:::
+'''
+translate = '''
+:::tip[Choosing a nozzle]
+{{cfa7b0b75ba16cef-ae319749be3dc0b2}}
+:::
+'''
+
+[[block]]
+key = "cfa7b0b75ba16cef-ae319749be3dc0b2"
+type = "paragraph"
+origin = '''
+切片后直接进入切片器的逐层预览，放大检查眼睛、文字、细线和独立小色块是否完整生成走线：若当前喷嘴已能完整还原关键细节，即可直接开打；若细部明显合并丢失，再换用 0.2 mm 喷嘴或适当放大成品尺寸。
+'''
+translate = '''
+Slice your project and inspect the eyes, lettering, thin lines, and smallest color regions in the slicer's layer preview. If all critical details generate clean toolpaths with your current nozzle, you are ready to print; if fine features drop out or merge, step down to a 0.2 mm nozzle or scale up the print dimensions.
+'''
+
+[[block]]
+key = "3b30b685be5af364"
+type = "heading"
+origin = '''
+## 常见问题
+'''
+translate = '''
+## Frequently asked questions
+'''
+
+[[block]]
+key = "5fe6c613c486a4e7"
+type = "heading"
+origin = '''
+### 0.2 mm 喷嘴是不是严格等于 127 PPI？
+'''
+translate = '''
+### Is a 0.2 mm nozzle equal to 127 PPI?
+'''
+
+[[block]]
+key = "c2f9265fef302b8d"
+type = "paragraph"
+origin = '''
+`127 PPI` 是用 `25.4 ÷ 0.2` 直接按喷嘴孔径算出的理论值。实际挤出线条压平后通常宽于孔径，按默认 `0.22 mm` 参考线宽计算约为 `115 PPI`。
+'''
+translate = '''
+`127 PPI` (`25.4 / 0.2`) divides by the bare nozzle orifice. Because extruded plastic spreads slightly wider than the orifice, calculating with the `0.22 mm` default line width yields a more realistic `115 PPI`.
+'''
+
+[[block]]
+key = "ccc834b71b48a21f"
+type = "heading"
+origin = '''
+### 原图像素越高，打印出来一定越清楚吗？
+'''
+translate = '''
+### Will a higher-resolution source image always print sharper?
+'''
+
+[[block]]
+key = "ca6b7f44aba64738"
+type = "paragraph"
+origin = '''
+超过物理线宽采样上限的超细像素会在建模或切片阶段合并，原图中的高频噪点还可能生成多余碎路径。比起盲目拉高分辨率，清理噪点、强化轮廓对比度效果更明显。
+'''
+translate = '''
+Not beyond your physical line-width limit. Sub-line-width details merge during modeling or slicing, and noisy high-resolution images can introduce unwanted speckles. Clean edges and strong contrast make a bigger difference.
+'''
+
+[[block]]
+key = "c8fded89e6a28c70"
+type = "heading"
+origin = '''
+### 为什么换上 0.2 mm 喷嘴后，肉眼没有觉得“清晰两倍”？
+'''
+translate = '''
+### Why doesn't a 0.2 mm print look literally twice as sharp?
+'''
+
+[[block]]
+key = "341c72c5075a6002"
+type = "paragraph"
+origin = '''
+“接近两倍”指的是单边可排下的走线数量。实际观感同时受原图细节丰富度、颜色对比、首层压实状态及观看距离影响；若原图本身由大色块构成，两种喷嘴的成片差异会很小。
+'''
+translate = '''
+“Nearly twice” refers to linear toolpath count along each axis. Perceived sharpness also depends on source detail, color contrast, first-layer squish, and viewing distance—bold artwork with large flat regions will look similar on both nozzles.
+'''
+
+[[block]]
+key = "e4a29853ed2ebb09"
+type = "heading"
+origin = '''
+### 0.4 mm 喷嘴能打印精细大图吗？
+'''
+translate = '''
+### Can a 0.4 mm nozzle print sharp large-format art?
+'''
+
+[[block]]
+key = "b358aaab05c003ee"
+type = "paragraph"
+origin = '''
+完全可以。成品放大到 200 mm 高时，0.4 mm 喷嘴在纵向已有约 476 条走线空间，用来表现卡通插画、海报与桌面摆画绰绰有余。
+'''
+translate = '''
+Yes. Scaling up increases how many toolpaths fit across the image: a 200 mm tall print on a 0.4 mm nozzle has roughly 476 vertical sample positions, which works well for posters, cartoons, and wall decor viewed from normal distances.
+'''
+
+[[block]]
+key = "e25ac52dd9ea249d"
+type = "heading"
+origin = '''
+### 层高会改变 XY 平面等效分辨率吗？
+'''
+translate = '''
+### Does layer height change XY equivalent resolution?
+'''
+
+[[block]]
+key = "978419c08fa8d75d"
+type = "paragraph"
+origin = '''
+层高主要控制 Z 方向叠层厚度与混色阶数，不直接进入 XY 线宽公式；不过首层层高与首层流量会影响贴板走线的铺展宽度，从而间接影响观赏面色块边界的锐利度。
+'''
+translate = '''
+Layer height governs Z-axis stacking thickness and color blending rather than XY line count, though first-layer height and flow do affect how wide the bottom lines spread against the build plate.
+'''
+
+[[block]]
+key = "c0098bf2daa4bdcf"
+type = "heading"
+origin = '''
+### 开启 Arachne 能否打出比默认线宽更细的局部？
+'''
+translate = '''
+### Can Arachne print features narrower than the default line width?
+'''
+
+[[block]]
+key = "870441294c677b6a"
+type = "paragraph"
+origin = '''
+可以。Arachne 会在狭窄尖角与细线处自动收窄局部挤出宽度，比固定线宽更容易保留边缘细节，但局部调节范围仍受喷嘴规格与材料流动稳定性限制。
+'''
+translate = '''
+Yes, locally. Arachne narrows or widens individual walls to fit tapered corners and thin strokes that fixed-width walls would drop, within the physical flow limits of your nozzle and filament.
+'''
+
+[[block]]
+key = "95d93065e8a34be8"
+type = "heading"
+origin = '''
+## 参考资料
+'''
+translate = '''
+## References
+'''
+
+[[block]]
+key = "abe82cb971b99b99"
+type = "list"
+composite = true
+origin = '''
+{{abe82cb971b99b99-cdec0507105f56bc}}
+{{abe82cb971b99b99-329dc57603651521}}
+{{abe82cb971b99b99-b0ddfacfa2fd5ee3}}
+{{abe82cb971b99b99-fdff3d699166cb9f}}
+'''
+translate = '''
+{{abe82cb971b99b99-cdec0507105f56bc}}
+{{abe82cb971b99b99-329dc57603651521}}
+{{abe82cb971b99b99-b0ddfacfa2fd5ee3}}
+{{abe82cb971b99b99-fdff3d699166cb9f}}
+'''
+
+[[block]]
+key = "abe82cb971b99b99-cdec0507105f56bc"
+type = "listItem"
+composite = true
+origin = '''
+- {{abe82cb971b99b99-cdec0507105f56bc-4ffd43b0fffb84f4}}
+'''
+translate = '''
+- {{abe82cb971b99b99-cdec0507105f56bc-4ffd43b0fffb84f4}}
+'''
+
+[[block]]
+key = "abe82cb971b99b99-cdec0507105f56bc-4ffd43b0fffb84f4"
+type = "paragraph"
+origin = '''
+[Bambu Studio 0.4 mm 默认工艺配置](https://github.com/bambulab/BambuStudio/blob/master/resources/profiles/BBL/process/fdm_process_common.json)
+'''
+translate = '''
+[Bambu Studio default process profile for 0.4 mm](https://github.com/bambulab/BambuStudio/blob/master/resources/profiles/BBL/process/fdm_process_common.json)
+'''
+
+[[block]]
+key = "abe82cb971b99b99-329dc57603651521"
+type = "listItem"
+composite = true
+origin = '''
+- {{abe82cb971b99b99-329dc57603651521-7957de992aa38dcc}}
+'''
+translate = '''
+- {{abe82cb971b99b99-329dc57603651521-7957de992aa38dcc}}
+'''
+
+[[block]]
+key = "abe82cb971b99b99-329dc57603651521-7957de992aa38dcc"
+type = "paragraph"
+origin = '''
+[Bambu Studio 0.2 mm 默认工艺配置](https://github.com/bambulab/BambuStudio/blob/master/resources/profiles/BBL/process/fdm_process_single_0.08_nozzle_0.2.json)
+'''
+translate = '''
+[Bambu Studio default process profile for 0.2 mm](https://github.com/bambulab/BambuStudio/blob/master/resources/profiles/BBL/process/fdm_process_single_0.08_nozzle_0.2.json)
+'''
+
+[[block]]
+key = "abe82cb971b99b99-b0ddfacfa2fd5ee3"
+type = "listItem"
+composite = true
+origin = '''
+- {{abe82cb971b99b99-b0ddfacfa2fd5ee3-6d58dc84b60a113a}}
+'''
+translate = '''
+- {{abe82cb971b99b99-b0ddfacfa2fd5ee3-6d58dc84b60a113a}}
+'''
+
+[[block]]
+key = "abe82cb971b99b99-b0ddfacfa2fd5ee3-6d58dc84b60a113a"
+type = "paragraph"
+origin = '''
+[OrcaSlicer 线宽说明](https://github.com/OrcaSlicer/OrcaSlicer/wiki/quality_settings_line_width)
+'''
+translate = '''
+[OrcaSlicer line-width documentation](https://github.com/OrcaSlicer/OrcaSlicer/wiki/quality_settings_line_width)
+'''
+
+[[block]]
+key = "abe82cb971b99b99-fdff3d699166cb9f"
+type = "listItem"
+composite = true
+origin = '''
+- {{abe82cb971b99b99-fdff3d699166cb9f-99c7d52387ad6c08}}
+'''
+translate = '''
+- {{abe82cb971b99b99-fdff3d699166cb9f-99c7d52387ad6c08}}
+'''
+
+[[block]]
+key = "abe82cb971b99b99-fdff3d699166cb9f-99c7d52387ad6c08"
+type = "paragraph"
+origin = '''
+[Prusa：不同喷嘴与挤出线宽说明](https://help.prusa3d.com/article/creating-profiles-for-different-nozzles_127540)
+'''
+translate = '''
+[Prusa guidance on nozzle profiles and extrusion width](https://help.prusa3d.com/article/creating-profiles-for-different-nozzles_127540)
+'''

@@ -1,0 +1,923 @@
+[metadata]
+migration_layout = "preserved English structure; root blocks retain grouped or omitted source sections"
+reviewed_source = "8c4ef589ea4be0fb2f81773125278d1bf001cc3f12b349247e18ec410792bda3"
+
+[[block]]
+key = "05560245b0127c9a"
+type = "yaml"
+origin = '''
+---
+title: "2.0 开发月报：2026 年 7 月"
+description: "Lumina Studio 2.0 在 2026 年 7 月的持续开发进展"
+sidebar_position: 34
+---
+'''
+translate = '''
+---
+title: "2.0 Development Report: July 2026"
+description: "Native SVG relief, material previews, planar artwork, Creative Workshop and slicers."
+sidebar_position: 34
+---
+'''
+
+[[block]]
+key = "3fb99dfc694c4cbf"
+type = "heading"
+origin = '''
+# Lumina Studio 2.0 开发月报：2026 年 7 月
+'''
+translate = '''
+# Lumina Studio 2.0 Development Report: July 2026
+'''
+
+[[block]]
+key = "dc21078513c3662e"
+type = "blockquote"
+composite = true
+origin = '''
+> {{dc21078513c3662e-fcb98ec798ae55d5}}
+'''
+translate = '''
+> Reporting period: July 1–31, 2026
+'''
+
+[[block]]
+key = "dc21078513c3662e-fcb98ec798ae55d5"
+type = "paragraph"
+origin = '''
+统计范围：2026 年 7 月全月
+'''
+translate = '''
+'''
+
+[[block]]
+key = "5539f024421c5393"
+type = "paragraph"
+origin = '''
+[← 2026 年 6 月](./2026-06.md) · [更新日志总览](./overview.md)
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b9afabb3581f03d0"
+type = "heading"
+origin = '''
+## 本月概览
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f77cc9454fe45c98"
+type = "paragraph"
+origin = '''
+7 月持续打磨云端资源库、像素与材料预览以及矢量模型导出，并上线原生 SVG 浮雕；下半月新增模型平面贴图工作流、创意工坊与 Flash Studio Desktop 适配，同时修复多处预览、局部换色与导出状态不同步的问题。
+'''
+translate = '''
+July refined cloud resources, pixel and material previews, and vector model exports while introducing native SVG relief. The second half of the month added planar artwork placement on imported 3D models, Creative Workshop, and Flash Studio Desktop support.
+'''
+
+[[block]]
+key = "3a0557c834aa45af"
+type = "heading"
+origin = '''
+## 重点更新
+'''
+translate = '''
+## Native SVG relief and cloud resources
+'''
+
+[[block]]
+key = "6b2890baf4bd6cba"
+type = "heading"
+origin = '''
+### 原生 SVG 浮雕
+'''
+translate = '''
+'''
+
+[[block]]
+key = "429456bd0509c17e"
+type = "paragraph"
+origin = '''
+SVG 图案可直接进入浮雕工作流，按矢量边界生成多高度模型；同步修复浮雕底板未闭合问题，避免导入切片器后出现非流形或底面破孔提示。
+'''
+translate = '''
+SVG artwork can now enter the relief workflow directly while preserving crisp vector boundaries, alongside a backing-closure fix that prevents open or non-manifold meshes in slicers. Cloud LUT installation refreshes item details, lists, and installed state automatically, with consistent handling for multi-select sources, missing resources, and official/community badges.
+'''
+
+[[block]]
+key = "b3877464df9646e7"
+type = "heading"
+origin = '''
+### 云端 LUT 安装与状态同步
+'''
+translate = '''
+'''
+
+[[block]]
+key = "67d7ef627fbf1580"
+type = "paragraph"
+origin = '''
+云端 LUT 安装后自动刷新详情、列表与启用状态，统一处理多来源选择、缺失资源提示及官方/社区标签；问题反馈同步逐条记录云端资源选择，方便精准复现。
+'''
+translate = '''
+Architecture design for Cloud Resource Center V2 was also completed this month ahead of implementation.
+'''
+
+[[block]]
+key = "e8d45bee1f58c18e"
+type = "heading"
+origin = '''
+## 新功能
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c184b0234c200845"
+type = "list"
+composite = true
+origin = '''
+{{c184b0234c200845-44bf827e27759086}}
+{{c184b0234c200845-543064ce114cd952}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c184b0234c200845-44bf827e27759086"
+type = "listItem"
+composite = true
+origin = '''
+- {{c184b0234c200845-44bf827e27759086-2715e780bbd85ca5}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c184b0234c200845-44bf827e27759086-2715e780bbd85ca5"
+type = "paragraph"
+origin = '''
+新增跨平台浏览器完成通知，耗时较长的预览或生成任务完成后可主动提醒，无需一直停留在当前标签页。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c184b0234c200845-543064ce114cd952"
+type = "listItem"
+composite = true
+origin = '''
+- {{c184b0234c200845-543064ce114cd952-2474845e4f06f7d1}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c184b0234c200845-543064ce114cd952-2474845e4f06f7d1"
+type = "paragraph"
+origin = '''
+新增图片旋转功能，并在矢量模式下自动限制不兼容的旋转组合，确保预览与导出坐标朝向一致。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "272042f24cb6dc79"
+type = "heading"
+origin = '''
+## 颜色工作站
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bf415dd905f579fd"
+type = "list"
+composite = true
+origin = '''
+{{bf415dd905f579fd-bf415dd905f579fd}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bf415dd905f579fd-bf415dd905f579fd"
+type = "listItem"
+composite = true
+origin = '''
+- {{bf415dd905f579fd-bf415dd905f579fd-341f0fa320e2ad48}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bf415dd905f579fd-bf415dd905f579fd-341f0fa320e2ad48"
+type = "paragraph"
+origin = '''
+切换耗材渐变或目标材料时自动清空上一轮替换选择，避免确认弹窗混入旧颜色记录。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f12d286538de4a85"
+type = "heading"
+origin = '''
+## 校准与材料
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bf15fa5e39560a48"
+type = "list"
+composite = true
+origin = '''
+{{bf15fa5e39560a48-ed6296291bcd5c32}}
+{{bf15fa5e39560a48-a6adbb37c59ca0c5}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bf15fa5e39560a48-ed6296291bcd5c32"
+type = "listItem"
+composite = true
+origin = '''
+- {{bf15fa5e39560a48-ed6296291bcd5c32-683e107218004c77}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bf15fa5e39560a48-ed6296291bcd5c32-683e107218004c77"
+type = "paragraph"
+origin = '''
+耗材库中的“无境新材”统一更名为 Karvax，已保存的材料档案、配方与底板设置自动平滑迁移。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bf15fa5e39560a48-a6adbb37c59ca0c5"
+type = "listItem"
+composite = true
+origin = '''
+- {{bf15fa5e39560a48-a6adbb37c59ca0c5-f6fefc1d8cac2e2c}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bf15fa5e39560a48-a6adbb37c59ca0c5-f6fefc1d8cac2e2c"
+type = "paragraph"
+origin = '''
+删除重复材料时明确提示操作针对当前重复项还是共享资源，防止误删其他在用材料。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ad9ea4e91bbd4e68"
+type = "heading"
+origin = '''
+## 矢量化与建模
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a6a70e0697bc7929"
+type = "list"
+composite = true
+origin = '''
+{{a6a70e0697bc7929-284eff10eda193b5}}
+{{a6a70e0697bc7929-e6b8764ac3aa6220}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a6a70e0697bc7929-284eff10eda193b5"
+type = "listItem"
+composite = true
+origin = '''
+- {{a6a70e0697bc7929-284eff10eda193b5-a3ed076c283c3e33}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a6a70e0697bc7929-284eff10eda193b5-a3ed076c283c3e33"
+type = "paragraph"
+origin = '''
+材料档案的矢量预览按实际层数构建，5 色矢量导出完整保留底层结构，修复预览正常但导出 3MF 缺层的问题。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a6a70e0697bc7929-e6b8764ac3aa6220"
+type = "listItem"
+composite = true
+origin = '''
+- {{a6a70e0697bc7929-e6b8764ac3aa6220-85abfd47c058fed5}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a6a70e0697bc7929-e6b8764ac3aa6220-85abfd47c058fed5"
+type = "paragraph"
+origin = '''
+优化大型 SVG 的预览缓存开销估算，避免可正常处理的复杂图案被提前拦截。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8b0b7544b72086da"
+type = "heading"
+origin = '''
+## 预览与交互
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ce80c2afd27d64a5"
+type = "list"
+composite = true
+origin = '''
+{{ce80c2afd27d64a5-ce80c2afd27d64a5}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ce80c2afd27d64a5-ce80c2afd27d64a5"
+type = "listItem"
+composite = true
+origin = '''
+- {{ce80c2afd27d64a5-ce80c2afd27d64a5-1f1a3b90d7652cf3}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ce80c2afd27d64a5-ce80c2afd27d64a5-1f1a3b90d7652cf3"
+type = "paragraph"
+origin = '''
+像素模式保留原始画布尺寸与像素调色板，修正 3D 底板尺寸偏差，消除材料预览因调色板重采样产生的杂色。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f01f61106cf9f93e"
+type = "heading"
+origin = '''
+## 切片器与 3MF
+'''
+translate = '''
+## Materials and previews
+'''
+
+[[block]]
+key = "62a34666e5ee1437"
+type = "list"
+composite = true
+origin = '''
+{{62a34666e5ee1437-62a34666e5ee1437}}
+'''
+translate = '''
+- Added image rotation with automatic safeguards for incompatible vector combinations, plus optional browser notifications when long tasks finish.
+- Restored simulated optical-stack colors in material 3D previews while preserving true layer counts, thickness, and relief height steps.
+- Preserved original canvas dimensions and palettes in Pixel Art previews, and retained full base layers across material-vector previews and 5-color exports.
+- Automatically migrated saved filament selections and profiles to the unified Karvax brand name, and clarified whether deleting a duplicate material removes only the duplicate entry or a shared resource.
+- Surfaced profile metadata and calibration layer heights in the filament picker, clearing stale color-replacement selections whenever target materials change.
+- Kept displayed previews synchronized with parameter edits so outdated previews never linger after settings change.
+'''
+
+[[block]]
+key = "62a34666e5ee1437-62a34666e5ee1437"
+type = "listItem"
+composite = true
+origin = '''
+- {{62a34666e5ee1437-62a34666e5ee1437-8bed106f05b5d293}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "62a34666e5ee1437-62a34666e5ee1437-8bed106f05b5d293"
+type = "paragraph"
+origin = '''
+补齐 Snapmaker U1 在 OrcaSlicer 中的工程元数据，并为缺失的机型字段提供默认回退值，确保导入后机型与材料信息完整。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bc5738bdd73d587a"
+type = "heading"
+origin = '''
+## 7 月下半月补充
+'''
+translate = '''
+## Planar artwork and Creative Workshop
+'''
+
+[[block]]
+key = "4d1b466c8f66d324"
+type = "heading"
+origin = '''
+### 在模型平面上放置图案
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ca5dca1cede6c636"
+type = "paragraph"
+origin = '''
+新增模型覆面工作流：支持导入底模、选取目标平面并将彩色图案嵌入原有模型，随后修正了预览与观赏面朝下打印的对应关系，以及透明图案区域被多余实体填充的问题。该功能后续正式定名为“模型贴图”，使用方法见[模型贴图教程](../tutorials/model-texture/model-texture.mdx)。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "942419352a899af0"
+type = "heading"
+origin = '''
+### 创意工坊
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b16544953e88f7a5"
+type = "paragraph"
+origin = '''
+主导航新增创意工坊入口，用于启用和管理独立扩展工具。首个官方工具“拼豆工作台”可识别清晰图纸或截图中的网格与色块，校对后直接交回主转换流程生成模型。
+'''
+translate = '''
+Introduced a model-surface workflow for importing a base mesh, selecting a flat face, and embedding multicolor artwork onto the part—followed by fixes aligning previews with face-down print orientation and keeping transparent artwork regions free of unwanted solid fill. This workflow was later renamed **Model Texture**.
+'''
+
+[[block]]
+key = "c3b5ac82d65c8a4e"
+type = "heading"
+origin = '''
+### 预览与编辑结果一致性
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4746ce863ce3677a"
+type = "list"
+composite = true
+origin = '''
+{{4746ce863ce3677a-346dca53beef3176}}
+{{4746ce863ce3677a-5f15bf780cb9e796}}
+{{4746ce863ce3677a-0c0b7e681e9593bf}}
+{{4746ce863ce3677a-f3a18a5659f22f7e}}
+{{4746ce863ce3677a-10b1b8fb3aef636f}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4746ce863ce3677a-346dca53beef3176"
+type = "listItem"
+composite = true
+origin = '''
+- {{4746ce863ce3677a-346dca53beef3176-363fc06e04e71f86}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4746ce863ce3677a-346dca53beef3176-363fc06e04e71f86"
+type = "paragraph"
+origin = '''
+耗材档案的 3D 预览恢复显示配方叠色后的模拟颜色，同时保留真实层数、厚度与浮雕高度差。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4746ce863ce3677a-5f15bf780cb9e796"
+type = "listItem"
+composite = true
+origin = '''
+- {{4746ce863ce3677a-5f15bf780cb9e796-ac6c0f2fef84bd09}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4746ce863ce3677a-5f15bf780cb9e796-ac6c0f2fef84bd09"
+type = "paragraph"
+origin = '''
+调整界面参数后实时同步显示结果，避免界面停留在旧预览状态。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4746ce863ce3677a-0c0b7e681e9593bf"
+type = "listItem"
+composite = true
+origin = '''
+- {{4746ce863ce3677a-0c0b7e681e9593bf-3a36985478f123f6}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4746ce863ce3677a-0c0b7e681e9593bf-3a36985478f123f6"
+type = "paragraph"
+origin = '''
+大画幅局部改色导出时严格按选区生效，不再连带修改未选中的同色区域。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4746ce863ce3677a-f3a18a5659f22f7e"
+type = "listItem"
+composite = true
+origin = '''
+- {{4746ce863ce3677a-f3a18a5659f22f7e-2db95e02e11e0b31}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4746ce863ce3677a-f3a18a5659f22f7e-2db95e02e11e0b31"
+type = "paragraph"
+origin = '''
+大画幅原生 SVG 的分块生成与预览共用同一套输入状态。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4746ce863ce3677a-10b1b8fb3aef636f"
+type = "listItem"
+composite = true
+origin = '''
+- {{4746ce863ce3677a-10b1b8fb3aef636f-3f707a9ee39ac5fc}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4746ce863ce3677a-10b1b8fb3aef636f-3f707a9ee39ac5fc"
+type = "paragraph"
+origin = '''
+2D 预览支持按住空格键或鼠标中键平移画布，放大查看局部细节时定位更顺手。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "d0708474c2f330b7"
+type = "heading"
+origin = '''
+### 打印工程与材料选择
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a3b2654ca75568c1"
+type = "list"
+composite = true
+origin = '''
+{{a3b2654ca75568c1-94f71d33b8f9d5fa}}
+{{a3b2654ca75568c1-f397db44299f22a0}}
+{{a3b2654ca75568c1-0fa8cbcbb9ccc09a}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a3b2654ca75568c1-94f71d33b8f9d5fa"
+type = "listItem"
+composite = true
+origin = '''
+- {{a3b2654ca75568c1-94f71d33b8f9d5fa-d327021f0da63eff}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a3b2654ca75568c1-94f71d33b8f9d5fa-d327021f0da63eff"
+type = "paragraph"
+origin = '''
+新增 Flash Studio Desktop 多色打印工程适配。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a3b2654ca75568c1-f397db44299f22a0"
+type = "listItem"
+composite = true
+origin = '''
+- {{a3b2654ca75568c1-f397db44299f22a0-4b1565c2c63879f3}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a3b2654ca75568c1-f397db44299f22a0-4b1565c2c63879f3"
+type = "paragraph"
+origin = '''
+修正底板层高修改器与总厚度的对齐计算，防止顶部显色层被截短；批量导出完整保留分离底板及其材料设置。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a3b2654ca75568c1-0fa8cbcbb9ccc09a"
+type = "listItem"
+composite = true
+origin = '''
+- {{a3b2654ca75568c1-0fa8cbcbb9ccc09a-c0d0195a13d23f9b}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a3b2654ca75568c1-0fa8cbcbb9ccc09a-c0d0195a13d23f9b"
+type = "paragraph"
+origin = '''
+优化耗材选择列表与档案详情展示，直接标明校准层高以便核对打印参数。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f3fce1c4860e7b18"
+type = "heading"
+origin = '''
+### 多核加速与缓存调度
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f3493bab5d072096"
+type = "paragraph"
+origin = '''
+单任务转换启用多核并行处理，耗材预览根据缓存就绪状态按需触发，在不损失模型细节的前提下减少重复计算与等待时间。
+'''
+translate = '''
+Added **Creative Workshop** to the main navigation for managing standalone creative modules. Its first official module, **Fuse Bead Studio**, detects grids and bead colors from clear pattern sheets or screenshots for review before handing the result straight into the standard 3D conversion pipeline.
+'''
+
+[[block]]
+key = "412255de760dd736"
+type = "heading"
+origin = '''
+## 当月设计工作
+'''
+translate = '''
+## Slicer projects and regional edits
+
+- Added multicolor print-project support for Flash Studio Desktop.
+- Completed Snapmaker U1 project metadata for OrcaSlicer, with safe defaults when optional printer fields are absent.
+- Aligned backing layer-height modifiers with total thickness so top color layers are never truncated, and preserved separated backings and filament assignments in batch exports.
+- Scoped large-format regional recolors strictly to the active selection without altering unselected areas of the same color, and unified native SVG tiling between preview and export.
+- Added Spacebar-drag and middle-mouse-button panning on the 2D canvas.
+'''
+
+[[block]]
+key = "7ba9754d3ec7ff6d"
+type = "heading"
+origin = '''
+### 云端资源中心 V2
+'''
+translate = '''
+'''
+
+[[block]]
+key = "41512aa7ea31f3ca"
+type = "paragraph"
+origin = '''
+完成云端资源中心 V2 的需求与架构设计，规划统一材料、LUT 及后续扩展资源的浏览、安装与更新体验（本月仅完成设计方案，尚未上线）。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "d31eb325d81b59ff"
+type = "heading"
+origin = '''
+## 稳定性、性能与基础设施
+'''
+translate = '''
+## Multi-core performance and ongoing work
+'''
+
+[[block]]
+key = "698f7dd55e5b9912"
+type = "paragraph"
+origin = '''
+同步梳理云端连接说明与应用内公告维护入口，统一资源统计、连接配置与品牌迁移提示。
+'''
+translate = '''
+Single-task conversion now uses multi-core processing, and material auto-preview triggers intelligently from cache state to cut redundant computation without reducing model detail. Refinements to complex SVG intersections, pinholes, and multi-layer material stacks continued in August and September.
+'''
+
+[[block]]
+key = "2b7b84c0c28abaf9"
+type = "heading"
+origin = '''
+## 已知限制
+'''
+translate = '''
+'''
+
+[[block]]
+key = "08eca09af4806075"
+type = "list"
+composite = true
+origin = '''
+{{08eca09af4806075-3378357a0c38342d}}
+{{08eca09af4806075-82ce17718ddd50ec}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "08eca09af4806075-3378357a0c38342d"
+type = "listItem"
+composite = true
+origin = '''
+- {{08eca09af4806075-3378357a0c38342d-d01760cbd1ee1bda}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "08eca09af4806075-3378357a0c38342d-d01760cbd1ee1bda"
+type = "paragraph"
+origin = '''
+云端资源中心 V2 本月处于架构设计阶段，功能尚未上线。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "08eca09af4806075-82ce17718ddd50ec"
+type = "listItem"
+composite = true
+origin = '''
+- {{08eca09af4806075-82ce17718ddd50ec-330feebc57529494}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "08eca09af4806075-82ce17718ddd50ec-330feebc57529494"
+type = "paragraph"
+origin = '''
+复杂 SVG 路径、细小孔洞与多材料层数组合在后续月份仍在持续优化。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f6b653b48f6c4f9f"
+type = "paragraph"
+origin = '''
+[← 2026 年 6 月](./2026-06.md) · [2026 年 8 月 →](./2026-08.md) · [更新日志总览](./overview.md)
+'''
+translate = '''
+[← June](./2026-06.md) · [August →](./2026-08.md) · [Changelog](./overview.md)
+'''
+
+[[block]]
+key = "5680f6b3ba8e1144"
+type = "definition"
+origin = '''
+[devlog-entry:2026-07-native-svg-relief]: # "prs:510,511"
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a4e11fb7a07e6f8c"
+type = "definition"
+origin = '''
+[devlog-entry:2026-07-cloud-lut-polish]: # "prs:497,500"
+'''
+translate = '''
+'''
+
+[[block]]
+key = "68dc7105f41b0997"
+type = "definition"
+origin = '''
+[devlog-entry:2026-07-browser-completion-notifications]: # "prs:504"
+'''
+translate = '''
+'''
+
+[[block]]
+key = "766546161275d4a6"
+type = "definition"
+origin = '''
+[devlog-entry:2026-07-image-rotation]: # "prs:450"
+'''
+translate = '''
+'''
+
+[[block]]
+key = "749ee31a5b1ca061"
+type = "definition"
+origin = '''
+[devlog-entry:2026-07-material-replacement-state]: # "prs:493"
+'''
+translate = '''
+'''
+
+[[block]]
+key = "066b3fddfa78524f"
+type = "definition"
+origin = '''
+[devlog-entry:2026-07-karvax-rename]: # "prs:507,508"
+'''
+translate = '''
+'''
+
+[[block]]
+key = "5703d16c867ce6bf"
+type = "definition"
+origin = '''
+[devlog-entry:2026-07-duplicate-material-deletion]: # "prs:502"
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4ba098051b8c1bff"
+type = "definition"
+origin = '''
+[devlog-entry:2026-07-material-vector-layers]: # "prs:499,506"
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f5bccd80c986b4f1"
+type = "definition"
+origin = '''
+[devlog-entry:2026-07-vector-cache-estimates]: # "prs:496"
+'''
+translate = '''
+'''
+
+[[block]]
+key = "57300ff6d6d3ceca"
+type = "definition"
+origin = '''
+[devlog-entry:2026-07-pixel-preview-fidelity]: # "prs:488,495"
+'''
+translate = '''
+'''
+
+[[block]]
+key = "468849efa6bbfcc9"
+type = "definition"
+origin = '''
+[devlog-entry:2026-07-snapmaker-u1-metadata]: # "prs:494"
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8fb94b5e8431db51"
+type = "definition"
+origin = '''
+[devlog-entry:2026-07-cloud-resource-center-design]: # "prs:503,509"
+'''
+translate = '''
+'''
+
+[[block]]
+key = "36bed8f857b7b90c"
+type = "definition"
+origin = '''
+[devlog-entry:2026-07-engineering-foundation]: # "prs:501"
+'''
+translate = '''
+'''

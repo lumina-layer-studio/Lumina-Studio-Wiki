@@ -1,0 +1,216 @@
+[metadata]
+migration_layout = "preserved English structure; root blocks retain grouped or omitted source sections"
+reviewed_source = "e2f66c87a24d6d92dd0b29b06e15a032197ed96c71cf3f23928b95f8100b6929"
+
+[[block]]
+key = "62a32101abd6331a"
+type = "yaml"
+origin = '''
+---
+title: "挂件环参数"
+description: "挂件环宽度、长度、孔径、旋转角度与 X/Y 偏移设置，以及互斥结构模式。"
+sidebar_position: 5
+---
+'''
+translate = '''
+---
+title: "Keychain Loop parameters"
+description: "Loop width, length, hole diameter, rotation, X/Y offsets, and mode compatibility."
+sidebar_position: 5
+---
+'''
+
+[[block]]
+key = "e6bc9b96a53bbf3a"
+type = "heading"
+origin = '''
+# 挂件环参数
+'''
+translate = '''
+# Keychain Loop parameters
+'''
+
+[[block]]
+key = "0255a20007cd83de"
+type = "paragraph"
+origin = '''
+开启挂件环后，软件会在导出的 3MF 中生成独立的挂件环实体。环体总厚度跟随当前模型的总层数，颜色使用生成流程分配给挂件环的材料槽。
+'''
+translate = '''
+Keychain Loop generates dedicated loop geometry in the exported 3MF. Its thickness matches the model's total layer stack, and its color comes from the filament slot assigned during generation.
+'''
+
+[[block]]
+key = "c82cacadd7ca9c31"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-keychain-loop-settings.webp').default}
+  alt="Lumina Studio 的挂件环参数面板"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-keychain-loop-settings.webp').default}
+  alt="Keychain Loop parameters in Lumina Studio"
+/>
+'''
+
+[[block]]
+key = "4af4c7a61bad8ad2"
+type = "heading"
+origin = '''
+## 尺寸参数
+'''
+translate = '''
+## Size
+'''
+
+[[block]]
+key = "3f5a2a7f2043ed27"
+type = "table"
+origin = '''
+| 参数 | 范围 | 作用 |
+| --- | --- | --- |
+| 环宽度 | 2–10 mm，步进 0.5 mm | 控制挂件环外部横向尺寸 |
+| 环长度 | 4–15 mm，步进 0.5 mm | 控制挂件环从连接端向外延伸的长度 |
+| 环孔直径 | 1–5 mm，步进 0.25 mm | 控制穿过钥匙圈或挂绳的内孔直径 |
+'''
+translate = '''
+| Parameter | Range | Effect |
+| --- | --- | --- |
+| Loop Width | 2–10 mm, 0.5 mm steps | Outer horizontal width |
+| Loop Length | 4–15 mm, 0.5 mm steps | Outward length from the attachment end |
+| Loop Hole Diameter | 1–5 mm, 0.25 mm steps | Inner opening for a jump ring or lanyard |
+'''
+
+[[block]]
+key = "17c8f1b7a3a1c787"
+type = "paragraph"
+origin = '''
+设置环孔直径时，请确保其小于外部尺寸，并在孔周留出适配当前喷嘴线宽的壁厚，以兼顾穿绳空间与结构强度。
+'''
+translate = '''
+Keep **Loop Hole Diameter** smaller than the outer width and length so a sturdy, printable wall remains around the hole for your nozzle and filament.
+'''
+
+[[block]]
+key = "b29ce6497aa131d0"
+type = "heading"
+origin = '''
+## 位置参数
+'''
+translate = '''
+## Position
+'''
+
+[[block]]
+key = "b7870f10da24076e"
+type = "list"
+composite = true
+origin = '''
+{{b7870f10da24076e-9e67d93a7752cd79}}
+{{b7870f10da24076e-4372d330e1e7ff3e}}
+{{b7870f10da24076e-f35a99d2bc8f1a41}}
+'''
+translate = '''
+- **Rotation Angle:** -180° to 180°; 0° points straight up, and positive values rotate clockwise.
+- **X Offset:** -200 to 200 mm; positive values move right.
+- **Y Offset:** -200 to 200 mm; positive values move up.
+'''
+
+[[block]]
+key = "b7870f10da24076e-9e67d93a7752cd79"
+type = "listItem"
+composite = true
+origin = '''
+- {{b7870f10da24076e-9e67d93a7752cd79-52db1db54601b7a3}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b7870f10da24076e-9e67d93a7752cd79-52db1db54601b7a3"
+type = "paragraph"
+origin = '''
+**旋转角度：** -180° 至 180°；0° 为竖直向上，正值顺时针旋转。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b7870f10da24076e-4372d330e1e7ff3e"
+type = "listItem"
+composite = true
+origin = '''
+- {{b7870f10da24076e-4372d330e1e7ff3e-26178ffee63267f7}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b7870f10da24076e-4372d330e1e7ff3e-26178ffee63267f7"
+type = "paragraph"
+origin = '''
+**X 偏移：** -200 至 200 mm；正值向右移动。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b7870f10da24076e-f35a99d2bc8f1a41"
+type = "listItem"
+composite = true
+origin = '''
+- {{b7870f10da24076e-f35a99d2bc8f1a41-91af6963e0a1933c}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b7870f10da24076e-f35a99d2bc8f1a41-91af6963e0a1933c"
+type = "paragraph"
+origin = '''
+**Y 偏移：** -200 至 200 mm；正值向上移动。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "255c2710936c7036"
+type = "paragraph"
+origin = '''
+偏移量以模型中心为原点计算。调节位置时请让环体根部与模型边缘适当重叠，避免偏移过大导致挂件环与主体分离。
+'''
+translate = '''
+Offsets are measured from the model center. Overlap the base of the loop slightly with the model edge so the loop stays anchored to the body.
+'''
+
+[[block]]
+key = "4b65ce8bd87f2479"
+type = "heading"
+origin = '''
+## 互斥模式与切片检查
+'''
+translate = '''
+## Mode compatibility and slicer check
+'''
+
+[[block]]
+key = "f64f4afa101714c6"
+type = "paragraph"
+origin = '''
+开启拼图或冰箱贴磁铁槽时，挂件环会自动关闭并禁用。调整挂件环参数或切换模式后，需重新生成 3MF。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "d581258c9c3f4142"
+type = "paragraph"
+origin = '''
+导入切片软件后，请在对象列表中确认挂件环对象存在，并逐层检查切片路径，确认环体与主体连接牢固且内孔未被切片补偿封死。
+'''
+translate = '''
+Enabling Puzzle or Fridge Magnet mode turns off and disables Keychain Loop. Regenerate the 3MF after changing any loop setting, then inspect the object list and sliced toolpaths to confirm that the loop merges cleanly into the body and the opening stays clear.
+'''

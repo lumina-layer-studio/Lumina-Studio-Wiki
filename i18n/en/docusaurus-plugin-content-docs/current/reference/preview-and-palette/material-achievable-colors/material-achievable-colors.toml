@@ -1,0 +1,400 @@
+[metadata]
+reviewed_source = "db8e018b7ea10191bc77a20b03eadfdeb25b49bc7d1a5f550b7cab6d0f0a4500"
+
+[[block]]
+key = "08b7fd9b86c6c183"
+type = "yaml"
+origin = '''
+---
+title: "耗材可达色"
+description: "根据耗材档案、叠色层数、层高和基底查询目标色附近的可打印颜色并确认替换。"
+sidebar_position: 5
+---
+'''
+translate = '''
+---
+title: "Achievable Material Colors"
+description: "Query printable colors near a target color based on your active material profiles, layer count, layer height, and substrate."
+sidebar_position: 5
+---
+'''
+
+[[block]]
+key = "9f6dc3722886a0b1"
+type = "heading"
+origin = '''
+# 耗材可达色
+'''
+translate = '''
+# Achievable Material Colors
+'''
+
+[[block]]
+key = "3a386c8d43bbfbb5"
+type = "paragraph"
+origin = '''
+使用**耗材档案**完成预览后，颜色工作站右栏会根据当前耗材组合动态求解可打印颜色。每次查询都会读取已选耗材及其顺序、叠色层数、层高和基底；调整其中任一参数后，请重新执行预览并再次查询。
+'''
+translate = '''
+After previewing in **Material Archive** mode, the right column of Color Workstation calculates achievable colors dynamically from your active filament setup. Every query uses the selected materials and their order, color-layer count, layer height, and substrate—run **Preview** and query again whenever you change any of these settings.
+'''
+
+[[block]]
+key = "9b76d696bbec858f"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-material-achievable-colors.webp').default}
+  alt="耗材档案模式中的目标颜色、求解来源和可达色建议"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-material-achievable-colors.webp').default}
+  alt="Target colour, solver source, and achievable colour suggestions in Material Archive mode"
+/>
+'''
+
+[[block]]
+key = "3809cd26a355b244"
+type = "heading"
+origin = '''
+## 输入目标颜色
+'''
+translate = '''
+## Entering a target color
+'''
+
+[[block]]
+key = "872055d4d86006f8"
+type = "paragraph"
+origin = '''
+可通过系统取色器选色，或输入三位及六位 HEX 色值（如 `#8CE` 或 `#88CCEE`）。按 `Enter` 或点击**生成建议**后，三位色值会自动展开为六位大写格式；格式无效的 HEX 不会提交。
+'''
+translate = '''
+Pick a color with the system color picker or type a three- or six-digit HEX code such as `#8CE` or `#88CCEE`, then press `Enter` or click **Suggest colors**. Three-digit codes expand automatically to six uppercase digits, and invalid HEX strings are ignored.
+'''
+
+[[block]]
+key = "e2965523ba7fda0d"
+type = "paragraph"
+origin = '''
+求解器最多返回 **20** 个候选色，按与目标色的色差 ΔE00 由近到远排列。为避免列表被肉眼难辨的极近色占满，候选色之间会保持最小色差间距，因此实际返回数量可能少于 20 个。
+'''
+translate = '''
+The solver returns up to **20** candidates ordered by ΔE00 distance from your target. Because it enforces a minimum color separation between swatches to prevent near-duplicate results, queries may return fewer than 20 swatches.
+'''
+
+[[block]]
+key = "dcbc1368b57b5b5a"
+type = "paragraph"
+origin = '''
+每个色块下方显示预测色差 ΔE；悬停可查看完整 HEX、ΔE 数值及各层配方索引。ΔE 衡量光学模型预测色与目标色的数值差异，实际打印成色还会受耗材批次、层高、打印板表面与观察光源影响。
+'''
+translate = '''
+Each swatch displays its predicted color and ΔE value; hover over a swatch to inspect its full HEX code, ΔE, and layer recipe indices. ΔE compares the optical model's prediction against your target color, while physical prints also vary with filament batch, layer height, build-plate texture, and viewing light.
+'''
+
+[[block]]
+key = "f31cae375165f75f"
+type = "heading"
+origin = '''
+## 查询来源
+'''
+translate = '''
+## Query sources
+'''
+
+[[block]]
+key = "53c9ef02b6ec96b6"
+type = "paragraph"
+origin = '''
+结果栏会标明本次建议色采用的求解路径：
+'''
+translate = '''
+The status line above the swatches indicates how the results were computed:
+'''
+
+[[block]]
+key = "219d2697ed8cfa58"
+type = "list"
+composite = true
+origin = '''
+{{219d2697ed8cfa58-2d3651930e255f80}}
+{{219d2697ed8cfa58-14cb9a29f849a362}}
+{{219d2697ed8cfa58-77adcab296184fba}}
+'''
+translate = '''
+{{219d2697ed8cfa58-2d3651930e255f80}}
+{{219d2697ed8cfa58-14cb9a29f849a362}}
+{{219d2697ed8cfa58-77adcab296184fba}}
+'''
+
+[[block]]
+key = "219d2697ed8cfa58-2d3651930e255f80"
+type = "listItem"
+composite = true
+origin = '''
+- {{219d2697ed8cfa58-2d3651930e255f80-3c5589a320124a04}}
+'''
+translate = '''
+- {{219d2697ed8cfa58-2d3651930e255f80-3c5589a320124a04}}
+'''
+
+[[block]]
+key = "219d2697ed8cfa58-2d3651930e255f80-3c5589a320124a04"
+type = "paragraph"
+origin = '''
+**缓存命中：** 读取与当前耗材、层数、层高、基底及网格精度完全匹配的穷举缓存。
+'''
+translate = '''
+**Cache hit:** Loaded from an exhaustive cache matching the active materials, layer count, layer height, substrate, and grid density.
+'''
+
+[[block]]
+key = "219d2697ed8cfa58-14cb9a29f849a362"
+type = "listItem"
+composite = true
+origin = '''
+- {{219d2697ed8cfa58-14cb9a29f849a362-b6e369962e06d4ce}}
+'''
+translate = '''
+- {{219d2697ed8cfa58-14cb9a29f849a362-b6e369962e06d4ce}}
+'''
+
+[[block]]
+key = "219d2697ed8cfa58-14cb9a29f849a362-b6e369962e06d4ce"
+type = "paragraph"
+origin = '''
+**运行时命中：** 读取已构建的 3200 万候选智能配方缓存。
+'''
+translate = '''
+**Runtime hit:** Queried from a saved 32-million-candidate smart recipe cache.
+'''
+
+[[block]]
+key = "219d2697ed8cfa58-77adcab296184fba"
+type = "listItem"
+composite = true
+origin = '''
+- {{219d2697ed8cfa58-77adcab296184fba-98b6d612c188779d}}
+'''
+translate = '''
+- {{219d2697ed8cfa58-77adcab296184fba-98b6d612c188779d}}
+'''
+
+[[block]]
+key = "219d2697ed8cfa58-77adcab296184fba-98b6d612c188779d"
+type = "paragraph"
+origin = '''
+**MITM 实时求解：** 未命中上述缓存时，即时搜索最多 200 万种叠层组合。
+'''
+translate = '''
+**MITM live solve:** Searched up to 2 million combinations on the fly when no matching cache was available.
+'''
+
+[[block]]
+key = "0269d04ced780de7"
+type = "paragraph"
+origin = '''
+实时求解可满足日常快速交互；当耗材数量或叠色层数较多、组合空间超出 200 万实时上限时，建议预先构建穷举缓存或 3200 万智能配方缓存，以提升检索覆盖率与响应速度。构建缓存仅加速查询与扩展搜索范围，不会改动耗材档案参数。
+'''
+translate = '''
+Live solving keeps everyday queries fast and responsive. When high material or layer counts push total combinations past the 2-million live ceiling, build an exhaustive cache or the 32M smart recipe cache first to expand coverage and speed up lookups. Caching changes only search speed and coverage without altering your material profiles.
+'''
+
+[[block]]
+key = "d4b6ae7eb5426c20"
+type = "heading"
+origin = '''
+## 应用建议色
+'''
+translate = '''
+## Applying a suggested color
+'''
+
+[[block]]
+key = "49a172fec34f3ff8"
+type = "paragraph"
+origin = '''
+若左侧已选中待修改的源色或区域，生成建议后系统会自动将排在首位的候选色放入待确认栏；点击其他候选色块即可切换目标色。点击**确认替换**后才会重新生成 2D 与 3D 预览，点击**取消**则清除本次待确认项。
+'''
+translate = '''
+If you already have a valid source color or region selected on the left, clicking **Suggest colors** stages the closest candidate automatically; click any other swatch to stage that color instead. Click **Confirm replacement** to rebuild the 2D and 3D previews, or **Cancel** to clear the staged choice.
+'''
+
+[[block]]
+key = "340951855585412d"
+type = "paragraph"
+origin = '''
+替换作用范围取决于工作站当前使用的选择方式：
+'''
+translate = '''
+Replacement scope follows your active selection mode in Color Workstation:
+'''
+
+[[block]]
+key = "367d352dbd0e559e"
+type = "list"
+composite = true
+origin = '''
+{{367d352dbd0e559e-b3f3dac392d0011c}}
+{{367d352dbd0e559e-59fefa5c5c9b26e4}}
+{{367d352dbd0e559e-f36a288a529933e6}}
+'''
+translate = '''
+{{367d352dbd0e559e-b3f3dac392d0011c}}
+{{367d352dbd0e559e-59fefa5c5c9b26e4}}
+{{367d352dbd0e559e-f36a288a529933e6}}
+'''
+
+[[block]]
+key = "367d352dbd0e559e-b3f3dac392d0011c"
+type = "listItem"
+composite = true
+origin = '''
+- {{367d352dbd0e559e-b3f3dac392d0011c-bbd645c542f69fa6}}
+'''
+translate = '''
+- {{367d352dbd0e559e-b3f3dac392d0011c-bbd645c542f69fa6}}
+'''
+
+[[block]]
+key = "367d352dbd0e559e-b3f3dac392d0011c-bbd645c542f69fa6"
+type = "paragraph"
+origin = '''
+**全选 / 同颜色全选：** 替换所选源色在整张图中的全部像素；
+'''
+translate = '''
+**All / Same color:** Replaces every pixel using the selected source colors across the image.
+'''
+
+[[block]]
+key = "367d352dbd0e559e-59fefa5c5c9b26e4"
+type = "listItem"
+composite = true
+origin = '''
+- {{367d352dbd0e559e-59fefa5c5c9b26e4-4b844278001a7fa6}}
+'''
+translate = '''
+- {{367d352dbd0e559e-59fefa5c5c9b26e4-4b844278001a7fa6}}
+'''
+
+[[block]]
+key = "367d352dbd0e559e-59fefa5c5c9b26e4-4b844278001a7fa6"
+type = "paragraph"
+origin = '''
+**当前 / 局部区域 / 点选色块：** 仅修改单个连通区域；
+'''
+translate = '''
+**Current / Region / Pick blocks:** Updates a single connected region.
+'''
+
+[[block]]
+key = "367d352dbd0e559e-f36a288a529933e6"
+type = "listItem"
+composite = true
+origin = '''
+- {{367d352dbd0e559e-f36a288a529933e6-ec6b0ccbb9eb7c04}}
+'''
+translate = '''
+- {{367d352dbd0e559e-f36a288a529933e6-ec6b0ccbb9eb7c04}}
+'''
+
+[[block]]
+key = "367d352dbd0e559e-f36a288a529933e6-ec6b0ccbb9eb7c04"
+type = "paragraph"
+origin = '''
+**多选：** 一次批量处理已选中的多个区域。
+'''
+translate = '''
+**Multi:** Applies the replacement to all selected regions in one batch.
+'''
+
+[[block]]
+key = "8e598e329cd91d51"
+type = "paragraph"
+origin = '''
+相关页面：
+'''
+translate = '''
+Related pages:
+'''
+
+[[block]]
+key = "797767493c4fb9eb"
+type = "list"
+composite = true
+origin = '''
+{{797767493c4fb9eb-bec0a2e5a40d8a42}}
+{{797767493c4fb9eb-fce93e952505b897}}
+{{797767493c4fb9eb-763837f8178ecd84}}
+'''
+translate = '''
+{{797767493c4fb9eb-bec0a2e5a40d8a42}}
+{{797767493c4fb9eb-fce93e952505b897}}
+{{797767493c4fb9eb-763837f8178ecd84}}
+'''
+
+[[block]]
+key = "797767493c4fb9eb-bec0a2e5a40d8a42"
+type = "listItem"
+composite = true
+origin = '''
+- {{797767493c4fb9eb-bec0a2e5a40d8a42-d175c491032a7160}}
+'''
+translate = '''
+- {{797767493c4fb9eb-bec0a2e5a40d8a42-d175c491032a7160}}
+'''
+
+[[block]]
+key = "797767493c4fb9eb-bec0a2e5a40d8a42-d175c491032a7160"
+type = "paragraph"
+origin = '''
+[耗材档案来源](../../converter-basic/material-archive-source/material-archive-source.mdx)
+'''
+translate = '''
+[Material Archive Source](../../converter-basic/material-archive-source/material-archive-source.mdx)
+'''
+
+[[block]]
+key = "797767493c4fb9eb-fce93e952505b897"
+type = "listItem"
+composite = true
+origin = '''
+- {{797767493c4fb9eb-fce93e952505b897-03f9167be2720be5}}
+'''
+translate = '''
+- {{797767493c4fb9eb-fce93e952505b897-03f9167be2720be5}}
+'''
+
+[[block]]
+key = "797767493c4fb9eb-fce93e952505b897-03f9167be2720be5"
+type = "paragraph"
+origin = '''
+[选择模式、调色板与自由色](../selection-modes/selection-modes.mdx)
+'''
+translate = '''
+[Selection Modes, Palette, and Free Colors](../selection-modes/selection-modes.mdx)
+'''
+
+[[block]]
+key = "797767493c4fb9eb-763837f8178ecd84"
+type = "listItem"
+composite = true
+origin = '''
+- {{797767493c4fb9eb-763837f8178ecd84-391e51053d198bd6}}
+'''
+translate = '''
+- {{797767493c4fb9eb-763837f8178ecd84-391e51053d198bd6}}
+'''
+
+[[block]]
+key = "797767493c4fb9eb-763837f8178ecd84-391e51053d198bd6"
+type = "paragraph"
+origin = '''
+[渐变分组与区域处理](../gradient-groups/gradient-groups.mdx)
+'''
+translate = '''
+[Gradient Groups and Region Processing](../gradient-groups/gradient-groups.mdx)
+'''

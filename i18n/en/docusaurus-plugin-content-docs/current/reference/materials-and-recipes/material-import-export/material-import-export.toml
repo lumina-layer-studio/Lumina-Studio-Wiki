@@ -1,0 +1,393 @@
+[metadata]
+reviewed_source = "07f5811b06693b7f995559793363ab89d4b3ce77c4c66adf7437d619eca31d51"
+
+[[block]]
+key = "386eee82710a7df3"
+type = "yaml"
+origin = '''
+---
+title: "导入与导出耗材"
+description: "批量备份、迁移和恢复 Lumina 耗材档案。"
+sidebar_position: 2
+---
+'''
+translate = '''
+---
+title: "Material Import and Export"
+description: "Back up, transfer, and restore complete Lumina material archives."
+sidebar_position: 2
+---
+'''
+
+[[block]]
+key = "f6d54aac5f186b3d"
+type = "heading"
+origin = '''
+# 导入与导出耗材
+'''
+translate = '''
+# Material Import and Export
+'''
+
+[[block]]
+key = "da4a29e7f6de34b5"
+type = "paragraph"
+origin = '''
+在“耗材库”中可将多份耗材档案批量打包为单个 ZIP 文件导出，也可在其他 Lumina 环境中重新导入。导出的压缩包完整保留了材料配置、光学拟合参数与校验清单，导入后可直接用于叠层颜色预测与图像转换。
+'''
+translate = '''
+You can export multiple material archives from the Material Library into a single ZIP package and import them into another Lumina installation. Each exported ZIP preserves the complete material metadata, optical fit parameters, and manifests needed for layer-stack prediction and image conversion.
+'''
+
+[[block]]
+key = "bebb9379a35fcadd"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-material-selection.webp').default}
+  alt="耗材库顶部的选择、导入和导出操作"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-material-selection.webp').default}
+  alt="Selection, import, and export controls in the Material Library"
+/>
+'''
+
+[[block]]
+key = "65dba4e1e1897e59"
+type = "heading"
+origin = '''
+## 导出
+'''
+translate = '''
+## Export
+'''
+
+[[block]]
+key = "145e46a70e595351"
+type = "list"
+composite = true
+origin = '''
+{{145e46a70e595351-35a78b345b23ccab}}
+{{145e46a70e595351-acffb9af19c2f1e6}}
+{{145e46a70e595351-5df4394e937d7f07}}
+'''
+translate = '''
+{{145e46a70e595351-35a78b345b23ccab}}
+{{145e46a70e595351-acffb9af19c2f1e6}}
+{{145e46a70e595351-5df4394e937d7f07}}
+'''
+
+[[block]]
+key = "145e46a70e595351-35a78b345b23ccab"
+type = "listItem"
+composite = true
+origin = '''
+1. {{145e46a70e595351-35a78b345b23ccab-a188d828df1ca191}}
+'''
+translate = '''
+1. {{145e46a70e595351-35a78b345b23ccab-a188d828df1ca191}}
+'''
+
+[[block]]
+key = "145e46a70e595351-35a78b345b23ccab-a188d828df1ca191"
+type = "paragraph"
+origin = '''
+在耗材库中勾选需要备份的档案，或点击“全选耗材”。
+'''
+translate = '''
+Check the materials you want to back up, or click **Select All**.
+'''
+
+[[block]]
+key = "145e46a70e595351-acffb9af19c2f1e6"
+type = "listItem"
+composite = true
+origin = '''
+2. {{145e46a70e595351-acffb9af19c2f1e6-3da6765ecde6dd40}}
+'''
+translate = '''
+2. {{145e46a70e595351-acffb9af19c2f1e6-3da6765ecde6dd40}}
+'''
+
+[[block]]
+key = "145e46a70e595351-acffb9af19c2f1e6-3da6765ecde6dd40"
+type = "paragraph"
+origin = '''
+点击“导出所选耗材”。
+'''
+translate = '''
+Click **Export Selected**.
+'''
+
+[[block]]
+key = "145e46a70e595351-5df4394e937d7f07"
+type = "listItem"
+composite = true
+origin = '''
+3. {{145e46a70e595351-5df4394e937d7f07-cd5209852725a927}}
+'''
+translate = '''
+3. {{145e46a70e595351-5df4394e937d7f07-cd5209852725a927}}
+'''
+
+[[block]]
+key = "145e46a70e595351-5df4394e937d7f07-cd5209852725a927"
+type = "paragraph"
+origin = '''
+下载并保存生成的 `lumina_materials_<数量>_<时间>.zip`。
+'''
+translate = '''
+Download and save the generated `lumina_materials_<count>_<time>.zip`.
+'''
+
+[[block]]
+key = "e7ba30f98714e58e"
+type = "paragraph"
+origin = '''
+单个 ZIP 可同时包含多份耗材，内含导出清单、材料包清单，以及每份耗材对应的 `material.json`、拟合参数与附属档案文件。导出文件生成后请及时下载保存。
+'''
+translate = '''
+A single ZIP can bundle multiple materials, including an export manifest, a package manifest, and each archive's `material.json`, fitted parameters, and supporting files. Download and save the generated package promptly.
+'''
+
+[[block]]
+key = "1a791ff1d4118b73"
+type = "heading"
+origin = '''
+## 导入
+'''
+translate = '''
+## Import
+'''
+
+[[block]]
+key = "f3582da66eb398c1"
+type = "paragraph"
+origin = '''
+点击“导入耗材 ZIP”支持一次选择多个 ZIP 文件。导入时系统会自动校验压缩包结构与数据完整性：
+'''
+translate = '''
+**Import Material ZIP** lets you select multiple ZIP files at once. Before installing any archive, Lumina validates the package structure and contents:
+'''
+
+[[block]]
+key = "dfbbd7a55df5be84"
+type = "list"
+composite = true
+origin = '''
+{{dfbbd7a55df5be84-d7e9c843883b750c}}
+{{dfbbd7a55df5be84-fa38b619e2dd4dda}}
+{{dfbbd7a55df5be84-6bdebbe24dc2f522}}
+'''
+translate = '''
+{{dfbbd7a55df5be84-d7e9c843883b750c}}
+{{dfbbd7a55df5be84-fa38b619e2dd4dda}}
+{{dfbbd7a55df5be84-6bdebbe24dc2f522}}
+'''
+
+[[block]]
+key = "dfbbd7a55df5be84-d7e9c843883b750c"
+type = "listItem"
+composite = true
+origin = '''
+- {{dfbbd7a55df5be84-d7e9c843883b750c-e896b80fb5f59ab6}}
+'''
+translate = '''
+- {{dfbbd7a55df5be84-d7e9c843883b750c-e896b80fb5f59ab6}}
+'''
+
+[[block]]
+key = "dfbbd7a55df5be84-d7e9c843883b750c-e896b80fb5f59ab6"
+type = "paragraph"
+origin = '''
+校验压缩包内路径、清单文件及耗材目录是否完整有效；
+'''
+translate = '''
+Archive paths, manifests, and material directory layouts are complete and valid
+'''
+
+[[block]]
+key = "dfbbd7a55df5be84-fa38b619e2dd4dda"
+type = "listItem"
+composite = true
+origin = '''
+- {{dfbbd7a55df5be84-fa38b619e2dd4dda-f363fb7456a54f41}}
+'''
+translate = '''
+- {{dfbbd7a55df5be84-fa38b619e2dd4dda-f363fb7456a54f41}}
+'''
+
+[[block]]
+key = "dfbbd7a55df5be84-fa38b619e2dd4dda-f363fb7456a54f41"
+type = "paragraph"
+origin = '''
+校验 `material.json` 与拟合参数是否为合法的 UTF-8 JSON，且 Stage A 光学参数符合求解要求；
+'''
+translate = '''
+`material.json` and fitted parameter files contain valid UTF-8 JSON with usable Stage A optical parameters
+'''
+
+[[block]]
+key = "dfbbd7a55df5be84-6bdebbe24dc2f522"
+type = "listItem"
+composite = true
+origin = '''
+- {{dfbbd7a55df5be84-6bdebbe24dc2f522-61a41e3b76d453f9}}
+'''
+translate = '''
+- {{dfbbd7a55df5be84-6bdebbe24dc2f522-61a41e3b76d453f9}}
+'''
+
+[[block]]
+key = "dfbbd7a55df5be84-6bdebbe24dc2f522-61a41e3b76d453f9"
+type = "paragraph"
+origin = '''
+对于带有版本清单的材料包，核对文件大小与内容摘要（Hash）是否匹配。
+'''
+translate = '''
+For packages that include a versioned manifest, file sizes and content hashes match the recorded values
+'''
+
+[[block]]
+key = "b8df4ed72baa85d4"
+type = "paragraph"
+origin = '''
+若本地已存在同名目录，系统会自动为新导入的目录追加时间戳后缀，保留原有档案不被覆盖。导入成功后，新导入的档案会自动处于选中状态，方便当场核对。
+'''
+translate = '''
+If a matching directory name already exists locally, Lumina appends a timestamp suffix to create a separate directory rather than overwriting the existing archive. Newly imported materials are automatically selected so you can review them right away.
+'''
+
+[[block]]
+key = "c0cbd04c47411c54"
+type = "paragraph"
+origin = '''
+一次导入多个 ZIP 时，若其中任一文件校验失败，本次已写入的内容会自动全部回滚，确保本地耗材库保持整洁一致。
+'''
+translate = '''
+When importing multiple ZIP files in one batch, if any file fails validation, all changes from that batch are rolled back automatically to keep your library consistent.
+'''
+
+[[block]]
+key = "c0be5164f1205e7f"
+type = "heading"
+origin = '''
+## 适用场景
+'''
+translate = '''
+## Common use cases
+'''
+
+[[block]]
+key = "cf964428a92bef20"
+type = "list"
+composite = true
+origin = '''
+{{cf964428a92bef20-d29e0deb29567b6f}}
+{{cf964428a92bef20-a9c600a9f8406777}}
+{{cf964428a92bef20-a5fef39285838c12}}
+{{cf964428a92bef20-f46b9f36e8f4ab4b}}
+'''
+translate = '''
+{{cf964428a92bef20-d29e0deb29567b6f}}
+{{cf964428a92bef20-a9c600a9f8406777}}
+{{cf964428a92bef20-a5fef39285838c12}}
+{{cf964428a92bef20-f46b9f36e8f4ab4b}}
+'''
+
+[[block]]
+key = "cf964428a92bef20-d29e0deb29567b6f"
+type = "listItem"
+composite = true
+origin = '''
+- {{cf964428a92bef20-d29e0deb29567b6f-796557df0d1e973c}}
+'''
+translate = '''
+- {{cf964428a92bef20-d29e0deb29567b6f-796557df0d1e973c}}
+'''
+
+[[block]]
+key = "cf964428a92bef20-d29e0deb29567b6f-796557df0d1e973c"
+type = "paragraph"
+origin = '''
+更换电脑、迁移运行环境或重装 Lumina 前备份本地耗材库；
+'''
+translate = '''
+Backing up your local library before switching computers, migrating environments, or reinstalling Lumina
+'''
+
+[[block]]
+key = "cf964428a92bef20-a9c600a9f8406777"
+type = "listItem"
+composite = true
+origin = '''
+- {{cf964428a92bef20-a9c600a9f8406777-4585c2d918f135dd}}
+'''
+translate = '''
+- {{cf964428a92bef20-a9c600a9f8406777-4585c2d918f135dd}}
+'''
+
+[[block]]
+key = "cf964428a92bef20-a9c600a9f8406777-4585c2d918f135dd"
+type = "paragraph"
+origin = '''
+在团队成员之间共享已完成标定的耗材档案；
+'''
+translate = '''
+Sharing calibrated material archives across a team
+'''
+
+[[block]]
+key = "cf964428a92bef20-a5fef39285838c12"
+type = "listItem"
+composite = true
+origin = '''
+- {{cf964428a92bef20-a5fef39285838c12-c72b0e3dbe73a29c}}
+'''
+translate = '''
+- {{cf964428a92bef20-a5fef39285838c12-c72b0e3dbe73a29c}}
+'''
+
+[[block]]
+key = "cf964428a92bef20-a5fef39285838c12-c72b0e3dbe73a29c"
+type = "paragraph"
+origin = '''
+从 NAS 或离线存储恢复备份档案；
+'''
+translate = '''
+Restoring archived materials from a NAS or offline backup
+'''
+
+[[block]]
+key = "cf964428a92bef20-f46b9f36e8f4ab4b"
+type = "listItem"
+composite = true
+origin = '''
+- {{cf964428a92bef20-f46b9f36e8f4ab4b-db7b027a743b29ec}}
+'''
+translate = '''
+- {{cf964428a92bef20-f46b9f36e8f4ab4b-db7b027a743b29ec}}
+'''
+
+[[block]]
+key = "cf964428a92bef20-f46b9f36e8f4ab4b-db7b027a743b29ec"
+type = "paragraph"
+origin = '''
+将某次实验用到的整套耗材打包归档，便于后续复现结果。
+'''
+translate = '''
+Archiving the exact set of materials used in a project for reproducible results
+'''
+
+[[block]]
+key = "dd344dd890eb8462"
+type = "paragraph"
+origin = '''
+导入完成后，建议先在[耗材库](../material-library/material-library.mdx)核对品牌、目录名、标定层高与验证次数，再用于[耗材配方查询](../material-recipe-query/material-recipe-query.mdx)或图像转换。
+'''
+translate = '''
+After importing, review the brand, directory, layer height, and verification run count in the [Material Library](../material-library/material-library.mdx) before using the archives in [Material Recipe Query](../material-recipe-query/material-recipe-query.mdx) or image conversion.
+'''

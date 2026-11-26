@@ -21,11 +21,15 @@ This setting adjusts candidate ranking only—it does not add filaments, alter m
   alt="Hue Protection in Lumina Studio Advanced Settings"
 />
 
+
+
 Enabling the switch reveals the dependent [Dark Chroma Gate](../dark-chroma-gate/dark-chroma-gate.mdx) slider underneath, which controls which low-chroma dark pixels enter the neutral-dark candidate branch. Its default value is **15**; **0** is a special setting that routes all dark pixels into the neutral branch rather than turning it off. Leave the gate at **15** on your first pass so you can evaluate **Hue Protection** on its own.
 
 ## What changes during matching
 
 With **Hue Protection** off, Lumina Studio ranks candidates primarily by overall CIELAB color distance. With **Hue Protection** on, lightness and chroma still factor into the score, but hue angle differences carry a higher cost, favoring recipes in the same or an adjacent hue family.
+
+
 
 Matches remain bounded by the recipes available in your active LUT or Material Archive—if the palette has no close match in the target hue family, Lumina Studio selects the closest available recipe.
 
@@ -48,8 +52,24 @@ Grayscale artwork, low-chroma images, and palettes lacking the target hue will s
   alt="Hue Protection disabled while Precise Color Matching is enabled"
 />
 
+
+
+
+
+
+
+
+
 To compare the two approaches fairly, test each one separately while keeping the source image, LUT, and all other color controls unchanged.
 
+
+
 ## Checking the result
+
+
+
+
+
+
 
 Inspect both key subject colors and surrounding highlights, shadows, and gradients before and after enabling the toggle. When finite recipes force a trade-off, tighter hue accuracy can slightly shift local lightness. Once the preview looks right, generate a fresh 3MF file before slicing—previously exported 3MF files do not update automatically.

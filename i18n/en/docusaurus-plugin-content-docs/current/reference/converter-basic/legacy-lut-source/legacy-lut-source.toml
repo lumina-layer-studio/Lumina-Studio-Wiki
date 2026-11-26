@@ -1,0 +1,302 @@
+[metadata]
+reviewed_source = "8b5e0575823c92c41ce01959215ac5d51d8437f0bc10360e4474221de88ee607"
+
+[[block]]
+key = "b16794c43871cf90"
+type = "yaml"
+origin = '''
+---
+title: "经典 LUT"
+description: "说明经典 LUT 的选择、跨品牌多选、刷新与上传，以及动态层数的显示条件。"
+sidebar_position: 3
+---
+'''
+translate = '''
+---
+title: "Classic LUT"
+description: "Choose, refresh, and upload Classic LUTs, including compatible selections across brands."
+sidebar_position: 3
+---
+'''
+
+[[block]]
+key = "d3bf7238fbc30341"
+type = "heading"
+origin = '''
+# 经典 LUT
+'''
+translate = '''
+# Classic LUT
+'''
+
+[[block]]
+key = "44e84d6b58d5bc15"
+type = "paragraph"
+origin = '''
+**经典 LUT** 是预先计算或实测生成的颜色查找表，表中每个可打印颜色都对应一组固定的逐层耗材叠色配方。预览图片时，Lumina Studio 会在查找表中检索与原图各区域最接近的颜色条目。
+'''
+translate = '''
+A **Classic LUT** is a precomputed color lookup table in which each printable color maps to a fixed layer-by-layer filament recipe. During preview, Lumina Studio matches each area of your artwork to the closest entry in the table.
+'''
+
+[[block]]
+key = "ff5fb710eb31c198"
+type = "heading"
+origin = '''
+## 选择 LUT
+'''
+translate = '''
+## Select LUTs
+'''
+
+[[block]]
+key = "03aeba6e5f1a552d"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/02-lut-picker.webp').default}
+  alt="经典 LUT 选择窗口中的品牌列表、搜索框和确认按钮"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/02-lut-picker.webp').default}
+  alt="Classic LUT picker with the brand list, search field and Confirm button"
+/>
+'''
+
+[[block]]
+key = "667b8038e0027245"
+type = "list"
+composite = true
+origin = '''
+{{667b8038e0027245-b7618f472eb9fb4b}}
+{{667b8038e0027245-ea85328322d42f04}}
+{{667b8038e0027245-c844f8374004d7e0}}
+'''
+translate = '''
+{{667b8038e0027245-b7618f472eb9fb4b}}
+{{667b8038e0027245-ea85328322d42f04}}
+{{667b8038e0027245-c844f8374004d7e0}}
+'''
+
+[[block]]
+key = "667b8038e0027245-b7618f472eb9fb4b"
+type = "listItem"
+composite = true
+origin = '''
+1. {{667b8038e0027245-b7618f472eb9fb4b-a980b70c36ad361c}}
+'''
+translate = '''
+1. {{667b8038e0027245-b7618f472eb9fb4b-a980b70c36ad361c}}
+'''
+
+[[block]]
+key = "667b8038e0027245-b7618f472eb9fb4b-a980b70c36ad361c"
+type = "paragraph"
+origin = '''
+在**色彩数据来源**中选择**经典 LUT**，打开 LUT 选择窗口。
+'''
+translate = '''
+Under **Color Data Source**, choose **Classic LUT** and open the LUT selection dialog.
+'''
+
+[[block]]
+key = "667b8038e0027245-ea85328322d42f04"
+type = "listItem"
+composite = true
+origin = '''
+2. {{667b8038e0027245-ea85328322d42f04-ab5724e3a2e9c991}}
+'''
+translate = '''
+2. {{667b8038e0027245-ea85328322d42f04-ab5724e3a2e9c991}}
+'''
+
+[[block]]
+key = "667b8038e0027245-ea85328322d42f04-ab5724e3a2e9c991"
+type = "paragraph"
+origin = '''
+通过搜索框或品牌分类浏览列表，勾选所需的 LUT（支持跨品牌选择）。
+'''
+translate = '''
+Search or browse by brand and check the LUTs you want to use—compatible LUTs from different brands can be combined.
+'''
+
+[[block]]
+key = "667b8038e0027245-c844f8374004d7e0"
+type = "listItem"
+composite = true
+origin = '''
+3. {{667b8038e0027245-c844f8374004d7e0-4eada3649973a7b1}}
+'''
+translate = '''
+3. {{667b8038e0027245-c844f8374004d7e0-4eada3649973a7b1}}
+'''
+
+[[block]]
+key = "667b8038e0027245-c844f8374004d7e0-4eada3649973a7b1"
+type = "paragraph"
+origin = '''
+点击确认返回基础设置，运行**预览**并检查主体色、灰阶过渡与暗部层次。
+'''
+translate = '''
+Confirm your selection, click **Preview**, and inspect key colors, neutral grays, and shadow detail.
+'''
+
+[[block]]
+key = "937869e71a96ca06"
+type = "paragraph"
+origin = '''
+你可以同时勾选多张互相兼容的 LUT。多选时以列表中的第一项为主 LUT，所有已选查找表会在内存中合并为同一组候选颜色参与匹配，磁盘上的原始 LUT 文件保持不变。合并多张 LUT 时，请确保它们的叠色层数、层高及耗材通道彼此兼容。
+'''
+translate = '''
+When multiple compatible LUTs are selected together, the first item serves as the primary LUT while all selected tables merge in memory into a single candidate color pool without creating a new file on disk. Only combine LUTs that share compatible layer counts, layer heights, and filament channels.
+'''
+
+[[block]]
+key = "dfcea12eec766c8f"
+type = "heading"
+origin = '''
+## 刷新与上传
+'''
+translate = '''
+## Refresh and upload
+'''
+
+[[block]]
+key = "91872f52c7b81123"
+type = "paragraph"
+origin = '''
+在本地目录新增或替换 LUT 文件后，点击选择窗口内的刷新按钮即可重新加载列表。
+'''
+translate = '''
+After adding or replacing LUT files on disk, click the refresh button inside the picker to reload the list.
+'''
+
+[[block]]
+key = "c486435ebbb8b012"
+type = "paragraph"
+origin = '''
+点击**上传**可导入 `.npy`、`.json`、`.npz` 和 `.msgpack` 格式的查找表文件，导入完成后请在列表中确认已勾选目标条目。若预览色彩表现异常，可打开 LUT 详情核对其颜色模式、叠色层数、层高及配方元数据是否完整。
+'''
+translate = '''
+**Upload** accepts `.npy`, `.json`, `.npz`, and `.msgpack` files. After uploading a file, verify in the list that the intended LUT is checked. If a preview produces unexpected colors, open **LUT Details** to check that its color mode, layer count, layer height, and recipe metadata are complete.
+'''
+
+[[block]]
+key = "f60086fae5c0a72c"
+type = "heading"
+origin = '''
+## 动态层数
+'''
+translate = '''
+## Dynamic layers
+'''
+
+[[block]]
+key = "b64ce6b837cfa529"
+type = "paragraph"
+origin = '''
+仅当所选 LUT 的元数据声明支持动态层数（`supports_dynamic_layer_count`）时，基础设置中才会显示**叠色层数**与**叠色层高**控件。此时层数可在 **1–20** 之间调节，层高可在 **0.04–0.20 mm** 之间调节；修改任一参数都会清空旧的预览与生成结果。
+'''
+translate = '''
+**Color Layers** and **Layer Height** appear in basic settings only when the selected LUT declares `supports_dynamic_layer_count` in its metadata. Layer count can be adjusted from **1–20** and layer height from **0.04–0.20 mm**; changing either clears any previous preview and generated output.
+'''
+
+[[block]]
+key = "48b7ac4512b2e75e"
+type = "paragraph"
+origin = '''
+常规固定层数的经典 LUT 直接采用文件内记录的层数与层高，界面隐藏上述两项控件时仍按原表配方正常生成。
+'''
+translate = '''
+Standard Classic LUTs use the fixed layer count and layer height stored inside the LUT file itself, so these two controls stay hidden during normal use.
+'''
+
+[[block]]
+key = "2ebb014b8f68bd72"
+type = "heading"
+origin = '''
+## 相关页面
+'''
+translate = '''
+## Related pages
+'''
+
+[[block]]
+key = "44fdffcff7b9d61d"
+type = "list"
+composite = true
+origin = '''
+{{44fdffcff7b9d61d-6191a15f867e66d8}}
+{{44fdffcff7b9d61d-8b972d503f47cf89}}
+{{44fdffcff7b9d61d-1661103dcdda74f3}}
+'''
+translate = '''
+{{44fdffcff7b9d61d-6191a15f867e66d8}}
+{{44fdffcff7b9d61d-8b972d503f47cf89}}
+{{44fdffcff7b9d61d-1661103dcdda74f3}}
+'''
+
+[[block]]
+key = "44fdffcff7b9d61d-6191a15f867e66d8"
+type = "listItem"
+composite = true
+origin = '''
+- {{44fdffcff7b9d61d-6191a15f867e66d8-c330205a22413743}}
+'''
+translate = '''
+- {{44fdffcff7b9d61d-6191a15f867e66d8-c330205a22413743}}
+'''
+
+[[block]]
+key = "44fdffcff7b9d61d-6191a15f867e66d8-c330205a22413743"
+type = "paragraph"
+origin = '''
+[来源类型](../source-type/source-type.mdx)
+'''
+translate = '''
+[Source Type](../source-type/source-type.mdx)
+'''
+
+[[block]]
+key = "44fdffcff7b9d61d-8b972d503f47cf89"
+type = "listItem"
+composite = true
+origin = '''
+- {{44fdffcff7b9d61d-8b972d503f47cf89-22c4a335ee66ccf7}}
+'''
+translate = '''
+- {{44fdffcff7b9d61d-8b972d503f47cf89-22c4a335ee66ccf7}}
+'''
+
+[[block]]
+key = "44fdffcff7b9d61d-8b972d503f47cf89-22c4a335ee66ccf7"
+type = "paragraph"
+origin = '''
+[量化颜色数](../quantize-colors/quantize-colors.mdx)
+'''
+translate = '''
+[Quantize Colors](../quantize-colors/quantize-colors.mdx)
+'''
+
+[[block]]
+key = "44fdffcff7b9d61d-1661103dcdda74f3"
+type = "listItem"
+composite = true
+origin = '''
+- {{44fdffcff7b9d61d-1661103dcdda74f3-9ad9f9ccdb792429}}
+'''
+translate = '''
+- {{44fdffcff7b9d61d-1661103dcdda74f3-9ad9f9ccdb792429}}
+'''
+
+[[block]]
+key = "44fdffcff7b9d61d-1661103dcdda74f3-9ad9f9ccdb792429"
+type = "paragraph"
+origin = '''
+[LUT 与耗材档案有什么区别](../../../knowledge/material-profile-selection/material-profile-selection.mdx)
+'''
+translate = '''
+[Choosing a material profile](../../../knowledge/material-profile-selection/material-profile-selection.mdx)
+'''

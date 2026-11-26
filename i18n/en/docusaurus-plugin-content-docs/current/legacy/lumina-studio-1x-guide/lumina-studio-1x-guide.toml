@@ -1,0 +1,465 @@
+[metadata]
+migration_layout = "preserved English structure; root blocks retain grouped or omitted source sections"
+reviewed_source = "20d420e19784fd562ccef22d42369f3e8edb2b7acb2d0e9338b62f7a186ff161"
+
+[[block]]
+key = "7e1b1ca1557f60c5"
+type = "yaml"
+origin = '''
+---
+title: "使用教程"
+description: ""
+sidebar_position: 9
+---
+'''
+translate = '''
+---
+title: "Lumina Studio 1.x User Guide"
+unlisted: true
+translation_status: pending
+---
+'''
+
+[[block]]
+key = "5488a1edc65b3d93"
+type = "heading"
+origin = '''
+# 1.X.X版本
+'''
+translate = '''
+# Lumina Studio 1.x User Guide
+'''
+
+[[block]]
+key = "e9d8bffcbfe0a405"
+type = "admonition"
+composite = true
+origin = '''
+:::note[旧版资料]
+{{e9d8bffcbfe0a405-deca580a8495e65e}}
+:::
+'''
+translate = '''
+'''
+
+[[block]]
+key = "e9d8bffcbfe0a405-deca580a8495e65e"
+type = "paragraph"
+origin = '''
+本页保留 1.x 的使用方法和历史界面，部分信息可能已经过时。Lumina Studio 2.0 现已在 [Lumina-Layers 公开仓库](https://github.com/lumina-layer-studio/Lumina-Layers)开发。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2e9fdd55ced4684e"
+type = "heading"
+origin = '''
+## 主页面
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c4276467c094b045"
+type = "paragraph"
+origin = '''
+原教程记载使用部署版 1.6.7，打包版约为 1.6.3。
+在你一切部署好后，在弹出网页上面应该是这样的
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8537ca1a83679f87"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/use1.png').default}
+  alt="use1.png"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "62836fdb2818d118"
+type = "heading"
+origin = '''
+## 预设选择
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b0367b983d8456ae"
+type = "paragraph"
+origin = '''
+**在左上角图像转换中输入的窗口里，可以选择项目自带或者是共享预设，也可以上传自己校准的lut
+上传后需要在左侧下拉栏选择预设**
+'''
+translate = '''
+'''
+
+[[block]]
+key = "cc19408da42ead1a"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/use2.png').default}
+  alt="use2.png"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "345af2adae77daf6"
+type = "heading"
+origin = '''
+## 图像上传
+'''
+translate = '''
+'''
+
+[[block]]
+key = "457b9498492fbfc2"
+type = "paragraph"
+origin = '''
+**可以选择图片上传，图片支持多种格式，如果你使用SVG图，会默认帮你选择SVG模式，而其他图片会默认高保真模式**
+'''
+translate = '''
+'''
+
+[[block]]
+key = "39d0020d4bafc7b7"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/use3.png').default}
+  alt="use3.png"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "077e621c5317c68e"
+type = "paragraph"
+origin = '''
+**上传图片后会弹出裁切框，可以自己调整，或者使用原图**
+'''
+translate = '''
+'''
+
+[[block]]
+key = "67e0bc8d495c926d"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/use4.png').default}
+  alt="use4.png"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "3e50a623caa8600f"
+type = "heading"
+origin = '''
+## 参数调整
+'''
+translate = '''
+'''
+
+[[block]]
+key = "3a6689fa2cdf3a73"
+type = "paragraph"
+origin = '''
+**可以设置生成的宽高（锁定图片的宽高比）
+可以修改底部背板的厚度(高级里面可以解锁大尺寸)**
+'''
+translate = '''
+'''
+
+[[block]]
+key = "e1d7613d7460b049"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/use5.png').default}
+  alt="use4.png"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2dd291276220bfdc"
+type = "heading"
+origin = '''
+## 生成模式
+'''
+translate = '''
+'''
+
+[[block]]
+key = "cb271d3f3bff8f12"
+type = "paragraph"
+origin = '''
+调整单双面模式
+**针对不同的图使用不同的生成模式
+高保真：无缝拼接，比较万能，但建议避免使用噪点过多的图
+像素模式：体素生成，直接按体素方块拼接生成，适合体素像素图，无需额外调整图片
+SVG模式：矢量图模式，部分矢量图工具可能会出现假矢量的情况，如果你不知道使用什么可以选择这个工具
+GITHUB项目：https://github.com/Neroued/neroued_vectorizer
+项目在线版：https://chromaprint3d.com/**
+'''
+translate = '''
+'''
+
+[[block]]
+key = "5ef19be58b4ab72c"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/use6.png').default}
+  alt="use4.png"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f51a674597ed616f"
+type = "heading"
+origin = '''
+## 高级设置
+'''
+translate = '''
+'''
+
+[[block]]
+key = "6779fa84d45fc4dd"
+type = "paragraph"
+origin = '''
+**色彩细节：代表使用颜色数量的参数，但实际生成会量化颜色，不代表一定准确是细节值，但建议使用64以内，复杂的图在32-64之间足够了
+抠图：能用，但不建议用，容易抠多了
+清理杂色：可以去掉一些独立像素，避免过多杂色
+独立背板，可以把背板独立一个对象，可单独修改背板颜色或者删掉**
+'''
+translate = '''
+'''
+
+[[block]]
+key = "00256ef609b4d4d2"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/use7.png').default}
+  alt="use4.png"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8d3ccef58ceac651"
+type = "heading"
+origin = '''
+## 调色板
+'''
+translate = '''
+'''
+
+[[block]]
+key = "231e84f66e345e05"
+type = "paragraph"
+origin = '''
+**高级设置里可以修改调色板模式。一个是默认模式，另一个是按照色卡打印排列顺序显示（合并色卡不支持色卡模式）**
+'''
+translate = '''
+'''
+
+[[block]]
+key = "6f3ce1c1ded99611"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/use8.png').default}
+  alt="use4.png"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "585b4c06049398e3"
+type = "paragraph"
+origin = '''
+**点击生成预览等待一会**
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7dd490aba8900caf"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/use9.png').default}
+  alt="use4.png"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "57a7ca826bada18b"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/use10.png').default}
+  alt="use4.png"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c134c18b980bf5cf"
+type = "paragraph"
+origin = '''
+**中间预览窗口显示了预览效果后，可以单独选择位置，高亮后点开下方调色板**
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4c193216f6052924"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/use11.png').default}
+  alt="use4.png"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ea52f903341f7d31"
+type = "paragraph"
+origin = '''
+**在色卡模式下可以按照实际打印色卡选择自己想要替换的颜色 选择后在最下方选择确认替换**
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f454ac7718ae55c3"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/use12.png').default}
+  alt="use4.png"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "fd07d9feaab2b301"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/use13.png').default}
+  alt="use4.png"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ab64a33eab6b5ff9"
+type = "paragraph"
+origin = '''
+**颜色合并：可以根据delta E值和阈值把相似色或者是杂色合并**
+'''
+translate = '''
+'''
+
+[[block]]
+key = "16e8befcf67cd042"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/use14.png').default}
+  alt="use4.png"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "874f869a4e53eef2"
+type = "heading"
+origin = '''
+## 生成3MF
+'''
+translate = '''
+'''
+
+[[block]]
+key = "192b7bb0a4f2e9d8"
+type = "paragraph"
+origin = '''
+**生成后可以选择直接在BBS和orca或未来其他兼容的切片中打开，也可以下拉选择下载3MF直接打开**
+'''
+translate = '''
+This guide documents a legacy Lumina Studio release. Its dedicated English edition is being prepared and is hidden from English navigation in the meantime.
+'''
+
+[[block]]
+key = "02d759ca1280ced1"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/use15.png').default}
+  alt="use4.png"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "dce9d90a304a61c7"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/use16.png').default}
+  alt="use16.png"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "49e8d2974768d41e"
+type = "paragraph"
+origin = '''
+**切片参数请移步切片参数参考页面（默认情况下已经注入了参数值，除非你弄丢了可以参考重新设置）**
+'''
+translate = '''
+For the complete current guide, switch the site language to Simplified Chinese.
+'''
+
+[[block]]
+key = "29b72ec17ad4ee79"
+type = "heading"
+origin = '''
+# 进阶玩法
+'''
+translate = '''
+'''

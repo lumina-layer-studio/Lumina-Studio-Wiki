@@ -18,6 +18,7 @@ Before opening a Pull Request, check types and build both locales:
 
 ```bash
 yarn typecheck
+yarn test
 yarn build
 ```
 
@@ -26,7 +27,7 @@ yarn build
 | Path | Contents |
 | --- | --- |
 | `docs/` | Simplified Chinese docs (`getting-started/`, `tutorials/`, `reference/`, `knowledge/`, `releases/`, `project/`, `legacy/`) |
-| `i18n/en/docusaurus-plugin-content-docs/current/` | English docs mirroring `docs/` |
+| `i18n/en/docusaurus-plugin-content-docs/current/` | English TOML translations, generated Markdown/MDX and localized assets mirroring `docs/` |
 | `updates/` | Release update entries |
 | `src/` & `static/` | Site components, styles, and static assets |
 
@@ -38,6 +39,8 @@ docs/tutorials/example/assets/step-01.webp
 ```
 
 ## Contributing
+
+Translations use `@neko_vecter/i18n-toolkit`. Edit the English TOML, then run `yarn i18n:build`; do not edit generated English pages directly. After changing Chinese source, extract and review its translation first. See the [translation workflow](CONTRIBUTING.md#翻译同步).
 
 Issues and Pull Requests for fixes, tutorials, control references, and translations are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for authoring conventions and [SECURITY.md](SECURITY.md) for security reports.
 

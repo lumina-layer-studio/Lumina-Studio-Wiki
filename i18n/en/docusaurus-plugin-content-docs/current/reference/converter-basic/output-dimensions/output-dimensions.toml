@@ -1,0 +1,217 @@
+[metadata]
+reviewed_source = "d894a012480839bd861a7d05a7a1630f8c2164d2ac187c49ee9f024550f7fe0f"
+
+[[block]]
+key = "ee4f9541bfb1ea01"
+type = "yaml"
+origin = '''
+---
+title: "成品宽度与高度"
+description: "说明成品宽高设置、原图比例联动、常规与大画幅范围，以及尺寸对采样分辨率的影响。"
+sidebar_position: 6
+---
+'''
+translate = '''
+---
+title: "Output Width and Height"
+description: "Set physical print dimensions, understand aspect-ratio locking and Large Format limits, and see how size affects sampling resolution."
+sidebar_position: 6
+---
+'''
+
+[[block]]
+key = "8ce80909ef427bc8"
+type = "heading"
+origin = '''
+# 成品宽度与高度
+'''
+translate = '''
+# Output Width and Height
+'''
+
+[[block]]
+key = "1a492075db0ec218"
+type = "paragraph"
+origin = '''
+**宽度**和**高度**用于设定打印成品在 XY 平面上的实际物理尺寸，单位为 mm。
+'''
+translate = '''
+**Width** and **Height** set the physical XY size of the finished print in millimeters (`mm`).
+'''
+
+[[block]]
+key = "461b8823105fb525"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-output-dimensions.webp').default}
+  alt="Lumina Studio 的成品宽度和高度滑块"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-output-dimensions.webp').default}
+  alt="Output Width and Height sliders in Lumina Studio"
+/>
+'''
+
+[[block]]
+key = "d349f876bcbc112e"
+type = "heading"
+origin = '''
+## 比例联动与尺寸范围
+'''
+translate = '''
+## Aspect-Ratio Locking and Size Limits
+'''
+
+[[block]]
+key = "4f343afef4b29dfa"
+type = "paragraph"
+origin = '''
+上传图片后，软件会自动锁定原图宽高比：修改**宽度**时自动按比例换算**高度**，修改**高度**时也会同步换算**宽度**。联动计算结果取整到毫米，并自动限制在当前模式允许的尺寸范围内。
+'''
+translate = '''
+Once an image is uploaded, Lumina Studio locks its source aspect ratio: changing **Width** recalculates **Height**, and changing **Height** recalculates **Width**. Linked values are rounded to whole millimeters within the active size range.
+'''
+
+[[block]]
+key = "b2624cbeb999ab77"
+type = "paragraph"
+origin = '''
+普通模式下宽高可调范围为 10–400 mm；开启大画幅后上限扩展至 9999 mm。若目标尺寸超出单台打印机的热床幅面，请先核对热床尺寸，或启用[大画幅模式](../../../knowledge/large-format/large-format.mdx)将作品拆分为多块板件分别打印。
+'''
+translate = '''
+Standard mode supports **10–400 mm**, while Large Format raises the upper limit to **9999 mm**. When your target dimensions exceed a single printer's build plate, check your plate limits or enable [Large Format](../../../knowledge/large-format/large-format.mdx) to tile the artwork across multiple plates.
+'''
+
+[[block]]
+key = "6edfae43d2bb4b77"
+type = "heading"
+origin = '''
+## 尺寸会影响什么
+'''
+translate = '''
+## What Dimensions Affect
+'''
+
+[[block]]
+key = "7c441c04a1b95fc0"
+type = "paragraph"
+origin = '''
+修改成品宽高不仅改变模型外形大小，还会同步更新以下计算：
+'''
+translate = '''
+Adjusting Width or Height updates more than the outer footprint:
+'''
+
+[[block]]
+key = "859772d839cb5383"
+type = "list"
+composite = true
+origin = '''
+{{859772d839cb5383-8e563028308ffbef}}
+{{859772d839cb5383-6b07cf7d3935efb6}}
+{{859772d839cb5383-845042aafc03e451}}
+{{859772d839cb5383-27dfaa19ff9dd34f}}
+'''
+translate = '''
+{{859772d839cb5383-8e563028308ffbef}}
+{{859772d839cb5383-6b07cf7d3935efb6}}
+{{859772d839cb5383-845042aafc03e451}}
+{{859772d839cb5383-27dfaa19ff9dd34f}}
+'''
+
+[[block]]
+key = "859772d839cb5383-8e563028308ffbef"
+type = "listItem"
+composite = true
+origin = '''
+- {{859772d839cb5383-8e563028308ffbef-64329fcdbc4e68ed}}
+'''
+translate = '''
+- {{859772d839cb5383-8e563028308ffbef-64329fcdbc4e68ed}}
+'''
+
+[[block]]
+key = "859772d839cb5383-8e563028308ffbef-64329fcdbc4e68ed"
+type = "paragraph"
+origin = '''
+最终三维模型的 XY 物理尺寸；
+'''
+translate = '''
+Final XY dimensions of the 3D model;
+'''
+
+[[block]]
+key = "859772d839cb5383-6b07cf7d3935efb6"
+type = "listItem"
+composite = true
+origin = '''
+- {{859772d839cb5383-6b07cf7d3935efb6-617ee9f4492f31f4}}
+'''
+translate = '''
+- {{859772d839cb5383-6b07cf7d3935efb6-617ee9f4492f31f4}}
+'''
+
+[[block]]
+key = "859772d839cb5383-6b07cf7d3935efb6-617ee9f4492f31f4"
+type = "paragraph"
+origin = '''
+图像处理阶段的目标采样网格（高保真位图约按 10 px/mm 采样，像素艺术按喷嘴线宽采样，SVG 高保真路径则使用设置中的 SVG 光栅化密度，详见[建模模式](../modeling-mode/modeling-mode.mdx)）；
+'''
+translate = '''
+Image sampling resolution—**High-Fidelity** raster images sample at roughly 10 px/mm, **Pixel Art** scales by nozzle width, and **High-Fidelity** SVGs use the SVG raster density in Settings (see [Modeling Mode](../modeling-mode/modeling-mode.mdx));
+'''
+
+[[block]]
+key = "859772d839cb5383-845042aafc03e451"
+type = "listItem"
+composite = true
+origin = '''
+- {{859772d839cb5383-845042aafc03e451-0a032c9193108cb9}}
+'''
+translate = '''
+- {{859772d839cb5383-845042aafc03e451-0a032c9193108cb9}}
+'''
+
+[[block]]
+key = "859772d839cb5383-845042aafc03e451-0a032c9193108cb9"
+type = "paragraph"
+origin = '''
+“量化颜色数”的自动计算建议值；
+'''
+translate = '''
+The suggested value from **Auto Detect** under **Quantize Colors**;
+'''
+
+[[block]]
+key = "859772d839cb5383-27dfaa19ff9dd34f"
+type = "listItem"
+composite = true
+origin = '''
+- {{859772d839cb5383-27dfaa19ff9dd34f-08462eb183da233f}}
+'''
+translate = '''
+- {{859772d839cb5383-27dfaa19ff9dd34f-08462eb183da233f}}
+'''
+
+[[block]]
+key = "859772d839cb5383-27dfaa19ff9dd34f-08462eb183da233f"
+type = "paragraph"
+origin = '''
+钥匙扣挂孔、磁铁孔、轮廓等附加结构相对于主体的位置比例。
+'''
+translate = '''
+Placement of loops, magnet pockets, outlines, and other attached structures relative to the main body.
+'''
+
+[[block]]
+key = "c096e0ddbe984e65"
+type = "paragraph"
+origin = '''
+修改任一尺寸后，已生成的 3MF 与下载文件都会失效。由于采样网格随目标物理尺寸重新计算，调整尺寸后请重新生成预览，以确认新尺寸下的细节表现。
+'''
+translate = '''
+Changing either dimension clears any previously generated 3MF. Because sampling density scales with physical size, generate a fresh preview after resizing to verify fine details.
+'''

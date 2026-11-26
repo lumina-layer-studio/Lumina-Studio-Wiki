@@ -1,0 +1,283 @@
+[metadata]
+migration_layout = "preserved English structure; root blocks retain grouped or omitted source sections"
+reviewed_source = "02cf4edebe55104d072cd44d34eb4e095e6a9d614afbdc7c0e416183eb2f3c08"
+
+[[block]]
+key = "bb1a7977e49c2726"
+type = "yaml"
+origin = '''
+---
+title: "耗材选择"
+description: ""
+sidebar_position: 7
+---
+'''
+translate = '''
+---
+title: "Filament Selection"
+unlisted: true
+translation_status: pending
+---
+'''
+
+[[block]]
+key = "c7fdecf406937bdb"
+type = "heading"
+origin = '''
+# 耗材使用
+'''
+translate = '''
+# Filament Selection
+'''
+
+[[block]]
+key = "37a1b62c91485dbf"
+type = "paragraph"
+origin = '''
+Lumina 经典流程支持 2 色、4 色、6 色和 8 色四种固定配色模式。熟悉色卡与校准原理后，也可以自行替换对应通道的颜色；本篇主要介绍标准配色搭配与色卡识别方法。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "62e86f73619d32d5"
+type = "paragraph"
+origin = '''
+下图为各模式的标准颜色搭配参考：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0043787421e0e953"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/468.png').default}
+  alt="468.png"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a5315f33781de194"
+type = "paragraph"
+origin = '''
+实物线盘搭配示例：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b8695143e43669af"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/se8.jpg').default}
+  alt="se8.jpg"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b85d263b2790b500"
+type = "admonition"
+composite = true
+origin = '''
+:::warning[必看]
+
+{{b85d263b2790b500-4c37ecd78e159ac3}}
+
+{{b85d263b2790b500-75e6bbddcdaa508e}}
+
+:::
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b85d263b2790b500-4c37ecd78e159ac3"
+type = "paragraph"
+origin = '''
+选择耗材时只需颜色相近即可，不必寻找 HEX 色值完全一致的线材。例如：绿色可选深绿或浅绿，红色可选深红或普通红，蓝色可选深蓝或浅蓝，黄色可选淡黄或荧光黄，白色可选奶白或普通白，青色也可用青色、蓝色或薄荷色等相近颜色替代。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b85d263b2790b500-75e6bbddcdaa508e"
+type = "paragraph"
+origin = '''
+关键在于从色卡校准到正式打印，始终保持软件中的颜色对象与实际装入的耗材一一对应。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7e3c4cd93c9ec2ec"
+type = "heading"
+origin = '''
+## 2 色（黑白灰度模式）
+'''
+translate = '''
+'''
+
+[[block]]
+key = "38aaedcc0b8d96be"
+type = "paragraph"
+origin = '''
+使用黑色与白色两种耗材，打印出的校准色卡如下：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8bb85b02bd56075b"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/se1.png').default}
+  alt="se1.png"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "523a387bd20e24fa"
+type = "heading"
+origin = '''
+## 4 色（CMYW / RYBW 模式）
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ea7ccfbe097460e2"
+type = "paragraph"
+origin = '''
+4 色分为 CMYW 和 RYBW 两种模式，两者共用同一个校准模型。在切片打印 RYBW 模式时，只需将模型中的“品红色”对象映射为红色耗材、将“青色”对象映射为蓝色耗材即可：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c801f8e37dad65cf"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/se2.png').default}
+  alt="se1.png"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f8eca7a7021a417f"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/se3.png').default}
+  alt="se1.png"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0d5977a517e75b2d"
+type = "heading"
+origin = '''
+## 6 色（CMYWGK / RYBWGK 模式）
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1947ed9db0f03e1c"
+type = "paragraph"
+origin = '''
+6 色同样分为 CMYWGK 和 RYBWGK 两种模式，共用同一个校准模型。在切片打印 RYBWGK 模式时，同样将“品红色”对象映射为红色耗材、将“青色”对象映射为蓝色耗材即可：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2eb7303684e9fe83"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/se4.png').default}
+  alt="se1.png"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1ff8e655c1dc9afc"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/se5.webp').default}
+  alt="se1.png"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "cdf1381c5e0d3f57"
+type = "heading"
+origin = '''
+## 8 色模式
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f27035c0f0b5af33"
+type = "paragraph"
+origin = '''
+8 色模式同时使用品红、红、青、蓝等全部八种颜色，各对象名称独立，切片时无需替换共用名称。
+'''
+translate = '''
+This legacy guide is being rewritten as a dedicated English edition. It has been hidden from English navigation so the Chinese text is no longer mixed into the English site.
+'''
+
+[[block]]
+key = "0373d9456035a5d2"
+type = "paragraph"
+origin = '''
+区分 8 色模式第 1 张（Page 1）与第 2 张（Page 2）色卡的方法：查看色卡左上角第一行，第 1 格为白色、其后依次排列其余 7 种纯色耗材原色的即为第 1 张（Page 1），另一张则为第 2 张（Page 2）。
+'''
+translate = '''
+For the current Chinese edition, switch the site language to Simplified Chinese.
+'''
+
+[[block]]
+key = "043f5ae6dc84a19a"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/se6.png').default}
+  alt="se1.png"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "87f4806955700375"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/se7.png').default}
+  alt="se1.png"
+/>
+'''
+translate = '''
+'''

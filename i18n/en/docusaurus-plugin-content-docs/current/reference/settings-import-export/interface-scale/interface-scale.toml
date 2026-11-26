@@ -1,0 +1,86 @@
+[metadata]
+reviewed_source = "10ff3e63f0fad410135173c45bd9122cef132cfb5d41e26f7b641a4cc386ae21"
+
+[[block]]
+key = "decca7f196b7cb89"
+type = "yaml"
+origin = '''
+---
+title: "界面缩放"
+description: "调整桌面版界面文字、按钮与面板的显示比例，不影响模型与导出文件的物理尺寸。"
+sidebar_position: 2.5
+---
+'''
+translate = '''
+---
+title: "Interface scale"
+description: "Adjust text, button, and panel zoom in the desktop app without changing model or exported 3MF dimensions."
+sidebar_position: 2.5
+---
+'''
+
+[[block]]
+key = "6e73a4f25f712670"
+type = "heading"
+origin = '''
+# 界面缩放
+'''
+translate = '''
+# Interface scale
+'''
+
+[[block]]
+key = "4c98cfb91b331caf"
+type = "paragraph"
+origin = '''
+桌面版的“界面缩放”用于调整文字、按钮和面板的显示比例，不会改变模型的物理尺寸或导出的 3MF 大小。
+'''
+translate = '''
+In the desktop app, **Interface scale** adjusts the display size of text, buttons, and panels without affecting the physical dimensions of your model or exported 3MF.
+'''
+
+[[block]]
+key = "030a7fbf2ef96d69"
+type = "paragraph"
+origin = '''
+打开“设置 → 常规”，在“界面缩放”中可选择 80%、90%、100%、110%、125%、150% 或 175%。100% 跟随操作系统的默认显示缩放；需要放大界面可选更高百分比，希望同屏容纳更多内容则可选更低百分比。所选比例会自动保存，并在下次启动桌面版时继续生效。
+'''
+translate = '''
+Open **Settings → General** and choose 80%, 90%, 100%, 110%, 125%, 150%, or 175% under **Interface scale**. At 100%, Lumina follows your operating system's display scaling. Pick a higher percentage for larger controls or a lower percentage to fit more workspace on screen. Your preference is saved automatically across app restarts.
+'''
+
+[[block]]
+key = "efc1c3243efd5cbe"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-interface-scale.webp').default}
+  alt="Lumina Studio 桌面版常规设置中的界面缩放选项"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-interface-scale.webp').default}
+  alt="Interface scale in the General settings of the Lumina Studio desktop app"
+/>
+'''
+
+[[block]]
+key = "948597074db63584"
+type = "paragraph"
+origin = '''
+也可通过快捷键逐档调节：Windows 与 Linux 按 `Ctrl` 加 `+` 或 `-` 缩放，按 `Ctrl + 0` 恢复 100%；macOS 将 `Ctrl` 替换为 `Command` 即可。
+'''
+translate = '''
+You can also step zoom up or down with `Ctrl` plus `+` or `-` on Windows and Linux, and press `Ctrl + 0` to reset to 100%. On macOS, use `Command` instead of `Ctrl`.
+'''
+
+[[block]]
+key = "699bc73123a2abe9"
+type = "paragraph"
+origin = '''
+该选项仅在桌面版中提供。在浏览器中使用网页版时，可直接使用浏览器的页面缩放功能，两者缩放比例各自独立保存。
+'''
+translate = '''
+This setting applies to the desktop app. When using Lumina in a web browser, use your browser's built-in page zoom; browser zoom and desktop scale are stored independently.
+'''

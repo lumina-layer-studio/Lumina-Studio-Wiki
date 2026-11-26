@@ -1,0 +1,303 @@
+[metadata]
+reviewed_source = "a189994eade272cbe836c1225cb0027ad2fd09d65a3afe6b9fd301491393db5c"
+
+[[block]]
+key = "b9e8e76855f93ea1"
+type = "yaml"
+origin = '''
+---
+title: "预览、生成与导出"
+description: "了解操作栏中预览、生成 3MF、查看分层、导出分享卡与 JSON 以及热床尺寸参考的作用。"
+sidebar_position: 12
+---
+'''
+translate = '''
+---
+title: "Preview, Generate, and Export"
+description: "Use Preview, 3MF generation, View Layers, Share Card, JSON export, and Bed Size in the Converter action bar."
+sidebar_position: 12
+---
+'''
+
+[[block]]
+key = "ce988384223f31e8"
+type = "heading"
+origin = '''
+# 预览、生成与导出
+'''
+translate = '''
+# Preview, Generate, and Export
+'''
+
+[[block]]
+key = "025a129f23e130fd"
+type = "paragraph"
+origin = '''
+转换页面底部的操作栏集中了色彩预览、分层检查、3MF 生成和配方导出功能。调整参数后先运行预览，即可在生成可打印模型前确认配色与几何结构。
+'''
+translate = '''
+The action bar at the bottom of the Converter brings together color preview, layer inspection, 3MF export, and recipe sharing. Running a preview first lets you verify color matching and model geometry before generating a printable 3MF file.
+'''
+
+[[block]]
+key = "8750f7fa1af42460"
+type = "heading"
+origin = '''
+## 预览
+'''
+translate = '''
+## Preview
+'''
+
+[[block]]
+key = "ec41108d8441c742"
+type = "paragraph"
+origin = '''
+点击**预览**会根据当前图片、色彩数据来源和各项设置计算匹配结果，并同步生成：
+'''
+translate = '''
+Clicking **Preview** processes the current image, color source, and settings to generate:
+'''
+
+[[block]]
+key = "102e4d6767025dc0"
+type = "list"
+composite = true
+origin = '''
+{{102e4d6767025dc0-d1aac84de54b0852}}
+{{102e4d6767025dc0-59ecce85e3309aee}}
+{{102e4d6767025dc0-a931c014ffb095e1}}
+'''
+translate = '''
+{{102e4d6767025dc0-d1aac84de54b0852}}
+{{102e4d6767025dc0-59ecce85e3309aee}}
+{{102e4d6767025dc0-a931c014ffb095e1}}
+'''
+
+[[block]]
+key = "102e4d6767025dc0-d1aac84de54b0852"
+type = "listItem"
+composite = true
+origin = '''
+- {{102e4d6767025dc0-d1aac84de54b0852-c1d7b7c8d57c6ff8}}
+'''
+translate = '''
+- {{102e4d6767025dc0-d1aac84de54b0852-c1d7b7c8d57c6ff8}}
+'''
+
+[[block]]
+key = "102e4d6767025dc0-d1aac84de54b0852-c1d7b7c8d57c6ff8"
+type = "paragraph"
+origin = '''
+当前匹配结果的 2D 效果预览；
+'''
+translate = '''
+The matched 2D preview;
+'''
+
+[[block]]
+key = "102e4d6767025dc0-59ecce85e3309aee"
+type = "listItem"
+composite = true
+origin = '''
+- {{102e4d6767025dc0-59ecce85e3309aee-e452df9efb6e6f8e}}
+'''
+translate = '''
+- {{102e4d6767025dc0-59ecce85e3309aee-e452df9efb6e6f8e}}
+'''
+
+[[block]]
+key = "102e4d6767025dc0-59ecce85e3309aee-e452df9efb6e6f8e"
+type = "paragraph"
+origin = '''
+供 3D 查看器展示的模型预览；
+'''
+translate = '''
+The 3D model shown in the 3D viewer;
+'''
+
+[[block]]
+key = "102e4d6767025dc0-a931c014ffb095e1"
+type = "listItem"
+composite = true
+origin = '''
+- {{102e4d6767025dc0-a931c014ffb095e1-42b9730b65c8cddc}}
+'''
+translate = '''
+- {{102e4d6767025dc0-a931c014ffb095e1-42b9730b65c8cddc}}
+'''
+
+[[block]]
+key = "102e4d6767025dc0-a931c014ffb095e1-42b9730b65c8cddc"
+type = "paragraph"
+origin = '''
+调色板、分层图与颜色工作站所需的颜色数据。
+'''
+translate = '''
+Palette data, layer images, and **Color Workstation** color assignments.
+'''
+
+[[block]]
+key = "ae71fecc59b34e51"
+type = "paragraph"
+origin = '''
+尚未导入图片或色彩数据来源未配置完整时，**预览**按钮保持禁用，并提示缺少的条件。修改任何影响输出效果的参数后，请重新点击**预览**以刷新模型与分层图。
+'''
+translate = '''
+**Preview** stays disabled until both an image and a complete color source are ready, and indicates what is missing. After changing any setting that affects the output, run **Preview** again to refresh the model and layer images.
+'''
+
+[[block]]
+key = "e2368c7fe8b4e4b0"
+type = "heading"
+origin = '''
+## 下载 3MF 或打开切片软件
+'''
+translate = '''
+## Download 3MF or open the slicer
+'''
+
+[[block]]
+key = "9ed678dfddee7bf5"
+type = "paragraph"
+origin = '''
+确认预览效果理想后，可通过主导出按钮一步完成模型生成与交付，无需先寻找单独的“生成”按钮。按钮文案会随本机检测到的切片软件和文件状态自动切换（例如**生成并在 Bambu Studio 中打开**、**生成并下载 3MF**或**下载 3MF**），点击右侧下拉箭头可切换执行方式。未检测到本地切片软件时，仍可直接生成并下载 3MF 文件。
+'''
+translate = '''
+Once the preview looks right, use the primary export button to generate and deliver your 3MF in one step—there is no separate **Generate** button to press first. The button label updates automatically based on detected slicers and file status, such as **Generate & open in Bambu Studio**, **Generate & Download 3MF**, or **Download 3MF**. Use the dropdown arrow next to the button to switch actions. If no slicer is detected on your system, you can still generate and download the 3MF file directly.
+'''
+
+[[block]]
+key = "69a169d512364e5d"
+type = "paragraph"
+origin = '''
+开启拼图或大画幅等模式时，该按钮会走对应模式的专属生成流程。修改参数不会更新此前已下载的文件；调整设置后请先检查新预览，再重新生成导出。
+'''
+translate = '''
+**Puzzle** and **Large Format** modes use their own dedicated export workflows. Editing settings does not modify a previously downloaded 3MF; inspect the updated preview and export a new file after making changes.
+'''
+
+[[block]]
+key = "ef20a0702aba45ae"
+type = "heading"
+origin = '''
+## 查看分层
+'''
+translate = '''
+## View Layers
+'''
+
+[[block]]
+key = "25ac5755dbf6fac2"
+type = "paragraph"
+origin = '''
+点击**查看分层**可生成当前配色方案中每一光学显色层的分布图，点击缩略图即可放大查看细节。将鼠标悬停在主预览图上时，颜色检查器会同步显示该位置的表面颜色及下方各层的叠色配方，方便在进入切片软件分配实体耗材前核对叠层顺序。
+'''
+translate = '''
+**View Layers** renders an image for each optical color layer in the current preview. Click any thumbnail to inspect it at a larger size, or hover over the main preview to read both the finished surface color and the layer-by-layer color stack at that exact point. Use this view to verify the optical recipe before confirming physical filament assignments in your slicer.
+'''
+
+[[block]]
+key = "36ea954c64a16a07"
+type = "heading"
+origin = '''
+## 分享卡与 JSON
+'''
+translate = '''
+## Share Card and JSON
+'''
+
+[[block]]
+key = "916c58d60a2d87f3"
+type = "paragraph"
+origin = '''
+完成图片导入与预览后，可将当前转换配方导出保存：
+'''
+translate = '''
+Once an image has been imported and previewed, you can export the current conversion recipe in two formats:
+'''
+
+[[block]]
+key = "522e5e5dd914f58b"
+type = "list"
+composite = true
+origin = '''
+{{522e5e5dd914f58b-e77a17b621ee0784}}
+{{522e5e5dd914f58b-b3bbdc95a6799168}}
+'''
+translate = '''
+{{522e5e5dd914f58b-e77a17b621ee0784}}
+{{522e5e5dd914f58b-b3bbdc95a6799168}}
+'''
+
+[[block]]
+key = "522e5e5dd914f58b-e77a17b621ee0784"
+type = "listItem"
+composite = true
+origin = '''
+- {{522e5e5dd914f58b-e77a17b621ee0784-c5b07d124111d181}}
+'''
+translate = '''
+- {{522e5e5dd914f58b-e77a17b621ee0784-c5b07d124111d181}}
+'''
+
+[[block]]
+key = "522e5e5dd914f58b-e77a17b621ee0784-c5b07d124111d181"
+type = "paragraph"
+origin = '''
+**导出分享卡：** 将作品封面图与可复现配方打包在同一文件中，适合直接分享给其他 Lumina 用户。
+'''
+translate = '''
+**Export Share Card:** Packages a cover image with a reproducible Lumina recipe in a single file for sharing with other Lumina users.
+'''
+
+[[block]]
+key = "522e5e5dd914f58b-b3bbdc95a6799168"
+type = "listItem"
+composite = true
+origin = '''
+- {{522e5e5dd914f58b-b3bbdc95a6799168-2392037a05b38d15}}
+'''
+translate = '''
+- {{522e5e5dd914f58b-b3bbdc95a6799168-2392037a05b38d15}}
+'''
+
+[[block]]
+key = "522e5e5dd914f58b-b3bbdc95a6799168-2392037a05b38d15"
+type = "paragraph"
+origin = '''
+**导出 JSON：** 仅导出独立的 JSON 配方文件，便于备份归档、版本管理或自动化处理。
+'''
+translate = '''
+**Export JSON:** Saves the standalone JSON recipe file for backups, version control, or automation workflows.
+'''
+
+[[block]]
+key = "f71e630c3c0d34a3"
+type = "paragraph"
+origin = '''
+这两种文件记录的是可再次导入编辑的 Lumina 转换参数。详细结构与导入方式见[分享卡与 JSON](../../../knowledge/share-card-json/share-card-json.mdx)。
+'''
+translate = '''
+Both formats store editable Lumina conversion parameters that can be re-imported later. For details on file contents and import behavior, see [Share Card and JSON](../../../knowledge/share-card-json/share-card-json.mdx).
+'''
+
+[[block]]
+key = "358465bca92a8537"
+type = "heading"
+origin = '''
+## 热床尺寸
+'''
+translate = '''
+## Bed Size
+'''
+
+[[block]]
+key = "38fba43d85252053"
+type = "paragraph"
+origin = '''
+操作栏会显示系统设置中当前所选打印机的热床尺寸，用于在 2D/3D 预览中提供比例参照与边界提示。在切片软件中打开 3MF 后，请再次确认目标机型、喷嘴直径和打印板配置。
+'''
+translate = '''
+**Bed Size** displays the build-plate dimensions of the printer selected in **Settings**, providing scale and boundary references in the 2D and 3D previews. When preparing the print in your slicer, confirm that the target printer, nozzle, and build plate match your hardware.
+'''

@@ -1,0 +1,376 @@
+[metadata]
+reviewed_source = "ac4e6f704e216a4c74df3057629ec05641563e5434cb332ce955dae2dea1e6bb"
+
+[[block]]
+key = "5c764d413be76d04"
+type = "yaml"
+origin = '''
+---
+title: "导航、语言、主题与连接状态"
+description: "Lumina Studio 顶部一级与二级导航、界面语言与深色主题切换、后台连接状态指示及更新公告机制。"
+sidebar_position: 1
+---
+'''
+translate = '''
+---
+title: "Navigation, Language, Theme, and Connection Status"
+description: "Overview of Lumina Studio's primary and secondary navigation, language and theme controls, backend connection indicator, and update announcements."
+sidebar_position: 1
+---
+'''
+
+[[block]]
+key = "e6fcd37de07147f7"
+type = "heading"
+origin = '''
+# 导航、语言、主题与连接状态
+'''
+translate = '''
+# Navigation, Language, Theme, and Connection Status
+'''
+
+[[block]]
+key = "cbaaf7cc0396410c"
+type = "paragraph"
+origin = '''
+Lumina Studio 顶栏由软件标识、工作区导航与全局状态控件三部分组成。切换页面时不会自动触发预览、生成或保存，当前页面已填写的参数与编辑状态会继续保留。
+'''
+translate = '''
+The top bar houses the app identity, workspace navigation, and global status controls. Switching pages preserves your current form values and editing state without automatically triggering Preview, Generate, or Save.
+'''
+
+[[block]]
+key = "2e1d1b2758d01fec"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/02-current-navigation.webp').default}
+  alt="新版 Lumina Studio 的顶部导航和图像转换子页面"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/02-current-navigation.webp').default}
+  alt="The current Lumina Studio header and Converter secondary navigation"
+/>
+'''
+
+[[block]]
+key = "af1d464a8d02bee6"
+type = "heading"
+origin = '''
+## 一级页面
+'''
+translate = '''
+## Primary pages
+'''
+
+[[block]]
+key = "b7dbf4fc8c743b3f"
+type = "table"
+origin = '''
+| 页面 | 主要用途 |
+| --- | --- |
+| 图像转换 | 上传素材，配置颜色来源与模型结构，预览并导出 3MF |
+| LUT 管理 | 管理 LUT、制作校准板、从照片提取 LUT、分析与对比 LUT |
+| 耗材管理 | 管理耗材档案、生成或提取梯度卡、查询叠层配方 |
+| 图像转矢量 | 将位图转换为可继续编辑或直接发送至“图像转换”的 SVG |
+| 创意工坊 | 浏览并使用扩展创意模块 |
+| 设置 | 配置打印机、喷嘴与切片软件，管理计算精度、缓存与界面选项 |
+'''
+translate = '''
+| Page | Purpose |
+| --- | --- |
+| Converter | Import artwork, choose a color source and structure, preview, and export 3MF |
+| LUT Management | Manage LUTs, generate calibration boards, extract LUTs from photos, and inspect or compare LUTs |
+| Material Management | Manage material archives, generate or extract gradient cards, and query layer recipes |
+| Vectorizer | Convert bitmaps into editable SVGs or send them directly to Converter |
+| Creative Workshop | Browse and launch creative modules |
+| Settings | Configure your printer, nozzle, and slicer, and manage compute, cache, and interface options |
+'''
+
+[[block]]
+key = "06ec2f04c8037e30"
+type = "paragraph"
+origin = '''
+“LUT 管理”与“耗材管理”各自包含下属二级页面。再次切回这两个模块时，软件会自动恢复上次停留的有效二级页面；若原记录已失效，则回到该模块的默认子页面。
+'''
+translate = '''
+**LUT Management** and **Material Management** each include secondary subpages. Returning to either workspace restores the last valid subpage you visited, or falls back to that workspace's default view.
+'''
+
+[[block]]
+key = "137a4b9e86a9b0d6"
+type = "heading"
+origin = '''
+## “图像转换”的三个二级页面
+'''
+translate = '''
+## Converter secondary pages
+'''
+
+[[block]]
+key = "087eac709e0c526b"
+type = "list"
+composite = true
+origin = '''
+{{087eac709e0c526b-fef71db123d42cc5}}
+{{087eac709e0c526b-21789a3f2c57c847}}
+{{087eac709e0c526b-6b051bded052582e}}
+'''
+translate = '''
+{{087eac709e0c526b-fef71db123d42cc5}}
+{{087eac709e0c526b-21789a3f2c57c847}}
+{{087eac709e0c526b-6b051bded052582e}}
+'''
+
+[[block]]
+key = "087eac709e0c526b-fef71db123d42cc5"
+type = "listItem"
+composite = true
+origin = '''
+- {{087eac709e0c526b-fef71db123d42cc5-cda6b162d902f08b}}
+'''
+translate = '''
+- {{087eac709e0c526b-fef71db123d42cc5-cda6b162d902f08b}}
+'''
+
+[[block]]
+key = "087eac709e0c526b-fef71db123d42cc5-cda6b162d902f08b"
+type = "paragraph"
+origin = '''
+**核心设置：** 素材上传、颜色来源、物理尺寸、底板、模式、常用高级选项与操作栏。
+'''
+translate = '''
+**Core Settings:** Artwork upload, color source, physical dimensions, backing, mode, common advanced options, and **Actions**.
+'''
+
+[[block]]
+key = "087eac709e0c526b-21789a3f2c57c847"
+type = "listItem"
+composite = true
+origin = '''
+- {{087eac709e0c526b-21789a3f2c57c847-9e4d3fda73293bd8}}
+'''
+translate = '''
+- {{087eac709e0c526b-21789a3f2c57c847-9e4d3fda73293bd8}}
+'''
+
+[[block]]
+key = "087eac709e0c526b-21789a3f2c57c847-9e4d3fda73293bd8"
+type = "paragraph"
+origin = '''
+**颜色调整：** 2D 预览、选区工具、颜色替换、叠层配方与渐变分组。
+'''
+translate = '''
+**Color Adjustment:** 2D Preview, selection tools, color replacement, layer recipes, and color groups.
+'''
+
+[[block]]
+key = "087eac709e0c526b-6b051bded052582e"
+type = "listItem"
+composite = true
+origin = '''
+- {{087eac709e0c526b-6b051bded052582e-9090f7eae68808c9}}
+'''
+translate = '''
+- {{087eac709e0c526b-6b051bded052582e-9090f7eae68808c9}}
+'''
+
+[[block]]
+key = "087eac709e0c526b-6b051bded052582e-9090f7eae68808c9"
+type = "paragraph"
+origin = '''
+**创意中心：** 浮雕、外轮廓、透明镀层、挂件环、冰箱贴磁铁槽与拼图等结构功能（掐丝珐琅入口当前隐藏）。
+'''
+translate = '''
+**Creative Center:** Relief, Outline, Transparent Coating, Keychain Loop, Fridge Magnet, Puzzle, and related structure features (the Cloisonné entry is currently hidden).
+'''
+
+[[block]]
+key = "96db037aa7b776aa"
+type = "paragraph"
+origin = '''
+“核心设置”与“创意中心”采用可停靠的浮动面板布局，“颜色调整”则采用全屏颜色工作台布局，因此顶栏的“面板控件”仅列出当前页面实际包含的面板。面板操作详见[面板显示、折叠、拖动与重置](../panel-layout/panel-layout.mdx)。
+'''
+translate = '''
+**Core Settings** and **Creative Center** use movable panels, whereas **Color Adjustment** opens a full-screen color workspace—so **Panel Controls** in the header lists only the panels active on the current view. For layout details, see [Show, Collapse, Move, and Reset Panels](../panel-layout/panel-layout.mdx).
+'''
+
+[[block]]
+key = "4140b612b31c4078"
+type = "heading"
+origin = '''
+## 语言与主题
+'''
+translate = '''
+## Language and theme
+'''
+
+[[block]]
+key = "9e01dd68431741d0"
+type = "paragraph"
+origin = '''
+在“设置 → 常规 → 界面语言 / Language”中可切换简体中文或 English。
+'''
+translate = '''
+Switch between Simplified Chinese and English under **Settings → General → Language / 界面语言**.
+'''
+
+[[block]]
+key = "2abf35735ae43fac"
+type = "paragraph"
+origin = '''
+点击右上角“更多选项”，可通过“深色模式”切换浅色或深色外观主题；切换主题仅改变界面配色，不影响图片、配方、模型与导出文件。窗口宽度较窄时，部分按钮文字会自动收起为图标，一级与二级导航栏均支持横向滚动。
+'''
+translate = '''
+Open **More options** at the top right and toggle **Dark mode** to switch between light and dark themes without affecting your image, recipe, mesh, or exported files. On narrower windows, text labels compact into icons and navigation bars scroll horizontally.
+'''
+
+[[block]]
+key = "659cf566a9ecc624"
+type = "heading"
+origin = '''
+## 后台连接状态
+'''
+translate = '''
+## Backend connection status
+'''
+
+[[block]]
+key = "9c091794e48cf757"
+type = "paragraph"
+origin = '''
+点击右上角“更多选项”，菜单底部会显示前端与本地后台服务的连接状态：
+'''
+translate = '''
+Open **More options** at the top right to check communication between the interface and the local Lumina backend:
+'''
+
+[[block]]
+key = "c68db9e8cf607e28"
+type = "list"
+composite = true
+origin = '''
+{{c68db9e8cf607e28-a6b6beed444e345a}}
+{{c68db9e8cf607e28-ca45fe331ae78e12}}
+{{c68db9e8cf607e28-1028c700ce45b6da}}
+'''
+translate = '''
+{{c68db9e8cf607e28-a6b6beed444e345a}}
+{{c68db9e8cf607e28-ca45fe331ae78e12}}
+{{c68db9e8cf607e28-1028c700ce45b6da}}
+'''
+
+[[block]]
+key = "c68db9e8cf607e28-a6b6beed444e345a"
+type = "listItem"
+composite = true
+origin = '''
+- {{c68db9e8cf607e28-a6b6beed444e345a-1f45a0672c66c394}}
+'''
+translate = '''
+- {{c68db9e8cf607e28-a6b6beed444e345a-1f45a0672c66c394}}
+'''
+
+[[block]]
+key = "c68db9e8cf607e28-a6b6beed444e345a-1f45a0672c66c394"
+type = "paragraph"
+origin = '''
+**绿色：** 最近一次连接检测正常。
+'''
+translate = '''
+**Green:** Latest health check succeeded.
+'''
+
+[[block]]
+key = "c68db9e8cf607e28-ca45fe331ae78e12"
+type = "listItem"
+composite = true
+origin = '''
+- {{c68db9e8cf607e28-ca45fe331ae78e12-a507a69eb92ddd51}}
+'''
+translate = '''
+- {{c68db9e8cf607e28-ca45fe331ae78e12-a507a69eb92ddd51}}
+'''
+
+[[block]]
+key = "c68db9e8cf607e28-ca45fe331ae78e12-a507a69eb92ddd51"
+type = "paragraph"
+origin = '''
+**红色：** 最近一次检测失败或后台服务未响应。
+'''
+translate = '''
+**Red:** Latest check failed or the backend is unreachable.
+'''
+
+[[block]]
+key = "c68db9e8cf607e28-1028c700ce45b6da"
+type = "listItem"
+composite = true
+origin = '''
+- {{c68db9e8cf607e28-1028c700ce45b6da-cedad902376355a2}}
+'''
+translate = '''
+- {{c68db9e8cf607e28-1028c700ce45b6da-cedad902376355a2}}
+'''
+
+[[block]]
+key = "c68db9e8cf607e28-1028c700ce45b6da-cedad902376355a2"
+type = "paragraph"
+origin = '''
+**检查中：** 页面刚载入，尚未收到首次检测结果。
+'''
+translate = '''
+**Checking:** Waiting for the initial check result after page load.
+'''
+
+[[block]]
+key = "6de830ed938f20a1"
+type = "paragraph"
+origin = '''
+页面载入时会立即检测一次，随后每 5 秒轮询更新。当连接异常时，“更多选项”图标右上角会亮起红点；请先确认 Lumina 后台进程正在运行，待状态恢复绿色后再重试操作。
+'''
+translate = '''
+Lumina checks the connection on startup and every five seconds afterward. When communication drops, a red badge appears on the menu button—confirm that the Lumina backend service is running before retrying your task.
+'''
+
+[[block]]
+key = "0bb13623fc660a39"
+type = "heading"
+origin = '''
+## 更新公告
+'''
+translate = '''
+## Update announcements
+'''
+
+[[block]]
+key = "fca36b9577c7cebb"
+type = "paragraph"
+origin = '''
+启动软件时，若存在未读的新版更新公告，界面会自动弹出近期更新记录。直接关闭弹窗或点击“稍后再看”仅在本次会话中收起公告；点击“知道了”后，最新已读公告版本号会记录在本地浏览器存储中，后续不再重复弹出。
+'''
+translate = '''
+When unread release notes are available at startup, Lumina displays recent update highlights. Closing the dialog or clicking **Later** dismisses it for the current session; clicking **Got it** saves the latest read version in local browser storage so the prompt stays dismissed until the next update.
+'''
+
+[[block]]
+key = "32cdea5e78557f7c"
+type = "heading"
+origin = '''
+## 页面切换时保留的数据
+'''
+translate = '''
+## What page switches preserve
+'''
+
+[[block]]
+key = "1e2d2a11f5921841"
+type = "paragraph"
+origin = '''
+在页面间切换会保留当前控件数值、所选子页面与面板停靠布局，设备设置也会同步写入后台配置。临时预览、下载链接与会话缓存文件仅在当前会话周期内有效；需要长期留存工程时，请及时导出分享卡、JSON、3MF 以及对应的原图、LUT 或耗材档案。
+'''
+translate = '''
+Moving between pages preserves active control values, selected subpages, and panel layouts, while device settings sync to the backend automatically. Temporary previews, download links, and session files still expire when a session ends—export share cards, JSON recipes, 3MF files, source artwork, and your LUT or material archive whenever you want a permanent backup.
+'''

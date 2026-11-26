@@ -1,0 +1,203 @@
+[metadata]
+reviewed_source = "2e0bfb42dcace2fb7099e79fbd39a5c0ba7c2c19d6e6d23086d27e4f3b59a2cc"
+
+[[block]]
+key = "a97a133be60dc3a9"
+type = "yaml"
+origin = '''
+---
+title: "更新日志"
+description: "Lumina Studio 公开版本历史与 2.0 开发进展"
+sidebar_position: 6
+---
+'''
+translate = '''
+---
+title: "Changelog"
+description: "Public releases and development progress for Lumina Studio 2.0."
+sidebar_position: 6
+---
+'''
+
+[[block]]
+key = "38b5d786af984f83"
+type = "heading"
+origin = '''
+# Lumina Studio 更新日志
+'''
+translate = '''
+# Lumina Studio Changelog
+'''
+
+[[block]]
+key = "f3c0ec4d0b4c2a8c"
+type = "paragraph"
+origin = '''
+本页汇总 Lumina Studio 的公开版本历史与 2.0 各阶段开发进展。
+'''
+translate = '''
+This page tracks Lumina Studio public releases and monthly 2.0 development updates.
+'''
+
+[[block]]
+key = "21919929680991cd"
+type = "admonition"
+composite = true
+origin = '''
+:::info[当前状态]
+{{21919929680991cd-ea6f54a71fecdf93}}
+:::
+'''
+translate = '''
+:::info[Development status]
+{{21919929680991cd-ea6f54a71fecdf93}}
+:::
+'''
+
+[[block]]
+key = "21919929680991cd-ea6f54a71fecdf93"
+type = "paragraph"
+origin = '''
+Lumina Studio 现已在 [Lumina-Layers 公开仓库](https://github.com/lumina-layer-studio/Lumina-Layers)开源维护。下方月报按月汇总各阶段已完成的功能更新与问题修复。
+'''
+translate = '''
+Lumina Studio is developed in the open at the [Lumina-Layers repository](https://github.com/lumina-layer-studio/Lumina-Layers). The monthly reports below summarize completed features and fixes from each development cycle.
+'''
+
+[[block]]
+key = "6013a06194d5f415"
+type = "heading"
+origin = '''
+## 最新进展
+'''
+translate = '''
+## Latest progress
+'''
+
+[[block]]
+key = "9fe538767922a5a0"
+type = "heading"
+origin = '''
+### [2026 年 10 月：开源发布、转换预设与打印工程](./2026-10.md)
+'''
+translate = '''
+### [October 2026: Open source, conversion presets, and print projects](./2026-10.md)
+'''
+
+[[block]]
+key = "18ba3a4594bec549"
+type = "paragraph"
+origin = '''
+统计至 10 月 30 日。项目正式转向开源维护并发布 2.0.1 源码；新增转换参数预设与桌面界面缩放，整合颜色来源、裁剪旋转和导出入口，并持续完善打印工程与颜色工作站。
+'''
+translate = '''
+Updated through October 30. Lumina Studio moved to open-source development and published the 2.0.1 source release, adding conversion presets and desktop interface scaling, streamlining color source, crop/rotate, and export controls, and fixing print-project and Color Workstation issues.
+'''
+
+[[block]]
+key = "6e059c4fb84dbb2e"
+type = "paragraph"
+origin = '''
+7 月下半月至 9 月的开发记录也已补齐。最新源码提交与版本发布请见 [Lumina-Layers 仓库](https://github.com/lumina-layer-studio/Lumina-Layers)。
+'''
+translate = '''
+Reports covering late July, August, and September are also complete. For the latest commits and releases, visit the [Lumina-Layers repository](https://github.com/lumina-layer-studio/Lumina-Layers).
+'''
+
+[[block]]
+key = "c3f51fa9d384b595"
+type = "heading"
+origin = '''
+## 2.0 开发月报
+'''
+translate = '''
+## 2.0 development reports
+'''
+
+[[block]]
+key = "61fecc4bf1e017e9"
+type = "table"
+origin = '''
+| 月份 | 阶段重点 |
+| --- | --- |
+| [2026 年 10 月](./2026-10.md) | 开源发布、2.0.1 源码、转换预设、界面与打印工程（统计至 30 日） |
+| [2026 年 9 月](./2026-09.md) | 轻量预览、桌面运行、透明图、擦料塔与批量生成 |
+| [2026 年 8 月](./2026-08.md) | 项目保存、统一选区、动态材料层数、底板工艺与设备适配 |
+| [2026 年 7 月](./2026-07.md) | 原生 SVG 浮雕、模型平面图案、工坊、材料预览与 Flash Studio |
+| [2026 年 6 月](./2026-06.md) | 云端材料/LUT、设备适配、拼图、材料求解与稳定性 |
+| [2026 年 5 月](./2026-05.md) | 批量 3MF、ColorChecker、材料配方与精确匹配 |
+| [2026 年 4 月](./2026-04.md) | 2.0 工作区、颜色工作站、矢量管线与分享卡片 |
+| [2026 年 3 月](./2026-03.md) | 2.0 架构、原生 3MF、DNG、LUT 与机器适配基础 |
+'''
+translate = '''
+| Month | Main work |
+| --- | --- |
+| [October 2026](./2026-10.md) | Open source, 2.0.1 source, conversion presets, interface and print-project updates; through October 30 |
+| [September 2026](./2026-09.md) | Lightweight previews, desktop operation, transparency, wipe towers, and batch generation |
+| [August 2026](./2026-08.md) | Project saving, shared selection, dynamic material layers, and backing settings |
+| [July 2026](./2026-07.md) | Native SVG relief, planar artwork, Workshop, materials, and Flash Studio |
+| [June 2026](./2026-06.md) | Cloud materials/LUTs, device integration, puzzles, and material solving |
+| [May 2026](./2026-05.md) | Batch 3MF, ColorChecker, material recipes, and precise matching |
+| [April 2026](./2026-04.md) | The 2.0 workspace, color tools, vector processing, and share cards |
+| [March 2026](./2026-03.md) | The 2.0 architecture, native 3MF, DNG, LUTs, and machine integration |
+'''
+
+[[block]]
+key = "60b0c0a070526a40"
+type = "paragraph"
+origin = '''
+各月月报按面向用户的功能模块归并整理，将同一功能的开发、修复与后续完善合并说明（其中截至 7 月 17 日的首批归档共整理了 486 个合并项）。
+'''
+translate = '''
+Entries are grouped by user-facing capability, combining initial work and follow-up fixes (including 486 merged pull requests archived in the initial pass through July 17).
+'''
+
+[[block]]
+key = "548dedd7632b273c"
+type = "heading"
+origin = '''
+## 1.x 公开版本
+'''
+translate = '''
+## Public 1.x releases
+'''
+
+[[block]]
+key = "623029a6c5668794"
+type = "paragraph"
+origin = '''
+[查看 1.0—1.6.4 完整版本历史 →](/zh/docs/releases/release-history-1x)
+'''
+translate = '''
+[View the complete 1.0–1.6.4 history →](./release-history-1x.md)
+'''
+
+[[block]]
+key = "61d575a48b4b04aa"
+type = "paragraph"
+origin = '''
+1.x 系列自 2026 年 1 月首次公开发布起，陆续完成了统一应用整合、实时 3D 预览、多色 LUT、6 色/8 色校准、矢量建模、自由配色、2.5D 浮雕与切片器直连。进入 2.0 开发阶段后，后续进展按月归档于上方月报。
+'''
+translate = '''
+Starting in January 2026, the 1.x series introduced the unified application, live 3D previews, multicolor LUTs, six- and eight-color calibration, vector modeling, free colors, 2.5D relief, and direct slicer integration. Subsequent 2.0 development is tracked in the monthly reports above.
+'''
+
+[[block]]
+key = "5eed9ced59c12ee0"
+type = "heading"
+origin = '''
+## Wiki 自身的更新
+'''
+translate = '''
+## Changes to the Wiki
+'''
+
+[[block]]
+key = "3d7e69b1dcb61778"
+type = "paragraph"
+origin = '''
+新增教程与文档修订记录在站点导航的“Wiki 动态”中，与本页的软件版本记录分开归档。
+'''
+translate = '''
+New tutorials and documentation updates are tracked separately under **Wiki Updates** in the site navigation.
+'''

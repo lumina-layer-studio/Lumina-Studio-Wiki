@@ -1,0 +1,181 @@
+[metadata]
+reviewed_source = "14abc21eb79d7be0045f0fa6c177fdaada4aeedb19f755122c31d606ad846f5f"
+
+[[block]]
+key = "f5222052a3fff656"
+type = "yaml"
+origin = '''
+---
+title: "底板厚度"
+description: "说明底板厚度的调节范围、0.08 mm 步进，以及它与浮雕、冰箱贴和成品总高度的关系。"
+sidebar_position: 7
+---
+'''
+translate = '''
+---
+title: "Base-Plate Thickness"
+description: "Explains the base-plate thickness range, 0.08 mm step, and its relationship to relief and fridge-magnet geometry."
+sidebar_position: 7
+---
+'''
+
+[[block]]
+key = "849a9416a58666ef"
+type = "heading"
+origin = '''
+# 底板厚度
+'''
+translate = '''
+# Base-Plate Thickness
+'''
+
+[[block]]
+key = "b67f133e6aef61f7"
+type = "paragraph"
+origin = '''
+**底板厚度**用于设置彩色显色层下方结构底板的高度，默认值为 **1.20 mm**。
+'''
+translate = '''
+**Base plate thickness** sets the height of the structural foundation beneath the optical color layers. The default value is **1.20 mm**.
+'''
+
+[[block]]
+key = "9ffc095d3f282eeb"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-backing-thickness.webp').default}
+  alt="Lumina Studio 基础设置中的底板厚度滑块"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-backing-thickness.webp').default}
+  alt="Base-plate Thickness slider in Lumina Studio"
+/>
+'''
+
+[[block]]
+key = "8f50aa8ce29f0c59"
+type = "paragraph"
+origin = '''
+*图中旧版滑块现已统一命名为“底板厚度”。*
+'''
+translate = '''
+*Screenshot from an earlier release; this setting is labeled “Base plate thickness”.*
+'''
+
+[[block]]
+key = "42b16ce6ac228c20"
+type = "paragraph"
+origin = '''
+滑块调节范围为 **0.24–10.00 mm**，步长为 **0.08 mm**，便于与常用打印层高保持整数倍对齐（导入外部参数时有效范围为 **0.20–10.00 mm**）。
+'''
+translate = '''
+The slider ranges from **0.24–10.00 mm** in **0.08 mm** steps so the base stays aligned with standard print layer heights (imported recipes accept **0.20–10.00 mm**).
+'''
+
+[[block]]
+key = "14e84153f98ee694"
+type = "heading"
+origin = '''
+## 对模型结构与高度的影响
+'''
+translate = '''
+## Impact on model height and features
+'''
+
+[[block]]
+key = "34e86e8ab58cc79b"
+type = "paragraph"
+origin = '''
+底板厚度仅代表底层支撑结构本身，不包含彩色显色层、浮雕起伏高度或透明镀层。估算成品总厚度时，需要将以上各部分的高度相加。
+'''
+translate = '''
+Base thickness measures only the structural base—it does not include color layers, extra relief height, or a transparent coating. Add those components separately when calculating the total height of the finished print.
+'''
+
+[[block]]
+key = "5bc3b6bb7e93e81a"
+type = "paragraph"
+origin = '''
+部分结构功能会自动约束或抬高实际底板厚度：
+'''
+translate = '''
+Certain geometry modes automatically adjust or clamp height values when active:
+'''
+
+[[block]]
+key = "efb08e626d2a6381"
+type = "list"
+composite = true
+origin = '''
+{{efb08e626d2a6381-67d8559f210fcb4d}}
+{{efb08e626d2a6381-11f0dbe22c1b9a62}}
+'''
+translate = '''
+{{efb08e626d2a6381-67d8559f210fcb4d}}
+{{efb08e626d2a6381-11f0dbe22c1b9a62}}
+'''
+
+[[block]]
+key = "efb08e626d2a6381-67d8559f210fcb4d"
+type = "listItem"
+composite = true
+origin = '''
+- {{efb08e626d2a6381-67d8559f210fcb4d-3936dbe239f4c594}}
+'''
+translate = '''
+- {{efb08e626d2a6381-67d8559f210fcb4d-3936dbe239f4c594}}
+'''
+
+[[block]]
+key = "efb08e626d2a6381-67d8559f210fcb4d-3936dbe239f4c594"
+type = "paragraph"
+origin = '''
+**浮雕：** 开启后，软件会自动确保浮雕起伏高度不低于当前底板与显色层所需的最小安全厚度。
+'''
+translate = '''
+**Relief:** Ensures extra relief height meets at least the minimum required by the current base and color layers.
+'''
+
+[[block]]
+key = "efb08e626d2a6381-11f0dbe22c1b9a62"
+type = "listItem"
+composite = true
+origin = '''
+- {{efb08e626d2a6381-11f0dbe22c1b9a62-5b18cd5be46aa3a9}}
+'''
+translate = '''
+- {{efb08e626d2a6381-11f0dbe22c1b9a62-5b18cd5be46aa3a9}}
+'''
+
+[[block]]
+key = "efb08e626d2a6381-11f0dbe22c1b9a62-5b18cd5be46aa3a9"
+type = "paragraph"
+origin = '''
+**冰箱贴：** 开启后，若磁铁槽深度加上保底壁厚超过当前设定的底板厚度，实际生效厚度会自动抬高以容纳磁铁孔；关闭冰箱贴后会恢复原先保存的底板厚度。
+'''
+translate = '''
+**Fridge Magnet:** Automatically increases the effective base thickness if needed to maintain wall thickness around the magnet pocket; turning **Fridge Magnet** off restores your saved base thickness.
+'''
+
+[[block]]
+key = "9a6d93c3f34dfd11"
+type = "paragraph"
+origin = '''
+较薄的底板适合小尺寸摆件并能节省打印时间；大幅面作品或带有挂孔、支架槽的模型建议适当加厚底板，以保证结构刚性与边缘强度。调整底板厚度后请重新生成 3MF，切勿在切片软件中直接缩放模型的 Z 轴高度，否则会同时拉厚光学显色层并改变透光配色效果。
+'''
+translate = '''
+Thinner bases print faster for compact pieces, while larger prints or designs with hanging holes benefit from extra thickness for stiffness and durability. After changing **Base plate thickness**, generate a fresh 3MF rather than scaling Z height in your slicer—scaling Z in the slicer also stretches the color layers and shifts optical color mixing.
+'''
+
+[[block]]
+key = "3b64f7073e1bb103"
+type = "paragraph"
+origin = '''
+底板厚度还会决定[底板填充率](../backing-infill/backing-infill.mdx)是否生成稀疏填充：靠近观赏面的 3 mm 保护区始终保持实心，底板超过该厚度后深层区域才会应用稀疏填充。
+'''
+translate = '''
+Base thickness also determines whether [Base Plate Infill](../backing-infill/backing-infill.mdx) produces sparse internal infill, because the 3 mm zone behind each viewing surface always remains solid.
+'''

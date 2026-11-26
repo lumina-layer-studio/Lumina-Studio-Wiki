@@ -1,0 +1,404 @@
+[metadata]
+reviewed_source = "be70b24baecc51f5ff5be7d5ba9652939c7a6372e73681523e85b75f1cb4fc39"
+
+[[block]]
+key = "006adb398078a582"
+type = "yaml"
+origin = '''
+---
+title: "高精度颜色匹配"
+description: "在图像量化阶段将颜色聚类中心直接约束在 LUT 可达颜色集合内，减少量化后查表跳色。"
+sidebar_position: 5
+---
+'''
+translate = '''
+---
+title: "Precise Color Matching"
+description: "Constrain quantization cluster centers directly to reachable LUT colors to reduce post-quantization color jumps."
+sidebar_position: 5
+---
+'''
+
+[[block]]
+key = "efc4a1cbbce845f8"
+type = "heading"
+origin = '''
+# 高精度颜色匹配
+'''
+translate = '''
+# Precise Color Matching
+'''
+
+[[block]]
+key = "9cc2e337c76e4859"
+type = "paragraph"
+origin = '''
+“高精度颜色匹配（实验性功能）”会在图像颜色量化阶段，直接将聚类中心约束在当前 LUT 实际可达的颜色集合内。常规量化先在全 RGB 空间生成自由聚类中心，随后再查表映射到打印配方；高精度颜色匹配则让每个聚类中心从一开始就落在当前打印系统真正印得出的颜色上。
+'''
+translate = '''
+**Precise Color Matching (Experimental)** constrains color quantization centers directly to colors available in the active LUT. While standard quantization forms free RGB cluster centers first and maps them to printable recipes afterward, constrained quantization ensures every cluster center is a physically reachable print color from the start.
+'''
+
+[[block]]
+key = "e7ae7b3be5eb67fe"
+type = "paragraph"
+origin = '''
+此项默认关闭。
+'''
+translate = '''
+This option is off by default.
+'''
+
+[[block]]
+key = "0ef779c18ec11294"
+type = "heading"
+origin = '''
+## 控件位置
+'''
+translate = '''
+## Location
+'''
+
+[[block]]
+key = "7d0741727fa59a4f"
+type = "paragraph"
+origin = '''
+依次打开“图像转换 → 核心设置 → 高级设置”，即可找到“高精度颜色匹配（实验性功能）”。
+'''
+translate = '''
+Open **Converter → Core Settings → Advanced Settings**, then locate **Precise Color Matching (Experimental)**.
+'''
+
+[[block]]
+key = "73ff508dfeaf47a7"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-precise-color-matching-location.webp').default}
+  alt="Lumina Studio 高级设置中的高精度颜色匹配开关"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-precise-color-matching-location.webp').default}
+  alt="Precise Color Matching in Lumina Studio Advanced Settings"
+/>
+'''
+
+[[block]]
+key = "d83d2fb8208a8842"
+type = "heading"
+origin = '''
+## 匹配流程
+'''
+translate = '''
+## Matching workflow
+'''
+
+[[block]]
+key = "98926995e81f0a20"
+type = "paragraph"
+origin = '''
+当所选颜色来源具备完整的 LUT 色表与颜色空间索引时，开启此项后按以下步骤量化：
+'''
+translate = '''
+When the active color source provides valid LUT color samples and a spatial color index, enabling this switch runs constrained quantization:
+'''
+
+[[block]]
+key = "cdd9f0d90a678ea4"
+type = "list"
+composite = true
+origin = '''
+{{cdd9f0d90a678ea4-23fc0fee13bd32c3}}
+{{cdd9f0d90a678ea4-b79977d090dea606}}
+{{cdd9f0d90a678ea4-6d7961ed44662aab}}
+{{cdd9f0d90a678ea4-fd02d94ce1abcd00}}
+'''
+translate = '''
+{{cdd9f0d90a678ea4-23fc0fee13bd32c3}}
+{{cdd9f0d90a678ea4-b79977d090dea606}}
+{{cdd9f0d90a678ea4-6d7961ed44662aab}}
+{{cdd9f0d90a678ea4-fd02d94ce1abcd00}}
+'''
+
+[[block]]
+key = "cdd9f0d90a678ea4-23fc0fee13bd32c3"
+type = "listItem"
+composite = true
+origin = '''
+1. {{cdd9f0d90a678ea4-23fc0fee13bd32c3-80562ec785045d72}}
+'''
+translate = '''
+1. {{cdd9f0d90a678ea4-23fc0fee13bd32c3-80562ec785045d72}}
+'''
+
+[[block]]
+key = "cdd9f0d90a678ea4-23fc0fee13bd32c3-80562ec785045d72"
+type = "paragraph"
+origin = '''
+根据原图像素分布建立初始颜色聚类。
+'''
+translate = '''
+Builds initial color clusters from the source image pixels.
+'''
+
+[[block]]
+key = "cdd9f0d90a678ea4-b79977d090dea606"
+type = "listItem"
+composite = true
+origin = '''
+2. {{cdd9f0d90a678ea4-b79977d090dea606-c96f20c2191afa02}}
+'''
+translate = '''
+2. {{cdd9f0d90a678ea4-b79977d090dea606-c96f20c2191afa02}}
+'''
+
+[[block]]
+key = "cdd9f0d90a678ea4-b79977d090dea606-c96f20c2191afa02"
+type = "paragraph"
+origin = '''
+在迭代过程中，将每个聚类中心持续约束到 LUT 中真实存在的可达颜色上。
+'''
+translate = '''
+Snaps and refines each cluster center within the set of reachable colors recorded in the LUT.
+'''
+
+[[block]]
+key = "cdd9f0d90a678ea4-6d7961ed44662aab"
+type = "listItem"
+composite = true
+origin = '''
+3. {{cdd9f0d90a678ea4-6d7961ed44662aab-7a9426aa546334cb}}
+'''
+translate = '''
+3. {{cdd9f0d90a678ea4-6d7961ed44662aab-7a9426aa546334cb}}
+'''
+
+[[block]]
+key = "cdd9f0d90a678ea4-6d7961ed44662aab-7a9426aa546334cb"
+type = "paragraph"
+origin = '''
+输出不超过当前[量化颜色数](../../converter-basic/quantize-colors/quantize-colors.mdx)上限的颜色集合。
+'''
+translate = '''
+Outputs up to the configured [Quantize Colors](../../converter-basic/quantize-colors/quantize-colors.mdx) budget.
+'''
+
+[[block]]
+key = "cdd9f0d90a678ea4-fd02d94ce1abcd00"
+type = "listItem"
+composite = true
+origin = '''
+4. {{cdd9f0d90a678ea4-fd02d94ce1abcd00-5882876a7fffab1e}}
+'''
+translate = '''
+4. {{cdd9f0d90a678ea4-fd02d94ce1abcd00-5882876a7fffab1e}}
+'''
+
+[[block]]
+key = "cdd9f0d90a678ea4-fd02d94ce1abcd00-5882876a7fffab1e"
+type = "paragraph"
+origin = '''
+直接调用这些可达颜色对应的材料配方生成预览与 3MF 模型。
+'''
+translate = '''
+Generates the preview and 3MF model directly from the recipes tied to those LUT colors.
+'''
+
+[[block]]
+key = "60c10d66816e4ed9"
+type = "paragraph"
+origin = '''
+若当前 LUT 缺少约束量化所需的完整索引数据，系统会自动回退至常规量化，不会中断转换流程。“耗材档案”采用独立的配方求解器，不受此开关影响。
+'''
+translate = '''
+If the active LUT lacks the index data needed for constrained clustering, Lumina Studio automatically falls back to standard quantization without interrupting conversion. **Material Archives** use their own recipe solver and are unaffected by this switch.
+'''
+
+[[block]]
+key = "74555645458e1320"
+type = "heading"
+origin = '''
+## 与色相保护的关系
+'''
+translate = '''
+## Relationship with Hue Protection
+'''
+
+[[block]]
+key = "b2f89b8832502cb0"
+type = "paragraph"
+origin = '''
+开启“高精度颜色匹配”后，[色相保护](../hue-protection/hue-protection.mdx)开关会自动置灰停用，避免两套候选筛选规则互相干扰。
+'''
+translate = '''
+Turning on **Precise Color Matching** disables [Hue Protection](../hue-protection/hue-protection.mdx) so two different candidate-selection rules never conflict.
+'''
+
+[[block]]
+key = "7e4915e9dfd8bd9b"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('../hue-protection/assets/03-disabled-by-precise-matching.webp').default}
+  alt="开启高精度颜色匹配后色相保护被禁用"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/02-precise-disables-hue.webp').default}
+  alt="Precise Color Matching enabled while Hue Protection is disabled"
+/>
+'''
+
+[[block]]
+key = "8c972e1863a924b2"
+type = "paragraph"
+origin = '''
+如需重新测试“色相保护”，请先关闭“高精度颜色匹配”。
+'''
+translate = '''
+Turn **Precise Color Matching** off first whenever you want to test **Hue Protection** again.
+'''
+
+[[block]]
+key = "89ecec2fe9ed3cc7"
+type = "heading"
+origin = '''
+## 效果与性能权衡
+'''
+translate = '''
+## Quality and performance trade-offs
+'''
+
+[[block]]
+key = "2dfdfe844a896577"
+type = "paragraph"
+origin = '''
+当常规转换出现“原图聚类颜色看似接近，查表后却跳到另一色系配方”的现象时，开启高精度颜色匹配往往能获得更稳定的色块划分。由于聚类迭代需反复检索 LUT 可达颜色集合，处理耗时会比常规 K-Means 略长。最终可呈现的色彩依然取决于当前 LUT、量化颜色数、原图内容与材料层数。
+'''
+translate = '''
+Constrained quantization helps prevent situations where an unconstrained RGB cluster looks accurate on screen yet snaps to an unexpected recipe during lookup. Because each iteration runs repeated nearest-neighbor searches against the LUT's reachable colors, processing takes longer than standard K-Means quantization. Final color fidelity remains bounded by your active LUT, **Quantize Colors** limit, source artwork, and layer count.
+'''
+
+[[block]]
+key = "be6b6cc95ba7ca54"
+type = "paragraph"
+origin = '''
+切换开关后请重新生成预览和模型。Lumina 配方卡不保存此实验性开关，导入配方卡后如需使用请再次勾选。
+'''
+translate = '''
+Rebuild the preview and model after toggling this switch. Lumina recipe cards do not save this experimental setting, so re-enable it manually if needed after importing a card.
+'''
+
+[[block]]
+key = "2ebb014b8f68bd72"
+type = "heading"
+origin = '''
+## 相关页面
+'''
+translate = '''
+## Related pages
+'''
+
+[[block]]
+key = "6284f03eb08e0cc0"
+type = "list"
+composite = true
+origin = '''
+{{6284f03eb08e0cc0-ec6323d0c8ba3dcf}}
+{{6284f03eb08e0cc0-68595183cd7d39c8}}
+{{6284f03eb08e0cc0-0760dbe789b14d71}}
+{{6284f03eb08e0cc0-11319c8ed269e487}}
+'''
+translate = '''
+{{6284f03eb08e0cc0-ec6323d0c8ba3dcf}}
+{{6284f03eb08e0cc0-68595183cd7d39c8}}
+{{6284f03eb08e0cc0-0760dbe789b14d71}}
+{{6284f03eb08e0cc0-11319c8ed269e487}}
+'''
+
+[[block]]
+key = "6284f03eb08e0cc0-ec6323d0c8ba3dcf"
+type = "listItem"
+composite = true
+origin = '''
+- {{6284f03eb08e0cc0-ec6323d0c8ba3dcf-9c9ce422b315baa4}}
+'''
+translate = '''
+- {{6284f03eb08e0cc0-ec6323d0c8ba3dcf-9c9ce422b315baa4}}
+'''
+
+[[block]]
+key = "6284f03eb08e0cc0-ec6323d0c8ba3dcf-9c9ce422b315baa4"
+type = "paragraph"
+origin = '''
+[色相保护](../hue-protection/hue-protection.mdx)
+'''
+translate = '''
+[Hue Protection](../hue-protection/hue-protection.mdx)
+'''
+
+[[block]]
+key = "6284f03eb08e0cc0-68595183cd7d39c8"
+type = "listItem"
+composite = true
+origin = '''
+- {{6284f03eb08e0cc0-68595183cd7d39c8-4fd44b42f6dd7052}}
+'''
+translate = '''
+- {{6284f03eb08e0cc0-68595183cd7d39c8-4fd44b42f6dd7052}}
+'''
+
+[[block]]
+key = "6284f03eb08e0cc0-68595183cd7d39c8-4fd44b42f6dd7052"
+type = "paragraph"
+origin = '''
+[暗色彩度门槛](../dark-chroma-gate/dark-chroma-gate.mdx)
+'''
+translate = '''
+[Dark Chroma Gate](../dark-chroma-gate/dark-chroma-gate.mdx)
+'''
+
+[[block]]
+key = "6284f03eb08e0cc0-0760dbe789b14d71"
+type = "listItem"
+composite = true
+origin = '''
+- {{6284f03eb08e0cc0-0760dbe789b14d71-b70dd73d6108ec62}}
+'''
+translate = '''
+- {{6284f03eb08e0cc0-0760dbe789b14d71-b70dd73d6108ec62}}
+'''
+
+[[block]]
+key = "6284f03eb08e0cc0-0760dbe789b14d71-b70dd73d6108ec62"
+type = "paragraph"
+origin = '''
+[量化颜色数](../../converter-basic/quantize-colors/quantize-colors.mdx)
+'''
+translate = '''
+[Quantize Colors](../../converter-basic/quantize-colors/quantize-colors.mdx)
+'''
+
+[[block]]
+key = "6284f03eb08e0cc0-11319c8ed269e487"
+type = "listItem"
+composite = true
+origin = '''
+- {{6284f03eb08e0cc0-11319c8ed269e487-40e72a25bc38293d}}
+'''
+translate = '''
+- {{6284f03eb08e0cc0-11319c8ed269e487-40e72a25bc38293d}}
+'''
+
+[[block]]
+key = "6284f03eb08e0cc0-11319c8ed269e487-40e72a25bc38293d"
+type = "paragraph"
+origin = '''
+[孤立像素清理](../isolated-pixel-cleanup/isolated-pixel-cleanup.mdx)
+'''
+translate = '''
+[Isolated Pixel Cleanup](../isolated-pixel-cleanup/isolated-pixel-cleanup.mdx)
+'''

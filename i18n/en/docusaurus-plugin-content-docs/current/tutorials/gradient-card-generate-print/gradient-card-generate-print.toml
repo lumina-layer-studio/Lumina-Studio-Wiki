@@ -1,0 +1,982 @@
+[metadata]
+migration_layout = "preserved English structure; root blocks retain grouped or omitted source sections"
+reviewed_source = "8fc8d0ff6d1faef7a07a380c65dd0a98d96cb3cca9e7f8003b4036bdc254b6e8"
+
+[[block]]
+key = "fd029dc75ea01fa0"
+type = "yaml"
+origin = '''
+---
+title: "生成并打印梯度色卡"
+description: "从 Lumina Studio 生成配置文件包，并在切片软件中准备、检查和打印白底与黑底梯度色卡。"
+sidebar_position: 17
+---
+'''
+translate = '''
+---
+title: "Generate and Print Gradient Calibration Cards"
+description: "Generate a Lumina Studio configuration package, then prepare, inspect, and print a white-base and black-base gradient-card pair."
+sidebar_position: 17
+---
+'''
+
+[[block]]
+key = "0f61a42205945615"
+type = "heading"
+origin = '''
+# 生成并打印梯度色卡
+'''
+translate = '''
+# Generate and Print Gradient Calibration Cards
+'''
+
+[[block]]
+key = "fb364df1e232bac3"
+type = "paragraph"
+origin = '''
+本教程带你从 Lumina Studio 生成梯度卡配置文件包，并在切片软件中准备同一卷待测试耗材的白底色卡与黑底色卡。
+'''
+translate = '''
+This tutorial walks through generating a calibration package in Lumina Studio and printing a matched pair of gradient cards. Both cards print the stepped color blocks with the same test filament; one uses a white base and the other uses a black base.
+'''
+
+[[block]]
+key = "166c0e3a3ff20d3d"
+type = "paragraph"
+origin = '''
+打印完成后，你将得到一张白底梯度色卡和一张黑底梯度色卡。请将本次下载的完整 ZIP 包一并保留，下一篇“拍摄并提取梯度卡”教程会用到它。
+'''
+translate = '''
+When printing finishes, keep both cards together with the complete ZIP archive downloaded from Lumina Studio. You will need that exact pair and its matching ZIP in the next tutorial, **Photograph and Extract Gradient Cards**.
+'''
+
+[[block]]
+key = "7c94c5aa63b7a9dd"
+type = "heading"
+origin = '''
+## 视频教程
+'''
+translate = '''
+## Video tutorial
+'''
+
+[[block]]
+key = "d6629f9ac259e452"
+type = "mdxJsxFlowElement"
+origin = '''
+<iframe
+  className="tutorial-video-iframe"
+  src="https://player.bilibili.com/player.html?isOutside=true&bvid=BV1hRK66JEaT&cid=40105348672&p=1&high_quality=1&danmaku=0&autoplay=0"
+  title="Lumina Studio 教程｜生成并打印梯度色卡"
+  scrolling="no"
+  frameBorder="0"
+  allow="autoplay; fullscreen; picture-in-picture">
+</iframe>
+'''
+translate = '''
+<iframe
+  className="tutorial-video-iframe"
+  src="https://www.youtube.com/embed/BHuGMRQV3w0"
+  title="Generate and Print a Gradient Card | Lumina Studio Tutorial"
+  loading="lazy"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowFullScreen>
+</iframe>
+'''
+
+[[block]]
+key = "f322540aaef8bafa"
+type = "paragraph"
+origin = '''
+如果播放器无法加载，可以[前往哔哩哔哩观看完整教程](https://www.bilibili.com/video/BV1hRK66JEaT/)。
+'''
+translate = '''
+If the player does not load, [watch the complete tutorial on YouTube](https://www.youtube.com/watch?v=BHuGMRQV3w0).
+'''
+
+[[block]]
+key = "013f942e3c8cd811"
+type = "heading"
+origin = '''
+## 本篇会完成什么
+'''
+translate = '''
+## What you will make
+
+<img
+  src={require('./assets/10-white-black-card-photo.webp').default}
+  alt="A finished white-base and black-base gradient-card pair"
+/>
+'''
+
+[[block]]
+key = "6438e4b88e639679"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/07-white-black-card-photo.webp').default}
+  alt="打印完成的白底与黑底梯度色卡"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "169fbe34f8a8835f"
+type = "paragraph"
+origin = '''
+每一种待测试耗材都需要打印一张白底色卡和一张黑底色卡。两张色卡的底板颜色不同，但上方的阶梯梯度色块必须使用同一卷待测试耗材。
+'''
+translate = '''
+Every test filament requires two cards—one on a white base and one on a black base—with the stepped color blocks on both cards printed from the same spool.
+'''
+
+[[block]]
+key = "9a14c6472f1cf2a6"
+type = "heading"
+origin = '''
+## 开始前需要准备什么
+'''
+translate = '''
+## Before you begin
+'''
+
+[[block]]
+key = "6963aefbd03cd93c"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/00-settings-check.webp').default}
+  alt="在设置中确认切片软件、打印机和喷嘴"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/00-settings-check.webp').default}
+  alt="Confirm the slicer, printer, and nozzle in Lumina Studio"
+/>
+'''
+
+[[block]]
+key = "6f75cba2ee04232b"
+type = "paragraph"
+origin = '''
+先在 Lumina Studio 的“设置”中确认已选定实际使用的切片软件、打印机型号和喷嘴尺寸。
+'''
+translate = '''
+Open **Settings** in Lumina Studio and verify that your slicer, printer model, and installed nozzle diameter match your actual hardware before generating the package.
+'''
+
+[[block]]
+key = "bfe5e1f78a70f2df"
+type = "paragraph"
+origin = '''
+准备三卷耗材：
+'''
+translate = '''
+Prepare three filaments:
+'''
+
+[[block]]
+key = "bd0a0dae88253b9a"
+type = "list"
+composite = true
+origin = '''
+{{bd0a0dae88253b9a-1d2d6a0200236814}}
+{{bd0a0dae88253b9a-ec57216777620a8a}}
+{{bd0a0dae88253b9a-c56708f51ff599f2}}
+'''
+translate = '''
+- White filament for the first base.
+- Black filament for the second base.
+- The filament you want to calibrate (red in this example).
+
+Complete one spool end to end on your first run so physical cards, photos, and ZIP archives stay clearly paired.
+'''
+
+[[block]]
+key = "bd0a0dae88253b9a-1d2d6a0200236814"
+type = "listItem"
+composite = true
+origin = '''
+- {{bd0a0dae88253b9a-1d2d6a0200236814-6ae6f7f1b1ada297}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bd0a0dae88253b9a-1d2d6a0200236814-6ae6f7f1b1ada297"
+type = "paragraph"
+origin = '''
+白色耗材，用于第一张色卡的底板；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bd0a0dae88253b9a-ec57216777620a8a"
+type = "listItem"
+composite = true
+origin = '''
+- {{bd0a0dae88253b9a-ec57216777620a8a-b06a5f75ac5947a6}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bd0a0dae88253b9a-ec57216777620a8a-b06a5f75ac5947a6"
+type = "paragraph"
+origin = '''
+黑色耗材，用于第二张色卡的底板；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bd0a0dae88253b9a-c56708f51ff599f2"
+type = "listItem"
+composite = true
+origin = '''
+- {{bd0a0dae88253b9a-c56708f51ff599f2-3d9bf0c4e59785a8}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bd0a0dae88253b9a-c56708f51ff599f2-3d9bf0c4e59785a8"
+type = "paragraph"
+origin = '''
+本次待测试的耗材，用于两张色卡上方的梯度色块（本教程以红色耗材为例）。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "46ead738df603ec6"
+type = "paragraph"
+origin = '''
+同时准备好常用的切片软件。首次制作建议先单独跑通一卷耗材的全流程，以免多卷耗材的照片与配置包混淆。
+'''
+translate = '''
+You will also need **Bambu Studio** or **OrcaSlicer**. The screenshots below show Bambu Studio; the object and material-mapping steps work the same way in OrcaSlicer.
+'''
+
+[[block]]
+key = "dbddb3d7405629da"
+type = "heading"
+origin = '''
+## 第一步：打开梯度卡生成
+'''
+translate = '''
+## Step 1: Open Gradient Generator
+'''
+
+[[block]]
+key = "5165e41aafa31ac0"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-open-gradient-generator.webp').default}
+  alt="打开耗材管理中的梯度卡生成"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-open-gradient-generator.webp').default}
+  alt="Open Material Management and Gradient Generator"
+/>
+'''
+
+[[block]]
+key = "d0df5618ff416c73"
+type = "paragraph"
+origin = '''
+打开 Lumina Studio，在顶部导航栏点击“耗材管理”，再点击第二排标签中的“梯度卡生成”。页面左侧为“生成设置”，右侧为“使用须知与线上模型”。
+'''
+translate = '''
+In Lumina Studio, click **Material Management** in the top navigation bar, then select **Gradient Generator** in the second row. **Generation Settings** appears on the left, and **Instructions & Online Models** appears on the right.
+'''
+
+[[block]]
+key = "ed54bb726ab73650"
+type = "paragraph"
+origin = '''
+每种待测试耗材都需打印白底与黑底两张色卡；缺少其中任意一张，后续提取的光学数据将不完整。
+'''
+translate = '''
+Each test filament requires both a white-base card and a black-base card; a single card alone cannot provide complete optical data during extraction.
+'''
+
+[[block]]
+key = "6a5cdb200f0a1d0a"
+type = "heading"
+origin = '''
+## 第二步：选择层高
+'''
+translate = '''
+## Step 2: Choose the layer height
+'''
+
+[[block]]
+key = "ec64464cd8b971c1"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/02-choose-layer-height.webp').default}
+  alt="选择与打印设置一致的层高"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/02-choose-layer-height.webp').default}
+  alt="Choose the same layer height that will be used in the slicer"
+/>
+'''
+
+[[block]]
+key = "7d4c69b93f0a0a51"
+type = "paragraph"
+origin = '''
+在“生成设置”中打开“层高”下拉菜单，可选 0.04 mm、0.08 mm 或 0.10 mm。
+'''
+translate = '''
+Under **Generation Settings**, open the **Layer Height** menu and choose **0.04 mm**, **0.08 mm**, or **0.10 mm**.
+'''
+
+[[block]]
+key = "3121116b8a82aa74"
+type = "paragraph"
+origin = '''
+首次制作梯度卡建议使用默认的 **0.08 mm**；0.04 mm 对首层稳定性、拍摄精度与后续提取的要求更高，可在熟悉流程后再尝试。
+'''
+translate = '''
+Start with the default **0.08 mm** for your first calibration card; **0.04 mm** demands tighter first-layer consistency, lighting, and extraction alignment.
+'''
+
+[[block]]
+key = "adee36baee922f83"
+type = "paragraph"
+origin = '''
+选定的层高需与切片软件中的实际打印层高保持一致。本教程以 0.08 mm 为例。
+'''
+translate = '''
+Make sure the layer height selected here matches the layer height you slice with. This tutorial uses **0.08 mm** throughout.
+'''
+
+[[block]]
+key = "9b4dd5c8bd8052d9"
+type = "heading"
+origin = '''
+## 第三步：生成并保存 ZIP
+'''
+translate = '''
+## Step 3: Generate and keep the ZIP
+'''
+
+[[block]]
+key = "296f98c9ff810606"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/03-download-zip.webp').default}
+  alt="生成并下载完整配置文件包"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/03-download-zip.webp').default}
+  alt="Generate and download the complete configuration package"
+/>
+'''
+
+[[block]]
+key = "7dbf8d5da60a94a3"
+type = "paragraph"
+origin = '''
+确认层高后点击“生成配置文件包”，等待页面下方出现成功提示与“下载结果”区域，再点击“下载配置文件包 (.zip)”将压缩包保存到固定目录。建议按“耗材名称 + 层高 + 日期”命名归档文件夹（例如 `红色 PLA_0.08_2026-07-19`），便于后续查找。
+'''
+translate = '''
+Click **Generate Configuration Package** and wait for Lumina to build the archive. Once **Download Result** appears, click **Download Configuration Package (.zip)** and save it in a dedicated folder named with the filament, layer height, and date—for example, `Red-PLA_0.08_2026-07-20`.
+
+<img
+  src={require('./assets/05-zip-contents.webp').default}
+  alt="The real files included in the generated ZIP"
+/>
+'''
+
+[[block]]
+key = "2f53281c42330a39"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/03b-actual-zip.webp').default}
+  alt="Finder 中实际下载的完整 ZIP"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "362480499951bc79"
+type = "paragraph"
+origin = '''
+该 ZIP 包除 3MF 模型外，还包含后续“梯度卡提取”所需的配置文件与目录模板。即使打算直接使用右侧的 MakerWorld 在线模型打印，也必须在此生成并保留对应的 ZIP 包。
+'''
+translate = '''
+Along with the 3MF model, the ZIP archive contains `manifest.json`, instructions, and the dataset folder template needed during extraction. Keep the archive intact without renaming or deleting its supporting files.
+
+### Optional: use the online MakerWorld model
+
+<img
+  src={require('./assets/04-online-model-link.webp').default}
+  alt="Open the optional online gradient-card model from Lumina"
+/>
+'''
+
+[[block]]
+key = "bcdb6be4f3dc9742"
+type = "paragraph"
+origin = '''
+如需直接使用 MakerWorld 在线模型，可访问以下链接：
+'''
+translate = '''
+The right-hand panel also links to the official MakerWorld models for the gradient card and its parametric storage box:
+'''
+
+[[block]]
+key = "2a5b088dbe876ab6"
+type = "list"
+composite = true
+origin = '''
+{{2a5b088dbe876ab6-dbc500f9b8a2381c}}
+{{2a5b088dbe876ab6-b8f5f6876a316f87}}
+'''
+translate = '''
+- [Open the 0.08 mm gradient card on MakerWorld](https://makerworld.com.cn/zh/models/2394753-lumina2-0-ti-xing-xiao-se-se-qia-0-08ceng-gao-15ce#profileId-2721317)
+- [Open the parametric gradient-card storage box on MakerWorld](https://makerworld.com.cn/zh/models/2400920-can-shu-hua-lumina-2-0ti-du-se-qia-zi-ding-yi-shou#profileId-2729620)
+
+<img
+  src={require('./assets/06-makerworld-page.webp').default}
+  alt="The official MakerWorld gradient-card page"
+/>
+'''
+
+[[block]]
+key = "2a5b088dbe876ab6-dbc500f9b8a2381c"
+type = "listItem"
+composite = true
+origin = '''
+- {{2a5b088dbe876ab6-dbc500f9b8a2381c-7f1d83783ea5dba9}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2a5b088dbe876ab6-dbc500f9b8a2381c-7f1d83783ea5dba9"
+type = "paragraph"
+origin = '''
+[梯度卡在线模型（当前为 0.08 mm 层高）](https://makerworld.com.cn/zh/models/2394753-lumina2-0-ti-xing-xiao-se-se-qia-0-08ceng-gao-15ce#profileId-2721317)
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2a5b088dbe876ab6-b8f5f6876a316f87"
+type = "listItem"
+composite = true
+origin = '''
+- {{2a5b088dbe876ab6-b8f5f6876a316f87-24e53ba3b695070b}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2a5b088dbe876ab6-b8f5f6876a316f87-24e53ba3b695070b"
+type = "paragraph"
+origin = '''
+[梯度卡收纳盒在线模型](https://makerworld.com.cn/zh/models/2400920-can-shu-hua-lumina-2-0ti-du-se-qia-zi-ding-yi-shou#profileId-2729620)
+'''
+translate = '''
+'''
+
+[[block]]
+key = "6f0b040841e0d6f4"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/03c-makerworld-page.webp').default}
+  alt="实际打开的 MakerWorld 梯度卡页面"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4c43590ee8c2a690"
+type = "paragraph"
+origin = '''
+通过上述在线模型链接下载可为 Lumina 团队累积 MakerWorld 积分，相关积分将用于社区抽奖福利。
+'''
+translate = '''
+The linked MakerWorld gradient card uses a **0.08 mm** layer height; if you chose a different layer height in Lumina, print the 3MF inside your local ZIP instead.
+'''
+
+[[block]]
+key = "47b951553adc1784"
+type = "paragraph"
+origin = '''
+使用在线模型时，请确认模型层高与生成配置包时所选层高一致。当前在线梯度卡对应 0.08 mm；若选择了其他层高，请使用本地 ZIP 包内的 3MF 文件打印。
+'''
+translate = '''
+Downloading via MakerWorld optionally contributes community giveaway points to the Lumina team. Even if you print from MakerWorld, generate and save the local ZIP from Lumina so you have the dataset package ready for extraction.
+'''
+
+[[block]]
+key = "26c2b625e29471bb"
+type = "heading"
+origin = '''
+## 第四步：找到并打开 3MF
+'''
+translate = '''
+## Step 4: Find and open the 3MF
+'''
+
+[[block]]
+key = "d2bc1fd6589da9a6"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/04-zip-contents.webp').default}
+  alt="解压后保留 3MF、清单、说明和数据目录"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "6821b9649766d603"
+type = "paragraph"
+origin = '''
+解压下载好的 ZIP 包，在根目录找到扩展名为 `.3mf` 的打印项目文件。目录内同时包含 `manifest`、说明文件和数据目录模板，请保持原有文件完整，切勿删除或改名。
+'''
+translate = '''
+Extract the ZIP archive and locate the `.3mf` file in the root folder alongside `manifest.json`, the read-me file, and the dataset template folders.
+'''
+
+[[block]]
+key = "5a8ea220020e9d89"
+type = "paragraph"
+origin = '''
+双击 `.3mf` 文件，或在 Bambu Studio / OrcaSlicer 中通过“打开项目”载入，即可看到由多个阶梯方格组成的梯度卡模型。
+'''
+translate = '''
+Open the `.3mf` in Bambu Studio or OrcaSlicer and expand **Gradient Card** in the **Objects** list. Each card consists of two parts:
+
+- **Base - White** — the backing plate.
+- **Step - Sample** — the stepped gradient patches printed with your test filament.
+'''
+
+[[block]]
+key = "316a307456421e6f"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/04-open-in-bambu-studio.webp').default}
+  alt="在 Bambu Studio 中打开实际生成的 3MF"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7c46e0e8d5c15bcd"
+type = "paragraph"
+origin = '''
+展开对象列表后，模型包含两个零件：“Base - White”为底板，“Step - Sample”为上方的梯度色块。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "d105a855edabd596"
+type = "paragraph"
+origin = '''
+若切片软件提示打印机、喷嘴或配置不兼容，请返回 Lumina Studio 的“设置”核对切片软件、打印机型号和喷嘴尺寸，重新生成配置文件包后再打开。
+'''
+translate = '''
+If the slicer warns of an incompatible printer, nozzle, or profile, return to Lumina **Settings**, verify your hardware configuration, and generate a new package rather than overriding the project settings.
+'''
+
+[[block]]
+key = "19e06e5f6e55ad1e"
+type = "heading"
+origin = '''
+## 第五步：准备白底和黑底两张色卡
+'''
+translate = '''
+## Step 5: Prepare a white-base and a black-base card
+
+<img
+  src={require('./assets/07-material-mapping.webp').default}
+  alt="Map the four objects to white, red, black, and red"
+/>
+
+The project opens with one complete card. Confirm that both **Base - White** and **Step - Sample** are present, then duplicate the card so two identical cards sit on the build plate.
+
+For the first card (white base):
+
+- Assign **Base - White** to the white filament.
+- Assign **Step - Sample** to the red test filament.
+'''
+
+[[block]]
+key = "54c7ba1366ea99ac"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/05-material-mapping.webp').default}
+  alt="白底、黑底和红色样本层的对象映射"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "31066c7ba2735522"
+type = "paragraph"
+origin = '''
+默认配置包中包含一张完整的梯度卡模型。先展开对象列表确认包含“Base - White”和“Step - Sample”，再将整张色卡复制一份，使同一打印盘上并排放置两张梯度卡：
+'''
+translate = '''
+For the second card (black base):
+'''
+
+[[block]]
+key = "b2970673698352dc"
+type = "list"
+composite = true
+origin = '''
+{{b2970673698352dc-2a8f6900cfe18a1f}}
+{{b2970673698352dc-30ee6bdfe48dc134}}
+'''
+translate = '''
+- Assign **Base - White** to the black filament (**Base - White** is simply the original part name; the assigned filament slot controls the printed color).
+- Assign **Step - Sample** to the same red test filament.
+'''
+
+[[block]]
+key = "b2970673698352dc-2a8f6900cfe18a1f"
+type = "listItem"
+composite = true
+origin = '''
+- {{b2970673698352dc-2a8f6900cfe18a1f-c4ca3eb18fb17b84}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b2970673698352dc-2a8f6900cfe18a1f-c4ca3eb18fb17b84"
+type = "paragraph"
+origin = '''
+**白底卡（第一张）**：将“Base - White”分配为白色耗材，“Step - Sample”分配为待测试的红色耗材。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b2970673698352dc-30ee6bdfe48dc134"
+type = "listItem"
+composite = true
+origin = '''
+- {{b2970673698352dc-30ee6bdfe48dc134-3541dcb7fa0a9ae4}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b2970673698352dc-30ee6bdfe48dc134-3541dcb7fa0a9ae4"
+type = "paragraph"
+origin = '''
+**黑底卡（第二张）**：将底板对象分配为黑色耗材，“Step - Sample”同样分配为同一卷红色耗材（底板对象原名仍显示“Base - White”，实际打印颜色以所选耗材槽为准）。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "cf276d856815c5f9"
+type = "paragraph"
+origin = '''
+映射完成后检查确认：一张为白底配红阶梯层，另一张为黑底配红阶梯层。请保持模型原始尺寸与高度不变，切勿缩放模型或将底板与样本层分到同一种耗材。
+'''
+translate = '''
+Verify all four part assignments in order: **white, red, black, red** (slots **1, 3, 2, 3** in this example). Keep the original scale and Z height intact, and make sure the base and sample steps are never assigned to the same filament.
+'''
+
+[[block]]
+key = "7a00df7ede7814ba"
+type = "heading"
+origin = '''
+## 第六步：切片检查与打印
+'''
+translate = '''
+## Step 6: Slice and inspect the result
+
+<img
+  src={require('./assets/08-bottom-view.webp').default}
+  alt="Turn the cards to the bottom view and confirm the two bases"
+/>
+
+Before slicing, confirm your printer profile, nozzle diameter, and **0.08 mm** layer height, and verify that the white, black, and red filament slots were not reassigned automatically.
+
+Click **Slice Plate** to generate toolpaths.
+
+<img
+  src={require('./assets/09-sliced-layer-preview.webp').default}
+  alt="Move the layer slider through the sliced bottom preview"
+/>
+'''
+
+[[block]]
+key = "37390ac4658f082b"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/06-bottom-preview.webp').default}
+  alt="翻到底面并逐层检查切片结果"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f345769f4faf5a1b"
+type = "paragraph"
+origin = '''
+切片前，确认当前打印机、喷嘴及工艺层高与 Lumina 生成设置一致（本例为 0.08 mm），并复查白色、黑色与红色耗材槽位未被自动替换。
+'''
+translate = '''
+In **Preview**, rotate the camera to the **Bottom** view and drag the layer slider through the print. Confirm that one base prints white, the other prints black, and the stepped patches on both cards print red, with no missing layers, floating paths, or unintended color swaps.
+'''
+
+[[block]]
+key = "8d1c859e68c3a4b8"
+type = "paragraph"
+origin = '''
+点击切片后进入“预览”，将视角翻到底面并拖动右侧层滑块逐层查看，确认白底和黑底上的红色梯度方格均完整清晰，无缺层、悬空或异常换色后再发起打印。打印完成后立即将两张色卡归拢，并标注耗材名称。
+'''
+translate = '''
+Once the preview looks clean, send the print to your printer. Label both finished cards with the test filament name as soon as they come off the bed.
+'''
+
+[[block]]
+key = "7c2a65fb2a9f9442"
+type = "heading"
+origin = '''
+## 打印后要保留什么
+'''
+translate = '''
+## What to keep after printing
+'''
+
+[[block]]
+key = "eee821301a4c329c"
+type = "paragraph"
+origin = '''
+请将以下三项成套保存：
+'''
+translate = '''
+Keep these three items together as a set:
+'''
+
+[[block]]
+key = "9c957f5301fc5def"
+type = "list"
+composite = true
+origin = '''
+{{9c957f5301fc5def-4ecfabc0ecc9068b}}
+{{9c957f5301fc5def-1942e757e3eec966}}
+{{9c957f5301fc5def-396abeb98893d625}}
+'''
+translate = '''
+1. The white-base gradient card.
+2. The black-base gradient card.
+3. The complete ZIP archive downloaded from Lumina Studio.
+'''
+
+[[block]]
+key = "9c957f5301fc5def-4ecfabc0ecc9068b"
+type = "listItem"
+composite = true
+origin = '''
+- {{9c957f5301fc5def-4ecfabc0ecc9068b-4e8769b1ce713623}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "9c957f5301fc5def-4ecfabc0ecc9068b-4e8769b1ce713623"
+type = "paragraph"
+origin = '''
+白底梯度卡；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "9c957f5301fc5def-1942e757e3eec966"
+type = "listItem"
+composite = true
+origin = '''
+- {{9c957f5301fc5def-1942e757e3eec966-80477d84ff13c971}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "9c957f5301fc5def-1942e757e3eec966-80477d84ff13c971"
+type = "paragraph"
+origin = '''
+黑底梯度卡；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "9c957f5301fc5def-396abeb98893d625"
+type = "listItem"
+composite = true
+origin = '''
+- {{9c957f5301fc5def-396abeb98893d625-fd3ddd67d7d7d18e}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "9c957f5301fc5def-396abeb98893d625-fd3ddd67d7d7d18e"
+type = "paragraph"
+origin = '''
+本次从 Lumina 下载的完整 ZIP。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f8a7323640faff10"
+type = "paragraph"
+origin = '''
+仅保留解压出的 3MF 无法完成后续提取；请勿混放不同层高或不同批次生成的配置包，确保实物色卡与生成时的 ZIP 一一对应。
+'''
+translate = '''
+An extracted `.3mf` file alone cannot be used for profile extraction. Keep packages from different layer heights or print runs separate so each physical card pair stays matched to its own ZIP.
+'''
+
+[[block]]
+key = "3b30b685be5af364"
+type = "heading"
+origin = '''
+## 常见问题
+'''
+translate = '''
+## Common questions
+'''
+
+[[block]]
+key = "e24e4d8206b7fd7d"
+type = "heading"
+origin = '''
+### 可以只打印白底卡或黑底卡吗？
+'''
+translate = '''
+### Can I print only the white-base card or only the black-base card?
+'''
+
+[[block]]
+key = "f54b902b7165ce1e"
+type = "paragraph"
+origin = '''
+不可以。每种待测耗材都必须成对打印白底卡与黑底卡。
+'''
+translate = '''
+No. Every test filament requires both cards as a matched pair.
+'''
+
+[[block]]
+key = "6632ede3c4c0b9c6"
+type = "heading"
+origin = '''
+### 从 MakerWorld 下载了在线模型，还要生成 ZIP 吗？
+'''
+translate = '''
+### If I print the MakerWorld model, do I still need the ZIP from Lumina?
+'''
+
+[[block]]
+key = "6e5287ade6dbdd55"
+type = "paragraph"
+origin = '''
+需要。在线模型可替代本地 3MF 用于打印，但后续提取耗材档案仍需读取本地生成的 ZIP 配置文件包。
+'''
+translate = '''
+Yes. The MakerWorld model can substitute for the local 3MF when printing, but profile extraction still requires the configuration ZIP generated by Lumina.
+'''
+
+[[block]]
+key = "a68b2bf52c88c6d6"
+type = "heading"
+origin = '''
+### 第一次应该选哪个层高？
+'''
+translate = '''
+### Which layer height should I choose first?
+'''
+
+[[block]]
+key = "0d4c3526d1d0c9a7"
+type = "paragraph"
+origin = '''
+建议从 0.08 mm 开始；熟练掌握打印、拍摄和提取流程后再尝试 0.04 mm。
+'''
+translate = '''
+Start with **0.08 mm**. Move to **0.04 mm** once you are comfortable with printing, photographing, and extracting gradient cards.
+'''
+
+[[block]]
+key = "ff9b32d2de357016"
+type = "heading"
+origin = '''
+### 打开 3MF 后，打印机或喷嘴不匹配怎么办？
+'''
+translate = '''
+### What if the printer or nozzle does not match when I open the 3MF?
+'''
+
+[[block]]
+key = "ad52ffb0cf6cb932"
+type = "paragraph"
+origin = '''
+返回 Lumina Studio 的“设置”核对切片软件、打印机型号和喷嘴尺寸，重新生成配置文件包后再打开，避免直接覆盖全部项目设置导致参数偏差。
+'''
+translate = '''
+Return to Lumina **Settings**, select your actual slicer, printer model, and nozzle diameter, and generate a fresh package.
+'''
+
+[[block]]
+key = "389289176dc78f88"
+type = "heading"
+origin = '''
+### 对象名称里的“Base - White”为什么在第二张黑底卡上没有变？
+'''
+translate = '''
+### Why is the second black base still named “Base - White”?
+'''
+
+[[block]]
+key = "d4dad8af6b00af22"
+type = "paragraph"
+origin = '''
+“Base - White”只是模型零件的初始名称，实际打印哪种底色完全取决于切片软件中分配给该零件的耗材槽位。
+'''
+translate = '''
+`Base - White` is the static part name inside the 3MF. The printed base color is determined by the filament slot assigned in your slicer, which you can confirm in the sliced **Preview**.
+'''

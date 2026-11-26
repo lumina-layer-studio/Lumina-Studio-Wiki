@@ -1,0 +1,1074 @@
+[metadata]
+migration_layout = "preserved English structure; root blocks retain grouped or omitted source sections"
+reviewed_source = "2ccc671b54dd88fd4acc3fbd646bc5ff33ff463e027e42cfa6a0661a19808871"
+
+[[block]]
+key = "6676ad2c35e96908"
+type = "yaml"
+origin = '''
+---
+title: "使用教程2.X"
+description: "2.0 版本使用教程"
+sidebar_position: 15
+---
+'''
+translate = '''
+---
+title: "Lumina Studio 2.x User Guide"
+unlisted: true
+translation_status: pending
+---
+'''
+
+[[block]]
+key = "6d3fdf7dcf5e5dbe"
+type = "heading"
+origin = '''
+# 使用教程2.X
+'''
+translate = '''
+# Lumina Studio 2.x User Guide
+'''
+
+[[block]]
+key = "f768f1ee2069c9d7"
+type = "admonition"
+composite = true
+origin = '''
+:::note[旧版资料]
+{{f768f1ee2069c9d7-14e902fb68a63f12}}
+:::
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f768f1ee2069c9d7-14e902fb68a63f12"
+type = "paragraph"
+origin = '''
+本页保留 2.0 内测时期的操作说明和界面，部分内容可能已经过时。项目现已在 [Lumina-Layers 公开仓库](https://github.com/lumina-layer-studio/Lumina-Layers)继续开源开发，源码运行说明见仓库。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "835419da9600543d"
+type = "heading"
+origin = '''
+## 主页面功能区介绍
+'''
+translate = '''
+'''
+
+[[block]]
+key = "69a6ae25678e9fb5"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/lumina201.jpg').default}
+  alt="lumina201.jpg"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "fba2f8972121cf37"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/lumina202.jpg').default}
+  alt="lumina202.jpg"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "788efaa3b291827f"
+type = "heading"
+origin = '''
+### 图像转换—核心设置
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b2f31961286325a6"
+type = "heading"
+origin = '''
+#### 1.图片上传区：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f85174d2f3aa45af"
+type = "paragraph"
+origin = '''
+拖拽或者点击上传选择你的图片，支持多种格式
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4abdacef3713037d"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/lumina203.png').default}
+  alt="lumina203.png"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ced6ab6199bdc0dc"
+type = "heading"
+origin = '''
+#### 2.模式选择/LUT选择区：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "571cc6101d196c63"
+type = "paragraph"
+origin = '''
+**LUT模式**：沿用旧版本1.X的lut校准文件，5层叠色穷举和去重穷举。
+优点是所见即所得，按打印的色卡选择颜色。
+缺点是更换不同品牌需要重新打印色卡。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0529d9ebc3623eca"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/lumina204.png').default}
+  alt="lumina204.png"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "3d441f40b037707b"
+type = "paragraph"
+origin = '''
+**耗材档案**：也称为梯度卡模式，当前模式可以脱离固定搭配。
+优点是高度自定义,按单耗材进行校准，可以混选不同品牌不同颜色的耗材自定义选择层高和层数以及耗材数量。
+缺点是由于是计算结果，部分颜色可能会有偏差。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0da9cbbc301c7083"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/lumina205.png').default}
+  alt="lumina205.png"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "d0c7f2a4de958491"
+type = "heading"
+origin = '''
+#### 3.调节尺寸/大画幅切分
+'''
+translate = '''
+'''
+
+[[block]]
+key = "00ba6270de944b57"
+type = "paragraph"
+origin = '''
+**自定义尺寸**：按照原图的比例缩放尺寸
+**大画幅切分**：可以设置总尺寸，然后根据单块尺寸进行切分
+'''
+translate = '''
+'''
+
+[[block]]
+key = "6d84d7b1cee567eb"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/lumina206.png').default}
+  alt="lumina206.png"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "11c23b0bb03cc2a6"
+type = "heading"
+origin = '''
+#### 4.底板厚度
+'''
+translate = '''
+'''
+
+[[block]]
+key = "5bb10e70d5475e9d"
+type = "paragraph"
+origin = '''
+**底板厚度**：修改非颜色层的厚度
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1e06b7925f2d2eec"
+type = "heading"
+origin = '''
+#### 5.单双面设置
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1118ae53a20dc810"
+type = "paragraph"
+origin = '''
+**双面**：顶面和底面都有颜色层
+**单面**：只有底面生成颜色层
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f21f40cda699b064"
+type = "heading"
+origin = '''
+#### 6.生成模式
+'''
+translate = '''
+'''
+
+[[block]]
+key = "cfa4bc7bb6badaf9"
+type = "paragraph"
+origin = '''
+**高保真**：原图高清复刻 不做任何处理直接转换图片的像素（水密无缝模型），最通用标准模式，但由于这种模式非常考验图本身的干净程度，在使用过程中不可避免的会出现杂色和问题。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "6b3714f7763a600c"
+type = "paragraph"
+origin = '''
+**像素**：体素像素直接转换，适合体素像素图。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "db6c9e51e8b3041d"
+type = "paragraph"
+origin = '''
+**矢量**：兼容svg矢量图，更清晰的边缘，杂色更少。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "63f577bc3cb687e6"
+type = "paragraph"
+origin = '''
+**验证色卡**：用于梯度卡准度测试用
+'''
+translate = '''
+'''
+
+[[block]]
+key = "343d235f4b6dce50"
+type = "heading"
+origin = '''
+#### 7.量化颜色数
+'''
+translate = '''
+'''
+
+[[block]]
+key = "cfc8704fd25d47a6"
+type = "paragraph"
+origin = '''
+**量化颜色数**：数量越多量化颜色越多，容易出现的杂色越多
+'''
+translate = '''
+'''
+
+[[block]]
+key = "054e4b37c287be69"
+type = "heading"
+origin = '''
+#### 8.生成预览
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7cfdad2df240e720"
+type = "paragraph"
+origin = '''
+点击预览可以先预览结果，针对预览进行微调
+生成是直接生成
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1f96d68977962bfd"
+type = "heading"
+origin = '''
+#### 9.其他功能区
+'''
+translate = '''
+'''
+
+[[block]]
+key = "d6faca74274a9912"
+type = "paragraph"
+origin = '''
+**孤立像素清理**:将色彩匹配后与 8 邻域完全不同的孤立像素替换为邻域众数邻居的对应值，不会造调色板外的新颜色。高保真模式下的 LUT 匹配、预测匹配与耗材档案路径均会应用此清理。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "aae8384b86483c98"
+type = "paragraph"
+origin = '''
+**分离底板**:将底板层（通常是白色或背景色）作为独立颜色层输出，适用于需要单独处理底板的打印机或后处理流程。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "209307a06ca2c089"
+type = "paragraph"
+origin = '''
+**高精度颜色匹配（实验性功能）**:将聚类中心约束在打印机可达颜色集合内，减少颜色偏移；性能可能略慢，仅在 LUT 颜色匹配模式生效。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4d73da2302b9cb06"
+type = "paragraph"
+origin = '''
+**自动动态范围（实验性功能）**:根据所选 LUT 或耗材档案的可达亮度范围，对原图 L* 进行压缩映射；高光与阴影使用软滚降以保留局部对比度，色度通道保持不变。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "37535b6abd72dd54"
+type = "paragraph"
+origin = '''
+**3D高精度颜色预览**:开启后，3D 预览的颜色网格上限会提升到当前量化颜色数；可减少低频颜色被合并成灰色，但 GLB 生成和浏览器渲染会更慢。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ba7487e48f73a153"
+type = "paragraph"
+origin = '''
+**色相保护**:在色彩匹配时优先保护色相，减少色相漂移。适合色彩准确度要求高、颜色种类多的图像。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bef3bee8ff528d70"
+type = "paragraph"
+origin = '''
+**解锁量化颜色数**:解锁后最高可拉到 8192，会显著增加内存占用与处理耗时，仅适合极端场景
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c716ca167fa438a1"
+type = "heading"
+origin = '''
+#### 10.高级设置区
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b20b9e82eb6df50e"
+type = "paragraph"
+origin = '''
+**挂件环设置**：生成钥匙扣环功能，方便用户直接对特定位置进行生成。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a3150a160d4d01af"
+type = "paragraph"
+origin = '''
+**冰箱贴磁铁槽**：冰箱贴磁铁凹槽功能，方便用户直接对冰箱贴挖孔放磁铁。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7b1099efbeab9cd4"
+type = "paragraph"
+origin = '''
+**拼图设置**：直接生成切分好的拼图，可以让更小尺寸的打印机打印更大的拼图。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "efb87c75fe0d6ce5"
+type = "paragraph"
+origin = '''
+**透明镀层设置**：对模型底层生成特定高度的独立层，打印的时候使用透明耗材进行打印，可以增加观感，也可以改善首层粘不住的情况。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8fc4d11418773efe"
+type = "paragraph"
+origin = '''
+**掐丝珐琅设置**：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "59bc4e1c51a2bad3"
+type = "paragraph"
+origin = '''
+**外轮廓设置**：对图片边缘进行描边。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8d944ce9d8e832b8"
+type = "paragraph"
+origin = '''
+**浮雕设置** ：生成2.5d浮雕效果，杂色过多的情况下不建议使用
+'''
+translate = '''
+'''
+
+[[block]]
+key = "88ece6d51760bf28"
+type = "heading"
+origin = '''
+## LUT管理
+'''
+translate = '''
+'''
+
+[[block]]
+key = "583886e567ca954f"
+type = "paragraph"
+origin = '''
+lut管理是沿用1.x版本的校色模式
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0c176bf8c544107d"
+type = "heading"
+origin = '''
+## 耗材管理
+'''
+translate = '''
+'''
+
+[[block]]
+key = "991f559f6305e394"
+type = "paragraph"
+origin = '''
+耗材管理是梯度卡模式（耗材档案）管理耗材使用的管理仓库
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c7457ba5370a903c"
+type = "heading"
+origin = '''
+### 梯度卡校准
+'''
+translate = '''
+'''
+
+[[block]]
+key = "890a2e5f8b61e54f"
+type = "heading"
+origin = '''
+### 什么时候需要使用梯度色卡
+'''
+translate = '''
+'''
+
+[[block]]
+key = "af67aeb7dda47c7d"
+type = "list"
+composite = true
+origin = '''
+{{af67aeb7dda47c7d-5ff63c27394ddf6c}}
+{{af67aeb7dda47c7d-b42a60f584359c52}}
+{{af67aeb7dda47c7d-83758c33607029f5}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "af67aeb7dda47c7d-5ff63c27394ddf6c"
+type = "listItem"
+composite = true
+origin = '''
+1. {{af67aeb7dda47c7d-5ff63c27394ddf6c-96ab9c5c15a53162}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "af67aeb7dda47c7d-5ff63c27394ddf6c-96ab9c5c15a53162"
+type = "paragraph"
+origin = '''
+当你的耗材无法凑齐整套的时候，例如有些品牌的耗材，无法凑齐八色，这时候你可以使用其他牌子来补齐剩余的颜色
+'''
+translate = '''
+'''
+
+[[block]]
+key = "af67aeb7dda47c7d-b42a60f584359c52"
+type = "listItem"
+composite = true
+origin = '''
+2. {{af67aeb7dda47c7d-b42a60f584359c52-c2837d5beb1b3898}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "af67aeb7dda47c7d-b42a60f584359c52-c2837d5beb1b3898"
+type = "paragraph"
+origin = '''
+不同颜色的耗材消耗速度不同，有的颜色消耗比较快。这时候剩下的耗材，可以和其他品牌的耗材组合。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "af67aeb7dda47c7d-83758c33607029f5"
+type = "listItem"
+composite = true
+origin = '''
+3. {{af67aeb7dda47c7d-83758c33607029f5-5f1a7d803e5ecfde}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "af67aeb7dda47c7d-83758c33607029f5-5f1a7d803e5ecfde"
+type = "paragraph"
+origin = '''
+某些图片或者LUT，对一些色系的显示效果较差（如肤色，灰色等色系）。这时候你可以通过4，6，8色的套装，额外补充特定的颜色，如肤色，浅灰色。进行打印效果的完善。梯度色卡的耗材数量不受限制，所以理论上只要你的AMS和耗材更多，你就能有更好的成品。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8b12665130edd3c3"
+type = "heading"
+origin = '''
+### 开始制作前
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0547520b808cb5b5"
+type = "list"
+composite = true
+origin = '''
+{{0547520b808cb5b5-6b80a7be021b42c5}}
+{{0547520b808cb5b5-0535ac863652ec9c}}
+{{0547520b808cb5b5-f2dae522612c3d76}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0547520b808cb5b5-6b80a7be021b42c5"
+type = "listItem"
+composite = true
+origin = '''
+- {{0547520b808cb5b5-6b80a7be021b42c5-121fcf95c5be81cf}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0547520b808cb5b5-6b80a7be021b42c5-121fcf95c5be81cf"
+type = "paragraph"
+origin = '''
+每种待测试耗材都需要制作黑底和白底两张色卡，二者是一对。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0547520b808cb5b5-0535ac863652ec9c"
+type = "listItem"
+composite = true
+origin = '''
+- {{0547520b808cb5b5-0535ac863652ec9c-cebf8ac4c2cbe30b}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0547520b808cb5b5-0535ac863652ec9c-cebf8ac4c2cbe30b"
+type = "paragraph"
+origin = '''
+第一次制作建议选择 0.08 mm 层高。0.04 mm 对打印、拍摄和提取的要求更高，不建议直接尝试。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0547520b808cb5b5-f2dae522612c3d76"
+type = "listItem"
+composite = true
+origin = '''
+- {{0547520b808cb5b5-f2dae522612c3d76-043f5c95eb723825}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0547520b808cb5b5-f2dae522612c3d76-043f5c95eb723825"
+type = "paragraph"
+origin = '''
+梯度卡照片需要稳定、准确的光照。滤镜、偏色和不均匀照明都会影响后续提取结果。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "288735f02b5db071"
+type = "heading"
+origin = '''
+### 生成并打印梯度色卡
+'''
+translate = '''
+'''
+
+[[block]]
+key = "024c3e550d9b0006"
+type = "paragraph"
+origin = '''
+这部分已经整理为独立的新版教程：**[生成并打印梯度色卡](/zh/docs/tutorials/gradient-card-generate-print)**。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "6d79384fa52c0041"
+type = "paragraph"
+origin = '''
+新版教程保留了原人工教程中的白底与黑底成对制作、0.08 mm 层高建议、MakerWorld 在线模型、ZIP 留档和实拍判断，并补充了当前 Lumina Studio 界面、完整配置包、切片软件耗材映射、底面预览和打印前检查。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a3cffb17ffc7461f"
+type = "heading"
+origin = '''
+#### 校准色卡
+'''
+translate = '''
+'''
+
+[[block]]
+key = "49b5872df37fea9d"
+type = "paragraph"
+origin = '''
+这一步我们不做赘诉，可以参考：[校准板校色](/zh/docs/knowledge/color-chart-calibration)
+'''
+translate = '''
+'''
+
+[[block]]
+key = "9f84858a8a489762"
+type = "heading"
+origin = '''
+#### 提取色卡
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b605e8193d99a77e"
+type = "paragraph"
+origin = '''
+这部分已经整理为独立的新版教程：**[拍摄并提取梯度卡：创建耗材档案](../../tutorials/gradient-card-extract-profile/gradient-card-extract-profile.mdx)**。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "523534c7f44b0388"
+type = "paragraph"
+origin = '''
+新版教程沿用原人工教程的六张操作素材，并补充了拍摄要求、完整 Kit ZIP、可选 ColorChecker、四角微调、当前方向判断、提取警告和耗材库确认流程。旧版“平均 ΔE 低于 2 就一定精准”的说法也已按当前软件逻辑修正。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "d8c4f3b9c9d187b6"
+type = "admonition"
+composite = true
+origin = '''
+:::warning[历史版本原文]
+{{d8c4f3b9c9d187b6-ddf9895fb46e54a0}}
+:::
+'''
+translate = '''
+'''
+
+[[block]]
+key = "d8c4f3b9c9d187b6-ddf9895fb46e54a0"
+type = "paragraph"
+origin = '''
+以下内容是旧版人工教程的原始记录，连同原截图和当时的判断标准一并归档保留，不再作为当前操作依据。实际使用请阅读上方新版教程。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "57fa74faa9caf958"
+type = "paragraph"
+origin = '''
+我们来到 **耗材管理** 标签下的 **梯度卡提取**
+'''
+translate = '''
+'''
+
+[[block]]
+key = "5c78a207893dd2f5"
+type = "paragraph"
+origin = '''
+我们需要先上传3个文件，分别是zip包，一张白底的照片，一张黑底的照片
+'''
+translate = '''
+'''
+
+[[block]]
+key = "e9d4a907de72b2b0"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/snipaste_2026-04-19_16-19-05.png').default}
+  alt="snipaste_2026-04-19_16-19-05.png"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "6ecd75cacc440bba"
+type = "paragraph"
+origin = '''
+往下滚动，我们需要依次点击 白底和黑底的四个角，按照 左上 -> 右上 -> 右下 -> 左下 4个角。共计8次点击
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2a90a45b9eab568d"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/snipaste_2026-04-19_16-33-56-转换自-png.webp').default}
+  alt="snipaste_2026-04-19_16-33-56-转换自-png.webp"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c08f2640be682271"
+type = "paragraph"
+origin = '''
+点击提取按钮，注意如果是纯色或者耗材颜色和底板过于接近，可能会检测方向失误，需要自行控制下方向
+正确的提取结果方向应该是 纯白\纯黑 色块，在左上角
+'''
+translate = '''
+'''
+
+[[block]]
+key = "188a49e6c5be0287"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/snipaste_2026-04-19_16-37-14.webp').default}
+  alt="snipaste_2026-04-19_16-37-14.webp"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0c975967f9bddd38"
+type = "paragraph"
+origin = '''
+正确的示例
+'''
+translate = '''
+'''
+
+[[block]]
+key = "6c2437687652c113"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/snipaste_2026-04-19_16-37-38.webp').default}
+  alt="snipaste_2026-04-19_16-37-38.webp"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8f92b43851aad06d"
+type = "paragraph"
+origin = '''
+这时候我们会在页面看到耗材信息
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7912fa1deb9bacfd"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/snipaste_2026-04-19_16-40-34.png').default}
+  alt="snipaste_2026-04-19_16-40-34.png"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "e31742e44e90283a"
+type = "paragraph"
+origin = '''
+注意这边的 **平均 ΔE** 是通过照片计算出的耗材信息比对的误差，**值越小越好**，如果能控制在 2 以下，就是比较精准的一个信息
+可以通过优化拍照 来提高准确度
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b5390b5f1403712a"
+type = "paragraph"
+origin = '''
+滚动到底部，输入 **耗材品牌和名称**，进行保存。其中品牌为选填，方便分组管理
+'''
+translate = '''
+'''
+
+[[block]]
+key = "59c1e7ee4285c4c3"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/snipaste_2026-04-19_16-41-14.png').default}
+  alt="snipaste_2026-04-19_16-41-14.png"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "d3ea0686b96c271a"
+type = "heading"
+origin = '''
+#### 使用梯度色卡进行图像转换
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c6c25022533ca380"
+type = "paragraph"
+origin = '''
+我们回到图像转换标签页。跟以往LUT不同的操作，我们将在这里特别说明
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1e3d447de5b0cfe1"
+type = "paragraph"
+origin = '''
+1.选择耗材生成模式
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4b811555f4320699"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/snipaste_2026-04-19_16-46-23.png').default}
+  alt="snipaste_2026-04-19_16-46-23.png"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "15a753ff4a91d638"
+type = "paragraph"
+origin = '''
+2.选择你要使用的耗材
+'''
+translate = '''
+'''
+
+[[block]]
+key = "af342de1c3a6dd63"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/snipaste_2026-04-19_16-46-32.png').default}
+  alt="snipaste_2026-04-19_16-46-32.png"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f251e60c3c8fa968"
+type = "paragraph"
+origin = '''
+3.点击生成缓存的弹窗，进行一次穷举的生成。**注意：同样的几个耗材，在不同层数下，需要重新生成穷举**
+'''
+translate = '''
+'''
+
+[[block]]
+key = "166569aea47d7e11"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/snipaste_2026-04-19_16-46-53.png').default}
+  alt="snipaste_2026-04-19_16-46-53.png"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b8433c7bdd438769"
+type = "paragraph"
+origin = '''
+同样的模型和层数，只需要生成一次即可，会自己缓存
+8色10层的穷举，大概在5分钟左右。如果是更多的颜色，请多等待一会
+'''
+translate = '''
+'''
+
+[[block]]
+key = "61369c6f1b2c8dd2"
+type = "paragraph"
+origin = '''
+穷举生成成功的弹窗
+'''
+translate = '''
+'''
+
+[[block]]
+key = "dd8ec1c8aa034345"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/snipaste_2026-04-19_16-47-01.png').default}
+  alt="snipaste_2026-04-19_16-47-01.png"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "affba00ff539d419"
+type = "paragraph"
+origin = '''
+后面的就是正常的上传图片，生成模型了，这里就不做额外的赘诉了
+'''
+translate = '''
+'''
+
+[[block]]
+key = "16e985ff853d44f8"
+type = "heading"
+origin = '''
+## 图片转矢量
+'''
+translate = '''
+'''
+
+[[block]]
+key = "03277b64deef25a3"
+type = "heading"
+origin = '''
+## 设置
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1c9e3260df433559"
+type = "paragraph"
+origin = '''
+设置中可以设置机型和喷嘴信息，以及缓存清理和其他设置，方便用户直接使用。
+'''
+translate = '''
+The full English 2.x guide is being prepared. Reviewed English tutorials are published separately under the Tutorials 2.x section.
+'''
+
+[[block]]
+key = "e9900c9a0fa1c342"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/lumina207.png').default}
+  alt="lumina207.png"
+/>
+'''
+translate = '''
+'''

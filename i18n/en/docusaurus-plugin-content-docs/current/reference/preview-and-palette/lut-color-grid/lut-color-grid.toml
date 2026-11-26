@@ -1,0 +1,325 @@
+[metadata]
+reviewed_source = "ac7d0e15564c0b19727aa82f024bbdb22356230c049885a3aeb4b6fad5502ee7"
+
+[[block]]
+key = "8f15a0dffebed85c"
+type = "yaml"
+origin = '''
+---
+title: "LUT 颜色网格"
+description: "传统 LUT 模式下的可用色、推荐替换色、搜索筛选、收藏与实体色卡布局。"
+sidebar_position: 4
+---
+'''
+translate = '''
+---
+title: "LUT Color Grid"
+description: "Available and recommended colors, search, hue filters, favorites, and physical card layout in Legacy LUT mode."
+sidebar_position: 4
+---
+'''
+
+[[block]]
+key = "d4e9c55bfaba16dc"
+type = "heading"
+origin = '''
+# LUT 颜色网格
+'''
+translate = '''
+# LUT Color Grid
+'''
+
+[[block]]
+key = "2d4c963cb2e6ef04"
+type = "paragraph"
+origin = '''
+使用传统 LUT 完成预览后，颜色工作站右栏会加载该 LUT 可输出的全部颜色，并分为**图中使用**与**其他可用**两组展示。先在左侧选中源色后，面板顶部会列出按 RGB 色差由近到远排序的 12 个**推荐替换色**。
+'''
+translate = '''
+After previewing with a Legacy LUT, the right column of Color Workstation loads every color that LUT can produce, grouped into **Used in image** and **Other available**. Selecting a source color on the left adds **Recommended Replacements (12)** at the top, ranked by RGB distance.
+'''
+
+[[block]]
+key = "a74e40ccab9d6834"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-lut-grid.webp').default}
+  alt="显示推荐替换色、图中使用色和其他可用色的 LUT 颜色网格"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-lut-grid.webp').default}
+  alt="LUT grid with recommended replacements, colours used in the image, and other available colours"
+/>
+'''
+
+[[block]]
+key = "da0be491352b447a"
+type = "heading"
+origin = '''
+## 搜索与筛选
+'''
+translate = '''
+## Searching and filtering
+'''
+
+[[block]]
+key = "e5ab8339ea19f0fb"
+type = "paragraph"
+origin = '''
+顶部搜索栏与筛选标签支持快速定位颜色：
+'''
+translate = '''
+Use the search bar and filter pills to narrow down the palette:
+'''
+
+[[block]]
+key = "6921cc2a813447d6"
+type = "list"
+composite = true
+origin = '''
+{{6921cc2a813447d6-f8709f0ce305ec0f}}
+{{6921cc2a813447d6-7c5e74ae931ad193}}
+{{6921cc2a813447d6-5d8e18fde33f63dd}}
+'''
+translate = '''
+{{6921cc2a813447d6-f8709f0ce305ec0f}}
+{{6921cc2a813447d6-7c5e74ae931ad193}}
+{{6921cc2a813447d6-5d8e18fde33f63dd}}
+'''
+
+[[block]]
+key = "6921cc2a813447d6-f8709f0ce305ec0f"
+type = "listItem"
+composite = true
+origin = '''
+- {{6921cc2a813447d6-f8709f0ce305ec0f-b63d94bc1f36f64d}}
+'''
+translate = '''
+- {{6921cc2a813447d6-f8709f0ce305ec0f-b63d94bc1f36f64d}}
+'''
+
+[[block]]
+key = "6921cc2a813447d6-f8709f0ce305ec0f-b63d94bc1f36f64d"
+type = "paragraph"
+origin = '''
+**HEX：** 输入完整或部分色值，例如 `#8B5055` 或 `8b50`；
+'''
+translate = '''
+**HEX:** Full or partial hex codes, such as `#8B5055` or `8b50`.
+'''
+
+[[block]]
+key = "6921cc2a813447d6-7c5e74ae931ad193"
+type = "listItem"
+composite = true
+origin = '''
+- {{6921cc2a813447d6-7c5e74ae931ad193-ef6f7990661c143e}}
+'''
+translate = '''
+- {{6921cc2a813447d6-7c5e74ae931ad193-ef6f7990661c143e}}
+'''
+
+[[block]]
+key = "6921cc2a813447d6-7c5e74ae931ad193-ef6f7990661c143e"
+type = "paragraph"
+origin = '''
+**RGB：** 输入十进制分量，例如 `139, 80, 85`；
+'''
+translate = '''
+**RGB:** Comma-separated values, such as `139, 80, 85`.
+'''
+
+[[block]]
+key = "6921cc2a813447d6-5d8e18fde33f63dd"
+type = "listItem"
+composite = true
+origin = '''
+- {{6921cc2a813447d6-5d8e18fde33f63dd-bc34d49dc97aba1e}}
+'''
+translate = '''
+- {{6921cc2a813447d6-5d8e18fde33f63dd-bc34d49dc97aba1e}}
+'''
+
+[[block]]
+key = "6921cc2a813447d6-5d8e18fde33f63dd-bc34d49dc97aba1e"
+type = "paragraph"
+origin = '''
+**色相筛选：** 按红、橙、黄、绿、青、蓝、紫与中性色快速过滤。
+'''
+translate = '''
+**Hue filters:** Quick filters for **Red**, **Orange**, **Yellow**, **Green**, **Cyan**, **Blue**, **Purple**, and **Neutral** shades, plus **Favorites**.
+'''
+
+[[block]]
+key = "6135a268340cb995"
+type = "paragraph"
+origin = '''
+**图中使用**汇集当前预览调色板已包含的颜色，**其他可用**列出同一 LUT 的其余条目。推荐替换色按数值色差排序，实际打印观感还会受观察灯光、打印板纹理与耗材批次影响。
+'''
+translate = '''
+**Used in image** reflects the active preview palette, while **Other available** lists all remaining entries in the LUT. Recommended replacements are ranked by numerical color distance; physical appearance also depends on viewing light, build-plate surface, and filament batch.
+'''
+
+[[block]]
+key = "5075e6198c65184f"
+type = "heading"
+origin = '''
+## 收藏与色卡视图
+'''
+translate = '''
+## Favorites and Card view
+'''
+
+[[block]]
+key = "ab1cfe7c1b679ac5"
+type = "paragraph"
+origin = '''
+双击任意色块即可加入或移出收藏。收藏记录按不同 LUT 独立保存在本地浏览器中，切换 LUT 时互不干扰。
+'''
+translate = '''
+Double-click any swatch to add or remove it from **Favorites**. Favorites are saved locally in your browser per LUT so separate libraries stay independent.
+'''
+
+[[block]]
+key = "f2f55b7695798ec2"
+type = "paragraph"
+origin = '''
+若当前 LUT 包含物理色卡排版元数据，可在右上角切换**色块**与**色卡**视图。**色卡**视图严格还原实体校准卡的页码、行列与 A/B 分区标签，便于手持实物直接比色；未记录排版信息的 LUT 仅显示**色块**视图。
+'''
+translate = '''
+LUTs with physical layout metadata let you switch between **Swatch** and **Card** views. **Card** view mirrors the physical calibration pages, rows, columns, and A/B labels recorded in the LUT for side-by-side comparison with printed swatches. LUTs without layout metadata stay in **Swatch** view.
+'''
+
+[[block]]
+key = "bd194e372ee13333"
+type = "heading"
+origin = '''
+## 确认替换
+'''
+translate = '''
+## Confirming a replacement
+'''
+
+[[block]]
+key = "ac5557ef478dd903"
+type = "paragraph"
+origin = '''
+点击右侧任意候选色后，中间栏顶部会先建立“源色 → 目标色”待确认项：
+'''
+translate = '''
+Clicking a target swatch stages a `source → target` preview at the top of the palette column:
+'''
+
+[[block]]
+key = "39cff1fdab2613d1"
+type = "list"
+composite = true
+origin = '''
+{{39cff1fdab2613d1-b8de0cddfedd8b92}}
+{{39cff1fdab2613d1-f65f8f4b8eec407f}}
+{{39cff1fdab2613d1-d0eace4fde346d60}}
+{{39cff1fdab2613d1-24d928fb0c8f8404}}
+'''
+translate = '''
+{{39cff1fdab2613d1-b8de0cddfedd8b92}}
+{{39cff1fdab2613d1-f65f8f4b8eec407f}}
+{{39cff1fdab2613d1-d0eace4fde346d60}}
+{{39cff1fdab2613d1-24d928fb0c8f8404}}
+'''
+
+[[block]]
+key = "39cff1fdab2613d1-b8de0cddfedd8b92"
+type = "listItem"
+composite = true
+origin = '''
+- {{39cff1fdab2613d1-b8de0cddfedd8b92-da8273caa27a2dff}}
+'''
+translate = '''
+- {{39cff1fdab2613d1-b8de0cddfedd8b92-da8273caa27a2dff}}
+'''
+
+[[block]]
+key = "39cff1fdab2613d1-b8de0cddfedd8b92-da8273caa27a2dff"
+type = "paragraph"
+origin = '''
+点击**确认替换**后，系统才会重新计算 2D 与 3D 预览；
+'''
+translate = '''
+Click **Confirm Replace** to recalculate the 2D and 3D previews.
+'''
+
+[[block]]
+key = "39cff1fdab2613d1-f65f8f4b8eec407f"
+type = "listItem"
+composite = true
+origin = '''
+- {{39cff1fdab2613d1-f65f8f4b8eec407f-c17107a38a1735e4}}
+'''
+translate = '''
+- {{39cff1fdab2613d1-f65f8f4b8eec407f-c17107a38a1735e4}}
+'''
+
+[[block]]
+key = "39cff1fdab2613d1-f65f8f4b8eec407f-c17107a38a1735e4"
+type = "paragraph"
+origin = '''
+点击**取消**将放弃本次待选目标色，保持当前会话不变；
+'''
+translate = '''
+Click **Cancel** to discard the staged color without changing the session.
+'''
+
+[[block]]
+key = "39cff1fdab2613d1-d0eace4fde346d60"
+type = "listItem"
+composite = true
+origin = '''
+- {{39cff1fdab2613d1-d0eace4fde346d60-cdc4fcc7c8472af9}}
+'''
+translate = '''
+- {{39cff1fdab2613d1-d0eace4fde346d60-cdc4fcc7c8472af9}}
+'''
+
+[[block]]
+key = "39cff1fdab2613d1-d0eace4fde346d60-cdc4fcc7c8472af9"
+type = "paragraph"
+origin = '''
+若选区来自局部空间区域，替换会严格沿用该区域的空间掩码，不会按全图相同 HEX 扩散；
+'''
+translate = '''
+Selections created from a spatial region keep their exact pixel mask rather than remapping matching HEX values across the entire image.
+'''
+
+[[block]]
+key = "39cff1fdab2613d1-24d928fb0c8f8404"
+type = "listItem"
+composite = true
+origin = '''
+- {{39cff1fdab2613d1-24d928fb0c8f8404-7ae6402e0e070c32}}
+'''
+translate = '''
+- {{39cff1fdab2613d1-24d928fb0c8f8404-7ae6402e0e070c32}}
+'''
+
+[[block]]
+key = "39cff1fdab2613d1-24d928fb0c8f8404-7ae6402e0e070c32"
+type = "paragraph"
+origin = '''
+同时选中多种颜色或多个区域时，会在一次请求中合并批处理。
+'''
+translate = '''
+Multi-color and multi-region selections are applied together in a single batch.
+'''
+
+[[block]]
+key = "91a9a27acc2f13a0"
+type = "paragraph"
+origin = '''
+耗材档案模式不使用固定 LUT 网格，右侧会自动切换为[耗材可达色](../material-achievable-colors/material-achievable-colors.mdx)求解面板。
+'''
+translate = '''
+Material Archive mode uses the dynamic solver in [Achievable Material Colors](../material-achievable-colors/material-achievable-colors.mdx) instead of a fixed LUT grid.
+'''

@@ -1,0 +1,247 @@
+[metadata]
+reviewed_source = "f5bb5577752afa08e2a88fc74d5e3cba179e9ee28de251fd789fd978665f9867"
+
+[[block]]
+key = "3970356e1c235356"
+type = "yaml"
+origin = '''
+---
+title: "五色配方查询"
+description: "五色/六层配方的顺序查询、目标色匹配、收藏和色卡生成。"
+sidebar_position: 9
+---
+'''
+translate = '''
+---
+title: "Five-Color Recipe Query"
+description: "Ordered recipe queries, target-color matching, collections, and printable swatches for five/six-layer LUTs."
+sidebar_position: 9
+---
+'''
+
+[[block]]
+key = "a520daf3e8042dc8"
+type = "heading"
+origin = '''
+# 五色配方查询
+'''
+translate = '''
+# Five-Color Recipe Query
+'''
+
+[[block]]
+key = "9db2046fe2bdea4f"
+type = "paragraph"
+origin = '''
+五色配方查询用于检索支持 5 层或 6 层叠色配方的 LUT，既可按基础颜色堆叠顺序正向查询呈色结果，也可输入目标 HEX 色值反向匹配最接近的可用配方。
+'''
+translate = '''
+Five-Color Recipe Query inspects LUTs built around five- or six-layer recipes. You can step through an explicit base-color stacking order to preview its resulting color, or enter a target HEX value to find the closest available recipe.
+'''
+
+[[block]]
+key = "32aa802650b7015b"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-five-color-query.webp').default}
+  alt="尚未选择 LUT 的五色配方查询页面"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-five-color-query.webp').default}
+  alt="Five-Color Recipe Query before selecting a LUT"
+/>
+'''
+
+[[block]]
+key = "fa7abaac77e248fd"
+type = "heading"
+origin = '''
+## 按层顺序查询
+'''
+translate = '''
+## Query by layer order
+'''
+
+[[block]]
+key = "1d55dd35ca85e9aa"
+type = "paragraph"
+origin = '''
+在**基础色板**中选择目标 LUT 后，颜色卡片会根据当前已选层序实时筛选下一层可选颜色；若当前前缀之后不存在包含某颜色的有效配方，对应卡片会自动置灰。
+'''
+translate = '''
+After selecting a LUT under **Base Palette**, the color cards filter dynamically based on the layers chosen so far. Any color that cannot form a valid recipe after the current sequence appears dimmed.
+'''
+
+[[block]]
+key = "e5070a15276b162c"
+type = "paragraph"
+origin = '''
+选满 5 层或 6 层有效顺序后，可通过**操作**面板执行以下动作：
+'''
+translate = '''
+Once you complete a valid five- or six-layer sequence, use **Actions** to inspect or adjust it:
+'''
+
+[[block]]
+key = "b38da4a0201fbcba"
+type = "list"
+composite = true
+origin = '''
+{{b38da4a0201fbcba-ef627520c5ecfdb8}}
+{{b38da4a0201fbcba-20a9e5330db44f22}}
+{{b38da4a0201fbcba-84c14410e672864a}}
+{{b38da4a0201fbcba-e997b5931d45aa1f}}
+'''
+translate = '''
+{{b38da4a0201fbcba-ef627520c5ecfdb8}}
+{{b38da4a0201fbcba-20a9e5330db44f22}}
+{{b38da4a0201fbcba-84c14410e672864a}}
+{{b38da4a0201fbcba-e997b5931d45aa1f}}
+'''
+
+[[block]]
+key = "b38da4a0201fbcba-ef627520c5ecfdb8"
+type = "listItem"
+composite = true
+origin = '''
+- {{b38da4a0201fbcba-ef627520c5ecfdb8-1c42a3b941370c42}}
+'''
+translate = '''
+- {{b38da4a0201fbcba-ef627520c5ecfdb8-1c42a3b941370c42}}
+'''
+
+[[block]]
+key = "b38da4a0201fbcba-ef627520c5ecfdb8-1c42a3b941370c42"
+type = "paragraph"
+origin = '''
+**查询**：返回当前层序对应的合成颜色及 LUT 记录行。
+'''
+translate = '''
+**Query:** Returns the resulting color and its LUT row.
+'''
+
+[[block]]
+key = "b38da4a0201fbcba-20a9e5330db44f22"
+type = "listItem"
+composite = true
+origin = '''
+- {{b38da4a0201fbcba-20a9e5330db44f22-7be053eec2ebc345}}
+'''
+translate = '''
+- {{b38da4a0201fbcba-20a9e5330db44f22-7be053eec2ebc345}}
+'''
+
+[[block]]
+key = "b38da4a0201fbcba-20a9e5330db44f22-7be053eec2ebc345"
+type = "paragraph"
+origin = '''
+**撤销**：移除最后选入的一层。
+'''
+translate = '''
+**Undo:** Removes the last selected layer.
+'''
+
+[[block]]
+key = "b38da4a0201fbcba-84c14410e672864a"
+type = "listItem"
+composite = true
+origin = '''
+- {{b38da4a0201fbcba-84c14410e672864a-caa7a875bef167dd}}
+'''
+translate = '''
+- {{b38da4a0201fbcba-84c14410e672864a-caa7a875bef167dd}}
+'''
+
+[[block]]
+key = "b38da4a0201fbcba-84c14410e672864a-caa7a875bef167dd"
+type = "paragraph"
+origin = '''
+**反序**：将完整层序首尾翻转并重新查询。
+'''
+translate = '''
+**Reverse:** Flips a complete layer sequence end-to-end and queries it again.
+'''
+
+[[block]]
+key = "b38da4a0201fbcba-e997b5931d45aa1f"
+type = "listItem"
+composite = true
+origin = '''
+- {{b38da4a0201fbcba-e997b5931d45aa1f-9ec6a3a129d5edfa}}
+'''
+translate = '''
+- {{b38da4a0201fbcba-e997b5931d45aa1f-9ec6a3a129d5edfa}}
+'''
+
+[[block]]
+key = "b38da4a0201fbcba-e997b5931d45aa1f-9ec6a3a129d5edfa"
+type = "paragraph"
+origin = '''
+**清除**：清空当前层序重新开始。
+'''
+translate = '''
+**Clear:** Resets the current sequence.
+'''
+
+[[block]]
+key = "dcf83c0e707f4000"
+type = "paragraph"
+origin = '''
+透光叠色效果取决于从**底面**到**观赏面**的实际堆叠顺序；即使耗材组合相同，改变层序也会产生不同的最终颜色。
+'''
+translate = '''
+Because light transmission depends on the stacking order from **Bottom** to **Viewing Face**, using the same filaments in a different order produces a distinct optical recipe.
+'''
+
+[[block]]
+key = "1ecf721c9f3db1a8"
+type = "heading"
+origin = '''
+## 按目标色值匹配
+'''
+translate = '''
+## Match a target color
+'''
+
+[[block]]
+key = "12b594ab13ecc76c"
+type = "paragraph"
+origin = '''
+在**按色值查询**中输入 `#RRGGBB` 并点击**匹配配方**，系统会在当前 LUT 中查找最接近的颜色记录，并展示目标色、匹配色、ΔE00 色差、色卡坐标和具体层序；同时可通过相邻候选网格直观对比周边的相近配方。
+'''
+translate = '''
+Under **Match by color value**, enter a `#RRGGBB` value and click **Match recipe** to find the nearest entry in the active LUT. The result shows the target and matched colors, ΔE00 difference, swatch coordinates, and layer sequence, alongside neighboring candidate cells for comparing nearby alternatives.
+'''
+
+[[block]]
+key = "09c0bc4f3b006c1f"
+type = "heading"
+origin = '''
+## 配方收藏与打印色卡
+'''
+translate = '''
+## Collection and printable swatch
+'''
+
+[[block]]
+key = "7d8d631dce693caf"
+type = "paragraph"
+origin = '''
+可将查询结果加入收藏列表（相同配方会自动去重），支持逐条移除或点击**清空收藏**一键清除。确认收藏列表后，可设置色块尺寸 `5–50 mm`、间距 `0.5–10 mm`、列数 `0–20`（设为 `0` 时自动排布行列）以及单面或双面结构，直接生成并下载可打印的 3MF 实体色卡。
+'''
+translate = '''
+Save queried recipes to your collection (duplicate recipes are ignored automatically). You can remove items individually or click **Clear collection** to empty the list. Configure patch size (`5–50 mm`), gap (`0.5–10 mm`), columns (`0–20`, where `0` lets the generator arrange columns automatically), and single- or double-sided structure, then generate and download a printable 3MF swatch.
+'''
+
+[[block]]
+key = "55e739b91ba02b0d"
+type = "paragraph"
+origin = '''
+切换至另一份 LUT 时，系统会自动清空当前收藏列表，确保同一张色卡中的配方始终来自同一 LUT。
+'''
+translate = '''
+Switching to another LUT clears the active collection so every swatch card stays tied to a single LUT.
+'''

@@ -1,0 +1,295 @@
+[metadata]
+reviewed_source = "db404f3c87a2440b7df36f1d87462f521d4e752239f50c15e4cf9aeffd6d50fb"
+
+[[block]]
+key = "c4904d6ed529d72a"
+type = "yaml"
+origin = '''
+---
+title: "渐变自动换色"
+description: "预览后自动合并渐变条带颜色的处理流程、默认状态与颜色工作站手动微调方式。"
+sidebar_position: 5
+---
+'''
+translate = '''
+---
+title: "Auto Gradient Replacement"
+description: "Workflow, default behavior, and manual Color Workstation controls for collapsing gradient bands after preview."
+sidebar_position: 5
+---
+'''
+
+[[block]]
+key = "0a8cc53e752627fa"
+type = "heading"
+origin = '''
+# 渐变自动换色
+'''
+translate = '''
+# Auto Gradient Replacement
+'''
+
+[[block]]
+key = "a1f529834d517411"
+type = "paragraph"
+origin = '''
+使用耗材档案将连续渐变映射为有限叠层配方时，平滑过渡区可能会被切分成多条相近色带。开启“渐变自动换色”后，软件会在预览完成时自动识别这些渐变色带组，并将同组颜色统一替换为组内覆盖像素最多的代表色。
+'''
+translate = '''
+When a material profile maps a smooth gradient onto a finite set of filament recipes, subtle transitions can split into stepped color bands. **Auto Gradient Replacement** detects those band groups after preview and merges each group into the single color that covers the most pixels.
+'''
+
+[[block]]
+key = "96f30ab385e8f972"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-auto-gradient.webp').default}
+  alt="系统设置中的渐变自动换色开关"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-auto-gradient.webp').default}
+  alt="Auto gradient replacement in System Settings"
+/>
+'''
+
+[[block]]
+key = "8842982ac2d87d49"
+type = "heading"
+origin = '''
+## 处理流程
+'''
+translate = '''
+## Processing order
+'''
+
+[[block]]
+key = "610bf98a7e47494c"
+type = "list"
+composite = true
+origin = '''
+{{610bf98a7e47494c-5e81b752c4fa3701}}
+{{610bf98a7e47494c-71c0b5bd9dee409e}}
+{{610bf98a7e47494c-3ca7a14340e0d276}}
+{{610bf98a7e47494c-914c63db08acfed2}}
+'''
+translate = '''
+{{610bf98a7e47494c-5e81b752c4fa3701}}
+{{610bf98a7e47494c-71c0b5bd9dee409e}}
+{{610bf98a7e47494c-3ca7a14340e0d276}}
+{{610bf98a7e47494c-914c63db08acfed2}}
+'''
+
+[[block]]
+key = "610bf98a7e47494c-5e81b752c4fa3701"
+type = "listItem"
+composite = true
+origin = '''
+1. {{610bf98a7e47494c-5e81b752c4fa3701-0f6989c2b355d14f}}
+'''
+translate = '''
+1. {{610bf98a7e47494c-5e81b752c4fa3701-0f6989c2b355d14f}}
+'''
+
+[[block]]
+key = "610bf98a7e47494c-5e81b752c4fa3701-0f6989c2b355d14f"
+type = "paragraph"
+origin = '''
+完成常规图像处理与耗材颜色匹配。
+'''
+translate = '''
+Complete standard image processing and material color matching.
+'''
+
+[[block]]
+key = "610bf98a7e47494c-71c0b5bd9dee409e"
+type = "listItem"
+composite = true
+origin = '''
+2. {{610bf98a7e47494c-71c0b5bd9dee409e-51b8fca7797dd5fe}}
+'''
+translate = '''
+2. {{610bf98a7e47494c-71c0b5bd9dee409e-51b8fca7797dd5fe}}
+'''
+
+[[block]]
+key = "610bf98a7e47494c-71c0b5bd9dee409e-51b8fca7797dd5fe"
+type = "paragraph"
+origin = '''
+分析预览结果中的渐变条带分组。
+'''
+translate = '''
+Analyze gradient-band groups in the preview.
+'''
+
+[[block]]
+key = "610bf98a7e47494c-3ca7a14340e0d276"
+type = "listItem"
+composite = true
+origin = '''
+3. {{610bf98a7e47494c-3ca7a14340e0d276-46854da113854413}}
+'''
+translate = '''
+3. {{610bf98a7e47494c-3ca7a14340e0d276-46854da113854413}}
+'''
+
+[[block]]
+key = "610bf98a7e47494c-3ca7a14340e0d276-46854da113854413"
+type = "paragraph"
+origin = '''
+选出每个分组内像素占比最高的代表色。
+'''
+translate = '''
+Pick the color with the highest pixel count in each group.
+'''
+
+[[block]]
+key = "610bf98a7e47494c-914c63db08acfed2"
+type = "listItem"
+composite = true
+origin = '''
+4. {{610bf98a7e47494c-914c63db08acfed2-a8fccb91c7cf65bf}}
+'''
+translate = '''
+4. {{610bf98a7e47494c-914c63db08acfed2-a8fccb91c7cf65bf}}
+'''
+
+[[block]]
+key = "610bf98a7e47494c-914c63db08acfed2-a8fccb91c7cf65bf"
+type = "paragraph"
+origin = '''
+批量应用替换并刷新 2D 与 3D 预览。
+'''
+translate = '''
+Apply the replacements as a batch and refresh the 2D and 3D previews.
+'''
+
+[[block]]
+key = "828a058a49aeca64"
+type = "paragraph"
+origin = '''
+由于预览完成后会额外执行一次分组分析与批量替换，包含大面积渐变的图片呈现最终预览的时间会略微延长。
+'''
+translate = '''
+Because artwork with heavy gradients runs this extra pass right after matching, the final preview may take a moment longer to appear.
+'''
+
+[[block]]
+key = "b94f0856d45c1bfd"
+type = "heading"
+origin = '''
+## 默认状态与手动微调
+'''
+translate = '''
+## Default behavior and manual refinement
+'''
+
+[[block]]
+key = "9e256cfa718f4924"
+type = "paragraph"
+origin = '''
+该选项默认关闭。保持关闭时，软件保留原始颜色匹配结果；你可在颜色工作站中逐组查看渐变识别结果并按需手动合并。自动换色与手动合并共用同一套分组逻辑，替换后仍可随时撤销或单独微调。
+'''
+translate = '''
+This option is off by default, keeping the raw matched palette intact so you can inspect detected groups in Color Workstation and merge only the ones you choose. Automatic and manual merges share the same grouping engine, and every change can still be undone or refined individually.
+'''
+
+[[block]]
+key = "beac77b9a982c4de"
+type = "paragraph"
+origin = '''
+该功能仅合并同一渐变组内的相近色带，不会增加可用总色数，也不会改动渐变组以外的独立色块。
+'''
+translate = '''
+Merging bands smooths stepped transitions within detected gradient groups while leaving total color capacity and unrelated regions untouched.
+'''
+
+[[block]]
+key = "8e598e329cd91d51"
+type = "paragraph"
+origin = '''
+相关页面：
+'''
+translate = '''
+Related pages:
+'''
+
+[[block]]
+key = "6919828d31c99968"
+type = "list"
+composite = true
+origin = '''
+{{6919828d31c99968-96ef653d05f7820d}}
+{{6919828d31c99968-86db84faa70773b1}}
+{{6919828d31c99968-bec0a2e5a40d8a42}}
+'''
+translate = '''
+{{6919828d31c99968-96ef653d05f7820d}}
+{{6919828d31c99968-86db84faa70773b1}}
+{{6919828d31c99968-bec0a2e5a40d8a42}}
+'''
+
+[[block]]
+key = "6919828d31c99968-96ef653d05f7820d"
+type = "listItem"
+composite = true
+origin = '''
+- {{6919828d31c99968-96ef653d05f7820d-e8c43170560ec9cb}}
+'''
+translate = '''
+- {{6919828d31c99968-96ef653d05f7820d-e8c43170560ec9cb}}
+'''
+
+[[block]]
+key = "6919828d31c99968-96ef653d05f7820d-e8c43170560ec9cb"
+type = "paragraph"
+origin = '''
+[颜色工作站](../../preview-and-palette/color-workstation/color-workstation.mdx)
+'''
+translate = '''
+[Color Workstation](../../preview-and-palette/color-workstation/color-workstation.mdx)
+'''
+
+[[block]]
+key = "6919828d31c99968-86db84faa70773b1"
+type = "listItem"
+composite = true
+origin = '''
+- {{6919828d31c99968-86db84faa70773b1-77c388ee7fc3933e}}
+'''
+translate = '''
+- {{6919828d31c99968-86db84faa70773b1-77c388ee7fc3933e}}
+'''
+
+[[block]]
+key = "6919828d31c99968-86db84faa70773b1-77c388ee7fc3933e"
+type = "paragraph"
+origin = '''
+[选择模式、调色板与自由色](../../preview-and-palette/selection-modes/selection-modes.mdx)
+'''
+translate = '''
+[Selection Modes, Palette, and Free Colors](../../preview-and-palette/selection-modes/selection-modes.mdx)
+'''
+
+[[block]]
+key = "6919828d31c99968-bec0a2e5a40d8a42"
+type = "listItem"
+composite = true
+origin = '''
+- {{6919828d31c99968-bec0a2e5a40d8a42-d175c491032a7160}}
+'''
+translate = '''
+- {{6919828d31c99968-bec0a2e5a40d8a42-d175c491032a7160}}
+'''
+
+[[block]]
+key = "6919828d31c99968-bec0a2e5a40d8a42-d175c491032a7160"
+type = "paragraph"
+origin = '''
+[耗材档案来源](../../converter-basic/material-archive-source/material-archive-source.mdx)
+'''
+translate = '''
+[Material Profile Source](../../converter-basic/material-archive-source/material-archive-source.mdx)
+'''

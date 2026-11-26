@@ -16,6 +16,10 @@ When a 3MF will not open in your slicer, the issue typically occurs at one of fi
 
 Identifying which stage failed saves unnecessary reinstallation or repeated generation.
 
+
+
+
+
 ## Step 1: Confirm that a valid 3MF downloaded
 
 Before troubleshooting your slicer, verify that:
@@ -25,7 +29,21 @@ Before troubleshooting your slicer, verify that:
 - The downloaded file has a non-zero size and ends with `.3mf`.
 - The temporary session output has not expired.
 
+
+
+
+
+
+
+
+
+
+
+
+
 If the file is missing, `0 KB`, or expired, generate a fresh copy in Lumina first. For page-load or generation issues, see [The Page Will Not Open, Keeps Spinning, or Generation Fails](pathname:///en/docs/knowledge/web-generation-troubleshooting/).
+
+
 
 ## Step 2: Match the export format to your slicer
 
@@ -35,6 +53,12 @@ The slicer setting in Lumina controls both one-click launch and the project meta
   src={require('./assets/01-export-format.webp').default}
   alt="Real English Lumina Settings page showing slicer selection and the optional macOS manual path controls"
 />
+
+
+
+
+
+
 
 ## Step 3: Set a manual `.app` path on macOS if auto-detection misses it
 
@@ -57,6 +81,8 @@ Even a single extra space will cause validation to fail—for example, default m
 /Applications/Bambu Studio.app   ← fails validation (space in bundle name)
 /Applications/BambuStudio.app    ← valid installed .app bundle
 ```
+
+
 
 Check Finder on your own Mac for the exact filename. Once saved, Lumina uses this custom path to launch 3MF projects; click **Clear** at any time to revert to automatic detection.
 
@@ -96,6 +122,10 @@ Always open the downloaded `.3mf` directly without unzipping, editing internal f
 - **Rejected by all slicers**: generate a fresh copy, compare file sizes, and keep the untouched failing `.3mf` for support.
 - **Opens without objects, filaments, or presets**: reopen via **File → Open Project** and select full project import.
 
+
+
+
+
 ## Common messages and actions
 
 | Message or symptom | Recommended action |
@@ -108,6 +138,18 @@ Always open the downloaded `.3mf` directly without unzipping, editing internal f
 | Preparing a launch copy failed | Check free disk space and folder permissions, or download and open manually |
 | Slicer starts but no project loads | Let the slicer finish starting up, then click open again or use **File → Open Project** |
 | Project opens with missing materials or objects | Reopen as a complete project and confirm the export format matches your slicer |
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Step 6: Verify filament mapping before printing
 

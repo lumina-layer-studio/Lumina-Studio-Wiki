@@ -1,0 +1,423 @@
+[metadata]
+reviewed_source = "eebb453a780351d9e977327f0e176384d9445956107c9c35910cda2bc506f44c"
+
+[[block]]
+key = "a0e8667704e9094a"
+type = "yaml"
+origin = '''
+---
+title: "设备与切片软件"
+description: "切片软件、打印机型号、喷嘴尺寸、设备配置、打印板与手动切片软件路径的协同规则。"
+sidebar_position: 1
+---
+'''
+translate = '''
+---
+title: "Device and Slicer"
+description: "How slicer, printer model, nozzle size, device profile, build plate, and manual slicer path settings work together."
+sidebar_position: 1
+---
+'''
+
+[[block]]
+key = "9afe3681ece4afa9"
+type = "heading"
+origin = '''
+# 设备与切片软件
+'''
+translate = '''
+# Device and Slicer
+'''
+
+[[block]]
+key = "1c8639f9239ef61f"
+type = "paragraph"
+origin = '''
+系统设置中的设备选项决定 Lumina Studio 如何封装 3MF 工程，以及生成后调用哪个切片软件打开文件。请按照你实际使用的切片软件、打印机型号与已安装的喷嘴规格进行配置。
+'''
+translate = '''
+Device settings determine how Lumina Studio structures exported 3MF files and which slicer opens them after generation. Select the slicer, printer model, and installed nozzle size that match your actual hardware setup.
+'''
+
+[[block]]
+key = "a73f9cb2ddd15655"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-device-slicer.webp').default}
+  alt="Lumina Studio 的切片软件与打印设备设置"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-device-slicer.webp').default}
+  alt="Slicer and printing-device settings in Lumina Studio"
+/>
+'''
+
+[[block]]
+key = "c077f20169b3b200"
+type = "heading"
+origin = '''
+## 各选项的联动关系
+'''
+translate = '''
+## How the settings work together
+'''
+
+[[block]]
+key = "518cead5b170fee2"
+type = "list"
+composite = true
+origin = '''
+{{518cead5b170fee2-7317cbc353a12475}}
+{{518cead5b170fee2-8f18135e2218c213}}
+{{518cead5b170fee2-eb709c14dacf163a}}
+{{518cead5b170fee2-de56fdc78e4779b3}}
+{{518cead5b170fee2-4ae0aaf74b9f3dbc}}
+'''
+translate = '''
+{{518cead5b170fee2-7317cbc353a12475}}
+{{518cead5b170fee2-8f18135e2218c213}}
+{{518cead5b170fee2-eb709c14dacf163a}}
+{{518cead5b170fee2-de56fdc78e4779b3}}
+{{518cead5b170fee2-4ae0aaf74b9f3dbc}}
+'''
+
+[[block]]
+key = "518cead5b170fee2-7317cbc353a12475"
+type = "listItem"
+composite = true
+origin = '''
+1. {{518cead5b170fee2-7317cbc353a12475-bfc9b4e79dc6aaba}}
+'''
+translate = '''
+1. {{518cead5b170fee2-7317cbc353a12475-bfc9b4e79dc6aaba}}
+'''
+
+[[block]]
+key = "518cead5b170fee2-7317cbc353a12475-bfc9b4e79dc6aaba"
+type = "paragraph"
+origin = '''
+**切片软件：** 决定可选打印机列表及 3MF 输出适配格式。
+'''
+translate = '''
+**Slicer Software** sets the compatible printer list and 3MF output adapter.
+'''
+
+[[block]]
+key = "518cead5b170fee2-8f18135e2218c213"
+type = "listItem"
+composite = true
+origin = '''
+2. {{518cead5b170fee2-8f18135e2218c213-df740485a0223e43}}
+'''
+translate = '''
+2. {{518cead5b170fee2-8f18135e2218c213-df740485a0223e43}}
+'''
+
+[[block]]
+key = "518cead5b170fee2-8f18135e2218c213-df740485a0223e43"
+type = "paragraph"
+origin = '''
+**打印机型号：** 决定热床尺寸、多色能力与可用的设备配置。
+'''
+translate = '''
+**Printer Model** defines build volume, machine capabilities, and available device profiles.
+'''
+
+[[block]]
+key = "518cead5b170fee2-eb709c14dacf163a"
+type = "listItem"
+composite = true
+origin = '''
+3. {{518cead5b170fee2-eb709c14dacf163a-4a87a27c7ff05600}}
+'''
+translate = '''
+3. {{518cead5b170fee2-eb709c14dacf163a-4a87a27c7ff05600}}
+'''
+
+[[block]]
+key = "518cead5b170fee2-eb709c14dacf163a-4a87a27c7ff05600"
+type = "paragraph"
+origin = '''
+**喷嘴尺寸：** 参与模型细节精度、线宽及部分层高参数的计算。
+'''
+translate = '''
+**Nozzle Size** drives model resolution, line width, and variable layer-height calculations.
+'''
+
+[[block]]
+key = "518cead5b170fee2-de56fdc78e4779b3"
+type = "listItem"
+composite = true
+origin = '''
+4. {{518cead5b170fee2-de56fdc78e4779b3-65c04b81d311a260}}
+'''
+translate = '''
+4. {{518cead5b170fee2-de56fdc78e4779b3-65c04b81d311a260}}
+'''
+
+[[block]]
+key = "518cead5b170fee2-de56fdc78e4779b3-65c04b81d311a260"
+type = "paragraph"
+origin = '''
+**设备配置：** 区分同一机型下的不同喷头或硬件变体。
+'''
+translate = '''
+**Device Profile** selects specific hardware or toolhead variants of the same printer.
+'''
+
+[[block]]
+key = "518cead5b170fee2-4ae0aaf74b9f3dbc"
+type = "listItem"
+composite = true
+origin = '''
+5. {{518cead5b170fee2-4ae0aaf74b9f3dbc-e2fc043881a91e94}}
+'''
+translate = '''
+5. {{518cead5b170fee2-4ae0aaf74b9f3dbc-e2fc043881a91e94}}
+'''
+
+[[block]]
+key = "518cead5b170fee2-4ae0aaf74b9f3dbc-e2fc043881a91e94"
+type = "paragraph"
+origin = '''
+**打印板：** 选择当前切片软件与机型支持的原生板型，并写入导出的 3MF。
+'''
+translate = '''
+**Build Plate** writes a native plate type supported by the active slicer and printer into the exported project.
+'''
+
+[[block]]
+key = "f8457dfa71ed47d1"
+type = "paragraph"
+origin = '''
+切换切片软件后，打印机列表会立即按兼容性重新筛选；若原先选中的机型、喷嘴或设备配置不在新列表内，Lumina Studio 会自动切到当前可用的有效选项。
+'''
+translate = '''
+Switching slicers immediately filters the printer list. If a previously selected printer, nozzle, or profile is unavailable under the new slicer, Lumina Studio automatically selects a valid option from the updated list.
+'''
+
+[[block]]
+key = "244c59022b5f1fb5"
+type = "paragraph"
+origin = '''
+更改上述任一设置后，此前导出的文件不再匹配新设备，请重新预览并生成 3MF。
+'''
+translate = '''
+After changing any device setting, run Preview and Generate again to export a 3MF configured for the new hardware.
+'''
+
+[[block]]
+key = "a82edb69d62e481a"
+type = "heading"
+origin = '''
+## 手动指定切片软件路径
+'''
+translate = '''
+## Manual slicer path
+'''
+
+[[block]]
+key = "ecc239ce94001f05"
+type = "paragraph"
+origin = '''
+在 macOS 上可手动填写切片软件的 `.app` 路径（如 `/Applications/Bambu Studio.app`）。点击“校验并保存”后，软件会先验证路径有效性；验证通过后，点击“在切片软件中打开”将优先调用该路径。
+'''
+translate = '''
+On macOS, you can specify an application path such as `/Applications/Bambu Studio.app`. Click **Validate & Save** to verify and store the path; once validated, Lumina uses it first when opening a generated 3MF in your slicer.
+'''
+
+[[block]]
+key = "957f1634b2a58e40"
+type = "paragraph"
+origin = '''
+手动路径仅指定打开文件所用的应用程序，请确保上方的“切片软件”下拉项仍与该软件类型一致，以便输出匹配的 3MF 格式。
+'''
+translate = '''
+Because the manual path only chooses which app launches the file, keep **Slicer Software** set to the matching slicer family so Lumina exports the right 3MF format.
+'''
+
+[[block]]
+key = "9544627af6640d8c"
+type = "admonition"
+composite = true
+origin = '''
+:::note[设备列表加载]
+{{9544627af6640d8c-fde83e2f93232fc3}}
+:::
+'''
+translate = '''
+:::note[Device list]
+{{9544627af6640d8c-fde83e2f93232fc3}}
+:::
+'''
+
+[[block]]
+key = "9544627af6640d8c-fde83e2f93232fc3"
+type = "paragraph"
+origin = '''
+设备列表读取自本机配置。若列表暂时为空，页面会自动重试；若持续无法加载，请检查本地后台服务与配置加载状态。
+'''
+translate = '''
+The local machine registry supplies the device list. If the list is temporarily empty, Lumina retries automatically; if it remains unavailable, check that the local backend service is running.
+'''
+
+[[block]]
+key = "8c8134dfac632a86"
+type = "heading"
+origin = '''
+## 生成前的耗材预设与打印板校验
+'''
+translate = '''
+## Filament presets and build-plate compatibility
+'''
+
+[[block]]
+key = "addb6f9a83d91451"
+type = "paragraph"
+origin = '''
+生成模型前，软件会检查原生耗材预设与所选打印板的兼容性。当某种材料对应多个原生预设时，可从候选列表中明确指定；若提示当前板型与材料不兼容，请调整打印板或耗材类型后再继续生成。
+'''
+translate = '''
+Before generation, Lumina checks native filament presets against the selected build plate. When a material matches multiple native presets, pick the specific preset you plan to print with; if a plate-compatibility warning appears, switch to a compatible build plate or filament type before continuing.
+'''
+
+[[block]]
+key = "d2b56b635f1a2d93"
+type = "paragraph"
+origin = '''
+由于不同材料预设的温度、流量与热床参数各不相同，请按实际装机的耗材类型选择。不同设备与喷嘴的偏好会分别保存，导出的工程也会记录对应的耗材配置。
+'''
+translate = '''
+Select presets that match the physical filaments loaded on your printer so nozzle temperatures, flow rates, and bed temperatures slice accurately. Preferences are saved per device and nozzle, and exported projects record the selected filament presets.
+'''
+
+[[block]]
+key = "ed5226967a4d7173"
+type = "heading"
+origin = '''
+## 自定义模板与擦料塔摆放
+'''
+translate = '''
+## Custom templates and wipe-tower placement
+'''
+
+[[block]]
+key = "307a7e1f334711ff"
+type = "paragraph"
+origin = '''
+如需沿用切片软件中调好的工艺参数，可导入[自定义 3MF 项目模板](../custom-3mf-template/custom-3mf-template.mdx)（模板需与当前选择的切片软件、打印机和喷嘴一致）。
+'''
+translate = '''
+To reuse process tuning from your slicer, import a [custom 3MF project template](../custom-3mf-template/custom-3mf-template.mdx) saved for the same slicer, printer, and nozzle.
+'''
+
+[[block]]
+key = "528bd657960dba90"
+type = "paragraph"
+origin = '''
+“擦料塔自动摆放”默认开启，由 Lumina 按当前设备尺寸自动排布模型与擦料塔；关闭后则保留模板原有的擦料塔位置参数，方便在切片软件中手动摆放。若导出时提示需人工核对摆放，请在切片软件中检查模型、裙边与擦料塔间距。
+'''
+translate = '''
+**Automatic wipe-tower placement** is enabled by default so Lumina positions the model and wipe tower for your active build plate; turn it off to keep the template's wipe-tower coordinates for manual arrangement in your slicer. Whenever Lumina flags a layout warning, check the object, brim, and wipe-tower clearance in your slicer before printing.
+'''
+
+[[block]]
+key = "00ae9c615e23bc11"
+type = "paragraph"
+origin = '''
+QIDI Studio、PrusaSlicer、Flash Studio 等不同切片器各自支持对应的机型、喷嘴规格与多色通道上限，切换切片软件后即可在下拉菜单中查看受支持的设备范围。
+'''
+translate = '''
+Integrations such as QIDI Studio, PrusaSlicer, and Flash Studio each support specific printer models, nozzle sizes, and multicolor channel limits—select a slicer to view its supported hardware in the dropdown menus.
+'''
+
+[[block]]
+key = "8e598e329cd91d51"
+type = "paragraph"
+origin = '''
+相关页面：
+'''
+translate = '''
+Related pages:
+'''
+
+[[block]]
+key = "75f6e192ac827de2"
+type = "list"
+composite = true
+origin = '''
+{{75f6e192ac827de2-f83092366df7e2d7}}
+{{75f6e192ac827de2-f8db2361bb92df80}}
+{{75f6e192ac827de2-c45547e6115d4f9d}}
+'''
+translate = '''
+{{75f6e192ac827de2-f83092366df7e2d7}}
+{{75f6e192ac827de2-f8db2361bb92df80}}
+{{75f6e192ac827de2-c45547e6115d4f9d}}
+'''
+
+[[block]]
+key = "75f6e192ac827de2-f83092366df7e2d7"
+type = "listItem"
+composite = true
+origin = '''
+- {{75f6e192ac827de2-f83092366df7e2d7-939c9e5ba2e01cc9}}
+'''
+translate = '''
+- {{75f6e192ac827de2-f83092366df7e2d7-939c9e5ba2e01cc9}}
+'''
+
+[[block]]
+key = "75f6e192ac827de2-f83092366df7e2d7-939c9e5ba2e01cc9"
+type = "paragraph"
+origin = '''
+[首次配置打印设备](../../../getting-started/device-setup/device-setup.mdx)
+'''
+translate = '''
+[First Device Setup](../../../getting-started/device-setup/device-setup.mdx)
+'''
+
+[[block]]
+key = "75f6e192ac827de2-f8db2361bb92df80"
+type = "listItem"
+composite = true
+origin = '''
+- {{75f6e192ac827de2-f8db2361bb92df80-624480a9faf0693a}}
+'''
+translate = '''
+- {{75f6e192ac827de2-f8db2361bb92df80-624480a9faf0693a}}
+'''
+
+[[block]]
+key = "75f6e192ac827de2-f8db2361bb92df80-624480a9faf0693a"
+type = "paragraph"
+origin = '''
+[切片软件路径与无法打开 3MF](../../../knowledge/slicer-path-and-open-troubleshooting/slicer-path-and-open-troubleshooting.mdx)
+'''
+translate = '''
+[Slicer Path and 3MF Opening Troubleshooting](../../../knowledge/slicer-path-and-open-troubleshooting/slicer-path-and-open-troubleshooting.mdx)
+'''
+
+[[block]]
+key = "75f6e192ac827de2-c45547e6115d4f9d"
+type = "listItem"
+composite = true
+origin = '''
+- {{75f6e192ac827de2-c45547e6115d4f9d-08c7048819f46feb}}
+'''
+translate = '''
+- {{75f6e192ac827de2-c45547e6115d4f9d-08c7048819f46feb}}
+'''
+
+[[block]]
+key = "75f6e192ac827de2-c45547e6115d4f9d-08c7048819f46feb"
+type = "paragraph"
+origin = '''
+[底板层高修改器](../base-layer-modifier/base-layer-modifier.mdx)
+'''
+translate = '''
+[Base-plate Layer-height Modifier](../base-layer-modifier/base-layer-modifier.mdx)
+'''

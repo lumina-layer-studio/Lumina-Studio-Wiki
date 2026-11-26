@@ -1,0 +1,237 @@
+[metadata]
+reviewed_source = "9e48ba70f9c331d81d6d13fc1e5d7ecdb5c78a3952ed71063f1f437b5ab65c7e"
+
+[[block]]
+key = "442709afbdeb1bcd"
+type = "yaml"
+origin = '''
+---
+title: "预设"
+description: "保存、套用和管理常用转换参数，了解预设记录的内容与适用范围。"
+sidebar_position: 2.5
+---
+'''
+translate = '''
+---
+title: "Preset"
+description: "Save, apply, and manage conversion settings and understand what a preset contains."
+sidebar_position: 2.5
+---
+'''
+
+[[block]]
+key = "5e99368b69bcb950"
+type = "heading"
+origin = '''
+# 预设
+'''
+translate = '''
+# Preset
+'''
+
+[[block]]
+key = "6d7dff4091bcd2c8"
+type = "paragraph"
+origin = '''
+**预设**用于保存一组常用的转换参数。处理同类图片时，从下拉菜单中选择已保存的预设即可一键套用配置，省去逐项重复设置的步骤。该控件位于**图像转换 → 核心设置 → 图像导入和基础设置**中，介于图片上传区与色彩数据来源之间。
+'''
+translate = '''
+**Preset** saves your commonly used conversion settings so you can apply them to future images in a single click. Find **Preset** under **Converter → Core Settings → Image Import and Basic Settings**, located between the image upload area and the color source selector.
+'''
+
+[[block]]
+key = "c5c5697b500c97f9"
+type = "heading"
+origin = '''
+## 保存预设
+'''
+translate = '''
+## Save a preset
+'''
+
+[[block]]
+key = "af6cbdf76b839587"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-save-preset.webp').default}
+  alt="保存参数预设窗口中的名称、保存内容和可选设置"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-save-preset.webp').default}
+  alt="Save parameter preset dialog with its name, summary and optional setting groups"
+/>
+'''
+
+[[block]]
+key = "1ba9ba8e3748bb9b"
+type = "list"
+composite = true
+origin = '''
+{{1ba9ba8e3748bb9b-3344cd05451dca02}}
+{{1ba9ba8e3748bb9b-219e471baf11864a}}
+{{1ba9ba8e3748bb9b-8dbdc48e890863ed}}
+{{1ba9ba8e3748bb9b-773238b1d8ea0831}}
+'''
+translate = '''
+{{1ba9ba8e3748bb9b-3344cd05451dca02}}
+{{1ba9ba8e3748bb9b-219e471baf11864a}}
+{{1ba9ba8e3748bb9b-8dbdc48e890863ed}}
+{{1ba9ba8e3748bb9b-773238b1d8ea0831}}
+'''
+
+[[block]]
+key = "1ba9ba8e3748bb9b-3344cd05451dca02"
+type = "listItem"
+composite = true
+origin = '''
+1. {{1ba9ba8e3748bb9b-3344cd05451dca02-246bc079054f771f}}
+'''
+translate = '''
+1. {{1ba9ba8e3748bb9b-3344cd05451dca02-246bc079054f771f}}
+'''
+
+[[block]]
+key = "1ba9ba8e3748bb9b-3344cd05451dca02-246bc079054f771f"
+type = "paragraph"
+origin = '''
+先在基础设置中配好色彩数据来源、耗材或 LUT、目标尺寸、叠色层数、层高及单面／双面模式。
+'''
+translate = '''
+Configure your color source, filament profiles or LUTs, dimensions, layer count, layer height, and single- or double-sided mode.
+'''
+
+[[block]]
+key = "1ba9ba8e3748bb9b-219e471baf11864a"
+type = "listItem"
+composite = true
+origin = '''
+2. {{1ba9ba8e3748bb9b-219e471baf11864a-50189806e5df3bf0}}
+'''
+translate = '''
+2. {{1ba9ba8e3748bb9b-219e471baf11864a-50189806e5df3bf0}}
+'''
+
+[[block]]
+key = "1ba9ba8e3748bb9b-219e471baf11864a-50189806e5df3bf0"
+type = "paragraph"
+origin = '''
+点击**保存为预设**，输入 **1–40** 个字符的唯一名称（不可与已有预设重名）。
+'''
+translate = '''
+Click **Save as preset** and enter a unique name between **1–40** characters.
+'''
+
+[[block]]
+key = "1ba9ba8e3748bb9b-8dbdc48e890863ed"
+type = "listItem"
+composite = true
+origin = '''
+3. {{1ba9ba8e3748bb9b-8dbdc48e890863ed-bd9108f17ae4dafa}}
+'''
+translate = '''
+3. {{1ba9ba8e3748bb9b-8dbdc48e890863ed-bd9108f17ae4dafa}}
+'''
+
+[[block]]
+key = "1ba9ba8e3748bb9b-8dbdc48e890863ed-bd9108f17ae4dafa"
+type = "paragraph"
+origin = '''
+在**保存内容**中核对参数摘要，并按需勾选**高级设置**、**外轮廓**或**透明镀层**（这三组默认不勾选）。
+'''
+translate = '''
+Review **Settings to save**. **Advanced settings**, **Outline**, and **Coating** are optional and unchecked by default—check any group you want included.
+'''
+
+[[block]]
+key = "1ba9ba8e3748bb9b-773238b1d8ea0831"
+type = "listItem"
+composite = true
+origin = '''
+4. {{1ba9ba8e3748bb9b-773238b1d8ea0831-d04153e65b5f254f}}
+'''
+translate = '''
+4. {{1ba9ba8e3748bb9b-773238b1d8ea0831-d04153e65b5f254f}}
+'''
+
+[[block]]
+key = "1ba9ba8e3748bb9b-773238b1d8ea0831-d04153e65b5f254f"
+type = "paragraph"
+origin = '''
+点击**保存预设**完成创建。
+'''
+translate = '''
+Click **Save preset**.
+'''
+
+[[block]]
+key = "f1dd84cdd7f19b7b"
+type = "paragraph"
+origin = '''
+预设中的尺寸按图片的**长边**记录。例如保存长边为 `100 mm` 的预设后，无论套用到横图还是竖图，都会自动将新图片的长边设为 `100 mm`，并按原图宽高比计算短边尺寸。
+'''
+translate = '''
+Preset dimensions are stored using the image's **long edge**. For example, a `100 mm` preset sets the long edge to `100 mm` on both landscape and portrait images, calculating the shorter edge automatically from each image's aspect ratio.
+'''
+
+[[block]]
+key = "fe7123d4f6a7ee61"
+type = "heading"
+origin = '''
+## 套用与管理预设
+'''
+translate = '''
+## Apply and manage presets
+'''
+
+[[block]]
+key = "19e5309b69d77582"
+type = "paragraph"
+origin = '''
+在**预设**下拉菜单中点击预设名称即可套用；预设中未勾选保存的可选参数组会保留界面当前值。套用后请核对耗材与尺寸设置并重新点击**预览**；此前已导出的 3MF 文件不会自动更新。
+'''
+translate = '''
+Select any preset from the **Preset** dropdown menu to apply it. Optional setting groups omitted from that preset keep their current values. After applying a preset, verify your filaments and dimensions, then run **Preview** again—previously exported 3MF files are not updated automatically.
+'''
+
+[[block]]
+key = "e425170924e1f5fc"
+type = "paragraph"
+origin = '''
+套用预设后若手动改动了参数，状态会显示为**已修改**，原预设不会被自动覆盖；如需将新参数写回该预设，请点击**更新预设**。此外，还可在下拉菜单中对选中预设执行重命名或删除操作，删除预设不会清空当前面板上正在使用的参数。
+'''
+translate = '''
+Editing any setting after selecting a preset displays **Modified** without overwriting the saved preset; click **Update preset** to save your changes back to it. You can also rename or delete the selected preset from the dropdown menu without clearing the parameters currently active on screen.
+'''
+
+[[block]]
+key = "bc12c425c7b6f9f7"
+type = "paragraph"
+origin = '''
+菜单中的**上次使用**可恢复上一次转换时保存的设置；导入外部项目后，菜单中还会提供**当前项目参数**选项。
+'''
+translate = '''
+Choose **Last used** to restore the settings from your previous conversion session. When an external project is imported, the menu also includes **Current project settings**.
+'''
+
+[[block]]
+key = "ccd86fd90677015d"
+type = "heading"
+origin = '''
+## 预设与项目文件的区别
+'''
+translate = '''
+## Preset vs. project file
+'''
+
+[[block]]
+key = "378aee606010a085"
+type = "paragraph"
+origin = '''
+预设保存的是通用转换参数以及对所选耗材档案或 LUT 的引用，不包含原图、预览结果或局部颜色替换记录。跨设备使用同一预设时，请先确认目标设备上已安装对应的耗材档案或 LUT。若需完整备份或向他人分享某件具体作品，请连同原图一起保存，并使用[分享卡与 JSON：导出、导入和继续编辑](../../../knowledge/share-card-json/share-card-json.mdx)。
+'''
+translate = '''
+A preset stores reusable conversion parameters and references to selected filament profiles or LUTs—it does not embed source artwork, previews, or local color edits. When using a preset on another computer, make sure the referenced filament profiles or LUTs are available there. To archive or share a specific piece of artwork with its exact recipe, keep the source image or export a project file as described in [Share Card and JSON](../../../knowledge/share-card-json/share-card-json.mdx).
+'''

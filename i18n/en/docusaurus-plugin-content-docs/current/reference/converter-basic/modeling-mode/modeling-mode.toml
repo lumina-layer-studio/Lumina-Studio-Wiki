@@ -1,0 +1,166 @@
+[metadata]
+reviewed_source = "68e4d2d63e2003f7a2c6daa00784010d06908180b79936454ec3e0f3d9613592"
+
+[[block]]
+key = "af86566ce37c2d80"
+type = "yaml"
+origin = '''
+---
+title: "建模模式"
+description: "说明高保真、像素艺术、矢量模式和验证色卡的处理方式、适用图像与可用条件。"
+sidebar_position: 9
+---
+'''
+translate = '''
+---
+title: "Modeling Mode"
+description: "Compare High-Fidelity, Pixel Art, Vector, and Color Card modes, including sampling resolution and input requirements."
+sidebar_position: 9
+---
+'''
+
+[[block]]
+key = "628018ec06792f05"
+type = "heading"
+origin = '''
+# 建模模式
+'''
+translate = '''
+# Modeling Mode
+'''
+
+[[block]]
+key = "4412699698f75ce4"
+type = "paragraph"
+origin = '''
+**建模模式**决定 Lumina Studio 如何采样原图、处理边缘并生成三维模型几何。它与“色彩数据来源”分工不同：色彩数据来源提供可用的叠色配方，建模模式决定如何将画面结构转换为色块与模型实体。
+'''
+translate = '''
+**Modeling Mode** controls how Lumina Studio samples your artwork, handles edges, and builds 3D geometry. It works alongside **Color Data Source**: the data source supplies printable filament recipes, while the modeling mode determines how image structure becomes color regions and mesh geometry.
+'''
+
+[[block]]
+key = "9be4b4c9ad607f55"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-modeling-mode.webp').default}
+  alt="Lumina Studio 的四种建模模式"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-modeling-mode.webp').default}
+  alt="The four Modeling Mode options in Lumina Studio"
+/>
+'''
+
+[[block]]
+key = "daafdb7eee524ba4"
+type = "heading"
+origin = '''
+## 高保真
+'''
+translate = '''
+## High-Fidelity
+'''
+
+[[block]]
+key = "4978e8d36ed9edc7"
+type = "paragraph"
+origin = '''
+位图按约 10 px/mm 建立采样网格，先执行保边平滑处理，再按“量化颜色数”聚类并匹配叠色配方。适合照片、插画、自然渐变以及带有细小轮廓的常规图片。
+'''
+translate = '''
+Samples raster images at roughly 10 px/mm, applies edge-preserving smoothing, and clusters colors within your **Quantize Colors** budget before matching recipes. Best suited for photographs, illustrations, smooth gradients, and detailed everyday artwork.
+'''
+
+[[block]]
+key = "759ae9237989263c"
+type = "heading"
+origin = '''
+## 像素艺术
+'''
+translate = '''
+## Pixel Art
+'''
+
+[[block]]
+key = "5666d21124e07b47"
+type = "paragraph"
+origin = '''
+按喷嘴线宽建立像素网格，采用最近邻缩放以完整保留硬朗边缘，不做平滑过渡。当可见颜色数未超过“量化颜色数”上限时，直接保留原有色板；超出上限时再对像素颜色做量化归并。适合像素画、点阵图标以及需要每个色块对应清晰打印单元的图像。
+'''
+translate = '''
+Scales the grid to the nozzle width and uses nearest-neighbor resizing to keep crisp, unsmoothed pixel edges. When the visible palette already fits within **Quantize Colors**, original colors are preserved as-is; otherwise pixels are quantized directly without High-Fidelity smoothing. Ideal for pixel art, sprites, and graphics with sharp block boundaries.
+'''
+
+[[block]]
+key = "b1ee58465da278e3"
+type = "heading"
+origin = '''
+## 矢量模式
+'''
+translate = '''
+## Vector
+'''
+
+[[block]]
+key = "98fabe7729d265d7"
+type = "paragraph"
+origin = '''
+仅上传 SVG 时可选；上传位图时该项不可用。软件直接依据 SVG 中的路径形状、填充和描边生成三维几何，相关细节可在矢量与轮廓设置中调整。
+'''
+translate = '''
+Available only when an SVG is uploaded; unavailable for raster images. Lumina Studio builds 3D geometry directly from the SVG shapes, fills, and strokes.
+'''
+
+[[block]]
+key = "21b58ad162780a4e"
+type = "heading"
+origin = '''
+## 验证色卡
+'''
+translate = '''
+## Color Card
+'''
+
+[[block]]
+key = "5442487c8c70c67c"
+type = "paragraph"
+origin = '''
+根据当前选定的色彩配方直接生成标准校验色块模型，供你在正式打印作品前实打核对耗材的真实显色效果。
+'''
+translate = '''
+Generates a calibration swatch model from the active color recipes so you can test-print and verify actual filament colors before printing full artwork.
+'''
+
+[[block]]
+key = "cbb4045245af2bb0"
+type = "heading"
+origin = '''
+## 如何选择
+'''
+translate = '''
+## Choosing a Mode
+'''
+
+[[block]]
+key = "743bea195e3326bb"
+type = "paragraph"
+origin = '''
+照片、插画和柔和渐变优先选**高保真**；硬边像素画或小尺寸色块图优先选**像素艺术**。实际清晰度同时受原图风格、成品尺寸与喷嘴线宽影响，可在相同目标尺寸下分别预览对比，或参阅[位图与矢量图的区别](../../../knowledge/bitmap-vs-vector/bitmap-vs-vector.mdx)与[模式选择](../../../knowledge/image-mode-selection/image-mode-selection.mdx)。
+'''
+translate = '''
+Choose **High-Fidelity** for photos, illustrations, and smooth transitions, or **Pixel Art** for crisp pixel graphics where hard edges should remain intact. Because final detail depends on artwork style, target dimensions, and nozzle width, preview both modes at the same output size when in doubt. For further guidance, see [Bitmap vs vector](../../../knowledge/bitmap-vs-vector/bitmap-vs-vector.mdx) and [Choosing an image mode](../../../knowledge/image-mode-selection/image-mode-selection.mdx).
+'''
+
+[[block]]
+key = "b403d22a1567c1e4"
+type = "paragraph"
+origin = '''
+切换建模模式后，已生成的 3MF 将失效，需重新预览并生成模型。
+'''
+translate = '''
+Switching Modeling Mode clears any previously generated 3MF, so generate a fresh preview and model afterward.
+'''

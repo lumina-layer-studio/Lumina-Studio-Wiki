@@ -1,0 +1,194 @@
+[metadata]
+reviewed_source = "9102b1b3e61ab6d114d854a9694b29d1aaf2c90299e4d126a227ee1971dffd5c"
+
+[[block]]
+key = "10be20dfdba7396a"
+type = "yaml"
+origin = '''
+---
+title: "外轮廓"
+description: "从作品边界向外生成独立描边几何，以及宽度、透明镀层与素材透明通道的配合规则。"
+sidebar_position: 3
+---
+'''
+translate = '''
+---
+title: "Outline"
+description: "How Outline builds a separate border mesh from the artwork boundary and interacts with Transparent Coating and alpha channels."
+sidebar_position: 3
+---
+'''
+
+[[block]]
+key = "e3540481fe5daf4a"
+type = "heading"
+origin = '''
+# 外轮廓
+'''
+translate = '''
+# Outline
+'''
+
+[[block]]
+key = "c220a60c493c3e20"
+type = "paragraph"
+origin = '''
+外轮廓会沿作品的实体边界向外扩展，生成一圈独立的描边几何，适用于强化剪影轮廓、为不规则作品加框或增强挂件边缘强度。
+'''
+translate = '''
+Outline generates separate border geometry outside the solid boundary of your artwork. Use it to accentuate a silhouette, frame an irregular shape, or reinforce delicate edges.
+'''
+
+[[block]]
+key = "8c8b27b5079497e7"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-outline-settings.webp').default}
+  alt="Lumina Studio 的外轮廓设置面板"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-outline-settings.webp').default}
+  alt="Outline Settings in Lumina Studio"
+/>
+'''
+
+[[block]]
+key = "0017b790cd197772"
+type = "heading"
+origin = '''
+## 外轮廓宽度
+'''
+translate = '''
+## Outline Width
+'''
+
+[[block]]
+key = "1af4045c19a28ecb"
+type = "paragraph"
+origin = '''
+可调范围为 **0.5–10 mm**，步进 **0.5 mm**，表示从原始边界向外扩展的距离。调大宽度会填平狭窄凹槽并使细小转角更圆润；处理复杂剪影时，建议结合 3D 预览检查整体外形。
+'''
+translate = '''
+**Outline Width** ranges from **0.5–10 mm** in **0.5 mm** steps and sets the outward expansion distance from the original boundary. Larger values fill narrow notches and round off tight corners, so check the 3D view when working with intricate silhouettes.
+'''
+
+[[block]]
+key = "2dbfaa522a68a0e3"
+type = "paragraph"
+origin = '''
+轮廓边界提取自当前有效的实体或矢量几何：带透明背景的位图按透明通道形成剪影，SVG 则使用解析后的矢量边界。若素材没有有效边界，生成阶段将自动跳过外轮廓。
+'''
+translate = '''
+Lumina derives the boundary from the active solid or vector geometry: raster images with transparency use the alpha silhouette, while SVG files use parsed vector paths. If no usable boundary exists, no outline is generated.
+'''
+
+[[block]]
+key = "b42452bb8af61ac5"
+type = "heading"
+origin = '''
+## 与其他结构的配合
+'''
+translate = '''
+## Interaction with other features
+'''
+
+[[block]]
+key = "847c376208babb8e"
+type = "list"
+composite = true
+origin = '''
+{{847c376208babb8e-43348efb7c8bb1cb}}
+{{847c376208babb8e-bbf45d53573831c1}}
+{{847c376208babb8e-03f4682974e72e9e}}
+'''
+translate = '''
+{{847c376208babb8e-43348efb7c8bb1cb}}
+{{847c376208babb8e-bbf45d53573831c1}}
+{{847c376208babb8e-03f4682974e72e9e}}
+'''
+
+[[block]]
+key = "847c376208babb8e-43348efb7c8bb1cb"
+type = "listItem"
+composite = true
+origin = '''
+- {{847c376208babb8e-43348efb7c8bb1cb-2de6604b4354042c}}
+'''
+translate = '''
+- {{847c376208babb8e-43348efb7c8bb1cb-2de6604b4354042c}}
+'''
+
+[[block]]
+key = "847c376208babb8e-43348efb7c8bb1cb-2de6604b4354042c"
+type = "paragraph"
+origin = '''
+开启透明镀层时，外轮廓会同步向下延伸覆盖镀层厚度，使边缘保持齐平。
+'''
+translate = '''
+When Transparent Coating is enabled, the outline extends downward across the coating thickness to keep the outer edge flush.
+'''
+
+[[block]]
+key = "847c376208babb8e-bbf45d53573831c1"
+type = "listItem"
+composite = true
+origin = '''
+- {{847c376208babb8e-bbf45d53573831c1-26565af4ed5b3be5}}
+'''
+translate = '''
+- {{847c376208babb8e-bbf45d53573831c1-26565af4ed5b3be5}}
+'''
+
+[[block]]
+key = "847c376208babb8e-bbf45d53573831c1-26565af4ed5b3be5"
+type = "paragraph"
+origin = '''
+外轮廓可与分离底板同时启用，两者在 3MF 中各自作为独立对象保存。
+'''
+translate = '''
+Outline and Separate Backing can be used together and appear as separate objects in the 3MF.
+'''
+
+[[block]]
+key = "847c376208babb8e-03f4682974e72e9e"
+type = "listItem"
+composite = true
+origin = '''
+- {{847c376208babb8e-03f4682974e72e9e-ceb6a61ba155c236}}
+'''
+translate = '''
+- {{847c376208babb8e-03f4682974e72e9e-ceb6a61ba155c236}}
+'''
+
+[[block]]
+key = "847c376208babb8e-03f4682974e72e9e-ceb6a61ba155c236"
+type = "paragraph"
+origin = '''
+修改外轮廓宽度后需重新生成 3MF。
+'''
+translate = '''
+Regenerate the 3MF after changing **Outline Width**.
+'''
+
+[[block]]
+key = "c65fe89c8ce1cb40"
+type = "paragraph"
+origin = '''
+导入切片软件后，可在对象列表中确认外轮廓对象已生成，并切片检查细边、凹角与首层走线。若原图边缘带有半透明杂像素，建议先清理背景再生成，以获得干净利落的外圈。
+'''
+translate = '''
+After importing into your slicer, check the outline object and sliced first layers. If your artwork contains stray semi-transparent pixels near the edges, clean up the background beforehand for a crisp border.
+'''
+
+[[block]]
+key = "1bd6f8ebd1930b58"
+type = "paragraph"
+origin = '''
+相关页面：[透明镀层](../transparent-coating/transparent-coating.mdx)、[位图与矢量图的区别](../../../knowledge/bitmap-vs-vector/bitmap-vs-vector.mdx)。
+'''
+translate = '''
+Related: [Transparent Coating](../transparent-coating/transparent-coating.mdx) and [Bitmap vs vector](../../../knowledge/bitmap-vs-vector/bitmap-vs-vector.mdx).
+'''

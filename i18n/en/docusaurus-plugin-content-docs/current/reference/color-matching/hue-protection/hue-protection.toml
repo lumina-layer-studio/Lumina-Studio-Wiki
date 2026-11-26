@@ -1,0 +1,474 @@
+[metadata]
+migration_layout = "preserved English structure; root blocks retain grouped or omitted source sections"
+reviewed_source = "ae709fb600fe24d80b5d19ce42690543dba8b7dea719af248a779c4f051c4000"
+
+[[block]]
+key = "df78381782594e62"
+type = "yaml"
+origin = '''
+---
+title: "色相保护"
+description: "提高颜色匹配中的色相权重，改善蓝偏紫、红偏橙等跨色相偏色问题。"
+sidebar_position: 1
+---
+'''
+translate = '''
+---
+title: "Hue Protection"
+description: "Weight hue accuracy more heavily during color matching, adjust Dark Chroma Gate, and understand how Precise Color Matching interacts with it."
+sidebar_position: 1
+---
+'''
+
+[[block]]
+key = "768c505016d6e1f0"
+type = "heading"
+origin = '''
+# 色相保护
+'''
+translate = '''
+# Hue Protection
+'''
+
+[[block]]
+key = "227b9700226d8e6a"
+type = "paragraph"
+origin = '''
+“色相保护”用于抑制颜色匹配时的明显跨色相偏移。常规匹配以整体色差最小为优先，有时会把蓝色匹配成综合色差更接近的偏紫色，或把正红匹配成偏橙色；开启色相保护后，Lumina Studio 会加大色相偏离的惩罚权重，让匹配结果优先留在原本的色相范围内。
+'''
+translate = '''
+**Hue Protection** reduces noticeable hue shifts during color matching. Standard nearest-color matching minimizes overall CIELAB color difference, which can sometimes map a pure blue to a slightly purple recipe or a red to an orange one when total distance is smaller. Enabling **Hue Protection** increases the penalty for hue deviation so matches stay closer to the original hue family.
+'''
+
+[[block]]
+key = "1c6e6a191763f27b"
+type = "paragraph"
+origin = '''
+该选项仅调整候选颜色的排序权重，不会增减可用耗材、改变模型几何结构或修改切片参数。
+'''
+translate = '''
+This setting adjusts candidate ranking only—it does not add filaments, alter model geometry, or modify slicer settings.
+'''
+
+[[block]]
+key = "1da5546b7501b0ff"
+type = "heading"
+origin = '''
+## 开启方式
+'''
+translate = '''
+## Enable Hue Protection
+'''
+
+[[block]]
+key = "ce9487833a598bb4"
+type = "list"
+composite = true
+origin = '''
+{{ce9487833a598bb4-8a13f8fe278cdad3}}
+{{ce9487833a598bb4-28e4499c956f1eb0}}
+{{ce9487833a598bb4-3bc6a934b99fe417}}
+'''
+translate = '''
+1. Open **Converter → Core Settings → Advanced Settings**.
+2. Turn on **Hue Protection**.
+3. Rebuild the preview to apply the change.
+
+<img
+  src={require('./assets/01-hue-protection-location.webp').default}
+  alt="Hue Protection in Lumina Studio Advanced Settings"
+/>
+'''
+
+[[block]]
+key = "ce9487833a598bb4-8a13f8fe278cdad3"
+type = "listItem"
+composite = true
+origin = '''
+1. {{ce9487833a598bb4-8a13f8fe278cdad3-8b3d722994bb108f}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ce9487833a598bb4-8a13f8fe278cdad3-8b3d722994bb108f"
+type = "paragraph"
+origin = '''
+进入“图像转换 → 核心设置”，展开右侧“高级设置”。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ce9487833a598bb4-28e4499c956f1eb0"
+type = "listItem"
+composite = true
+origin = '''
+2. {{ce9487833a598bb4-28e4499c956f1eb0-9d825f7d838027d9}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ce9487833a598bb4-28e4499c956f1eb0-9d825f7d838027d9"
+type = "paragraph"
+origin = '''
+打开“色相保护”。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ce9487833a598bb4-3bc6a934b99fe417"
+type = "listItem"
+composite = true
+origin = '''
+3. {{ce9487833a598bb4-3bc6a934b99fe417-5debe389812c9bdc}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ce9487833a598bb4-3bc6a934b99fe417-5debe389812c9bdc"
+type = "paragraph"
+origin = '''
+重新生成预览以应用更改。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "5e5da28dfe02c0a8"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-enable-hue-protection.webp').default}
+  alt="Lumina Studio 高级设置中的色相保护开关位置"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "402185cf9fe0c30e"
+type = "paragraph"
+origin = '''
+开启后，下方会显示附属滑块[暗色彩度门槛](../dark-chroma-gate/dark-chroma-gate.mdx)，用于筛选进入无彩暗色候选池的暗部像素。其默认值为 **15**；特殊值 **0** 表示允许所有暗部像素进入无彩保护分支（而非关闭）。首次对比色相保护效果时，建议保持默认值 **15**，每次只改变一个变量。
+'''
+translate = '''
+Enabling the switch reveals the dependent [Dark Chroma Gate](../dark-chroma-gate/dark-chroma-gate.mdx) slider underneath, which controls which low-chroma dark pixels enter the neutral-dark candidate branch. Its default value is **15**; **0** is a special setting that routes all dark pixels into the neutral branch rather than turning it off. Leave the gate at **15** on your first pass so you can evaluate **Hue Protection** on its own.
+'''
+
+[[block]]
+key = "0c74b52a75a8cc5c"
+type = "heading"
+origin = '''
+## 匹配规则变化
+'''
+translate = '''
+## What changes during matching
+'''
+
+[[block]]
+key = "828fff4e84349f8e"
+type = "paragraph"
+origin = '''
+未开启色相保护时，系统主要按整体 CIELAB 色差挑选最近候选；开启后，系统在兼顾亮度与彩度的同时大幅提高色相角偏差的代价，优先选用同色系或邻近色相的配方。
+'''
+translate = '''
+With **Hue Protection** off, Lumina Studio ranks candidates primarily by overall CIELAB color distance. With **Hue Protection** on, lightness and chroma still factor into the score, but hue angle differences carry a higher cost, favoring recipes in the same or an adjacent hue family.
+'''
+
+[[block]]
+key = "fb3b6f35fbdd61ce"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/02-how-hue-protection-matches.webp').default}
+  alt="普通颜色匹配与开启色相保护后的候选颜色选择示意"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "266c9ae9c8a3807c"
+type = "paragraph"
+origin = '''
+上图展示了同一目标色在开启前后的候选选择倾向。实际打印颜色仍取决于当前 LUT、耗材档案与可用叠色配方；若调色板中本身缺少相近的蓝色系配方，软件仍只能从现有可达颜色中选取最接近的结果。
+'''
+translate = '''
+Matches remain bounded by the recipes available in your active LUT or Material Archive—if the palette has no close match in the target hue family, Lumina Studio selects the closest available recipe.
+'''
+
+[[block]]
+key = "c0be5164f1205e7f"
+type = "heading"
+origin = '''
+## 适用场景
+'''
+translate = '''
+## When to use it
+'''
+
+[[block]]
+key = "7377b82ad050da83"
+type = "paragraph"
+origin = '''
+当画面出现以下情况时，建议开启色相保护并对比预览：
+'''
+translate = '''
+Compare previews with **Hue Protection** enabled when:
+'''
+
+[[block]]
+key = "61c52de5eb28590d"
+type = "list"
+composite = true
+origin = '''
+{{61c52de5eb28590d-a666149199f11e50}}
+{{61c52de5eb28590d-827d762782c098dc}}
+{{61c52de5eb28590d-1f021672eb6fb115}}
+'''
+translate = '''
+- A recognizable red, blue, or green shifts into a neighboring hue family (such as blue turning violet or red turning orange);
+- Your artwork relies on distinct adjacent hues where color direction matters more than subtle lightness steps;
+- Your active LUT already contains a recipe in the right hue family that standard matching passed over.
+'''
+
+[[block]]
+key = "61c52de5eb28590d-a666149199f11e50"
+type = "listItem"
+composite = true
+origin = '''
+- {{61c52de5eb28590d-a666149199f11e50-ae3ae1dceeeec5ab}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "61c52de5eb28590d-a666149199f11e50-ae3ae1dceeeec5ab"
+type = "paragraph"
+origin = '''
+主体色相特征鲜明，但常规匹配出现了明显的红偏橙、蓝偏紫或绿偏黄；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "61c52de5eb28590d-827d762782c098dc"
+type = "listItem"
+composite = true
+origin = '''
+- {{61c52de5eb28590d-827d762782c098dc-00477c6edc2958b7}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "61c52de5eb28590d-827d762782c098dc-00477c6edc2958b7"
+type = "paragraph"
+origin = '''
+画面包含多组相近色块，保持色相准确比细微的明暗过渡更重要；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "61c52de5eb28590d-1f021672eb6fb115"
+type = "listItem"
+composite = true
+origin = '''
+- {{61c52de5eb28590d-1f021672eb6fb115-efe50d57d42fd633}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "61c52de5eb28590d-1f021672eb6fb115-efe50d57d42fd633"
+type = "paragraph"
+origin = '''
+当前 LUT 或耗材档案中明明存在同色系颜色，但常规匹配未将其选中。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4482fa97e2d5030c"
+type = "paragraph"
+origin = '''
+对于黑白灰图像、极低彩度画面，或当前耗材组合本就缺少目标色相的情况，开启前后的差异通常不大。
+'''
+translate = '''
+Grayscale artwork, low-chroma images, and palettes lacking the target hue will show little or no difference.
+'''
+
+[[block]]
+key = "b2c1f440c1cc4b06"
+type = "heading"
+origin = '''
+## 对比与导出检查
+'''
+translate = '''
+## Relationship with Precise Color Matching
+'''
+
+[[block]]
+key = "08e11c49bfcdee9b"
+type = "paragraph"
+origin = '''
+建议在开启前后各生成一次预览，同时观察主体色块与高光、阴影及渐变过渡区域，确认色相归正的同时没有引入明显的明暗断层。
+'''
+translate = '''
+**Hue Protection** and [Precise Color Matching](../precise-color-matching/precise-color-matching.mdx) are mutually exclusive. Turning on **Precise Color Matching** disables the **Hue Protection** toggle so only one candidate-selection rule applies at a time.
+
+<img
+  src={require('./assets/02-precise-disables-hue.webp').default}
+  alt="Hue Protection disabled while Precise Color Matching is enabled"
+/>
+'''
+
+[[block]]
+key = "9f68d67435856aa5"
+type = "paragraph"
+origin = '''
+确认预览无误后，请重新生成并下载 3MF 文件，再导入切片软件检查分层预览（此前导出的旧 3MF 文件不会随网页开关自动更新）。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7805a13aa0e6695e"
+type = "heading"
+origin = '''
+## 与高精度颜色匹配的关系
+'''
+translate = '''
+'''
+
+[[block]]
+key = "afb31e81cadce2eb"
+type = "paragraph"
+origin = '''
+“色相保护”与[高精度颜色匹配](../precise-color-matching/precise-color-matching.mdx)互斥。开启“高精度颜色匹配”后，“色相保护”开关会自动置灰停用，由约束量化接管颜色选择。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "5a481b149abbcfb5"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/03-disabled-by-precise-matching.webp').default}
+  alt="开启高精度颜色匹配后，色相保护开关自动变灰"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4475f2ec23605a6d"
+type = "paragraph"
+origin = '''
+如需对比两者的效果，请保持图像、LUT 及其他参数不变，按以下两组设置分别生成预览：
+'''
+translate = '''
+To compare the two approaches fairly, test each one separately while keeping the source image, LUT, and all other color controls unchanged.
+'''
+
+[[block]]
+key = "c797c2e771c2b19f"
+type = "list"
+composite = true
+origin = '''
+{{c797c2e771c2b19f-8b1f113b73c94839}}
+{{c797c2e771c2b19f-4f943f863c98bea0}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c797c2e771c2b19f-8b1f113b73c94839"
+type = "listItem"
+composite = true
+origin = '''
+1. {{c797c2e771c2b19f-8b1f113b73c94839-d4ae49cd56b56c0d}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c797c2e771c2b19f-8b1f113b73c94839-d4ae49cd56b56c0d"
+type = "paragraph"
+origin = '''
+关闭“高精度颜色匹配”，开启“色相保护”；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c797c2e771c2b19f-4f943f863c98bea0"
+type = "listItem"
+composite = true
+origin = '''
+2. {{c797c2e771c2b19f-4f943f863c98bea0-a371335bb1edd891}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c797c2e771c2b19f-4f943f863c98bea0-a371335bb1edd891"
+type = "paragraph"
+origin = '''
+关闭“色相保护”，开启“高精度颜色匹配”。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "3b30b685be5af364"
+type = "heading"
+origin = '''
+## 常见问题
+'''
+translate = '''
+## Checking the result
+'''
+
+[[block]]
+key = "baaedc62ef520149"
+type = "heading"
+origin = '''
+### 开启后为什么画面没有变化？
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a93e9b1f6c2c91ba"
+type = "paragraph"
+origin = '''
+请先确认已重新生成预览。若原图以黑白灰或低彩度色彩为主、常规匹配本就选中了同色相候选，或当前 LUT 与耗材档案中没有更接近目标色相的配方，结果都会保持不变。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1de966482fde4026"
+type = "heading"
+origin = '''
+### 开启后色相准了，但明暗略有变化，正常吗？
+'''
+translate = '''
+'''
+
+[[block]]
+key = "be2e696b057ae7c8"
+type = "paragraph"
+origin = '''
+正常。在有限的耗材叠层候选下，优先锁定色相有时需要牺牲少许亮度或彩度匹配度。若画面整体对明暗层次更敏感，可关闭色相保护回到常规匹配。
+'''
+translate = '''
+Inspect both key subject colors and surrounding highlights, shadows, and gradients before and after enabling the toggle. When finite recipes force a trade-off, tighter hue accuracy can slightly shift local lightness. Once the preview looks right, generate a fresh 3MF file before slicing—previously exported 3MF files do not update automatically.
+'''

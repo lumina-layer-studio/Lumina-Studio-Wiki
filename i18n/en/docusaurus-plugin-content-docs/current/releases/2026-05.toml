@@ -1,0 +1,863 @@
+[metadata]
+reviewed_source = "c15022abe9f169f5d3f269cc849c0fc824ee102bcbc8ebdd9d44b485980586d2"
+
+[[block]]
+key = "4568eee61c0f9a3b"
+type = "yaml"
+origin = '''
+---
+title: "2.0 开发月报：2026 年 5 月"
+description: "Lumina Studio 2.0 在 2026 年 5 月的完整开发进展"
+sidebar_position: 32
+---
+'''
+translate = '''
+---
+title: "2.0 Development Report: May 2026"
+description: "Complete Lumina Studio 2.0 development progress for May 2026"
+sidebar_position: 32
+---
+'''
+
+[[block]]
+key = "344131b8a3cd1625"
+type = "heading"
+origin = '''
+# Lumina Studio 2.0 开发月报：2026 年 5 月
+'''
+translate = '''
+# Lumina Studio 2.0 Development Report: May 2026
+'''
+
+[[block]]
+key = "0c76f0185620c1fe"
+type = "blockquote"
+composite = true
+origin = '''
+> {{0c76f0185620c1fe-7b501b4dd2dfac43}}
+'''
+translate = '''
+> {{0c76f0185620c1fe-7b501b4dd2dfac43}}
+'''
+
+[[block]]
+key = "0c76f0185620c1fe-7b501b4dd2dfac43"
+type = "paragraph"
+origin = '''
+本月合并 74 个 PR
+'''
+translate = '''
+74 pull requests merged
+'''
+
+[[block]]
+key = "fddaf229be3bbe23"
+type = "paragraph"
+origin = '''
+[← 2026 年 4 月](/zh/docs/releases/2026-04) · [更新日志总览](/zh/docs/releases/overview) · [2026 年 6 月 →](/zh/docs/releases/2026-06)
+'''
+translate = '''
+[← April 2026](/en/docs/releases/2026-04) · [Changelog overview](/en/docs/releases/overview) · [June 2026 →](/en/docs/releases/2026-06)
+'''
+
+[[block]]
+key = "b9afabb3581f03d0"
+type = "heading"
+origin = '''
+## 本月概览
+'''
+translate = '''
+## Monthly overview
+'''
+
+[[block]]
+key = "f15574c32683fc25"
+type = "paragraph"
+origin = '''
+5 月重点将 4 月搭建的新工作流打磨为完整的交付链路。材料档案、批量生成、SVG 透明与描边、3MF 封面缩略图、ColorChecker 校色以及 macOS 桌面体验全面补齐，确保预览效果与导出的 3MF 完全一致，并在切片软件中准确保留材料、工艺与底板参数。
+'''
+translate = '''
+May turned April's new workflows into complete, production-ready pipelines. Material profiles, batch generation, SVG transparency and outlines, 3MF cover thumbnails, ColorChecker calibration, and the macOS desktop experience were rounded out end to end—ensuring exported 3MF files match the preview while preserving material, process, and backing settings in slicers.
+'''
+
+[[block]]
+key = "3a0557c834aa45af"
+type = "heading"
+origin = '''
+## 重点更新
+'''
+translate = '''
+## Highlights
+'''
+
+[[block]]
+key = "d44de996556a99a2"
+type = "heading"
+origin = '''
+### 批量结果合并为单个 3MF
+'''
+translate = '''
+### Batch results merged into a single 3MF
+'''
+
+[[block]]
+key = "dcc72903c030235e"
+type = "paragraph"
+origin = '''
+批量生成可将全部成功模型自动排版到同一热床并合并导出为单个 3MF，完整保留工艺参数、底板层高修改器和材料信息。超大批次仅限制页面内的 3D 预览数量，导出的 3MF 仍包含全部模型。
+'''
+translate = '''
+Batch generation now arranges completed models onto a single build plate and exports one combined 3MF with process settings, backing layer-height modifiers, and material metadata. Very large batches cap the in-browser 3D preview count while keeping every model in the exported project.
+'''
+
+[[block]]
+key = "a7c209d8474ebefe"
+type = "heading"
+origin = '''
+### ColorChecker 集成至校准主流程
+'''
+translate = '''
+### ColorChecker integrated into calibration
+'''
+
+[[block]]
+key = "21b1f2f9b05039be"
+type = "paragraph"
+origin = '''
+ColorChecker 校色直接集成进提取器与梯度卡页面，支持导入自定义 XLSX 参考表，确认校色后自动衔接颜色提取或曲线拟合；同时修复了校色触发、设备配置预写与高度图一致性问题。
+'''
+translate = '''
+ColorChecker calibration now runs inline on the Extractor and Gradient Card pages. Users can import custom XLSX reference sheets and flow directly from confirmed color correction into extraction or curve fitting, alongside fixes for trigger reliability, device configuration, and heightmap consistency.
+'''
+
+[[block]]
+key = "0f974f070ce3264b"
+type = "heading"
+origin = '''
+### 所有 3MF 附带真实封面缩略图
+'''
+translate = '''
+### Accurate cover thumbnails in every 3MF
+'''
+
+[[block]]
+key = "79ff77e2813b9109"
+type = "paragraph"
+origin = '''
+位图和 SVG 导出的 3MF 均写入清晰的封面缩略图，解决 SVG 工程此前显示空白或错位分层色块的问题，方便在系统文件管理器和切片软件最近项目中直接辨认作品。
+'''
+translate = '''
+3MF files generated from both raster and SVG artwork now embed recognizable cover thumbnails. SVG exports no longer show blank white covers or mismatched layer patches in OS file managers and slicer recent-project lists.
+'''
+
+[[block]]
+key = "0b546d657bc08503"
+type = "heading"
+origin = '''
+### 更完整的材料与配方工作流
+'''
+translate = '''
+### Complete material and recipe workflow
+'''
+
+[[block]]
+key = "4e8768e3592f3dc5"
+type = "paragraph"
+origin = '''
+耗材按品牌分组展示，支持显式指定底板材料；配方查询新增待测队列与验证色块板，可一次收集多组配方并导出带图例的 3MF。材料档案完整保留纯色配方、真实槽位、观赏面层序及新增层，避免白色层或底板被意外替换。
+'''
+translate = '''
+Filaments are grouped by brand with explicit backing-material selection. Recipe lookup added a queue and validation-swatch board so multiple recipes can be collected and exported together as a labeled 3MF. Material profiles preserve solid base colors, physical slot assignments, viewing-face layer order, and added layers without unexpectedly overwriting white or backing layers.
+'''
+
+[[block]]
+key = "e8d45bee1f58c18e"
+type = "heading"
+origin = '''
+## 新功能
+'''
+translate = '''
+## New features
+'''
+
+[[block]]
+key = "b2b12da6c9d93a81"
+type = "list"
+composite = true
+origin = '''
+{{b2b12da6c9d93a81-310517e5da80a9b0}}
+{{b2b12da6c9d93a81-5701e333f5588239}}
+{{b2b12da6c9d93a81-be2744932b654283}}
+'''
+translate = '''
+{{b2b12da6c9d93a81-310517e5da80a9b0}}
+{{b2b12da6c9d93a81-5701e333f5588239}}
+{{b2b12da6c9d93a81-be2744932b654283}}
+'''
+
+[[block]]
+key = "b2b12da6c9d93a81-310517e5da80a9b0"
+type = "listItem"
+composite = true
+origin = '''
+- {{b2b12da6c9d93a81-310517e5da80a9b0-42e585e8748643a4}}
+'''
+translate = '''
+- {{b2b12da6c9d93a81-310517e5da80a9b0-42e585e8748643a4}}
+'''
+
+[[block]]
+key = "b2b12da6c9d93a81-310517e5da80a9b0-42e585e8748643a4"
+type = "paragraph"
+origin = '''
+高保真 SVG 新增精细度选项，保持默认效果不变的同时，支持在细节保留与生成速度之间按需调节。
+'''
+translate = '''
+High-Fidelity SVG conversion added a detail control for balancing fine detail against processing time while keeping the default behavior unchanged.
+'''
+
+[[block]]
+key = "b2b12da6c9d93a81-5701e333f5588239"
+type = "listItem"
+composite = true
+origin = '''
+- {{b2b12da6c9d93a81-5701e333f5588239-50d29d1321cfc2d2}}
+'''
+translate = '''
+- {{b2b12da6c9d93a81-5701e333f5588239-50d29d1321cfc2d2}}
+'''
+
+[[block]]
+key = "b2b12da6c9d93a81-5701e333f5588239-50d29d1321cfc2d2"
+type = "paragraph"
+origin = '''
+颜色工作站对不超过 10 色、5 层的调色板启用精确穷举匹配，并保持相近颜色在原图中的明暗相对顺序，减少渐变阶跃反转。
+'''
+translate = '''
+Color Workstation now uses exact exhaustive matching for palettes up to 10 colors and 5 layers while preserving source light-to-dark ordering across neighboring tones to prevent gradient inversions.
+'''
+
+[[block]]
+key = "b2b12da6c9d93a81-be2744932b654283"
+type = "listItem"
+composite = true
+origin = '''
+- {{b2b12da6c9d93a81-be2744932b654283-2908e9f3102e8ef5}}
+'''
+translate = '''
+- {{b2b12da6c9d93a81-be2744932b654283-2908e9f3102e8ef5}}
+'''
+
+[[block]]
+key = "b2b12da6c9d93a81-be2744932b654283-2908e9f3102e8ef5"
+type = "paragraph"
+origin = '''
+分享卡新增官网二维码与导入复现提示，方便接收者扫码查阅教程并在 Lumina 2.0 中直接还原参数。
+'''
+translate = '''
+Share cards added a documentation QR code and reimport note so recipients can find setup guides and reproduce the recipe directly in Lumina 2.0.
+'''
+
+[[block]]
+key = "f12d286538de4a85"
+type = "heading"
+origin = '''
+## 校准与材料
+'''
+translate = '''
+## Calibration and materials
+'''
+
+[[block]]
+key = "2d54588394770e78"
+type = "list"
+composite = true
+origin = '''
+{{2d54588394770e78-b4e511f92681d270}}
+{{2d54588394770e78-65c304d2deba7c86}}
+{{2d54588394770e78-f06f94d22335e7fa}}
+'''
+translate = '''
+{{2d54588394770e78-b4e511f92681d270}}
+{{2d54588394770e78-65c304d2deba7c86}}
+{{2d54588394770e78-f06f94d22335e7fa}}
+'''
+
+[[block]]
+key = "2d54588394770e78-b4e511f92681d270"
+type = "listItem"
+composite = true
+origin = '''
+- {{2d54588394770e78-b4e511f92681d270-43c1a92bb5973985}}
+'''
+translate = '''
+- {{2d54588394770e78-b4e511f92681d270-43c1a92bb5973985}}
+'''
+
+[[block]]
+key = "2d54588394770e78-b4e511f92681d270-43c1a92bb5973985"
+type = "paragraph"
+origin = '''
+校准板色块尺寸支持 5.5 mm 等小数值；6 色 LUT 与校准板直接复用 Smart1296 预计算配方，免去重复现场求解。
+'''
+translate = '''
+Calibration patches now accept fractional dimensions such as 5.5 mm, and 6-color LUT/calibration workflows reuse precomputed Smart1296 recipes instead of solving them from scratch each time.
+'''
+
+[[block]]
+key = "2d54588394770e78-65c304d2deba7c86"
+type = "listItem"
+composite = true
+origin = '''
+- {{2d54588394770e78-65c304d2deba7c86-009da925c72ce662}}
+'''
+translate = '''
+- {{2d54588394770e78-65c304d2deba7c86-009da925c72ce662}}
+'''
+
+[[block]]
+key = "2d54588394770e78-65c304d2deba7c86-009da925c72ce662"
+type = "paragraph"
+origin = '''
+PETG 槽位、辅助对象、单阶段色卡和挂件环完整写入真实材料名与打印温度，导入 Bambu Studio 或 OrcaSlicer 后不再退回默认 PLA。
+'''
+translate = '''
+PETG slots, auxiliary objects, single-stage cards, and keychain loops carry accurate filament names and nozzle/bed temperatures into Bambu Studio and OrcaSlicer instead of reverting to generic PLA.
+'''
+
+[[block]]
+key = "2d54588394770e78-f06f94d22335e7fa"
+type = "listItem"
+composite = true
+origin = '''
+- {{2d54588394770e78-f06f94d22335e7fa-c7d3431a6daab84a}}
+'''
+translate = '''
+- {{2d54588394770e78-f06f94d22335e7fa-c7d3431a6daab84a}}
+'''
+
+[[block]]
+key = "2d54588394770e78-f06f94d22335e7fa-c7d3431a6daab84a"
+type = "paragraph"
+origin = '''
+更新彩多屋梯度卡测量数据，新增 BIQU PLA 多色材料档案；配方查询与验证色块统一按观赏面层序优先展示。
+'''
+translate = '''
+Updated Caiduowu gradient-card measurements, added BIQU PLA multicolor material profiles, and standardized recipe lookup and validation swatches around viewing-face order.
+'''
+
+[[block]]
+key = "ad9ea4e91bbd4e68"
+type = "heading"
+origin = '''
+## 矢量化与建模
+'''
+translate = '''
+## Vectorization and modeling
+'''
+
+[[block]]
+key = "ef7e7fdfd63f5757"
+type = "list"
+composite = true
+origin = '''
+{{ef7e7fdfd63f5757-67ffed88760e9f30}}
+{{ef7e7fdfd63f5757-b02d4a906ba44671}}
+{{ef7e7fdfd63f5757-b172e2d4289254b4}}
+'''
+translate = '''
+{{ef7e7fdfd63f5757-67ffed88760e9f30}}
+{{ef7e7fdfd63f5757-b02d4a906ba44671}}
+{{ef7e7fdfd63f5757-b172e2d4289254b4}}
+'''
+
+[[block]]
+key = "ef7e7fdfd63f5757-67ffed88760e9f30"
+type = "listItem"
+composite = true
+origin = '''
+- {{ef7e7fdfd63f5757-67ffed88760e9f30-d9fb32b5d92312a6}}
+'''
+translate = '''
+- {{ef7e7fdfd63f5757-67ffed88760e9f30-d9fb32b5d92312a6}}
+'''
+
+[[block]]
+key = "ef7e7fdfd63f5757-67ffed88760e9f30-d9fb32b5d92312a6"
+type = "paragraph"
+origin = '''
+修复 SVG 透明背景、白色镂空及非零填充规则被误判为黑色实体的问题，大幅减少小图边缘与抗锯齿区域的杂色。
+'''
+translate = '''
+Fixed SVG transparency, white cutouts, and nonzero fill rules being misread as black solids, eliminating stray edge artifacts on small icons and antialiased borders.
+'''
+
+[[block]]
+key = "ef7e7fdfd63f5757-b02d4a906ba44671"
+type = "listItem"
+composite = true
+origin = '''
+- {{ef7e7fdfd63f5757-b02d4a906ba44671-16dd1fbcdc9b7c8b}}
+'''
+translate = '''
+- {{ef7e7fdfd63f5757-b02d4a906ba44671-16dd1fbcdc9b7c8b}}
+'''
+
+[[block]]
+key = "ef7e7fdfd63f5757-b02d4a906ba44671-16dd1fbcdc9b7c8b"
+type = "paragraph"
+origin = '''
+统一 SVG 涂层、描边、底板与单面模型朝向在预览和导出中的表现，描边宽度准确写入导出的 3MF。
+'''
+translate = '''
+Aligned SVG coating, outlines, backing, and single-sided face orientation between preview and export, writing accurate outline widths into the 3MF.
+'''
+
+[[block]]
+key = "ef7e7fdfd63f5757-b172e2d4289254b4"
+type = "listItem"
+composite = true
+origin = '''
+- {{ef7e7fdfd63f5757-b172e2d4289254b4-f7c2accd52ebd926}}
+'''
+translate = '''
+- {{ef7e7fdfd63f5757-b172e2d4289254b4-f7c2accd52ebd926}}
+'''
+
+[[block]]
+key = "ef7e7fdfd63f5757-b172e2d4289254b4-f7c2accd52ebd926"
+type = "paragraph"
+origin = '''
+材料档案的额外配方层、渐变色与大画幅上下文完整带入最终生成，避免回退为首槽材料或丢失层数。
+'''
+translate = '''
+Preserved extra recipe layers, gradient colors, and large-format material-profile context through final generation without reverting to the first slot or dropping layers.
+'''
+
+[[block]]
+key = "8b0b7544b72086da"
+type = "heading"
+origin = '''
+## 预览与交互
+'''
+translate = '''
+## Preview and interaction
+'''
+
+[[block]]
+key = "2f28ddb433175377"
+type = "list"
+composite = true
+origin = '''
+{{2f28ddb433175377-b3ed7f51c7e80413}}
+{{2f28ddb433175377-844d3c64ebe4c733}}
+'''
+translate = '''
+{{2f28ddb433175377-b3ed7f51c7e80413}}
+{{2f28ddb433175377-844d3c64ebe4c733}}
+'''
+
+[[block]]
+key = "2f28ddb433175377-b3ed7f51c7e80413"
+type = "listItem"
+composite = true
+origin = '''
+- {{2f28ddb433175377-b3ed7f51c7e80413-7a8f819577eaf030}}
+'''
+translate = '''
+- {{2f28ddb433175377-b3ed7f51c7e80413-7a8f819577eaf030}}
+'''
+
+[[block]]
+key = "2f28ddb433175377-b3ed7f51c7e80413-7a8f819577eaf030"
+type = "paragraph"
+origin = '''
+透明区域统一采用棋盘格背景显示；首次 SVG 预览即呈现完整底板，生成后继续保留像素级混色预览。
+'''
+translate = '''
+Standardized checkerboard rendering for transparent areas; initial SVG previews now show the full backing plate while post-generation previews retain pixel-level optical color mixing.
+'''
+
+[[block]]
+key = "2f28ddb433175377-844d3c64ebe4c733"
+type = "listItem"
+composite = true
+origin = '''
+- {{2f28ddb433175377-844d3c64ebe4c733-d05ecc3e552f47dc}}
+'''
+translate = '''
+- {{2f28ddb433175377-844d3c64ebe4c733-d05ecc3e552f47dc}}
+'''
+
+[[block]]
+key = "2f28ddb433175377-844d3c64ebe4c733-d05ecc3e552f47dc"
+type = "paragraph"
+origin = '''
+完善 macOS 桌面版的启动退出流程、Dock 图标显示与本机切片软件扫描，遇到损坏的应用包时自动跳过并继续扫描其余切片器。
+'''
+translate = '''
+Improved macOS desktop startup and shutdown behavior, Dock icon display, and local slicer discovery that cleanly skips damaged `.app` bundles.
+'''
+
+[[block]]
+key = "987e344c1b7188c5"
+type = "heading"
+origin = '''
+## 问题反馈与稳定性
+'''
+translate = '''
+## Feedback and stability
+'''
+
+[[block]]
+key = "d03336b6f3ca2368"
+type = "list"
+composite = true
+origin = '''
+{{d03336b6f3ca2368-b0a8b266396dfcf2}}
+{{d03336b6f3ca2368-7ebe03f957663bc0}}
+'''
+translate = '''
+{{d03336b6f3ca2368-b0a8b266396dfcf2}}
+{{d03336b6f3ca2368-7ebe03f957663bc0}}
+'''
+
+[[block]]
+key = "d03336b6f3ca2368-b0a8b266396dfcf2"
+type = "listItem"
+composite = true
+origin = '''
+- {{d03336b6f3ca2368-b0a8b266396dfcf2-91a117fd1de6603b}}
+'''
+translate = '''
+- {{d03336b6f3ca2368-b0a8b266396dfcf2-91a117fd1de6603b}}
+'''
+
+[[block]]
+key = "d03336b6f3ca2368-b0a8b266396dfcf2-91a117fd1de6603b"
+type = "paragraph"
+origin = '''
+Bug 反馈支持一并收集截图、原图、最终 3MF、LUT、耗材档案、底板选择、接口报错与近期操作记录，并在邮件或剪贴板受限时提供手动导出兜底。
+'''
+translate = '''
+Expanded bug reports to bundle screenshots, source artwork, exported 3MF files, LUTs, material profiles, backing choices, API errors, and recent actions, with manual export fallbacks when email or clipboard access is restricted.
+'''
+
+[[block]]
+key = "d03336b6f3ca2368-7ebe03f957663bc0"
+type = "listItem"
+composite = true
+origin = '''
+- {{d03336b6f3ca2368-7ebe03f957663bc0-a30c7354d0a0b9cd}}
+'''
+translate = '''
+- {{d03336b6f3ca2368-7ebe03f957663bc0-a30c7354d0a0b9cd}}
+'''
+
+[[block]]
+key = "d03336b6f3ca2368-7ebe03f957663bc0-a30c7354d0a0b9cd"
+type = "paragraph"
+origin = '''
+生成完成后即使切换 LUT、关闭源会话或可选预览生成失败，仍可正常下载 3MF/ZIP；分享卡、批量任务与材料缓存同步补齐失效与清理保护。
+'''
+translate = '''
+Kept 3MF and ZIP downloads available after switching LUTs, closing source sessions, or skipping optional previews, alongside safer cache invalidation for share cards, batches, and materials.
+'''
+
+[[block]]
+key = "d31eb325d81b59ff"
+type = "heading"
+origin = '''
+## 稳定性、性能与基础设施
+'''
+translate = '''
+## Stability, performance, and infrastructure
+'''
+
+[[block]]
+key = "c349c45510138c2c"
+type = "paragraph"
+origin = '''
+恢复完整前后端回归门禁，修复矢量精度边界、SVG 缓存、材料档案候选桶碰撞、测试隔离与外部参考资产缺失等问题，并完成新版实验性 3D 网格内核的初步接入（默认关闭）。
+'''
+translate = '''
+Restored full frontend and backend regression gates; resolved vector precision edge cases, SVG cache collisions, material-profile bucket collisions, test-isolation leaks, and missing reference assets; and wired an experimental 3D mesh kernel behind a disabled-by-default flag.
+'''
+
+[[block]]
+key = "2b7b84c0c28abaf9"
+type = "heading"
+origin = '''
+## 已知限制
+'''
+translate = '''
+## Known limitations
+'''
+
+[[block]]
+key = "155ff92ec3506c91"
+type = "list"
+composite = true
+origin = '''
+{{155ff92ec3506c91-f7ed05975f6eea98}}
+{{155ff92ec3506c91-073ea02f991f3d8a}}
+{{155ff92ec3506c91-400be17e792b7823}}
+'''
+translate = '''
+{{155ff92ec3506c91-f7ed05975f6eea98}}
+{{155ff92ec3506c91-073ea02f991f3d8a}}
+{{155ff92ec3506c91-400be17e792b7823}}
+'''
+
+[[block]]
+key = "155ff92ec3506c91-f7ed05975f6eea98"
+type = "listItem"
+composite = true
+origin = '''
+- {{155ff92ec3506c91-f7ed05975f6eea98-0d616a6503c94424}}
+'''
+translate = '''
+- {{155ff92ec3506c91-f7ed05975f6eea98-0d616a6503c94424}}
+'''
+
+[[block]]
+key = "155ff92ec3506c91-f7ed05975f6eea98-0d616a6503c94424"
+type = "paragraph"
+origin = '''
+新版 3D 网格内核仍为默认关闭的实验性路径。
+'''
+translate = '''
+The new 3D mesh kernel remained experimental and disabled by default.
+'''
+
+[[block]]
+key = "155ff92ec3506c91-073ea02f991f3d8a"
+type = "listItem"
+composite = true
+origin = '''
+- {{155ff92ec3506c91-073ea02f991f3d8a-b4f161785e630bb2}}
+'''
+translate = '''
+- {{155ff92ec3506c91-073ea02f991f3d8a-b4f161785e630bb2}}
+'''
+
+[[block]]
+key = "155ff92ec3506c91-073ea02f991f3d8a-b4f161785e630bb2"
+type = "paragraph"
+origin = '''
+大画幅 SVG 暂不支持全部描边组合，界面会根据当前模式自动限制不兼容项。
+'''
+translate = '''
+Large-format SVG did not yet support every outline combination; incompatible options are disabled automatically based on the active mode.
+'''
+
+[[block]]
+key = "155ff92ec3506c91-400be17e792b7823"
+type = "listItem"
+composite = true
+origin = '''
+- {{155ff92ec3506c91-400be17e792b7823-7072e2e5cb750f8f}}
+'''
+translate = '''
+- {{155ff92ec3506c91-400be17e792b7823-7072e2e5cb750f8f}}
+'''
+
+[[block]]
+key = "155ff92ec3506c91-400be17e792b7823-7072e2e5cb750f8f"
+type = "paragraph"
+origin = '''
+自定义 ColorChecker 参考表需符合标准表格结构并包含实测色块数据。
+'''
+translate = '''
+Custom ColorChecker spreadsheets require the expected column layout and measured patch values.
+'''
+
+[[block]]
+key = "fddaf229be3bbe23"
+type = "paragraph"
+origin = '''
+[← 2026 年 4 月](/zh/docs/releases/2026-04) · [更新日志总览](/zh/docs/releases/overview) · [2026 年 6 月 →](/zh/docs/releases/2026-06)
+'''
+translate = '''
+[← April 2026](/en/docs/releases/2026-04) · [Changelog overview](/en/docs/releases/overview) · [June 2026 →](/en/docs/releases/2026-06)
+'''
+
+[[block]]
+key = "369a6cb1fad7d550"
+type = "definition"
+origin = '''
+[devlog-entry:2026-05-batch-merged-3mf]: # "prs:147,180,198,199"
+'''
+translate = '''
+[devlog-entry:2026-05-batch-merged-3mf]: # "prs:147,180,198,199"
+'''
+
+[[block]]
+key = "47545179121d8f85"
+type = "definition"
+origin = '''
+[devlog-entry:2026-05-inline-colorchecker]: # "prs:172,179,182,191,209"
+'''
+translate = '''
+[devlog-entry:2026-05-inline-colorchecker]: # "prs:172,179,182,191,209"
+'''
+
+[[block]]
+key = "a9db830538f836df"
+type = "definition"
+origin = '''
+[devlog-entry:2026-05-3mf-cover-thumbnails]: # "prs:194,217"
+'''
+translate = '''
+[devlog-entry:2026-05-3mf-cover-thumbnails]: # "prs:194,217"
+'''
+
+[[block]]
+key = "550858a1d1eff3d3"
+type = "definition"
+origin = '''
+[devlog-entry:2026-05-material-recipe-workflow]: # "prs:150,153,155,163,166,170,175,189,191"
+'''
+translate = '''
+[devlog-entry:2026-05-material-recipe-workflow]: # "prs:150,153,155,163,166,170,175,189,191"
+'''
+
+[[block]]
+key = "3757421ee8c2e2c2"
+type = "definition"
+origin = '''
+[devlog-entry:2026-05-svg-sampling-density]: # "prs:188"
+'''
+translate = '''
+[devlog-entry:2026-05-svg-sampling-density]: # "prs:188"
+'''
+
+[[block]]
+key = "a965b74d2bce375a"
+type = "definition"
+origin = '''
+[devlog-entry:2026-05-exact-color-matching]: # "prs:203"
+'''
+translate = '''
+[devlog-entry:2026-05-exact-color-matching]: # "prs:203"
+'''
+
+[[block]]
+key = "39d0530323fe52f7"
+type = "definition"
+origin = '''
+[devlog-entry:2026-05-share-card-qr]: # "prs:207"
+'''
+translate = '''
+[devlog-entry:2026-05-share-card-qr]: # "prs:207"
+'''
+
+[[block]]
+key = "8b640f4790a91133"
+type = "definition"
+origin = '''
+[devlog-entry:2026-05-calibration-precision-cache]: # "prs:162,164"
+'''
+translate = '''
+[devlog-entry:2026-05-calibration-precision-cache]: # "prs:162,164"
+'''
+
+[[block]]
+key = "9f1adab609566ecc"
+type = "definition"
+origin = '''
+[devlog-entry:2026-05-material-metadata]: # "prs:159,167,183"
+'''
+translate = '''
+[devlog-entry:2026-05-material-metadata]: # "prs:159,167,183"
+'''
+
+[[block]]
+key = "9b7ea6782b0ef327"
+type = "definition"
+origin = '''
+[devlog-entry:2026-05-gradient-material-profiles]: # "prs:173,195,204"
+'''
+translate = '''
+[devlog-entry:2026-05-gradient-material-profiles]: # "prs:173,195,204"
+'''
+
+[[block]]
+key = "92e9fbb49b70ab8b"
+type = "definition"
+origin = '''
+[devlog-entry:2026-05-svg-transparency-cutouts]: # "prs:149,174,196,197,201"
+'''
+translate = '''
+[devlog-entry:2026-05-svg-transparency-cutouts]: # "prs:149,174,196,197,201"
+'''
+
+[[block]]
+key = "a9ada277701dab61"
+type = "definition"
+origin = '''
+[devlog-entry:2026-05-svg-coating-outline]: # "prs:148,157,158,213,215,216,218"
+'''
+translate = '''
+[devlog-entry:2026-05-svg-coating-outline]: # "prs:148,157,158,213,215,216,218"
+'''
+
+[[block]]
+key = "b3d98d82001c92c9"
+type = "definition"
+origin = '''
+[devlog-entry:2026-05-material-vector-layers]: # "prs:177,202,208"
+'''
+translate = '''
+[devlog-entry:2026-05-material-vector-layers]: # "prs:177,202,208"
+'''
+
+[[block]]
+key = "63a60fbdb9d06d91"
+type = "definition"
+origin = '''
+[devlog-entry:2026-05-preview-transparency-backing]: # "prs:197,203,213"
+'''
+translate = '''
+[devlog-entry:2026-05-preview-transparency-backing]: # "prs:197,203,213"
+'''
+
+[[block]]
+key = "5a5532288e410d80"
+type = "definition"
+origin = '''
+[devlog-entry:2026-05-macos-desktop-slicers]: # "prs:168,192"
+'''
+translate = '''
+[devlog-entry:2026-05-macos-desktop-slicers]: # "prs:168,192"
+'''
+
+[[block]]
+key = "f45e717328074e78"
+type = "definition"
+origin = '''
+[devlog-entry:2026-05-feedback-reproducibility]: # "prs:142,146,171,176,181,184"
+'''
+translate = '''
+[devlog-entry:2026-05-feedback-reproducibility]: # "prs:142,146,171,176,181,184"
+'''
+
+[[block]]
+key = "14f33812536cbfa9"
+type = "definition"
+origin = '''
+[devlog-entry:2026-05-download-cache-resilience]: # "prs:143,160,193"
+'''
+translate = '''
+[devlog-entry:2026-05-download-cache-resilience]: # "prs:143,160,193"
+'''
+
+[[block]]
+key = "3d53d52738d59785"
+type = "definition"
+origin = '''
+[devlog-entry:2026-05-engineering-foundation]: # "prs:143,144,145,151,152,154,156,161,165,169,178,185,187,193,200,205,206,210,212,214"
+'''
+translate = '''
+[devlog-entry:2026-05-engineering-foundation]: # "prs:143,144,145,151,152,154,156,161,165,169,178,185,187,193,200,205,206,210,212,214"
+'''

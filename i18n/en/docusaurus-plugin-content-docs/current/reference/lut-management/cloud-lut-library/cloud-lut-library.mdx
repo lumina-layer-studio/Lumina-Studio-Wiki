@@ -1,34 +1,38 @@
 ---
 title: "Cloud LUT Library"
-description: "Remote catalog, installation states, pagination, and offline behavior."
+description: "Find public calibration boards and recipe tables, preview multi-board LUTs, and add selected resources from the cloud or an offline pack."
 sidebar_position: 2
 ---
 
 # Cloud LUT Library
 
-Cloud LUT Library browses a configured remote catalog and installs selected LUT revisions into your local library. It is optional—when no remote catalog is configured or your machine is offline, local LUTs remain available as usual.
+The cloud LUT library provides calibrated multi-color recipe tables. Before using one, check its color mode, the actual filament assigned to every channel, layer count and layer height. Similar-looking preview colors do not establish a filament match.
 
-<img
-  src={require('./assets/01-cloud-library.webp').default}
-  alt="Cloud LUT Library with no remote catalog configured"
-/>
+## Find and download a LUT
 
-## Catalog state
+1. Select the cloud-library shortcut in the classic LUT picker, or open the cloud LUT library under LUT management.
+2. Filter by brand, name or color mode, then open an entry to inspect its boards and supporting information.
+3. Select **Download to local** and wait for the selected revision to finish installing.
+4. Return to the local LUT picker and confirm this LUT for use.
 
-The header displays **Cloud Items**, **Installed** count, **Remote** status or active channels, and loaded entry count, with **Refresh Catalog** on the right. Each request loads up to 100 items; when more items are available, **Load More** fetches the next batch and deduplicates entries by LUT ID and revision ID.
+The catalog first loads lightweight entries. Once loaded, search covers the full catalog. Pages use a baseline of 24 entries, adjusted to fill complete rows. Only the current page requests preview boards, and previously visited pages reuse cached previews. Search no longer depends on manually loading additional batches of entries.
 
-Each card reflects one of three local states:
+## Read the board preview
 
-- **Not installed:** No local copy of this LUT exists.
-- **Installed:** The displayed revision is already installed locally.
-- **Local revision available:** Another revision of the same LUT is installed locally.
+Previews arrange recipe colors in the file's print order, retaining empty cells and orientation markers. The five-color base and extension boards contain 32 × 32 and 38 × 38 cells respectively; the usual eight-color A and B boards each contain 37 × 37 cells. Matching outer dimensions do not imply matching recipe counts.
 
-Clicking **Install** downloads the listed revision, updates the card status, and adds the item to [LUT Library](../lut-library/lut-library.mdx).
+Multi-board LUTs appear as overlapping cards in the list. In the detail view, click the board itself to switch to the next one, or use touch, Enter or Space. The current board name and recipe count appear near the title. A file containing only one board shows only that board. Merged and custom LUTs display a recipe color table.
 
-## Search
+**No board preview data** means the entry has no supplied preview, not that a local file is corrupt. Failed preview requests can be retried in place. Browsing, switching boards and refreshing do not install a LUT; downloading adds the selected revision to the local library.
 
-Search matches display name, manufacturer, compatible color mode, channel, LUT ID, revision ID, and content hash across the catalog pages already loaded on screen. Load additional pages with **Load More** before searching if you need to look further down a large catalog.
+## Local revisions and offline packs
 
-:::note[Offline use]
-A “Cloud LUT registry is not configured” banner indicates that no `LUMINA_LUT_REGISTRY_URL` remote catalog URL has been set for this instance. You can continue working directly with your local LUT Library.
-:::
+**Installed** means the current revision is available locally. **Local version exists** means another revision of the same LUT is present. If an update conflicts with a personal file, Studio keeps the original and saves the new revision separately. When an older project is missing its original LUT, explicitly obtain or replace it; Studio does not substitute a similarly named file.
+
+With an offline resource pack available, select **Browse offline pack** to preview and add individual entries. Offline and cloud catalogs share resource identities. Adding a LUT from a pack does not install every LUT in it.
+
+## Names, saved resources and submissions
+
+Naming regions, brand logos and original names follow the same rules as the [Cloud Material Library](../../materials-and-recipes/cloud-material-library/cloud-material-library.mdx). A LUT may use different brands across its channels, so check each filament separately.
+
+Connect a community account to like and save resources, with the same saved list available across entry points. Submit your own calibration through **Share to public library**. LUT submissions require filament information for every channel; see [Community account, saved resources and submissions](../../materials-and-recipes/community-resources/community-resources.mdx).

@@ -1,0 +1,348 @@
+[metadata]
+reviewed_source = "d5d17921191d75430371c3b8b916aa14d7e8b546d6394099d1a19ad03dbeb802"
+
+[[block]]
+key = "5be6de5ee3a912fa"
+type = "yaml"
+origin = '''
+---
+title: "LUT 库"
+description: "本地 LUT 的来源分类、搜索、导入和详情入口。"
+sidebar_position: 1
+---
+'''
+translate = '''
+---
+title: "LUT Library"
+description: "Origin, search, import, and details entry points for local LUTs."
+sidebar_position: 1
+---
+'''
+
+[[block]]
+key = "93ecb14f85251cb9"
+type = "heading"
+origin = '''
+# LUT 库
+'''
+translate = '''
+# LUT Library
+'''
+
+[[block]]
+key = "d2fd2be816ff15eb"
+type = "paragraph"
+origin = '''
+LUT 库按制造商分组展示本地可用的全部传统查色表（LUT），涵盖软件内置预设、手动导入的自定义文件以及从云端安装的版本。
+'''
+translate = '''
+LUT Library displays all locally available traditional lookup tables (LUTs) grouped by manufacturer, including built-in presets, user-imported files, and revisions installed from the cloud catalog.
+'''
+
+[[block]]
+key = "46b35625fd6290ae"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-lut-library.webp').default}
+  alt="按制造商分组显示的本地 LUT 库"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-lut-library.webp').default}
+  alt="Local LUT Library grouped by manufacturer"
+/>
+'''
+
+[[block]]
+key = "dbd875160f6af2e4"
+type = "heading"
+origin = '''
+## 卡片信息
+'''
+translate = '''
+## Card fields
+'''
+
+[[block]]
+key = "e48a1ba88cf33539"
+type = "paragraph"
+origin = '''
+每张 LUT 卡片展示以下关键字段：
+'''
+translate = '''
+Each LUT card summarizes:
+'''
+
+[[block]]
+key = "af609a59f3b7d670"
+type = "list"
+composite = true
+origin = '''
+{{af609a59f3b7d670-28f9d554006808df}}
+{{af609a59f3b7d670-77a143f6e39894a5}}
+{{af609a59f3b7d670-f3f7910431200e14}}
+{{af609a59f3b7d670-db1e7713d8650820}}
+{{af609a59f3b7d670-48a554a7b40d2139}}
+'''
+translate = '''
+{{af609a59f3b7d670-28f9d554006808df}}
+{{af609a59f3b7d670-77a143f6e39894a5}}
+{{af609a59f3b7d670-f3f7910431200e14}}
+{{af609a59f3b7d670-db1e7713d8650820}}
+{{af609a59f3b7d670-48a554a7b40d2139}}
+'''
+
+[[block]]
+key = "af609a59f3b7d670-28f9d554006808df"
+type = "listItem"
+composite = true
+origin = '''
+- {{af609a59f3b7d670-28f9d554006808df-925b3a0115a2a4ad}}
+'''
+translate = '''
+- {{af609a59f3b7d670-28f9d554006808df-925b3a0115a2a4ad}}
+'''
+
+[[block]]
+key = "af609a59f3b7d670-28f9d554006808df-925b3a0115a2a4ad"
+type = "paragraph"
+origin = '''
+**名称与材料类型**：LUT 方案名称及适用耗材（如 `PLA`、`Basic`）。
+'''
+translate = '''
+**Name and material:** LUT profile name and filament type (such as `PLA` or `Basic`).
+'''
+
+[[block]]
+key = "af609a59f3b7d670-77a143f6e39894a5"
+type = "listItem"
+composite = true
+origin = '''
+- {{af609a59f3b7d670-77a143f6e39894a5-cc1d5a1ce47af4ee}}
+'''
+translate = '''
+- {{af609a59f3b7d670-77a143f6e39894a5-cc1d5a1ce47af4ee}}
+'''
+
+[[block]]
+key = "af609a59f3b7d670-77a143f6e39894a5-cc1d5a1ce47af4ee"
+type = "paragraph"
+origin = '''
+**颜色模式**：如 4 色、6 色或 8 色模式。
+'''
+translate = '''
+**Color Mode:** Supported multi-color configuration (such as 4-Color, 6-Color, or 8-Color Max).
+'''
+
+[[block]]
+key = "af609a59f3b7d670-f3f7910431200e14"
+type = "listItem"
+composite = true
+origin = '''
+- {{af609a59f3b7d670-f3f7910431200e14-4ec17f066158d7ca}}
+'''
+translate = '''
+- {{af609a59f3b7d670-f3f7910431200e14-4ec17f066158d7ca}}
+'''
+
+[[block]]
+key = "af609a59f3b7d670-f3f7910431200e14-4ec17f066158d7ca"
+type = "paragraph"
+origin = '''
+**来源类型**：如传统查表（`legacy_lookup`）。
+'''
+translate = '''
+**Source Kind:** Underlying LUT type, such as `legacy_lookup`.
+'''
+
+[[block]]
+key = "af609a59f3b7d670-db1e7713d8650820"
+type = "listItem"
+composite = true
+origin = '''
+- {{af609a59f3b7d670-db1e7713d8650820-95d9df11c29e33a9}}
+'''
+translate = '''
+- {{af609a59f3b7d670-db1e7713d8650820-95d9df11c29e33a9}}
+'''
+
+[[block]]
+key = "af609a59f3b7d670-db1e7713d8650820-95d9df11c29e33a9"
+type = "paragraph"
+origin = '''
+**路径与指纹**：库内相对引用路径及文件内容哈希指纹。
+'''
+translate = '''
+**Path and Fingerprint:** Portable library-relative reference and content hash.
+'''
+
+[[block]]
+key = "af609a59f3b7d670-48a554a7b40d2139"
+type = "listItem"
+composite = true
+origin = '''
+- {{af609a59f3b7d670-48a554a7b40d2139-83f3feaa8065db7a}}
+'''
+translate = '''
+- {{af609a59f3b7d670-48a554a7b40d2139-83f3feaa8065db7a}}
+'''
+
+[[block]]
+key = "af609a59f3b7d670-48a554a7b40d2139-83f3feaa8065db7a"
+type = "paragraph"
+origin = '''
+**来源标记**：区分**预设**、**自定义**或**云端**来源。
+'''
+translate = '''
+**Origin badge:** Marks whether the item comes from **Preset**, **Custom**, or **Cloud**.
+'''
+
+[[block]]
+key = "96a1e822bb27f395"
+type = "paragraph"
+origin = '''
+**指纹**根据文件内容计算生成，同名但数据不同的 LUT 会显示不同指纹；**路径**仅展示便携的库内相对引用，不包含本机磁盘目录。
+'''
+translate = '''
+**Fingerprint** is derived from the file contents, so two LUTs with the same name but different data carry distinct fingerprints. **Path** shows only the portable library reference rather than a machine-specific disk path.
+'''
+
+[[block]]
+key = "da0be491352b447a"
+type = "heading"
+origin = '''
+## 搜索与筛选
+'''
+translate = '''
+## Search
+'''
+
+[[block]]
+key = "e7f58c2c62dcd7da"
+type = "paragraph"
+origin = '''
+搜索框会同时匹配名称、制造商、材料、颜色模式、来源类型、路径和别名。输入多个以空格分隔的关键词时，条目需同时命中全部关键词（每个词至少匹配任一字段）才会显示。
+'''
+translate = '''
+Search matches name, manufacturer, material, color mode, source kind, path, and aliases simultaneously. When you enter multiple space-separated terms, every term must match at least one field on the card.
+'''
+
+[[block]]
+key = "a96baed99c2c065e"
+type = "heading"
+origin = '''
+## 导入与刷新
+'''
+translate = '''
+## Import and refresh
+'''
+
+[[block]]
+key = "e7647030baee1a44"
+type = "paragraph"
+origin = '''
+点击**导入 LUT 文件**可上传 `.npy`、`.json`、`.npz` 或 `.msgpack` 文件；上传完成后条目会归入自定义类别并自动更新列表。导入外部或早期格式的 LUT 后，建议点击卡片上的**查看详情**跳转至 [LUT 详情](../lut-details/lut-details.mdx)，核对颜色模式、调色板、层顺序与基础通道信息。
+'''
+translate = '''
+Click **Import LUT File** to upload `.npy`, `.json`, `.npz`, or `.msgpack` files; imported LUTs appear under the **Custom** count once the library refreshes. After importing an external or older LUT file, click **View Details** to open it in [LUT Details](../lut-details/lut-details.mdx) and verify its color mode, palette, layer order, and base channel.
+'''
+
+[[block]]
+key = "c4d15932caed3160"
+type = "paragraph"
+origin = '''
+点击**刷新本地库**会重新扫描本地存储目录以加载新增或变更的文件；若需拉取远程目录更新，请前往云端 LUT 库刷新。
+'''
+translate = '''
+**Refresh Library** rescans local storage for newly added or updated LUT files (use Cloud LUT Library when you want to fetch remote catalog updates).
+'''
+
+[[block]]
+key = "8e598e329cd91d51"
+type = "paragraph"
+origin = '''
+相关页面：
+'''
+translate = '''
+Related pages:
+'''
+
+[[block]]
+key = "956c0a6d55bdca78"
+type = "list"
+composite = true
+origin = '''
+{{956c0a6d55bdca78-1a6d106a74a3654b}}
+{{956c0a6d55bdca78-104f0afd30483154}}
+{{956c0a6d55bdca78-13a33ef4807b1763}}
+'''
+translate = '''
+{{956c0a6d55bdca78-1a6d106a74a3654b}}
+{{956c0a6d55bdca78-104f0afd30483154}}
+{{956c0a6d55bdca78-13a33ef4807b1763}}
+'''
+
+[[block]]
+key = "956c0a6d55bdca78-1a6d106a74a3654b"
+type = "listItem"
+composite = true
+origin = '''
+- {{956c0a6d55bdca78-1a6d106a74a3654b-8febcf22321c6fc4}}
+'''
+translate = '''
+- {{956c0a6d55bdca78-1a6d106a74a3654b-8febcf22321c6fc4}}
+'''
+
+[[block]]
+key = "956c0a6d55bdca78-1a6d106a74a3654b-8febcf22321c6fc4"
+type = "paragraph"
+origin = '''
+[传统 LUT 颜色来源](../../converter-basic/legacy-lut-source/legacy-lut-source.mdx)
+'''
+translate = '''
+[Traditional LUT Source](../../converter-basic/legacy-lut-source/legacy-lut-source.mdx)
+'''
+
+[[block]]
+key = "956c0a6d55bdca78-104f0afd30483154"
+type = "listItem"
+composite = true
+origin = '''
+- {{956c0a6d55bdca78-104f0afd30483154-8babad495c141216}}
+'''
+translate = '''
+- {{956c0a6d55bdca78-104f0afd30483154-8babad495c141216}}
+'''
+
+[[block]]
+key = "956c0a6d55bdca78-104f0afd30483154-8babad495c141216"
+type = "paragraph"
+origin = '''
+[云端 LUT 库](../cloud-lut-library/cloud-lut-library.mdx)
+'''
+translate = '''
+[Cloud LUT Library](../cloud-lut-library/cloud-lut-library.mdx)
+'''
+
+[[block]]
+key = "956c0a6d55bdca78-13a33ef4807b1763"
+type = "listItem"
+composite = true
+origin = '''
+- {{956c0a6d55bdca78-13a33ef4807b1763-e524710d29a6956e}}
+'''
+translate = '''
+- {{956c0a6d55bdca78-13a33ef4807b1763-e524710d29a6956e}}
+'''
+
+[[block]]
+key = "956c0a6d55bdca78-13a33ef4807b1763-e524710d29a6956e"
+type = "paragraph"
+origin = '''
+[LUT 对比](../lut-compare/lut-compare.mdx)
+'''
+translate = '''
+[LUT Compare](../lut-compare/lut-compare.mdx)
+'''

@@ -1,0 +1,313 @@
+[metadata]
+reviewed_source = "d6bd5acae808f887a62a81c2e2832f0fa4a5e0329fa54a1170a84d0602d45328"
+
+[[block]]
+key = "ad4e05679de8ab3b"
+type = "yaml"
+origin = '''
+---
+title: "反馈问题与诊断信息"
+description: "整理复现步骤、核对自动收集的诊断附件、查看工单编号与上传状态，以及提交失败时的处理方式。"
+sidebar_position: 3
+---
+'''
+translate = '''
+---
+title: "Report a bug and diagnostic information"
+description: "Write clear reproduction steps, review collected diagnostic files, track ticket upload status, and use fallback submission options."
+sidebar_position: 3
+---
+'''
+
+[[block]]
+key = "8beff2117813b42c"
+type = "heading"
+origin = '''
+# 反馈问题与诊断信息
+'''
+translate = '''
+# Report a bug and diagnostic information
+'''
+
+[[block]]
+key = "19d9c9a94980f2f4"
+type = "paragraph"
+origin = '''
+遇到生成失败、预览异常或操作结果不符合预期时，可从顶栏打开“反馈问题”。软件会自动打包当前任务的诊断信息，点击发送即可直接提交至官方问题收集服务，无需配置个人发件邮箱。
+'''
+translate = '''
+When you run into a generation error, unexpected preview, or broken workflow, open **Report a bug** from the top bar. Lumina packages diagnostic data from your active task and sends it directly to the official issue-collection service—no personal sending email account required.
+'''
+
+[[block]]
+key = "88aa9ca7c8b0c1b6"
+type = "heading"
+origin = '''
+## 先复现问题，再打开反馈窗口
+'''
+translate = '''
+## Reproduce the issue before opening the form
+'''
+
+[[block]]
+key = "68235abac70220c3"
+type = "paragraph"
+origin = '''
+请保留触发问题的图片、配方与参数设置，在刚复现问题后立即打开反馈窗口，以便准确捕获当时的运行上下文。若打开窗口后又更换了素材或重新执行过操作，请点击窗口内的重新收集按钮刷新诊断资料。
+'''
+translate = '''
+Keep the affected artwork, recipe, and settings active, trigger the issue once, and then open the form so it captures the exact session state. If you swap artwork or repeat actions while the form is open, use its recollection button to refresh the captured context.
+'''
+
+[[block]]
+key = "2b5021a90d267b84"
+type = "paragraph"
+origin = '''
+建议在问题描述中写明：
+'''
+translate = '''
+In your description, include:
+'''
+
+[[block]]
+key = "64833b18613a59a8"
+type = "list"
+composite = true
+origin = '''
+{{64833b18613a59a8-ebf1177083e06bc6}}
+{{64833b18613a59a8-bed0399c19ec345a}}
+{{64833b18613a59a8-4d129a684fa0cf86}}
+{{64833b18613a59a8-5d6f456383eb26d6}}
+'''
+translate = '''
+{{64833b18613a59a8-ebf1177083e06bc6}}
+{{64833b18613a59a8-bed0399c19ec345a}}
+{{64833b18613a59a8-4d129a684fa0cf86}}
+{{64833b18613a59a8-5d6f456383eb26d6}}
+'''
+
+[[block]]
+key = "64833b18613a59a8-ebf1177083e06bc6"
+type = "listItem"
+composite = true
+origin = '''
+1. {{64833b18613a59a8-ebf1177083e06bc6-9d80ab30ac22d1a3}}
+'''
+translate = '''
+1. {{64833b18613a59a8-ebf1177083e06bc6-9d80ab30ac22d1a3}}
+'''
+
+[[block]]
+key = "64833b18613a59a8-ebf1177083e06bc6-9d80ab30ac22d1a3"
+type = "paragraph"
+origin = '''
+输入格式与颜色来源（例如 SVG + 耗材档案）。
+'''
+translate = '''
+Input format and color source (for example, SVG with a material archive).
+'''
+
+[[block]]
+key = "64833b18613a59a8-bed0399c19ec345a"
+type = "listItem"
+composite = true
+origin = '''
+2. {{64833b18613a59a8-bed0399c19ec345a-5879d574f1dc7d48}}
+'''
+translate = '''
+2. {{64833b18613a59a8-bed0399c19ec345a-5879d574f1dc7d48}}
+'''
+
+[[block]]
+key = "64833b18613a59a8-bed0399c19ec345a-5879d574f1dc7d48"
+type = "paragraph"
+origin = '''
+具体操作顺序，以及从哪一步开始出现异常。
+'''
+translate = '''
+Exact steps taken and the step where things went wrong.
+'''
+
+[[block]]
+key = "64833b18613a59a8-4d129a684fa0cf86"
+type = "listItem"
+composite = true
+origin = '''
+3. {{64833b18613a59a8-4d129a684fa0cf86-2505e3919a99af68}}
+'''
+translate = '''
+3. {{64833b18613a59a8-4d129a684fa0cf86-2505e3919a99af68}}
+'''
+
+[[block]]
+key = "64833b18613a59a8-4d129a684fa0cf86-2505e3919a99af68"
+type = "paragraph"
+origin = '''
+预期效果与实际现象的差异。
+'''
+translate = '''
+Expected result versus what actually happened.
+'''
+
+[[block]]
+key = "64833b18613a59a8-5d6f456383eb26d6"
+type = "listItem"
+composite = true
+origin = '''
+4. {{64833b18613a59a8-5d6f456383eb26d6-02f305111def2975}}
+'''
+translate = '''
+4. {{64833b18613a59a8-5d6f456383eb26d6-02f305111def2975}}
+'''
+
+[[block]]
+key = "64833b18613a59a8-5d6f456383eb26d6-02f305111def2975"
+type = "paragraph"
+origin = '''
+该问题是每次必现，还是仅出现在特定文件上。
+'''
+translate = '''
+Whether the issue occurs every time or only with a specific file.
+'''
+
+[[block]]
+key = "1dcf7f81d159fa88"
+type = "paragraph"
+origin = '''
+联系邮箱为选填项，便于维护者跟进回复；还可额外上传 PNG、JPG、WebP 或 GIF 截图（如文件格式或大小不符，请按窗口提示调整）。
+'''
+translate = '''
+Contact email is optional and lets maintainers follow up with you. You can also attach PNG, JPG, WebP, or GIF screenshots; adjust the file if the form flags a size or format limit.
+'''
+
+[[block]]
+key = "e4f3d6660d16b849"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/01-bug-report.webp').default} alt="当前反馈窗口的问题描述、可选邮箱、截图入口和资料上传说明，未发送示例报告" />
+'''
+translate = '''
+<img src={require('./assets/01-bug-report.webp').default} alt="English bug-report form with description, optional email, screenshot and attachment notice; no report was sent" />
+'''
+
+[[block]]
+key = "a5c935b1bf7cede4"
+type = "heading"
+origin = '''
+## 自动附带的诊断资料
+'''
+translate = '''
+## What may be attached
+'''
+
+[[block]]
+key = "2fe3294960728c94"
+type = "paragraph"
+origin = '''
+诊断包会根据当前任务收集转换参数、设备选择、近期操作记录、错误日志，以及当前会话中可用的原图、SVG、模型、LUT、耗材档案与导出结果。具体包含哪些文件，取决于当前会话实际已载入和生成的内容。
+'''
+translate = '''
+Depending on your active session, a report can bundle conversion parameters, device selections, recent actions, error logs, and available source images, SVGs, meshes, LUTs, material archives, and generated outputs. Included files reflect whatever is currently loaded in the session.
+'''
+
+[[block]]
+key = "3f6e748e3a9b84db"
+type = "paragraph"
+origin = '''
+这些附件用于帮助开发者复现并定位问题。发送前请留意窗口中的上下文与附件清单，确认其中不包含不宜外发的客户稿件或受限模型，同时检查截图是否带有账号、通知等个人隐私信息。
+'''
+translate = '''
+Developers use these files to reproduce the fault. Before sending, check the attachment summary to make sure you have permission to share any client artwork or proprietary models, and check screenshots for account names, notifications, or other private details.
+'''
+
+[[block]]
+key = "33c6267d8799e634"
+type = "heading"
+origin = '''
+## 查看工单编号与上传状态
+'''
+translate = '''
+## Ticket ID and upload status
+'''
+
+[[block]]
+key = "6a31075f54d9ea85"
+type = "paragraph"
+origin = '''
+点击提交后，请记录生成的工单编号，并留意窗口中的最终上传状态：
+'''
+translate = '''
+After submitting, note your ticket ID and watch the upload status until it finishes:
+'''
+
+[[block]]
+key = "397460c355c09903"
+type = "table"
+origin = '''
+| 界面状态 | 含义与后续操作 |
+| --- | --- |
+| 正在提交或等待上传 | 诊断包仍在传输中，请稍候 |
+| 上传成功 | 诊断包已完整提交至问题收集服务 |
+| 上传失败 | 点击“重试”重新上传，并留意最新状态 |
+| 附件未完整收集或部分附件未发送 | 按提示核对缺失文件，必要时重新收集 |
+| 上传不可用 | 保留工单编号，改用窗口提供的备用报告与联系渠道 |
+'''
+translate = '''
+| Status | Meaning and next step |
+| --- | --- |
+| Submitting or waiting for upload | Transfer in progress; keep the dialog open |
+| Upload succeeded | Your report and diagnostic package have been received |
+| Upload failed | Click **Retry** and check the updated status |
+| Some attachments were not collected or sent | Review which files were skipped and recollect if needed |
+| Upload unavailable | Save the ticket ID and use the fallback report and contact options |
+'''
+
+[[block]]
+key = "683db432a1e2ff23"
+type = "paragraph"
+origin = '''
+请等待状态变为“上传成功”后再关闭窗口，以确保诊断附件完整送达。
+'''
+translate = '''
+Wait until the status shows **Upload succeeded** before closing the dialog so all diagnostic attachments finish transferring.
+'''
+
+[[block]]
+key = "64d5b1f3cfe44387"
+type = "heading"
+origin = '''
+## 提交失败时的处理方法
+'''
+translate = '''
+## If submission fails
+'''
+
+[[block]]
+key = "601e30fb4322cc41"
+type = "paragraph"
+origin = '''
+若上传失败，请先检查网络连接并点击“重试”；若多次重试仍未成功，可复制窗口生成的备用报告文本，连同工单编号与复现步骤一并发送给维护者。系统邮件或 QQ 邮箱等备用入口仅在线上直传不可用时启用，日常正常提交无需预先配置。
+'''
+translate = '''
+Check your network connection and click **Retry**. If direct upload remains unavailable, copy the fallback report text and share it with the maintainers alongside your ticket ID and reproduction steps. Fallback options such as system mail or QQ Mail are used only when direct submission fails.
+'''
+
+[[block]]
+key = "7e991c3c01dbc17b"
+type = "paragraph"
+origin = '''
+若原图已关闭、会话已被新任务替换或关键文件未能成功收集，请重新打开对应任务触发一次问题，再重新收集并提交完整报告。
+'''
+translate = '''
+If the original task was closed, replaced by a new session, or missing key files, reopen the project, trigger the issue again, and collect a fresh report.
+'''
+
+[[block]]
+key = "989440cb7a50e4b5"
+type = "paragraph"
+origin = '''
+如欲反馈文档错漏、配图缺失或排版建议，请前往 [Wiki 反馈页](../../../project/wiki-feedback/wiki-feedback.mdx)；软件功能故障请优先使用软件内的“反馈问题”入口，以便同步附带诊断上下文。
+'''
+translate = '''
+To report typos, missing screenshots, or suggestions for this documentation, visit the [Wiki feedback page](../../../project/wiki-feedback/wiki-feedback.mdx). For software bugs, submit through **Report a bug** inside Lumina so diagnostic data is included.
+'''

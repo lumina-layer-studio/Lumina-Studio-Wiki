@@ -1,0 +1,438 @@
+[metadata]
+migration_layout = "preserved English structure; root blocks retain grouped or omitted source sections"
+reviewed_source = "61b37efaef5acdbbdb07a22b07971b05af95f6088ffcd757d21d49ad29932fa3"
+
+[[block]]
+key = "71ba7a5aa55093b1"
+type = "yaml"
+origin = '''
+---
+title: "Wiki 反馈与建议"
+description: "告诉我们哪些 Wiki 内容难以理解、不准确、缺少示例或不容易找到。"
+sidebar_position: 15
+---
+'''
+translate = '''
+---
+title: "Wiki Feedback and Suggestions"
+description: "Tell us which Wiki content is unclear, inaccurate, missing examples, or difficult to find."
+sidebar_position: 15
+---
+'''
+
+[[block]]
+key = "290a47f06a967724"
+type = "heading"
+origin = '''
+# Wiki 反馈与建议
+'''
+translate = '''
+# Wiki Feedback and Suggestions
+'''
+
+[[block]]
+key = "da019d218c784fa3"
+type = "paragraph"
+origin = '''
+如果你在阅读 Lumina Studio Wiki 时遇到表述晦涩、步骤有误、缺少配图对比或找不到所需主题，欢迎随时告诉我们。
+'''
+translate = '''
+If a page in the Lumina Studio Wiki is hard to follow, out of date, missing visual examples, or difficult to locate, let us know.
+'''
+
+[[block]]
+key = "7a461a1f4f342268"
+type = "paragraph"
+origin = '''
+请直接使用本页底部的反馈表单提交，无需了解 Markdown 语法或文档目录结构。
+'''
+translate = '''
+Please use the feedback form at the bottom of this page—no Markdown or repository knowledge required.
+'''
+
+[[block]]
+key = "dd67b050e02e1986"
+type = "heading"
+origin = '''
+## 可以反馈哪些内容
+'''
+translate = '''
+## What to report
+'''
+
+[[block]]
+key = "0b966498f87b2952"
+type = "list"
+composite = true
+origin = '''
+{{0b966498f87b2952-7cad0e6e7bdec5ae}}
+{{0b966498f87b2952-3008affce9e9aeaf}}
+{{0b966498f87b2952-0a64c49dd25f01bc}}
+{{0b966498f87b2952-84d313c29356137d}}
+{{0b966498f87b2952-266869b64f45b817}}
+{{0b966498f87b2952-3532edd41aa71dc2}}
+'''
+translate = '''
+- Unclear explanations or unexplained technical terms
+- Steps or parameter descriptions that do not match the software
+- Missing control screenshots, before-and-after comparisons, or print examples
+- Broken links, images, or embedded videos
+- Awkward phrasing or translation errors
+- Requests for new tutorials, workflows, or troubleshooting guides
+'''
+
+[[block]]
+key = "0b966498f87b2952-7cad0e6e7bdec5ae"
+type = "listItem"
+composite = true
+origin = '''
+- {{0b966498f87b2952-7cad0e6e7bdec5ae-228e522a75cf77b8}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0b966498f87b2952-7cad0e6e7bdec5ae-228e522a75cf77b8"
+type = "paragraph"
+origin = '''
+概念或参数解释过于晦涩，缺少直观说明
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0b966498f87b2952-3008affce9e9aeaf"
+type = "listItem"
+composite = true
+origin = '''
+- {{0b966498f87b2952-3008affce9e9aeaf-e301cf124a97fe7a}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0b966498f87b2952-3008affce9e9aeaf-e301cf124a97fe7a"
+type = "paragraph"
+origin = '''
+操作步骤与当前软件界面不一致，或结论有误
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0b966498f87b2952-0a64c49dd25f01bc"
+type = "listItem"
+composite = true
+origin = '''
+- {{0b966498f87b2952-0a64c49dd25f01bc-0834794740eec76f}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0b966498f87b2952-0a64c49dd25f01bc-0834794740eec76f"
+type = "paragraph"
+origin = '''
+缺少控件位置截图、调整前后对比图或实拍打印样例
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0b966498f87b2952-84d313c29356137d"
+type = "listItem"
+composite = true
+origin = '''
+- {{0b966498f87b2952-84d313c29356137d-f14196afeb088a14}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0b966498f87b2952-84d313c29356137d-f14196afeb088a14"
+type = "paragraph"
+origin = '''
+页面链接、图片或嵌入视频无法正常加载
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0b966498f87b2952-266869b64f45b817"
+type = "listItem"
+composite = true
+origin = '''
+- {{0b966498f87b2952-266869b64f45b817-56617829b8576046}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0b966498f87b2952-266869b64f45b817-56617829b8576046"
+type = "paragraph"
+origin = '''
+中英文表述生硬或翻译不准确
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0b966498f87b2952-3532edd41aa71dc2"
+type = "listItem"
+composite = true
+origin = '''
+- {{0b966498f87b2952-3532edd41aa71dc2-ea45d488002485df}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0b966498f87b2952-3532edd41aa71dc2-ea45d488002485df"
+type = "paragraph"
+origin = '''
+希望补充某个功能、工作流或排障场景的教程
+'''
+translate = '''
+'''
+
+[[block]]
+key = "68353bd1da08ad70"
+type = "heading"
+origin = '''
+## 建议提供的信息
+'''
+translate = '''
+## Helpful details to include
+'''
+
+[[block]]
+key = "c4ce6a5074ca59d8"
+type = "paragraph"
+origin = '''
+提交时附上以下信息，能帮助我们更快定位并修订：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a27db1fff9a569f1"
+type = "list"
+composite = true
+origin = '''
+{{a27db1fff9a569f1-3a06ccc3a67f296c}}
+{{a27db1fff9a569f1-69fc47ec5c2a2f86}}
+{{a27db1fff9a569f1-d145d93840ba0a4c}}
+{{a27db1fff9a569f1-ff6d3b2aa891ae8b}}
+'''
+translate = '''
+1. The affected page title or URL
+2. The specific section, step, or image
+3. What felt confusing or inaccurate
+4. What would make the page clearer (for example, a side-by-side comparison, extra screenshot, or clearer steps)
+'''
+
+[[block]]
+key = "a27db1fff9a569f1-3a06ccc3a67f296c"
+type = "listItem"
+composite = true
+origin = '''
+1. {{a27db1fff9a569f1-3a06ccc3a67f296c-c6b1ca954762ba08}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a27db1fff9a569f1-3a06ccc3a67f296c-c6b1ca954762ba08"
+type = "paragraph"
+origin = '''
+受影响的页面标题或链接
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a27db1fff9a569f1-69fc47ec5c2a2f86"
+type = "listItem"
+composite = true
+origin = '''
+2. {{a27db1fff9a569f1-69fc47ec5c2a2f86-b4a0d2572cad1671}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a27db1fff9a569f1-69fc47ec5c2a2f86-b4a0d2572cad1671"
+type = "paragraph"
+origin = '''
+具体段落、步骤或图片位置
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a27db1fff9a569f1-d145d93840ba0a4c"
+type = "listItem"
+composite = true
+origin = '''
+3. {{a27db1fff9a569f1-d145d93840ba0a4c-b9a57db3f61d777e}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a27db1fff9a569f1-d145d93840ba0a4c-b9a57db3f61d777e"
+type = "paragraph"
+origin = '''
+哪里不好理解，或与实际操作不一致的地方
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a27db1fff9a569f1-ff6d3b2aa891ae8b"
+type = "listItem"
+composite = true
+origin = '''
+4. {{a27db1fff9a569f1-ff6d3b2aa891ae8b-689e57a8d225d1e2}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a27db1fff9a569f1-ff6d3b2aa891ae8b-689e57a8d225d1e2"
+type = "paragraph"
+origin = '''
+你希望看到的改进方式（如补充对比图、拆细步骤或调整目录位置）
+'''
+translate = '''
+'''
+
+[[block]]
+key = "954b621346b31d0c"
+type = "heading"
+origin = '''
+## 反馈参考模板
+'''
+translate = '''
+## Copyable feedback template
+'''
+
+[[block]]
+key = "ab567ebd20e42c9f"
+type = "code"
+origin = '''
+```text
+受影响的页面：
+反馈类型：表述不清 / 缺少配图或对比 / 内容有误或过时 / 链接或媒体失效 / 导航与搜索 / 翻译问题 / 建议新增主题 / 其他
+具体位置：
+遇到的问题：
+希望改进的方向：
+```
+'''
+translate = '''
+```text
+Affected page:
+Feedback type: unclear / missing image or comparison / inaccurate or outdated / broken link or media / navigation or search / translation / missing topic / other
+Location on the page:
+Problem or experience:
+Suggested direction:
+```
+'''
+
+[[block]]
+key = "2b7c53b43e3c8bf3"
+type = "heading"
+origin = '''
+### 填写示例
+'''
+translate = '''
+### Example
+'''
+
+[[block]]
+key = "e425218a2d3a64b4"
+type = "blockquote"
+composite = true
+origin = '''
+> {{e425218a2d3a64b4-6de37d8be991e4ce}}
+'''
+translate = '''
+> Affected page: Hue Protection<br />
+> Feedback type: missing image or comparison<br />
+> Location on the page: "How matching changes"<br />
+> Problem or experience: The text describes the hue penalty, but it is hard to picture the visual difference.<br />
+> Suggested direction: Add side-by-side previews of the same image with Hue Protection off and on, highlighting the clearest color shift.
+'''
+
+[[block]]
+key = "e425218a2d3a64b4-6de37d8be991e4ce"
+type = "paragraph"
+origin = '''
+受影响的页面：色相保护<br />
+> 反馈类型：缺少配图或对比<br />
+> 具体位置：“匹配会发生什么变化”<br />
+> 遇到的问题：文字说明了色相权重变化，但看不出画面实际会有什么差别。<br />
+> 希望改进的方向：补充同一张图片开启色相保护前后的并排预览对比，标出变化最明显的区域。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7c7523631c4d1fe7"
+type = "heading"
+origin = '''
+## 软件故障请通过软件内入口提交
+'''
+translate = '''
+## Report software bugs inside Lumina Studio
+'''
+
+[[block]]
+key = "e5dce9796abea886"
+type = "paragraph"
+origin = '''
+本页仅收集针对 Wiki 文档的意见。如果遇到 Lumina Studio 报错、生成失败或功能异常，请参考[软件内错误报告与可复现信息](../../reference/workspace-and-navigation/bug-report/bug-report.mdx)，直接在软件内提交问题反馈。
+'''
+translate = '''
+This form is for documentation feedback only. If Lumina Studio crashes, fails to generate a 3MF, or behaves unexpectedly, see [In-app Bug Reports and Reproducible Information](../../reference/workspace-and-navigation/bug-report/bug-report.mdx) to send a report from inside the app.
+'''
+
+[[block]]
+key = "a67b85cf893b6163"
+type = "heading"
+origin = '''
+## 隐私提醒
+'''
+translate = '''
+## Privacy note
+'''
+
+[[block]]
+key = "b5f88dcadc7af482"
+type = "paragraph"
+origin = '''
+反馈内容仅发送给 Wiki 维护团队，不会在页面上公开展示。提交时请避免填入账号密码、访问令牌、订单凭证或其他个人敏感信息。
+'''
+translate = '''
+Submissions go privately to the Wiki maintainers and are not published on this page. Even so, do not include passwords, access tokens, order references, or confidential personal data.
+'''
+
+[[block]]
+key = "75d18f180bcc814f"
+type = "heading"
+origin = '''
+## 提交反馈
+'''
+translate = '''
+## Leave your feedback below
+'''
+
+[[block]]
+key = "b768e217582caf86"
+type = "paragraph"
+origin = '''
+向下滚动至本页底部，填写表单即可发送。
+'''
+translate = '''
+Scroll to the bottom of this page and submit the feedback form.
+'''

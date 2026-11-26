@@ -1,47 +1,52 @@
 ---
 title: "Cloud Material Library"
-description: "Browse, install, update, and roll back cloud material archives."
+description: "Find public filament profiles by brand, series and color code, preview gradient cards, and add only what you need from the cloud or an offline pack."
 sidebar_position: 4
 ---
 
 # Cloud Material Library
 
-The Cloud Material Library provides an optional online catalog for browsing, downloading, and updating calibrated material archives. When no cloud registry is configured, the local Material Library remains fully functional offline.
+The cloud material library contains published profiles for individual filaments. Check the brand, series, material and color code on your spool, then choose a profile calibrated at the layer height you plan to print. You do not need to download the entire library to browse it.
 
-<img
-  src={require('./assets/01-cloud-material-library.webp').default}
-  alt="Cloud Material Library with no registry configured"
-/>
+## Find and add a filament
 
-## Status bar
+1. Select the cloud-library shortcut in the material picker, or open the cloud material library under material management.
+2. Search by brand, series, product name or color code, and filter by installation status.
+3. Open an entry to inspect its gradient cards, calibration layer height, original profile name, author and notes.
+4. Once it matches your filament, select **Download to local**.
+5. Return to the local picker, select the added profile and confirm it for your palette.
 
-The top summary displays total catalog entries, locally installed materials, available updates, index status, and the last sync time. Clicking **Refresh Cloud Catalog** reloads the remote catalog and checks local installation status while keeping existing local archives intact. When no registry URL is configured, the page displays an unconfigured notice.
+Downloading and selecting are separate actions: opening details, changing pages or downloading does not replace the current palette. Your search term is retained when moving between local profiles, the cloud and the offline pack.
 
-## Search and filters
+## How the catalog and previews load
 
-Search matches brand, material name, material ID, revision, directory, channel, and visibility. You can filter entries by status:
+Studio first loads lightweight catalog details such as names and color modes. Once the catalog is complete, search covers all entries. Preview boards load by page, without installing every filament, and previously viewed previews are cached. While the catalog is still loading, an empty result does not mean the full library has no matching profile.
 
-- **All**: Shows every entry in the catalog.
-- **Not Installed**: Shows materials not yet downloaded, as well as entries with missing local files.
-- **Updates**: Shows installed materials that have a newer revision in the catalog.
-- **Installed**: Shows materials currently installed locally.
+Filament previews place the white-base and black-base gradient cards side by side to show color at different thicknesses. Missing samples in older profiles are left blank; entries with only a representative color are labeled accordingly. Thumbnails and display colors help identify a profile, but the exact product and calibration layer height still need to match.
 
-Catalog entries load in pages of 50; when additional entries are available, you can load the next page or load all remaining items at once.
+| Status | Meaning and action |
+| --- | --- |
+| Not installed | Not yet in the local library; download when needed |
+| Installed | The current revision is available locally and can be selected |
+| Update available / Local version exists | Another revision of the same resource exists; check its notes before updating |
+| Local files missing | An installation record exists, but its files are incomplete; download that entry again |
 
-## Install states
+Refreshing the cloud catalog updates the catalog and installation status without deleting your own calibrations. Identically named entries from different sources are not necessarily the same data.
 
-Each material card displays its brand, name, color, local directory, package size, content fingerprint, and current state:
+## Mainland China and international product names
 
-- **Not installed**: Ready to download locally.
-- **Installed**: The local revision matches the latest catalog revision.
-- **Update available**: A newer revision is available in the catalog.
-- **Local revision available**: Identical archive content already exists locally under another mapping.
-- **Local files missing**: An installation record exists locally, but its archive files are incomplete and need to be downloaded again.
+Open **Settings → General → Filament naming region** and choose **Match UI language**, **Mainland China** or **International**. A product may have different names in different markets. The list uses the selected market's name while details retain the original profile name.
 
-Entries published through the official channel carry an **Official** badge. Verify the brand, material name, and calibration conditions before installing.
+Search accepts verified regional names, Chinese and English brand names, original names and color codes. Profiles without a regional name keep their original name; brand logos appear only when the corresponding authorized asset is available. Changing the naming region does not alter calibration data or the selected materials.
 
-## Version rollback
+## Choose from an offline pack
 
-Rollback controls appear on a card whenever a usable historical revision is still stored locally. Rolling back switches your active local version to that earlier revision without modifying the cloud catalog.
+Packaged editions provide an offline-pack entry. When a resource pack is available, select **Browse offline pack**, inspect an entry and choose **Add to local**. Starting Studio, searching and previewing do not install the entire pack; adding the same revision again reuses its existing record.
 
-Installed archives appear in the [Material Library](../material-library/material-library.mdx) and can be backed up offline using [Material Import and Export](../material-import-export/material-import-export.mdx).
+An offline pack is a fixed snapshot and does not include profiles published later. Check the cloud for updates when back online. Without an offline pack, installed profiles remain usable; you can also [import a material ZIP](../material-import-export/material-import-export.mdx) or [create a gradient-card profile](../../../tutorials/gradient-card-extract-profile/gradient-card-extract-profile.mdx).
+
+## Save resources and contribute
+
+The public catalog can be browsed without connecting an account. Connect a community account to like and save resources across devices; saving does not download the library. To submit your own measured profile for review, choose **Share to public library** in its details. See [Community account, saved resources and submissions](../community-resources/community-resources.mdx).
+
+Related pages: [Cloud LUT Library](../../lut-management/cloud-lut-library/cloud-lut-library.mdx) · [Material profiles or classic LUTs?](../../../knowledge/material-profile-selection/material-profile-selection.mdx) · [Gamut coverage](../material-gamut/material-gamut.mdx).

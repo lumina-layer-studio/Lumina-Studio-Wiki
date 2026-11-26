@@ -1,0 +1,378 @@
+[metadata]
+reviewed_source = "ba0a2088668ebe6bc7f5bd2713f20d6421a2d849d40d55860d61c0050f5d8d1f"
+
+[[block]]
+key = "1d3a4667096c7a16"
+type = "yaml"
+origin = '''
+---
+title: "在模型平面上添加图案"
+description: "使用模型贴图导入 STL 或 OBJ，选择平面，调整图案位置并生成多色打印工程。"
+sidebar_position: 6
+---
+'''
+translate = '''
+---
+title: "Add artwork to a flat model surface"
+description: "Import an STL or OBJ, select a flat face, and position artwork for multicolor printing."
+sidebar_position: 6
+---
+'''
+
+[[block]]
+key = "dab03158193afac9"
+type = "heading"
+origin = '''
+# 在模型平面上添加图案
+'''
+translate = '''
+# Add artwork to a flat model surface
+'''
+
+[[block]]
+key = "579e839e137e874f"
+type = "paragraph"
+origin = '''
+“模型贴图”可将多色图案嵌合到 STL 或 OBJ 模型的指定平面上，在保留底模原有外形尺寸的同时生成多色打印工程。该功能适用于铭牌、盒盖等带有平整表面的模型，不支持在曲面上包裹纹理。
+'''
+translate = '''
+Model texture embeds a multicolor graphic into a selected flat face of an STL or OBJ model while preserving the part's outer dimensions. It is designed for parts with flat surfaces—such as signs, coasters, and box lids—rather than curved surface wrapping.
+'''
+
+[[block]]
+key = "195337fa446be4ae"
+type = "heading"
+origin = '''
+## 准备底模和图案
+'''
+translate = '''
+## Prepare the base model and artwork
+'''
+
+[[block]]
+key = "233bc392bf47edd3"
+type = "paragraph"
+origin = '''
+准备带有平整表面的 STL 或 OBJ 底模，以及用作图案的位图或 SVG 文件。导入前请确认底模尺寸正确且为封闭实体；存在破面、法线反置或非流形几何的模型会导致布尔开槽与生成失败。
+'''
+translate = '''
+Prepare an STL or OBJ mesh with a clean flat face, along with a raster image or SVG for the graphic. Make sure the base mesh is a watertight solid with outward-facing normals; open shells, inverted normals, or non-manifold geometry can cause pocketing and generation to fail.
+'''
+
+[[block]]
+key = "9e161f1dc2587db0"
+type = "paragraph"
+origin = '''
+在图像转换页面选定颜色来源与实际打印耗材。使用耗材档案时，底模会自动采用所选的底色材料（三维预览中的底模显示色仅作示意，实际材料以耗材配置为准）。
+'''
+translate = '''
+In Image Conversion, select your color source and physical filaments. When using material profiles, the base model automatically uses the selected backing material (the 3D preview swatch is for visual reference only).
+'''
+
+[[block]]
+key = "00c425cfd5e10658"
+type = "heading"
+origin = '''
+## 导入模型
+'''
+translate = '''
+## Import the model
+'''
+
+[[block]]
+key = "fa67361dba036eca"
+type = "paragraph"
+origin = '''
+展开并启用“模型贴图”面板，点击上传区选择 STL 或 OBJ 文件，也可直接将模型拖入工作区。图案仍通过图像上传入口导入；若将模型与图片同时拖入，软件会按文件类型自动分别载入。
+'''
+translate = '''
+Open and enable the **Model texture** panel, then select an STL or OBJ file in its upload area or drag the mesh onto the workspace. Upload your graphic through the standard image uploader; if you drag a mesh and an image in together, Lumina routes each file by type automatically.
+'''
+
+[[block]]
+key = "4cbaff6fcda29f47"
+type = "paragraph"
+origin = '''
+导入后核对模型文件名与外形尺寸，待状态就绪后即可选面。启用模型贴图后固定采用单面结构，基础设置中的常规底板选项会自动隐藏。
+'''
+translate = '''
+Verify the filename and model dimensions, then wait for face selection to become active. Enabling Model texture switches the project to a single-sided layout and hides standard backing-plate controls in Basic Settings.
+'''
+
+[[block]]
+key = "da46c24e7132550c"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/01-model-import.webp').default} alt="导入真实 STL 后检查模型尺寸，使用平面组选面工具" />
+'''
+translate = '''
+<img src={require('./assets/01-model-import.webp').default} alt="Real STL import with dimensions and coplanar face selection in the English interface" />
+'''
+
+[[block]]
+key = "b8d09cfc65dc6689"
+type = "heading"
+origin = '''
+## 选择贴图平面
+'''
+translate = '''
+## Select the flat face
+'''
+
+[[block]]
+key = "48d3ac30d18dd359"
+type = "paragraph"
+origin = '''
+使用选面工具在 3D 预览中点击目标平面。默认开启“共面组”模式，可一次选中组成同一平面的全部三角面；“三角面”模式则适合检查局部细小面片。
+'''
+translate = '''
+Click the target flat surface in the 3D preview using the face-selection tool. The default coplanar-group mode selects all coplanar triangles across a flat face in one click, while single-triangle mode lets you inspect individual facets.
+'''
+
+[[block]]
+key = "17ca3eca98ae362f"
+type = "paragraph"
+origin = '''
+选中后确认高亮区域的范围与尺寸；若底模带有安装孔或镂空，请检查孔位边界是否完整保留。若选错平面，重新点选确认后再调整图案。
+'''
+translate = '''
+Verify the highlighted region and its dimensions. On parts with cutouts or mounting holes, confirm that the openings remain intact before positioning the graphic.
+'''
+
+[[block]]
+key = "a7d6f975f4a11fa7"
+type = "paragraph"
+origin = '''
+可通过视图立方体、适配视图及正反面切换调整观察视角。“旋转模型”用于改变整个底模在空间中的朝向；调整图案自身的位置与角度时，直接使用平面贴图变换工具即可。
+'''
+translate = '''
+Use the view cube, fit view, and front/back toggles to inspect the model. **Rotate model** changes the base mesh's orientation in 3D space; use the planar artwork transform controls to move or rotate the graphic itself on the selected face.
+'''
+
+[[block]]
+key = "7402ef6da7ff5ecb"
+type = "heading"
+origin = '''
+## 调整图案
+'''
+translate = '''
+## Position the artwork
+'''
+
+[[block]]
+key = "1277e623a5be490b"
+type = "table"
+origin = '''
+| 操作 | 作用 |
+| --- | --- |
+| 移动贴图 | 在选中平面内平移图案 |
+| 旋转贴图 | 在选中平面内旋转图案，保持底模朝向不变 |
+| 缩放贴图 | 调整图案覆盖尺寸，不改变底模外形 |
+| 铺满 | 按选中平面的外边界自动铺放图案（带孔模型请留意孔位避让） |
+| 内缩 | 按毫米（mm）设置图案距平面边缘的留白距离 |
+| 旋转模型 | 改变整个底模在三维空间中的摆放朝向 |
+'''
+translate = '''
+| Control | Effect |
+| --- | --- |
+| Move artwork | Translates the graphic across the selected plane |
+| Rotate artwork | Rotates the graphic in-plane without turning the base model |
+| Scale artwork | Resizes graphic coverage without scaling the base model |
+| Edge | Fits the graphic to the selected face boundary (verify outlines and holes) |
+| Inset | Adds a margin in millimeters (`mm`) inside the face boundary |
+| Rotate model | Reorients the entire base model in 3D space |
+'''
+
+[[block]]
+key = "fdfc3c49d127b4b9"
+type = "paragraph"
+origin = '''
+建议先点击“铺满”对齐边界，再微调位置、角度与缩放比例。对齐孔洞、文字和边缘时，可结合 2D 图案视图与 3D 选中平面对照观察。源图中的透明区域不会生成彩色填充；需要留空或避让孔位处，请在源图中保留透明通道。
+'''
+translate = '''
+Start with **Fit**, then fine-tune position, angle, and scale. Cross-check the 2D graphic view against the 3D face when aligning around holes, text, and borders. Transparent regions in the source image remain unprinted—keep transparency wherever you want the base surface or cutouts exposed.
+'''
+
+[[block]]
+key = "8cb17135085959b6"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/02-model-placement.webp').default} alt="选中完整平面后，图案显示在底模上，并提供移动、旋转、缩放和边界工具" />
+'''
+translate = '''
+<img src={require('./assets/02-model-placement.webp').default} alt="Artwork placed on a real selected flat face, with move, rotate, scale and edge controls" />
+'''
+
+[[block]]
+key = "2bc34430e16b895e"
+type = "heading"
+origin = '''
+## 预览、生成与切片
+'''
+translate = '''
+## Preview, generate, and slice
+'''
+
+[[block]]
+key = "95ef99157e134e65"
+type = "list"
+composite = true
+origin = '''
+{{95ef99157e134e65-b740cee412b74156}}
+{{95ef99157e134e65-a2d910b40cd20569}}
+{{95ef99157e134e65-323a2a402d0ea522}}
+{{95ef99157e134e65-0d32cc8600f9ec85}}
+{{95ef99157e134e65-9e9eab8b71ed8bd5}}
+'''
+translate = '''
+{{95ef99157e134e65-b740cee412b74156}}
+{{95ef99157e134e65-a2d910b40cd20569}}
+{{95ef99157e134e65-323a2a402d0ea522}}
+{{95ef99157e134e65-0d32cc8600f9ec85}}
+{{95ef99157e134e65-9e9eab8b71ed8bd5}}
+'''
+
+[[block]]
+key = "95ef99157e134e65-b740cee412b74156"
+type = "listItem"
+composite = true
+origin = '''
+1. {{95ef99157e134e65-b740cee412b74156-bc4d2a1a10288016}}
+'''
+translate = '''
+1. {{95ef99157e134e65-b740cee412b74156-bc4d2a1a10288016}}
+'''
+
+[[block]]
+key = "95ef99157e134e65-b740cee412b74156-bc4d2a1a10288016"
+type = "paragraph"
+origin = '''
+完成图案排布与耗材设置后，点击生成预览。
+'''
+translate = '''
+Configure your graphic and filaments, then generate the 3D preview.
+'''
+
+[[block]]
+key = "95ef99157e134e65-a2d910b40cd20569"
+type = "listItem"
+composite = true
+origin = '''
+2. {{95ef99157e134e65-a2d910b40cd20569-12473c38c7bce95c}}
+'''
+translate = '''
+2. {{95ef99157e134e65-a2d910b40cd20569-12473c38c7bce95c}}
+'''
+
+[[block]]
+key = "95ef99157e134e65-a2d910b40cd20569-12473c38c7bce95c"
+type = "paragraph"
+origin = '''
+切换观察面与背面，检查图案朝向、孔位避让、边缘留白及底模尺寸。
+'''
+translate = '''
+Inspect both sides of the model to verify artwork orientation, hole clearance, edge margins, and outer dimensions.
+'''
+
+[[block]]
+key = "95ef99157e134e65-323a2a402d0ea522"
+type = "listItem"
+composite = true
+origin = '''
+3. {{95ef99157e134e65-323a2a402d0ea522-900967995267d39d}}
+'''
+translate = '''
+3. {{95ef99157e134e65-323a2a402d0ea522-900967995267d39d}}
+'''
+
+[[block]]
+key = "95ef99157e134e65-323a2a402d0ea522-900967995267d39d"
+type = "paragraph"
+origin = '''
+导出 3MF 并在所选切片软件中打开。
+'''
+translate = '''
+Export the 3MF and open it as a project in your slicer.
+'''
+
+[[block]]
+key = "95ef99157e134e65-0d32cc8600f9ec85"
+type = "listItem"
+composite = true
+origin = '''
+4. {{95ef99157e134e65-0d32cc8600f9ec85-d1a0ed9228b29d89}}
+'''
+translate = '''
+4. {{95ef99157e134e65-0d32cc8600f9ec85-d1a0ed9228b29d89}}
+'''
+
+[[block]]
+key = "95ef99157e134e65-0d32cc8600f9ec85-d1a0ed9228b29d89"
+type = "paragraph"
+origin = '''
+核对底模与各图案对象的耗材映射，逐层检查嵌入式开槽、显色层与底模实体是否完整。
+'''
+translate = '''
+Verify filament assignments for the base model and color regions, then step through the sliced layers to check the recessed pocket, color layers, and backing solid.
+'''
+
+[[block]]
+key = "95ef99157e134e65-9e9eab8b71ed8bd5"
+type = "listItem"
+composite = true
+origin = '''
+5. {{95ef99157e134e65-9e9eab8b71ed8bd5-089410cadc1d19c6}}
+'''
+translate = '''
+5. {{95ef99157e134e65-9e9eab8b71ed8bd5-089410cadc1d19c6}}
+'''
+
+[[block]]
+key = "95ef99157e134e65-9e9eab8b71ed8bd5-089410cadc1d19c6"
+type = "paragraph"
+origin = '''
+确认模型与擦料塔均在热床可打印范围内，执行切片预览无误后再发起打印。
+'''
+translate = '''
+Confirm that both the model and the prime tower fit inside the build volume before printing.
+'''
+
+[[block]]
+key = "6c54fa613853ef43"
+type = "paragraph"
+origin = '''
+3D 预览默认将贴图面朝向镜头以便检查，导出 3MF 时的模型朝向则由打印面设置决定（例如顶面贴图设为底面打印时会翻转朝向热床）。在切片软件中若初始视角未看到图案，可翻转到底面或展开对象列表与分层路径查看。若生成阶段提示选面、实体几何或开槽报错，请先修复底模网格或重选平面后再重新生成。
+'''
+translate = '''
+The 3D preview faces the graphic toward the camera for inspection, whereas the exported 3MF orientation follows your print-face setting (for example, flipping a top graphic face-down onto the build plate). If the graphic is facing the bed when the 3MF opens, switch to the bottom view or inspect the object list and sliced toolpaths. If Lumina reports a face-selection, solid-geometry, or pocketing error, repair the mesh or reselect the face before exporting.
+'''
+
+[[block]]
+key = "3ac55e17bf774922"
+type = "heading"
+origin = '''
+## 文件留档
+'''
+translate = '''
+## Archive your source files
+'''
+
+[[block]]
+key = "848c909b22811993"
+type = "paragraph"
+origin = '''
+分享卡与 JSON 项目文件暂不包含外部底模及选面信息，启用模型贴图期间也不支持导出配方。需要留档复用时，请将原始底模（STL / OBJ）、源图案、导出的 3MF 以及贴图定位参数一并保存。
+'''
+translate = '''
+Share cards and JSON project files do not embed external STL/OBJ meshes or face selections, and recipe export is disabled while Model texture is active. Save your base mesh, source graphic, exported 3MF, and placement values together if you plan to revisit the design later.
+'''
+
+[[block]]
+key = "46325c318ca04a50"
+type = "paragraph"
+origin = '''
+继续阅读：[设备与切片软件](../../reference/settings-import-export/device-and-slicer/device-and-slicer.mdx)、[切片软件中的耗材映射](../slicer-material-mapping/slicer-material-mapping.mdx)。
+'''
+translate = '''
+Related: [Device & slicer settings](../../reference/settings-import-export/device-and-slicer/device-and-slicer.mdx), [Material mapping in your slicer](../slicer-material-mapping/slicer-material-mapping.mdx).
+'''

@@ -1,0 +1,1013 @@
+[metadata]
+migration_layout = "preserved English structure; root blocks retain grouped or omitted source sections"
+reviewed_source = "c4f25083ef75568a07f9cc44e47fab003cf01c20b6e0256a9252661483d1e8c2"
+
+[[block]]
+key = "7f43dd72adadcff4"
+type = "yaml"
+origin = '''
+---
+title: "上传、替换、裁剪和旋转图片"
+description: "从第一次上传图片开始，理解单图替换、批量追加、上传后裁剪和 90°、180°、270° 旋转，以及这些操作会重置哪些预览结果。"
+sidebar_position: 29
+---
+'''
+translate = '''
+---
+title: "Upload, Replace, Crop, and Rotate an Image"
+description: "Start from the first upload, distinguish Replace current image from Add more images, crop safely, rotate by 90°, 180°, or 270°, and understand which Preview results reset."
+sidebar_position: 29
+---
+'''
+
+[[block]]
+key = "01077f01b64997b6"
+type = "heading"
+origin = '''
+# 上传、替换、裁剪和旋转图片
+'''
+translate = '''
+# Upload, Replace, Crop, and Rotate an Image
+'''
+
+[[block]]
+key = "bcdb6f61f3e12840"
+type = "paragraph"
+origin = '''
+导入素材后，你可以在 Lumina Studio 中直接裁剪构图、调整旋转方向，或追加多张图片进入批量转换：
+'''
+translate = '''
+Once you upload an image to Lumina Studio, you can frame and orient it right in the workspace or add more files for batch processing:
+'''
+
+[[block]]
+key = "7977eafe0e103a66"
+type = "list"
+composite = true
+origin = '''
+{{7977eafe0e103a66-9a96ed1122edfe27}}
+{{7977eafe0e103a66-bcaf7776fcbd81b2}}
+{{7977eafe0e103a66-2c8a192a5ce34254}}
+{{7977eafe0e103a66-b92d2c86d2146604}}
+'''
+translate = '''
+- **First import:** Click the dashed upload box or drag files directly onto it.
+- **Single vs. Batch workflow:** **Replace current image** keeps you in the single-image workflow, while **Add more images** switches to Batch mode.
+- **Crop and rotate:** Cropping trims the canvas to your selection, and rotation turns the artwork by 90°, 180°, or 270°.
+- **Automatic state reset:** Replacing, cropping, or rotating the image clears previous Preview data, Color Workstation edits, and generated downloads—simply run **Preview** and **Generate** again for the updated image.
+'''
+
+[[block]]
+key = "7977eafe0e103a66-9a96ed1122edfe27"
+type = "listItem"
+composite = true
+origin = '''
+- {{7977eafe0e103a66-9a96ed1122edfe27-bab0598baa236040}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7977eafe0e103a66-9a96ed1122edfe27-bab0598baa236040"
+type = "paragraph"
+origin = '''
+**首次导入**：点击上传区域，或直接将图片拖入虚线框；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7977eafe0e103a66-bcaf7776fcbd81b2"
+type = "listItem"
+composite = true
+origin = '''
+- {{7977eafe0e103a66-bcaf7776fcbd81b2-57d86a44b4e345ac}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7977eafe0e103a66-bcaf7776fcbd81b2-57d86a44b4e345ac"
+type = "paragraph"
+origin = '''
+**单图与批量切换**：“更换当前图片”会留在单图流程，“添加更多图片”则会切入批量流程；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7977eafe0e103a66-2c8a192a5ce34254"
+type = "listItem"
+composite = true
+origin = '''
+- {{7977eafe0e103a66-2c8a192a5ce34254-3b95ec7312565b54}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7977eafe0e103a66-2c8a192a5ce34254-3b95ec7312565b54"
+type = "paragraph"
+origin = '''
+**裁剪与旋转**：裁剪用于保留选定画幅，旋转用于调整 90°、180° 或 270° 方向；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7977eafe0e103a66-b92d2c86d2146604"
+type = "listItem"
+composite = true
+origin = '''
+- {{7977eafe0e103a66-b92d2c86d2146604-6586d6d2aa4d7a5f}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7977eafe0e103a66-b92d2c86d2146604-6586d6d2aa4d7a5f"
+type = "paragraph"
+origin = '''
+**状态刷新**：更换、裁剪或旋转图片后，旧图的预览、局部改色与导出文件会自动清空，重新点击“预览”与“生成”即可。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "9b864318fbb818e8"
+type = "heading"
+origin = '''
+## 开始前保留原图备份
+'''
+translate = '''
+## Keep a copy of your original file
+'''
+
+[[block]]
+key = "485222f9217a92af"
+type = "paragraph"
+origin = '''
+Lumina Studio 在裁剪或旋转时仅修改当前网页任务中的工作副本，不会改动电脑磁盘上的原始文件。不过，一旦在窗口中应用裁剪或旋转，当前任务即以处理后的新画面为准；若想恢复完整画幅，重新上传原图最为直接。
+'''
+translate = '''
+Cropping and rotation only modify the temporary working copy inside your current browser session; Lumina never overwrites your source file on disk. Because browser sessions expire on refresh or tab closure, keeping organized local files makes it easy to start fresh or try alternate crops later.
+'''
+
+[[block]]
+key = "ac376bac2ac00370"
+type = "paragraph"
+origin = '''
+遇到以下情况时，建议在本地保留好原始文件与工作副本：
+'''
+translate = '''
+For important projects, save these together in a project folder:
+'''
+
+[[block]]
+key = "a6c6789b44d369a0"
+type = "list"
+composite = true
+origin = '''
+{{a6c6789b44d369a0-585951113cb626a8}}
+{{a6c6789b44d369a0-47240877054b84f5}}
+{{a6c6789b44d369a0-888ffaebd5d135f5}}
+{{a6c6789b44d369a0-3838b7fd7b2a14b2}}
+'''
+translate = '''
+- The untouched original artwork
+- Any pre-trimmed working copies with custom canvas margins
+- Your final conversion settings or Share Card recipe
+- The verified 3MF file
+'''
+
+[[block]]
+key = "a6c6789b44d369a0-585951113cb626a8"
+type = "listItem"
+composite = true
+origin = '''
+- {{a6c6789b44d369a0-585951113cb626a8-bd3876bb5c55f6e6}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a6c6789b44d369a0-585951113cb626a8-bd3876bb5c55f6e6"
+type = "paragraph"
+origin = '''
+手头仅有唯一一份相机原片、手机照片或设计源稿；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a6c6789b44d369a0-47240877054b84f5"
+type = "listItem"
+composite = true
+origin = '''
+- {{a6c6789b44d369a0-47240877054b84f5-4c6d41bbaced53ee}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a6c6789b44d369a0-47240877054b84f5-4c6d41bbaced53ee"
+type = "paragraph"
+origin = '''
+后续可能还要微调透明边缘、画布留白或长宽比例；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a6c6789b44d369a0-888ffaebd5d135f5"
+type = "listItem"
+composite = true
+origin = '''
+- {{a6c6789b44d369a0-888ffaebd5d135f5-07ec14c7df00ac70}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a6c6789b44d369a0-888ffaebd5d135f5-07ec14c7df00ac70"
+type = "paragraph"
+origin = '''
+同一张素材计划导出多种裁剪比例或摆放方向；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a6c6789b44d369a0-3838b7fd7b2a14b2"
+type = "listItem"
+composite = true
+origin = '''
+- {{a6c6789b44d369a0-3838b7fd7b2a14b2-2051bce18216c2da}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a6c6789b44d369a0-3838b7fd7b2a14b2-2051bce18216c2da"
+type = "paragraph"
+origin = '''
+重要商业项目需要长期归档原图、分享卡参数与最终 3MF。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1912732cb35712d3"
+type = "admonition"
+composite = true
+origin = '''
+:::info[支持图片格式]
+{{1912732cb35712d3-539444ca07514a72}}
+:::
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1912732cb35712d3-539444ca07514a72"
+type = "paragraph"
+origin = '''
+支持导入 JPG / JPEG、PNG、WebP、HEIC / HEIF 与 SVG，同时兼容部分相机 RAW 格式。其中 HEIC / HEIF 与 RAW 在首次生成缩略图时耗时略长，SVG 则会保留自身的路径与画布信息。请确保文件内容本身完整可用（仅修改损坏文件的扩展名无法正常解析）。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1b1705c42d5afe90"
+type = "heading"
+origin = '''
+## 第一步：上传单张或多张图片
+'''
+translate = '''
+## Step 1: Upload one or more images
+'''
+
+[[block]]
+key = "563d67401961c83a"
+type = "paragraph"
+origin = '''
+打开“图像转换 → 核心设置”，在左侧“基础设置”顶部找到虚线上传框：
+'''
+translate = '''
+In **Core Settings**, click the dashed upload area or drag files onto it:
+'''
+
+[[block]]
+key = "80049952a1b0f28a"
+type = "list"
+composite = true
+origin = '''
+{{80049952a1b0f28a-3362b72800a9c41f}}
+{{80049952a1b0f28a-5884472426535ab9}}
+{{80049952a1b0f28a-eee0f5da92ecb7a5}}
+'''
+translate = '''
+- **Select one file** to open the single-image workflow with thumbnail, crop, and rotation controls.
+- **Select multiple files** at once to jump straight into Batch mode.
+'''
+
+[[block]]
+key = "80049952a1b0f28a-3362b72800a9c41f"
+type = "listItem"
+composite = true
+origin = '''
+1. {{80049952a1b0f28a-3362b72800a9c41f-22a4c74fc0af0cb0}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "80049952a1b0f28a-3362b72800a9c41f-22a4c74fc0af0cb0"
+type = "paragraph"
+origin = '''
+点击上传框，从系统文件窗口中选择图片；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "80049952a1b0f28a-5884472426535ab9"
+type = "listItem"
+composite = true
+origin = '''
+2. {{80049952a1b0f28a-5884472426535ab9-488741550d20a054}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "80049952a1b0f28a-5884472426535ab9-488741550d20a054"
+type = "paragraph"
+origin = '''
+或从访达 / 资源管理器将图片直接拖入上传框；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "80049952a1b0f28a-eee0f5da92ecb7a5"
+type = "listItem"
+composite = true
+origin = '''
+3. {{80049952a1b0f28a-eee0f5da92ecb7a5-f19d8ebfa5b71495}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "80049952a1b0f28a-eee0f5da92ecb7a5-f19d8ebfa5b71495"
+type = "paragraph"
+origin = '''
+若一次框选多张图片，将直接创建批量转换任务。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4297cc9873cbce1a"
+type = "paragraph"
+origin = '''
+只上传一张图片时，界面进入单图流程，缩略图下方显示“裁切与旋转”等单图操作；一次上传多张图片时，界面直接展示批量文件列表（批量模式下不提供逐张独立裁剪与旋转）。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "6bb57d15bc80624b"
+type = "paragraph"
+origin = '''
+导入较大的 HEIC、HEIF 或 RAW 文件时，请稍候缩略图加载完成，无需重复点击选择同一文件。
+'''
+translate = '''
+If an upload fails to show a thumbnail, test with a small, known-good JPG or PNG to tell apart an unsupported file from a connection issue.
+'''
+
+[[block]]
+key = "fabed90bc22d39cf"
+type = "heading"
+origin = '''
+## 第二步：按需裁剪画幅
+'''
+translate = '''
+## Step 2: Crop after upload
+'''
+
+[[block]]
+key = "869a905c8ea44d7a"
+type = "paragraph"
+origin = '''
+在单图流程中，若已开启“上传后裁剪”开关，选择位图后会自动弹出裁剪窗口。该开关会记住上一次的状态；若日常无需每次裁剪，将其关闭即可。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "36d19c112034c626"
+type = "paragraph"
+origin = '''
+裁剪窗口内置“自由”、1:1、4:3、3:2、16:9、9:16 和 3:4 常用比例。你可以直接拖拽蓝色裁剪框，也可以在底部输入精确的 X、Y 像素起点与宽度、高度数值。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1b3caaac2af611de"
+type = "paragraph"
+origin = '''
+确认前可核对窗口底部的两组尺寸：
+'''
+translate = '''
+When **Crop After Upload** is turned on, importing a single raster image opens the crop dialog automatically. Drag the blue selection handles—or pick a preset aspect ratio—and check the pixel dimensions of your selection before confirming:
+'''
+
+[[block]]
+key = "8fa916d9baa54eae"
+type = "list"
+composite = true
+origin = '''
+{{8fa916d9baa54eae-44784da9b695e7d8}}
+{{8fa916d9baa54eae-1bf8e30a9d08da62}}
+'''
+translate = '''
+- Click **Apply Changes** to keep your crop and orientation.
+- Click **Cancel** or the close button (`×`) to close the dialog without applying changes.
+'''
+
+[[block]]
+key = "8fa916d9baa54eae-44784da9b695e7d8"
+type = "listItem"
+composite = true
+origin = '''
+- {{8fa916d9baa54eae-44784da9b695e7d8-9e7ac1f568630ff1}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8fa916d9baa54eae-44784da9b695e7d8-9e7ac1f568630ff1"
+type = "paragraph"
+origin = '''
+**原图**：当前导入文件的完整像素宽高；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8fa916d9baa54eae-1bf8e30a9d08da62"
+type = "listItem"
+composite = true
+origin = '''
+- {{8fa916d9baa54eae-1bf8e30a9d08da62-ca16adbd6c4ae1e0}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8fa916d9baa54eae-1bf8e30a9d08da62-ca16adbd6c4ae1e0"
+type = "paragraph"
+origin = '''
+**选区**：裁剪后实际保留的像素宽高。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "cb4aefdb8838165c"
+type = "paragraph"
+origin = '''
+调整满意后点击“应用更改”；若放弃本次裁剪，点击“取消”或右上角关闭按钮即可。图片导入后，随时可点击缩略图下方的“裁切与旋转”再次打开该窗口。
+'''
+translate = '''
+After an image is loaded, you can reopen this dialog anytime by clicking **Crop & Rotate** beneath the thumbnail. Note that cropping removes pixels outside the selection from the session copy, and cropping into a tiny region cannot add pixel resolution that wasn't in the original file.
+'''
+
+[[block]]
+key = "5a78b8cc9dec7419"
+type = "admonition"
+composite = true
+origin = '''
+:::warning[透明边缘留白]
+{{5a78b8cc9dec7419-89251cb5325fcc88}}
+:::
+'''
+translate = '''
+'''
+
+[[block]]
+key = "5a78b8cc9dec7419-89251cb5325fcc88"
+type = "paragraph"
+origin = '''
+透明 PNG 的投影、外发光、描边与抗锯齿边缘往往包含肉眼不易察觉的半透明像素。若裁剪框紧贴实色边缘切齐，生成的模型外圈可能出现断边或缺口。建议先在深浅背景上确认透明过渡范围，向外适当留出少量边距。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4ecde598975a2cef"
+type = "heading"
+origin = '''
+### 裁剪与画面分辨率
+'''
+translate = '''
+### Leave breathing room around transparent or soft edges
+'''
+
+[[block]]
+key = "785b126100d85143"
+type = "paragraph"
+origin = '''
+裁剪的作用是收紧构图范围，选区内的像素总数即为剩余可用像素。将原图中很小的一块局部裁出并拉大打印尺寸时，细节上限仍受该局部的像素量与喷嘴线宽制约。关于目标尺寸与细节表现的关系，请参阅[0.2 和 0.4 喷嘴相当于多少分辨率？](pathname:///zh/docs/knowledge/nozzle-equivalent-resolution/)。
+'''
+translate = '''
+Drop shadows, outer glows, and anti-aliased silhouettes in transparent PNGs taper off through faint semi-transparent pixels. Snapping the crop box tight against the solid edge can clip those soft transitions and leave notched borders on the 3D model. Leave a small margin outside visible edges and verify the silhouette in Preview.
+'''
+
+[[block]]
+key = "f92a0aaf4422488e"
+type = "heading"
+origin = '''
+### 为什么上传 SVG 时不会弹出裁剪窗口？
+'''
+translate = '''
+### Why doesn't uploading an SVG open the crop dialog?
+'''
+
+[[block]]
+key = "c1c4f2f1d20eb037"
+type = "paragraph"
+origin = '''
+单独上传 SVG 时，Lumina 默认优先保留原生矢量路径，不走位图像素裁剪流程。SVG 的可视范围由文件自身的 `viewBox`、画布尺寸与路径坐标决定。如需调整画幅边距，建议在矢量设计软件中修改 `viewBox` 或画板大小后重新导出；也可另存为高分辨率 PNG 按位图流程裁剪。
+'''
+translate = '''
+Uploading a single SVG preserves native vector paths and uses the SVG's own `viewBox` and artboard bounds rather than raster pixel cropping. To adjust framing or trim off-canvas shapes on an SVG, edit its `viewBox` or artboard in your vector editor—see [SVG Troubleshooting](pathname:///en/docs/knowledge/svg-troubleshooting/).
+'''
+
+[[block]]
+key = "c8e77107d1260dc4"
+type = "heading"
+origin = '''
+## 第三步：区分“更换当前图片”与“添加更多图片”
+'''
+translate = '''
+## Step 3: Replace the image or add more images
+'''
+
+[[block]]
+key = "a2fd461dbae3777e"
+type = "paragraph"
+origin = '''
+单图上传完成后，缩略图下方提供两个文件操作入口：
+'''
+translate = '''
+In the single-image workflow, two actions sit right beneath the image thumbnail:
+'''
+
+[[block]]
+key = "6cdf38e4d49874e3"
+type = "heading"
+origin = '''
+### 更换当前图片
+'''
+translate = '''
+### Replace current image
+'''
+
+[[block]]
+key = "b4b24310db790298"
+type = "paragraph"
+origin = '''
+用新图片替换当前图片，并继续留在单图流程（直接点击图片缩略图也会触发同一替换操作）。替换后，针对旧图生成的预览、颜色工作站局部调整、3D 预览及下载链接会自动清空。
+'''
+translate = '''
+Swaps out the loaded image for a new file while staying in the single-image workflow (clicking the thumbnail itself opens the same file picker). Previous Preview results, Color Workstation edits, and download links are cleared automatically so stale data never carries over to the new artwork.
+'''
+
+[[block]]
+key = "f42fcb7b24a08145"
+type = "heading"
+origin = '''
+### 添加更多图片
+'''
+translate = '''
+### Add more images
+'''
+
+[[block]]
+key = "9bdd1b9b46a059d4"
+type = "paragraph"
+origin = '''
+保留当前图片并追加新文件，同时自动切换到批量流程。批量流程会对列表内的所有图片统一应用同一套转换参数；若每张图片需要独立的裁剪比例、旋转方向或结构设置，建议按单图逐一处理。
+'''
+translate = '''
+Keeps the current image, appends one or more additional files, and switches the workspace to Batch mode. Every file in a batch shares one set of primary conversion parameters—if individual artworks need custom crops, orientations, Source Types, or structural settings, process them one at a time instead.
+'''
+
+[[block]]
+key = "d64d4327ac56c2b1"
+type = "paragraph"
+origin = '''
+若原本只想换图却误点了“添加更多图片”（界面出现文件列表与“批量生成”按钮），只需点击多余文件名右侧的 `×` 将其移除；当列表仅剩一张图片时，界面会自动切回单图流程。
+'''
+translate = '''
+If you clicked **Add more images** by mistake and see the file list alongside **Batch Generate**, click the `×` next to any extra filenames. Once a single file remains, the interface returns to the single-image workflow.
+'''
+
+[[block]]
+key = "5a7f589e2b92cabe"
+type = "heading"
+origin = '''
+## 第四步：旋转图片方向
+'''
+translate = '''
+## Step 4: Rotate the current image
+'''
+
+[[block]]
+key = "086a384e6dd1c66d"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/06-current-crop.webp').default}
+  alt="裁切与旋转窗口中的左右旋转和应用更改按钮"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/06-current-crop.webp').default}
+  alt="Crop & Rotate dialog with rotation buttons and Apply Changes highlighted"
+/>
+'''
+
+[[block]]
+key = "771c3469126c3e83"
+type = "paragraph"
+origin = '''
+在单图流程中点击“裁切与旋转”，使用“向左旋转 90°”或“向右旋转 90°”调整朝向（向同一方向连续点击两次即为旋转 180°），核对构图无误后点击“应用更改”，放弃修改则点击“取消”。
+'''
+translate = '''
+In the single-image workflow, click **Crop & Rotate**, then use **Rotate left 90°** or **Rotate right 90°** (click twice in the same direction for 180°). Check the framing and click **Apply Changes**, or click **Cancel** to discard.
+'''
+
+[[block]]
+key = "afd96d86b7436311"
+type = "paragraph"
+origin = '''
+应用旋转后，后续的 2D 预览、3D 预览与模型导出均采用新方向（此前已下载到本地电脑的旧文件不会改变）。注意旋转 90° 或 270° 会互换画面宽高，若固定了目标宽度，成品高度与构图比例也会随之变化。
+'''
+translate = '''
+Applying a rotation updates the active image for subsequent Preview, 3D view, and 3MF generation without altering files you already downloaded. Rotating by 90° or 270° swaps width and height, so verify your target millimeter dimensions afterward.
+'''
+
+[[block]]
+key = "320179b0b747fdb5"
+type = "paragraph"
+origin = '''
+SVG 文件同样支持在该窗口中旋转方向并完整保留矢量路径。
+'''
+translate = '''
+SVG uploads can also be rotated in this dialog while keeping their vector paths intact.
+'''
+
+[[block]]
+key = "d75873af5986136b"
+type = "admonition"
+composite = true
+origin = '''
+:::note[SVG 异常处理]
+{{d75873af5986136b-c3e3fb3ed54e1b76}}
+:::
+'''
+translate = '''
+:::note[SVG layout and resolution]
+Rotation only changes image orientation. If an SVG has missing paths, clipped bounds, or unexpected fills, check its vector structure directly rather than rotating repeatedly.
+:::
+'''
+
+[[block]]
+key = "d75873af5986136b-c3e3fb3ed54e1b76"
+type = "paragraph"
+origin = '''
+旋转仅用于调整画面朝向。若 SVG 出现缺块、白底、破洞或画布偏移，请按[SVG 专项排查](pathname:///zh/docs/knowledge/svg-troubleshooting/)检查闭合路径、画布范围、滤镜与内嵌位图。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "e326b9e07d3ead40"
+type = "heading"
+origin = '''
+## 第五步：核对批量文件列表
+'''
+translate = '''
+## Step 5: Review the Batch file list
+'''
+
+[[block]]
+key = "020603c11f12593f"
+type = "paragraph"
+origin = '''
+进入批量模式后，开始生成前请核对列表信息：
+'''
+translate = '''
+Before running a batch job, double-check the file list:
+'''
+
+[[block]]
+key = "f56dcca872e5535c"
+type = "list"
+composite = true
+origin = '''
+{{f56dcca872e5535c-2fb73a5c64d67084}}
+{{f56dcca872e5535c-8124251eebaf3f94}}
+{{f56dcca872e5535c-cbdbcf6224070253}}
+{{f56dcca872e5535c-c487d5a329394517}}
+'''
+translate = '''
+- Total file count matches what you intend to convert.
+- No duplicate files or outdated drafts were included.
+- Use **Add more images** below the list to append additional files, or click `×` beside any entry to remove it.
+'''
+
+[[block]]
+key = "f56dcca872e5535c-2fb73a5c64d67084"
+type = "listItem"
+composite = true
+origin = '''
+- {{f56dcca872e5535c-2fb73a5c64d67084-e8ad7c27a4b3a2a2}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f56dcca872e5535c-2fb73a5c64d67084-e8ad7c27a4b3a2a2"
+type = "paragraph"
+origin = '''
+顶部显示的文件总数与计划处理张数一致；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f56dcca872e5535c-8124251eebaf3f94"
+type = "listItem"
+composite = true
+origin = '''
+- {{f56dcca872e5535c-8124251eebaf3f94-08d5ed2771f0e60a}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f56dcca872e5535c-8124251eebaf3f94-08d5ed2771f0e60a"
+type = "paragraph"
+origin = '''
+列表中无重复导入或选错版本的图片；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f56dcca872e5535c-cbdbcf6224070253"
+type = "listItem"
+composite = true
+origin = '''
+- {{f56dcca872e5535c-cbdbcf6224070253-5973ee5512df70d2}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f56dcca872e5535c-cbdbcf6224070253-5973ee5512df70d2"
+type = "paragraph"
+origin = '''
+如需继续添加文件，可点击列表下方的“添加更多图片”；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f56dcca872e5535c-c487d5a329394517"
+type = "listItem"
+composite = true
+origin = '''
+- {{f56dcca872e5535c-c487d5a329394517-d056e7142c0e6d18}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f56dcca872e5535c-c487d5a329394517-d056e7142c0e6d18"
+type = "paragraph"
+origin = '''
+如需剔除单张文件，点击对应文件名右侧的 `×` 即可。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c62c1a4a6f3fe254"
+type = "paragraph"
+origin = '''
+由于批量模式不提供逐张裁剪与旋转，需要调整构图的素材请先在外部修图软件中裁好工作副本，再批量导入。
+'''
+translate = '''
+Because Batch mode does not open individual crop and rotation dialogs per file, crop and orient your working copies beforehand before adding them to the batch.
+'''
+
+[[block]]
+key = "1533778f91375f98"
+type = "heading"
+origin = '''
+## 换图与编辑后的重置规则
+'''
+translate = '''
+## What resets when the image changes?
+
+| Action | Active image | Workflow mode | Previous Preview & downloads | Next step |
+| --- | --- | --- | --- | --- |
+| Replace current image | Swapped for new file | Single image | Cleared | Confirm crop, Source Type, and dimensions, then run **Preview** |
+| Apply a crop | Trimmed to selection | Single image | Cleared / outdated | Verify target dimensions, then run **Preview** |
+| Apply a rotation | Rotated to new angle | Single image | Cleared | Check swapped width/height, then run **Preview** |
+| Add more images | Kept and appended | Switches to Batch | Single-image results cleared | Confirm file list and shared settings, then run **Batch Generate** |
+| Remove a Batch file | Selected item removed | Stays Batch (or returns to Single at 1 file) | Previous batch ZIP outdated | Confirm remaining files and generate again |
+'''
+
+[[block]]
+key = "dae2ecbe24eb5568"
+type = "paragraph"
+origin = '''
+当输入图片或工作模式变动时，Lumina Studio 会自动清理不再匹配旧画面的临时状态：
+'''
+translate = '''
+Clearing session previews never deletes files on your computer—it simply ensures your Preview and exported 3MF always match the current artwork.
+'''
+
+[[block]]
+key = "c661dd350718738e"
+type = "table"
+origin = '''
+| 执行操作 | 当前图片变化 | 工作模式 | 旧预览与下载结果 | 后续操作 |
+| --- | --- | --- | --- | --- |
+| 更换当前图片 | 替换为新图片 | 保持单图 | 自动清空 | 核对裁剪、色彩来源与参数后重新点击“预览” |
+| 裁剪并应用更改 | 更新为选区画面 | 保持单图 | 旧预览失效 | 核对目标尺寸与比例后重新点击“预览” |
+| 旋转并应用更改 | 更新为旋转后画面 | 保持单图 | 自动清空 | 确认长宽尺寸无误后重新点击“预览” |
+| 添加更多图片 | 保留原图并追加新图 | 切入批量 | 单图预览清空 | 核对文件列表与统一转换参数后执行“批量生成” |
+| 移除批量列表中的图片 | 移除所选文件 | 剩多张时保持批量；剩 1 张时回到单图 | 原批量打包结果过期 | 确认剩余文件无误后重新生成 |
+'''
+translate = '''
+'''
+
+[[block]]
+key = "cbbf3b866f003400"
+type = "heading"
+origin = '''
+## 常见问题 Q&A
+'''
+translate = '''
+## Common questions
+'''
+
+[[block]]
+key = "8c346e3038c8fa4d"
+type = "heading"
+origin = '''
+### 为什么上传位图后没有自动弹出裁剪窗口？
+'''
+translate = '''
+### Why didn't the crop dialog open automatically?
+'''
+
+[[block]]
+key = "19130649f0010aa3"
+type = "paragraph"
+origin = '''
+请检查上传框附近的“上传后裁剪”开关是否已开启。此外，一次多选进入批量模式、或单独上传 SVG 文件时，都不会触发位图自动裁剪。已上传单张位图时，可直接点击缩略图下方的“裁切与旋转”手动打开窗口。
+'''
+translate = '''
+Check that **Crop After Upload** is enabled. Also note that multi-file Batch uploads and single SVG uploads skip the raster crop dialog. For any single raster image already loaded, click **Crop & Rotate** beneath the thumbnail to open it manually.
+'''
+
+[[block]]
+key = "f780b18c9c936828"
+type = "heading"
+origin = '''
+### 可以不裁剪画幅、只旋转图片方向吗？
+'''
+translate = '''
+### Can I rotate an image without cropping it?
+'''
+
+[[block]]
+key = "99a2ab5b005b5ec5"
+type = "paragraph"
+origin = '''
+可以。打开“裁切与旋转”窗口，保留默认的完整全图选区，点击旋转按钮调好方向后直接点击“应用更改”即可。
+'''
+translate = '''
+Yes. Open **Crop & Rotate**, leave the full-frame selection untouched, rotate to the desired angle, and click **Apply Changes**.
+'''
+
+[[block]]
+key = "ce393bb0e89d3813"
+type = "heading"
+origin = '''
+### 连续点击两次 90° 旋转能直接转成 180° 吗？
+'''
+translate = '''
+### Can I click 90° twice to rotate by 180°?
+'''
+
+[[block]]
+key = "b0add373b6ce81a3"
+type = "paragraph"
+origin = '''
+可以。在同一次打开的窗口中朝同一方向点击两次旋转按钮，再点击一次“应用更改”即可一步完成 180° 旋转。
+'''
+translate = '''
+Yes. Click the same 90° rotation button twice inside the dialog, then click **Apply Changes** once.
+'''
+
+[[block]]
+key = "3eeeab9aeac84797"
+type = "heading"
+origin = '''
+### 误入批量模式后怎样退回单图界面？
+'''
+translate = '''
+### How do I exit Batch mode if I entered it by accident?
+'''
+
+[[block]]
+key = "1692709c613555ac"
+type = "paragraph"
+origin = '''
+在批量文件列表中点击多余图片右侧的 `×`，删至只剩最后一张目标图片时，界面会自动恢复为单图流程。删除前请留意文件名，确保留下的是需要处理的那一张。
+'''
+translate = '''
+Click `×` beside the extra files in the list until only one file remains; the workspace switches right back to the single-image view. Double-check filenames before removing so you keep the intended file.
+'''
+
+[[block]]
+key = "7d3805402ab657ee"
+type = "heading"
+origin = '''
+### 为什么透明 PNG 裁剪后外圈少了一层柔边？
+'''
+translate = '''
+### Why did my transparent PNG lose a thin outer halo after cropping?
+'''
+
+[[block]]
+key = "df5b04e60c4f37a2"
+type = "paragraph"
+origin = '''
+透明投影、发光与抗锯齿边缘由浅淡的半透明像素构成，裁剪框贴得过紧时会将其一并裁掉。重新上传原图，在“裁切与旋转”中把选框向实色边缘外适当留出一圈余量即可。
+'''
+translate = '''
+Soft shadows and anti-aliased edges extend outward through subtle semi-transparent pixels. Re-upload the original file and leave a slight buffer outside the solid edge when cropping.
+'''
+
+[[block]]
+key = "7f55a7f3bfa007b5"
+type = "heading"
+origin = '''
+### 图片缩略图方向已经摆正，但导入切片器后模型朝向不对怎么办？
+'''
+translate = '''
+### The image thumbnail faces the right way, so why is my model oriented differently in the slicer?
+'''
+
+[[block]]
+key = "0db719c97921db0e"
+type = "paragraph"
+origin = '''
+先确认 Lumina 中的缩略图与 2D 预览方向正确，再检查结构模式（如正打/倒打观赏面）以及切片器内的模型摆放面与热床朝向。网页端图片旋转管的是画面正方向，切片器内摆放管的是物理打印朝向，两者各司其职。
+'''
+translate = '''
+Verify the thumbnail and 2D Preview in Lumina first, then check **Structure Mode** (such as front vs. face-down printing) and build-plate orientation inside your slicer. Image rotation sets artwork orientation, whereas Structure Mode and slicer placement control how the 3D part sits on the bed.
+'''
+
+[[block]]
+key = "3051fe59014db8cd"
+type = "heading"
+origin = '''
+### 上传图片后迟迟不显示缩略图怎么排查？
+'''
+translate = '''
+### What if no thumbnail appears at all after uploading?
+'''
+
+[[block]]
+key = "71d4e88658e1d467"
+type = "paragraph"
+origin = '''
+先换一张体积较小、本地能正常打开的标准 JPG 或 PNG 测试。若小图同样无法加载缩略图，请按[打不开、一直转圈或生成失败的排查顺序](pathname:///zh/docs/knowledge/web-generation-troubleshooting/)依次检查网络连接、文件格式与服务状态。
+'''
+translate = '''
+Test with a small, standard JPG or PNG first. If that also fails to load, follow [The Page Will Not Open, Keeps Spinning, or Generation Fails](pathname:///en/docs/knowledge/web-generation-troubleshooting/) to troubleshoot network connectivity, file integrity, and service status.
+'''

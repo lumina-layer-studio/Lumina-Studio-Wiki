@@ -1,0 +1,390 @@
+[metadata]
+reviewed_source = "dad4410cb29e53c110908a883f4489715eda63594b13332ac9407fc8aa2bfe9b"
+
+[[block]]
+key = "dcee8c4490cda4ff"
+type = "yaml"
+origin = '''
+---
+title: "LUT 详情与色域图"
+description: "LUT 摘要、类型化元数据、调色板和颜色覆盖图的读取方法。"
+sidebar_position: 7
+---
+'''
+translate = '''
+---
+title: "LUT Details and Gamut Charts"
+description: "How to read LUT summary, typed metadata, palette, and color-coverage charts."
+sidebar_position: 7
+---
+'''
+
+[[block]]
+key = "0658b2828b7d7b6a"
+type = "heading"
+origin = '''
+# LUT 详情与色域图
+'''
+translate = '''
+# LUT Details and Gamut Charts
+'''
+
+[[block]]
+key = "2e0e9713152db6bf"
+type = "paragraph"
+origin = '''
+在 **LUT 详情**中加载任意 LUT，即可查看其完整声明的耗材类型、色彩模式、打印结构参数、功能特性及色域覆盖分布，便于在建模与打印前确认匹配关系。
+'''
+translate = '''
+Load any LUT in **LUT Details** to inspect its declared materials, color mode, print structure, capabilities, and color-gamut coverage before selecting it for modeling or printing.
+'''
+
+[[block]]
+key = "2583c7a325169d60"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-lut-details.webp').default}
+  alt="已加载真实 LUT 的摘要、元数据和调色板"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-lut-details.webp').default}
+  alt="Summary, metadata, and palette of a loaded LUT"
+/>
+'''
+
+[[block]]
+key = "4e776a6331ed78ae"
+type = "heading"
+origin = '''
+## 摘要与元数据
+'''
+translate = '''
+## Summary and typed metadata
+'''
+
+[[block]]
+key = "f1bf094db9a4154a"
+type = "list"
+composite = true
+origin = '''
+{{f1bf094db9a4154a-d72af5b34852278b}}
+{{f1bf094db9a4154a-2b8ce7407d95353f}}
+{{f1bf094db9a4154a-20bf1dda7f15e687}}
+{{f1bf094db9a4154a-6a97a3f513d505d1}}
+{{f1bf094db9a4154a-8f4703c40ede5816}}
+{{f1bf094db9a4154a-ad0473975de74e6c}}
+'''
+translate = '''
+{{f1bf094db9a4154a-d72af5b34852278b}}
+{{f1bf094db9a4154a-2b8ce7407d95353f}}
+{{f1bf094db9a4154a-20bf1dda7f15e687}}
+{{f1bf094db9a4154a-6a97a3f513d505d1}}
+{{f1bf094db9a4154a-8f4703c40ede5816}}
+{{f1bf094db9a4154a-ad0473975de74e6c}}
+'''
+
+[[block]]
+key = "f1bf094db9a4154a-d72af5b34852278b"
+type = "listItem"
+composite = true
+origin = '''
+- {{f1bf094db9a4154a-d72af5b34852278b-474045174e5f9e6e}}
+'''
+translate = '''
+- {{f1bf094db9a4154a-d72af5b34852278b-474045174e5f9e6e}}
+'''
+
+[[block]]
+key = "f1bf094db9a4154a-d72af5b34852278b-474045174e5f9e6e"
+type = "paragraph"
+origin = '''
+**颜色数**：当前 LUT 包含的可打印叠色记录总数（区别于基础耗材色数）。
+'''
+translate = '''
+**Color count:** Total number of printable recipe records in the LUT (distinct from the number of base filaments).
+'''
+
+[[block]]
+key = "f1bf094db9a4154a-2b8ce7407d95353f"
+type = "listItem"
+composite = true
+origin = '''
+- {{f1bf094db9a4154a-2b8ce7407d95353f-ab3655c5d37e3ec9}}
+'''
+translate = '''
+- {{f1bf094db9a4154a-2b8ce7407d95353f-ab3655c5d37e3ec9}}
+'''
+
+[[block]]
+key = "f1bf094db9a4154a-2b8ce7407d95353f-ab3655c5d37e3ec9"
+type = "paragraph"
+origin = '''
+**来源类型**：标识数据来源类型，如传统查表（`legacy_lookup`）或预测模型。
+'''
+translate = '''
+**Source kind:** Distinguishes traditional lookup tables (`legacy_lookup`) from predictive data sources.
+'''
+
+[[block]]
+key = "f1bf094db9a4154a-20bf1dda7f15e687"
+type = "listItem"
+composite = true
+origin = '''
+- {{f1bf094db9a4154a-20bf1dda7f15e687-ab9d37add48c7186}}
+'''
+translate = '''
+- {{f1bf094db9a4154a-20bf1dda7f15e687-ab9d37add48c7186}}
+'''
+
+[[block]]
+key = "f1bf094db9a4154a-20bf1dda7f15e687-ab9d37add48c7186"
+type = "paragraph"
+origin = '''
+**层高、线宽、最大颜色层数、底层数和层顺序**：描述建立该 LUT 时所依据的切片与叠色打印结构。
+'''
+translate = '''
+**Layer height, line width, maximum color layers, base layers, and layer order:** Define the physical print structure used to build the LUT.
+'''
+
+[[block]]
+key = "f1bf094db9a4154a-6a97a3f513d505d1"
+type = "listItem"
+composite = true
+origin = '''
+- {{f1bf094db9a4154a-6a97a3f513d505d1-b769fb14b83467ae}}
+'''
+translate = '''
+- {{f1bf094db9a4154a-6a97a3f513d505d1-b769fb14b83467ae}}
+'''
+
+[[block]]
+key = "f1bf094db9a4154a-6a97a3f513d505d1-b769fb14b83467ae"
+type = "paragraph"
+origin = '''
+**基础通道**：指出配方中用作底色基底的通道索引。
+'''
+translate = '''
+**Base channel:** Identifies the substrate channel index used at the base of recipes.
+'''
+
+[[block]]
+key = "f1bf094db9a4154a-8f4703c40ede5816"
+type = "listItem"
+composite = true
+origin = '''
+- {{f1bf094db9a4154a-8f4703c40ede5816-882075d1df37b92c}}
+'''
+translate = '''
+- {{f1bf094db9a4154a-8f4703c40ede5816-882075d1df37b92c}}
+'''
+
+[[block]]
+key = "f1bf094db9a4154a-8f4703c40ede5816-882075d1df37b92c"
+type = "paragraph"
+origin = '''
+**能力**：标明该 LUT 是否支持预测匹配、动态层高、动态层数或自定义配方。
+'''
+translate = '''
+**Capabilities:** Indicates support for predictive matching, dynamic layer height, dynamic layer count, or custom recipes.
+'''
+
+[[block]]
+key = "f1bf094db9a4154a-ad0473975de74e6c"
+type = "listItem"
+composite = true
+origin = '''
+- {{f1bf094db9a4154a-ad0473975de74e6c-c06a389dabfdc83e}}
+'''
+translate = '''
+- {{f1bf094db9a4154a-ad0473975de74e6c-c06a389dabfdc83e}}
+'''
+
+[[block]]
+key = "f1bf094db9a4154a-ad0473975de74e6c-c06a389dabfdc83e"
+type = "paragraph"
+origin = '''
+**支持模式**：列出该 LUT 明确声明支持的层数与层高组合。
+'''
+translate = '''
+**Supported modes:** Lists explicitly supported combinations of layer count and layer height.
+'''
+
+[[block]]
+key = "51370029b759634e"
+type = "paragraph"
+origin = '''
+日常选型时直接参考上方的**摘要**与**类型化元数据**即可；底部的原始元数据完整保留了源文件附加字段，主要用于排查旧格式或数据迁移问题。
+'''
+translate = '''
+Use **Summary** and **Typed Metadata** when choosing a LUT for everyday projects; the raw metadata section preserves underlying file fields for format or migration diagnostics.
+'''
+
+[[block]]
+key = "8d3ccef58ceac651"
+type = "heading"
+origin = '''
+## 调色板
+'''
+translate = '''
+## Palette
+'''
+
+[[block]]
+key = "59165fd4d3703b92"
+type = "paragraph"
+origin = '''
+**调色板**将各通道编号、颜色名称、耗材类型和 HEX 色值一一对应。实际装机打印时，请严格按照通道编号顺序将对应耗材装入供料槽位。
+'''
+translate = '''
+The palette maps each channel index to its color name, material type, and HEX value. When loading filaments on the printer, match physical spools to the listed channel order.
+'''
+
+[[block]]
+key = "032719ffbcb01512"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/02-color-charts.webp').default}
+  alt="LUT 的 Lab、RGB、色相亮度和色相彩度分布图"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/02-color-charts.webp').default}
+  alt="Lab, RGB, hue-lightness, and hue-chroma plots for a LUT"
+/>
+'''
+
+[[block]]
+key = "486e0b58073e102b"
+type = "heading"
+origin = '''
+## 色域分布图
+'''
+translate = '''
+## Gamut charts
+'''
+
+[[block]]
+key = "0810cf2b87713f87"
+type = "list"
+composite = true
+origin = '''
+{{0810cf2b87713f87-7ec391dd4f3ddd7d}}
+{{0810cf2b87713f87-9872975931ecb049}}
+{{0810cf2b87713f87-ab61ea505897ba78}}
+{{0810cf2b87713f87-46506983558bee99}}
+'''
+translate = '''
+{{0810cf2b87713f87-7ec391dd4f3ddd7d}}
+{{0810cf2b87713f87-9872975931ecb049}}
+{{0810cf2b87713f87-ab61ea505897ba78}}
+{{0810cf2b87713f87-46506983558bee99}}
+'''
+
+[[block]]
+key = "0810cf2b87713f87-7ec391dd4f3ddd7d"
+type = "listItem"
+composite = true
+origin = '''
+- {{0810cf2b87713f87-7ec391dd4f3ddd7d-082384648bc387d9}}
+'''
+translate = '''
+- {{0810cf2b87713f87-7ec391dd4f3ddd7d-082384648bc387d9}}
+'''
+
+[[block]]
+key = "0810cf2b87713f87-7ec391dd4f3ddd7d-082384648bc387d9"
+type = "paragraph"
+origin = '''
+**Lab 图**：2D 视图展示 `a*/b*` 色度平面分布；3D 视图加入 `L*` 明度轴，并支持叠加参考切片。
+'''
+translate = '''
+**Lab:** 2D plots the `a*/b*` chromaticity plane; 3D adds lightness (`L*`) with optional reference slices.
+'''
+
+[[block]]
+key = "0810cf2b87713f87-9872975931ecb049"
+type = "listItem"
+composite = true
+origin = '''
+- {{0810cf2b87713f87-9872975931ecb049-ac86817fec6df4eb}}
+'''
+translate = '''
+- {{0810cf2b87713f87-9872975931ecb049-ac86817fec6df4eb}}
+'''
+
+[[block]]
+key = "0810cf2b87713f87-9872975931ecb049-ac86817fec6df4eb"
+type = "paragraph"
+origin = '''
+**RGB 图**：展示全部颜色记录在 RGB 立方体空间内的覆盖范围。
+'''
+translate = '''
+**RGB:** Plots all LUT records inside the RGB color cube.
+'''
+
+[[block]]
+key = "0810cf2b87713f87-ab61ea505897ba78"
+type = "listItem"
+composite = true
+origin = '''
+- {{0810cf2b87713f87-ab61ea505897ba78-245761d1d5f70de0}}
+'''
+translate = '''
+- {{0810cf2b87713f87-ab61ea505897ba78-245761d1d5f70de0}}
+'''
+
+[[block]]
+key = "0810cf2b87713f87-ab61ea505897ba78-245761d1d5f70de0"
+type = "paragraph"
+origin = '''
+**色相—亮度**：查看不同色相下可达到的相对明暗区间。
+'''
+translate = '''
+**Hue–lightness:** Shows the relative lightness range achievable across hues.
+'''
+
+[[block]]
+key = "0810cf2b87713f87-46506983558bee99"
+type = "listItem"
+composite = true
+origin = '''
+- {{0810cf2b87713f87-46506983558bee99-fe903e40096dfb48}}
+'''
+translate = '''
+- {{0810cf2b87713f87-46506983558bee99-fe903e40096dfb48}}
+'''
+
+[[block]]
+key = "0810cf2b87713f87-46506983558bee99-fe903e40096dfb48"
+type = "paragraph"
+origin = '''
+**色相—彩度**：查看不同色相下可达到的相对饱和度上限。
+'''
+translate = '''
+**Hue–chroma:** Shows the relative saturation reach across hues.
+'''
+
+[[block]]
+key = "46211c4b4dbc6959"
+type = "paragraph"
+origin = '''
+黑、白、灰等中性色没有稳定色相角，因此不在依赖色相角的图表中绘制，但仍完整保留在 LUT 记录及 Lab/RGB 分布统计中。
+'''
+translate = '''
+Neutral colors lack a stable hue angle, so hue-based plots omit them while keeping them in the LUT data and in the Lab/RGB views.
+'''
+
+[[block]]
+key = "542781ee1baa9bdc"
+type = "paragraph"
+origin = '''
+如需比较两批耗材或两次校准之间的色差变化，请前往 [LUT 对比](../lut-compare/lut-compare.mdx)。
+'''
+translate = '''
+To analyze differences between two filament batches or calibration runs, use [LUT Compare](../lut-compare/lut-compare.mdx).
+'''

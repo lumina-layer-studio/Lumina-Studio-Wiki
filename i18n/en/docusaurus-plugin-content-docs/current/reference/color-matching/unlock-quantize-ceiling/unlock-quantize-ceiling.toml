@@ -1,0 +1,371 @@
+[metadata]
+reviewed_source = "96c5cc5df617cae801ec4fe78a508a6a4843197d7ea0ab52e023ee65ac727c30"
+
+[[block]]
+key = "7db26b5957bedbdb"
+type = "yaml"
+origin = '''
+---
+title: "解锁量化颜色数"
+description: "将量化颜色数滑块上限从 256 扩展至 8192，适应高渐变复杂图像的分色需求。"
+sidebar_position: 7
+---
+'''
+translate = '''
+---
+title: "Unlock Quantize Ceiling"
+description: "Raise the Quantize Colors slider limit from 256 to 8192 for complex gradients, and understand its memory and 3D preview impact."
+sidebar_position: 7
+---
+'''
+
+[[block]]
+key = "0aecd2f84805b3e9"
+type = "heading"
+origin = '''
+# 解锁量化颜色数
+'''
+translate = '''
+# Unlock Quantize Ceiling
+'''
+
+[[block]]
+key = "6aa734863e125661"
+type = "paragraph"
+origin = '''
+“解锁量化颜色数”用于将[量化颜色数](../../converter-basic/quantize-colors/quantize-colors.mdx)滑块的调节上限从 **256** 扩展至 **8192**。开启开关本身不会立即重新量化图像，也不会自动改动当前已设定的颜色数。
+'''
+translate = '''
+**Unlock Quantize Ceiling** raises the upper limit of the [Quantize Colors](../../converter-basic/quantize-colors/quantize-colors.mdx) slider from **256** to **8192**. Flipping the toggle does not re-quantize the image or change your current slider value until you move the slider above **256**.
+'''
+
+[[block]]
+key = "e7ae7b3be5eb67fe"
+type = "paragraph"
+origin = '''
+此项默认关闭。
+'''
+translate = '''
+This option is off by default.
+'''
+
+[[block]]
+key = "0ef779c18ec11294"
+type = "heading"
+origin = '''
+## 控件位置
+'''
+translate = '''
+## Location
+'''
+
+[[block]]
+key = "5690fc9c2c069891"
+type = "paragraph"
+origin = '''
+依次打开“图像转换 → 核心设置 → 高级设置”，即可找到“解锁量化颜色数”。
+'''
+translate = '''
+Open **Converter → Core Settings → Advanced Settings**, then locate **Unlock quantize ceiling**.
+'''
+
+[[block]]
+key = "1ccc429ddff74189"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-unlock-quantize-ceiling-location.webp').default}
+  alt="Lumina Studio 高级设置中的解锁量化颜色数开关"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-unlock-quantize-ceiling-location.webp').default}
+  alt="Unlock Quantize Ceiling in Lumina Studio Advanced Settings"
+/>
+'''
+
+[[block]]
+key = "10f323034b42d34b"
+type = "heading"
+origin = '''
+## 取值范围变化
+'''
+translate = '''
+## Slider range
+'''
+
+[[block]]
+key = "dcd030ad9c5686d7"
+type = "table"
+origin = '''
+| 开关状态 | 量化颜色数范围 | 步长 |
+| --- | ---: | ---: |
+| 关闭 | 8–256 | 8 |
+| 开启 | 8–8192 | 8 |
+'''
+translate = '''
+| Toggle state | Quantize Colors range | Step |
+| --- | ---: | ---: |
+| Off | 8–256 | 8 |
+| On | 8–8192 | 8 |
+'''
+
+[[block]]
+key = "e66492dbe53e654c"
+type = "paragraph"
+origin = '''
+量化颜色数的默认值为 **48**。开启解锁后，只有手动将滑块拖到 **256** 以上，实际颜色预算才会随之增加；再次关闭解锁时，若当前数值高于 **256**，系统会自动将其回调至 **256**。
+'''
+translate = '''
+The default **Quantize Colors** value is **48**. If you raise the slider past **256** and later turn **Unlock quantize ceiling** off, Lumina Studio immediately clamps the value back to **256**.
+'''
+
+[[block]]
+key = "13994fa582ce88d5"
+type = "heading"
+origin = '''
+## 适用场景与性能开销
+'''
+translate = '''
+## When to use it and performance impact
+'''
+
+[[block]]
+key = "606747e419e71468"
+type = "paragraph"
+origin = '''
+将量化颜色数调高至数百乃至数千时，下列计算与渲染开销会显著上升：
+'''
+translate = '''
+Raising the color budget into the hundreds or thousands noticeably increases:
+'''
+
+[[block]]
+key = "84997587975a09a2"
+type = "list"
+composite = true
+origin = '''
+{{84997587975a09a2-61bc56737926c4c1}}
+{{84997587975a09a2-ca51e08fb2cf0c2a}}
+{{84997587975a09a2-f47d8efc746dc209}}
+{{84997587975a09a2-82f37dd6caf8c589}}
+'''
+translate = '''
+{{84997587975a09a2-61bc56737926c4c1}}
+{{84997587975a09a2-ca51e08fb2cf0c2a}}
+{{84997587975a09a2-f47d8efc746dc209}}
+{{84997587975a09a2-82f37dd6caf8c589}}
+'''
+
+[[block]]
+key = "84997587975a09a2-61bc56737926c4c1"
+type = "listItem"
+composite = true
+origin = '''
+- {{84997587975a09a2-61bc56737926c4c1-5d94a6a74af29ba3}}
+'''
+translate = '''
+- {{84997587975a09a2-61bc56737926c4c1-5d94a6a74af29ba3}}
+'''
+
+[[block]]
+key = "84997587975a09a2-61bc56737926c4c1-5d94a6a74af29ba3"
+type = "paragraph"
+origin = '''
+K-Means 聚类与颜色映射耗时；
+'''
+translate = '''
+Clustering and color-mapping time;
+'''
+
+[[block]]
+key = "84997587975a09a2-ca51e08fb2cf0c2a"
+type = "listItem"
+composite = true
+origin = '''
+- {{84997587975a09a2-ca51e08fb2cf0c2a-99e2fec668096cdd}}
+'''
+translate = '''
+- {{84997587975a09a2-ca51e08fb2cf0c2a-99e2fec668096cdd}}
+'''
+
+[[block]]
+key = "84997587975a09a2-ca51e08fb2cf0c2a-99e2fec668096cdd"
+type = "paragraph"
+origin = '''
+运行内存占用；
+'''
+translate = '''
+Memory usage;
+'''
+
+[[block]]
+key = "84997587975a09a2-f47d8efc746dc209"
+type = "listItem"
+composite = true
+origin = '''
+- {{84997587975a09a2-f47d8efc746dc209-a9f8766854ee11fb}}
+'''
+translate = '''
+- {{84997587975a09a2-f47d8efc746dc209-a9f8766854ee11fb}}
+'''
+
+[[block]]
+key = "84997587975a09a2-f47d8efc746dc209-a9f8766854ee11fb"
+type = "paragraph"
+origin = '''
+待求解的材料配方数量；
+'''
+translate = '''
+The number of material recipes solved;
+'''
+
+[[block]]
+key = "84997587975a09a2-82f37dd6caf8c589"
+type = "listItem"
+composite = true
+origin = '''
+- {{84997587975a09a2-82f37dd6caf8c589-9e647df8fbc653bf}}
+'''
+translate = '''
+- {{84997587975a09a2-82f37dd6caf8c589-9e647df8fbc653bf}}
+'''
+
+[[block]]
+key = "84997587975a09a2-82f37dd6caf8c589-9e647df8fbc653bf"
+type = "paragraph"
+origin = '''
+3D 预览生成的颜色网格数量、GLB 体积与浏览器渲染时间。
+'''
+translate = '''
+Color mesh count, GLB generation time, and browser rendering load in the 3D preview.
+'''
+
+[[block]]
+key = "3fde297e567e7ba2"
+type = "paragraph"
+origin = '''
+成品实际能够呈现的细节同时取决于原图有效色彩、打印尺寸、喷嘴线宽及可用耗材配方。仅当处理高分辨率照片或平滑长渐变画面，且常规 **256** 上限仍出现可见色阶断层时，才建议开启解锁并逐步上调。
+'''
+translate = '''
+Physical print detail is still bounded by the source image's distinct colors, final print dimensions, nozzle line width, and available filament recipes. In most cases, unlock the ceiling only for high-resolution photos or smooth, wide gradients that still show visible banding at **256** colors.
+'''
+
+[[block]]
+key = "c138596e53a30d1d"
+type = "heading"
+origin = '''
+## 与 3D 预览的配合
+'''
+translate = '''
+## Pairing with 3D preview
+'''
+
+[[block]]
+key = "c09f5a5729d1ca77"
+type = "paragraph"
+origin = '''
+标准 3D 预览默认最多合并渲染 **128** 个颜色网格。当量化颜色数超过 **128** 且需要在 3D 视口中完整观察低频过渡色时，请同时开启[3D 高精度颜色预览](../../preview-and-palette/high-precision-3d-preview/high-precision-3d-preview.mdx)。
+'''
+translate = '''
+Standard 3D preview caps color meshes at **128** by default. When **Quantize Colors** is set above **128** and you want low-frequency transition colors rendered accurately in the 3D viewport, enable [High-precision 3D Color Preview](../../preview-and-palette/high-precision-3d-preview/high-precision-3d-preview.mdx) as well.
+'''
+
+[[block]]
+key = "57c9f01f2a65c61b"
+type = "paragraph"
+origin = '''
+修改开关或调整量化颜色数后，请重新生成预览和模型。Lumina 配方卡会记录具体的量化颜色数，但不单独保存“解锁量化颜色数”开关状态。
+'''
+translate = '''
+Rebuild the preview and model after changing either control. Lumina recipe cards save the numeric **Quantize Colors** value, but not the separate unlock toggle.
+'''
+
+[[block]]
+key = "2ebb014b8f68bd72"
+type = "heading"
+origin = '''
+## 相关页面
+'''
+translate = '''
+## Related pages
+'''
+
+[[block]]
+key = "00891ae21bfb5516"
+type = "list"
+composite = true
+origin = '''
+{{00891ae21bfb5516-0760dbe789b14d71}}
+{{00891ae21bfb5516-91eee80cea9ff96d}}
+{{00891ae21bfb5516-11319c8ed269e487}}
+'''
+translate = '''
+{{00891ae21bfb5516-0760dbe789b14d71}}
+{{00891ae21bfb5516-91eee80cea9ff96d}}
+{{00891ae21bfb5516-11319c8ed269e487}}
+'''
+
+[[block]]
+key = "00891ae21bfb5516-0760dbe789b14d71"
+type = "listItem"
+composite = true
+origin = '''
+- {{00891ae21bfb5516-0760dbe789b14d71-b70dd73d6108ec62}}
+'''
+translate = '''
+- {{00891ae21bfb5516-0760dbe789b14d71-b70dd73d6108ec62}}
+'''
+
+[[block]]
+key = "00891ae21bfb5516-0760dbe789b14d71-b70dd73d6108ec62"
+type = "paragraph"
+origin = '''
+[量化颜色数](../../converter-basic/quantize-colors/quantize-colors.mdx)
+'''
+translate = '''
+[Quantize Colors](../../converter-basic/quantize-colors/quantize-colors.mdx)
+'''
+
+[[block]]
+key = "00891ae21bfb5516-91eee80cea9ff96d"
+type = "listItem"
+composite = true
+origin = '''
+- {{00891ae21bfb5516-91eee80cea9ff96d-3525fefdf5839404}}
+'''
+translate = '''
+- {{00891ae21bfb5516-91eee80cea9ff96d-3525fefdf5839404}}
+'''
+
+[[block]]
+key = "00891ae21bfb5516-91eee80cea9ff96d-3525fefdf5839404"
+type = "paragraph"
+origin = '''
+[3D 高精度颜色预览](../../preview-and-palette/high-precision-3d-preview/high-precision-3d-preview.mdx)
+'''
+translate = '''
+[High-precision 3D Color Preview](../../preview-and-palette/high-precision-3d-preview/high-precision-3d-preview.mdx)
+'''
+
+[[block]]
+key = "00891ae21bfb5516-11319c8ed269e487"
+type = "listItem"
+composite = true
+origin = '''
+- {{00891ae21bfb5516-11319c8ed269e487-40e72a25bc38293d}}
+'''
+translate = '''
+- {{00891ae21bfb5516-11319c8ed269e487-40e72a25bc38293d}}
+'''
+
+[[block]]
+key = "00891ae21bfb5516-11319c8ed269e487-40e72a25bc38293d"
+type = "paragraph"
+origin = '''
+[孤立像素清理](../isolated-pixel-cleanup/isolated-pixel-cleanup.mdx)
+'''
+translate = '''
+[Isolated Pixel Cleanup](../isolated-pixel-cleanup/isolated-pixel-cleanup.mdx)
+'''

@@ -1,0 +1,623 @@
+[metadata]
+reviewed_source = "e2617e1c124ff6d24ca01b8738b00b3a8278eaa534ba780d78035b5c9f3c2697"
+
+[[block]]
+key = "e769d11edd7138b4"
+type = "yaml"
+origin = '''
+---
+title: "渐变分组与区域处理"
+description: "耗材档案模式下渐变分组的识别条件、整组与区域选择、去海带纹、二次量化及高亮检查。"
+sidebar_position: 7
+---
+'''
+translate = '''
+---
+title: "Gradient Groups and Region Processing"
+description: "Detection rules, group and region selection, flattening, local re-quantization, and highlight inspection in Material Archive mode."
+sidebar_position: 7
+---
+'''
+
+[[block]]
+key = "c9e95b495125f627"
+type = "heading"
+origin = '''
+# 渐变分组与区域处理
+'''
+translate = '''
+# Gradient Groups and Region Processing
+'''
+
+[[block]]
+key = "4417fd6d0124c632"
+type = "paragraph"
+origin = '''
+原图中的平滑渐变在匹配有限的耗材颜色后，容易被切分为一段段阶梯状色带（俗称“海带纹”）。“渐变分组（海带纹）”面板会自动定位这些色带，并提供按整组或按独立空间区域的换色、去海带纹与二次量化工具。
+'''
+translate = '''
+When a smooth gradient is matched to a finite set of filaments, subtle transitions can split into visible stepped bands. **Gradient groups (banding)** detects those bands automatically and provides whole-group and spatial-region tools to recolor, flatten, or locally re-quantize them.
+'''
+
+[[block]]
+key = "b6ea2b25583dc273"
+type = "paragraph"
+origin = '''
+同时满足以下三个条件时，右侧会显示该面板：
+'''
+translate = '''
+The panel appears when all three conditions are met:
+'''
+
+[[block]]
+key = "ea62d5c189c4ed76"
+type = "list"
+composite = true
+origin = '''
+{{ea62d5c189c4ed76-04e82a81ca8ed38e}}
+{{ea62d5c189c4ed76-40ee731ebc5a516c}}
+{{ea62d5c189c4ed76-e6db14ff636ec433}}
+'''
+translate = '''
+{{ea62d5c189c4ed76-04e82a81ca8ed38e}}
+{{ea62d5c189c4ed76-40ee731ebc5a516c}}
+{{ea62d5c189c4ed76-e6db14ff636ec433}}
+'''
+
+[[block]]
+key = "ea62d5c189c4ed76-04e82a81ca8ed38e"
+type = "listItem"
+composite = true
+origin = '''
+1. {{ea62d5c189c4ed76-04e82a81ca8ed38e-d2d7844d4c94ad92}}
+'''
+translate = '''
+1. {{ea62d5c189c4ed76-04e82a81ca8ed38e-d2d7844d4c94ad92}}
+'''
+
+[[block]]
+key = "ea62d5c189c4ed76-04e82a81ca8ed38e-d2d7844d4c94ad92"
+type = "paragraph"
+origin = '''
+颜色来源设为[耗材档案](../../converter-basic/material-archive-source/material-archive-source.mdx)；
+'''
+translate = '''
+The color source is [Material Archive](../../converter-basic/material-archive-source/material-archive-source.mdx).
+'''
+
+[[block]]
+key = "ea62d5c189c4ed76-40ee731ebc5a516c"
+type = "listItem"
+composite = true
+origin = '''
+2. {{ea62d5c189c4ed76-40ee731ebc5a516c-8c6672599e61d46f}}
+'''
+translate = '''
+2. {{ea62d5c189c4ed76-40ee731ebc5a516c-8c6672599e61d46f}}
+'''
+
+[[block]]
+key = "ea62d5c189c4ed76-40ee731ebc5a516c-8c6672599e61d46f"
+type = "paragraph"
+origin = '''
+当前图片已完成预览；
+'''
+translate = '''
+The current image has a completed preview.
+'''
+
+[[block]]
+key = "ea62d5c189c4ed76-e6db14ff636ec433"
+type = "listItem"
+composite = true
+origin = '''
+3. {{ea62d5c189c4ed76-e6db14ff636ec433-23d9d47386e39ea3}}
+'''
+translate = '''
+3. {{ea62d5c189c4ed76-e6db14ff636ec433-23d9d47386e39ea3}}
+'''
+
+[[block]]
+key = "ea62d5c189c4ed76-e6db14ff636ec433-23d9d47386e39ea3"
+type = "paragraph"
+origin = '''
+画面中至少检测到一个符合条件的渐变分组。
+'''
+translate = '''
+At least one qualifying gradient group is detected.
+'''
+
+[[block]]
+key = "d03e2e91ef61b7a1"
+type = "paragraph"
+origin = '''
+未检测到渐变色带时面板自动隐藏；传统 LUT 与推算 LUT 模式不执行此项检测。
+'''
+translate = '''
+When no banding group is found, the panel stays hidden. Legacy LUT and Inferred LUT modes do not run gradient-group detection.
+'''
+
+[[block]]
+key = "c50cb1944e51979b"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-gradient-groups-panel.webp').default}
+  alt="耗材档案预览中检测到三个渐变分组"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-gradient-groups-panel.webp').default}
+  alt="Three gradient groups detected in a Material Archive preview"
+/>
+'''
+
+[[block]]
+key = "7fae393cc67c84e0"
+type = "heading"
+origin = '''
+## 渐变色带的识别规则
+'''
+translate = '''
+## How smooth gradients are detected
+'''
+
+[[block]]
+key = "d3eabd3edd2dd2b6"
+type = "paragraph"
+origin = '''
+系统会比对原图量化结果与耗材匹配结果：只有原图过渡依然平滑、但耗材匹配在此处发生跳色的边界，才会被归入渐变分组。检测采用以下固定阈值：
+'''
+translate = '''
+Lumina compares the quantized source image against the material-matched preview. A color boundary joins a gradient group only when the source artwork transitions smoothly across that edge while the matched preview steps from one material color to another. Detection uses the following fixed thresholds:
+'''
+
+[[block]]
+key = "9951e6f395aaab3e"
+type = "table"
+origin = '''
+| 判定条件 | 固定阈值 | 作用 |
+| --- | ---: | --- |
+| 原图边界的中位色差 | ΔE 不高于 8 | 排除原图原有的清晰轮廓边 |
+| 两种耗材色的相邻边界 | 至少 15 个像素 | 过滤偶然接触与零碎噪点 |
+| 单种耗材色的像素占比 | 至少 30 个像素 | 忽略面积过小的零星颜色 |
+| 同一分组内的最大色差 | ΔE 不高于 30 | 防止相近色连续串联跨入其他色相 |
+| 可展开的连通区域 | 至少 500 个像素，四方向连接 | 过滤面积过小的局部碎片 |
+'''
+translate = '''
+| Condition | Fixed threshold | Purpose |
+| --- | ---: | --- |
+| Median source color difference along a boundary | ΔE no greater than 8 | Preserves intentional crisp edges in the artwork |
+| Shared boundary between two material colors | At least 15 pixels | Ignores brief contact and isolated noise |
+| Coverage of each material color | At least 30 pixels | Excludes negligible stray colors |
+| Maximum color difference within one group | ΔE no greater than 30 | Stops nearby shades from chaining into a different hue |
+| Expandable connected region | At least 500 pixels, four-way connectivity | Filters out tiny isolated fragments |
+'''
+
+[[block]]
+key = "775d7a14f24c51e0"
+type = "paragraph"
+origin = '''
+各分组按总像素数从多到少排列。组内像素占比最高的耗材色会作为该组的**代表色**，用于“去海带纹”填充；行内显示的“颜色数”和“像素数”分别代表该组包含的匹配色数量与覆盖总面积。
+'''
+translate = '''
+Groups are listed from largest to smallest pixel area. Within each group, the material color covering the most pixels becomes its **representative color**, which **Flatten** uses as the fill target. Each row also displays the number of matched colors in the group and their combined pixel count.
+'''
+
+[[block]]
+key = "75a6fe3c431eccd8"
+type = "heading"
+origin = '''
+## 选中整组与选中区域
+'''
+translate = '''
+## Select all vs. Select region
+'''
+
+[[block]]
+key = "3dec5da5cb4ffb56"
+type = "paragraph"
+origin = '''
+点击**选中整组**会将该组内的全部耗材色加入[全选模式](../selection-modes/selection-modes.mdx)，并在 2D 预览中高亮显示。此时选择目标色，会将全图中所有相同的匹配色统一替换；若该渐变之外的图案也使用了同一种匹配色，这些位置会一并改色。
+'''
+translate = '''
+**Select all** loads every matched color in the group into [All mode](../selection-modes/selection-modes.mdx) and highlights them on the 2D preview. Picking a replacement color then updates every occurrence of those matched colors across the entire image, including any unrelated elements that share the same matched color.
+'''
+
+[[block]]
+key = "c340b29ea9e05c94"
+type = "paragraph"
+origin = '''
+点击**展开区域**可查看该分组在画面中的各个独立连通区域。点击某一行上的**选中区域**同样会列出区域内的耗材色，但高亮与后续换色严格限定在该区域的精确像素掩码内，不影响画面其他位置的同色图案。
+'''
+translate = '''
+Click **Expand regions** to list each connected area within the group. **Select region** displays the colors inside that specific area and restricts both the highlight and any subsequent replacement to the region's exact pixel mask, leaving matching colors elsewhere in the image untouched.
+'''
+
+[[block]]
+key = "d8a685659c4fb585"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/02-region-actions.webp').default}
+  alt="展开渐变分组后显示区域选择、去海带纹、二次量化和高亮按钮"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/02-region-actions.webp').default}
+  alt="An expanded gradient group with region selection, flatten, re-quantise, and highlight actions"
+/>
+'''
+
+[[block]]
+key = "a5883ab853600e4d"
+type = "heading"
+origin = '''
+## 去海带纹
+'''
+translate = '''
+## Flattening
+'''
+
+[[block]]
+key = "f05ef71026833554"
+type = "table"
+origin = '''
+| 操作入口 | 作用范围 | 填充目标色 |
+| --- | --- | --- |
+| 一键去除海带纹 | 所有已检测分组中的匹配色 | 各分组各自的代表色 |
+| 分组行的“去海带纹” | 该分组的精确空间范围 | 该分组的代表色 |
+| 区域行的“去海带纹” | 该区域的精确像素范围 | 所属分组的代表色 |
+| 合并去海带纹 | 同一分组内勾选的两个或多个区域 | 勾选区域内总像素数最多的颜色 |
+'''
+translate = '''
+| Action | Scope | Fill color |
+| --- | --- | --- |
+| Flatten all gradients | Matched colors in all detected groups | Each group's representative color |
+| Flatten (group row) | Exact spatial mask of that group | The group's representative color |
+| Flatten (region row) | Exact pixel mask of that region | The parent group's representative color |
+| Merge flatten | Two or more checked regions in one group | Most frequent color across the checked regions |
+'''
+
+[[block]]
+key = "0198b8a67edb270d"
+type = "paragraph"
+origin = '''
+**一键去除海带纹**与设置页中的[渐变海带纹自动换色](../../settings-import-export/auto-gradient-replacement/auto-gradient-replacement.mdx)均采用全图颜色映射：在保留已有手动换色的基础上，将各组的非代表色映射为代表色，因此分组外的同色像素也会同步替换。
+'''
+translate = '''
+**Flatten all gradients** and [Auto-replace Gradient Banding](../../settings-import-export/auto-gradient-replacement/auto-gradient-replacement.mdx) apply whole-image color remaps: they preserve any manual remaps already in place and map each group's remaining colors to its representative color across the entire canvas.
+'''
+
+[[block]]
+key = "051936b1ef41e2ab"
+type = "paragraph"
+origin = '''
+分组行、区域行与**合并去海带纹**采用空间掩码，仅修改目标区域内部。区域左侧的勾选框用于组合同一分组内的批量处理列表（勾选操作本身不会高亮画布；跨分组勾选时会自动清空上一分组的勾选状态）。
+'''
+translate = '''
+Group-row **Flatten**, region-row **Flatten**, and **Merge flatten** apply spatial masks so edits stay strictly inside the targeted area. Use the region checkboxes to build a batch list within one group (checking a box does not highlight the canvas, and checking a region in a different group clears the previous selection).
+'''
+
+[[block]]
+key = "796a070f89f83945"
+type = "paragraph"
+origin = '''
+空间区域处理完成后，系统会立即刷新 2D 与 3D 预览，此前生成的分层图与 3MF 需重新生成。空间区域处理独立于常规换色的撤销栈；如需恢复初始匹配结果，重新点击**预览**即可。
+'''
+translate = '''
+Spatial edits immediately refresh the 2D and 3D previews; regenerate layer views and 3MF files before exporting. Because spatial masks are stored separately from standard color-remap undo steps, run **Preview** again whenever you want to return to the initial matched result.
+'''
+
+[[block]]
+key = "c81501e5decc9d34"
+type = "heading"
+origin = '''
+## 区域二次量化
+'''
+translate = '''
+## Region re-quantization
+'''
+
+[[block]]
+key = "798e012cd836f859"
+type = "paragraph"
+origin = '''
+**二次量化**会为所选区域单独建立局部调色板，再交由当前耗材求解器重新匹配，既能保留平缓的明暗过渡，又能消减密集交替的细碎色带。
+'''
+translate = '''
+**Re-quantize** builds a dedicated local palette for the selected region and re-matches it through the active material solver, preserving soft shading transitions while collapsing dense alternating bands.
+'''
+
+[[block]]
+key = "e3ca2f05ec9e0eec"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/03-requantize-dialog.webp').default}
+  alt="区域二次量化对话框，量化色数范围为 12 到 256"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/03-requantize-dialog.webp').default}
+  alt="Region re-quantisation dialog with a range of 12 to 256 colours"
+/>
+'''
+
+[[block]]
+key = "8f66df86fc3e9997"
+type = "list"
+composite = true
+origin = '''
+{{8f66df86fc3e9997-ed2952688af09507}}
+{{8f66df86fc3e9997-15be5dd601ec3b96}}
+{{8f66df86fc3e9997-ca703404ad90f5ac}}
+{{8f66df86fc3e9997-151ca400bfca765f}}
+'''
+translate = '''
+{{8f66df86fc3e9997-ed2952688af09507}}
+{{8f66df86fc3e9997-15be5dd601ec3b96}}
+{{8f66df86fc3e9997-ca703404ad90f5ac}}
+{{8f66df86fc3e9997-151ca400bfca765f}}
+'''
+
+[[block]]
+key = "8f66df86fc3e9997-ed2952688af09507"
+type = "listItem"
+composite = true
+origin = '''
+- {{8f66df86fc3e9997-ed2952688af09507-ae06121e38dabd6f}}
+'''
+translate = '''
+- {{8f66df86fc3e9997-ed2952688af09507-ae06121e38dabd6f}}
+'''
+
+[[block]]
+key = "8f66df86fc3e9997-ed2952688af09507-ae06121e38dabd6f"
+type = "paragraph"
+origin = '''
+**色数范围：** **12–256**，默认值为 **64**。
+'''
+translate = '''
+**Range:** **12–256**, defaulting to **64**.
+'''
+
+[[block]]
+key = "8f66df86fc3e9997-15be5dd601ec3b96"
+type = "listItem"
+composite = true
+origin = '''
+- {{8f66df86fc3e9997-15be5dd601ec3b96-25a7df9cc4784fb7}}
+'''
+translate = '''
+- {{8f66df86fc3e9997-15be5dd601ec3b96-25a7df9cc4784fb7}}
+'''
+
+[[block]]
+key = "8f66df86fc3e9997-15be5dd601ec3b96-25a7df9cc4784fb7"
+type = "paragraph"
+origin = '''
+**调节效果：** 数值越大，保留的局部渐变色阶越丰富；数值越小，过渡越趋近于平坦单色。
+'''
+translate = '''
+**Effect:** Higher values retain finer tonal steps; lower values produce a flatter, more uniform transition.
+'''
+
+[[block]]
+key = "8f66df86fc3e9997-ca703404ad90f5ac"
+type = "listItem"
+composite = true
+origin = '''
+- {{8f66df86fc3e9997-ca703404ad90f5ac-372f489b40a2b5ee}}
+'''
+translate = '''
+- {{8f66df86fc3e9997-ca703404ad90f5ac-372f489b40a2b5ee}}
+'''
+
+[[block]]
+key = "8f66df86fc3e9997-ca703404ad90f5ac-372f489b40a2b5ee"
+type = "paragraph"
+origin = '''
+**单区与批量：** 点击单行右侧的**二次量化**仅处理该区域，不会打断已勾选的批量列表；点击顶部的**批量二次量化**会依次处理所有勾选区域，并在完成后清空勾选。
+'''
+translate = '''
+**Single vs. batch:** Clicking **Re-quantize** on a region row processes only that region without clearing your checked batch list. Clicking **Batch re-quantize** processes all checked regions and clears the checkboxes once complete.
+'''
+
+[[block]]
+key = "8f66df86fc3e9997-151ca400bfca765f"
+type = "listItem"
+composite = true
+origin = '''
+- {{8f66df86fc3e9997-151ca400bfca765f-99ae28a66b9d42bd}}
+'''
+translate = '''
+- {{8f66df86fc3e9997-151ca400bfca765f-99ae28a66b9d42bd}}
+'''
+
+[[block]]
+key = "8f66df86fc3e9997-151ca400bfca765f-99ae28a66b9d42bd"
+type = "paragraph"
+origin = '''
+**独立重算：** 每个区域都会生成各自的局部调色板并单独求解，处理完成后自动刷新渐变分组列表。
+'''
+translate = '''
+**Local solving:** Each region generates its own local palette before material matching, and the gradient-group list refreshes automatically afterward.
+'''
+
+[[block]]
+key = "885cd2c105155050"
+type = "heading"
+origin = '''
+## 查看高亮图
+'''
+translate = '''
+## Highlight inspection
+'''
+
+[[block]]
+key = "e1657453c077118e"
+type = "paragraph"
+origin = '''
+点击行末的眼睛图标可打开独立的青色高亮检查窗，用于核对识别范围：分组行的检查窗按匹配色标出全图位置，区域行的检查窗则按精确空间掩码标出该连通区域。该窗口仅供只读核对，不会改变当前选区、主预览或换色记录。
+'''
+translate = '''
+Click the eye icon on any group or region row to open a read-only cyan mask preview showing the exact pixels included: group-level masks highlight matching colors across the full image, while region-level masks show that region's exact spatial mask. Opening or closing this preview leaves your active selection, main preview, and edit history unchanged.
+'''
+
+[[block]]
+key = "b4b8d545cf9c2b5e"
+type = "heading"
+origin = '''
+## 与自动换色的配合
+'''
+translate = '''
+## Working with automatic replacement
+'''
+
+[[block]]
+key = "adcb6c7aa1e7d196"
+type = "paragraph"
+origin = '''
+设置中的**渐变海带纹自动换色**默认关闭。开启后，每次耗材档案预览检测到渐变分组时，都会自动执行一次与**一键去除海带纹**相同的代表色映射，并在面板顶部提示已自动处理，方便随时查看检测结果。关闭该设置后，仍可在面板中手动执行各项操作。
+'''
+translate = '''
+**Auto-replace Gradient Banding** in Settings is off by default. When enabled, every Material Archive preview that detects gradient groups automatically applies the same representative-color remap as **Flatten all gradients** and displays a status notice at the top of the panel so you can still inspect detected groups. When turned off, all manual actions in the panel remain available.
+'''
+
+[[block]]
+key = "8e598e329cd91d51"
+type = "paragraph"
+origin = '''
+相关页面：
+'''
+translate = '''
+Related pages:
+'''
+
+[[block]]
+key = "7c75b1b5467c03a7"
+type = "list"
+composite = true
+origin = '''
+{{7c75b1b5467c03a7-e678ee8de2269de0}}
+{{7c75b1b5467c03a7-bf9880243554b731}}
+{{7c75b1b5467c03a7-fce93e952505b897}}
+{{7c75b1b5467c03a7-d2847b256a2dd45f}}
+{{7c75b1b5467c03a7-72ab6a7d74e30acd}}
+'''
+translate = '''
+{{7c75b1b5467c03a7-e678ee8de2269de0}}
+{{7c75b1b5467c03a7-bf9880243554b731}}
+{{7c75b1b5467c03a7-fce93e952505b897}}
+{{7c75b1b5467c03a7-d2847b256a2dd45f}}
+{{7c75b1b5467c03a7-72ab6a7d74e30acd}}
+'''
+
+[[block]]
+key = "7c75b1b5467c03a7-e678ee8de2269de0"
+type = "listItem"
+composite = true
+origin = '''
+- {{7c75b1b5467c03a7-e678ee8de2269de0-c4e93b094a238b30}}
+'''
+translate = '''
+- {{7c75b1b5467c03a7-e678ee8de2269de0-c4e93b094a238b30}}
+'''
+
+[[block]]
+key = "7c75b1b5467c03a7-e678ee8de2269de0-c4e93b094a238b30"
+type = "paragraph"
+origin = '''
+[颜色工作站](../color-workstation/color-workstation.mdx)
+'''
+translate = '''
+[Color Workstation](../color-workstation/color-workstation.mdx)
+'''
+
+[[block]]
+key = "7c75b1b5467c03a7-bf9880243554b731"
+type = "listItem"
+composite = true
+origin = '''
+- {{7c75b1b5467c03a7-bf9880243554b731-c59138083c1ca6fc}}
+'''
+translate = '''
+- {{7c75b1b5467c03a7-bf9880243554b731-c59138083c1ca6fc}}
+'''
+
+[[block]]
+key = "7c75b1b5467c03a7-bf9880243554b731-c59138083c1ca6fc"
+type = "paragraph"
+origin = '''
+[2D 预览与悬停检查](../two-dimensional-preview/two-dimensional-preview.mdx)
+'''
+translate = '''
+[2D Preview and Hover Inspection](../two-dimensional-preview/two-dimensional-preview.mdx)
+'''
+
+[[block]]
+key = "7c75b1b5467c03a7-fce93e952505b897"
+type = "listItem"
+composite = true
+origin = '''
+- {{7c75b1b5467c03a7-fce93e952505b897-03f9167be2720be5}}
+'''
+translate = '''
+- {{7c75b1b5467c03a7-fce93e952505b897-03f9167be2720be5}}
+'''
+
+[[block]]
+key = "7c75b1b5467c03a7-fce93e952505b897-03f9167be2720be5"
+type = "paragraph"
+origin = '''
+[选择模式、调色板与自由色](../selection-modes/selection-modes.mdx)
+'''
+translate = '''
+[Selection Modes, Palette, and Free Colors](../selection-modes/selection-modes.mdx)
+'''
+
+[[block]]
+key = "7c75b1b5467c03a7-d2847b256a2dd45f"
+type = "listItem"
+composite = true
+origin = '''
+- {{7c75b1b5467c03a7-d2847b256a2dd45f-a5974ca48025e3b2}}
+'''
+translate = '''
+- {{7c75b1b5467c03a7-d2847b256a2dd45f-a5974ca48025e3b2}}
+'''
+
+[[block]]
+key = "7c75b1b5467c03a7-d2847b256a2dd45f-a5974ca48025e3b2"
+type = "paragraph"
+origin = '''
+[渐变海带纹自动换色](../../settings-import-export/auto-gradient-replacement/auto-gradient-replacement.mdx)
+'''
+translate = '''
+[Auto-replace Gradient Banding](../../settings-import-export/auto-gradient-replacement/auto-gradient-replacement.mdx)
+'''
+
+[[block]]
+key = "7c75b1b5467c03a7-72ab6a7d74e30acd"
+type = "listItem"
+composite = true
+origin = '''
+- {{7c75b1b5467c03a7-72ab6a7d74e30acd-028a90d44edb3cca}}
+'''
+translate = '''
+- {{7c75b1b5467c03a7-72ab6a7d74e30acd-028a90d44edb3cca}}
+'''
+
+[[block]]
+key = "7c75b1b5467c03a7-72ab6a7d74e30acd-028a90d44edb3cca"
+type = "paragraph"
+origin = '''
+[耗材档案颜色来源](../../converter-basic/material-archive-source/material-archive-source.mdx)
+'''
+translate = '''
+[Material Archive Color Source](../../converter-basic/material-archive-source/material-archive-source.mdx)
+'''

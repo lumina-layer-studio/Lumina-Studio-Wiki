@@ -1,0 +1,40 @@
+[metadata]
+reviewed_source = "381c6610e0614c85672b7b90c154d5ba47add03e7394468d739b82585f8f036b"
+
+[[block]]
+key = "634af2fa2f5b943b"
+type = "yaml"
+origin = '''
+---
+title: "部署安装"
+description: "如何部署"
+sidebar_position: 5
+---
+'''
+translate = '''
+---
+title: "Installation and Deployment"
+unlisted: true
+translation_status: pending
+---
+'''
+
+[[block]]
+key = "3d581980271bba48"
+type = "heading"
+origin = '''
+# Header
+'''
+translate = '''
+# Installation and Deployment
+'''
+
+[[block]]
+key = "96c53209f0ad2816"
+type = "paragraph"
+origin = '''
+Your content here1111
+'''
+translate = '''
+A new installation guide is being written for the current Lumina Studio release. This incomplete legacy page is hidden from English navigation.
+'''

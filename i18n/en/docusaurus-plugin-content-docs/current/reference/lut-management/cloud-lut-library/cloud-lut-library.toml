@@ -1,0 +1,261 @@
+[metadata]
+reviewed_source = "b3fd293b0453aac9199390ccffd3a05f58d16b2f6abae2fd34d84bbb53c6984a"
+
+[[block]]
+key = "b5835febf33a9b9c"
+type = "yaml"
+origin = '''
+---
+title: "云端 LUT 库"
+description: "查找公开色卡与配方表，预览多板 LUT，按需下载或从离线包添加。"
+sidebar_position: 2
+---
+'''
+translate = '''
+---
+title: "Cloud LUT Library"
+description: "Find public calibration boards and recipe tables, preview multi-board LUTs, and add selected resources from the cloud or an offline pack."
+sidebar_position: 2
+---
+'''
+
+[[block]]
+key = "546604b77d1ffefe"
+type = "heading"
+origin = '''
+# 云端 LUT 库
+'''
+translate = '''
+# Cloud LUT Library
+'''
+
+[[block]]
+key = "5688e760af2439ce"
+type = "paragraph"
+origin = '''
+云端 LUT 库提供已校准的多色配方表。使用前核对颜色模式、各通道对应的真实耗材、层数和层高；显示颜色相近不能代替耗材型号相符。
+'''
+translate = '''
+The cloud LUT library provides calibrated multi-color recipe tables. Before using one, check its color mode, the actual filament assigned to every channel, layer count and layer height. Similar-looking preview colors do not establish a filament match.
+'''
+
+[[block]]
+key = "560ffe14fdbf1980"
+type = "heading"
+origin = '''
+## 查找与下载
+'''
+translate = '''
+## Find and download a LUT
+'''
+
+[[block]]
+key = "d0fc7a289b5b45ae"
+type = "list"
+composite = true
+origin = '''
+{{d0fc7a289b5b45ae-14ddc4701ffac41b}}
+{{d0fc7a289b5b45ae-cb4533616d9c28e7}}
+{{d0fc7a289b5b45ae-951bd520313597ac}}
+{{d0fc7a289b5b45ae-23d631699817ded4}}
+'''
+translate = '''
+{{d0fc7a289b5b45ae-14ddc4701ffac41b}}
+{{d0fc7a289b5b45ae-cb4533616d9c28e7}}
+{{d0fc7a289b5b45ae-951bd520313597ac}}
+{{d0fc7a289b5b45ae-23d631699817ded4}}
+'''
+
+[[block]]
+key = "d0fc7a289b5b45ae-14ddc4701ffac41b"
+type = "listItem"
+composite = true
+origin = '''
+1. {{d0fc7a289b5b45ae-14ddc4701ffac41b-6193e5a503938b83}}
+'''
+translate = '''
+1. {{d0fc7a289b5b45ae-14ddc4701ffac41b-6193e5a503938b83}}
+'''
+
+[[block]]
+key = "d0fc7a289b5b45ae-14ddc4701ffac41b-6193e5a503938b83"
+type = "paragraph"
+origin = '''
+在经典 LUT 选择器点击“去云端找 LUT”，或打开“LUT 管理 → 云端 LUT 库”。
+'''
+translate = '''
+Select the cloud-library shortcut in the classic LUT picker, or open the cloud LUT library under LUT management.
+'''
+
+[[block]]
+key = "d0fc7a289b5b45ae-cb4533616d9c28e7"
+type = "listItem"
+composite = true
+origin = '''
+2. {{d0fc7a289b5b45ae-cb4533616d9c28e7-c89057ec0437ee7d}}
+'''
+translate = '''
+2. {{d0fc7a289b5b45ae-cb4533616d9c28e7-c89057ec0437ee7d}}
+'''
+
+[[block]]
+key = "d0fc7a289b5b45ae-cb4533616d9c28e7-c89057ec0437ee7d"
+type = "paragraph"
+origin = '''
+按品牌、名称或颜色模式筛选，点开条目查看色卡与配套资料。
+'''
+translate = '''
+Filter by brand, name or color mode, then open an entry to inspect its boards and supporting information.
+'''
+
+[[block]]
+key = "d0fc7a289b5b45ae-951bd520313597ac"
+type = "listItem"
+composite = true
+origin = '''
+3. {{d0fc7a289b5b45ae-951bd520313597ac-562386a01b37e2ec}}
+'''
+translate = '''
+3. {{d0fc7a289b5b45ae-951bd520313597ac-562386a01b37e2ec}}
+'''
+
+[[block]]
+key = "d0fc7a289b5b45ae-951bd520313597ac-562386a01b37e2ec"
+type = "paragraph"
+origin = '''
+点击“下载到本地”，等待当前修订安装完成。
+'''
+translate = '''
+Select **Download to local** and wait for the selected revision to finish installing.
+'''
+
+[[block]]
+key = "d0fc7a289b5b45ae-23d631699817ded4"
+type = "listItem"
+composite = true
+origin = '''
+4. {{d0fc7a289b5b45ae-23d631699817ded4-4a65c76428367f8d}}
+'''
+translate = '''
+4. {{d0fc7a289b5b45ae-23d631699817ded4-4a65c76428367f8d}}
+'''
+
+[[block]]
+key = "d0fc7a289b5b45ae-23d631699817ded4-4a65c76428367f8d"
+type = "paragraph"
+origin = '''
+回到本地 LUT 选择器，确认使用这份 LUT。
+'''
+translate = '''
+Return to the local LUT picker and confirm this LUT for use.
+'''
+
+[[block]]
+key = "fd2bfbad5cd0d39b"
+type = "paragraph"
+origin = '''
+目录先读取轻量条目信息，完整加载后可搜索全部条目。列表以每页 24 项为基准，并按实际列数补齐整行；色板只为当前页加载，返回浏览过的页面会复用缓存。搜索不再局限于手动点击“加载更多”之后的条目。
+'''
+translate = '''
+The catalog first loads lightweight entries. Once loaded, search covers the full catalog. Pages use a baseline of 24 entries, adjusted to fill complete rows. Only the current page requests preview boards, and previously visited pages reuse cached previews. Search no longer depends on manually loading additional batches of entries.
+'''
+
+[[block]]
+key = "cefa31d93aee07ae"
+type = "heading"
+origin = '''
+## 怎样阅读色卡预览
+'''
+translate = '''
+## Read the board preview
+'''
+
+[[block]]
+key = "2b407430ec8a4e65"
+type = "paragraph"
+origin = '''
+预览按文件记录的打印顺序排列配方色，保留校准板的空格与定位角标。五色基础板和扩展板分别为 32 × 32 格、38 × 38 格；常用八色 A、B 板各为 37 × 37 格。外形相同不表示配方数量相同。
+'''
+translate = '''
+Previews arrange recipe colors in the file's print order, retaining empty cells and orientation markers. The five-color base and extension boards contain 32 × 32 and 38 × 38 cells respectively; the usual eight-color A and B boards each contain 37 × 37 cells. Matching outer dimensions do not imply matching recipe counts.
+'''
+
+[[block]]
+key = "ef21c1a4a69590ba"
+type = "paragraph"
+origin = '''
+多板 LUT 在列表中以错开的卡片表示。打开详情后，直接点击色卡切换下一张，也可使用触屏或 Enter／空格键；名称附近会显示当前板名与配方数。仅包含单板的文件只显示已有的那一张。合并或自定义 LUT 以“配方色表”展示。
+'''
+translate = '''
+Multi-board LUTs appear as overlapping cards in the list. In the detail view, click the board itself to switch to the next one, or use touch, Enter or Space. The current board name and recipe count appear near the title. A file containing only one board shows only that board. Merged and custom LUTs display a recipe color table.
+'''
+
+[[block]]
+key = "af10a5bc94f07708"
+type = "paragraph"
+origin = '''
+“暂无色板数据”表示条目未提供预览，不等于本地文件损坏。读取失败时可在原处重试。浏览、换板和刷新都不安装 LUT，点击下载才将选定版本加入本地库。
+'''
+translate = '''
+**No board preview data** means the entry has no supplied preview, not that a local file is corrupt. Failed preview requests can be retried in place. Browsing, switching boards and refreshing do not install a LUT; downloading adds the selected revision to the local library.
+'''
+
+[[block]]
+key = "e80c43ef0a26784d"
+type = "heading"
+origin = '''
+## 本地版本与离线包
+'''
+translate = '''
+## Local revisions and offline packs
+'''
+
+[[block]]
+key = "896684ba299697da"
+type = "paragraph"
+origin = '''
+“已安装”表示本地已有当前修订；“本地已有版本”表示本地保存的是同一 LUT 的另一个修订。更新与个人文件冲突时，软件保留原件，新版本另行保存。旧工程缺少原来的 LUT 时，需要明确获取或替换，不会自动套用一个名字相近的文件。
+'''
+translate = '''
+**Installed** means the current revision is available locally. **Local version exists** means another revision of the same LUT is present. If an update conflicts with a personal file, Studio keeps the original and saves the new revision separately. When an older project is missing its original LUT, explicitly obtain or replace it; Studio does not substitute a similarly named file.
+'''
+
+[[block]]
+key = "d31c6b2db586f5ae"
+type = "paragraph"
+origin = '''
+有离线资源包时，可通过“从离线包挑选”预览并按项添加。离线目录与云端目录使用相同的资源身份；从离线包添加不需要把所有 LUT 都装入本地。
+'''
+translate = '''
+With an offline resource pack available, select **Browse offline pack** to preview and add individual entries. Offline and cloud catalogs share resource identities. Adding a LUT from a pack does not install every LUT in it.
+'''
+
+[[block]]
+key = "5859d21a313c6501"
+type = "heading"
+origin = '''
+## 名称、收藏与投稿
+'''
+translate = '''
+## Names, saved resources and submissions
+'''
+
+[[block]]
+key = "20dc13a247858f7b"
+type = "paragraph"
+origin = '''
+包装地区设置、品牌标志和原始名称的规则与[云端耗材库](../../materials-and-recipes/cloud-material-library/cloud-material-library.mdx)一致。LUT 可以包含不同品牌的通道，请逐个核对实际线材。
+'''
+translate = '''
+Naming regions, brand logos and original names follow the same rules as the [Cloud Material Library](../../materials-and-recipes/cloud-material-library/cloud-material-library.mdx). A LUT may use different brands across its channels, so check each filament separately.
+'''
+
+[[block]]
+key = "47b8376439f971b4"
+type = "paragraph"
+origin = '''
+连接社区账号后可以点赞、收藏，并在不同入口使用同一份收藏记录。自己的校准结果可通过“贡献到公共库”送审；投稿 LUT 时需要填写各通道的耗材信息，见[社区账号、收藏与投稿](../../materials-and-recipes/community-resources/community-resources.mdx)。
+'''
+translate = '''
+Connect a community account to like and save resources, with the same saved list available across entry points. Submit your own calibration through **Share to public library**. LUT submissions require filament information for every channel; see [Community account, saved resources and submissions](../../materials-and-recipes/community-resources/community-resources.mdx).
+'''

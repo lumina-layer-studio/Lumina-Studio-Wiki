@@ -1,0 +1,685 @@
+[metadata]
+reviewed_source = "6019bb3ece7ff80cb431b68bd93324b0243cec515022ffabaf1221e52b0c2ae7"
+
+[[block]]
+key = "8d5b9754f232fe29"
+type = "yaml"
+origin = '''
+---
+title: "保存项目与分享卡：导出、恢复和继续编辑"
+description: "保存原图、转换设置、局部换色和选区，恢复后继续编辑；说明旧项目、耗材依赖和模型贴图的限制。"
+sidebar_position: 22
+---
+'''
+translate = '''
+---
+title: "Save projects and share cards"
+description: "Save artwork, settings, local recoloring, and selections, then restore the project and continue editing."
+sidebar_position: 22
+---
+'''
+
+[[block]]
+key = "5dd226aa8416233b"
+type = "heading"
+origin = '''
+# 保存项目与分享卡：导出、恢复和继续编辑
+'''
+translate = '''
+# Save projects and share cards
+'''
+
+[[block]]
+key = "5018994082f7c458"
+type = "paragraph"
+origin = '''
+完成配色后，可通过“保存项目”导出可继续编辑的 `.lumina.json` 工程文件，或通过“导出分享卡”生成嵌入了项目数据的预览 PNG。两者都用于还原编辑状态；正式打印时仍需生成 3MF 并在切片软件中切片。
+'''
+translate = '''
+Once you finish tuning colors, click **Save Project** to export an editable `.lumina.json` file, or **Export Share Card** to generate a preview PNG with your project data embedded inside. Both formats restore your editing workspace; when you are ready to print, generate a 3MF and slice it in your slicer.
+'''
+
+[[block]]
+key = "32f367ee0f3b3d7b"
+type = "heading"
+origin = '''
+## 文件类型对比
+'''
+translate = '''
+## Choosing a file format
+'''
+
+[[block]]
+key = "45729e635e308577"
+type = "table"
+origin = '''
+| 文件 | 界面入口 | 用途 |
+| --- | --- | --- |
+| `.lumina.json` | 保存项目 | 本地项目留档、跨设备迁移、后续继续微调 |
+| PNG 分享卡 | 导出分享卡 | 直观展示预览封面，同时将可恢复的项目数据随原始 PNG 一并分享 |
+| 3MF 或 ZIP | 生成、生成并下载 | 导入切片软件检查走线并打印，不包含二次编辑所需的图层与选区状态 |
+'''
+translate = '''
+| File | Control | Purpose |
+| --- | --- | --- |
+| `.lumina.json` | Save Project | Archive projects locally, move work between computers, or resume editing later |
+| PNG share card | Export Share Card | Showcase a preview cover while embedding the full restorable project inside the original PNG |
+| 3MF or ZIP | Generate / Generate and download | Inspect toolpaths and print in a slicer (does not store editable selection or recoloring state) |
+'''
+
+[[block]]
+key = "47eb85c82c7005c8"
+type = "paragraph"
+origin = '''
+PNG 分享卡在图像数据之外内嵌了原始素材与配色参数。若经过截图、转存为 JPG、社交平台有损压缩或画图软件重新保存，画面虽会保留，但内嵌的项目数据会丢失。需要让他人导入继续编辑时，请发送原图文件或打包为压缩包传输。
+'''
+translate = '''
+A PNG share card embeds your source artwork and project metadata directly inside the PNG file. Taking a screenshot, converting to JPG, sending through chat apps that recompress images, or resaving in an image editor strips out that embedded data. Send the original PNG file—or wrap it in a ZIP archive—whenever the recipient needs to import and edit the project.
+'''
+
+[[block]]
+key = "f9a11481762d591c"
+type = "heading"
+origin = '''
+## 保存项目
+'''
+translate = '''
+## Saving a project
+'''
+
+[[block]]
+key = "05d5c0e69d78c3ec"
+type = "list"
+composite = true
+origin = '''
+{{05d5c0e69d78c3ec-34973a0b56ba0deb}}
+{{05d5c0e69d78c3ec-6346e1e8dbd51823}}
+{{05d5c0e69d78c3ec-5f38b698928e01e5}}
+{{05d5c0e69d78c3ec-118f6c2d57da2701}}
+'''
+translate = '''
+{{05d5c0e69d78c3ec-34973a0b56ba0deb}}
+{{05d5c0e69d78c3ec-6346e1e8dbd51823}}
+{{05d5c0e69d78c3ec-5f38b698928e01e5}}
+{{05d5c0e69d78c3ec-118f6c2d57da2701}}
+'''
+
+[[block]]
+key = "05d5c0e69d78c3ec-34973a0b56ba0deb"
+type = "listItem"
+composite = true
+origin = '''
+1. {{05d5c0e69d78c3ec-34973a0b56ba0deb-83455cfaea749069}}
+'''
+translate = '''
+1. {{05d5c0e69d78c3ec-34973a0b56ba0deb-83455cfaea749069}}
+'''
+
+[[block]]
+key = "05d5c0e69d78c3ec-34973a0b56ba0deb-83455cfaea749069"
+type = "paragraph"
+origin = '''
+上传图片，选定色彩来源、耗材与成品尺寸，点击生成预览；
+'''
+translate = '''
+Upload your artwork, select a color source, filaments, and finished dimensions, and run **Preview**.
+'''
+
+[[block]]
+key = "05d5c0e69d78c3ec-6346e1e8dbd51823"
+type = "listItem"
+composite = true
+origin = '''
+2. {{05d5c0e69d78c3ec-6346e1e8dbd51823-7a8383c03f1dc415}}
+'''
+translate = '''
+2. {{05d5c0e69d78c3ec-6346e1e8dbd51823-7a8383c03f1dc415}}
+'''
+
+[[block]]
+key = "05d5c0e69d78c3ec-6346e1e8dbd51823-7a8383c03f1dc415"
+type = "paragraph"
+origin = '''
+在“颜色调整”中完成全局换色、区域配方调整与选区操作；
+'''
+translate = '''
+Complete any global recoloring, regional recipes, and selection adjustments in **Color Adjustment**.
+'''
+
+[[block]]
+key = "05d5c0e69d78c3ec-5f38b698928e01e5"
+type = "listItem"
+composite = true
+origin = '''
+3. {{05d5c0e69d78c3ec-5f38b698928e01e5-337c9a891256d1ae}}
+'''
+translate = '''
+3. {{05d5c0e69d78c3ec-5f38b698928e01e5-337c9a891256d1ae}}
+'''
+
+[[block]]
+key = "05d5c0e69d78c3ec-5f38b698928e01e5-337c9a891256d1ae"
+type = "paragraph"
+origin = '''
+待当前编辑同步完成后，点击操作栏的“保存项目”或“导出分享卡”；
+'''
+translate = '''
+Wait for any active edit to finish syncing, then click **Save Project** or **Export Share Card**.
+'''
+
+[[block]]
+key = "05d5c0e69d78c3ec-118f6c2d57da2701"
+type = "listItem"
+composite = true
+origin = '''
+4. {{05d5c0e69d78c3ec-118f6c2d57da2701-d4ecfc752f553be6}}
+'''
+translate = '''
+4. {{05d5c0e69d78c3ec-118f6c2d57da2701-d4ecfc752f553be6}}
+'''
+
+[[block]]
+key = "05d5c0e69d78c3ec-118f6c2d57da2701-d4ecfc752f553be6"
+type = "paragraph"
+origin = '''
+重要作品建议同时归档原图、项目文件、所用耗材档案或 LUT 以及最终导出的 3MF。
+'''
+translate = '''
+For critical projects, archive the source artwork, `.lumina.json` project, Material Archives or LUTs, and final 3MF together.
+'''
+
+[[block]]
+key = "059211e8dadb9601"
+type = "paragraph"
+origin = '''
+若界面提示“编辑或选区仍在提交”，请稍候片刻或按提示完成同步后再导出，确保最新一步修改完整写入文件。
+'''
+translate = '''
+If Lumina indicates that an edit or selection is still syncing, wait a moment for the update to complete before exporting so every change is captured.
+'''
+
+[[block]]
+key = "f4bd1f1c2547495b"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/06-current-project-save.webp').default} alt="当前操作栏中的保存项目和导出分享卡按钮" />
+'''
+translate = '''
+<img src={require('./assets/06-current-project-save.webp').default} alt="Current English Save Project and Export Share Card controls" />
+'''
+
+[[block]]
+key = "46e4537298d7fce5"
+type = "heading"
+origin = '''
+## 项目文件包含的内容
+'''
+translate = '''
+## What a project file stores
+'''
+
+[[block]]
+key = "fa1e541c11246f68"
+type = "list"
+composite = true
+origin = '''
+{{fa1e541c11246f68-fd1185d596592d7e}}
+{{fa1e541c11246f68-401ae8b1cdd72447}}
+{{fa1e541c11246f68-2c36fe3a4a46a094}}
+{{fa1e541c11246f68-bac4c7271e1116d4}}
+{{fa1e541c11246f68-35320d3c2262296e}}
+'''
+translate = '''
+{{fa1e541c11246f68-fd1185d596592d7e}}
+{{fa1e541c11246f68-401ae8b1cdd72447}}
+{{fa1e541c11246f68-2c36fe3a4a46a094}}
+{{fa1e541c11246f68-bac4c7271e1116d4}}
+{{fa1e541c11246f68-35320d3c2262296e}}
+'''
+
+[[block]]
+key = "fa1e541c11246f68-fd1185d596592d7e"
+type = "listItem"
+composite = true
+origin = '''
+- {{fa1e541c11246f68-fd1185d596592d7e-1c93aae935067fa6}}
+'''
+translate = '''
+- {{fa1e541c11246f68-fd1185d596592d7e-1c93aae935067fa6}}
+'''
+
+[[block]]
+key = "fa1e541c11246f68-fd1185d596592d7e-1c93aae935067fa6"
+type = "paragraph"
+origin = '''
+原始图像或 SVG 素材，以及当前转换参数；
+'''
+translate = '''
+Original bitmap or SVG artwork and conversion settings
+'''
+
+[[block]]
+key = "fa1e541c11246f68-401ae8b1cdd72447"
+type = "listItem"
+composite = true
+origin = '''
+- {{fa1e541c11246f68-401ae8b1cdd72447-c0e17121ae412ab4}}
+'''
+translate = '''
+- {{fa1e541c11246f68-401ae8b1cdd72447-c0e17121ae412ab4}}
+'''
+
+[[block]]
+key = "fa1e541c11246f68-401ae8b1cdd72447-c0e17121ae412ab4"
+type = "paragraph"
+origin = '''
+已确认的全局换色与局部换色记录；
+'''
+translate = '''
+Confirmed global and local recoloring adjustments
+'''
+
+[[block]]
+key = "fa1e541c11246f68-2c36fe3a4a46a094"
+type = "listItem"
+composite = true
+origin = '''
+- {{fa1e541c11246f68-2c36fe3a4a46a094-1eb4639913c32abb}}
+'''
+translate = '''
+- {{fa1e541c11246f68-2c36fe3a4a46a094-1eb4639913c32abb}}
+'''
+
+[[block]]
+key = "fa1e541c11246f68-2c36fe3a4a46a094-1eb4639913c32abb"
+type = "paragraph"
+origin = '''
+区域配方、逐层耗材组合与可还原的编辑状态；
+'''
+translate = '''
+Regional recipes, per-layer filament stacks, and editing state
+'''
+
+[[block]]
+key = "fa1e541c11246f68-bac4c7271e1116d4"
+type = "listItem"
+composite = true
+origin = '''
+- {{fa1e541c11246f68-bac4c7271e1116d4-9d978d8ddcba2127}}
+'''
+translate = '''
+- {{fa1e541c11246f68-bac4c7271e1116d4-9d978d8ddcba2127}}
+'''
+
+[[block]]
+key = "fa1e541c11246f68-bac4c7271e1116d4-9d978d8ddcba2127"
+type = "paragraph"
+origin = '''
+当前激活的选区；
+'''
+translate = '''
+Active selection masks
+'''
+
+[[block]]
+key = "fa1e541c11246f68-35320d3c2262296e"
+type = "listItem"
+composite = true
+origin = '''
+- {{fa1e541c11246f68-35320d3c2262296e-793f3e749f077951}}
+'''
+translate = '''
+- {{fa1e541c11246f68-35320d3c2262296e-793f3e749f077951}}
+'''
+
+[[block]]
+key = "fa1e541c11246f68-35320d3c2262296e-793f3e749f077951"
+type = "paragraph"
+origin = '''
+打印机型号、耗材预设选择及底座、挂环等模型附加设置。
+'''
+translate = '''
+Selected printer, filament presets, and model add-ons (such as backing and loops)
+'''
+
+[[block]]
+key = "207b9eb7c7e27d5a"
+type = "paragraph"
+origin = '''
+恢复项目时会重新生成预览，并校验局部编辑与原图内容及工作坐标是否匹配：单纯修改原文件名称不影响恢复；若更换了底图或对原图做过裁剪、旋转，请另存为新项目。
+'''
+translate = '''
+Importing a project rebuilds a fresh preview and validates regional edits against the source artwork and working coordinates. Renaming the source file has no effect, whereas swapping, cropping, or rotating the image requires saving a new project.
+'''
+
+[[block]]
+key = "639390536921ed4c"
+type = "heading"
+origin = '''
+## 导入并继续编辑
+'''
+translate = '''
+## Importing and resuming edits
+'''
+
+[[block]]
+key = "d09d0103489f08f8"
+type = "list"
+composite = true
+origin = '''
+{{d09d0103489f08f8-23c7bbdb940ad3a1}}
+{{d09d0103489f08f8-bec3cb40289a8f9f}}
+{{d09d0103489f08f8-cfe4ce808f9df87e}}
+{{d09d0103489f08f8-f84a66b76e21ebdb}}
+{{d09d0103489f08f8-62fbb097ac2f486c}}
+'''
+translate = '''
+{{d09d0103489f08f8-23c7bbdb940ad3a1}}
+{{d09d0103489f08f8-bec3cb40289a8f9f}}
+{{d09d0103489f08f8-cfe4ce808f9df87e}}
+{{d09d0103489f08f8-f84a66b76e21ebdb}}
+{{d09d0103489f08f8-62fbb097ac2f486c}}
+'''
+
+[[block]]
+key = "d09d0103489f08f8-23c7bbdb940ad3a1"
+type = "listItem"
+composite = true
+origin = '''
+1. {{d09d0103489f08f8-23c7bbdb940ad3a1-fd68e540b12b1a39}}
+'''
+translate = '''
+1. {{d09d0103489f08f8-23c7bbdb940ad3a1-fd68e540b12b1a39}}
+'''
+
+[[block]]
+key = "d09d0103489f08f8-23c7bbdb940ad3a1-fd68e540b12b1a39"
+type = "paragraph"
+origin = '''
+在图像转换页面的上传入口选择 `.lumina.json` 文件或原始 PNG 分享卡；
+'''
+translate = '''
+Select a `.lumina.json` file or an uncompressed PNG share card in the **Image Conversion** upload area.
+'''
+
+[[block]]
+key = "d09d0103489f08f8-bec3cb40289a8f9f"
+type = "listItem"
+composite = true
+origin = '''
+2. {{d09d0103489f08f8-bec3cb40289a8f9f-42976353e96ffeec}}
+'''
+translate = '''
+2. {{d09d0103489f08f8-bec3cb40289a8f9f-42976353e96ffeec}}
+'''
+
+[[block]]
+key = "d09d0103489f08f8-bec3cb40289a8f9f-42976353e96ffeec"
+type = "paragraph"
+origin = '''
+在弹出的确认窗口核对素材缩略图、尺寸、色彩来源及兼容性提示；
+'''
+translate = '''
+Review the artwork thumbnail, dimensions, color source, and any compatibility notes in the confirmation dialog.
+'''
+
+[[block]]
+key = "d09d0103489f08f8-cfe4ce808f9df87e"
+type = "listItem"
+composite = true
+origin = '''
+3. {{d09d0103489f08f8-cfe4ce808f9df87e-5f8702447d9c7a9d}}
+'''
+translate = '''
+3. {{d09d0103489f08f8-cfe4ce808f9df87e-5f8702447d9c7a9d}}
+'''
+
+[[block]]
+key = "d09d0103489f08f8-cfe4ce808f9df87e-5f8702447d9c7a9d"
+type = "paragraph"
+origin = '''
+确认恢复，等待素材载入与预览重建完成；
+'''
+translate = '''
+Confirm the import and wait for the artwork and preview to load.
+'''
+
+[[block]]
+key = "d09d0103489f08f8-f84a66b76e21ebdb"
+type = "listItem"
+composite = true
+origin = '''
+4. {{d09d0103489f08f8-f84a66b76e21ebdb-cd3f61e1674c2638}}
+'''
+translate = '''
+4. {{d09d0103489f08f8-f84a66b76e21ebdb-cd3f61e1674c2638}}
+'''
+
+[[block]]
+key = "d09d0103489f08f8-f84a66b76e21ebdb-cd3f61e1674c2638"
+type = "paragraph"
+origin = '''
+检查局部换色、区域配方与选区状态，继续编辑；
+'''
+translate = '''
+Verify your local recoloring, regional recipes, and selections, then continue editing.
+'''
+
+[[block]]
+key = "d09d0103489f08f8-62fbb097ac2f486c"
+type = "listItem"
+composite = true
+origin = '''
+5. {{d09d0103489f08f8-62fbb097ac2f486c-bf39e6404e1d08dd}}
+'''
+translate = '''
+5. {{d09d0103489f08f8-62fbb097ac2f486c-bf39e6404e1d08dd}}
+'''
+
+[[block]]
+key = "d09d0103489f08f8-62fbb097ac2f486c-bf39e6404e1d08dd"
+type = "paragraph"
+origin = '''
+修改完成后另存新项目；需要打印时重新点击生成 3MF（旧会话的临时下载链接不会随项目导入恢复）。
+'''
+translate = '''
+Save a new project file when finished, and generate a fresh 3MF when ready to print (temporary download links from earlier sessions are not stored in project files).
+'''
+
+[[block]]
+key = "0ba51a373848da9a"
+type = "paragraph"
+origin = '''
+重新点击预览会保留当前已确认的颜色编辑；执行撤销或二次换色后，请先刷新预览核对效果，再导出 3MF。
+'''
+translate = '''
+Running **Preview** again preserves your confirmed color edits. Whenever you undo changes or adjust colors further, verify the updated preview before exporting a 3MF.
+'''
+
+[[block]]
+key = "f883999184cd5b3b"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/07-current-project-restore.webp').default} alt="导入实际保存的项目后，确认窗口显示素材、版本、颜色来源和尺寸" />
+'''
+translate = '''
+<img src={require('./assets/07-current-project-restore.webp').default} alt="Import confirmation for an actually saved project showing artwork, version, color source and size" />
+'''
+
+[[block]]
+key = "4c2da0288a55c5af"
+type = "heading"
+origin = '''
+## 旧版文件与外部耗材资源
+'''
+translate = '''
+## Legacy files and external material resources
+'''
+
+[[block]]
+key = "aed7bdf32da5285e"
+type = "paragraph"
+origin = '''
+早期版本导出的文件若未记录局部区域信息，导入时仅恢复全局转换参数，具体可恢复范围会在确认窗口中列出。
+'''
+translate = '''
+Older share cards created before regional editing was introduced store global conversion settings only; the import dialog notes which data is present before restoring.
+'''
+
+[[block]]
+key = "8834dbc736999695"
+type = "paragraph"
+origin = '''
+项目文件记录的是色彩来源引用，不包含完整的耗材档案、经典 LUT 或切片器预设本体。在新设备上打开项目前，请先确保耗材库中已导入对应的耗材档案或 LUT；若系统提示无法匹配同名资源，在导入窗口中手动重新指定即可。
+'''
+translate = '''
+Project files reference your color sources by identity rather than bundling full Material Archives, Classic LUTs, or native slicer presets. Make sure the required archives or LUTs are installed on the target machine before importing—if a resource with the same name cannot be matched automatically, reselect it when prompted.
+'''
+
+[[block]]
+key = "f413cf2d0d31801b"
+type = "heading"
+origin = '''
+## 手动编辑 JSON 的说明
+'''
+translate = '''
+## Editing `.lumina.json` manually
+'''
+
+[[block]]
+key = "927cf823bc39cd9a"
+type = "paragraph"
+origin = '''
+`.lumina.json` 中的常规转换参数只要符合当前模式与字段格式规范，手动修改后仍可正常导入；若内嵌素材、局部区域数据损坏，或选区坐标与原图尺寸失配，恢复将会中止。日常调整尺寸、配色与耗材，建议直接导入软件修改后重新保存。
+'''
+translate = '''
+Valid parameter edits inside `.lumina.json` import normally as long as values conform to the active mode and schema; corrupted artwork payloads or mismatched region coordinates will abort the import. For routine size, color, or filament changes, importing the project into Lumina, adjusting settings in the UI, and saving again is the cleanest approach.
+'''
+
+[[block]]
+key = "7d74e6bc4ece4590"
+type = "heading"
+origin = '''
+## 模型贴图模式说明
+'''
+translate = '''
+## Model texture projects
+'''
+
+[[block]]
+key = "7e9cd3a35cd6d551"
+type = "paragraph"
+origin = '''
+启用“模型贴图”时，场景还依赖外部三维底模（STL / OBJ）及曲面选面坐标，当前项目格式暂不打包此类三维贴图状态，因此“保存项目”与“导出分享卡”按钮在模型贴图模式下不可用。使用模型贴图时，请单独归档三维底模、贴图原图与最终 3MF，并记录所选贴图面、朝向与缩放位置。
+'''
+translate = '''
+Because **Model texture** relies on an external 3D base mesh (STL or OBJ) plus surface face-selection coordinates, **Save Project** and **Export Share Card** are disabled while Model texture is active. Archive your base mesh, source artwork, and exported 3MF together along with notes on face selection, orientation, and placement.
+'''
+
+[[block]]
+key = "b498568d82558e5c"
+type = "heading"
+origin = '''
+## 分享前隐私与版权检查
+'''
+translate = '''
+## Before sharing publicly
+'''
+
+[[block]]
+key = "76c42f7beee5d598"
+type = "paragraph"
+origin = '''
+分享卡与 `.lumina.json` 内部均包含完整的原始设计图，而非仅有缩略封面。公开分享前请确认你拥有原图素材的相应授权，且文件中不含未公开稿件或个人隐私信息；仅需展示成品预览时，导出普通截图即可。
+'''
+translate = '''
+Both PNG share cards and `.lumina.json` files embed your full-resolution source artwork behind the cover preview. Check licensing rights, personal details, and unreleased designs before sharing project files publicly—if you only want to show off the visual preview, share a regular screenshot or flattened image instead.
+'''
+
+[[block]]
+key = "2ebb014b8f68bd72"
+type = "heading"
+origin = '''
+## 相关页面
+'''
+translate = '''
+## Related pages
+'''
+
+[[block]]
+key = "2cf627d19e348e72"
+type = "list"
+composite = true
+origin = '''
+{{2cf627d19e348e72-6362934ad1446342}}
+{{2cf627d19e348e72-320807e9b6c2be4a}}
+{{2cf627d19e348e72-e8068f3004384478}}
+'''
+translate = '''
+{{2cf627d19e348e72-6362934ad1446342}}
+{{2cf627d19e348e72-320807e9b6c2be4a}}
+{{2cf627d19e348e72-e8068f3004384478}}
+'''
+
+[[block]]
+key = "2cf627d19e348e72-6362934ad1446342"
+type = "listItem"
+composite = true
+origin = '''
+- {{2cf627d19e348e72-6362934ad1446342-eb724eee0fcf49f2}}
+'''
+translate = '''
+- {{2cf627d19e348e72-6362934ad1446342-eb724eee0fcf49f2}}
+'''
+
+[[block]]
+key = "2cf627d19e348e72-6362934ad1446342-eb724eee0fcf49f2"
+type = "paragraph"
+origin = '''
+[快速换色与相似配方](../../reference/preview-and-palette/quick-recolor/quick-recolor.mdx)
+'''
+translate = '''
+[Quick recolor & similar recipes](../../reference/preview-and-palette/quick-recolor/quick-recolor.mdx)
+'''
+
+[[block]]
+key = "2cf627d19e348e72-320807e9b6c2be4a"
+type = "listItem"
+composite = true
+origin = '''
+- {{2cf627d19e348e72-320807e9b6c2be4a-1820bc698262ba12}}
+'''
+translate = '''
+- {{2cf627d19e348e72-320807e9b6c2be4a-1820bc698262ba12}}
+'''
+
+[[block]]
+key = "2cf627d19e348e72-320807e9b6c2be4a-1820bc698262ba12"
+type = "paragraph"
+origin = '''
+[模型贴图](../../tutorials/model-texture/model-texture.mdx)
+'''
+translate = '''
+[Model texture](../../tutorials/model-texture/model-texture.mdx)
+'''
+
+[[block]]
+key = "2cf627d19e348e72-e8068f3004384478"
+type = "listItem"
+composite = true
+origin = '''
+- {{2cf627d19e348e72-e8068f3004384478-8b5979a4721ef086}}
+'''
+translate = '''
+- {{2cf627d19e348e72-e8068f3004384478-8b5979a4721ef086}}
+'''
+
+[[block]]
+key = "2cf627d19e348e72-e8068f3004384478-8b5979a4721ef086"
+type = "paragraph"
+origin = '''
+[切片软件与下载](../../reference/converter-basic/slicer-output/slicer-output.mdx)
+'''
+translate = '''
+[Slicer and downloads](../../reference/converter-basic/slicer-output/slicer-output.mdx)
+'''

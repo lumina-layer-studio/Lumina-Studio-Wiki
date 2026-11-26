@@ -1,0 +1,1480 @@
+[metadata]
+reviewed_source = "f9b6f6c72859b110e2d8ceaaa6dcce616883090bc6ab884a7d78b3e3f46c966a"
+
+[[block]]
+key = "253c05f92f544d6c"
+type = "yaml"
+origin = '''
+---
+title: "位图与矢量图有什么区别？"
+description: "通过放大对比、常见格式和实际用途认识位图与矢量图，判断在 Lumina Studio 中保留原始位图还是使用 SVG。"
+sidebar_position: 21
+---
+'''
+translate = '''
+---
+title: "Bitmap vs. Vector Images: What’s the Difference?"
+description: "Compare enlarged views, file formats, and practical examples to understand bitmap and vector images and choose the best source for Lumina Studio."
+sidebar_position: 21
+---
+'''
+
+[[block]]
+key = "46f7202e00bcff19"
+type = "heading"
+origin = '''
+# 位图与矢量图有什么区别？
+'''
+translate = '''
+# Bitmap vs. Vector Images: What’s the Difference?
+'''
+
+[[block]]
+key = "e8671a244e1f5240"
+type = "paragraph"
+origin = '''
+数字图像主要分为两类记录方式：
+'''
+translate = '''
+Digital images store visual information in two main ways:
+'''
+
+[[block]]
+key = "dc61dce05c345f04"
+type = "list"
+composite = true
+origin = '''
+{{dc61dce05c345f04-71e69b00937f7e4f}}
+{{dc61dce05c345f04-bb961cd476089b62}}
+'''
+translate = '''
+{{dc61dce05c345f04-71e69b00937f7e4f}}
+{{dc61dce05c345f04-bb961cd476089b62}}
+'''
+
+[[block]]
+key = "dc61dce05c345f04-71e69b00937f7e4f"
+type = "listItem"
+composite = true
+origin = '''
+- {{dc61dce05c345f04-71e69b00937f7e4f-e8ff30befde3bc3f}}
+'''
+translate = '''
+- {{dc61dce05c345f04-71e69b00937f7e4f-e8ff30befde3bc3f}}
+'''
+
+[[block]]
+key = "dc61dce05c345f04-71e69b00937f7e4f-e8ff30befde3bc3f"
+type = "paragraph"
+origin = '''
+**位图（光栅图）**：由固定数量的像素网格组成，每个像素单独记录自己的颜色值。
+'''
+translate = '''
+A **bitmap** (or raster image) stores a fixed grid of pixels, with each pixel holding its own color value.
+'''
+
+[[block]]
+key = "dc61dce05c345f04-bb961cd476089b62"
+type = "listItem"
+composite = true
+origin = '''
+- {{dc61dce05c345f04-bb961cd476089b62-4e9848c5863bdf01}}
+'''
+translate = '''
+- {{dc61dce05c345f04-bb961cd476089b62-4e9848c5863bdf01}}
+'''
+
+[[block]]
+key = "dc61dce05c345f04-bb961cd476089b62-4e9848c5863bdf01"
+type = "paragraph"
+origin = '''
+**矢量图**：记录点、直线、贝塞尔曲线、轮廓与填充规则，打开或缩放时按数学公式实时绘制图形。
+'''
+translate = '''
+A **vector image** stores points, lines, curves, outlines, and fills, redrawing shapes mathematically at any size.
+'''
+
+[[block]]
+key = "e9bbfd4be7191550"
+type = "paragraph"
+origin = '''
+两种格式各有所长：照片、柔和渐变与数字绘画适合用位图表现细腻层次；Logo、图标、文字轮廓、线稿与平涂色块图形则适合用矢量路径保持利落边缘。根据素材本身的特点来选择格式，效果最稳定。
+'''
+translate = '''
+Each format excels at different kinds of artwork. Photographs, soft gradients, and digital paintings fit bitmap images naturally. Logos, icons, outlined text, line art, and flat-color graphics fit vector paths. Choosing the format that matches your original artwork gives you the cleanest result in Lumina Studio.
+'''
+
+[[block]]
+key = "b52fbee3ff960c16"
+type = "admonition"
+composite = true
+origin = '''
+:::info[直观理解]
+{{b52fbee3ff960c16-359136306eebdb48}}
+:::
+'''
+translate = '''
+:::info[Quick Analogy]
+{{b52fbee3ff960c16-359136306eebdb48}}
+:::
+'''
+
+[[block]]
+key = "b52fbee3ff960c16-359136306eebdb48"
+type = "paragraph"
+origin = '''
+位图就像一张填满色块的方格纸；矢量图则像一份写明“起点坐标、曲线弧度与填充颜色”的制图说明。
+'''
+translate = '''
+Think of a bitmap as graph paper with every square already colored in, and a vector image as a set of drawing instructions that defines where points sit, how curves bend, and which regions are filled.
+'''
+
+[[block]]
+key = "c0c08b93a9a13ce0"
+type = "heading"
+origin = '''
+## 放大后的边缘表现对比
+'''
+translate = '''
+## How Enlargement Reveals the Difference
+'''
+
+[[block]]
+key = "42036cf6803e358e"
+type = "paragraph"
+origin = '''
+下图使用同一组图形做放大对照：左侧先栅格化为低分辨率位图再放大，右侧保留原生矢量路径按同样尺寸重绘。
+'''
+translate = '''
+Both sides below start from the same graphic. The left side converts it into a low-resolution pixel grid before enlarging it; the right side keeps the native curves and redraws them at the target size.
+'''
+
+[[block]]
+key = "1a300b3fe665a466"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/raster-vector-zoom.png').default}
+  alt="同一图形的位图放大和矢量路径放大对比"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/raster-vector-zoom.png').default}
+  alt="The same graphic enlarged as a bitmap and redrawn from vector paths"
+/>
+'''
+
+[[block]]
+key = "7cbe73fbe7226fda"
+type = "list"
+composite = true
+origin = '''
+{{7cbe73fbe7226fda-e5f5d8f4f416892d}}
+{{7cbe73fbe7226fda-1631e3f8c66166e5}}
+'''
+translate = '''
+{{7cbe73fbe7226fda-e5f5d8f4f416892d}}
+{{7cbe73fbe7226fda-1631e3f8c66166e5}}
+'''
+
+[[block]]
+key = "7cbe73fbe7226fda-e5f5d8f4f416892d"
+type = "listItem"
+composite = true
+origin = '''
+- {{7cbe73fbe7226fda-e5f5d8f4f416892d-11584af379ced583}}
+'''
+translate = '''
+- {{7cbe73fbe7226fda-e5f5d8f4f416892d-11584af379ced583}}
+'''
+
+[[block]]
+key = "7cbe73fbe7226fda-e5f5d8f4f416892d-11584af379ced583"
+type = "paragraph"
+origin = '''
+**左侧（位图）**：像素总数固定，超出原始分辨率放大后会出现锯齿状像素格。
+'''
+translate = '''
+**Left (Bitmap)**: Because the pixel count is fixed, zooming in exposes individual square pixels.
+'''
+
+[[block]]
+key = "7cbe73fbe7226fda-1631e3f8c66166e5"
+type = "listItem"
+composite = true
+origin = '''
+- {{7cbe73fbe7226fda-1631e3f8c66166e5-c02f8dfb6444e0de}}
+'''
+translate = '''
+- {{7cbe73fbe7226fda-1631e3f8c66166e5-c02f8dfb6444e0de}}
+'''
+
+[[block]]
+key = "7cbe73fbe7226fda-1631e3f8c66166e5-c02f8dfb6444e0de"
+type = "paragraph"
+origin = '''
+**右侧（矢量图）**：软件根据路径方程按新尺寸重新计算边缘，曲线和斜线依然平滑。
+'''
+translate = '''
+**Right (Vector)**: The software recalculates the paths at the larger size, keeping curves and diagonal edges crisp.
+'''
+
+[[block]]
+key = "a40d9ed3763835c8"
+type = "paragraph"
+origin = '''
+显示器最终仍通过物理像素呈现画面，矢量图的优势在于源文件保存的是几何描述，放大时可重新计算清晰边界，而不是单纯拉伸原有像素。
+'''
+translate = '''
+Monitors still render both formats using physical screen pixels, of course—the key difference is that a vector file recalculates clean geometry whenever you resize it instead of stretching a fixed pixel grid.
+'''
+
+[[block]]
+key = "2b277e3d224cbad1"
+type = "heading"
+origin = '''
+## 位图与矢量图速查表
+'''
+translate = '''
+## Quick Comparison
+'''
+
+[[block]]
+key = "019dc1053e6fef30"
+type = "table"
+origin = '''
+| 对比维度 | 位图 | 矢量图 |
+| --- | --- | --- |
+| 记录的数据 | 固定网格中的像素颜色 | 点、线、曲线、闭合路径与填充 |
+| 放大后的表现 | 超过原始分辨率后出现像素格或模糊 | 原生路径按目标尺寸平滑重绘 |
+| 擅长表现的素材 | 照片、复杂光影、自然纹理、柔和渐变、数字绘画、像素画 | Logo、图标、转曲文字、线稿、平涂色块图形 |
+| 常见文件扩展名 | JPG/JPEG、PNG、WebP、HEIC/HEIF、BMP、TIFF | SVG、AI、EPS |
+| 常用编辑方式 | 画笔涂抹、选区裁切、像素级调色与修图 | 调整锚点、路径走向、描边宽度与填充色 |
+| Lumina 推荐用法 | 直接导入原图，按画面特征选择高保真或像素模式 | 优先保留设计软件导出的原生 SVG 路径导入 |
+'''
+translate = '''
+| Aspect | Bitmap | Vector |
+| --- | --- | --- |
+| Core data | Pixel colors in a fixed grid | Points, lines, curves, closed paths, and fills |
+| Behavior when enlarged | Becomes blocky or soft past its native resolution | Redraws native paths smoothly at any scale |
+| Best suited for | Photos, subtle lighting, textures, gradients, digital paintings, pixel art | Logos, icons, outlined text, line art, flat-color graphics |
+| Common file extensions | JPG/JPEG, PNG, WebP, HEIC/HEIF, BMP, TIFF | SVG, AI, EPS |
+| Typical editing tools | Brushes, selections, pixel retouching, and color grading | Node editing, path operations, strokes, and solid fills |
+| Recommended Lumina workflow | Upload the original bitmap and choose High-Fidelity or Pixel Art mode | Keep native SVG paths intact and use Vector mode |
+'''
+
+[[block]]
+key = "20eb3acaf211a499"
+type = "paragraph"
+origin = '''
+文件扩展名只是外层格式标识。例如 PDF 与 SVG 标准都支持在同一个文件内混合存放矢量路径与嵌入位图，因此 `.svg` 文件里也可能包含未经矢量化处理的位图图层。
+'''
+translate = '''
+File extensions are a helpful clue rather than a guarantee. Formats like PDF and SVG can hold both native vector paths and embedded raster images inside the same container, so a `.svg` filename can still wrap a flat bitmap image.
+'''
+
+[[block]]
+key = "285955da2e1e8eb5"
+type = "heading"
+origin = '''
+## 真实图形的放大对比
+'''
+translate = '''
+## A Side-by-Side Zoom Example
+'''
+
+[[block]]
+key = "17ac06e758dcf2a5"
+type = "paragraph"
+origin = '''
+下面这张公有领域示例将同一幅图形同时以矢量方式（上半部分）和位图方式（下半部分）放大：上半部分边缘依然顺滑，下半部分已呈现出明显的像素阶梯。
+'''
+translate = '''
+This public-domain illustration enlarges the same artwork as vector paths (top) and as a bitmap (bottom). The vector curves remain smooth while stair-stepping appears along the enlarged bitmap edges.
+'''
+
+[[block]]
+key = "2bcb5ae0d8105ebe"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/vector-bitmap-example.png').default}
+  alt="Wikimedia Commons 的矢量图与位图放大对比示例"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/vector-bitmap-example.png').default}
+  alt="Wikimedia Commons comparison of enlarged vector and bitmap graphics"
+/>
+'''
+
+[[block]]
+key = "5933e3ddf5b6a7fe"
+type = "paragraph"
+origin = '''
+图片作者为 **Althepal**，来源为 [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:VectorBitmapExample.png)（公有领域）。
+'''
+translate = '''
+Image by **Althepal** via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:VectorBitmapExample.png) (public domain).
+'''
+
+[[block]]
+key = "ced45bdd002ee7b8"
+type = "paragraph"
+origin = '''
+只要分辨率充足、打印尺寸合理，位图同样能呈现非常细腻清晰的细节；只有在像素不足却强行大幅放大时，锯齿和模糊才会显现出来。
+'''
+translate = '''
+A bitmap with sufficient resolution looks completely sharp at its intended print size; pixelation only becomes an issue when a low-resolution image is scaled beyond what its pixel grid can support.
+'''
+
+[[block]]
+key = "f01544ca2632c0f8"
+type = "heading"
+origin = '''
+## 不同素材该选哪一种？
+'''
+translate = '''
+## Matching the Format to Your Artwork
+'''
+
+[[block]]
+key = "9018750dae45a9cb"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/use-case-map.png').default}
+  alt="照片、复杂插画、像素画、Logo、图标、文字和线稿的位图与矢量图用途判断"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/use-case-map.png').default}
+  alt="Guide to choosing bitmap or vector for photos, detailed artwork, pixel art, logos, text, and line art"
+/>
+'''
+
+[[block]]
+key = "65a52342726466a9"
+type = "heading"
+origin = '''
+### 适合保留位图的素材
+'''
+translate = '''
+### Artwork That Works Best as a Bitmap
+'''
+
+[[block]]
+key = "48a3803cd48109ce"
+type = "list"
+composite = true
+origin = '''
+{{48a3803cd48109ce-1326da36d541ea36}}
+{{48a3803cd48109ce-d123fd4c9120b027}}
+{{48a3803cd48109ce-ee95de538f92fa9d}}
+{{48a3803cd48109ce-68a45eb1c3626688}}
+'''
+translate = '''
+{{48a3803cd48109ce-1326da36d541ea36}}
+{{48a3803cd48109ce-d123fd4c9120b027}}
+{{48a3803cd48109ce-ee95de538f92fa9d}}
+{{48a3803cd48109ce-68a45eb1c3626688}}
+'''
+
+[[block]]
+key = "48a3803cd48109ce-1326da36d541ea36"
+type = "listItem"
+composite = true
+origin = '''
+- {{48a3803cd48109ce-1326da36d541ea36-25e37102b147c8b3}}
+'''
+translate = '''
+- {{48a3803cd48109ce-1326da36d541ea36-25e37102b147c8b3}}
+'''
+
+[[block]]
+key = "48a3803cd48109ce-1326da36d541ea36-25e37102b147c8b3"
+type = "paragraph"
+origin = '''
+**摄影照片**：人物五官、毛发、天空、光影与材质肌理包含丰富的连续色彩过渡；
+'''
+translate = '''
+**Photographs**: Faces, hair, skies, shadows, and surface textures rely on continuous pixel-by-pixel tonal shifts.
+'''
+
+[[block]]
+key = "48a3803cd48109ce-d123fd4c9120b027"
+type = "listItem"
+composite = true
+origin = '''
+- {{48a3803cd48109ce-d123fd4c9120b027-89693d502bb872f1}}
+'''
+translate = '''
+- {{48a3803cd48109ce-d123fd4c9120b027-89693d502bb872f1}}
+'''
+
+[[block]]
+key = "48a3803cd48109ce-d123fd4c9120b027-89693d502bb872f1"
+type = "paragraph"
+origin = '''
+**厚涂与复杂插画**：笔刷肌理、柔光渐变与半透明叠色难以用少量闭合路径还原；
+'''
+translate = '''
+**Painterly illustrations**: Brush grain, soft gradients, translucency, and fine lighting are natural fits for raster canvases.
+'''
+
+[[block]]
+key = "48a3803cd48109ce-ee95de538f92fa9d"
+type = "listItem"
+composite = true
+origin = '''
+- {{48a3803cd48109ce-ee95de538f92fa9d-fd1f06bf9c1eab6e}}
+'''
+translate = '''
+- {{48a3803cd48109ce-ee95de538f92fa9d-fd1f06bf9c1eab6e}}
+'''
+
+[[block]]
+key = "48a3803cd48109ce-ee95de538f92fa9d-fd1f06bf9c1eab6e"
+type = "paragraph"
+origin = '''
+**数字绘画**：绝大多数板绘作品直接在像素画布上创作完成；
+'''
+translate = '''
+**Digital paintings**: Most painted artwork is authored directly on a pixel grid.
+'''
+
+[[block]]
+key = "48a3803cd48109ce-68a45eb1c3626688"
+type = "listItem"
+composite = true
+origin = '''
+- {{48a3803cd48109ce-68a45eb1c3626688-c7c8b4e13f07e98c}}
+'''
+translate = '''
+- {{48a3803cd48109ce-68a45eb1c3626688-c7c8b4e13f07e98c}}
+'''
+
+[[block]]
+key = "48a3803cd48109ce-68a45eb1c3626688-c7c8b4e13f07e98c"
+type = "paragraph"
+origin = '''
+**像素画**：清晰的方格边界本身就是像素艺术的造型语言，适合原样保留。
+'''
+translate = '''
+**Pixel art**: Crisp square cells are an intentional part of the style and should stay intact.
+'''
+
+[[block]]
+key = "2577c241b411b02e"
+type = "heading"
+origin = '''
+### 适合保留矢量路径的素材
+'''
+translate = '''
+### Artwork That Works Best as Vector Paths
+'''
+
+[[block]]
+key = "b60e934aa3a34259"
+type = "list"
+composite = true
+origin = '''
+{{b60e934aa3a34259-c63a0ab83bbbe643}}
+{{b60e934aa3a34259-912656824407aa70}}
+{{b60e934aa3a34259-9853eaa61ca67591}}
+{{b60e934aa3a34259-e59654c4ca26c37d}}
+'''
+translate = '''
+{{b60e934aa3a34259-c63a0ab83bbbe643}}
+{{b60e934aa3a34259-912656824407aa70}}
+{{b60e934aa3a34259-9853eaa61ca67591}}
+{{b60e934aa3a34259-e59654c4ca26c37d}}
+'''
+
+[[block]]
+key = "b60e934aa3a34259-c63a0ab83bbbe643"
+type = "listItem"
+composite = true
+origin = '''
+- {{b60e934aa3a34259-c63a0ab83bbbe643-0fb6de9c0032ae66}}
+'''
+translate = '''
+- {{b60e934aa3a34259-c63a0ab83bbbe643-0fb6de9c0032ae66}}
+'''
+
+[[block]]
+key = "b60e934aa3a34259-c63a0ab83bbbe643-0fb6de9c0032ae66"
+type = "paragraph"
+origin = '''
+**Logo 与徽标图标**：常需缩放至不同成品尺寸，同时要求边缘干净锐利；
+'''
+translate = '''
+**Logos and icons**: Easy to scale to any millimeter width while maintaining razor-sharp borders.
+'''
+
+[[block]]
+key = "b60e934aa3a34259-912656824407aa70"
+type = "listItem"
+composite = true
+origin = '''
+- {{b60e934aa3a34259-912656824407aa70-5b72d9a50cfe694b}}
+'''
+translate = '''
+- {{b60e934aa3a34259-912656824407aa70-5b72d9a50cfe694b}}
+'''
+
+[[block]]
+key = "b60e934aa3a34259-912656824407aa70-5b72d9a50cfe694b"
+type = "paragraph"
+origin = '''
+**文字轮廓**：将文字转曲（创建轮廓）后导出，可避免跨设备缺字或字形走样；
+'''
+translate = '''
+**Outlined text**: Converting text to outlines preserves exact letterforms without font-substitution issues.
+'''
+
+[[block]]
+key = "b60e934aa3a34259-9853eaa61ca67591"
+type = "listItem"
+composite = true
+origin = '''
+- {{b60e934aa3a34259-9853eaa61ca67591-3ff5490d35a93c70}}
+'''
+translate = '''
+- {{b60e934aa3a34259-9853eaa61ca67591-3ff5490d35a93c70}}
+'''
+
+[[block]]
+key = "b60e934aa3a34259-9853eaa61ca67591-3ff5490d35a93c70"
+type = "paragraph"
+origin = '''
+**黑白与彩色线稿**：矢量路径便于统一调整线宽、锚点与转角；
+'''
+translate = '''
+**Line art**: Editable strokes and nodes make adjusting line thickness straightforward.
+'''
+
+[[block]]
+key = "b60e934aa3a34259-e59654c4ca26c37d"
+type = "listItem"
+composite = true
+origin = '''
+- {{b60e934aa3a34259-e59654c4ca26c37d-a57498b3530f239b}}
+'''
+translate = '''
+- {{b60e934aa3a34259-e59654c4ca26c37d-a57498b3530f239b}}
+'''
+
+[[block]]
+key = "b60e934aa3a34259-e59654c4ca26c37d-a57498b3530f239b"
+type = "paragraph"
+origin = '''
+**平涂色块图形**：色块分界清晰，用闭合路径描述最为精准紧凑。
+'''
+translate = '''
+**Flat-color graphics**: Distinct solid regions map cleanly to closed vector shapes.
+'''
+
+[[block]]
+key = "1b54ea64cf927fbc"
+type = "admonition"
+composite = true
+origin = '''
+:::note[按素材选格式]
+{{1b54ea64cf927fbc-cfcbeba213bd8af0}}
+:::
+'''
+translate = '''
+:::note[Choose by Content]
+{{1b54ea64cf927fbc-cfcbeba213bd8af0}}
+:::
+'''
+
+[[block]]
+key = "1b54ea64cf927fbc-cfcbeba213bd8af0"
+type = "paragraph"
+origin = '''
+分辨率足够的 PNG Logo 同样可以直接用于高保真转换；结构极其繁复的矢量插画有时栅格化后反而更易处理。选择格式的目标是顺应现有素材的优势。
+'''
+translate = '''
+A high-resolution PNG logo still works great in Lumina Studio, and an ultra-dense vector illustration can sometimes process more smoothly as a raster image. Pick whichever format preserves your source artwork cleanly.
+'''
+
+[[block]]
+key = "d949f14fc7e05d1e"
+type = "heading"
+origin = '''
+## 修改扩展名不会转换图像格式
+'''
+translate = '''
+## File Extensions vs. Actual Contents
+'''
+
+[[block]]
+key = "c933f8943adba5bb"
+type = "paragraph"
+origin = '''
+直接把 `picture.png` 重命名为 `picture.svg` 并不会把像素变成路径，反而会导致软件因文件头与扩展名不符而报错。以下两种容器封装情形也值得留意：
+'''
+translate = '''
+Simply renaming `picture.png` to `picture.svg` leaves the pixel data untouched and will cause most apps to reject the file. Watch out for two common container pitfalls as well:
+'''
+
+[[block]]
+key = "d956c538bb1d4920"
+type = "list"
+composite = true
+origin = '''
+{{d956c538bb1d4920-0d900423219aa34a}}
+{{d956c538bb1d4920-e593c57ec4bb34f1}}
+'''
+translate = '''
+{{d956c538bb1d4920-0d900423219aa34a}}
+{{d956c538bb1d4920-e593c57ec4bb34f1}}
+'''
+
+[[block]]
+key = "d956c538bb1d4920-0d900423219aa34a"
+type = "listItem"
+composite = true
+origin = '''
+1. {{d956c538bb1d4920-0d900423219aa34a-00def97a340bb0d8}}
+'''
+translate = '''
+1. {{d956c538bb1d4920-0d900423219aa34a-00def97a340bb0d8}}
+'''
+
+[[block]]
+key = "d956c538bb1d4920-0d900423219aa34a-00def97a340bb0d8"
+type = "paragraph"
+origin = '''
+**把 PNG 嵌入 SVG 容器**：外层扩展名虽为 `.svg`，内部其实只是嵌入了一张位图，放大后清晰度与原 PNG 完全相同。
+'''
+translate = '''
+**A PNG wrapped inside an SVG**: An `.svg` file can contain nothing more than an embedded bitmap. Scaling the SVG canvas will not add detail to that bitmap.
+'''
+
+[[block]]
+key = "d956c538bb1d4920-e593c57ec4bb34f1"
+type = "listItem"
+composite = true
+origin = '''
+2. {{d956c538bb1d4920-e593c57ec4bb34f1-476764e569df0a0d}}
+'''
+translate = '''
+2. {{d956c538bb1d4920-e593c57ec4bb34f1-476764e569df0a0d}}
+'''
+
+[[block]]
+key = "d956c538bb1d4920-e593c57ec4bb34f1-476764e569df0a0d"
+type = "paragraph"
+origin = '''
+**把位图另存为 PDF**：PDF 是复合文档容器，内部既可能是矢量图形，也可能是扫描图片。
+'''
+translate = '''
+**A bitmap saved as a PDF**: PDF is a container format that can hold vector paths, live text, raster photos, or all three together.
+'''
+
+[[block]]
+key = "63c80664dc1f4703"
+type = "paragraph"
+origin = '''
+想确认文件里是否包含真正的矢量路径，可用 Inkscape 或 Illustrator 打开文件并尝试框选锚点：若能单独选中线条节点与色块轮廓，说明是原生路径；若只能选中一整块矩形画布，则说明内部是嵌入位图。
+'''
+translate = '''
+To confirm whether an SVG contains real vector geometry, open it in a vector editor such as Inkscape or Illustrator and click the artwork. If you can select individual anchor points, strokes, and fills, it has editable paths; if you can only select a single bounding box, it wraps an embedded bitmap.
+'''
+
+[[block]]
+key = "4870728d664700f1"
+type = "heading"
+origin = '''
+## 自动矢量化与画质的关系
+'''
+translate = '''
+## What Automatic Vectorization Can and Cannot Do
+'''
+
+[[block]]
+key = "3f79cb681dbaab7d"
+type = "paragraph"
+origin = '''
+“图像转矢量”工具通过分析像素色差来重新描摹轮廓与色块，适合把边界干净的位图转成可缩放路径，但也会带来以下变化：
+'''
+translate = '''
+Image-tracing tools analyze pixel boundaries and fit new vector shapes over them. When tracing a bitmap into SVG, expect these trade-offs:
+'''
+
+[[block]]
+key = "fbecac0dd136be04"
+type = "list"
+composite = true
+origin = '''
+{{fbecac0dd136be04-4bbd7a7b8694caf6}}
+{{fbecac0dd136be04-6f77c865b4209fdf}}
+{{fbecac0dd136be04-413eca35d8687d0c}}
+{{fbecac0dd136be04-13942186e86293b2}}
+{{fbecac0dd136be04-ea00cbaa78e4f422}}
+'''
+translate = '''
+{{fbecac0dd136be04-4bbd7a7b8694caf6}}
+{{fbecac0dd136be04-6f77c865b4209fdf}}
+{{fbecac0dd136be04-413eca35d8687d0c}}
+{{fbecac0dd136be04-13942186e86293b2}}
+{{fbecac0dd136be04-ea00cbaa78e4f422}}
+'''
+
+[[block]]
+key = "fbecac0dd136be04-4bbd7a7b8694caf6"
+type = "listItem"
+composite = true
+origin = '''
+- {{fbecac0dd136be04-4bbd7a7b8694caf6-4edb5d6d17fe9de6}}
+'''
+translate = '''
+- {{fbecac0dd136be04-4bbd7a7b8694caf6-4edb5d6d17fe9de6}}
+'''
+
+[[block]]
+key = "fbecac0dd136be04-4bbd7a7b8694caf6-4edb5d6d17fe9de6"
+type = "paragraph"
+origin = '''
+相近色调被归并成同一平涂色块；
+'''
+translate = '''
+Similar shades merge into flat color regions;
+'''
+
+[[block]]
+key = "fbecac0dd136be04-6f77c865b4209fdf"
+type = "listItem"
+composite = true
+origin = '''
+- {{fbecac0dd136be04-6f77c865b4209fdf-dfde1f16e1679d2d}}
+'''
+translate = '''
+- {{fbecac0dd136be04-6f77c865b4209fdf-dfde1f16e1679d2d}}
+'''
+
+[[block]]
+key = "fbecac0dd136be04-6f77c865b4209fdf-dfde1f16e1679d2d"
+type = "paragraph"
+origin = '''
+柔和渐变被拆分为一级一级的离散色带；
+'''
+translate = '''
+Smooth gradients step into discrete color bands;
+'''
+
+[[block]]
+key = "fbecac0dd136be04-413eca35d8687d0c"
+type = "listItem"
+composite = true
+origin = '''
+- {{fbecac0dd136be04-413eca35d8687d0c-ed241eaa86dd1f02}}
+'''
+translate = '''
+- {{fbecac0dd136be04-413eca35d8687d0c-ed241eaa86dd1f02}}
+'''
+
+[[block]]
+key = "fbecac0dd136be04-413eca35d8687d0c-ed241eaa86dd1f02"
+type = "paragraph"
+origin = '''
+照片噪点、纸张纹理和 JPG 压缩伪影被描摹成大量细碎节点；
+'''
+translate = '''
+Hair, paper grain, noise, and JPG artifacts can turn into thousands of tangled nodes;
+'''
+
+[[block]]
+key = "fbecac0dd136be04-13942186e86293b2"
+type = "listItem"
+composite = true
+origin = '''
+- {{fbecac0dd136be04-13942186e86293b2-3e3189dc7d2918ee}}
+'''
+translate = '''
+- {{fbecac0dd136be04-13942186e86293b2-3e3189dc7d2918ee}}
+'''
+
+[[block]]
+key = "fbecac0dd136be04-13942186e86293b2-3e3189dc7d2918ee"
+type = "paragraph"
+origin = '''
+极小的文字、细线与尖角可能被平滑简化；
+'''
+translate = '''
+Tiny lettering, thin strokes, and sharp corners may round off or drop out;
+'''
+
+[[block]]
+key = "fbecac0dd136be04-ea00cbaa78e4f422"
+type = "listItem"
+composite = true
+origin = '''
+- {{fbecac0dd136be04-ea00cbaa78e4f422-61bf96482a449bf3}}
+'''
+translate = '''
+- {{fbecac0dd136be04-ea00cbaa78e4f422-61bf96482a449bf3}}
+'''
+
+[[block]]
+key = "fbecac0dd136be04-ea00cbaa78e4f422-61bf96482a449bf3"
+type = "paragraph"
+origin = '''
+复杂画面的路径数量激增，反而拖慢后续预览与建模速度。
+'''
+translate = '''
+Complex scenes can generate heavy path counts that slow down editing and conversion.
+'''
+
+[[block]]
+key = "497fcb5a5450604a"
+type = "paragraph"
+origin = '''
+边界清晰的 Logo、图标与线稿通常能获得干净的矢量化结果；人像照片与复杂绘画则建议直接保留位图。
+'''
+translate = '''
+Logos, icons, and clean line drawings usually trace cleanly, whereas photographs and painterly artwork almost always look better kept as bitmaps.
+'''
+
+[[block]]
+key = "53a317029caa879a"
+type = "admonition"
+composite = true
+origin = '''
+:::warning[缩放与细节]
+{{53a317029caa879a-9991fa22a09c3107}}
+:::
+'''
+translate = '''
+:::warning[Scaling vs. Source Detail]
+{{53a317029caa879a-9991fa22a09c3107}}
+:::
+'''
+
+[[block]]
+key = "53a317029caa879a-9991fa22a09c3107"
+type = "paragraph"
+origin = '''
+低分辨率位图描摹为 SVG 后虽然可以任意放大，但原图因模糊或马赛克产生的轮廓变形也会随之放大，并不会自动找回缺失的原始细节。
+'''
+translate = '''
+Tracing a blurry, low-resolution image into SVG makes the canvas infinitely scalable, but any rounded corners or jagged artifacts traced from those pixels scale right along with it. Tracing cannot restore detail missing from the source.
+'''
+
+[[block]]
+key = "2909ce7b9aedac32"
+type = "heading"
+origin = '''
+## 在 Lumina Studio 中的选型建议
+'''
+translate = '''
+## Choosing Your Workflow in Lumina Studio
+'''
+
+[[block]]
+key = "c02fa274fd4e90dc"
+type = "paragraph"
+origin = '''
+开始前先备份原始素材，再按素材来源选择对应流程：
+'''
+translate = '''
+Save an untouched copy of your original file first, then follow the path that matches your artwork:
+'''
+
+[[block]]
+key = "68cba32ee5155e72"
+type = "heading"
+origin = '''
+### 照片或复杂插画
+'''
+translate = '''
+### Photos and Detailed Illustrations
+'''
+
+[[block]]
+key = "c5f8cc2654530bce"
+type = "paragraph"
+origin = '''
+直接上传原始 JPG、PNG 或 WebP 位图，配合高保真模式预览色彩与细节，无需先转成 SVG。
+'''
+translate = '''
+Upload the original PNG, JPG, or WebP directly and use **High-Fidelity** mode. There is no benefit to tracing a photograph into SVG first.
+'''
+
+[[block]]
+key = "47b2bfb86832758f"
+type = "heading"
+origin = '''
+### 原生设计的 Logo、图标或线稿
+'''
+translate = '''
+### Native Logos, Icons, and Line Art
+'''
+
+[[block]]
+key = "7e8adce0e376872d"
+type = "paragraph"
+origin = '''
+如果设计稿本身就是矢量格式，直接导出原生 SVG（文字提前转曲、保持透明背景与闭合路径）并上传至 Lumina，避免先存成低清 PNG 再二次描摹。
+'''
+translate = '''
+If you have the original SVG exported from your design app, upload it directly. Before importing, verify that the artboard bounds are tight, the background is transparent, paths are closed, and live text has been converted to outlines. Avoid exporting a clean vector design to a small PNG only to trace it back into SVG.
+'''
+
+[[block]]
+key = "2153fdfba4118739"
+type = "heading"
+origin = '''
+### 只有位图，但需要使用矢量模式
+'''
+translate = '''
+### Bitmap Logos When You Need Vector Paths
+'''
+
+[[block]]
+key = "aab5f9e304af3632"
+type = "paragraph"
+origin = '''
+先使用 Lumina 内置的“图像转矢量”生成候选 SVG，并与原图对比五点：
+'''
+translate = '''
+Run Lumina's **Vectorizer** to generate a candidate SVG, then compare it side by side with the original:
+'''
+
+[[block]]
+key = "86c9afbf6aec47ba"
+type = "list"
+composite = true
+origin = '''
+{{86c9afbf6aec47ba-e79b1e0e8e5d9467}}
+{{86c9afbf6aec47ba-47331d3bd430d5b7}}
+{{86c9afbf6aec47ba-3134ca75aafeace5}}
+{{86c9afbf6aec47ba-2bcb9a2ef0a7ae02}}
+{{86c9afbf6aec47ba-a3420a7909cf76bd}}
+'''
+translate = '''
+{{86c9afbf6aec47ba-e79b1e0e8e5d9467}}
+{{86c9afbf6aec47ba-47331d3bd430d5b7}}
+{{86c9afbf6aec47ba-3134ca75aafeace5}}
+{{86c9afbf6aec47ba-2bcb9a2ef0a7ae02}}
+{{86c9afbf6aec47ba-a3420a7909cf76bd}}
+'''
+
+[[block]]
+key = "86c9afbf6aec47ba-e79b1e0e8e5d9467"
+type = "listItem"
+composite = true
+origin = '''
+1. {{86c9afbf6aec47ba-e79b1e0e8e5d9467-0fa752b5e9d24481}}
+'''
+translate = '''
+1. {{86c9afbf6aec47ba-e79b1e0e8e5d9467-0fa752b5e9d24481}}
+'''
+
+[[block]]
+key = "86c9afbf6aec47ba-e79b1e0e8e5d9467-0fa752b5e9d24481"
+type = "paragraph"
+origin = '''
+五官、文字、细线与尖角是否完整保留；
+'''
+translate = '''
+Are eyes, small letters, thin lines, and sharp corners intact?
+'''
+
+[[block]]
+key = "86c9afbf6aec47ba-47331d3bd430d5b7"
+type = "listItem"
+composite = true
+origin = '''
+2. {{86c9afbf6aec47ba-47331d3bd430d5b7-a7960191c858ee86}}
+'''
+translate = '''
+2. {{86c9afbf6aec47ba-47331d3bd430d5b7-a7960191c858ee86}}
+'''
+
+[[block]]
+key = "86c9afbf6aec47ba-47331d3bd430d5b7-a7960191c858ee86"
+type = "paragraph"
+origin = '''
+渐变区域拆成色带后是否自然；
+'''
+translate = '''
+Did any gradients split into distracting bands?
+'''
+
+[[block]]
+key = "86c9afbf6aec47ba-3134ca75aafeace5"
+type = "listItem"
+composite = true
+origin = '''
+3. {{86c9afbf6aec47ba-3134ca75aafeace5-6a4379dc61aaec00}}
+'''
+translate = '''
+3. {{86c9afbf6aec47ba-3134ca75aafeace5-6a4379dc61aaec00}}
+'''
+
+[[block]]
+key = "86c9afbf6aec47ba-3134ca75aafeace5-6a4379dc61aaec00"
+type = "paragraph"
+origin = '''
+背景与阴影是否产生了多余碎路径；
+'''
+translate = '''
+Did background noise or drop shadows turn into stray shapes?
+'''
+
+[[block]]
+key = "86c9afbf6aec47ba-2bcb9a2ef0a7ae02"
+type = "listItem"
+composite = true
+origin = '''
+4. {{86c9afbf6aec47ba-2bcb9a2ef0a7ae02-49245cd5d8fc9f45}}
+'''
+translate = '''
+4. {{86c9afbf6aec47ba-2bcb9a2ef0a7ae02-49245cd5d8fc9f45}}
+'''
+
+[[block]]
+key = "86c9afbf6aec47ba-2bcb9a2ef0a7ae02-49245cd5d8fc9f45"
+type = "paragraph"
+origin = '''
+色块数量与路径复杂度是否适中；
+'''
+translate = '''
+Are the color count and shape count clean and manageable?
+'''
+
+[[block]]
+key = "86c9afbf6aec47ba-a3420a7909cf76bd"
+type = "listItem"
+composite = true
+origin = '''
+5. {{86c9afbf6aec47ba-a3420a7909cf76bd-22aef669cb05f55f}}
+'''
+translate = '''
+5. {{86c9afbf6aec47ba-a3420a7909cf76bd-22aef669cb05f55f}}
+'''
+
+[[block]]
+key = "86c9afbf6aec47ba-a3420a7909cf76bd-22aef669cb05f55f"
+type = "paragraph"
+origin = '''
+导入“图像转换”后的预览效果是否优于直接使用原位图。
+'''
+translate = '''
+Does Lumina's converter Preview look cleaner than using the original bitmap directly?
+'''
+
+[[block]]
+key = "4d6918e152f23e78"
+type = "paragraph"
+origin = '''
+详细操作步骤请参阅[从位图生成 SVG，再发送到图像转换](pathname:///zh/docs/knowledge/bitmap-to-svg/)。
+'''
+translate = '''
+If both versions preview cleanly, pick whichever matches your visual goal and editing workflow.
+'''
+
+[[block]]
+key = "1232886861eac76f"
+type = "heading"
+origin = '''
+## 导入前的快速自查清单
+'''
+translate = '''
+## Pre-Import Checklist
+'''
+
+[[block]]
+key = "ebab527dde35abce"
+type = "list"
+composite = true
+origin = '''
+{{ebab527dde35abce-a363813d8445b2d6}}
+{{ebab527dde35abce-18f51f9ad4889590}}
+{{ebab527dde35abce-1525eda39e9755da}}
+{{ebab527dde35abce-2815a2ca508654f7}}
+{{ebab527dde35abce-1531479361eef993}}
+{{ebab527dde35abce-17d6f491ba7c5447}}
+'''
+translate = '''
+{{ebab527dde35abce-a363813d8445b2d6}}
+{{ebab527dde35abce-18f51f9ad4889590}}
+{{ebab527dde35abce-1525eda39e9755da}}
+{{ebab527dde35abce-2815a2ca508654f7}}
+{{ebab527dde35abce-1531479361eef993}}
+{{ebab527dde35abce-17d6f491ba7c5447}}
+'''
+
+[[block]]
+key = "ebab527dde35abce-a363813d8445b2d6"
+type = "listItem"
+composite = true
+origin = '''
+1. {{ebab527dde35abce-a363813d8445b2d6-05217705b0d31332}}
+'''
+translate = '''
+1. {{ebab527dde35abce-a363813d8445b2d6-05217705b0d31332}}
+'''
+
+[[block]]
+key = "ebab527dde35abce-a363813d8445b2d6-05217705b0d31332"
+type = "paragraph"
+origin = '''
+**看来源**：区分相机照片、网络压缩图与设计软件导出的原生矢量稿；
+'''
+translate = '''
+**Check the origin**: Identify whether the file is a photo, a compressed web graphic, or a native design export.
+'''
+
+[[block]]
+key = "ebab527dde35abce-18f51f9ad4889590"
+type = "listItem"
+composite = true
+origin = '''
+2. {{ebab527dde35abce-18f51f9ad4889590-d37461834435f959}}
+'''
+translate = '''
+2. {{ebab527dde35abce-18f51f9ad4889590-d37461834435f959}}
+'''
+
+[[block]]
+key = "ebab527dde35abce-18f51f9ad4889590-d37461834435f959"
+type = "paragraph"
+origin = '''
+**看尺寸**：原图在目标打印尺寸下已经足够清晰时，可直接使用；
+'''
+translate = '''
+**Inspect at target size**: If a bitmap already looks crisp at your finished print dimensions, no format conversion is needed.
+'''
+
+[[block]]
+key = "ebab527dde35abce-1525eda39e9755da"
+type = "listItem"
+composite = true
+origin = '''
+3. {{ebab527dde35abce-1525eda39e9755da-cb95b80171bb75ab}}
+'''
+translate = '''
+3. {{ebab527dde35abce-1525eda39e9755da-cb95b80171bb75ab}}
+'''
+
+[[block]]
+key = "ebab527dde35abce-1525eda39e9755da-cb95b80171bb75ab"
+type = "paragraph"
+origin = '''
+**放大看边缘**：放大出现像素格的是位图，在矢量软件中能编辑锚点的是原生路径；
+'''
+translate = '''
+**Zoom in**: Bitmaps show a pixel grid when enlarged; true vectors expose editable nodes in a vector editor.
+'''
+
+[[block]]
+key = "ebab527dde35abce-2815a2ca508654f7"
+type = "listItem"
+composite = true
+origin = '''
+4. {{ebab527dde35abce-2815a2ca508654f7-5be12ac66e1000e1}}
+'''
+translate = '''
+4. {{ebab527dde35abce-2815a2ca508654f7-5be12ac66e1000e1}}
+'''
+
+[[block]]
+key = "ebab527dde35abce-2815a2ca508654f7-5be12ac66e1000e1"
+type = "paragraph"
+origin = '''
+**查容器内容**：`.svg`、`.ai`、`.eps` 和 `.pdf` 均可能内嵌位图；
+'''
+translate = '''
+**Verify container files**: Remember that SVG, AI, EPS, and PDF files can embed raster images.
+'''
+
+[[block]]
+key = "ebab527dde35abce-1531479361eef993"
+type = "listItem"
+composite = true
+origin = '''
+5. {{ebab527dde35abce-1531479361eef993-f65ac2015b10a1ce}}
+'''
+translate = '''
+5. {{ebab527dde35abce-1531479361eef993-f65ac2015b10a1ce}}
+'''
+
+[[block]]
+key = "ebab527dde35abce-1531479361eef993-f65ac2015b10a1ce"
+type = "paragraph"
+origin = '''
+**留存原件**：任何矢量化或裁剪操作都另存新副本，方便随时回退对比；
+'''
+translate = '''
+**Keep backups**: Save traced or cropped files under new filenames so your original stays untouched.
+'''
+
+[[block]]
+key = "ebab527dde35abce-17d6f491ba7c5447"
+type = "listItem"
+composite = true
+origin = '''
+6. {{ebab527dde35abce-17d6f491ba7c5447-f7bd49137199147b}}
+'''
+translate = '''
+6. {{ebab527dde35abce-17d6f491ba7c5447-f7bd49137199147b}}
+'''
+
+[[block]]
+key = "ebab527dde35abce-17d6f491ba7c5447-f7bd49137199147b"
+type = "paragraph"
+origin = '''
+**看预览定方案**：结合 Lumina 的 2D / 3D 预览，选择边缘最干净、细节最符合预期的一版。
+'''
+translate = '''
+**Compare in Preview**: Check key edges, color regions, small text, and layer complexity in Lumina before exporting your 3MF.
+'''
+
+[[block]]
+key = "cbbf3b866f003400"
+type = "heading"
+origin = '''
+## 常见问题 Q&A
+'''
+translate = '''
+## Common Questions
+'''
+
+[[block]]
+key = "209482dd2717cdd8"
+type = "heading"
+origin = '''
+### PNG 一定是位图吗？
+'''
+translate = '''
+### Is a PNG always a bitmap?
+'''
+
+[[block]]
+key = "db7a100e00bdf350"
+type = "paragraph"
+origin = '''
+是的。PNG 属于光栅像素格式。即使它是从矢量设计稿导出的，导出后的 PNG 也只保留固定分辨率的像素阵列，不再包含可编辑路径。
+'''
+translate = '''
+Yes. PNG is a raster format. Even when exported from a vector logo, the resulting PNG stores a fixed pixel grid without editable vector paths.
+'''
+
+[[block]]
+key = "3ce970169b374da4"
+type = "heading"
+origin = '''
+### 扩展名为 `.svg` 就一定是纯矢量图吗？
+'''
+translate = '''
+### Is every `.svg` file guaranteed to be pure vector?
+'''
+
+[[block]]
+key = "8bbe917c2e7b27d8"
+type = "paragraph"
+origin = '''
+不一定。SVG 规范允许原生路径与嵌入位图共存。在矢量编辑器中检查能否单独选中锚点和色块路径，是最准确的判断方式。
+'''
+translate = '''
+No. Because SVG supports embedded raster images alongside vector paths, opening the file in a vector editor to check for selectable nodes and fills is the surest test.
+'''
+
+[[block]]
+key = "95b5e6394ecf0503"
+type = "heading"
+origin = '''
+### 矢量图一定比位图更清晰吗？
+'''
+translate = '''
+### Are vector images always sharper than bitmaps?
+'''
+
+[[block]]
+key = "a393efd135d24133"
+type = "paragraph"
+origin = '''
+两者适用的清晰维度不同。原生矢量路径在任意缩放时都能保持边缘锐利；而真实世界的皮肤质感、光影层次与丰富纹理，则由高分辨率位图表现得更自然。
+'''
+translate = '''
+Vector paths keep geometric edges smooth at any scale, while high-resolution bitmaps capture photographic texture, subtle lighting, and continuous color transitions that flat vector shapes cannot easily represent.
+'''
+
+[[block]]
+key = "40fffa4ce89796a2"
+type = "heading"
+origin = '''
+### 低清模糊图转成 SVG 能修复细节吗？
+'''
+translate = '''
+### Can tracing a low-resolution image into SVG recover lost detail?
+'''
+
+[[block]]
+key = "92b4111c85e2482d"
+type = "paragraph"
+origin = '''
+不能。描摹算法只能依据现有像素推算边界，可以让锯齿边缘变得平滑规整，但无法复原已经丢失的五官、笔画与纹理细节。
+'''
+translate = '''
+No. Tracing estimates curves from existing pixels—it can smooth out stair-stepped edges on simple shapes, but missing letters, facial features, or textures will not return.
+'''
+
+[[block]]
+key = "03edc65394ea3666"
+type = "heading"
+origin = '''
+### 可以根据文件大小判断位图还是矢量图吗？
+'''
+translate = '''
+### Does smaller file size mean an image is vector?
+'''
+
+[[block]]
+key = "50e54ea00d059758"
+type = "paragraph"
+origin = '''
+不能单凭体积判断。简单图形的 SVG 只有几 KB，但包含上万节点的复杂 SVG 可能很大；反过来，经过压缩的位图也可以很小，而内嵌了高清图片的 SVG 体积同样会很大。
+'''
+translate = '''
+Not reliably. A simple SVG icon may be tiny while a complex traced illustration can grow huge; likewise, a heavily compressed JPG can be small while an SVG with an embedded photo can be megabytes in size.
+'''
+
+[[block]]
+key = "933310a909ca5562"
+type = "heading"
+origin = '''
+### 像素画需要转成矢量图吗？
+'''
+translate = '''
+### Should I convert pixel art into SVG?
+'''
+
+[[block]]
+key = "c48b063770c30b83"
+type = "paragraph"
+origin = '''
+不需要。像素方格本身就是像素画的核心特征。在 Lumina Studio 中直接上传像素画并使用“像素艺术”模式即可精准还原方格边缘。
+'''
+translate = '''
+No. Keep pixel art as a bitmap and use **Pixel Art** mode in Lumina Studio (or nearest-neighbor scaling when resizing) so every grid cell stays sharp instead of getting smoothed away.
+'''
+
+[[block]]
+key = "95d93065e8a34be8"
+type = "heading"
+origin = '''
+## 参考资料
+'''
+translate = '''
+## References
+'''
+
+[[block]]
+key = "379c2d1c496b5c9d"
+type = "list"
+composite = true
+origin = '''
+{{379c2d1c496b5c9d-2f2027797d8ccf7f}}
+{{379c2d1c496b5c9d-214e8649bada831b}}
+{{379c2d1c496b5c9d-49b527b3658063d2}}
+{{379c2d1c496b5c9d-8720fb3f86e83025}}
+'''
+translate = '''
+{{379c2d1c496b5c9d-2f2027797d8ccf7f}}
+{{379c2d1c496b5c9d-214e8649bada831b}}
+{{379c2d1c496b5c9d-49b527b3658063d2}}
+{{379c2d1c496b5c9d-8720fb3f86e83025}}
+'''
+
+[[block]]
+key = "379c2d1c496b5c9d-2f2027797d8ccf7f"
+type = "listItem"
+composite = true
+origin = '''
+- {{379c2d1c496b5c9d-2f2027797d8ccf7f-26bade210ba84b47}}
+'''
+translate = '''
+- {{379c2d1c496b5c9d-2f2027797d8ccf7f-26bade210ba84b47}}
+'''
+
+[[block]]
+key = "379c2d1c496b5c9d-2f2027797d8ccf7f-26bade210ba84b47"
+type = "paragraph"
+origin = '''
+[Adobe：Raster vs. vector](https://www.adobe.com/creativecloud/file-types/image/comparison/raster-vs-vector.html)
+'''
+translate = '''
+[Adobe: Raster vs. vector](https://www.adobe.com/creativecloud/file-types/image/comparison/raster-vs-vector.html)
+'''
+
+[[block]]
+key = "379c2d1c496b5c9d-214e8649bada831b"
+type = "listItem"
+composite = true
+origin = '''
+- {{379c2d1c496b5c9d-214e8649bada831b-2792a1daa085ce0d}}
+'''
+translate = '''
+- {{379c2d1c496b5c9d-214e8649bada831b-2792a1daa085ce0d}}
+'''
+
+[[block]]
+key = "379c2d1c496b5c9d-214e8649bada831b-2792a1daa085ce0d"
+type = "paragraph"
+origin = '''
+[W3C：Scalable Vector Graphics (SVG) 2](https://www.w3.org/TR/SVG/)
+'''
+translate = '''
+[W3C: Scalable Vector Graphics (SVG) 2](https://www.w3.org/TR/SVG/)
+'''
+
+[[block]]
+key = "379c2d1c496b5c9d-49b527b3658063d2"
+type = "listItem"
+composite = true
+origin = '''
+- {{379c2d1c496b5c9d-49b527b3658063d2-8e13880c7b442d37}}
+'''
+translate = '''
+- {{379c2d1c496b5c9d-49b527b3658063d2-8e13880c7b442d37}}
+'''
+
+[[block]]
+key = "379c2d1c496b5c9d-49b527b3658063d2-8e13880c7b442d37"
+type = "paragraph"
+origin = '''
+[MDN：SVG `<path>` 元素](https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element/path)
+'''
+translate = '''
+[MDN: SVG `<path>` element](https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element/path)
+'''
+
+[[block]]
+key = "379c2d1c496b5c9d-8720fb3f86e83025"
+type = "listItem"
+composite = true
+origin = '''
+- {{379c2d1c496b5c9d-8720fb3f86e83025-11d04142b8954156}}
+'''
+translate = '''
+- {{379c2d1c496b5c9d-8720fb3f86e83025-11d04142b8954156}}
+'''
+
+[[block]]
+key = "379c2d1c496b5c9d-8720fb3f86e83025-11d04142b8954156"
+type = "paragraph"
+origin = '''
+[Wikimedia Commons：VectorBitmapExample.png](https://commons.wikimedia.org/wiki/File:VectorBitmapExample.png)
+'''
+translate = '''
+[Wikimedia Commons: VectorBitmapExample.png](https://commons.wikimedia.org/wiki/File:VectorBitmapExample.png)
+'''

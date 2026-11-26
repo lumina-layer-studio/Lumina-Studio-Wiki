@@ -10,6 +10,8 @@ Lumina's **Vectorizer** traces bitmap images—PNG, JPG, WebP, or BMP—into cle
 
 Because automatic tracing fits new curves to existing pixels, it works best on artwork with clear edges rather than photographs or soft gradients, and it cannot recover detail that is missing or blurred in the original image.
 
+
+
 ## Check Whether Tracing Fits Your Artwork
 
 **Good candidates for tracing:**
@@ -33,6 +35,8 @@ If your file is already a native SVG, upload it directly to **Image Converter** 
 
 Open **Vectorizer** and upload a PNG, JPG, WebP, or BMP file while keeping a backup of the original image.
 
+
+
 <img
   src={require('./assets/01-upload-and-defaults.webp').default}
   alt="Real English Lumina Vectorizer interface with a bitmap uploaded and default vectorisation settings highlighted"
@@ -44,9 +48,15 @@ Start with a baseline pass:
 2. Keep **Smoothness** and **Detail Level** at their default values;
 3. Click **Start Vectorization** and wait for the preview to finish.
 
+
+
+
+
 Running defaults first gives you a clear reference point before adjusting individual sliders.
 
 ## Step 2: Compare the Original and SVG Previews
+
+
 
 <img
   src={require('./assets/02-compare-result.webp').default}
@@ -68,14 +78,28 @@ Zoom in on the smallest feature that matters in your print, keeping in mind that
 If edges look jagged, adjust **Smoothness** or **Detail Level** one step at a time and compare again. If the trace produces hundreds of tiny stray paths, clean up background noise in the bitmap or lower **Color Count** rather than increasing color steps.
 :::
 
+
+
+
+
+
+
+
+
 ## Step 3: Download the SVG or Send It to Image Converter
+
+
 
 <img
   src={require('./assets/03-result-actions.webp').default}
   alt="Real English Lumina Vectorization Result with shape count, Download SVG, and Send to Image Converter controls highlighted"
 />
 
+
+
 The result summary displays the generated shape count, color count, and palette swatches. Keep in mind that a higher shape count reflects greater path complexity rather than sharper detail.
+
+
 
 Choose how to proceed:
 
@@ -96,6 +120,8 @@ Once **Send to Image Converter** loads your traced SVG in **Vector** mode, compl
 3. Click **Preview** to inspect matched color regions and layered recipes;
 4. Click **Generate** to export the 3MF, then open the full project in your slicer to verify layer toolpaths.
 
+
+
 ## Troubleshooting Common Trace Issues
 
 | Symptom | Recommended fix |
@@ -108,9 +134,17 @@ Once **Send to Image Converter** loads your traced SVG in **Vector** mode, compl
 | SVG loads with holes or missing fills | Check path closure, compound paths, masks, and fill rules |
 | Tracing takes a long time | Crop tightly and avoid tracing photographic textures or heavy noise |
 
+
+
+
+
 For deeper SVG diagnostics, see [SVG Upload, White Background, Holes, and Missing Detail](pathname:///en/docs/knowledge/svg-troubleshooting/).
 
 ## Common Questions
+
+
+
+
 
 ### Does vectorization increase the resolution of a blurry image?
 

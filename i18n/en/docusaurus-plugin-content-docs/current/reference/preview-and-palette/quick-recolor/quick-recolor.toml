@@ -1,0 +1,425 @@
+[metadata]
+migration_layout = "preserved English structure; root blocks retain grouped or omitted source sections"
+reviewed_source = "e1bc74a23c6763c7f2a6ce51eb9f617675cae7d86ddf5a0f4e7b4dc61a063f8a"
+
+[[block]]
+key = "446a3b6a3850bbaf"
+type = "yaml"
+origin = '''
+---
+title: "快速换色与相似配方"
+description: "框选需要修改的区域，指定目标颜色、吸管取色或套用相近的叠色配方。"
+sidebar_position: 4
+---
+'''
+translate = '''
+---
+title: "Quick recolor & similar recipes"
+description: "Select an area, set a target color or sample from the canvas, and apply a similar material stack."
+sidebar_position: 4
+---
+'''
+
+[[block]]
+key = "2bccc82a354d64c6"
+type = "heading"
+origin = '''
+# 快速换色与相似配方
+'''
+translate = '''
+# Quick recolor & similar recipes
+'''
+
+[[block]]
+key = "0e064fdbd87a6449"
+type = "paragraph"
+origin = '''
+**快速换色与相似配方**位于**颜色调整**界面右侧。先在左侧预览图中选中要修改的局部或色块，再指定目标颜色或挑选一条相近的叠色配方。修改仅作用于当前选区，其余同色位置保持不变。
+'''
+translate = '''
+Open **Color Adjustment** after generating a preview to find **Quick recolor & similar recipes** in the right column. Select the region you want to modify on the canvas, then pick a target color or apply a nearby filament stack. Edits apply only to the active selection while leaving matching colors elsewhere untouched.
+'''
+
+[[block]]
+key = "4f36876ea6a04b5e"
+type = "heading"
+origin = '''
+## 选择要修改的区域
+'''
+translate = '''
+## Select the area to edit
+'''
+
+[[block]]
+key = "45d8389a456b9995"
+type = "paragraph"
+origin = '''
+完成预览后打开**颜色调整**，在中间栏选用合适的选择工具：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "e200f206e420fe9a"
+type = "table"
+origin = '''
+| 工具 | 选区范围 |
+| --- | --- |
+| 同颜色全选 | 选中画面中具有该颜色的全部色块 |
+| 相近颜色 | 选中与点击处色差不超过容差的所有可见色块 |
+| 点选色块 | 逐个添加或取消独立的连通色块 |
+| 选区画笔 | 选中画笔涂抹轨迹触及的完整色块 |
+'''
+translate = '''
+| Tool | Selection behavior |
+| --- | --- |
+| Same color | Selects every region matching the clicked color across the image |
+| Similar colors | Selects visible regions within the active ΔE00 tolerance |
+| Pick blocks | Adds or removes individual connected regions one click at a time |
+| Selection brush | Selects every connected block touched by your brush stroke |
+'''
+
+[[block]]
+key = "9bdcf2946c5ec0a7"
+type = "paragraph"
+origin = '''
+未建立选区时仍可浏览目标色与候选配方，选中区域后即可执行替换。
+'''
+translate = '''
+You can browse target colors and candidate recipes at any time, then select an area on the canvas to apply them.
+'''
+
+[[block]]
+key = "741a771a2da3b7d7"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/01-quick-recolor.webp').default} alt="实际选中区域后的选择工具与相似配方列表" />
+'''
+translate = '''
+<img src={require('./assets/01-quick-recolor.webp').default} alt="Real English selection tools and similar recipes after selecting a region" />
+'''
+
+[[block]]
+key = "70c052d3ebfc91e8"
+type = "heading"
+origin = '''
+## 调节相近颜色容差
+'''
+translate = '''
+## Similar-color tolerance
+'''
+
+[[block]]
+key = "c96f0bfef38e1167"
+type = "paragraph"
+origin = '''
+**相近颜色**的容差按视觉色差 ΔE00 计算，数值越大，纳入选区的邻近色阶越广：
+'''
+translate = '''
+**Tolerance** measures perceived color difference in ΔE00. Raising the value expands the selection to include a wider range of nearby shades:
+'''
+
+[[block]]
+key = "276dc27770ad2b98"
+type = "list"
+composite = true
+origin = '''
+{{276dc27770ad2b98-ea5e8538167fe36f}}
+{{276dc27770ad2b98-fab96833f052f642}}
+{{276dc27770ad2b98-b54685dfbeaca9ee}}
+{{276dc27770ad2b98-17d4eb8ab8873109}}
+'''
+translate = '''
+- Defaults to **6**, adjustable from **0** to **30** in steps of **0.5**.
+- At **0**, only regions with the exact clicked color are selected.
+- Higher values group neighboring tonal steps together, and may also include nearby background or adjacent details if their colors are close.
+- Clicking the same color again toggles the selection for that range.
+'''
+
+[[block]]
+key = "276dc27770ad2b98-ea5e8538167fe36f"
+type = "listItem"
+composite = true
+origin = '''
+- {{276dc27770ad2b98-ea5e8538167fe36f-f61bca3886cf7fff}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "276dc27770ad2b98-ea5e8538167fe36f-f61bca3886cf7fff"
+type = "paragraph"
+origin = '''
+默认值为 **6**，滑块调节范围 **0–30**，步长 **0.5**。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "276dc27770ad2b98-fab96833f052f642"
+type = "listItem"
+composite = true
+origin = '''
+- {{276dc27770ad2b98-fab96833f052f642-698ef3d2b4966b05}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "276dc27770ad2b98-fab96833f052f642-698ef3d2b4966b05"
+type = "paragraph"
+origin = '''
+设为 **0** 时，仅选中与点击处完全一致的颜色。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "276dc27770ad2b98-b54685dfbeaca9ee"
+type = "listItem"
+composite = true
+origin = '''
+- {{276dc27770ad2b98-b54685dfbeaca9ee-2fa66a8cfb7eeb4d}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "276dc27770ad2b98-b54685dfbeaca9ee-2fa66a8cfb7eeb4d"
+type = "paragraph"
+origin = '''
+调高容差可将深浅过渡相近的色块一并纳入，若背景或相邻图案色差较近也会同时进入选区。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "276dc27770ad2b98-17d4eb8ab8873109"
+type = "listItem"
+composite = true
+origin = '''
+- {{276dc27770ad2b98-17d4eb8ab8873109-9dabd770e4aa471d}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "276dc27770ad2b98-17d4eb8ab8873109-9dabd770e4aa471d"
+type = "paragraph"
+origin = '''
+再次点击同一颜色可切换对应范围的选中状态。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "fd388773c700f936"
+type = "paragraph"
+origin = '''
+容差仅影响选区范围，不会直接改变画面颜色；建议先确认画面上的选区轮廓，再执行换色。
+'''
+translate = '''
+Adjusting tolerance updates only the selection boundary; verify the highlighted outline on the canvas before applying a replacement.
+'''
+
+[[block]]
+key = "f6b7dc78b3b452b2"
+type = "heading"
+origin = '''
+## 设置目标颜色 B
+'''
+translate = '''
+## Set target color B
+'''
+
+[[block]]
+key = "6c9a262109186df1"
+type = "paragraph"
+origin = '''
+可通过输入六位 HEX 色值（如 `#ff8800`）、打开系统取色器，或直接点选下方列出的图中已有颜色来设定**目标颜色 B**。传统 LUT 模式会检索与 B 最接近的 LUT 可打印色；耗材档案模式则以 B 为目标，由当前材料组合求解实际叠层配方。
+'''
+translate = '''
+Enter a six-digit HEX value such as `#ff8800`, open the color picker, or click one of the swatches under **Pick from colors already in the image**. With a LUT source, Lumina locates the closest printable LUT color to **B**. With a Material Archive source, **B** serves as the target color while the actual filament stack is solved from your active materials.
+'''
+
+[[block]]
+key = "0b7369819f2ebe66"
+type = "paragraph"
+origin = '''
+确认选区与最接近的可打印色后，点击**把选区替换成这个颜色**即可更新预览，并对照周边未选中区域核对改色边界。
+'''
+translate = '''
+Review the nearest printable match, click **Replace selection with this color**, and check the updated preview alongside surrounding unselected areas.
+'''
+
+[[block]]
+key = "be7cecbcda10da8c"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/02-target-color.webp').default} alt="输入目标颜色 B，核对最接近的可打印颜色并替换当前选区" />
+'''
+translate = '''
+<img src={require('./assets/02-target-color.webp').default} alt="Set target color B, inspect the nearest printable color, and apply to the selection" />
+'''
+
+[[block]]
+key = "438bbccd2e69581f"
+type = "heading"
+origin = '''
+## 使用吸管从图中取色
+'''
+translate = '''
+## Sample a color from the image
+'''
+
+[[block]]
+key = "842cbc6572d284a7"
+type = "paragraph"
+origin = '''
+点击输入框右侧的吸管图标（**从图中取色**），再点击左侧 2D 预览图中的任意位置，即可将该像素当前显示的打印色填入目标颜色 B，且不会打断已有选区。按 `Esc` 或收起卡片可退出取色模式。
+'''
+translate = '''
+Click the eyedropper button (**Pick from image**), then click anywhere on the 2D preview. The displayed print color at that pixel is copied into **Target color B** without altering your current selection. Press `Esc` or collapse the card to exit eyedropper mode.
+'''
+
+[[block]]
+key = "9cc6d9b3fbdd9da9"
+type = "heading"
+origin = '''
+## 挑选相似配方
+'''
+translate = '''
+## Choose a similar recipe
+'''
+
+[[block]]
+key = "29bb78b388411d9f"
+type = "paragraph"
+origin = '''
+在**相似配方**栏可切换**按选区颜色**或**按目标颜色 B**排序；若当前选区包含多种颜色，可点击其中一种作为参考色。每条候选配方旁会标注来源标签：
+'''
+translate = '''
+Under **Similar recipes**, switch between **From selection** and **From color B**—if your selection spans multiple colors, click one swatch to set the reference color. Badges next to each entry indicate how the color was derived:
+'''
+
+[[block]]
+key = "a6150ec527d45740"
+type = "list"
+composite = true
+origin = '''
+{{a6150ec527d45740-e7a24ca8e8fe7ee0}}
+{{a6150ec527d45740-35361cb89f6eaa2e}}
+{{a6150ec527d45740-75380b827a0a89e7}}
+'''
+translate = '''
+- **Measured:** An existing measured entry in the active LUT.
+- **Predicted:** Estimated by the forward prediction model.
+- **In image:** Already used elsewhere in the current preview.
+'''
+
+[[block]]
+key = "a6150ec527d45740-e7a24ca8e8fe7ee0"
+type = "listItem"
+composite = true
+origin = '''
+- {{a6150ec527d45740-e7a24ca8e8fe7ee0-3ddb8f592405ed85}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a6150ec527d45740-e7a24ca8e8fe7ee0-3ddb8f592405ed85"
+type = "paragraph"
+origin = '''
+**实测：** 来自当前 LUT 的实测色卡条目。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a6150ec527d45740-35361cb89f6eaa2e"
+type = "listItem"
+composite = true
+origin = '''
+- {{a6150ec527d45740-35361cb89f6eaa2e-7f3dadd4b582beb2}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a6150ec527d45740-35361cb89f6eaa2e-7f3dadd4b582beb2"
+type = "paragraph"
+origin = '''
+**预测：** 由内置正向预测模型估算得出。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a6150ec527d45740-75380b827a0a89e7"
+type = "listItem"
+composite = true
+origin = '''
+- {{a6150ec527d45740-75380b827a0a89e7-ac089814b6b0f7af}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a6150ec527d45740-75380b827a0a89e7-ac089814b6b0f7af"
+type = "paragraph"
+origin = '''
+**图中已有：** 当前预览图像中已使用该颜色。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4d970e3a5cabf753"
+type = "paragraph"
+origin = '''
+每行下方的叠层小色块从左至右依次代表**观察面 → 底部**。核对色差 ΔE 与逐层材料后，点击右侧的**替换**即可应用。在耗材档案模式下，相似配方列表展示当前图像内已使用的颜色及其叠层；如需搜索更大范围的材料组合，请配合下方的耗材可达色面板。
+'''
+translate = '''
+Layer chips run from left to right in **viewing face → bottom** order. Inspect the ΔE value and filament sequence, then click **Apply**. In Material Archive mode, this list draws from colors and stacks already present in your current preview.
+'''
+
+[[block]]
+key = "aa181ae779d13833"
+type = "heading"
+origin = '''
+## 检查与保存
+'''
+translate = '''
+## Review and save
+'''
+
+[[block]]
+key = "f4975114c9ff84a8"
+type = "paragraph"
+origin = '''
+替换完成后，2D 与 3D 预览会同步刷新；如需回退可点击顶部的**撤销**。若套用新配方后选区边界发生变化，请重新点选目标区域再继续微调。生成 3MF 前建议逐层核对改色区域，并及时[保存项目](../../../knowledge/share-card-json/share-card-json.mdx)。
+'''
+translate = '''
+Wait for the 2D and 3D previews to refresh after applying a change, or click **Undo** to step back. If applying a recipe updates region boundaries, re-select the target area before making further edits. Before clicking **Generate**, verify the modified regions and layer stacks, and [save the project](../../../knowledge/share-card-json/share-card-json.mdx).
+'''
+
+[[block]]
+key = "33e0f002ede27a26"
+type = "paragraph"
+origin = '''
+若相似配方列表为空，通常表示当前颜色来源下暂无可用候选；若提示加载异常，请重新运行预览后再试。更换耗材组合或颜色来源后，请重新核对候选配方。
+'''
+translate = '''
+An empty recipe list indicates no matching entries are available for the active color source; if loading fails, run **Preview** again as prompted. Always recheck suggested recipes after changing filaments or switching color sources.
+'''
+
+[[block]]
+key = "c9917f274ed6badc"
+type = "paragraph"
+origin = '''
+相关页面：[选择模式、调色板与自由色](../selection-modes/selection-modes.mdx)、[自定义配方](../custom-recipes/custom-recipes.mdx)。
+'''
+translate = '''
+Related: [Selection Modes, Palette, and Free Colors](../selection-modes/selection-modes.mdx), [Custom Recipes](../custom-recipes/custom-recipes.mdx).
+'''

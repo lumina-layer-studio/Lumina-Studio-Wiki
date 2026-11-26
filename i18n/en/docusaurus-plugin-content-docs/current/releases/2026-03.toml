@@ -1,0 +1,478 @@
+[metadata]
+reviewed_source = "835200e453ed4efc1ea5f6ea7fb1bc95e333c6e44c63386313767a8fb9244484"
+
+[[block]]
+key = "8b6a22361f5faac3"
+type = "yaml"
+origin = '''
+---
+title: "2.0 开发月报：2026 年 3 月"
+description: "Lumina Studio 2.0 在 2026 年 3 月 9 日至 31 日的开发进展"
+sidebar_position: 30
+---
+'''
+translate = '''
+---
+title: "2.0 Development Report: March 2026"
+description: "Lumina Studio 2.0 development progress from March 9 through March 31, 2026"
+sidebar_position: 30
+---
+'''
+
+[[block]]
+key = "a2a80e1b4049a33c"
+type = "heading"
+origin = '''
+# Lumina Studio 2.0 开发月报：2026 年 3 月
+'''
+translate = '''
+# Lumina Studio 2.0 Development Report: March 2026
+'''
+
+[[block]]
+key = "7be494350695b0e1"
+type = "blockquote"
+composite = true
+origin = '''
+> {{7be494350695b0e1-f89fb93a84b251e7}}
+'''
+translate = '''
+> {{7be494350695b0e1-f89fb93a84b251e7}}
+'''
+
+[[block]]
+key = "7be494350695b0e1-f89fb93a84b251e7"
+type = "paragraph"
+origin = '''
+统计范围：2026 年 3 月 9 日—31 日
+'''
+translate = '''
+Reporting period: March 9–31, 2026
+'''
+
+[[block]]
+key = "c2cb4cf144faf043"
+type = "paragraph"
+origin = '''
+[← 更新日志总览](/zh/docs/releases/overview) · [下一月：2026 年 4 月 →](/zh/docs/releases/2026-04)
+'''
+translate = '''
+[← Changelog overview](/en/docs/releases/overview) · [Next: April 2026 →](/en/docs/releases/2026-04)
+'''
+
+[[block]]
+key = "b9afabb3581f03d0"
+type = "heading"
+origin = '''
+## 本月概览
+'''
+translate = '''
+## Monthly overview
+'''
+
+[[block]]
+key = "18ea7aee939a514b"
+type = "paragraph"
+origin = '''
+1.6.3 发布后，Lumina Studio 转入 2.0 开发阶段。本月率先重构了制约生成速度与可维护性的底层 3MF 导出、SVG 解析与预览路径，同时开始扩充图像格式、材料预设和切片器适配，为后续数月的功能演进确立新架构基线。
+'''
+translate = '''
+Following the 1.6.3 release, Lumina Studio moved into 2.0 development. Work in March replaced legacy export, SVG, and preview pipelines that limited speed and maintainability, while expanding image-format support, material presets, and slicer profiles to establish the architectural baseline for 2.0.
+'''
+
+[[block]]
+key = "3a0557c834aa45af"
+type = "heading"
+origin = '''
+## 重点更新
+'''
+translate = '''
+## Highlights
+'''
+
+[[block]]
+key = "488eab743f0bc55c"
+type = "heading"
+origin = '''
+### SVG 预览与生成大幅提速
+'''
+translate = '''
+### Faster SVG preview and generation
+'''
+
+[[block]]
+key = "f0d2d9087e9809b3"
+type = "paragraph"
+origin = '''
+修复多项 SVG 路径解析问题，并重写关键预览步骤。典型测试流程由约 92 秒缩短至约 10 秒；复杂 SVG 图案可更快进入颜色匹配与 3D 预览，最终导出的模型精度保持不变。
+'''
+translate = '''
+Multiple SVG path-handling defects were fixed and key preview stages were rebuilt, cutting a representative workflow from roughly 92 seconds to about 10 seconds. Complex SVG artwork reaches color matching and 3D preview much sooner while preserving full final print accuracy.
+'''
+
+[[block]]
+key = "e8b78b930e74cf50"
+type = "heading"
+origin = '''
+### 3MF 导出切换至原生库
+'''
+translate = '''
+### Native 3MF export pipeline
+'''
+
+[[block]]
+key = "084b6c608065a007"
+type = "paragraph"
+origin = '''
+3MF 导出由 Python 组装 XML/ZIP 切换为原生库实现，显著降低大模型导出时的处理开销，并为后续的水印写入、切片器元数据与多材料工程结构提供基础支持。
+'''
+translate = '''
+The legacy Python-assembled XML/ZIP export path was replaced with a native library, reducing overhead on large models and laying the foundation for watermarks, slicer metadata, and multi-material project structures.
+'''
+
+[[block]]
+key = "e8d45bee1f58c18e"
+type = "heading"
+origin = '''
+## 新功能
+'''
+translate = '''
+## New features
+'''
+
+[[block]]
+key = "1aaab51d265cd13e"
+type = "list"
+composite = true
+origin = '''
+{{1aaab51d265cd13e-35038c6ab38b26f4}}
+{{1aaab51d265cd13e-0ee102cfc5dbdd89}}
+'''
+translate = '''
+{{1aaab51d265cd13e-35038c6ab38b26f4}}
+{{1aaab51d265cd13e-0ee102cfc5dbdd89}}
+'''
+
+[[block]]
+key = "1aaab51d265cd13e-35038c6ab38b26f4"
+type = "listItem"
+composite = true
+origin = '''
+- {{1aaab51d265cd13e-35038c6ab38b26f4-1de46bf36c354e94}}
+'''
+translate = '''
+- {{1aaab51d265cd13e-35038c6ab38b26f4-1de46bf36c354e94}}
+'''
+
+[[block]]
+key = "1aaab51d265cd13e-35038c6ab38b26f4-1de46bf36c354e94"
+type = "paragraph"
+origin = '''
+新增 DNG 原始照片上传支持，相机拍摄的原始素材可直接进入校准与颜色提取流程。
+'''
+translate = '''
+Added DNG raw image upload support so camera RAW captures can enter calibration and color-extraction workflows directly.
+'''
+
+[[block]]
+key = "1aaab51d265cd13e-0ee102cfc5dbdd89"
+type = "listItem"
+composite = true
+origin = '''
+- {{1aaab51d265cd13e-0ee102cfc5dbdd89-c1492abb70f606b6}}
+'''
+translate = '''
+- {{1aaab51d265cd13e-0ee102cfc5dbdd89-c1492abb70f606b6}}
+'''
+
+[[block]]
+key = "1aaab51d265cd13e-0ee102cfc5dbdd89-c1492abb70f606b6"
+type = "paragraph"
+origin = '''
+新增 XYD 小明 PLA 的 4 色、6 色与 8 色 LUT 预设，丰富开箱即用的材料组合。
+'''
+translate = '''
+Added XYD Xiaoming PLA LUT presets for 4-, 6-, and 8-color workflows.
+'''
+
+[[block]]
+key = "f01f61106cf9f93e"
+type = "heading"
+origin = '''
+## 切片器与 3MF
+'''
+translate = '''
+## Slicers and 3MF
+'''
+
+[[block]]
+key = "81b4861374f2b5a7"
+type = "list"
+composite = true
+origin = '''
+{{81b4861374f2b5a7-673ef3836d904e25}}
+{{81b4861374f2b5a7-151d886e8e808345}}
+'''
+translate = '''
+{{81b4861374f2b5a7-673ef3836d904e25}}
+{{81b4861374f2b5a7-151d886e8e808345}}
+'''
+
+[[block]]
+key = "81b4861374f2b5a7-673ef3836d904e25"
+type = "listItem"
+composite = true
+origin = '''
+- {{81b4861374f2b5a7-673ef3836d904e25-94c015a4c32b1ee7}}
+'''
+translate = '''
+- {{81b4861374f2b5a7-673ef3836d904e25-94c015a4c32b1ee7}}
+'''
+
+[[block]]
+key = "81b4861374f2b5a7-673ef3836d904e25-94c015a4c32b1ee7"
+type = "paragraph"
+origin = '''
+新增 Anycubic Slicer Next 与 Kobra 机型配置，导出的 3MF 自动附带适配对应切片器的工程元数据。
+'''
+translate = '''
+Added Anycubic Slicer Next and Kobra printer profiles with tailored 3MF project metadata.
+'''
+
+[[block]]
+key = "81b4861374f2b5a7-151d886e8e808345"
+type = "listItem"
+composite = true
+origin = '''
+- {{81b4861374f2b5a7-151d886e8e808345-a225616b3d4467c5}}
+'''
+translate = '''
+- {{81b4861374f2b5a7-151d886e8e808345-a225616b3d4467c5}}
+'''
+
+[[block]]
+key = "81b4861374f2b5a7-151d886e8e808345-a225616b3d4467c5"
+type = "paragraph"
+origin = '''
+新增 3MF 水印能力，支持成品标识与来源追溯。
+'''
+translate = '''
+Added 3MF watermark support for identifying exported files and tracing their origin.
+'''
+
+[[block]]
+key = "f12d286538de4a85"
+type = "heading"
+origin = '''
+## 校准与材料
+'''
+translate = '''
+## Calibration and materials
+'''
+
+[[block]]
+key = "3ccd1cf7fa4b35ea"
+type = "list"
+composite = true
+origin = '''
+{{3ccd1cf7fa4b35ea-3ccd1cf7fa4b35ea}}
+'''
+translate = '''
+{{3ccd1cf7fa4b35ea-3ccd1cf7fa4b35ea}}
+'''
+
+[[block]]
+key = "3ccd1cf7fa4b35ea-3ccd1cf7fa4b35ea"
+type = "listItem"
+composite = true
+origin = '''
+- {{3ccd1cf7fa4b35ea-3ccd1cf7fa4b35ea-2f738e1a9b2f3583}}
+'''
+translate = '''
+- {{3ccd1cf7fa4b35ea-3ccd1cf7fa4b35ea-2f738e1a9b2f3583}}
+'''
+
+[[block]]
+key = "3ccd1cf7fa4b35ea-3ccd1cf7fa4b35ea-2f738e1a9b2f3583"
+type = "paragraph"
+origin = '''
+统一 6 色校准板与配方的通道顺序，消除提取结果、分层预览与最终模型之间的通道错位隐患。
+'''
+translate = '''
+Unified channel ordering across 6-color calibration boards and recipes, preventing color shifts between extraction, layer previews, and exported models.
+'''
+
+[[block]]
+key = "d31eb325d81b59ff"
+type = "heading"
+origin = '''
+## 稳定性、性能与基础设施
+'''
+translate = '''
+## Stability, performance, and infrastructure
+'''
+
+[[block]]
+key = "fdf5bf80564f2e25"
+type = "paragraph"
+origin = '''
+集中完善流水线调试预览、临时文件自动回收、前端接口路由、启动脚本清理与自动化回归测试，减少临时文件与后台进程残留，为 4 月的大规模工作流迁移建立稳定基线。
+'''
+translate = '''
+Additional engineering work covered pipeline debug previews, automatic temporary-file cleanup, frontend API routing, launcher process cleanup, and regression assertions—reducing leftover files and processes ahead of April's workflow migration.
+'''
+
+[[block]]
+key = "2b7b84c0c28abaf9"
+type = "heading"
+origin = '''
+## 已知限制
+'''
+translate = '''
+## Known limitations
+'''
+
+[[block]]
+key = "b557e3a7fdbfe54d"
+type = "list"
+composite = true
+origin = '''
+{{b557e3a7fdbfe54d-f2bcdddfa11e4da7}}
+{{b557e3a7fdbfe54d-0cccfa88b6ed9151}}
+'''
+translate = '''
+{{b557e3a7fdbfe54d-f2bcdddfa11e4da7}}
+{{b557e3a7fdbfe54d-0cccfa88b6ed9151}}
+'''
+
+[[block]]
+key = "b557e3a7fdbfe54d-f2bcdddfa11e4da7"
+type = "listItem"
+composite = true
+origin = '''
+- {{b557e3a7fdbfe54d-f2bcdddfa11e4da7-f27bca8f49733ea3}}
+'''
+translate = '''
+- {{b557e3a7fdbfe54d-f2bcdddfa11e4da7-f27bca8f49733ea3}}
+'''
+
+[[block]]
+key = "b557e3a7fdbfe54d-f2bcdddfa11e4da7-f27bca8f49733ea3"
+type = "paragraph"
+origin = '''
+本月处于 2.0 架构迁移初期，矢量管线、材料档案与各建模模式的统一仍在推进中。
+'''
+translate = '''
+2.0 remained in early architectural migration this month; vector, material-profile, and modeling workflows were still being unified.
+'''
+
+[[block]]
+key = "b557e3a7fdbfe54d-0cccfa88b6ed9151"
+type = "listItem"
+composite = true
+origin = '''
+- {{b557e3a7fdbfe54d-0cccfa88b6ed9151-618cf987973e6dce}}
+'''
+translate = '''
+- {{b557e3a7fdbfe54d-0cccfa88b6ed9151-618cf987973e6dce}}
+'''
+
+[[block]]
+key = "b557e3a7fdbfe54d-0cccfa88b6ed9151-618cf987973e6dce"
+type = "paragraph"
+origin = '''
+新增切片器配置尚待在更多机型与喷嘴组合上补充验证。
+'''
+translate = '''
+New slicer profiles awaited broader verification across hardware and nozzle combinations.
+'''
+
+[[block]]
+key = "c2cb4cf144faf043"
+type = "paragraph"
+origin = '''
+[← 更新日志总览](/zh/docs/releases/overview) · [下一月：2026 年 4 月 →](/zh/docs/releases/2026-04)
+'''
+translate = '''
+[← Changelog overview](/en/docs/releases/overview) · [Next: April 2026 →](/en/docs/releases/2026-04)
+'''
+
+[[block]]
+key = "d105083818946b1c"
+type = "definition"
+origin = '''
+[devlog-entry:2026-03-svg-preview-performance]: # "prs:1,11"
+'''
+translate = '''
+[devlog-entry:2026-03-svg-preview-performance]: # "prs:1,11"
+'''
+
+[[block]]
+key = "fe50c25ae051bb6c"
+type = "definition"
+origin = '''
+[devlog-entry:2026-03-native-3mf-export]: # "prs:4,13"
+'''
+translate = '''
+[devlog-entry:2026-03-native-3mf-export]: # "prs:4,13"
+'''
+
+[[block]]
+key = "b5e9559c6fbce940"
+type = "definition"
+origin = '''
+[devlog-entry:2026-03-dng-upload]: # "prs:10"
+'''
+translate = '''
+[devlog-entry:2026-03-dng-upload]: # "prs:10"
+'''
+
+[[block]]
+key = "31b6f2036a7f4060"
+type = "definition"
+origin = '''
+[devlog-entry:2026-03-xyd-lut-presets]: # "prs:9"
+'''
+translate = '''
+[devlog-entry:2026-03-xyd-lut-presets]: # "prs:9"
+'''
+
+[[block]]
+key = "f97454a86d8d5e34"
+type = "definition"
+origin = '''
+[devlog-entry:2026-03-anycubic-kobra-support]: # "prs:14"
+'''
+translate = '''
+[devlog-entry:2026-03-anycubic-kobra-support]: # "prs:14"
+'''
+
+[[block]]
+key = "1569eb0fc663a2ec"
+type = "definition"
+origin = '''
+[devlog-entry:2026-03-3mf-watermark]: # "prs:13"
+'''
+translate = '''
+[devlog-entry:2026-03-3mf-watermark]: # "prs:13"
+'''
+
+[[block]]
+key = "2889e20a49a19a8d"
+type = "definition"
+origin = '''
+[devlog-entry:2026-03-six-color-consistency]: # "prs:16"
+'''
+translate = '''
+[devlog-entry:2026-03-six-color-consistency]: # "prs:16"
+'''
+
+[[block]]
+key = "a7df1cc724d50fb2"
+type = "definition"
+origin = '''
+[devlog-entry:2026-03-engineering-foundation]: # "prs:3,5,6,8,12,15"
+'''
+translate = '''
+[devlog-entry:2026-03-engineering-foundation]: # "prs:3,5,6,8,12,15"
+'''

@@ -1,0 +1,237 @@
+[metadata]
+reviewed_source = "5802c612269d20cab747a8c900302cb2b9e5f04d797c63d9900569e344c656fe"
+
+[[block]]
+key = "34c8d749390342f4"
+type = "yaml"
+origin = '''
+---
+title: "缓存管理"
+description: "清除缓存清理的临时文件、转换会话范围与使用时机。"
+sidebar_position: 6
+---
+'''
+translate = '''
+---
+title: "Cache Management"
+description: "Temporary files and session state removed by Clear Cache, and when to run it."
+sidebar_position: 6
+---
+'''
+
+[[block]]
+key = "bc9628bd1bd2e0cf"
+type = "heading"
+origin = '''
+# 缓存管理
+'''
+translate = '''
+# Cache Management
+'''
+
+[[block]]
+key = "64b39f8853a7f9c9"
+type = "paragraph"
+origin = '''
+这里清理的是运行中的临时文件与转换会话。耗材组合的穷举、智能或动态层数计算结果，由[求解缓存](../../materials-and-recipes/material-solver-cache/material-solver-cache.mdx)单独管理。
+'''
+translate = '''
+This operation clears temporary runtime files and conversion sessions. Exhaustive, smart and dynamic-layer calculations for material combinations are managed separately under [Solver cache](../../materials-and-recipes/material-solver-cache/material-solver-cache.mdx).
+'''
+
+[[block]]
+key = "4bb19cd500d90324"
+type = "paragraph"
+origin = '''
+点击“清除缓存”可删除后台运行期间产生的临时文件、预览模型与转换会话数据，并在完成后显示清理的文件数量与释放的存储空间。
+'''
+translate = '''
+**Clear Cache** deletes temporary runtime files, preview meshes, and conversion sessions, then reports the number of files removed and the disk space reclaimed.
+'''
+
+[[block]]
+key = "8aba476a643159d4"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-cache.webp').default}
+  alt="系统设置中的缓存管理区域"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-cache.webp').default}
+  alt="Cache Management in System Settings"
+/>
+'''
+
+[[block]]
+key = "ca55ac2c43ad313a"
+type = "heading"
+origin = '''
+## 清理范围
+'''
+translate = '''
+## What is cleared
+'''
+
+[[block]]
+key = "3e7038f1a1a2d31c"
+type = "paragraph"
+origin = '''
+执行后，Lumina Studio 会依次清理：
+'''
+translate = '''
+Lumina Studio removes:
+'''
+
+[[block]]
+key = "c3fed6a2ab1ae62e"
+type = "list"
+composite = true
+origin = '''
+{{c3fed6a2ab1ae62e-8c2d591c0c29cd6a}}
+{{c3fed6a2ab1ae62e-79012c208e8e0542}}
+{{c3fed6a2ab1ae62e-9d9922173746c1ef}}
+{{c3fed6a2ab1ae62e-90d2b62ffb2136b3}}
+'''
+translate = '''
+{{c3fed6a2ab1ae62e-8c2d591c0c29cd6a}}
+{{c3fed6a2ab1ae62e-79012c208e8e0542}}
+{{c3fed6a2ab1ae62e-9d9922173746c1ef}}
+{{c3fed6a2ab1ae62e-90d2b62ffb2136b3}}
+'''
+
+[[block]]
+key = "c3fed6a2ab1ae62e-8c2d591c0c29cd6a"
+type = "listItem"
+composite = true
+origin = '''
+- {{c3fed6a2ab1ae62e-8c2d591c0c29cd6a-ceac6ff96742e08f}}
+'''
+translate = '''
+- {{c3fed6a2ab1ae62e-8c2d591c0c29cd6a-ceac6ff96742e08f}}
+'''
+
+[[block]]
+key = "c3fed6a2ab1ae62e-8c2d591c0c29cd6a-ceac6ff96742e08f"
+type = "paragraph"
+origin = '''
+文件注册表记录的临时文件。
+'''
+translate = '''
+Temporary files tracked by the file registry.
+'''
+
+[[block]]
+key = "c3fed6a2ab1ae62e-79012c208e8e0542"
+type = "listItem"
+composite = true
+origin = '''
+- {{c3fed6a2ab1ae62e-79012c208e8e0542-efe36018ff782ff7}}
+'''
+translate = '''
+- {{c3fed6a2ab1ae62e-79012c208e8e0542-efe36018ff782ff7}}
+'''
+
+[[block]]
+key = "c3fed6a2ab1ae62e-79012c208e8e0542-efe36018ff782ff7"
+type = "paragraph"
+origin = '''
+当前活动转换会话及其关联临时文件。
+'''
+translate = '''
+Active conversion sessions and their associated temporary files.
+'''
+
+[[block]]
+key = "c3fed6a2ab1ae62e-9d9922173746c1ef"
+type = "listItem"
+composite = true
+origin = '''
+- {{c3fed6a2ab1ae62e-9d9922173746c1ef-1121730907aeee01}}
+'''
+translate = '''
+- {{c3fed6a2ab1ae62e-9d9922173746c1ef-1121730907aeee01}}
+'''
+
+[[block]]
+key = "c3fed6a2ab1ae62e-9d9922173746c1ef-1121730907aeee01"
+type = "paragraph"
+origin = '''
+输出目录 `temp` 与 `models` 下的运行时文件。
+'''
+translate = '''
+Runtime files inside the output `temp` and `models` directories.
+'''
+
+[[block]]
+key = "c3fed6a2ab1ae62e-90d2b62ffb2136b3"
+type = "listItem"
+composite = true
+origin = '''
+- {{c3fed6a2ab1ae62e-90d2b62ffb2136b3-c4372d71120ccf27}}
+'''
+translate = '''
+- {{c3fed6a2ab1ae62e-90d2b62ffb2136b3-c4372d71120ccf27}}
+'''
+
+[[block]]
+key = "c3fed6a2ab1ae62e-90d2b62ffb2136b3-c4372d71120ccf27"
+type = "paragraph"
+origin = '''
+输出目录顶层可清理的 3MF、GLB、PNG、JPG 和 TXT 文件。
+'''
+translate = '''
+Cleanable 3MF, GLB, PNG, JPG, and TXT files at the root of the output directory.
+'''
+
+[[block]]
+key = "e90f7e3ae1ec9bbf"
+type = "paragraph"
+origin = '''
+受保护的统计数据与缓存 LUT 会被保留；耗材库、导入的正式 LUT 源文件以及软件系统设置也不会被清理。
+'''
+translate = '''
+Protected statistics and cached LUT data are preserved, along with your material libraries, imported source LUTs, and application settings.
+'''
+
+[[block]]
+key = "3aa99e5ce404cb1e"
+type = "heading"
+origin = '''
+## 清理后的影响
+'''
+translate = '''
+## After clearing
+'''
+
+[[block]]
+key = "037644c05d5d714a"
+type = "paragraph"
+origin = '''
+清理会一并移除当前正在使用的预览会话，页面上已生成的预览或下载链接将随之失效。继续操作时，请重新上传素材或重新预览，再导出新的工程文件。
+'''
+translate = '''
+Active preview sessions are reset, so existing preview and download links on the page expire. Re-upload or run Preview again before generating a new download.
+'''
+
+[[block]]
+key = "6f778d7e2ad7fa11"
+type = "paragraph"
+origin = '''
+由于该操作会重置当前的临时工作状态，建议在长时间运行后回收磁盘空间、会话状态卡死，或按故障排查步骤指引时执行。
+'''
+translate = '''
+Because clearing the cache discards your active working session, run it when reclaiming disk space after long sessions, resetting a stuck session state, or following a specific troubleshooting step.
+'''
+
+[[block]]
+key = "0e98a551409c9a74"
+type = "paragraph"
+origin = '''
+生成与下载异常的常规排查顺序参见[网页端生成与下载故障排查](../../../knowledge/web-generation-troubleshooting/web-generation-troubleshooting.mdx)。
+'''
+translate = '''
+See [Web Generation and Download Troubleshooting](../../../knowledge/web-generation-troubleshooting/web-generation-troubleshooting.mdx) for standard troubleshooting steps.
+'''

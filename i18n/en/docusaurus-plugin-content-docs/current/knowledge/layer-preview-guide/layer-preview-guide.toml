@@ -1,0 +1,1231 @@
+[metadata]
+migration_layout = "preserved English structure; root blocks retain grouped or omitted source sections"
+reviewed_source = "0413644b6d63c67535f4e7efb51bedc1bdb851727ca46abd7477be2bec541cc1"
+
+[[block]]
+key = "4af68c155cc239f9"
+type = "yaml"
+origin = '''
+---
+title: "怎样读懂 Lumina 分层预览？"
+description: "从观赏面到底板侧读懂每一张分层图，用放大、逐层切换和悬停检查理解一个像素的预测颜色与实际叠层配方。"
+sidebar_position: 37
+---
+'''
+translate = '''
+---
+title: "How to Read Lumina Layer Preview"
+description: "Read color layers from viewing face to backing, enlarge and compare real layer masks, and use the hover inspector to connect predicted surface color with the per-layer recipe."
+sidebar_position: 37
+---
+'''
+
+[[block]]
+key = "1525e29dcb9873eb"
+type = "heading"
+origin = '''
+# 怎样读懂 Lumina 分层预览？
+'''
+translate = '''
+# How to Read Lumina Layer Preview
+'''
+
+[[block]]
+key = "255a8754851808ab"
+type = "paragraph"
+origin = '''
+在 Lumina Studio 中，**主预览**展示多层耗材叠加后预计呈现的表面成色，而**分层预览**则拆解展示每一个显色层在各个位置具体使用的耗材颜色。
+'''
+translate = '''
+Lumina's **main Preview** shows what surface color each area is predicted to produce once stacked filaments interact, while **Layer Preview** breaks down which filament color goes into every position on each individual color layer.
+'''
+
+[[block]]
+key = "ddbbabf030b18027"
+type = "paragraph"
+origin = '''
+将两者结合对照，既能看清最终画面效果，也能摸清任意色块背后的叠层配方。
+'''
+translate = '''
+Reading both views together shows you both the finished look and the exact material stack behind every shade.
+'''
+
+[[block]]
+key = "475bec68fcbd76f6"
+type = "admonition"
+composite = true
+origin = '''
+:::tip[层序方向]
+{{475bec68fcbd76f6-058b9832354b6de4}}
+:::
+'''
+translate = '''
+:::tip[Layer numbering order]
+**Layer 1 is the outermost viewing face; higher numbers move inward toward the backing.** Layer Preview numbers optical recipe layers from the viewing surface inward, whereas your slicer counts physical Z-layers upward from the build plate.
+:::
+'''
+
+[[block]]
+key = "475bec68fcbd76f6-058b9832354b6de4"
+type = "paragraph"
+origin = '''
+**第 1 层代表最外侧的观赏面，层号越大越靠近底板。** 这套编号按光学观察方向排列，与切片器中从热床自下而上计算的物理打印层号方向不同。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "6a7545e684d4cab6"
+type = "heading"
+origin = '''
+## 三种预览各自看什么？
+'''
+translate = '''
+## How the three preview stages complement each other
+'''
+
+[[block]]
+key = "7bf8fd40d6fa923e"
+type = "table"
+origin = '''
+| 预览视图 | 核心用途 | 需要配合后续步骤验证的内容 |
+| --- | --- | --- |
+| Lumina 主预览 | 预测多层耗材透光叠加后的最终表面颜色 | 实体线盘身份、料槽映射与物理切片走线 |
+| Lumina 分层预览 | 查看每个显色层在各区域的耗材分布 | 喷嘴线宽、接缝位置、擦拭塔、支撑与物理打印顺序 |
+| 切片器逐层预览 | 检查打印机实际执行的每一道挤出路径 | 耗材透光叠加后的真实光学成色（由 Lumina 档案负责预测） |
+'''
+translate = '''
+| View | Primary question answered | What still needs verification |
+| --- | --- | --- |
+| Lumina main Preview | What combined surface color will the material stack produce? | Physical spool selection, feeder slot mapping, and sliced toolpaths |
+| Lumina Layer Preview | Which filament color occupies each position on every color layer? | Extrusion line width, seam placement, purge tower, supports, and print order |
+| Slicer layer preview | Which exact extrusion paths will the nozzle lay down? | Optical color blending across translucent layers (predicted by Lumina's archive model) |
+'''
+
+[[block]]
+key = "ca968e01c57202ab"
+type = "paragraph"
+origin = '''
+在 Lumina 中确认主预览与分层预览无误后，导出 3MF 仍需在切片器内完成最终的逐层走线检查。
+'''
+translate = '''
+Once both Lumina views look clean, always inspect the sliced toolpaths in your slicer before sending the job to the printer.
+'''
+
+[[block]]
+key = "b3efd17775303ca5"
+type = "heading"
+origin = '''
+## 第一步：生成有效预览并加载分层图
+'''
+translate = '''
+## Step 1: Run Preview to load layer thumbnails
+'''
+
+[[block]]
+key = "82da21da1cf3705a"
+type = "list"
+composite = true
+origin = '''
+{{82da21da1cf3705a-dac79d8fad37c581}}
+{{82da21da1cf3705a-b6cdf511e407d200}}
+{{82da21da1cf3705a-ce30216ea7dc9f43}}
+{{82da21da1cf3705a-e0c00d01a41be132}}
+{{82da21da1cf3705a-712743d820e45118}}
+'''
+translate = '''
+1. Upload your source image.
+2. Select the Material Archives or Classic LUT you plan to print with.
+3. Configure your modeling mode, dimensions, and color layers.
+4. Click **Preview**.
+5. Wait for the main Preview and the row of layer thumbnails underneath to finish loading.
+'''
+
+[[block]]
+key = "82da21da1cf3705a-dac79d8fad37c581"
+type = "listItem"
+composite = true
+origin = '''
+1. {{82da21da1cf3705a-dac79d8fad37c581-5a98a96b6ab89760}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "82da21da1cf3705a-dac79d8fad37c581-5a98a96b6ab89760"
+type = "paragraph"
+origin = '''
+上传图片素材；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "82da21da1cf3705a-b6cdf511e407d200"
+type = "listItem"
+composite = true
+origin = '''
+2. {{82da21da1cf3705a-b6cdf511e407d200-4478b9ab39bd1eac}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "82da21da1cf3705a-b6cdf511e407d200-4478b9ab39bd1eac"
+type = "paragraph"
+origin = '''
+选择本次使用的耗材档案组合或经典 LUT；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "82da21da1cf3705a-ce30216ea7dc9f43"
+type = "listItem"
+composite = true
+origin = '''
+3. {{82da21da1cf3705a-ce30216ea7dc9f43-6a43b6ddbc141466}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "82da21da1cf3705a-ce30216ea7dc9f43-6a43b6ddbc141466"
+type = "paragraph"
+origin = '''
+设定建模模式、成品尺寸与显色层数；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "82da21da1cf3705a-e0c00d01a41be132"
+type = "listItem"
+composite = true
+origin = '''
+4. {{82da21da1cf3705a-e0c00d01a41be132-1ada3c59151464d0}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "82da21da1cf3705a-e0c00d01a41be132-1ada3c59151464d0"
+type = "paragraph"
+origin = '''
+点击“预览”；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "82da21da1cf3705a-712743d820e45118"
+type = "listItem"
+composite = true
+origin = '''
+5. {{82da21da1cf3705a-712743d820e45118-c2196dd8fd115fa6}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "82da21da1cf3705a-712743d820e45118-c2196dd8fd115fa6"
+type = "paragraph"
+origin = '''
+等待主预览图与下方的分层缩略图加载完成。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f4948733fb2efa30"
+type = "paragraph"
+origin = '''
+每次预览成功后，分层缩略图会自动呈现在操作栏下方。若缩略图暂未刷出，可点击“查看分层”手动触发加载（请求期间按钮显示为“加载分层…”）。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "aaf3b656a0ab4bba"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-find-layer-preview.webp').default}
+  alt="Lumina Studio 预览成功后查看分层按钮和分层缩略图的位置"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-find-layer-preview.webp').default}
+  alt="Real English Lumina Preview with View Layers and five Layer Preview thumbnails highlighted"
+/>
+
+Layer thumbnails load automatically right after a valid Preview completes. If thumbnails are delayed, click **View Layers** to reload them on demand.
+'''
+
+[[block]]
+key = "e387d42c5e91aa31"
+type = "paragraph"
+origin = '''
+修改图片、色彩来源、显色层数、层高或其他核心转换参数后，请重新点击“预览”刷新分层图，确保查看的是最新配方数据。
+'''
+translate = '''
+Whenever you change the source image, color source, color-layer count, Layer Height, or other core parameters, run **Preview** again so your layer masks reflect the updated recipe.
+'''
+
+[[block]]
+key = "cde55c33888d625f"
+type = "heading"
+origin = '''
+## 第二步：按“观赏面 → 底板侧”顺序读图
+'''
+translate = '''
+## Step 2: Read from viewing face to backing
+'''
+
+[[block]]
+key = "02b629a3f685fbff"
+type = "paragraph"
+origin = '''
+Lumina 分层预览统一从外侧观赏面往内侧底板方向排列：
+'''
+translate = '''
+Lumina arranges color layers from the front viewing surface inward:
+'''
+
+[[block]]
+key = "bd0b20987cc46983"
+type = "list"
+composite = true
+origin = '''
+{{bd0b20987cc46983-96d1ca222b2effd4}}
+{{bd0b20987cc46983-fbecadde3ee58f9f}}
+{{bd0b20987cc46983-3169fa0303526522}}
+'''
+translate = '''
+- **Layer 1:** The outermost color layer right at the viewing face.
+- **Middle layers:** Intermediate layers that transmit, filter, and blend light.
+- **Last color layer:** The innermost color layer sitting directly against the structural backing.
+'''
+
+[[block]]
+key = "bd0b20987cc46983-96d1ca222b2effd4"
+type = "listItem"
+composite = true
+origin = '''
+- {{bd0b20987cc46983-96d1ca222b2effd4-bbf813042ea37844}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bd0b20987cc46983-96d1ca222b2effd4-bbf813042ea37844"
+type = "paragraph"
+origin = '''
+**第 1 层**：最贴近人眼观察侧的表层显色层；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bd0b20987cc46983-fbecadde3ee58f9f"
+type = "listItem"
+composite = true
+origin = '''
+- {{bd0b20987cc46983-fbecadde3ee58f9f-b5ead13b416fe40b}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bd0b20987cc46983-fbecadde3ee58f9f-b5ead13b416fe40b"
+type = "paragraph"
+origin = '''
+**中间各层**：在表层下方参与透光、遮盖与混色的中间显色层；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bd0b20987cc46983-3169fa0303526522"
+type = "listItem"
+composite = true
+origin = '''
+- {{bd0b20987cc46983-3169fa0303526522-4e559408310ece9b}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bd0b20987cc46983-3169fa0303526522-4e559408310ece9b"
+type = "paragraph"
+origin = '''
+**最后一层**：最贴近结构底板的内侧显色层。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "de03228b4088addb"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/02-read-layer-order.webp').default}
+  alt="五张真实分层输出按第1层观赏面到第5层底板侧排列"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/02-read-layer-order.webp').default}
+  alt="Five real Lumina layer-mask outputs arranged from Layer 1 viewing face to Layer 5 near the backing"
+/>
+'''
+
+[[block]]
+key = "08bbe2f9fb59857c"
+type = "paragraph"
+origin = '''
+每一张缩略图都代表**同一件作品**在对应显色层上的耗材分布。例如某个图形在第 1 层显示黄色、第 2 层显示蓝色，说明该区域通过不同高度的异色耗材叠加来调配出目标表面色彩。
+'''
+translate = '''
+Every thumbnail shows the **same artwork** sliced at a single optical recipe layer. When a shape is yellow in Layer 1 and blue in Layer 2, Lumina is stacking different filaments across depths to blend a new target color on the surface.
+'''
+
+[[block]]
+key = "ea3809e1d9802cb6"
+type = "admonition"
+composite = true
+origin = '''
+:::warning[区分打印层号]
+{{ea3809e1d9802cb6-5d342bab8ddd8278}}
+:::
+'''
+translate = '''
+:::warning[Color layers vs. slicer Z layers]
+Your slicer counts physical Z-layers upward from the build plate—including structural backing layers, the first layer, and any Relief height—whereas Lumina Layer Preview counts optical recipe layers inward from the viewing face. Also note that the physical backing usually spans multiple solid layers of base filament; the last Layer Preview thumbnail represents only the innermost color-recipe layer next to that backing.
+:::
+'''
+
+[[block]]
+key = "ea3809e1d9802cb6-5d342bab8ddd8278"
+type = "paragraph"
+origin = '''
+切片器的物理层号（Z 层）从热床第 1 层自下而上递增，且包含底板结构层、首层与浮雕高度；Lumina 分层预览仅展示显色配方层，并从观赏面起算第 1 层。此外，结构底板通常由多层同色基础耗材印制而成，分层预览的最后一张仅代表最贴近底板的那一层显色层，而非整块底板厚度。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c46663d07b9b6476"
+type = "heading"
+origin = '''
+## 第三步：按五项清单逐层核对
+'''
+translate = '''
+## Step 3: Check silhouette first, then color transitions
+'''
+
+[[block]]
+key = "ce22ddcdd4632ba8"
+type = "paragraph"
+origin = '''
+浏览分层缩略图时，建议按以下顺序排查：
+'''
+translate = '''
+Scan the layer thumbnails in this order:
+'''
+
+[[block]]
+key = "65545610dfc27e74"
+type = "list"
+composite = true
+origin = '''
+{{65545610dfc27e74-86e36354e5e76016}}
+{{65545610dfc27e74-7661c9e81bfce50e}}
+{{65545610dfc27e74-dbd52fd047673ab1}}
+{{65545610dfc27e74-3ee6a3108edb9d8a}}
+{{65545610dfc27e74-78f2e1907b6bbf26}}
+'''
+translate = '''
+1. **Outer silhouette:** Are borders, interior cutouts, and transparent backgrounds crisp and consistent across layers?
+2. **Fine details:** Do eyes, lettering, thin strokes, or small accents drop out unexpectedly on a single layer?
+3. **Stack transitions:** Do color changes from layer to layer match your selected archive palette or custom recipe?
+4. **Total layer count:** Does the number of thumbnails match your configured color layers or LUT?
+5. **Recent edits:** Have any Color Workstation replacements or custom stack edits updated on the expected layers?
+'''
+
+[[block]]
+key = "65545610dfc27e74-86e36354e5e76016"
+type = "listItem"
+composite = true
+origin = '''
+1. {{65545610dfc27e74-86e36354e5e76016-70f958097eaf0bb5}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "65545610dfc27e74-86e36354e5e76016-70f958097eaf0bb5"
+type = "paragraph"
+origin = '''
+**外轮廓完整性**：作品边界、镂空孔洞与透明抠图区域在各层是否整齐一致；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "65545610dfc27e74-7661c9e81bfce50e"
+type = "listItem"
+composite = true
+origin = '''
+2. {{65545610dfc27e74-7661c9e81bfce50e-bbe4dbf90711dcce}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "65545610dfc27e74-7661c9e81bfce50e-bbe4dbf90711dcce"
+type = "paragraph"
+origin = '''
+**关键微细结构**：眼睛高光、文字笔画、细线或微缩图案是否在某一层意外断裂或消失；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "65545610dfc27e74-dbd52fd047673ab1"
+type = "listItem"
+composite = true
+origin = '''
+3. {{65545610dfc27e74-dbd52fd047673ab1-6849a72102279c51}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "65545610dfc27e74-dbd52fd047673ab1-6849a72102279c51"
+type = "paragraph"
+origin = '''
+**跨层叠色逻辑**：同一区域在各层间的耗材切换是否符合预期档案或自定义配方；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "65545610dfc27e74-3ee6a3108edb9d8a"
+type = "listItem"
+composite = true
+origin = '''
+4. {{65545610dfc27e74-3ee6a3108edb9d8a-112cfb1757bb0fed}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "65545610dfc27e74-3ee6a3108edb9d8a-112cfb1757bb0fed"
+type = "paragraph"
+origin = '''
+**显色总层数**：展示的分层总张数是否与当前所选 LUT、耗材档案设置或扩层配方一致；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "65545610dfc27e74-78f2e1907b6bbf26"
+type = "listItem"
+composite = true
+origin = '''
+5. {{65545610dfc27e74-78f2e1907b6bbf26-a96a61fc9734c625}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "65545610dfc27e74-78f2e1907b6bbf26-a96a61fc9734c625"
+type = "paragraph"
+origin = '''
+**局部改色同步**：在颜色工作站中刚执行的颜色替换或自定义配方是否已准确反映在对应层上。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "302ba868437af067"
+type = "paragraph"
+origin = '''
+在浅色网页背景下，缩略图中的**白色耗材容易与页面底色融为一体**。点击任意缩略图打开放大视图后，模型轮廓外部会显示灰白棋盘格（代表透明无模型区域），轮廓内部的纯白区域即为实际的白色耗材。
+'''
+translate = '''
+On a white page background, **white filament inside a small thumbnail can blend into the background**. Click any thumbnail to open the enlarged viewer: a gray-and-white checkerboard marks transparent space outside the model, making solid white filament inside the silhouette easy to spot.
+'''
+
+[[block]]
+key = "b753ccad46f0736e"
+type = "heading"
+origin = '''
+## 第四步：放大视图并固定位置跨层对比
+'''
+translate = '''
+## Step 4: Zoom in and step across adjacent layers
+'''
+
+[[block]]
+key = "7b77c9543df0518a"
+type = "paragraph"
+origin = '''
+点击任一分层缩略图即可打开高清大图查看器：
+'''
+translate = '''
+Click any layer thumbnail to open the full-size layer viewer:
+'''
+
+[[block]]
+key = "bd2c83f03eb909eb"
+type = "list"
+composite = true
+origin = '''
+{{bd2c83f03eb909eb-672f59c684e215e8}}
+{{bd2c83f03eb909eb-914c894e2376ac8e}}
+{{bd2c83f03eb909eb-21341c33ba5a7d3e}}
+{{bd2c83f03eb909eb-019c0ae1bf896b7b}}
+{{bd2c83f03eb909eb-947964bde77da959}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bd2c83f03eb909eb-672f59c684e215e8"
+type = "listItem"
+composite = true
+origin = '''
+- {{bd2c83f03eb909eb-672f59c684e215e8-3116bd82067a7c81}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bd2c83f03eb909eb-672f59c684e215e8-3116bd82067a7c81"
+type = "paragraph"
+origin = '''
+点击左右箭头按钮，或按键盘方向键 `←`、`→` 切换上/下一层；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bd2c83f03eb909eb-914c894e2376ac8e"
+type = "listItem"
+composite = true
+origin = '''
+- {{bd2c83f03eb909eb-914c894e2376ac8e-7a4f16419a4e5d20}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bd2c83f03eb909eb-914c894e2376ac8e-7a4f16419a4e5d20"
+type = "paragraph"
+origin = '''
+滚动鼠标滚轮，以光标所在位置为中心自由缩放；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bd2c83f03eb909eb-21341c33ba5a7d3e"
+type = "listItem"
+composite = true
+origin = '''
+- {{bd2c83f03eb909eb-21341c33ba5a7d3e-88ebbee00229ba64}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bd2c83f03eb909eb-21341c33ba5a7d3e-88ebbee00229ba64"
+type = "paragraph"
+origin = '''
+放大后按住画面拖拽平移，细致检查边缘与微小色岛；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bd2c83f03eb909eb-019c0ae1bf896b7b"
+type = "listItem"
+composite = true
+origin = '''
+- {{bd2c83f03eb909eb-019c0ae1bf896b7b-54ee1e341182db6c}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bd2c83f03eb909eb-019c0ae1bf896b7b-54ee1e341182db6c"
+type = "paragraph"
+origin = '''
+点击“重置缩放”一键恢复全图视野；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bd2c83f03eb909eb-947964bde77da959"
+type = "listItem"
+composite = true
+origin = '''
+- {{bd2c83f03eb909eb-947964bde77da959-ec7a815dfa1b35a0}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bd2c83f03eb909eb-947964bde77da959-ec7a815dfa1b35a0"
+type = "paragraph"
+origin = '''
+点击右上角 `×`、按 `Esc` 键或点击弹窗外侧空白处关闭大图。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0eba4ed717416cdf"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/03-zoom-and-compare.webp').default}
+  alt="Lumina 分层大图中的层编号、上一层下一层和重置缩放控件"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/03-zoom-and-compare.webp').default}
+  alt="Real English Lumina layer viewer with layer number, previous and next layer controls, zoom, pan, reset, and close instructions"
+/>
+
+Inside the viewer, you can:
+
+- Click **Previous Layer** / **Next Layer** or press the `←` and `→` arrow keys.
+- Scroll the mouse wheel to zoom in and out around the cursor.
+- Click and drag to pan across fine borders and tiny color islands.
+- Click **Reset Zoom** to fit the whole artwork back in view.
+- Click `×`, press `Esc`, or click outside the modal to close it.
+'''
+
+[[block]]
+key = "d856b2ad6a7fece5"
+type = "paragraph"
+origin = '''
+排查局部异常时，建议先将画面放大并停留在目标区域，再按键盘 `←`、`→` 连续切换相邻层。保持视野固定能一眼抓出仅在单层闪现的孤立碎点、断线或配方跳变。
+'''
+translate = '''
+To spot subtle anomalies, zoom into a detail first and keep the viewport stationary while tapping `←` and `→`—stray single-layer specks, broken strokes, or sudden recipe jumps stand out immediately when the frame doesn't move.
+'''
+
+[[block]]
+key = "d5bb93879ea1d0c1"
+type = "heading"
+origin = '''
+## 第五步：悬停主预览读取单像素叠层配方
+'''
+translate = '''
+## Step 5: Hover over the main Preview to inspect a single pixel
+'''
+
+[[block]]
+key = "a902799631b9312f"
+type = "paragraph"
+origin = '''
+将鼠标指针停留在 Lumina 主预览画面的任意位置稍候片刻，会弹出像素级悬停检查卡：
+'''
+translate = '''
+Rest the pointer anywhere on the main Preview for a moment to bring up the hover inspector card:
+'''
+
+[[block]]
+key = "fa47581e49cd314d"
+type = "list"
+composite = true
+origin = '''
+{{fa47581e49cd314d-a5e4fa9259d0a771}}
+{{fa47581e49cd314d-5e6b7424f953daa3}}
+{{fa47581e49cd314d-cd2dea6029480912}}
+{{fa47581e49cd314d-8abfacf6e610daf5}}
+'''
+translate = '''
+- **Magnifier loupe:** Zooms into the neighboring pixel grid around your pointer.
+- **Pixel coordinates:** Lets you return to the exact same spot after editing a color or recipe.
+- **Predicted color:** Shows the combined surface color and HEX value expected from the full stack.
+- **Layers 1–N colors:** Lists the exact filament assigned to each optical layer at that pixel.
+'''
+
+[[block]]
+key = "fa47581e49cd314d-a5e4fa9259d0a771"
+type = "listItem"
+composite = true
+origin = '''
+- {{fa47581e49cd314d-a5e4fa9259d0a771-a7624777a58510ae}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "fa47581e49cd314d-a5e4fa9259d0a771-a7624777a58510ae"
+type = "paragraph"
+origin = '''
+**局部放大镜**：清晰放大光标周围的像素网格；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "fa47581e49cd314d-5e6b7424f953daa3"
+type = "listItem"
+composite = true
+origin = '''
+- {{fa47581e49cd314d-5e6b7424f953daa3-a5531e7f57afb122}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "fa47581e49cd314d-5e6b7424f953daa3-a5531e7f57afb122"
+type = "paragraph"
+origin = '''
+**像素坐标**：标明当前位置坐标，便于改色前后精准回到同一点对比；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "fa47581e49cd314d-cd2dea6029480912"
+type = "listItem"
+composite = true
+origin = '''
+- {{fa47581e49cd314d-cd2dea6029480912-235019885a2e2f08}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "fa47581e49cd314d-cd2dea6029480912-235019885a2e2f08"
+type = "paragraph"
+origin = '''
+**预测颜色**：所有显色层叠加透光后预计呈现的表面颜色及色值；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "fa47581e49cd314d-8abfacf6e610daf5"
+type = "listItem"
+composite = true
+origin = '''
+- {{fa47581e49cd314d-8abfacf6e610daf5-990a432ae6d853ce}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "fa47581e49cd314d-8abfacf6e610daf5-990a432ae6d853ce"
+type = "paragraph"
+origin = '''
+**第 1–N 层颜色**：自观赏面到底板侧，该像素在每一层实际铺设的耗材颜色。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "06f5ba6d5fa94db9"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/04-hover-read-recipe.webp').default}
+  alt="Lumina 主预览悬停检查卡显示像素坐标、预测颜色和每一层颜色"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/04-hover-read-recipe.webp').default}
+  alt="Real English Lumina hover inspector showing pixel coordinates, predicted colour, and each layer colour"
+/>
+'''
+
+[[block]]
+key = "ac36e68ad9606d47"
+type = "paragraph"
+origin = '''
+在上图示例中，目标像素的表面预测颜色为 `#D46F5E`，而下方五层分别由黄、品红、白等基础色耗材叠成。由于 Lumina 会根据耗材档案计算各层材料的透光率、遮盖力与层序光学反应（而非简单平均 RGB 数值），最终预测色与任一单层耗材本色不同属于正常的光学叠色原理。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "52ddc49845e2c6ff"
+type = "paragraph"
+origin = '''
+实际打印成色还会受线材批次、实际首层与显色层高、挤出流量及观察环境色温影响。
+'''
+translate = '''
+It is completely normal for the predicted surface color to differ from every individual filament in the stack—Lumina models light transmission and opacity across layers rather than averaging HEX codes. Note that hover coordinates refer to image pixels in Preview rather than millimeter bed positions or feeder slot numbers.
+'''
+
+[[block]]
+key = "a7e3c55ef5bea1f8"
+type = "heading"
+origin = '''
+## 第六步：常见分层异常速查
+'''
+translate = '''
+## Step 6: Quick troubleshooting by symptom
+'''
+
+[[block]]
+key = "2e07d3c862dc8469"
+type = "table"
+origin = '''
+| 观察到的现象 | 优先排查方向 |
+| --- | --- |
+| 主预览整体色调明显失真 | 检查原图、色彩来源类型、所选耗材档案/LUT、量化颜色数与建模模式 |
+| 主预览正常，但某单层出现孤立杂色块 | 检查原图压缩噪点、该区域的颜色替换记录或自定义叠层配方 |
+| 所有显色层在同一位置都缺了一块 | 检查原图透明通道、裁剪选框、SVG 闭合路径或结构模式 |
+| 分层总张数与预期不符 | 核对当前转换层数设置、自定义配方扩层记录，或重新点击“预览”刷新旧缓存 |
+| 白色图案在缩略图里看似消失 | 点击放大进入大图视图，借助外部棋盘格区分透明背景与轮廓内的白色耗材 |
+| 改色后分层图仍停留在旧状态 | 稍候自动重载；若改动了左侧核心设置，请重新点击“预览” |
+| Lumina 分层无误，但切片器里颜色错乱 | 核对 3MF 导入方式、项目耗材列表、实体线盘与供料槽位映射 |
+| Lumina 与切片器均正确，但实物偏色 | 检查耗材档案匹配度、线材新旧批次、打印层高、挤出流量与照明光线 |
+'''
+translate = '''
+| What you see | Where to check first |
+| --- | --- |
+| Main Preview colors already look off | Source image, Source Type, selected Material Archives / LUT, color count, and Modeling Mode |
+| Main Preview looks fine, but one layer has stray specks | Compression noise in the source image, regional color replacements, or custom recipes |
+| Every layer is missing the same section | Source alpha channel, crop bounds, unclosed SVG paths, or geometry settings |
+| Layer count doesn't match expectations | Configured Color Layers, custom recipe layer expansion, or an outdated Preview |
+| White regions look missing in thumbnails | Open the enlarged viewer and check solid white interior areas against the outer checkerboard |
+| Layer thumbnails haven't updated after an edit | Wait a moment for automatic reload, or click **Preview** again if you changed core settings |
+| Lumina layers look right, but slicer colors are scrambled | 3MF project import mode, project filaments, physical spools, and feeder slot mapping |
+| Both Lumina and slicer match, yet the print shifts in color | Archive accuracy, filament batch, actual Layer Height, extrusion flow, and viewing light |
+'''
+
+[[block]]
+key = "8aebc8a1e4ab150a"
+type = "paragraph"
+origin = '''
+若分层区域持续空白、全灰或长时间加载失败，请先用一张小尺寸简单测试图配合默认参数重新点击“预览”；若问题依旧，请按[网页、预览和生成故障排查](pathname:///zh/docs/knowledge/web-generation-troubleshooting/)逐步定位。
+'''
+translate = '''
+If the layer strip stays blank, gray, or stuck loading, test **Preview** with a small, simple image and default settings first; if it still fails, follow [The Page Will Not Open, Keeps Spinning, or Generation Fails](pathname:///en/docs/knowledge/web-generation-troubleshooting/).
+'''
+
+[[block]]
+key = "d90b665b2c653f0a"
+type = "heading"
+origin = '''
+## 第七步：导出后衔接切片器检查
+'''
+translate = '''
+## Step 7: Verify physical toolpaths in your slicer
+'''
+
+[[block]]
+key = "b7453c50a525db67"
+type = "paragraph"
+origin = '''
+Lumina 分层预览专注于显色配方，以下物理制造细节需在切片器中最终确认：
+'''
+translate = '''
+Because Layer Preview focuses on optical color recipes, open your exported 3MF as a full project in your slicer to verify physical printing details:
+'''
+
+[[block]]
+key = "2766060c6d8df5ea"
+type = "list"
+composite = true
+origin = '''
+{{2766060c6d8df5ea-894358ccc037aeb5}}
+{{2766060c6d8df5ea-4033fe9a9b64e670}}
+{{2766060c6d8df5ea-22063b0967db339c}}
+{{2766060c6d8df5ea-bdd8a9cba70f5d08}}
+{{2766060c6d8df5ea-83db81f37273688f}}
+'''
+translate = '''
+- Extrusion line widths and survival of thin text or fine strokes
+- First-layer squish, adhesion, and seam placement
+- Purge tower placement, bridges, and any required supports
+- Mapping between project filaments and physical AMS, ACE, MMU, or external spools
+- Bottom-to-top physical print order and filament swaps
+'''
+
+[[block]]
+key = "2766060c6d8df5ea-894358ccc037aeb5"
+type = "listItem"
+composite = true
+origin = '''
+- {{2766060c6d8df5ea-894358ccc037aeb5-f03c981611c0df6e}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2766060c6d8df5ea-894358ccc037aeb5-f03c981611c0df6e"
+type = "paragraph"
+origin = '''
+喷嘴实际走线宽度与细微笔画保留情况；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2766060c6d8df5ea-4033fe9a9b64e670"
+type = "listItem"
+composite = true
+origin = '''
+- {{2766060c6d8df5ea-4033fe9a9b64e670-ac6c33e73959e1f0}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2766060c6d8df5ea-4033fe9a9b64e670-ac6c33e73959e1f0"
+type = "paragraph"
+origin = '''
+首层附着面积、象脚外扩与底面平整度；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2766060c6d8df5ea-22063b0967db339c"
+type = "listItem"
+composite = true
+origin = '''
+- {{2766060c6d8df5ea-22063b0967db339c-35afd4a82ade2bd2}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2766060c6d8df5ea-22063b0967db339c-35afd4a82ade2bd2"
+type = "paragraph"
+origin = '''
+接缝落点、擦拭塔位置、支撑与桥接路径；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2766060c6d8df5ea-bdd8a9cba70f5d08"
+type = "listItem"
+composite = true
+origin = '''
+- {{2766060c6d8df5ea-bdd8a9cba70f5d08-7136750754f559de}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2766060c6d8df5ea-bdd8a9cba70f5d08-7136750754f559de"
+type = "paragraph"
+origin = '''
+项目耗材与打印机 AMS / ACE / MMU 或外置料架实体槽位的对应关系；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2766060c6d8df5ea-83db81f37273688f"
+type = "listItem"
+composite = true
+origin = '''
+- {{2766060c6d8df5ea-83db81f37273688f-47a6d728c9d434a5}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2766060c6d8df5ea-83db81f37273688f-47a6d728c9d434a5"
+type = "paragraph"
+origin = '''
+自下而上的物理打印层序与换料次数。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "97a1409d554a90d5"
+type = "paragraph"
+origin = '''
+导出 3MF 后的标准核对流程，请参阅[把 Lumina 3MF 正确导入切片器](pathname:///zh/docs/tutorials/slicer-material-mapping/)；若发现网页预览、切片器与实物成色存在偏差，请参阅[为什么 Lumina 预览、切片器预览和打印实物不一样？](pathname:///zh/docs/knowledge/preview-slicer-print-differences/)。
+'''
+translate = '''
+Follow [Import a Lumina 3MF into the Slicer Correctly](pathname:///en/docs/tutorials/slicer-material-mapping/) for the complete slicer check, and see [Why Lumina Preview, Slicer Preview, and the Print Differ](pathname:///en/docs/knowledge/preview-slicer-print-differences/) if colors diverge between stages.
+'''
+
+[[block]]
+key = "cbbf3b866f003400"
+type = "heading"
+origin = '''
+## 常见问题 Q&A
+'''
+translate = '''
+## Common questions
+'''
+
+[[block]]
+key = "4287399fb631bc86"
+type = "heading"
+origin = '''
+### 为什么第 1 层是观赏面，而不是热床上最先打印的第一层？
+'''
+translate = '''
+'''
+
+[[block]]
+key = "74723f010c023eed"
+type = "paragraph"
+origin = '''
+两套编号服务于不同环节：Lumina 分层预览用于解读光学叠色配方，从人眼观察的表面（第 1 层）往内层排列更直观；切片器则按喷嘴自下而上的物理成型顺序（Z 层）编号。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "3fda45a267cc9721"
+type = "heading"
+origin = '''
+### 为什么悬停看到的“预测颜色”和下面五层的耗材颜色都不一样？
+'''
+translate = '''
+### Why is Layer 1 the viewing face instead of the first layer printed on the bed?
+'''
+
+[[block]]
+key = "21ac18214f5b259b"
+type = "paragraph"
+origin = '''
+预测颜色是多层半透明耗材按特定厚度依次透光、反射后合成的表面视觉色。正因为各层透光率与排列顺序共同改变了光线吸收，少量几种基础色耗材才能混合出远超线盘数量的丰富中间色。
+'''
+translate = '''
+Layer Preview describes how light enters and reflects through the finished surface stack (starting at Layer 1 on the viewing face), whereas your slicer numbers physical Z-layers from the build plate upward for toolpath execution.
+'''
+
+[[block]]
+key = "cedffd4668862bed"
+type = "heading"
+origin = '''
+### 为什么有些项目的显色层不是 5 层？
+'''
+translate = '''
+### Why doesn't the predicted color match any of the five layer filaments?
+'''
+
+[[block]]
+key = "cf896021a171cf91"
+type = "paragraph"
+origin = '''
+显色层总数取决于当前选用的耗材档案层数设置、经典 LUT 规格或颜色工作站中的自定义扩层配方。无论实际是几层，分层预览与导出的 3MF 都会按当前生效的真实层数生成。
+'''
+translate = '''
+Translucent filaments filter and reflect light differently depending on layer thickness and stacking order, allowing a handful of base spools to blend dozens of intermediate surface shades.
+'''
+
+[[block]]
+key = "96d00256c8b3b7ee"
+type = "heading"
+origin = '''
+### 既然分层缩略图会自动加载，“查看分层”按钮有什么作用？
+'''
+translate = '''
+### Why do some projects show fewer or more than five layers?
+'''
+
+[[block]]
+key = "5746007dc3ffff48"
+type = "paragraph"
+origin = '''
+当网络波动导致缩略图延迟显示，或你希望主动重新拉取一次当前分层图像时，点击“查看分层”即可立即刷新。
+'''
+translate = '''
+Total color layers depend on your configured Color Layers, Classic LUT specification, or custom stack recipes in Color Workstation. Both Layer Preview and your exported 3MF automatically adapt to the active layer count.
+'''
+
+[[block]]
+key = "1e283e5983936a23"
+type = "heading"
+origin = '''
+### 悬停检查卡里显示“透明”代表什么？
+'''
+translate = '''
+### Why is there still a View Layers button if thumbnails load automatically?
+'''
+
+[[block]]
+key = "a9ab939aade35c21"
+type = "paragraph"
+origin = '''
+说明光标当前停留在模型轮廓外部的空白区域，或该像素位置无实体填充，结合悬停放大镜即可看清轮廓边界。
+'''
+translate = '''
+**View Layers** lets you manually request or refresh the layer masks anytime thumbnails are delayed over a slow connection.
+'''
+
+[[block]]
+key = "2f4557673b73d608"
+type = "heading"
+origin = '''
+### 能直接照着分层预览的层号来插 AMS 料槽吗？
+'''
+translate = '''
+### What does Transparent mean in the hover inspector?
+'''
+
+[[block]]
+key = "858ae71fbf503b76"
+type = "paragraph"
+origin = '''
+不能混为一谈。分层预览的“第 1–N 层”代表模型厚度方向上的叠色层序，而非供料器的 1–4 号硬件料槽。硬件料槽映射请在导入 3MF 后按切片器中的项目耗材列表逐一指定。
+'''
+translate = '''
+Your cursor is hovering over empty canvas outside the model silhouette (or over an intentional cutout with no geometry). Glance at the magnifier loupe to see the nearest model edge.
+'''
+
+[[block]]
+key = "42b878de211e2556"
+type = "heading"
+origin = '''
+### 分层预览里能看清小字，就一定能打印出来吗？
+'''
+translate = '''
+### Does Layer Preview tell me which AMS slot to load?
+'''
+
+[[block]]
+key = "2955e1ec8a76202b"
+type = "paragraph"
+origin = '''
+分层预览能说明文字已进入颜色配方数据，但如果笔画宽度小于喷嘴线宽，切片引擎仍可能将其忽略或合并。微缩文字、细线与尖角请务必在切片器的逐层路径预览中二次确认。
+'''
+translate = '''
+No—Layer 1 through Layer N represent vertical optical layers inside the print rather than hardware feeder slots 1–4. Assign project filaments to your physical feeder slots inside the slicer after importing the 3MF.
+'''
+
+[[block]]
+key = "d14de6e4bd4c4842"
+type = "heading"
+origin = '''
+### 在颜色工作站替换颜色后，需要重新点左侧的“预览”吗？
+'''
+translate = '''
+### If small text is legible in Layer Preview, is it guaranteed to print?
+'''
+
+[[block]]
+key = "17a34e60bf851321"
+type = "paragraph"
+origin = '''
+在颜色工作站内应用颜色替换后，主预览与分层预览会自动同步更新；只有当你返回左侧修改了原图、色彩来源、层数、层高或建模模式等基础参数时，才需要重新点击“预览”。
+'''
+translate = '''
+Layer Preview confirms the text exists in the color data, but strokes narrower than your nozzle's extrusion width can still drop out during slicing. Always verify fine lettering and thin lines in your slicer's line-by-line toolpath preview.
+'''

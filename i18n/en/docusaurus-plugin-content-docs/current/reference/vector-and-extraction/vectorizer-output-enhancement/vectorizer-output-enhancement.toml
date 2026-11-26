@@ -1,0 +1,354 @@
+[metadata]
+reviewed_source = "940d55ff91b31789c93c7f81e593b97e78b9a2fcb5ddeb77ee13ff6158a274c1"
+
+[[block]]
+key = "24601614287c7da6"
+type = "yaml"
+origin = '''
+---
+title: "描边、薄线与覆盖修复"
+description: "通过输出增强消除相邻色块间的细微白缝，保留原图细线并补齐画布未覆盖像素。"
+sidebar_position: 3
+---
+'''
+translate = '''
+---
+title: "Stroke, Thin Lines, and Coverage Fix"
+description: "Eliminate hairline seams between adjacent SVG paths, preserve fine linework, and patch uncovered canvas pixels."
+sidebar_position: 3
+---
+'''
+
+[[block]]
+key = "6d62eeba4d110046"
+type = "heading"
+origin = '''
+# 描边、薄线与覆盖修复
+'''
+translate = '''
+# Stroke, Thin Lines, and Coverage Fix
+'''
+
+[[block]]
+key = "0e5d71e164c2cc8e"
+type = "paragraph"
+origin = '''
+“输出增强”用于在轮廓生成阶段消除相邻色块拼接处的细微白缝，并强化对原图纤细线条的提取保留。
+'''
+translate = '''
+**Output Enhancement** eliminates hairline gaps between adjacent color regions and helps preserve fine linework from the source image.
+'''
+
+[[block]]
+key = "acf14a82d772ff1a"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-output-enhancement.webp').default}
+  alt="图像转矢量的输出增强参数"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-output-enhancement.webp').default}
+  alt="Image Vectorizer output enhancement controls"
+/>
+'''
+
+[[block]]
+key = "259eaf54e74f0e21"
+type = "heading"
+origin = '''
+## 启用描边与描边宽度
+'''
+translate = '''
+## Enable Stroke and Stroke Width
+'''
+
+[[block]]
+key = "b3ed2a78db493b04"
+type = "paragraph"
+origin = '''
+开启“启用描边”后，每条 SVG 路径在输出填充色的同时会附带同色描边。描边宽度范围为 `0–20`，默认值为 `0.5`：
+'''
+translate = '''
+When **Enable Stroke** is on, each SVG path is exported with a matching stroke alongside its fill. **Stroke Width** ranges from `0–20` and defaults to `0.5`:
+'''
+
+[[block]]
+key = "91102e94910df9bb"
+type = "list"
+composite = true
+origin = '''
+{{91102e94910df9bb-c6c13dad45d7a0ee}}
+{{91102e94910df9bb-c97836f89711f684}}
+'''
+translate = '''
+{{91102e94910df9bb-c6c13dad45d7a0ee}}
+{{91102e94910df9bb-c97836f89711f684}}
+'''
+
+[[block]]
+key = "91102e94910df9bb-c6c13dad45d7a0ee"
+type = "listItem"
+composite = true
+origin = '''
+- {{91102e94910df9bb-c6c13dad45d7a0ee-3733b5b4b6a9fbe7}}
+'''
+translate = '''
+- {{91102e94910df9bb-c6c13dad45d7a0ee-3733b5b4b6a9fbe7}}
+'''
+
+[[block]]
+key = "91102e94910df9bb-c6c13dad45d7a0ee-3733b5b4b6a9fbe7"
+type = "paragraph"
+origin = '''
+**适度调大宽度**：让相邻路径边缘轻微重叠，消除浏览器缩放或渲染时常见的抗锯齿白缝；
+'''
+translate = '''
+**Moderate values** overlap neighboring paths slightly, hiding hairline white seams during rendering or scaling.
+'''
+
+[[block]]
+key = "91102e94910df9bb-c97836f89711f684"
+type = "listItem"
+composite = true
+origin = '''
+- {{91102e94910df9bb-c97836f89711f684-9c56dd50fa29dab4}}
+'''
+translate = '''
+- {{91102e94910df9bb-c97836f89711f684-9c56dd50fa29dab4}}
+'''
+
+[[block]]
+key = "91102e94910df9bb-c97836f89711f684-9c56dd50fa29dab4"
+type = "paragraph"
+origin = '''
+**宽度过大**：描边会向外扩张侵占邻近色块，导致细小结构变粗。
+'''
+translate = '''
+**Excessive values** expand strokes into neighboring regions and thicken fine details.
+'''
+
+[[block]]
+key = "dd223226e591e6ae"
+type = "paragraph"
+origin = '''
+关闭“启用描边”后，“描边宽度”滑块随之隐藏，导出的 SVG 仅保留纯填充路径。
+'''
+translate = '''
+Turning **Enable Stroke** off hides **Stroke Width** and exports fill-only SVG paths.
+'''
+
+[[block]]
+key = "343420fbb660a0e2"
+type = "heading"
+origin = '''
+## 薄线检测半径
+'''
+translate = '''
+## Thin Line Max Radius
+'''
+
+[[block]]
+key = "af229d5db2f0aa23"
+type = "paragraph"
+origin = '''
+取值范围为 `0.5–10 px`，默认值为 `2.5 px`。引擎通过距离变换识别半径不超过该值的狭长线条，并在分割与拟合阶段优先保留其连通结构：
+'''
+translate = '''
+Ranges from `0.5–10 px`, with a default of `2.5 px`. Using a distance transform, the vectorizer identifies narrow strokes up to this radius and protects them from breaking apart during segmentation and fitting:
+'''
+
+[[block]]
+key = "807675026cb39b87"
+type = "list"
+composite = true
+origin = '''
+{{807675026cb39b87-387620f7aac8ee74}}
+{{807675026cb39b87-56d316646d64e984}}
+'''
+translate = '''
+{{807675026cb39b87-387620f7aac8ee74}}
+{{807675026cb39b87-56d316646d64e984}}
+'''
+
+[[block]]
+key = "807675026cb39b87-387620f7aac8ee74"
+type = "listItem"
+composite = true
+origin = '''
+- {{807675026cb39b87-387620f7aac8ee74-36971fe10fc7aa49}}
+'''
+translate = '''
+- {{807675026cb39b87-387620f7aac8ee74-36971fe10fc7aa49}}
+'''
+
+[[block]]
+key = "807675026cb39b87-387620f7aac8ee74-36971fe10fc7aa49"
+type = "paragraph"
+origin = '''
+**数值过小**：极细线条容易在平滑或过滤中断裂遗漏；
+'''
+translate = '''
+**Too low**: delicate linework may drop out or fragment.
+'''
+
+[[block]]
+key = "807675026cb39b87-56d316646d64e984"
+type = "listItem"
+composite = true
+origin = '''
+- {{807675026cb39b87-56d316646d64e984-6c2ad1805fe8e94b}}
+'''
+translate = '''
+- {{807675026cb39b87-56d316646d64e984-6c2ad1805fe8e94b}}
+'''
+
+[[block]]
+key = "807675026cb39b87-56d316646d64e984-6c2ad1805fe8e94b"
+type = "paragraph"
+origin = '''
+**数值过大**：更多普通狭窄色块也会被当作细线特殊保留。
+'''
+translate = '''
+**Too high**: ordinary narrow regions may also be treated as thin-line features.
+'''
+
+[[block]]
+key = "a1de81b9f8305ae6"
+type = "paragraph"
+origin = '''
+此处的 `px` 指内部工作分辨率下的像素半径，而非 3D 打印成品的毫米线宽。
+'''
+translate = '''
+This radius is measured in pixels on the internal working image, not in millimeters on the printed model.
+'''
+
+[[block]]
+key = "21da47bd7ffac4e9"
+type = "heading"
+origin = '''
+## 启用覆盖修复与最小覆盖率
+'''
+translate = '''
+## Enable Coverage Fix and Min Coverage Ratio
+'''
+
+[[block]]
+key = "6e8a7cde05cf12cf"
+type = "paragraph"
+origin = '''
+开启“启用覆盖修复”后，引擎会在轮廓追踪结束时检测整幅画布的像素覆盖比例。一旦实际覆盖率低于“最小覆盖率”，系统便会自动补齐路径间遗漏的空隙像素。
+'''
+translate = '''
+When **Enable Coverage Fix** is enabled, the engine measures total canvas coverage after contour tracing. Whenever coverage falls below **Min Coverage Ratio**, it patches uncovered pixels to seal tiny gaps between regions.
+'''
+
+[[block]]
+key = "53c14cc88fe182c0"
+type = "paragraph"
+origin = '''
+“最小覆盖率”取值范围为 `0–1`，默认值为 `0.998`。数值越接近 `1`，越容易触发缝隙修补。
+'''
+translate = '''
+**Min Coverage Ratio** ranges from `0–1`, with a default of `0.998`. Values closer to `1` trigger gap patching more readily.
+'''
+
+[[block]]
+key = "fe9fda8da440bcc5"
+type = "paragraph"
+origin = '''
+该选项专门针对路径交界处的微米级漏白；若色块边界轮廓本身的走势不准确，请优先调整[超像素分割与抗锯齿检测](../vectorizer-segmentation/vectorizer-segmentation.mdx)或[曲线拟合与区域过滤](../vectorizer-curve-and-filtering/vectorizer-curve-and-filtering.mdx)中的参数。
+'''
+translate = '''
+Coverage repair is designed specifically to close tiny inter-path gaps. If the shape boundaries themselves follow the wrong contours, adjust [Superpixel Segmentation and Antialiasing](../vectorizer-segmentation/vectorizer-segmentation.mdx) or [Curve Fitting and Region Filtering](../vectorizer-curve-and-filtering/vectorizer-curve-and-filtering.mdx) first.
+'''
+
+[[block]]
+key = "2ebb014b8f68bd72"
+type = "heading"
+origin = '''
+## 相关页面
+'''
+translate = '''
+## Related pages
+'''
+
+[[block]]
+key = "b51470ff19a6e9ad"
+type = "list"
+composite = true
+origin = '''
+{{b51470ff19a6e9ad-3ba0d0425b0af545}}
+{{b51470ff19a6e9ad-a7a08c51bc0533ff}}
+{{b51470ff19a6e9ad-e9ba8c72c9a498ae}}
+'''
+translate = '''
+{{b51470ff19a6e9ad-3ba0d0425b0af545}}
+{{b51470ff19a6e9ad-a7a08c51bc0533ff}}
+{{b51470ff19a6e9ad-e9ba8c72c9a498ae}}
+'''
+
+[[block]]
+key = "b51470ff19a6e9ad-3ba0d0425b0af545"
+type = "listItem"
+composite = true
+origin = '''
+- {{b51470ff19a6e9ad-3ba0d0425b0af545-613e4c10d7db490e}}
+'''
+translate = '''
+- {{b51470ff19a6e9ad-3ba0d0425b0af545-613e4c10d7db490e}}
+'''
+
+[[block]]
+key = "b51470ff19a6e9ad-3ba0d0425b0af545-613e4c10d7db490e"
+type = "paragraph"
+origin = '''
+[图像转矢量](../vectorizer-overview/vectorizer-overview.mdx)
+'''
+translate = '''
+[Image Vectorizer](../vectorizer-overview/vectorizer-overview.mdx)
+'''
+
+[[block]]
+key = "b51470ff19a6e9ad-a7a08c51bc0533ff"
+type = "listItem"
+composite = true
+origin = '''
+- {{b51470ff19a6e9ad-a7a08c51bc0533ff-a589955dee71307b}}
+'''
+translate = '''
+- {{b51470ff19a6e9ad-a7a08c51bc0533ff-a589955dee71307b}}
+'''
+
+[[block]]
+key = "b51470ff19a6e9ad-a7a08c51bc0533ff-a589955dee71307b"
+type = "paragraph"
+origin = '''
+[超像素分割与抗锯齿检测](../vectorizer-segmentation/vectorizer-segmentation.mdx)
+'''
+translate = '''
+[Superpixel Segmentation and Antialiasing](../vectorizer-segmentation/vectorizer-segmentation.mdx)
+'''
+
+[[block]]
+key = "b51470ff19a6e9ad-e9ba8c72c9a498ae"
+type = "listItem"
+composite = true
+origin = '''
+- {{b51470ff19a6e9ad-e9ba8c72c9a498ae-f28d274d5fcda15a}}
+'''
+translate = '''
+- {{b51470ff19a6e9ad-e9ba8c72c9a498ae-f28d274d5fcda15a}}
+'''
+
+[[block]]
+key = "b51470ff19a6e9ad-e9ba8c72c9a498ae-f28d274d5fcda15a"
+type = "paragraph"
+origin = '''
+[曲线拟合与区域过滤](../vectorizer-curve-and-filtering/vectorizer-curve-and-filtering.mdx)
+'''
+translate = '''
+[Curve Fitting and Region Filtering](../vectorizer-curve-and-filtering/vectorizer-curve-and-filtering.mdx)
+'''

@@ -1,0 +1,179 @@
+[metadata]
+migration_layout = "preserved English structure; root blocks retain grouped or omitted source sections"
+reviewed_source = "457815cfd3123ddabe6b0ba8663e5b50486eaf29b78de72defa59352450045a2"
+
+[[block]]
+key = "1d2b5019222e87f6"
+type = "yaml"
+origin = '''
+---
+title: "开发组动态"
+description: "最新开发月报入口与早期开发随记。"
+sidebar_position: 4
+---
+'''
+translate = '''
+---
+title: "Development Updates"
+description: "Monthly development progress and early development notes."
+sidebar_position: 4
+---
+
+# Development Updates
+'''
+
+[[block]]
+key = "66fc6a14210852e9"
+type = "heading"
+origin = '''
+## 最近开发进展
+'''
+translate = '''
+'''
+
+[[block]]
+key = "9f19a610dd59fb19"
+type = "paragraph"
+origin = '''
+Lumina Studio 2.0 的阶段进展按月整理在更新日志中，最新一期为[2026 年 10 月开发月报](../../releases/2026-10.md)。最新源码提交与日常开发动态可直接查看 [Lumina-Layers 仓库](https://github.com/lumina-layer-studio/Lumina-Layers)。
+'''
+translate = '''
+Monthly progress reports for Lumina Studio 2.0 are published in the changelog, with [October 2026](../../releases/2026-10.md) as the latest issue. Ongoing commits and source releases are tracked in the [Lumina-Layers repository](https://github.com/lumina-layer-studio/Lumina-Layers).
+'''
+
+[[block]]
+key = "323f17370d56d757"
+type = "list"
+composite = true
+origin = '''
+{{323f17370d56d757-e568e1f888ab3a45}}
+{{323f17370d56d757-d3e06892faa2f272}}
+{{323f17370d56d757-be90ad584689144f}}
+{{323f17370d56d757-066ca03e728a0822}}
+'''
+translate = '''
+- [October: open-source release, conversion presets, and print projects](../../releases/2026-10.md)
+- [September: lightweight preview, desktop runtime, and batch generation](../../releases/2026-09.md)
+- [August: project saving, unified selection, and backing settings](../../releases/2026-08.md)
+- [July: native SVG relief, planar model textures, and Workshop](../../releases/2026-07.md)
+'''
+
+[[block]]
+key = "323f17370d56d757-e568e1f888ab3a45"
+type = "listItem"
+composite = true
+origin = '''
+- {{323f17370d56d757-e568e1f888ab3a45-758e9942ee9ca761}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "323f17370d56d757-e568e1f888ab3a45-758e9942ee9ca761"
+type = "paragraph"
+origin = '''
+[10 月：开源发布、转换预设与打印工程](../../releases/2026-10.md)
+'''
+translate = '''
+'''
+
+[[block]]
+key = "323f17370d56d757-d3e06892faa2f272"
+type = "listItem"
+composite = true
+origin = '''
+- {{323f17370d56d757-d3e06892faa2f272-e7812da0484f1d06}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "323f17370d56d757-d3e06892faa2f272-e7812da0484f1d06"
+type = "paragraph"
+origin = '''
+[9 月：轻量预览、桌面运行与批量生成](../../releases/2026-09.md)
+'''
+translate = '''
+'''
+
+[[block]]
+key = "323f17370d56d757-be90ad584689144f"
+type = "listItem"
+composite = true
+origin = '''
+- {{323f17370d56d757-be90ad584689144f-2acf0abea7c348b5}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "323f17370d56d757-be90ad584689144f-2acf0abea7c348b5"
+type = "paragraph"
+origin = '''
+[8 月：项目保存、统一选区与底板工艺](../../releases/2026-08.md)
+'''
+translate = '''
+'''
+
+[[block]]
+key = "323f17370d56d757-066ca03e728a0822"
+type = "listItem"
+composite = true
+origin = '''
+- {{323f17370d56d757-066ca03e728a0822-ce1146acde4d0fbf}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "323f17370d56d757-066ca03e728a0822-ce1146acde4d0fbf"
+type = "paragraph"
+origin = '''
+[7 月：原生 SVG 浮雕、模型平面图案与工坊](../../releases/2026-07.md)
+'''
+translate = '''
+'''
+
+[[block]]
+key = "74b8dcdf5ae2a25e"
+type = "paragraph"
+origin = '''
+完整开发月报与 1.x 历史版本请查看[更新日志](../../releases/overview.md)；文档与教程更新请查看顶部导航栏的“Wiki 动态”。
+'''
+translate = '''
+See the [Changelog](../../releases/overview.md) for all monthly reports and 1.x release history. Documentation additions and revisions appear under **Wiki Updates** in the top navigation bar.
+'''
+
+[[block]]
+key = "f1d84a517390d081"
+type = "heading"
+origin = '''
+## 早期开发随记
+'''
+translate = '''
+## Early development notes
+'''
+
+[[block]]
+key = "22290ff643795a2d"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/bd839e940f9ecb937365b5aea6afa7ff.gif').default}
+  alt="bd839e940f9ecb937365b5aea6afa7ff.gif"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1719fe27b4852b83"
+type = "paragraph"
+origin = '''
+性能优化好难QAQ
+好复杂zzzZZZ
+啥时候出太阳啊
+'''
+translate = '''
+The Simplified Chinese edition of this page also preserves an early informal note from the initial performance optimization sprint.
+'''

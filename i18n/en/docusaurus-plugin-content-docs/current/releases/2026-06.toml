@@ -1,0 +1,1104 @@
+[metadata]
+reviewed_source = "a6117b5ba11a6e658c753c18777e146471d1ed12b7d2adefac10aa760853e943"
+
+[[block]]
+key = "f50a860b0547ebbe"
+type = "yaml"
+origin = '''
+---
+title: "2.0 开发月报：2026 年 6 月"
+description: "Lumina Studio 2.0 在 2026 年 6 月的完整开发进展"
+sidebar_position: 33
+---
+'''
+translate = '''
+---
+title: "2.0 Development Report: June 2026"
+description: "Complete Lumina Studio 2.0 development progress for June 2026"
+sidebar_position: 33
+---
+'''
+
+[[block]]
+key = "e9d5b561f8dbf166"
+type = "heading"
+origin = '''
+# Lumina Studio 2.0 开发月报：2026 年 6 月
+'''
+translate = '''
+# Lumina Studio 2.0 Development Report: June 2026
+'''
+
+[[block]]
+key = "985544c9a5bea76c"
+type = "blockquote"
+composite = true
+origin = '''
+> {{985544c9a5bea76c-667df9781ada3d68}}
+'''
+translate = '''
+> {{985544c9a5bea76c-667df9781ada3d68}}
+'''
+
+[[block]]
+key = "985544c9a5bea76c-667df9781ada3d68"
+type = "paragraph"
+origin = '''
+本月合并 256 个 PR
+'''
+translate = '''
+256 pull requests merged
+'''
+
+[[block]]
+key = "1039183f53b8549d"
+type = "paragraph"
+origin = '''
+[← 2026 年 5 月](/zh/docs/releases/2026-05) · [更新日志总览](/zh/docs/releases/overview) · [2026 年 7 月 →](/zh/docs/releases/2026-07)
+'''
+translate = '''
+[← May 2026](/en/docs/releases/2026-05) · [Changelog overview](/en/docs/releases/overview) · [July 2026 →](/en/docs/releases/2026-07)
+'''
+
+[[block]]
+key = "b9afabb3581f03d0"
+type = "heading"
+origin = '''
+## 本月概览
+'''
+translate = '''
+## Monthly overview
+'''
+
+[[block]]
+key = "87c3b0d94c8e1f80"
+type = "paragraph"
+origin = '''
+6 月是 Lumina Studio 2.0 规模最大的稳定性与平台化建设阶段。除上线云端材料/LUT 资源库、Machine Adapter V2、拼图完整链路、高精度颜色预览与混合材料求解外，本月还系统梳理了文件生命周期、缓存隔离、会话切换、结构化报错、输入校验与问题复现，以下按面向用户的功能模块归并说明。
+'''
+translate = '''
+June was the largest stability and platform-hardening milestone of Lumina Studio 2.0 to date. Alongside cloud material and LUT libraries, Machine Adapter V2, end-to-end puzzle workflows, high-precision color previews, and hybrid material solving, work systematically overhauled file lifecycles, cache isolation, session transitions, structured error messages, input validation, and reproducible bug reporting. Related pull requests are grouped below by user-facing capability.
+'''
+
+[[block]]
+key = "3a0557c834aa45af"
+type = "heading"
+origin = '''
+## 重点更新
+'''
+translate = '''
+## Highlights
+'''
+
+[[block]]
+key = "b57c8aa116c32978"
+type = "heading"
+origin = '''
+### 云端材料库与云端 LUT 库
+'''
+translate = '''
+### Cloud material and LUT libraries
+'''
+
+[[block]]
+key = "8e82bed94b9f562f"
+type = "paragraph"
+origin = '''
+材料档案与 LUT 接入云端资源目录，支持在线浏览、一键安装、刷新及官方/社区来源标识。同一兼容组的传统 LUT 支持直接多选参与颜色匹配，无需预先手动合并文件；资源安装后自动刷新详情与状态。
+'''
+translate = '''
+Material profiles and LUTs gained cloud catalogs for browsing, one-click installation, refreshing, and distinguishing official from community resources. Compatible classic LUTs can now be multi-selected directly for color matching without manually merging files first, and installed resources automatically refresh their details and status.
+'''
+
+[[block]]
+key = "1cff39ff0894eaa1"
+type = "heading"
+origin = '''
+### Machine Adapter V2
+'''
+translate = '''
+### Machine Adapter V2
+'''
+
+[[block]]
+key = "d114722909b803f8"
+type = "paragraph"
+origin = '''
+设置页新增按切片软件、打印机型号和喷嘴直径组织的机器卡片，内置原生切片器机型注册表。导出的 3MF 自动写入适配 Bambu Studio、OrcaSlicer、ElegooSlicer、Anycubic Slicer Next 与 Snapmaker 等切片软件的机型、喷嘴和材料元数据。
+'''
+translate = '''
+Settings introduced machine cards organized by slicer, printer model, and nozzle diameter, backed by a native slicer-machine registry. Exported 3MF projects preserve printer, nozzle, and filament metadata recognized by Bambu Studio, OrcaSlicer, ElegooSlicer, Anycubic Slicer Next, Snapmaker, and compatible slicers.
+'''
+
+[[block]]
+key = "3be6c3bc22541dda"
+type = "heading"
+origin = '''
+### 高精度 3D 颜色预览与阶段耗时统计
+'''
+translate = '''
+### High-precision 3D color preview and stage timing
+'''
+
+[[block]]
+key = "13518c160480cbd4"
+type = "paragraph"
+origin = '''
+高级设置新增高精度 3D 颜色预览开关，避免低占比颜色在预览中被合并；像素模式保留更完整的色块与边界。预览区同步提供阶段耗时统计，便于定位耗时集中在上传、颜色匹配、网格构建还是 GLB 生成。
+'''
+translate = '''
+Advanced Settings added a high-precision 3D color-preview toggle so low-coverage accent colors stay distinct, while Pixel Art mode retains sharper block boundaries. The preview panel also displays per-stage timing to show how much time is spent on upload, color matching, meshing, and GLB generation.
+'''
+
+[[block]]
+key = "05707429ab69d92b"
+type = "heading"
+origin = '''
+### 大材料组合的混合求解
+'''
+translate = '''
+### Hybrid solving for large material sets
+'''
+
+[[block]]
+key = "b90ee97287916054"
+type = "paragraph"
+origin = '''
+材料推荐引入混合候选运行时，处理 10 层叠加、十余种耗材等大组合场景时优先复用预计算候选集，让此前因组合空间过大而中断的任务顺利产出推荐方案。
+'''
+translate = '''
+Material recommendations added a hybrid candidate runtime that reuses precomputed candidates on large combinations, allowing 10-layer jobs across a dozen or more filaments that previously hit combinatorial limits to finish with a valid recommendation.
+'''
+
+[[block]]
+key = "e8d45bee1f58c18e"
+type = "heading"
+origin = '''
+## 新功能
+'''
+translate = '''
+## New features
+'''
+
+[[block]]
+key = "53491ad44441148b"
+type = "list"
+composite = true
+origin = '''
+{{53491ad44441148b-e020d84fe372fd9c}}
+{{53491ad44441148b-437f6df27de1482d}}
+{{53491ad44441148b-c3a4a8d2f5b037e2}}
+'''
+translate = '''
+{{53491ad44441148b-e020d84fe372fd9c}}
+{{53491ad44441148b-437f6df27de1482d}}
+{{53491ad44441148b-c3a4a8d2f5b037e2}}
+'''
+
+[[block]]
+key = "53491ad44441148b-e020d84fe372fd9c"
+type = "listItem"
+composite = true
+origin = '''
+- {{53491ad44441148b-e020d84fe372fd9c-6faf8a73f198e389}}
+'''
+translate = '''
+- {{53491ad44441148b-e020d84fe372fd9c-6faf8a73f198e389}}
+'''
+
+[[block]]
+key = "53491ad44441148b-e020d84fe372fd9c-6faf8a73f198e389"
+type = "paragraph"
+origin = '''
+拼图模式补齐转换区刀线叠加预览、逐块生成、合并 3MF 导出与配方导入导出，并为切割边界增加内缩保护。
+'''
+translate = '''
+Puzzle mode added cut-line converter overlays, per-piece generation, merged 3MF export, recipe round-tripping, and inset cut-boundary protection.
+'''
+
+[[block]]
+key = "53491ad44441148b-437f6df27de1482d"
+type = "listItem"
+composite = true
+origin = '''
+- {{53491ad44441148b-437f6df27de1482d-8ea43355500d5ee4}}
+'''
+translate = '''
+- {{53491ad44441148b-437f6df27de1482d-8ea43355500d5ee4}}
+'''
+
+[[block]]
+key = "53491ad44441148b-437f6df27de1482d-8ea43355500d5ee4"
+type = "paragraph"
+origin = '''
+单图上传区域明确区分“更换当前图片”与“添加更多图片”，避免换图时误触发批量追加。
+'''
+translate = '''
+Single-image upload now clearly separates replacing the active image from adding more images, preventing accidental batch appends.
+'''
+
+[[block]]
+key = "53491ad44441148b-c3a4a8d2f5b037e2"
+type = "listItem"
+composite = true
+origin = '''
+- {{53491ad44441148b-c3a4a8d2f5b037e2-56f61481f155df04}}
+'''
+translate = '''
+- {{53491ad44441148b-c3a4a8d2f5b037e2-56f61481f155df04}}
+'''
+
+[[block]]
+key = "53491ad44441148b-c3a4a8d2f5b037e2-56f61481f155df04"
+type = "paragraph"
+origin = '''
+新增 8 款 KYNIX PETG 耗材档案；耗材品牌分组默认收起并提供一键清空选择，长列表筛选更高效。
+'''
+translate = '''
+Added eight KYNIX PETG material profiles; filament brand groups now start collapsed with a one-click clear-selection action for long lists.
+'''
+
+[[block]]
+key = "272042f24cb6dc79"
+type = "heading"
+origin = '''
+## 颜色工作站
+'''
+translate = '''
+## Color Workstation
+'''
+
+[[block]]
+key = "1c07432b991356e5"
+type = "list"
+composite = true
+origin = '''
+{{1c07432b991356e5-6c50c62790c57382}}
+{{1c07432b991356e5-6047ba9cc914bd0e}}
+'''
+translate = '''
+{{1c07432b991356e5-6c50c62790c57382}}
+{{1c07432b991356e5-6047ba9cc914bd0e}}
+'''
+
+[[block]]
+key = "1c07432b991356e5-6c50c62790c57382"
+type = "listItem"
+composite = true
+origin = '''
+- {{1c07432b991356e5-6c50c62790c57382-02b5605ff25a9deb}}
+'''
+translate = '''
+- {{1c07432b991356e5-6c50c62790c57382-02b5605ff25a9deb}}
+'''
+
+[[block]]
+key = "1c07432b991356e5-6c50c62790c57382-02b5605ff25a9deb"
+type = "paragraph"
+origin = '''
+刷新预览后自动重放已完成的区域换色并带入最终生成，全选区域应用自定义配方时完整保留目标遮罩。
+'''
+translate = '''
+Region recolors automatically replay across refreshed previews and final exports, and select-all custom recipes preserve the full target mask.
+'''
+
+[[block]]
+key = "1c07432b991356e5-6047ba9cc914bd0e"
+type = "listItem"
+composite = true
+origin = '''
+- {{1c07432b991356e5-6047ba9cc914bd0e-34a4e7dcfe6a5eb8}}
+'''
+translate = '''
+- {{1c07432b991356e5-6047ba9cc914bd0e-34a4e7dcfe6a5eb8}}
+'''
+
+[[block]]
+key = "1c07432b991356e5-6047ba9cc914bd0e-34a4e7dcfe6a5eb8"
+type = "paragraph"
+origin = '''
+带透明通道的作品在进行渐变高亮或区域选择时保持透明区域不变，避免被整片高亮底色覆盖。
+'''
+translate = '''
+Transparent artwork keeps its alpha channel intact during gradient highlighting and region selection instead of filling transparent areas with a solid highlight color.
+'''
+
+[[block]]
+key = "f12d286538de4a85"
+type = "heading"
+origin = '''
+## 校准与材料
+'''
+translate = '''
+## Calibration and materials
+'''
+
+[[block]]
+key = "be576cd4e51581ea"
+type = "list"
+composite = true
+origin = '''
+{{be576cd4e51581ea-e2b0a9fc21df78d7}}
+{{be576cd4e51581ea-83b943a913651fe7}}
+{{be576cd4e51581ea-e52dca8d624b2e8f}}
+'''
+translate = '''
+{{be576cd4e51581ea-e2b0a9fc21df78d7}}
+{{be576cd4e51581ea-83b943a913651fe7}}
+{{be576cd4e51581ea-e52dca8d624b2e8f}}
+'''
+
+[[block]]
+key = "be576cd4e51581ea-e2b0a9fc21df78d7"
+type = "listItem"
+composite = true
+origin = '''
+- {{be576cd4e51581ea-e2b0a9fc21df78d7-0f5624c7dec837cd}}
+'''
+translate = '''
+- {{be576cd4e51581ea-e2b0a9fc21df78d7-0f5624c7dec837cd}}
+'''
+
+[[block]]
+key = "be576cd4e51581ea-e2b0a9fc21df78d7-0f5624c7dec837cd"
+type = "paragraph"
+origin = '''
+5 色扩展校准板双页统一物理外框尺寸；6 层配方中的底层黑色在查询、匹配、验证色块与导出中全程保留。
+'''
+translate = '''
+Standardized physical frame dimensions across both pages of the 5-Color Extended calibration board, and preserved the sixth black recipe layer across lookup, matching, swatches, and export.
+'''
+
+[[block]]
+key = "be576cd4e51581ea-83b943a913651fe7"
+type = "listItem"
+composite = true
+origin = '''
+- {{be576cd4e51581ea-83b943a913651fe7-9d076eb7c8f4fdee}}
+'''
+translate = '''
+- {{be576cd4e51581ea-83b943a913651fe7-9d076eb7c8f4fdee}}
+'''
+
+[[block]]
+key = "be576cd4e51581ea-83b943a913651fe7-9d076eb7c8f4fdee"
+type = "paragraph"
+origin = '''
+ColorChecker 源图上传补齐进度显示、超时保护与资源回收，解决 DNG 或超大图片失败时无限等待的问题。
+'''
+translate = '''
+Added upload progress, timeouts, and cleanup handling for ColorChecker source images so failed DNG or large-file uploads never hang indefinitely.
+'''
+
+[[block]]
+key = "be576cd4e51581ea-e52dca8d624b2e8f"
+type = "listItem"
+composite = true
+origin = '''
+- {{be576cd4e51581ea-e52dca8d624b2e8f-aae94abec6670760}}
+'''
+translate = '''
+- {{be576cd4e51581ea-e52dca8d624b2e8f-aae94abec6670760}}
+'''
+
+[[block]]
+key = "be576cd4e51581ea-e52dca8d624b2e8f-aae94abec6670760"
+type = "paragraph"
+origin = '''
+提升传统 LUT 对中性灰、纯黑及旧版 CMYW/NPY 通道排列的识别稳定性，减少灰色作品偏色或槽位错乱。
+'''
+translate = '''
+Improved classic LUT matching across neutral grays, blacks, and legacy CMYW/NPY channel layouts, reducing unwanted color casts and slot-order mix-ups.
+'''
+
+[[block]]
+key = "ad9ea4e91bbd4e68"
+type = "heading"
+origin = '''
+## 矢量化与建模
+'''
+translate = '''
+## Vectorization and modeling
+'''
+
+[[block]]
+key = "010e23b1e559b29b"
+type = "list"
+composite = true
+origin = '''
+{{010e23b1e559b29b-02319958fa4e6945}}
+{{010e23b1e559b29b-d719a6ce7b87b8d6}}
+{{010e23b1e559b29b-94e6861d9e0aecf7}}
+{{010e23b1e559b29b-3b55075f24ed2654}}
+'''
+translate = '''
+{{010e23b1e559b29b-02319958fa4e6945}}
+{{010e23b1e559b29b-d719a6ce7b87b8d6}}
+{{010e23b1e559b29b-94e6861d9e0aecf7}}
+{{010e23b1e559b29b-3b55075f24ed2654}}
+'''
+
+[[block]]
+key = "010e23b1e559b29b-02319958fa4e6945"
+type = "listItem"
+composite = true
+origin = '''
+- {{010e23b1e559b29b-02319958fa4e6945-e66709b983e86c55}}
+'''
+translate = '''
+- {{010e23b1e559b29b-02319958fa4e6945-e66709b983e86c55}}
+'''
+
+[[block]]
+key = "010e23b1e559b29b-02319958fa4e6945-e66709b983e86c55"
+type = "paragraph"
+origin = '''
+SVG 描边、涂层与底板在预览和导出中共用一致轮廓，并统一透明区域、白底与材料档案的层数回退规则。
+'''
+translate = '''
+Unified SVG outline, coating, and backing footprints between preview and export, with consistent layer-count fallbacks for transparency, white backings, and material profiles.
+'''
+
+[[block]]
+key = "010e23b1e559b29b-d719a6ce7b87b8d6"
+type = "listItem"
+composite = true
+origin = '''
+- {{010e23b1e559b29b-d719a6ce7b87b8d6-ee2b0b5fd1439628}}
+'''
+translate = '''
+- {{010e23b1e559b29b-d719a6ce7b87b8d6-ee2b0b5fd1439628}}
+'''
+
+[[block]]
+key = "010e23b1e559b29b-d719a6ce7b87b8d6-ee2b0b5fd1439628"
+type = "paragraph"
+origin = '''
+大幅加快 SVG 预览与网格准备速度；可选的 V2 预览内核支持按需开启，缺少运行依赖时自动回退至稳定管线。
+'''
+translate = '''
+Accelerated SVG preview and mesh preparation; the optional V2 preview kernel remains opt-in and falls back cleanly when optional runtime dependencies are absent.
+'''
+
+[[block]]
+key = "010e23b1e559b29b-94e6861d9e0aecf7"
+type = "listItem"
+composite = true
+origin = '''
+- {{010e23b1e559b29b-94e6861d9e0aecf7-77b299c9f949d064}}
+'''
+translate = '''
+- {{010e23b1e559b29b-94e6861d9e0aecf7-77b299c9f949d064}}
+'''
+
+[[block]]
+key = "010e23b1e559b29b-94e6861d9e0aecf7-77b299c9f949d064"
+type = "paragraph"
+origin = '''
+高度图浮雕在刷新预览后继续保留高度图，超过 5 层的材料档案浮雕按实际层数生成，并修正正面朝上导出的模型朝向。
+'''
+translate = '''
+Preserved heightmaps across preview refreshes in relief mode, generated material-profile reliefs above five layers at their true layer count, and fixed face-up export orientation.
+'''
+
+[[block]]
+key = "010e23b1e559b29b-3b55075f24ed2654"
+type = "listItem"
+composite = true
+origin = '''
+- {{010e23b1e559b29b-3b55075f24ed2654-8bac04e8939d19fb}}
+'''
+translate = '''
+- {{010e23b1e559b29b-3b55075f24ed2654-8bac04e8939d19fb}}
+'''
+
+[[block]]
+key = "010e23b1e559b29b-3b55075f24ed2654-8bac04e8939d19fb"
+type = "paragraph"
+origin = '''
+SVG 挂件环直接写入 3MF 且不额外占用耗材槽；修复半透明 5 色叠层、近似填充色与扩展材料模板的兼容问题。
+'''
+translate = '''
+Exported SVG keychain loops directly into the 3MF without consuming an extra filament slot, alongside fixes for translucent 5-color stacks, near-identical fills, and extended material templates.
+'''
+
+[[block]]
+key = "8b0b7544b72086da"
+type = "heading"
+origin = '''
+## 预览与交互
+'''
+translate = '''
+## Preview and interaction
+'''
+
+[[block]]
+key = "f70f4709c22068cd"
+type = "list"
+composite = true
+origin = '''
+{{f70f4709c22068cd-f03f8e42580724e6}}
+{{f70f4709c22068cd-46eeaf14642168b9}}
+{{f70f4709c22068cd-15e86d357c935708}}
+'''
+translate = '''
+{{f70f4709c22068cd-f03f8e42580724e6}}
+{{f70f4709c22068cd-46eeaf14642168b9}}
+{{f70f4709c22068cd-15e86d357c935708}}
+'''
+
+[[block]]
+key = "f70f4709c22068cd-f03f8e42580724e6"
+type = "listItem"
+composite = true
+origin = '''
+- {{f70f4709c22068cd-f03f8e42580724e6-f2059d8afaecb801}}
+'''
+translate = '''
+- {{f70f4709c22068cd-f03f8e42580724e6-f2059d8afaecb801}}
+'''
+
+[[block]]
+key = "f70f4709c22068cd-f03f8e42580724e6-f2059d8afaecb801"
+type = "paragraph"
+origin = '''
+仅声明 `viewBox` 而未设固定宽高的 SVG 也可正常显示上传预览；放宽过于保守的容量预估，避免大幅面 SVG 与多材料预览被提前拦截。
+'''
+translate = '''
+SVG files defined solely by `viewBox` without fixed width/height attributes now render upload previews properly, and relaxed capacity estimates no longer reject large SVG or multi-material previews prematurely.
+'''
+
+[[block]]
+key = "f70f4709c22068cd-46eeaf14642168b9"
+type = "listItem"
+composite = true
+origin = '''
+- {{f70f4709c22068cd-46eeaf14642168b9-1eceeca3b7747f62}}
+'''
+translate = '''
+- {{f70f4709c22068cd-46eeaf14642168b9-1eceeca3b7747f62}}
+'''
+
+[[block]]
+key = "f70f4709c22068cd-46eeaf14642168b9-1eceeca3b7747f62"
+type = "paragraph"
+origin = '''
+像素模式完整保留原始色彩预算，避免细小色块在预览压缩中丢失。
+'''
+translate = '''
+Pixel Art mode preserves its full color budget so small accent regions are no longer lost during preview compression.
+'''
+
+[[block]]
+key = "f70f4709c22068cd-15e86d357c935708"
+type = "listItem"
+composite = true
+origin = '''
+- {{f70f4709c22068cd-15e86d357c935708-45a5863f209c17ca}}
+'''
+translate = '''
+- {{f70f4709c22068cd-15e86d357c935708-45a5863f209c17ca}}
+'''
+
+[[block]]
+key = "f70f4709c22068cd-15e86d357c935708-45a5863f209c17ca"
+type = "paragraph"
+origin = '''
+后端离线、清理请求受阻或健康检查短暂超时时界面平滑降级，不再连续弹出报错弹窗或阻塞窗口关闭。
+'''
+translate = '''
+When the backend goes offline, a cleanup beacon is blocked, or a health check briefly times out, the UI degrades gracefully without spamming error toasts or blocking window close actions.
+'''
+
+[[block]]
+key = "f01f61106cf9f93e"
+type = "heading"
+origin = '''
+## 切片器与 3MF
+'''
+translate = '''
+## Slicers and 3MF
+'''
+
+[[block]]
+key = "fc9351d6d7803da6"
+type = "list"
+composite = true
+origin = '''
+{{fc9351d6d7803da6-93cd0fc0e97a462d}}
+{{fc9351d6d7803da6-f8fb1b8541ebadad}}
+'''
+translate = '''
+{{fc9351d6d7803da6-93cd0fc0e97a462d}}
+{{fc9351d6d7803da6-f8fb1b8541ebadad}}
+'''
+
+[[block]]
+key = "fc9351d6d7803da6-93cd0fc0e97a462d"
+type = "listItem"
+composite = true
+origin = '''
+- {{fc9351d6d7803da6-93cd0fc0e97a462d-da8dea766512c8c8}}
+'''
+translate = '''
+- {{fc9351d6d7803da6-93cd0fc0e97a462d-da8dea766512c8c8}}
+'''
+
+[[block]]
+key = "fc9351d6d7803da6-93cd0fc0e97a462d-da8dea766512c8c8"
+type = "paragraph"
+origin = '''
+Snapmaker U1、H2C 与扩展材料模板完整写入机型与耗材槽信息，修复导入 OrcaSlicer 后的机型识别、耗材用量与空槽问题。
+'''
+translate = '''
+Preserved accurate printer and filament-slot metadata for Snapmaker U1, H2C, and extended-material templates, resolving model recognition, filament-usage, and empty-slot issues in OrcaSlicer.
+'''
+
+[[block]]
+key = "fc9351d6d7803da6-f8fb1b8541ebadad"
+type = "listItem"
+composite = true
+origin = '''
+- {{fc9351d6d7803da6-f8fb1b8541ebadad-9a8bca73fa9d9801}}
+'''
+translate = '''
+- {{fc9351d6d7803da6-f8fb1b8541ebadad-9a8bca73fa9d9801}}
+'''
+
+[[block]]
+key = "fc9351d6d7803da6-f8fb1b8541ebadad-9a8bca73fa9d9801"
+type = "paragraph"
+origin = '''
+3MF 主文件生成成功后，即使可选的 GLB 预览生成失败，仍优先保障最终文件可下载；批量、校准、色块与分享卡导出均遵循同一策略。
+'''
+translate = '''
+Once a 3MF finishes generating, the final download remains available even if an optional GLB preview fails—a safeguard applied consistently across batch, calibration, swatch, and share-card exports.
+'''
+
+[[block]]
+key = "a211daf0c8eb6820"
+type = "heading"
+origin = '''
+## 文件、会话与下载可靠性
+'''
+translate = '''
+## File, session, and download reliability
+'''
+
+[[block]]
+key = "cba8189487b57491"
+type = "paragraph"
+origin = '''
+系统性解决“生成成功后切换页面导致下载失效”的问题：最终导出产物与源会话生命周期解耦，针对写入中断、注册失败、会话关闭竞争和过期缓存建立回滚与恢复机制；临时预览缓存仍按期自动清理，避免长期占用磁盘。
+'''
+translate = '''
+Resolved cases where switching pages after a completed build caused downloads to expire: exported artifacts are now decoupled from source-session lifetimes, with rollback and recovery paths for short writes, registration errors, session-close races, and stale caches, while preview caches remain bounded on disk.
+'''
+
+[[block]]
+key = "d8180408b6208f8f"
+type = "heading"
+origin = '''
+## 问题反馈与可复现性
+'''
+translate = '''
+## Feedback and reproducibility
+'''
+
+[[block]]
+key = "307dc3aedbdd8c07"
+type = "paragraph"
+origin = '''
+Bug 反馈更精准地关联当前单阶段会话、原图、最终产物、LUT、材料档案及失败附件；读取失败的附件如实标记为部分缺失而不再混入旧文件，误点弹窗背景遮罩时也会保留已填写的反馈草稿。
+'''
+translate = '''
+Bug reports now capture the active single-stage session, source artwork, exported artifact, LUT, material profile, and failed attachments accurately—marking unreadable attachments as partial rather than substituting stale files, and keeping draft text intact when clicking the modal backdrop.
+'''
+
+[[block]]
+key = "05d634c47c59654a"
+type = "heading"
+origin = '''
+## 更安全、更清晰的错误提示
+'''
+translate = '''
+## Safer, clearer error messages
+'''
+
+[[block]]
+key = "68fc37e77491f5a2"
+type = "paragraph"
+origin = '''
+逾百处接口与前端边界统一改用结构化、支持多语言的错误提示，屏蔽本机路径、内部依赖、原始请求参数与服务端实现细节；界面向用户展示明确原因与请求编号，诊断日志保留排障字段。
+'''
+translate = '''
+Standardized over a hundred API and UI boundaries around structured, localized error messages that strip local file paths, internal dependencies, raw request payloads, and server internals—giving users clear reasons and request IDs while keeping full diagnostic fields in developer logs.
+'''
+
+[[block]]
+key = "d31eb325d81b59ff"
+type = "heading"
+origin = '''
+## 稳定性、性能与基础设施
+'''
+translate = '''
+## Stability, performance, and infrastructure
+'''
+
+[[block]]
+key = "0f9a8db274407531"
+type = "paragraph"
+origin = '''
+其余工程改进集中在上传与参数校验、临时文件归属管理、材料库原子写入、缓存隔离、工作进程超时回收、结构化日志与全流程回归门禁，全面降低崩溃、跨会话串扰与下载异常的概率。
+'''
+translate = '''
+Additional engineering work strengthened upload and parameter validation, temporary-file ownership, atomic material-library writes, cache isolation, worker timeout recovery, structured logging, and end-to-end regression gates—reducing crashes, cross-session leaks, and download failures.
+'''
+
+[[block]]
+key = "2b7b84c0c28abaf9"
+type = "heading"
+origin = '''
+## 已知限制
+'''
+translate = '''
+## Known limitations
+'''
+
+[[block]]
+key = "6670ea9932a78123"
+type = "list"
+composite = true
+origin = '''
+{{6670ea9932a78123-fea3e33d4b6e5cdd}}
+{{6670ea9932a78123-b0b01474c1930c1a}}
+{{6670ea9932a78123-174e0a501164ef55}}
+'''
+translate = '''
+{{6670ea9932a78123-fea3e33d4b6e5cdd}}
+{{6670ea9932a78123-b0b01474c1930c1a}}
+{{6670ea9932a78123-174e0a501164ef55}}
+'''
+
+[[block]]
+key = "6670ea9932a78123-fea3e33d4b6e5cdd"
+type = "listItem"
+composite = true
+origin = '''
+- {{6670ea9932a78123-fea3e33d4b6e5cdd-f8d912c8913ccfc7}}
+'''
+translate = '''
+- {{6670ea9932a78123-fea3e33d4b6e5cdd-f8d912c8913ccfc7}}
+'''
+
+[[block]]
+key = "6670ea9932a78123-fea3e33d4b6e5cdd-f8d912c8913ccfc7"
+type = "paragraph"
+origin = '''
+云端资源库仍处于内测阶段，资源规模、分类与同步策略将持续迭代。
+'''
+translate = '''
+Cloud resource libraries remain in beta as catalog size, categorization, and sync policies continue to evolve.
+'''
+
+[[block]]
+key = "6670ea9932a78123-b0b01474c1930c1a"
+type = "listItem"
+composite = true
+origin = '''
+- {{6670ea9932a78123-b0b01474c1930c1a-89d9ea0931534575}}
+'''
+translate = '''
+- {{6670ea9932a78123-b0b01474c1930c1a-89d9ea0931534575}}
+'''
+
+[[block]]
+key = "6670ea9932a78123-b0b01474c1930c1a-89d9ea0931534575"
+type = "paragraph"
+origin = '''
+SVG V2 预览内核为按需启用选项，默认仍使用成熟度更高的稳定管线。
+'''
+translate = '''
+The SVG V2 preview kernel remains opt-in, with the established pipeline enabled by default.
+'''
+
+[[block]]
+key = "6670ea9932a78123-174e0a501164ef55"
+type = "listItem"
+composite = true
+origin = '''
+- {{6670ea9932a78123-174e0a501164ef55-8221788ab20df1d8}}
+'''
+translate = '''
+- {{6670ea9932a78123-174e0a501164ef55-8221788ab20df1d8}}
+'''
+
+[[block]]
+key = "6670ea9932a78123-174e0a501164ef55-8221788ab20df1d8"
+type = "paragraph"
+origin = '''
+Machine Adapter V2 将继续扩充更多切片器版本、机型与喷嘴规格。
+'''
+translate = '''
+Machine Adapter V2 continues to expand coverage across slicer versions, printers, and nozzle sizes.
+'''
+
+[[block]]
+key = "1039183f53b8549d"
+type = "paragraph"
+origin = '''
+[← 2026 年 5 月](/zh/docs/releases/2026-05) · [更新日志总览](/zh/docs/releases/overview) · [2026 年 7 月 →](/zh/docs/releases/2026-07)
+'''
+translate = '''
+[← May 2026](/en/docs/releases/2026-05) · [Changelog overview](/en/docs/releases/overview) · [July 2026 →](/en/docs/releases/2026-07)
+'''
+
+[[block]]
+key = "121c66582cb19ecf"
+type = "definition"
+origin = '''
+[devlog-entry:2026-06-cloud-resources]: # "prs:242,318,478"
+'''
+translate = '''
+[devlog-entry:2026-06-cloud-resources]: # "prs:242,318,478"
+'''
+
+[[block]]
+key = "51190874da6e4409"
+type = "definition"
+origin = '''
+[devlog-entry:2026-06-machine-adapter-v2]: # "prs:253,491"
+'''
+translate = '''
+[devlog-entry:2026-06-machine-adapter-v2]: # "prs:253,491"
+'''
+
+[[block]]
+key = "87165a02d4a5552b"
+type = "definition"
+origin = '''
+[devlog-entry:2026-06-high-precision-preview]: # "prs:237,258,259,261"
+'''
+translate = '''
+[devlog-entry:2026-06-high-precision-preview]: # "prs:237,258,259,261"
+'''
+
+[[block]]
+key = "1639a42e4dfa498b"
+type = "definition"
+origin = '''
+[devlog-entry:2026-06-hybrid-material-solver]: # "prs:239,280"
+'''
+translate = '''
+[devlog-entry:2026-06-hybrid-material-solver]: # "prs:239,280"
+'''
+
+[[block]]
+key = "0a50bd303121838d"
+type = "definition"
+origin = '''
+[devlog-entry:2026-06-puzzle-complete-flow]: # "prs:304,350,407"
+'''
+translate = '''
+[devlog-entry:2026-06-puzzle-complete-flow]: # "prs:304,350,407"
+'''
+
+[[block]]
+key = "15d61ea814576345"
+type = "definition"
+origin = '''
+[devlog-entry:2026-06-replace-vs-append]: # "prs:234,256"
+'''
+translate = '''
+[devlog-entry:2026-06-replace-vs-append]: # "prs:234,256"
+'''
+
+[[block]]
+key = "d4db3000084a9d5c"
+type = "definition"
+origin = '''
+[devlog-entry:2026-06-kynix-materials]: # "prs:255,260"
+'''
+translate = '''
+[devlog-entry:2026-06-kynix-materials]: # "prs:255,260"
+'''
+
+[[block]]
+key = "b55a49f311c37b83"
+type = "definition"
+origin = '''
+[devlog-entry:2026-06-recolor-replay-masks]: # "prs:480,487"
+'''
+translate = '''
+[devlog-entry:2026-06-recolor-replay-masks]: # "prs:480,487"
+'''
+
+[[block]]
+key = "e0df934ca0d11f3a"
+type = "definition"
+origin = '''
+[devlog-entry:2026-06-highlight-transparency]: # "prs:337"
+'''
+translate = '''
+[devlog-entry:2026-06-highlight-transparency]: # "prs:337"
+'''
+
+[[block]]
+key = "fd398cfd7d125b0f"
+type = "definition"
+origin = '''
+[devlog-entry:2026-06-five-color-six-layer]: # "prs:306,310,343"
+'''
+translate = '''
+[devlog-entry:2026-06-five-color-six-layer]: # "prs:306,310,343"
+'''
+
+[[block]]
+key = "a4351efbfd97a2f1"
+type = "definition"
+origin = '''
+[devlog-entry:2026-06-colorchecker-upload-resilience]: # "prs:220,224,298,333,354,358,382"
+'''
+translate = '''
+[devlog-entry:2026-06-colorchecker-upload-resilience]: # "prs:220,224,298,333,354,358,382"
+'''
+
+[[block]]
+key = "85d64b1c48e8760d"
+type = "definition"
+origin = '''
+[devlog-entry:2026-06-legacy-lut-matching]: # "prs:476,486"
+'''
+translate = '''
+[devlog-entry:2026-06-legacy-lut-matching]: # "prs:476,486"
+'''
+
+[[block]]
+key = "1179dcf9a9bb5cf0"
+type = "definition"
+origin = '''
+[devlog-entry:2026-06-svg-outline-coating]: # "prs:219,227,232,235,244,246,252,336"
+'''
+translate = '''
+[devlog-entry:2026-06-svg-outline-coating]: # "prs:219,227,232,235,244,246,252,336"
+'''
+
+[[block]]
+key = "985dd3b5699335bf"
+type = "definition"
+origin = '''
+[devlog-entry:2026-06-svg-preview-performance]: # "prs:240,442"
+'''
+translate = '''
+[devlog-entry:2026-06-svg-preview-performance]: # "prs:240,442"
+'''
+
+[[block]]
+key = "5c83f4c8724c8f27"
+type = "definition"
+origin = '''
+[devlog-entry:2026-06-relief-layering]: # "prs:263,307,309,484"
+'''
+translate = '''
+[devlog-entry:2026-06-relief-layering]: # "prs:263,307,309,484"
+'''
+
+[[block]]
+key = "82f1068eb2b65466"
+type = "definition"
+origin = '''
+[devlog-entry:2026-06-vector-material-export]: # "prs:372,409,479,483,485,489"
+'''
+translate = '''
+[devlog-entry:2026-06-vector-material-export]: # "prs:372,409,479,483,485,489"
+'''
+
+[[block]]
+key = "6f5c03e6fdd6f5b3"
+type = "definition"
+origin = '''
+[devlog-entry:2026-06-svg-preview-sizing]: # "prs:221,238,243,403,490"
+'''
+translate = '''
+[devlog-entry:2026-06-svg-preview-sizing]: # "prs:221,238,243,403,490"
+'''
+
+[[block]]
+key = "9c081e7faaed1bc6"
+type = "definition"
+origin = '''
+[devlog-entry:2026-06-pixel-preview-fidelity]: # "prs:226,237"
+'''
+translate = '''
+[devlog-entry:2026-06-pixel-preview-fidelity]: # "prs:226,237"
+'''
+
+[[block]]
+key = "626641bdd75151ac"
+type = "definition"
+origin = '''
+[devlog-entry:2026-06-offline-ui-resilience]: # "prs:267,268,286,313,342,455,456,466"
+'''
+translate = '''
+[devlog-entry:2026-06-offline-ui-resilience]: # "prs:267,268,286,313,342,455,456,466"
+'''
+
+[[block]]
+key = "f4401bad5e33b4aa"
+type = "definition"
+origin = '''
+[devlog-entry:2026-06-snapmaker-h2c-metadata]: # "prs:479,489,491"
+'''
+translate = '''
+[devlog-entry:2026-06-snapmaker-h2c-metadata]: # "prs:479,489,491"
+'''
+
+[[block]]
+key = "402d908ae9c481fa"
+type = "definition"
+origin = '''
+[devlog-entry:2026-06-final-download-priority]: # "prs:312,314,315,316,386,388,435,468,469"
+'''
+translate = '''
+[devlog-entry:2026-06-final-download-priority]: # "prs:312,314,315,316,386,388,435,468,469"
+'''
+
+[[block]]
+key = "ba912448533ef949"
+type = "definition"
+origin = '''
+[devlog-entry:2026-06-file-session-lifecycle]: # "prs:265,266,273,274,275,276,277,278,279,281,283,284,285,287,288,290,293,302,308,311,319,321,323,324,325,326,327,328,329,347,482"
+'''
+translate = '''
+[devlog-entry:2026-06-file-session-lifecycle]: # "prs:265,266,273,274,275,276,277,278,279,281,283,284,285,287,288,290,293,302,308,311,319,321,323,324,325,326,327,328,329,347,482"
+'''
+
+[[block]]
+key = "4680300bf4cd1d55"
+type = "definition"
+origin = '''
+[devlog-entry:2026-06-feedback-reproducibility]: # "prs:290,293,295,320,344,367,378,379,419,445,447,454,481"
+'''
+translate = '''
+[devlog-entry:2026-06-feedback-reproducibility]: # "prs:290,293,295,320,344,367,378,379,419,445,447,454,481"
+'''
+
+[[block]]
+key = "7f6b2c121d64f4bb"
+type = "definition"
+origin = '''
+[devlog-entry:2026-06-safe-error-language]: # "prs:291,317,322,333,335,340,344,345,346,348,349,351,352,353,354,355,356,357,358,359,360,362,363,364,365,366,369,370,371,373,374,375,377,380,382,383,385,389,390,391,392,393,394,395,396,397,398,399,400,401,402,404,405,406,408,410,411,412,413,414,415,416,417,418,419,420,421,422,427,428,429,430,431,432,433,434,437,438,439,440,441,443,444,445,446,447,448,449,451,452,453,454,457,458,459,460,461,462,463,464,465,467,470,471,472,473,474,475,492"
+'''
+translate = '''
+[devlog-entry:2026-06-safe-error-language]: # "prs:291,317,322,333,335,340,344,345,346,348,349,351,352,353,354,355,356,357,358,359,360,362,363,364,365,366,369,370,371,373,374,375,377,380,382,383,385,389,390,391,392,393,394,395,396,397,398,399,400,401,402,404,405,406,408,410,411,412,413,414,415,416,417,418,419,420,421,422,427,428,429,430,431,432,433,434,437,438,439,440,441,443,444,445,446,447,448,449,451,452,453,454,457,458,459,460,461,462,463,464,465,467,470,471,472,473,474,475,492"
+'''
+
+[[block]]
+key = "3a4818b6c367568e"
+type = "definition"
+origin = '''
+[devlog-entry:2026-06-engineering-foundation]: # "prs:223,228,229,231,236,245,247,262,269,270,271,272,280,282,292,294,296,297,299,301,303,305,318,330,331,332,334,338,341,361,376,381,384,387,423,424,425,426,436,477"
+'''
+translate = '''
+[devlog-entry:2026-06-engineering-foundation]: # "prs:223,228,229,231,236,245,247,262,269,270,271,272,280,282,292,294,296,297,299,301,303,305,318,330,331,332,334,338,341,361,376,381,384,387,423,424,425,426,436,477"
+'''

@@ -1,0 +1,210 @@
+[metadata]
+reviewed_source = "132e68e14f8cea886c15e5fa6ed673bb1ceb9b967a8271348ed31f2d1a90ffbb"
+
+[[block]]
+key = "ccbde21b4a866d94"
+type = "yaml"
+origin = '''
+---
+title: "底板层高修改器"
+description: "底板层高修改器的计算与写入规则、支持的切片器及自动跳过条件。"
+sidebar_position: 2
+---
+'''
+translate = '''
+---
+title: "Base-plate Layer-height Modifier"
+description: "How the Base-plate Layer-height Modifier calculates variable layer ranges, where it applies, and when it is skipped."
+sidebar_position: 2
+---
+'''
+
+[[block]]
+key = "4e9932449cebbb93"
+type = "heading"
+origin = '''
+# 底板层高修改器
+'''
+translate = '''
+# Base-plate Layer-height Modifier
+'''
+
+[[block]]
+key = "e23c2264078f0584"
+type = "paragraph"
+origin = '''
+开启“底板层高修改器”后，软件会在生成的 3MF 中写入可变层高配置：纯底板部分使用较粗层高以缩短打印耗时，上方的彩色图案区域仍保持原有的精细层高。
+'''
+translate = '''
+**Base-plate Layer-height Modifier** writes variable layer-height ranges into the exported 3MF so the plain backing prints with coarser layers to save time, while the colored artwork above retains its fine layer height.
+'''
+
+[[block]]
+key = "6976de6a07818655"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-base-layer-modifier.webp').default}
+  alt="系统设置中的底板层高修改器开关"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-base-layer-modifier.webp').default}
+  alt="Base-plate layer-height modifier in System Settings"
+/>
+'''
+
+[[block]]
+key = "840ca9f0882c4758"
+type = "heading"
+origin = '''
+## 层高写入规则
+'''
+translate = '''
+## Layer-height rules
+'''
+
+[[block]]
+key = "2c4636d167a7b967"
+type = "paragraph"
+origin = '''
+底板层高取当前喷嘴直径的一半：
+'''
+translate = '''
+The base-plate layer height equals half the nozzle diameter:
+'''
+
+[[block]]
+key = "b734765e63876f10"
+type = "table"
+origin = '''
+| 喷嘴 | 底板层高 |
+| --- | --- |
+| 0.2 mm | 0.1 mm |
+| 0.4 mm | 0.2 mm |
+'''
+translate = '''
+| Nozzle | Base-plate layer height |
+| --- | --- |
+| 0.2 mm | 0.1 mm |
+| 0.4 mm | 0.2 mm |
+'''
+
+[[block]]
+key = "fb97961d346bd97d"
+type = "paragraph"
+origin = '''
+Lumina Studio 会将该区间写入 3MF 的 `layer_config_ranges` 配置中。切片软件读取工程后，即可在同一对象内为底板层与显色层分别应用对应层高。
+'''
+translate = '''
+Lumina Studio writes this range into the 3MF `layer_config_ranges` metadata, allowing compatible slicers to apply separate layer heights to the backing and color layers within the same object.
+'''
+
+[[block]]
+key = "50281cb5584c5d6b"
+type = "heading"
+origin = '''
+## 适用范围
+'''
+translate = '''
+## Scope
+'''
+
+[[block]]
+key = "883082fd2e0ef44c"
+type = "list"
+composite = true
+origin = '''
+{{883082fd2e0ef44c-2f4550f1b49e1fbf}}
+{{883082fd2e0ef44c-6c66a704e8ad1546}}
+{{883082fd2e0ef44c-4dfd460aa07fc415}}
+'''
+translate = '''
+{{883082fd2e0ef44c-2f4550f1b49e1fbf}}
+{{883082fd2e0ef44c-6c66a704e8ad1546}}
+{{883082fd2e0ef44c-4dfd460aa07fc415}}
+'''
+
+[[block]]
+key = "883082fd2e0ef44c-2f4550f1b49e1fbf"
+type = "listItem"
+composite = true
+origin = '''
+- {{883082fd2e0ef44c-2f4550f1b49e1fbf-c9e64ad5a7a0ab2e}}
+'''
+translate = '''
+- {{883082fd2e0ef44c-2f4550f1b49e1fbf-c9e64ad5a7a0ab2e}}
+'''
+
+[[block]]
+key = "883082fd2e0ef44c-2f4550f1b49e1fbf-c9e64ad5a7a0ab2e"
+type = "paragraph"
+origin = '''
+目前仅支持 Bambu 系切片器导出，切换为其他切片器时该开关会自动隐藏。
+'''
+translate = '''
+Supported for Bambu-family slicer output only; hidden when another slicer is selected.
+'''
+
+[[block]]
+key = "883082fd2e0ef44c-6c66a704e8ad1546"
+type = "listItem"
+composite = true
+origin = '''
+- {{883082fd2e0ef44c-6c66a704e8ad1546-ceeaa9932e369d36}}
+'''
+translate = '''
+- {{883082fd2e0ef44c-6c66a704e8ad1546-ceeaa9932e369d36}}
+'''
+
+[[block]]
+key = "883082fd2e0ef44c-6c66a704e8ad1546-ceeaa9932e369d36"
+type = "paragraph"
+origin = '''
+双面模型需要同时兼顾正反两面的结构与显色层顺序，生成时会自动跳过该修改器。
+'''
+translate = '''
+Automatically skipped on double-sided models, which require symmetric layer sequencing across both faces.
+'''
+
+[[block]]
+key = "883082fd2e0ef44c-4dfd460aa07fc415"
+type = "listItem"
+composite = true
+origin = '''
+- {{883082fd2e0ef44c-4dfd460aa07fc415-36953f07fd32ea9e}}
+'''
+translate = '''
+- {{883082fd2e0ef44c-4dfd460aa07fc415-36953f07fd32ea9e}}
+'''
+
+[[block]]
+key = "883082fd2e0ef44c-4dfd460aa07fc415-36953f07fd32ea9e"
+type = "paragraph"
+origin = '''
+切换开关或更改喷嘴尺寸后，需重新生成 3MF。
+'''
+translate = '''
+Regenerate the 3MF after toggling this option or changing the nozzle size.
+'''
+
+[[block]]
+key = "5453a9b1ac307b69"
+type = "paragraph"
+origin = '''
+正式打印前，建议在切片预览中检查底板层与显色层的过渡层高及耗材匹配情况。
+'''
+translate = '''
+Inspect the sliced layer-height preview before printing to confirm smooth transitions between the backing and color layers.
+'''
+
+[[block]]
+key = "d205af2330b7dceb"
+type = "paragraph"
+origin = '''
+关于首层厚度、显色层与底板层的配合关系，参见[底色层层高为什么要匹配](../../../knowledge/base-color-layer-height/base-color-layer-height.mdx)。
+'''
+translate = '''
+See [Why Base-color Layer Height Must Match](../../../knowledge/base-color-layer-height/base-color-layer-height.mdx) for details on how first layers, color layers, and backing thickness work together.
+'''

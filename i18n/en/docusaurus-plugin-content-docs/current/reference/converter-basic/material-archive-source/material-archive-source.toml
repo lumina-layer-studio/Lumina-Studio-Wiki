@@ -1,0 +1,471 @@
+[metadata]
+reviewed_source = "33ae9ea638ec6b960feba132567eeb02c8581b11962140a1719c4e0908d24b6c"
+
+[[block]]
+key = "9e608fc5cb284bea"
+type = "yaml"
+origin = '''
+---
+title: "耗材档案来源"
+description: "说明耗材档案模式下的耗材选择、叠色层数、层高、底板耗材以及求解缓存设置。"
+sidebar_position: 5
+---
+'''
+translate = '''
+---
+title: "Material Archive Source"
+description: "Configure material selection, color layers, layer height, base plate material, and solver caches in Material Archive mode."
+sidebar_position: 5
+---
+'''
+
+[[block]]
+key = "4af15dcc8dffcaf8"
+type = "heading"
+origin = '''
+# 耗材档案来源
+'''
+translate = '''
+# Material Archive Source
+'''
+
+[[block]]
+key = "56a288d88a8dd4d0"
+type = "paragraph"
+origin = '''
+耗材档案模式调用耗材库中由梯度卡实测得到的单卷耗材数据。你可以自由组合多卷已实测耗材，由 Lumina Studio 直接计算逐层叠色配方，无需依赖固定的预设 LUT。
+'''
+translate = '''
+Material Archive mode uses individual filament profiles measured from gradient cards and saved in your material library. You can freely combine measured spools and let Lumina Studio calculate layer-by-layer color recipes directly, without relying on a fixed preset LUT.
+'''
+
+[[block]]
+key = "a3219c6768aacde7"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-material-archive-source.webp').default}
+  alt="耗材档案来源中的耗材、层数、层高和底板耗材设置"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-material-archive-source.webp').default}
+  alt="Material selection, layer count, layer height, and base-plate material controls"
+/>
+'''
+
+[[block]]
+key = "19ccca7dd294295e"
+type = "heading"
+origin = '''
+## 选择耗材
+'''
+translate = '''
+## Select Materials
+'''
+
+[[block]]
+key = "d44ce6c8022e7607"
+type = "paragraph"
+origin = '''
+点击**选择耗材**打开耗材库，勾选参与叠色的耗材。确认后的列表顺序即后续配方中的材料槽顺序；增删、更换耗材或调整排列顺序都会使当前预览失效，需重新生成预览。若耗材档案在库中改过名称，软件会自动关联到更新后的档案；缺失的档案不会自动替换为其他耗材。
+'''
+translate = '''
+Click **Select Materials** to pick filaments from your material library. Once confirmed, the list order defines the material-slot order used in generated recipes. Adding, removing, replacing, or reordering materials clears the current preview so you can regenerate it with the updated set. If a material folder was renamed in the library, Lumina Studio automatically links to the updated name; missing profiles are never silently replaced with unrelated filaments.
+'''
+
+[[block]]
+key = "4db57e13f775fd5b"
+type = "heading"
+origin = '''
+## 叠色层数
+'''
+translate = '''
+## Color Layers
+'''
+
+[[block]]
+key = "7e5ea8d885eb6b1d"
+type = "paragraph"
+origin = '''
+设置每个像素配方叠印的彩色层数，可调范围为 5–10 层（默认 5 层）。同一卷耗材可以在不同打印层重复使用，因此叠色层数不受已选耗材卷数限制——例如选定 5 卷耗材时，同样可以计算 10 层叠色配方。
+'''
+translate = '''
+Sets how many printed color layers each pixel recipe stacks, adjustable from **5–10** layers (default **5**). Because the same filament can appear on multiple layers, the layer count is independent of how many spools you select—for example, a 5-spool set can still generate 10-layer recipes.
+'''
+
+[[block]]
+key = "bb2f5712805d31dc"
+type = "paragraph"
+origin = '''
+增加叠色层数能提供更丰富的候选色彩组合，同时也会增加模型高度与求解耗时。修改后需重新生成预览。
+'''
+translate = '''
+Increasing **Color Layers** expands the pool of achievable colors while also increasing model height and solve time. Regenerate the preview after changing this value.
+'''
+
+[[block]]
+key = "26dfc3e31380efaf"
+type = "heading"
+origin = '''
+## 层高
+'''
+translate = '''
+## Layer Height
+'''
+
+[[block]]
+key = "f2b524d61cf3cbf5"
+type = "paragraph"
+origin = '''
+提供 0.04、0.08 和 0.10 mm 三档。层高决定每一层的透光比例与叠色计算基准。由于不同层高下的透色表现存在差异，建议选择与梯度卡实测时一致的层高（例如按 0.08 mm 梯度卡建立的档案应搭配 0.08 mm 层高使用），以保证色彩还原准确。
+'''
+translate = '''
+Offers **0.04**, **0.08**, and **0.10 mm**. Layer height determines the light transmission and color contribution of each printed layer. Because optical behavior changes with thickness, match this setting to the layer height used when measuring your gradient cards (for instance, pair a profile calibrated at 0.08 mm with a 0.08 mm layer height) for accurate color reproduction.
+'''
+
+[[block]]
+key = "973ee71ee822518d"
+type = "heading"
+origin = '''
+## 底板耗材
+'''
+translate = '''
+## Base Plate Material
+'''
+
+[[block]]
+key = "3229a18e9c75dee3"
+type = "paragraph"
+origin = '''
+从当前已选耗材中指定用于打印底板的材料。未单独拆分结构颜色时，底板、轮廓等基础结构均默认使用该耗材。若后续从已选列表中移除了当前底板耗材，软件会自动从剩余耗材中重新指定默认项。
+'''
+translate = '''
+Chooses which of the currently selected materials forms the base plate. Unless you assign separate structure colors elsewhere, the base plate, outlines, and other foundational geometry use this filament. If you later remove that filament from the selected list, Lumina Studio automatically assigns a new default from the remaining materials.
+'''
+
+[[block]]
+key = "102ea57e9ca8deb4"
+type = "heading"
+origin = '''
+## 穷举缓存
+'''
+translate = '''
+## Exhaustive Cache
+'''
+
+[[block]]
+key = "84b6b2d4de2a2f17"
+type = "paragraph"
+origin = '''
+选定至少一卷耗材后，**穷举缓存…** 按钮可用，用于为当前耗材组合构建并持久化保存完整的精确配方库。每份缓存与以下五项参数一一对应：
+'''
+translate = '''
+**Exhaustive cache…** becomes available once at least one material is selected. It builds and saves a complete, exact recipe library on disk for the active setup. Each cache file is keyed to five parameters:
+'''
+
+[[block]]
+key = "3797067e8ae0095a"
+type = "list"
+composite = true
+origin = '''
+{{3797067e8ae0095a-7535833ac51dd468}}
+{{3797067e8ae0095a-75354abb099bf52e}}
+{{3797067e8ae0095a-db435b0ec7ef5395}}
+{{3797067e8ae0095a-6f431a603af292ec}}
+{{3797067e8ae0095a-f56c78e4787685b3}}
+'''
+translate = '''
+{{3797067e8ae0095a-7535833ac51dd468}}
+{{3797067e8ae0095a-75354abb099bf52e}}
+{{3797067e8ae0095a-db435b0ec7ef5395}}
+{{3797067e8ae0095a-6f431a603af292ec}}
+{{3797067e8ae0095a-f56c78e4787685b3}}
+'''
+
+[[block]]
+key = "3797067e8ae0095a-7535833ac51dd468"
+type = "listItem"
+composite = true
+origin = '''
+- {{3797067e8ae0095a-7535833ac51dd468-972ec462dae05d66}}
+'''
+translate = '''
+- {{3797067e8ae0095a-7535833ac51dd468-972ec462dae05d66}}
+'''
+
+[[block]]
+key = "3797067e8ae0095a-7535833ac51dd468-972ec462dae05d66"
+type = "paragraph"
+origin = '''
+已选耗材及其排列顺序；
+'''
+translate = '''
+Selected materials and their exact order;
+'''
+
+[[block]]
+key = "3797067e8ae0095a-75354abb099bf52e"
+type = "listItem"
+composite = true
+origin = '''
+- {{3797067e8ae0095a-75354abb099bf52e-42d17e032cb296b9}}
+'''
+translate = '''
+- {{3797067e8ae0095a-75354abb099bf52e-42d17e032cb296b9}}
+'''
+
+[[block]]
+key = "3797067e8ae0095a-75354abb099bf52e-42d17e032cb296b9"
+type = "paragraph"
+origin = '''
+叠色层数；
+'''
+translate = '''
+**Color Layers** count;
+'''
+
+[[block]]
+key = "3797067e8ae0095a-db435b0ec7ef5395"
+type = "listItem"
+composite = true
+origin = '''
+- {{3797067e8ae0095a-db435b0ec7ef5395-d4b83dc4eecf0599}}
+'''
+translate = '''
+- {{3797067e8ae0095a-db435b0ec7ef5395-d4b83dc4eecf0599}}
+'''
+
+[[block]]
+key = "3797067e8ae0095a-db435b0ec7ef5395-d4b83dc4eecf0599"
+type = "paragraph"
+origin = '''
+层高；
+'''
+translate = '''
+**Layer Height**;
+'''
+
+[[block]]
+key = "3797067e8ae0095a-6f431a603af292ec"
+type = "listItem"
+composite = true
+origin = '''
+- {{3797067e8ae0095a-6f431a603af292ec-2ed9b292dfce1e6e}}
+'''
+translate = '''
+- {{3797067e8ae0095a-6f431a603af292ec-2ed9b292dfce1e6e}}
+'''
+
+[[block]]
+key = "3797067e8ae0095a-6f431a603af292ec-2ed9b292dfce1e6e"
+type = "paragraph"
+origin = '''
+基底类型；
+'''
+translate = '''
+Substrate type;
+'''
+
+[[block]]
+key = "3797067e8ae0095a-f56c78e4787685b3"
+type = "listItem"
+composite = true
+origin = '''
+- {{3797067e8ae0095a-f56c78e4787685b3-17f7d588b441ef85}}
+'''
+translate = '''
+- {{3797067e8ae0095a-f56c78e4787685b3-17f7d588b441ef85}}
+'''
+
+[[block]]
+key = "3797067e8ae0095a-f56c78e4787685b3-17f7d588b441ef85"
+type = "paragraph"
+origin = '''
+设置页中选定的 Lab 网格精度。
+'''
+translate = '''
+Lab-grid density configured in Settings.
+'''
+
+[[block]]
+key = "2857356e1cceaacf"
+type = "paragraph"
+origin = '''
+修改其中任意一项后，软件都会自动切换并查询新参数对应的缓存文件。
+'''
+translate = '''
+Changing any of these parameters switches Lumina Studio to the cache file matching the new configuration.
+'''
+
+[[block]]
+key = "65b562174a9d51cd"
+type = "paragraph"
+origin = '''
+缓存构建完成后，面板会显示构建时间、文件大小、有效格数、平均与最大 ΔE，以及构建耗时。点击**查看色彩分布图**可查看该缓存的 Lab / RGB 色彩空间分布；**重新构建**会覆盖当前参数组合的既有缓存；**删除缓存**仅移除当前耗材组合与当前网格精度对应的缓存文件。
+'''
+translate = '''
+Once built, the panel displays the build timestamp, file size, occupied grid cells, mean and maximum ΔE, and build duration. **View color charts** inspects the Lab and RGB coverage of the cache, **Rebuild** overwrites the cache for the current parameter set, and **Delete cache** removes only the file for the active combination and grid density.
+'''
+
+[[block]]
+key = "3103322175fe63e9"
+type = "paragraph"
+origin = '''
+若当前组合尚未构建穷举缓存，图像转换时会按档位从高到低查找已保存的智能配方缓存；若两者均不存在，则会临时生成一份上限约 100 万条候选配方的运行时缓存以完成预览（其候选色彩覆盖范围小于完整穷举）。
+'''
+translate = '''
+When no exhaustive cache exists for the active setup, conversion checks saved Smart Recipe Caches from the largest budget downward. If none is found, Lumina Studio builds a temporary runtime cache of up to roughly 1M candidates so you can still preview right away, though with narrower color coverage than a full exhaustive build.
+'''
+
+[[block]]
+key = "008b9e4e758e94e6"
+type = "heading"
+origin = '''
+## 智能配方缓存
+'''
+translate = '''
+## Smart Recipe Cache
+'''
+
+[[block]]
+key = "4e0830373079fcdb"
+type = "paragraph"
+origin = '''
+当耗材卷数或叠色层数较多、完整排列组合过于庞大时，可使用智能配方缓存。它在固定候选预算内筛选并保存一组色域覆盖较广的代表性配方，提供约 100 万、400 万、800 万、3200 万和 6400 万条五个档位，默认为 3200 万条。
+'''
+translate = '''
+Smart Recipe Cache is designed for larger filament sets or higher layer counts where enumerating every permutation would be impractical. It samples and stores a broadly distributed set of recipes within a fixed candidate budget: **1M**, **4M**, **8M**, **32M** (default), or **64M** candidates.
+'''
+
+[[block]]
+key = "beab60311a733132"
+type = "paragraph"
+origin = '''
+档位越高，候选配方的色彩覆盖通常越广，构建耗时、磁盘占用和构建期间的峰值内存也相应增加。状态区会显示实际保存的配方数、候选预算、文件大小、构建时间及反推精修状态；点击**查看配方覆盖图**可查看这组候选配方在色彩空间中的分布情况。
+'''
+translate = '''
+Higher budgets cover more of the color space at the cost of longer build times, larger cache files, and higher peak memory during construction. The status panel shows the saved recipe count, candidate budget, file size, build timestamp, and inverse-refinement status. Click **View recipe coverage** to inspect how the saved candidates are distributed in color space.
+'''
+
+[[block]]
+key = "c239130a454bf793"
+type = "paragraph"
+origin = '''
+穷举缓存与智能配方缓存独立存储、互不覆盖。转换时会优先调用匹配当前参数的穷举缓存，仅在无对应穷举缓存时使用智能配方缓存。
+'''
+translate = '''
+Exhaustive and smart caches are stored separately and never overwrite each other. During conversion, a matching Exhaustive Cache always takes priority; Smart Recipe Cache is used when no exhaustive cache is available.
+'''
+
+[[block]]
+key = "2ebb014b8f68bd72"
+type = "heading"
+origin = '''
+## 相关页面
+'''
+translate = '''
+## Related pages
+'''
+
+[[block]]
+key = "1edb2d0d5392b5a9"
+type = "list"
+composite = true
+origin = '''
+{{1edb2d0d5392b5a9-1d1ca4a76c5a99ec}}
+{{1edb2d0d5392b5a9-f395fb9482c1b64f}}
+{{1edb2d0d5392b5a9-b8a75b300f64eb28}}
+{{1edb2d0d5392b5a9-6191a15f867e66d8}}
+'''
+translate = '''
+{{1edb2d0d5392b5a9-1d1ca4a76c5a99ec}}
+{{1edb2d0d5392b5a9-f395fb9482c1b64f}}
+{{1edb2d0d5392b5a9-b8a75b300f64eb28}}
+{{1edb2d0d5392b5a9-6191a15f867e66d8}}
+'''
+
+[[block]]
+key = "1edb2d0d5392b5a9-1d1ca4a76c5a99ec"
+type = "listItem"
+composite = true
+origin = '''
+- {{1edb2d0d5392b5a9-1d1ca4a76c5a99ec-a020f62f139cb728}}
+'''
+translate = '''
+- {{1edb2d0d5392b5a9-1d1ca4a76c5a99ec-a020f62f139cb728}}
+'''
+
+[[block]]
+key = "1edb2d0d5392b5a9-1d1ca4a76c5a99ec-a020f62f139cb728"
+type = "paragraph"
+origin = '''
+[耗材库管理](../../../knowledge/material-library-management/material-library-management.mdx)
+'''
+translate = '''
+[Managing the Material Library](../../../knowledge/material-library-management/material-library-management.mdx)
+'''
+
+[[block]]
+key = "1edb2d0d5392b5a9-f395fb9482c1b64f"
+type = "listItem"
+composite = true
+origin = '''
+- {{1edb2d0d5392b5a9-f395fb9482c1b64f-c729cc90dac4bc65}}
+'''
+translate = '''
+- {{1edb2d0d5392b5a9-f395fb9482c1b64f-c729cc90dac4bc65}}
+'''
+
+[[block]]
+key = "1edb2d0d5392b5a9-f395fb9482c1b64f-c729cc90dac4bc65"
+type = "paragraph"
+origin = '''
+[耗材选择](../../../knowledge/filament-selection/filament-selection.mdx)
+'''
+translate = '''
+[Choosing filaments](../../../knowledge/filament-selection/filament-selection.mdx)
+'''
+
+[[block]]
+key = "1edb2d0d5392b5a9-b8a75b300f64eb28"
+type = "listItem"
+composite = true
+origin = '''
+- {{1edb2d0d5392b5a9-b8a75b300f64eb28-3fbba44da78bdca9}}
+'''
+translate = '''
+- {{1edb2d0d5392b5a9-b8a75b300f64eb28-3fbba44da78bdca9}}
+'''
+
+[[block]]
+key = "1edb2d0d5392b5a9-b8a75b300f64eb28-3fbba44da78bdca9"
+type = "paragraph"
+origin = '''
+[穷举缓存精度](../../settings-import-export/solver-cache-density/solver-cache-density.mdx)
+'''
+translate = '''
+[Exhaustive Cache Density](../../settings-import-export/solver-cache-density/solver-cache-density.mdx)
+'''
+
+[[block]]
+key = "1edb2d0d5392b5a9-6191a15f867e66d8"
+type = "listItem"
+composite = true
+origin = '''
+- {{1edb2d0d5392b5a9-6191a15f867e66d8-c330205a22413743}}
+'''
+translate = '''
+- {{1edb2d0d5392b5a9-6191a15f867e66d8-c330205a22413743}}
+'''
+
+[[block]]
+key = "1edb2d0d5392b5a9-6191a15f867e66d8-c330205a22413743"
+type = "paragraph"
+origin = '''
+[来源类型](../source-type/source-type.mdx)
+'''
+translate = '''
+[Source Type](../source-type/source-type.mdx)
+'''

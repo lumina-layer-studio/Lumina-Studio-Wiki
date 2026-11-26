@@ -1,0 +1,262 @@
+[metadata]
+reviewed_source = "9dcd54ab003522a069daf17e1324b6450fc51286f9bd2122fda0a1ad781720e6"
+
+[[block]]
+key = "fed80dc384b75250"
+type = "yaml"
+origin = '''
+---
+title: "切片软件与下载"
+description: "说明主输出按钮动作、本机切片软件检测与切换、3MF 下载以及大画幅分块压缩包导出。"
+sidebar_position: 13
+---
+'''
+translate = '''
+---
+title: "Slicer and downloads"
+description: "Launch detected slicers directly, switch target applications, or download single 3MF files and tiled Large Format ZIP archives."
+sidebar_position: 13
+---
+'''
+
+[[block]]
+key = "900cdda489bf91f5"
+type = "heading"
+origin = '''
+# 切片软件与下载
+'''
+translate = '''
+# Slicer and downloads
+'''
+
+[[block]]
+key = "73d58ca5e85714e9"
+type = "paragraph"
+origin = '''
+Lumina Studio 会自动检测本机已安装的切片软件，并默认选中“设置”里指定的首选切片软件。主输出按钮的具体动作取决于本机是否检测到可用切片软件、当前是否已生成 3MF，以及是否启用了大画幅或独立背板。
+'''
+translate = '''
+Lumina Studio detects compatible slicers installed on your computer and prioritizes the preferred application configured in Settings. What the primary output button does depends on whether a slicer is available, whether a 3MF is already built, and whether Large Format or separate backing is enabled.
+'''
+
+[[block]]
+key = "8525c25e6440e50c"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-slicer-list.webp').default}
+  alt="操作栏中的切片软件列表与下载 3MF 选项"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-slicer-list.webp').default}
+  alt="Detected slicers and the Download 3MF option"
+/>
+'''
+
+[[block]]
+key = "434213af30a2934b"
+type = "heading"
+origin = '''
+## 主按钮动作
+'''
+translate = '''
+## Primary Button Actions
+'''
+
+[[block]]
+key = "13f75c6ed78152a6"
+type = "table"
+origin = '''
+| 当前状态 | 点击主按钮后的动作 |
+| --- | --- |
+| 已检测到切片软件，尚未生成 3MF | 先生成 3MF，随后在所选切片软件中打开 |
+| 已检测到切片软件，已有现成 3MF | 直接将当前 3MF 发送至所选切片软件打开 |
+| 未检测到切片软件 | 生成并下载 3MF（已有现成文件时直接下载） |
+| 大画幅模式 | 生成或下载包含多块分片 3MF 的 ZIP 压缩包，不自动拉起切片软件 |
+| 独立背板工程 | 下载包含主体模型与背板两个独立 3MF 的 ZIP 压缩包，解压后分别导入切片软件 |
+'''
+translate = '''
+| Current state | Action when clicked |
+| --- | --- |
+| Slicer detected, 3MF not yet built | Generates the 3MF and opens it in the selected slicer |
+| Slicer detected, 3MF ready | Opens the current 3MF directly in the selected slicer |
+| No slicer detected | Generates and downloads the 3MF (or downloads the ready file) |
+| Large Format enabled | Generates or downloads a ZIP archive of tiled 3MF files without auto-opening a slicer |
+| Separate backing project | Downloads a ZIP archive containing separate model and backing 3MFs to unpack and open individually |
+'''
+
+[[block]]
+key = "24afbdd9c9ecc44b"
+type = "paragraph"
+origin = '''
+你也可以随时展开按钮右侧的下拉菜单，选择**生成并下载 3MF**将文件保存到本地（若尚未生成 3MF，软件会先完成生成再下载）。若“设置”中指定的首选切片软件未在本机安装，界面会弹出提示，方便你改选其他已安装软件或直接下载 3MF。
+'''
+translate = '''
+You can also open the dropdown menu next to the button and select **Generate & Download 3MF** at any time—if no 3MF exists yet, Lumina Studio builds it first and saves it without launching a slicer. If the preferred slicer set in Settings is not installed, Lumina Studio notifies you so you can pick another detected slicer or download the file directly.
+'''
+
+[[block]]
+key = "b56ab6d351d38d29"
+type = "paragraph"
+origin = '''
+生成前若弹出耗材预设或打印板尺寸确认窗口，请先完成对应选择。修改原图、配色或结构设置后，需重新生成并导出最新 3MF。桌面版支持在“设置”中指定默认保存目录：保存对话框会默认定位到该目录，单次导出时仍可手动改选其他文件夹。
+'''
+translate = '''
+If a filament-preset or build-plate prompt appears before generation, confirm those choices first. Whenever you edit the artwork, color assignments, or structure settings, generate a fresh 3MF so your exported file reflects the latest changes. In the desktop app, you can configure a default save folder in Settings; save dialogs open there first while still letting you pick another folder per download.
+'''
+
+[[block]]
+key = "0d3df9abebfb1d9a"
+type = "heading"
+origin = '''
+## 导入切片软件后的检查项
+'''
+translate = '''
+## Checks in Your Slicer
+'''
+
+[[block]]
+key = "b9bddb0399355f80"
+type = "paragraph"
+origin = '''
+3MF 文件内已写入模型几何与材料信息，但最终上机打印的参数仍由切片软件决定。正式切片前建议逐项确认：
+'''
+translate = '''
+A 3MF carries mesh geometry and material metadata, while your slicer controls the final machine-specific settings. Before sending a print job, verify:
+'''
+
+[[block]]
+key = "b105a8501846c826"
+type = "list"
+composite = true
+origin = '''
+{{b105a8501846c826-34c43a7a5566be6d}}
+{{b105a8501846c826-4f2f4d9faf4237e5}}
+{{b105a8501846c826-0c104e0bd2634dc7}}
+{{b105a8501846c826-58c48a73024d9404}}
+{{b105a8501846c826-3c8d4123fdcd9143}}
+'''
+translate = '''
+{{b105a8501846c826-34c43a7a5566be6d}}
+{{b105a8501846c826-4f2f4d9faf4237e5}}
+{{b105a8501846c826-0c104e0bd2634dc7}}
+{{b105a8501846c826-58c48a73024d9404}}
+{{b105a8501846c826-3c8d4123fdcd9143}}
+'''
+
+[[block]]
+key = "b105a8501846c826-34c43a7a5566be6d"
+type = "listItem"
+composite = true
+origin = '''
+1. {{b105a8501846c826-34c43a7a5566be6d-c399683474c2a945}}
+'''
+translate = '''
+1. {{b105a8501846c826-34c43a7a5566be6d-c399683474c2a945}}
+'''
+
+[[block]]
+key = "b105a8501846c826-34c43a7a5566be6d-c399683474c2a945"
+type = "paragraph"
+origin = '''
+打印机型号与喷嘴直径；
+'''
+translate = '''
+Printer model and nozzle diameter;
+'''
+
+[[block]]
+key = "b105a8501846c826-4f2f4d9faf4237e5"
+type = "listItem"
+composite = true
+origin = '''
+2. {{b105a8501846c826-4f2f4d9faf4237e5-cec69b6c42c98b01}}
+'''
+translate = '''
+2. {{b105a8501846c826-4f2f4d9faf4237e5-cec69b6c42c98b01}}
+'''
+
+[[block]]
+key = "b105a8501846c826-4f2f4d9faf4237e5-cec69b6c42c98b01"
+type = "paragraph"
+origin = '''
+每个对象映射的实际耗材槽位；
+'''
+translate = '''
+Physical filament slot assigned to each object;
+'''
+
+[[block]]
+key = "b105a8501846c826-0c104e0bd2634dc7"
+type = "listItem"
+composite = true
+origin = '''
+3. {{b105a8501846c826-0c104e0bd2634dc7-4e891ed30ef50bd2}}
+'''
+translate = '''
+3. {{b105a8501846c826-0c104e0bd2634dc7-4e891ed30ef50bd2}}
+'''
+
+[[block]]
+key = "b105a8501846c826-0c104e0bd2634dc7-4e891ed30ef50bd2"
+type = "paragraph"
+origin = '''
+模型是否平整贴合在打印板上；
+'''
+translate = '''
+Flat contact between the model and the build plate;
+'''
+
+[[block]]
+key = "b105a8501846c826-58c48a73024d9404"
+type = "listItem"
+composite = true
+origin = '''
+4. {{b105a8501846c826-58c48a73024d9404-fe9631b9fc953a95}}
+'''
+translate = '''
+4. {{b105a8501846c826-58c48a73024d9404-fe9631b9fc953a95}}
+'''
+
+[[block]]
+key = "b105a8501846c826-58c48a73024d9404-fe9631b9fc953a95"
+type = "paragraph"
+origin = '''
+首层朝向与显色面方向；
+'''
+translate = '''
+First-layer orientation and display-face direction;
+'''
+
+[[block]]
+key = "b105a8501846c826-3c8d4123fdcd9143"
+type = "listItem"
+composite = true
+origin = '''
+5. {{b105a8501846c826-3c8d4123fdcd9143-971c2b59643e4fd0}}
+'''
+translate = '''
+5. {{b105a8501846c826-3c8d4123fdcd9143-971c2b59643e4fd0}}
+'''
+
+[[block]]
+key = "b105a8501846c826-3c8d4123fdcd9143-971c2b59643e4fd0"
+type = "paragraph"
+origin = '''
+逐层切片预览中的细线条、孔洞与附加结构是否完整保留。
+'''
+translate = '''
+Fine lines, holes, and attached geometry in the layer-by-layer slice preview.
+'''
+
+[[block]]
+key = "06e12fa44a917e75"
+type = "paragraph"
+origin = '''
+相关教程：[切片软件中的耗材映射](../../../tutorials/slicer-material-mapping/slicer-material-mapping.mdx)。
+'''
+translate = '''
+Related guide: [Material mapping in a slicer](../../../tutorials/slicer-material-mapping/slicer-material-mapping.mdx).
+'''

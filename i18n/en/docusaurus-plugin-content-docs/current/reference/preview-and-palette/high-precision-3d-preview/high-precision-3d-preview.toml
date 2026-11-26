@@ -1,0 +1,320 @@
+[metadata]
+migration_layout = "preserved English structure; root blocks retain grouped or omitted source sections"
+reviewed_source = "7dad94c5023c0bcb640fb6f1029d5722bd84d4b16baf89195f32dd6ec34999c3"
+
+[[block]]
+key = "807526add9dd91aa"
+type = "yaml"
+origin = '''
+---
+title: "3D 高精度颜色预览"
+description: "提高浏览器 3D 预览的颜色网格上限，以及它与量化颜色数和打印数据的关系。"
+sidebar_position: 9
+---
+'''
+translate = '''
+---
+title: "High-precision 3D Color Preview"
+description: "How High-precision 3D Color Preview raises the GLB mesh-color limit, interacts with Quantize Colors, and affects browser rendering."
+sidebar_position: 9
+---
+'''
+
+[[block]]
+key = "c34a817e4b7f50e3"
+type = "heading"
+origin = '''
+# 3D 高精度颜色预览
+'''
+translate = '''
+# High-precision 3D Color Preview
+'''
+
+[[block]]
+key = "6ebb645fcabcb834"
+type = "paragraph"
+origin = '''
+**3D 高精度颜色预览**用于放宽浏览器 3D 预览保留的颜色网格数量上限，让高色数图像在 3D 画布中呈现更细致的局部过渡。此项默认关闭，仅影响浏览器中的 3D 预览显示，不改变 2D 颜色预览与 3MF 中的实际打印配方。
+'''
+translate = '''
+**High-precision 3D Color Preview** raises the maximum number of color meshes retained in the browser's GLB preview so high-color conversions show finer tonal detail on the 3D canvas. Disabled by default, it affects only the in-browser 3D display while leaving the 2D color preview and exported 3MF material recipes unchanged.
+'''
+
+[[block]]
+key = "0ef779c18ec11294"
+type = "heading"
+origin = '''
+## 控件位置
+'''
+translate = '''
+## Location
+
+Open **Converter → Core Settings → Advanced Settings**, then locate **High-precision 3D color preview**.
+'''
+
+[[block]]
+key = "b1505c9b6b122154"
+type = "list"
+composite = true
+origin = '''
+{{b1505c9b6b122154-cd8f9706e8e9ef24}}
+{{b1505c9b6b122154-048d5eb915d8f09f}}
+{{b1505c9b6b122154-24ad40195493a58d}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b1505c9b6b122154-cd8f9706e8e9ef24"
+type = "listItem"
+composite = true
+origin = '''
+1. {{b1505c9b6b122154-cd8f9706e8e9ef24-e89a1c8e70858156}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b1505c9b6b122154-cd8f9706e8e9ef24-e89a1c8e70858156"
+type = "paragraph"
+origin = '''
+进入**图像转换**。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b1505c9b6b122154-048d5eb915d8f09f"
+type = "listItem"
+composite = true
+origin = '''
+2. {{b1505c9b6b122154-048d5eb915d8f09f-35b6d0eb2b982839}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b1505c9b6b122154-048d5eb915d8f09f-35b6d0eb2b982839"
+type = "paragraph"
+origin = '''
+展开**核心设置**下的**高级设置**。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b1505c9b6b122154-24ad40195493a58d"
+type = "listItem"
+composite = true
+origin = '''
+3. {{b1505c9b6b122154-24ad40195493a58d-cbe9e03962053d46}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b1505c9b6b122154-24ad40195493a58d-cbe9e03962053d46"
+type = "paragraph"
+origin = '''
+找到**3D 高精度颜色预览**。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "06c06bd7a01752a1"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-high-precision-3d-preview-location.webp').default}
+  alt="Lumina Studio 高级设置中的 3D 高精度颜色预览开关"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-high-precision-3d-preview-location.webp').default}
+  alt="High-precision 3D Colour Preview in Lumina Studio Advanced Settings"
+/>
+'''
+
+[[block]]
+key = "d36be841f0af8bbf"
+type = "heading"
+origin = '''
+## 默认预览上限
+'''
+translate = '''
+## Default preview limit
+'''
+
+[[block]]
+key = "a3c2de42830e6718"
+type = "paragraph"
+origin = '''
+常规 3D 预览最多保留 **128** 个颜色网格。当画面颜色数超过 128 时，系统会按像素占比保留主要高频颜色，并将低频颜色归并到色彩空间中最接近的高频颜色，以控制浏览器需要渲染的网格规模。
+'''
+translate = '''
+Standard 3D previews retain up to **128** color meshes. When a conversion contains more than 128 colors, Lumina keeps the most frequent colors by pixel coverage and merges lower-frequency shades into their nearest retained color in color space to keep browser rendering responsive.
+'''
+
+[[block]]
+key = "ff4c5020161f5171"
+type = "heading"
+origin = '''
+## 开启后的上限
+'''
+translate = '''
+## Limit when enabled
+'''
+
+[[block]]
+key = "091c34bfa3f0524f"
+type = "paragraph"
+origin = '''
+开启后，当[量化颜色数](../../converter-basic/quantize-colors/quantize-colors.mdx)高于 128 时，3D 预览的颜色网格上限会同步提升至当前量化颜色数：
+'''
+translate = '''
+When [Quantize Colors](../../converter-basic/quantize-colors/quantize-colors.mdx) is set above 128, enabling this option raises the GLB mesh limit to match your active **Quantize Colors** setting:
+'''
+
+[[block]]
+key = "44af592892ad7817"
+type = "table"
+origin = '''
+| 当前量化颜色数 | 常规预览上限 | 开启高精度预览后 |
+| ---: | ---: | ---: |
+| 64 | 128 | 128（显示效果不变） |
+| 128 | 128 | 128 |
+| 256 | 128 | 256 |
+| 512 | 128 | 512 |
+'''
+translate = '''
+| Quantize Colors | Standard preview limit | High-precision preview |
+| ---: | ---: | ---: |
+| 64 | 128 | 128 (unchanged) |
+| 128 | 128 | 128 |
+| 256 | 128 | 256 |
+| 512 | 128 | 512 |
+'''
+
+[[block]]
+key = "dcc4949ad2ef810e"
+type = "paragraph"
+origin = '''
+像素建模模式默认直接按当前量化颜色数生成预览，在该模式下切换此开关不会改变网格数量。
+'''
+translate = '''
+Pixel Art mode already uses the current **Quantize Colors** value as its preview limit, so toggling this option has no extra effect in that mode.
+'''
+
+[[block]]
+key = "4b81314bb9e2fdfc"
+type = "heading"
+origin = '''
+## 性能与导出说明
+'''
+translate = '''
+## Performance and export behavior
+'''
+
+[[block]]
+key = "7b1b9688a7cc8096"
+type = "paragraph"
+origin = '''
+保留的颜色网格越多，生成的 GLB 体积越大，轮廓提取、网格构建、数据传输与 Three.js 实时渲染耗时也会相应增加。同时开启高量化颜色数与 3D 高精度颜色预览时，内存和显存占用会明显上升。
+'''
+translate = '''
+Retaining more color meshes increases GLB file size as well as contour extraction, mesh building, transfer time, and Three.js rendering load. Combining a high **Quantize Colors** setting with **High-precision 3D Color Preview** increases both RAM and GPU memory usage.
+'''
+
+[[block]]
+key = "2826a88ed70dc7ac"
+type = "paragraph"
+origin = '''
+切换此开关后，需重新运行预览或生成以刷新 3D 模型；检查最终可打印结构请以切片软件预览为准。该开关状态会随 Lumina 配方卡一并保存。
+'''
+translate = '''
+After toggling this option, re-run **Preview** or **Generate** to rebuild the 3D view. Always check your slicer preview to verify the final printable structure. Lumina recipe cards save this setting automatically.
+'''
+
+[[block]]
+key = "2ebb014b8f68bd72"
+type = "heading"
+origin = '''
+## 相关页面
+'''
+translate = '''
+## Related pages
+'''
+
+[[block]]
+key = "fdb4e50c6879b631"
+type = "list"
+composite = true
+origin = '''
+{{fdb4e50c6879b631-0760dbe789b14d71}}
+{{fdb4e50c6879b631-78cd8f80297440b4}}
+{{fdb4e50c6879b631-014853c3daa66037}}
+'''
+translate = '''
+- [Quantize Colors](../../converter-basic/quantize-colors/quantize-colors.mdx)
+- [Unlock Quantize Ceiling](../../color-matching/unlock-quantize-ceiling/unlock-quantize-ceiling.mdx)
+- [Why Lumina Preview, Slicer Preview, and the Print Differ](../../../knowledge/preview-slicer-print-differences/preview-slicer-print-differences.mdx)
+'''
+
+[[block]]
+key = "fdb4e50c6879b631-0760dbe789b14d71"
+type = "listItem"
+composite = true
+origin = '''
+- {{fdb4e50c6879b631-0760dbe789b14d71-b70dd73d6108ec62}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "fdb4e50c6879b631-0760dbe789b14d71-b70dd73d6108ec62"
+type = "paragraph"
+origin = '''
+[量化颜色数](../../converter-basic/quantize-colors/quantize-colors.mdx)
+'''
+translate = '''
+'''
+
+[[block]]
+key = "fdb4e50c6879b631-78cd8f80297440b4"
+type = "listItem"
+composite = true
+origin = '''
+- {{fdb4e50c6879b631-78cd8f80297440b4-91c38b38fefbf9e3}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "fdb4e50c6879b631-78cd8f80297440b4-91c38b38fefbf9e3"
+type = "paragraph"
+origin = '''
+[解锁量化颜色数](../../color-matching/unlock-quantize-ceiling/unlock-quantize-ceiling.mdx)
+'''
+translate = '''
+'''
+
+[[block]]
+key = "fdb4e50c6879b631-014853c3daa66037"
+type = "listItem"
+composite = true
+origin = '''
+- {{fdb4e50c6879b631-014853c3daa66037-3a29d0f832cefddd}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "fdb4e50c6879b631-014853c3daa66037-3a29d0f832cefddd"
+type = "paragraph"
+origin = '''
+[切片预览、软件预览与实物为什么不同](../../../knowledge/preview-slicer-print-differences/preview-slicer-print-differences.mdx)
+'''
+translate = '''
+'''

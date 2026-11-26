@@ -1,0 +1,539 @@
+[metadata]
+reviewed_source = "79625a483f4d8c0bff1d73f1e8b6600761d2eae94ef385a1a6286b627fcd7690"
+
+[[block]]
+key = "8115d002d3fcab0f"
+type = "yaml"
+origin = '''
+---
+title: "内容许可与知识产权"
+description: "了解 Lumina Studio Wiki 内容的使用许可、署名方式和第三方素材边界。"
+sidebar_position: 14
+---
+'''
+translate = '''
+---
+title: "Content License and Intellectual Property"
+description: "How Lumina Studio Wiki content may be reused, attributed, and distinguished from third-party material."
+sidebar_position: 14
+---
+'''
+
+[[block]]
+key = "1592e16cd11adfaf"
+type = "heading"
+origin = '''
+# 内容许可与知识产权
+'''
+translate = '''
+# Content License and Intellectual Property
+'''
+
+[[block]]
+key = "f956ac62594c2a1c"
+type = "paragraph"
+origin = '''
+除页面或素材另有说明外，Lumina Studio 对本 Wiki 中享有著作权的原创公开内容采用[知识共享署名—非商业性使用—相同方式共享 4.0 国际许可协议（CC BY-NC-SA 4.0）](https://creativecommons.org/licenses/by-nc-sa/4.0/)授权。你也可以查看 Creative Commons 官方提供的[简体中文许可摘要](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans)。
+'''
+translate = '''
+Unless a page or asset states otherwise, original public Wiki content for which Lumina Studio holds copyright is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International license (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+'''
+
+[[block]]
+key = "50281cb5584c5d6b"
+type = "heading"
+origin = '''
+## 适用范围
+'''
+translate = '''
+## Scope
+'''
+
+[[block]]
+key = "dd041ca389d7487a"
+type = "paragraph"
+origin = '''
+本声明适用于本 Wiki 已发布与后续发布的原创公开内容，涵盖 Lumina Studio 享有相应权利的原创文字、表格、示意图、标注与媒体素材。
+'''
+translate = '''
+This notice covers past, current, and future original public Wiki content—including original text, tables, diagrams, annotations, and media—where Lumina Studio holds the necessary rights.
+'''
+
+[[block]]
+key = "9bf9f915de0cf5cb"
+type = "paragraph"
+origin = '''
+若具体页面、图片或视频附有单独的署名、许可或“仅授权本 Wiki 使用”等标注，以该特别说明为准。Lumina Studio 仅对自身拥有著作权或获准再许可的内容授予许可。
+'''
+translate = '''
+If a specific page, image, or video carries a separate credit, license, or "permission for this Wiki only" notice, that specific notice governs. Lumina Studio licenses only material that it owns or is authorized to sublicense.
+'''
+
+[[block]]
+key = "56d86c992d0ea259"
+type = "heading"
+origin = '''
+## 你可以做什么
+'''
+translate = '''
+## What you may do
+'''
+
+[[block]]
+key = "59bda5ed73460616"
+type = "paragraph"
+origin = '''
+在遵守许可条件的前提下，你可以：
+'''
+translate = '''
+Under the license terms, you may:
+'''
+
+[[block]]
+key = "2f85d74da19e8387"
+type = "list"
+composite = true
+origin = '''
+{{2f85d74da19e8387-7c8024f09cb64ca8}}
+{{2f85d74da19e8387-11cfb70e23340bea}}
+{{2f85d74da19e8387-ca0762fcd1517b04}}
+'''
+translate = '''
+{{2f85d74da19e8387-7c8024f09cb64ca8}}
+{{2f85d74da19e8387-11cfb70e23340bea}}
+{{2f85d74da19e8387-ca0762fcd1517b04}}
+'''
+
+[[block]]
+key = "2f85d74da19e8387-7c8024f09cb64ca8"
+type = "listItem"
+composite = true
+origin = '''
+- {{2f85d74da19e8387-7c8024f09cb64ca8-fd656e3624587223}}
+'''
+translate = '''
+- {{2f85d74da19e8387-7c8024f09cb64ca8-fd656e3624587223}}
+'''
+
+[[block]]
+key = "2f85d74da19e8387-7c8024f09cb64ca8-fd656e3624587223"
+type = "paragraph"
+origin = '''
+复制并分享许可范围内的内容；
+'''
+translate = '''
+Copy and share the licensed material
+'''
+
+[[block]]
+key = "2f85d74da19e8387-11cfb70e23340bea"
+type = "listItem"
+composite = true
+origin = '''
+- {{2f85d74da19e8387-11cfb70e23340bea-31f54fe822d28677}}
+'''
+translate = '''
+- {{2f85d74da19e8387-11cfb70e23340bea-31f54fe822d28677}}
+'''
+
+[[block]]
+key = "2f85d74da19e8387-11cfb70e23340bea-31f54fe822d28677"
+type = "paragraph"
+origin = '''
+翻译、改写、重新排版或制作衍生改编版本；
+'''
+translate = '''
+Translate, rewrite, reformat, or adapt it
+'''
+
+[[block]]
+key = "2f85d74da19e8387-ca0762fcd1517b04"
+type = "listItem"
+composite = true
+origin = '''
+- {{2f85d74da19e8387-ca0762fcd1517b04-458a07aacdd424bb}}
+'''
+translate = '''
+- {{2f85d74da19e8387-ca0762fcd1517b04-458a07aacdd424bb}}
+'''
+
+[[block]]
+key = "2f85d74da19e8387-ca0762fcd1517b04-458a07aacdd424bb"
+type = "paragraph"
+origin = '''
+将内容用于个人学习、教学、社区交流及其他非商业用途。
+'''
+translate = '''
+Use it for learning, teaching, community sharing, and other noncommercial purposes
+'''
+
+[[block]]
+key = "4af1c385ef5bcbf2"
+type = "heading"
+origin = '''
+## 使用条件
+'''
+translate = '''
+## License conditions
+'''
+
+[[block]]
+key = "0e2b543d13f6710b"
+type = "list"
+composite = true
+origin = '''
+{{0e2b543d13f6710b-6fb2004d696ac514}}
+{{0e2b543d13f6710b-3153697bd18315cc}}
+{{0e2b543d13f6710b-042759e4d4297c14}}
+{{0e2b543d13f6710b-8b085e84b59b3fa2}}
+'''
+translate = '''
+{{0e2b543d13f6710b-6fb2004d696ac514}}
+{{0e2b543d13f6710b-3153697bd18315cc}}
+{{0e2b543d13f6710b-042759e4d4297c14}}
+{{0e2b543d13f6710b-8b085e84b59b3fa2}}
+'''
+
+[[block]]
+key = "0e2b543d13f6710b-6fb2004d696ac514"
+type = "listItem"
+composite = true
+origin = '''
+1. {{0e2b543d13f6710b-6fb2004d696ac514-055aa700327d0515}}
+'''
+translate = '''
+1. {{0e2b543d13f6710b-6fb2004d696ac514-055aa700327d0515}}
+'''
+
+[[block]]
+key = "0e2b543d13f6710b-6fb2004d696ac514-055aa700327d0515"
+type = "paragraph"
+origin = '''
+**署名**：注明“Lumina Studio Wiki”，附上原页面与许可协议链接，并说明是否作了修改。
+'''
+translate = '''
+**Attribution**: Credit Lumina Studio Wiki, link to the source page and license, and state whether changes were made.
+'''
+
+[[block]]
+key = "0e2b543d13f6710b-3153697bd18315cc"
+type = "listItem"
+composite = true
+origin = '''
+2. {{0e2b543d13f6710b-3153697bd18315cc-782ba0b2ce9e1a2f}}
+'''
+translate = '''
+2. {{0e2b543d13f6710b-3153697bd18315cc-782ba0b2ce9e1a2f}}
+'''
+
+[[block]]
+key = "0e2b543d13f6710b-3153697bd18315cc-782ba0b2ce9e1a2f"
+type = "paragraph"
+origin = '''
+**非商业性使用**：不得将许可内容用于商业用途。
+'''
+translate = '''
+**NonCommercial**: Do not use the licensed material for commercial purposes.
+'''
+
+[[block]]
+key = "0e2b543d13f6710b-042759e4d4297c14"
+type = "listItem"
+composite = true
+origin = '''
+3. {{0e2b543d13f6710b-042759e4d4297c14-1659513408e5f842}}
+'''
+translate = '''
+3. {{0e2b543d13f6710b-042759e4d4297c14-1659513408e5f842}}
+'''
+
+[[block]]
+key = "0e2b543d13f6710b-042759e4d4297c14-1659513408e5f842"
+type = "paragraph"
+origin = '''
+**相同方式共享**：分发改编版本时，须继续采用 CC BY-NC-SA 4.0 协议。
+'''
+translate = '''
+**ShareAlike**: Distribute adaptations under CC BY-NC-SA 4.0.
+'''
+
+[[block]]
+key = "0e2b543d13f6710b-8b085e84b59b3fa2"
+type = "listItem"
+composite = true
+origin = '''
+4. {{0e2b543d13f6710b-8b085e84b59b3fa2-eaacb3765f3412a9}}
+'''
+translate = '''
+4. {{0e2b543d13f6710b-8b085e84b59b3fa2-eaacb3765f3412a9}}
+'''
+
+[[block]]
+key = "0e2b543d13f6710b-8b085e84b59b3fa2-eaacb3765f3412a9"
+type = "paragraph"
+origin = '''
+**不得增加额外限制**：不得附加法律条款或技术限制，妨碍他人行使本许可授予的权利。
+'''
+translate = '''
+**No additional restrictions**: Do not apply legal terms or technological measures that restrict others from exercising the rights granted by the license.
+'''
+
+[[block]]
+key = "c869531db918748c"
+type = "paragraph"
+origin = '''
+推荐署名格式：
+'''
+translate = '''
+Suggested attribution:
+'''
+
+[[block]]
+key = "56addeed1903083d"
+type = "blockquote"
+composite = true
+origin = '''
+> {{56addeed1903083d-8eec843298a48a21}}
+'''
+translate = '''
+> {{56addeed1903083d-8eec843298a48a21}}
+'''
+
+[[block]]
+key = "56addeed1903083d-8eec843298a48a21"
+type = "paragraph"
+origin = '''
+来源：Lumina Studio Wiki；原文链接：`<URL>`；许可协议：CC BY-NC-SA 4.0；修改说明：`<说明修改内容或注明未修改>`。
+'''
+translate = '''
+Source: Lumina Studio Wiki, original page: `<URL>`, licensed under CC BY-NC-SA 4.0. Changes: `<describe changes or state none>`.
+'''
+
+[[block]]
+key = "e9150a15495ea497"
+type = "heading"
+origin = '''
+## 不适用本许可的内容
+'''
+translate = '''
+## Material outside this license
+'''
+
+[[block]]
+key = "fb80d856269333ee"
+type = "paragraph"
+origin = '''
+以下内容不因出现在本 Wiki 中而适用 CC BY-NC-SA 4.0：
+'''
+translate = '''
+The following items do not fall under CC BY-NC-SA 4.0 simply by appearing on the Wiki:
+'''
+
+[[block]]
+key = "d9329e775c402bfc"
+type = "list"
+composite = true
+origin = '''
+{{d9329e775c402bfc-fc7ed3677810109b}}
+{{d9329e775c402bfc-98b9dfe3297e72a9}}
+{{d9329e775c402bfc-2d64c741542874fb}}
+{{d9329e775c402bfc-828bf36c94bbcd88}}
+{{d9329e775c402bfc-ff346e1367cef7df}}
+'''
+translate = '''
+{{d9329e775c402bfc-fc7ed3677810109b}}
+{{d9329e775c402bfc-98b9dfe3297e72a9}}
+{{d9329e775c402bfc-2d64c741542874fb}}
+{{d9329e775c402bfc-828bf36c94bbcd88}}
+{{d9329e775c402bfc-ff346e1367cef7df}}
+'''
+
+[[block]]
+key = "d9329e775c402bfc-fc7ed3677810109b"
+type = "listItem"
+composite = true
+origin = '''
+- {{d9329e775c402bfc-fc7ed3677810109b-f8732e7e1b0ca770}}
+'''
+translate = '''
+- {{d9329e775c402bfc-fc7ed3677810109b-f8732e7e1b0ca770}}
+'''
+
+[[block]]
+key = "d9329e775c402bfc-fc7ed3677810109b-f8732e7e1b0ca770"
+type = "paragraph"
+origin = '''
+Lumina Studio 及其他项目的源代码、构建部署脚本与基础设施配置；
+'''
+translate = '''
+Lumina Studio or third-party source code, build scripts, configuration, and infrastructure
+'''
+
+[[block]]
+key = "d9329e775c402bfc-98b9dfe3297e72a9"
+type = "listItem"
+composite = true
+origin = '''
+- {{d9329e775c402bfc-98b9dfe3297e72a9-f120357cc20dfff5}}
+'''
+translate = '''
+- {{d9329e775c402bfc-98b9dfe3297e72a9-f120357cc20dfff5}}
+'''
+
+[[block]]
+key = "d9329e775c402bfc-98b9dfe3297e72a9-f120357cc20dfff5"
+type = "paragraph"
+origin = '''
+第三方软件界面截图、Logo、商标、字体、模型设计、角色形象及品牌资产；
+'''
+translate = '''
+Third-party software interfaces, logos, trademarks, fonts, model designs, characters, and brand assets
+'''
+
+[[block]]
+key = "d9329e775c402bfc-2d64c741542874fb"
+type = "listItem"
+composite = true
+origin = '''
+- {{d9329e775c402bfc-2d64c741542874fb-8881b484c149dcc5}}
+'''
+translate = '''
+- {{d9329e775c402bfc-2d64c741542874fb-8881b484c149dcc5}}
+'''
+
+[[block]]
+key = "d9329e775c402bfc-2d64c741542874fb-8881b484c149dcc5"
+type = "paragraph"
+origin = '''
+由用户、测试者或合作方提供并标注为单独许可或“仅限本 Wiki 使用”的照片、视频与文件；
+'''
+translate = '''
+Photos, videos, models, or files supplied by users, testers, or partners under separate terms or Wiki-only permission
+'''
+
+[[block]]
+key = "d9329e775c402bfc-828bf36c94bbcd88"
+type = "listItem"
+composite = true
+origin = '''
+- {{d9329e775c402bfc-828bf36c94bbcd88-74a6271086a5e2a1}}
+'''
+translate = '''
+- {{d9329e775c402bfc-828bf36c94bbcd88-74a6271086a5e2a1}}
+'''
+
+[[block]]
+key = "d9329e775c402bfc-828bf36c94bbcd88-74a6271086a5e2a1"
+type = "paragraph"
+origin = '''
+外部链接、嵌入视频及引用的第三方图文素材；
+'''
+translate = '''
+External links, embedded videos, and quoted third-party text or images
+'''
+
+[[block]]
+key = "d9329e775c402bfc-ff346e1367cef7df"
+type = "listItem"
+composite = true
+origin = '''
+- {{d9329e775c402bfc-ff346e1367cef7df-102a0cfb7c52b9f1}}
+'''
+translate = '''
+- {{d9329e775c402bfc-ff346e1367cef7df-102a0cfb7c52b9f1}}
+'''
+
+[[block]]
+key = "d9329e775c402bfc-ff346e1367cef7df-102a0cfb7c52b9f1"
+type = "paragraph"
+origin = '''
+知识共享著作权许可未涵盖的专利权、商标权、肖像权与隐私权等其他权利。
+'''
+translate = '''
+Patent, trademark, privacy, publicity, or other rights not granted by a Creative Commons copyright license
+'''
+
+[[block]]
+key = "7e423ea7bd01cbe1"
+type = "paragraph"
+origin = '''
+上述内容仍归各自权利人所有并受其相应条款约束；引用或转载前请先核实具体权利声明。
+'''
+translate = '''
+Check any local credit or rights notice before reusing third-party assets.
+'''
+
+[[block]]
+key = "b5da62125d7f6a68"
+type = "heading"
+origin = '''
+## 软件代码许可
+'''
+translate = '''
+## Software code is licensed separately
+'''
+
+[[block]]
+key = "8b00f691b097983e"
+type = "paragraph"
+origin = '''
+CC BY-NC-SA 4.0 仅适用于本 Wiki 的原创文档内容，不适用于 Lumina Studio 软件代码。复用软件源码、站点组件或第三方依赖时，请分别遵循对应代码仓库与依赖项的开源许可证。
+'''
+translate = '''
+CC BY-NC-SA 4.0 applies to Wiki documentation, not to Lumina Studio software code. Refer to the respective repository licenses before reusing application code, site components, or third-party packages.
+'''
+
+[[block]]
+key = "64073ae82fb4217b"
+type = "heading"
+origin = '''
+## 社区投稿与素材授权
+'''
+translate = '''
+## Community contributions and media
+'''
+
+[[block]]
+key = "922cae46b23c20f7"
+type = "paragraph"
+origin = '''
+投稿者保留其原创内容的著作权。向本 Wiki 提交原创文字、表格、示意图或标注时，请确认有权按本页协议公开发布；提交照片、视频、模型等素材时，可选择采用 CC BY-NC-SA 4.0、其他开源许可，或仅授权 Lumina Studio Wiki 展示使用。
+'''
+translate = '''
+Contributors retain copyright in their original work. When submitting text, tables, diagrams, or annotations, confirm that you have the right to publish them under this page's license. Contributed photos, videos, or models may use CC BY-NC-SA 4.0, another specified license, or Wiki-only display permission, with attribution recorded on the page.
+'''
+
+[[block]]
+key = "b529c985ed30d266"
+type = "paragraph"
+origin = '''
+如发现署名遗漏或授权边界疑问，请通过 Wiki 反馈渠道联系我们，并附上对应页面链接与权利说明。
+'''
+translate = '''
+If you spot a missing credit or rights issue, reach out through the Wiki feedback page with the page URL and relevant details.
+'''
+
+[[block]]
+key = "924ced2bcdacbf93"
+type = "admonition"
+composite = true
+origin = '''
+:::note[摘要说明]
+{{924ced2bcdacbf93-e72e65608fbf7950}}
+:::
+'''
+translate = '''
+:::note[Summary notice]
+{{924ced2bcdacbf93-e72e65608fbf7950}}
+:::
+'''
+
+[[block]]
+key = "924ced2bcdacbf93-e72e65608fbf7950"
+type = "paragraph"
+origin = '''
+本页为便于阅读的许可摘要，不替代许可协议法律文本。若本页表述与 Creative Commons 许可协议正文不一致，以协议正文为准。
+'''
+translate = '''
+This page is a reader-friendly summary and does not replace the full license text. If anything here conflicts with the Creative Commons license, the license text governs.
+'''

@@ -1,0 +1,260 @@
+[metadata]
+reviewed_source = "473530f69bbfd353e26c18c73570ea50cf77817f15f31317eadf0e8a5ee53f12"
+
+[[block]]
+key = "afaa2f4b74e23f5b"
+type = "yaml"
+origin = '''
+---
+title: "拼图"
+description: "规则与不规则拼图、三种分块尺寸控制方式、连接器轮廓、编号显示与模式限制。"
+sidebar_position: 7
+---
+'''
+translate = '''
+---
+title: "Puzzle"
+description: "Regular and irregular puzzles, three sizing modes, connector profiles, piece labels, and resolved layout values."
+sidebar_position: 7
+---
+'''
+
+[[block]]
+key = "85d2b04489adf422"
+type = "heading"
+origin = '''
+# 拼图
+'''
+translate = '''
+# Puzzle
+'''
+
+[[block]]
+key = "999cd19cbc903b6a"
+type = "paragraph"
+origin = '''
+拼图模式会根据作品的实体边界规划切分布局，为每一块拼图分别生成实体几何，并组合输出为一份可直接下载的 3MF 工程。
+'''
+translate = '''
+Puzzle mode computes a cut layout from the artwork's solid boundary, builds individual mesh geometry for every piece, and packages the complete set into a single downloadable 3MF.
+'''
+
+[[block]]
+key = "f9cf743d82429b1a"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-puzzle-settings.webp').default}
+  alt="Lumina Studio 的拼图设置面板"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-puzzle-settings.webp').default}
+  alt="Puzzle Settings in Lumina Studio"
+/>
+'''
+
+[[block]]
+key = "7087a4b02549101c"
+type = "heading"
+origin = '''
+## 风格与尺寸控制
+'''
+translate = '''
+## Style and sizing
+'''
+
+[[block]]
+key = "39e9705087378355"
+type = "list"
+composite = true
+origin = '''
+{{39e9705087378355-5869acd38499d13b}}
+{{39e9705087378355-aa855c275eeda1ba}}
+{{39e9705087378355-64ebc6a4f6f02bc3}}
+{{39e9705087378355-41070de384613e5a}}
+{{39e9705087378355-83a256776c08b3f9}}
+'''
+translate = '''
+{{39e9705087378355-5869acd38499d13b}}
+{{39e9705087378355-aa855c275eeda1ba}}
+{{39e9705087378355-64ebc6a4f6f02bc3}}
+{{39e9705087378355-41070de384613e5a}}
+{{39e9705087378355-83a256776c08b3f9}}
+'''
+
+[[block]]
+key = "39e9705087378355-5869acd38499d13b"
+type = "listItem"
+composite = true
+origin = '''
+- {{39e9705087378355-5869acd38499d13b-9d822523e62640ca}}
+'''
+translate = '''
+- {{39e9705087378355-5869acd38499d13b-9d822523e62640ca}}
+'''
+
+[[block]]
+key = "39e9705087378355-5869acd38499d13b-9d822523e62640ca"
+type = "paragraph"
+origin = '''
+**规则拼图：** 采用整齐网格排布，连接扣规律一致。
+'''
+translate = '''
+**Regular Puzzle:** Uses an orderly grid with uniform connector behavior.
+'''
+
+[[block]]
+key = "39e9705087378355-aa855c275eeda1ba"
+type = "listItem"
+composite = true
+origin = '''
+- {{39e9705087378355-aa855c275eeda1ba-70a99a1bd2148989}}
+'''
+translate = '''
+- {{39e9705087378355-aa855c275eeda1ba-70a99a1bd2148989}}
+'''
+
+[[block]]
+key = "39e9705087378355-aa855c275eeda1ba-70a99a1bd2148989"
+type = "paragraph"
+origin = '''
+**不规则拼图：** 对分块边界做偏移变形，并可调节“不规则强度”与“最小脖颈宽度”。
+'''
+translate = '''
+**Irregular Puzzle:** Offsets piece boundaries and unlocks **Irregularity Strength** and **Minimum Neck Width**.
+'''
+
+[[block]]
+key = "39e9705087378355-64ebc6a4f6f02bc3"
+type = "listItem"
+composite = true
+origin = '''
+- {{39e9705087378355-64ebc6a4f6f02bc3-81ee819ea6122b2b}}
+'''
+translate = '''
+- {{39e9705087378355-64ebc6a4f6f02bc3-81ee819ea6122b2b}}
+'''
+
+[[block]]
+key = "39e9705087378355-64ebc6a4f6f02bc3-81ee819ea6122b2b"
+type = "paragraph"
+origin = '''
+**按块尺寸：** 输入目标平均块宽和平均块高，范围均为 5–200 mm。
+'''
+translate = '''
+**By Piece Size:** Sets target average piece width and height from 5–200 mm.
+'''
+
+[[block]]
+key = "39e9705087378355-41070de384613e5a"
+type = "listItem"
+composite = true
+origin = '''
+- {{39e9705087378355-41070de384613e5a-ad4dd945b6cfd360}}
+'''
+translate = '''
+- {{39e9705087378355-41070de384613e5a-ad4dd945b6cfd360}}
+'''
+
+[[block]]
+key = "39e9705087378355-41070de384613e5a-ad4dd945b6cfd360"
+type = "paragraph"
+origin = '''
+**按行列：** 直接指定 1–200 行与 1–200 列。
+'''
+translate = '''
+**By Grid:** Sets 1–200 rows and 1–200 columns.
+'''
+
+[[block]]
+key = "39e9705087378355-83a256776c08b3f9"
+type = "listItem"
+composite = true
+origin = '''
+- {{39e9705087378355-83a256776c08b3f9-6822decc1e5ab9bb}}
+'''
+translate = '''
+- {{39e9705087378355-83a256776c08b3f9-6822decc1e5ab9bb}}
+'''
+
+[[block]]
+key = "39e9705087378355-83a256776c08b3f9-6822decc1e5ab9bb"
+type = "paragraph"
+origin = '''
+**按总片数：** 输入 2–2000 片的目标片数，软件按作品宽高比自动求解网格。
+'''
+translate = '''
+**By Piece Count:** Sets 2–2000 target pieces and solves the grid from the artwork's aspect ratio.
+'''
+
+[[block]]
+key = "86218d80786ad687"
+type = "paragraph"
+origin = '''
+受透明剪影、不规则外轮廓和最小结构尺寸约束影响，实际生成的行列数、片数或平均尺寸可能与输入值略有差异，面板会同时显示“目标”和“解析”两组结果供核对。
+'''
+translate = '''
+Transparency silhouettes, irregular outer boundaries, and minimum-feature constraints can adjust the final rows, columns, piece count, or average piece size, so the summary displays both requested targets and resolved values.
+'''
+
+[[block]]
+key = "66e78956da26f500"
+type = "heading"
+origin = '''
+## 连接器与编号
+'''
+translate = '''
+## Connectors and labels
+'''
+
+[[block]]
+key = "f4402e11cd97f975"
+type = "paragraph"
+origin = '''
+连接器提供“经典风格”和“易切割风格”两种轮廓，其中易切割风格简化了复杂转折。成品拼合松紧度同时受喷嘴直径、材料收缩率与切片补偿影响。
+'''
+translate = '''
+**Classic** and **Easy Cut** use different connector profiles, with **Easy Cut** smoothing out tight curves. Actual fit also depends on nozzle size, filament shrinkage, and slicer contour compensation.
+'''
+
+[[block]]
+key = "c2cdd06926ac10c8"
+type = "paragraph"
+origin = '''
+开启“显示编号”可在拼图工作流中查看分块编号。“背面刻号”功能目前暂未开放（界面开关固定禁用，导出几何中暂不包含刻号）。
+'''
+translate = '''
+**Show Piece Labels** provides piece numbering within the puzzle workflow. **Engrave Back Labels** is currently disabled and not yet written into exported geometry.
+'''
+
+[[block]]
+key = "85ca1a0315232a79"
+type = "paragraph"
+origin = '''
+在不规则拼图中，“不规则强度”范围为 0–1；“最小脖颈宽度”范围为 0.2–20 mm，用于防止连接颈过细易断。若求解器对局部结构做了安全修正，详情会列在“几何警告”中。
+'''
+translate = '''
+In Irregular mode, **Irregularity Strength** ranges from 0–1, and **Minimum Neck Width** ranges from 0.2–20 mm to keep connector necks sturdy. Any automatic solver adjustments appear in the **Warnings** section.
+'''
+
+[[block]]
+key = "ba0e60aa01717ada"
+type = "heading"
+origin = '''
+## 模式限制
+'''
+translate = '''
+## Mode compatibility
+'''
+
+[[block]]
+key = "0e95bbebd47a64fe"
+type = "paragraph"
+origin = '''
+批量模式下不可开启拼图；开启拼图会自动关闭大画幅、挂件环和冰箱贴磁铁槽。由于拼图排布依赖当前作品的实体蒙版与物理尺寸，请先完成一次普通预览，再配置并生成拼图。
+'''
+translate = '''
+Puzzle mode is unavailable in Batch mode and turns off Large Format, Keychain Loop, and Fridge Magnet mode. Run a standard preview first so Lumina has the active solid mask and physical dimensions before computing the puzzle layout.
+'''

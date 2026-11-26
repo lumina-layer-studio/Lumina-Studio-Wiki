@@ -1,0 +1,277 @@
+[metadata]
+reviewed_source = "8da4b4320261d316fb1ee642f9870e92804b5556e87cc533f2c9e10d9ce8ac2f"
+
+[[block]]
+key = "78974f28fe4ca8e3"
+type = "yaml"
+origin = '''
+---
+title: "掐丝珐琅（旧版资料）"
+description: "旧版掐丝珐琅模式的金属丝宽度、高度参数与使用限制。"
+sidebar_position: 8
+---
+'''
+translate = '''
+---
+title: "Cloisonné (older versions)"
+description: "Wire width, wire height, and mode limitations for Cloisonné in older versions."
+sidebar_position: 8
+---
+'''
+
+[[block]]
+key = "50c7b32353f61f57"
+type = "heading"
+origin = '''
+# 掐丝珐琅（旧版资料）
+'''
+translate = '''
+# Cloisonné (older versions)
+'''
+
+[[block]]
+key = "da685105ef1bfea4"
+type = "admonition"
+composite = true
+origin = '''
+:::warning[旧版功能说明]
+{{da685105ef1bfea4-eb999aeb6833ae9a}}
+:::
+'''
+translate = '''
+:::warning[Legacy feature]
+{{da685105ef1bfea4-eb999aeb6833ae9a}}
+:::
+'''
+
+[[block]]
+key = "da685105ef1bfea4-eb999aeb6833ae9a"
+type = "paragraph"
+origin = '''
+当前版本已隐藏掐丝珐琅设置入口，旧工程中的已有配置仍会保留。以下参数与截图仅供包含该入口的旧版本参考。
+'''
+translate = '''
+The Cloisonné settings entry is hidden in the current release, though existing configuration data is retained. The details and screenshot below apply to older versions that expose this control.
+'''
+
+[[block]]
+key = "d4f0185970b5703c"
+type = "paragraph"
+origin = '''
+掐丝珐琅模式会沿颜色匹配后的色块边界提取线框，生成独立的 **Wire** 对象，并将结构模式切换为单面。该功能在旧版中处于实验阶段，遇到复杂图案或细碎边界时，线框可能无法完全闭合。
+'''
+translate = '''
+Cloisonné extracts a wireframe along matched-color boundaries, generates a separate **Wire** object, and switches Structure Mode to Single-sided. In versions that include it, the feature is experimental and may produce incomplete wireframes on intricate artwork.
+'''
+
+[[block]]
+key = "35560ffad62cfdfb"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-cloisonne-settings.webp').default}
+  alt="带有开发中提示的掐丝珐琅设置面板"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-cloisonne-settings.webp').default}
+  alt="Cloisonné Settings with the in-development notice"
+/>
+'''
+
+[[block]]
+key = "a09bdf12f0161d46"
+type = "heading"
+origin = '''
+## 参数说明
+'''
+translate = '''
+## Parameters
+'''
+
+[[block]]
+key = "37d92e9560e6cb42"
+type = "list"
+composite = true
+origin = '''
+{{37d92e9560e6cb42-6caff6db8deca768}}
+{{37d92e9560e6cb42-c999706bb4697eb8}}
+'''
+translate = '''
+{{37d92e9560e6cb42-6caff6db8deca768}}
+{{37d92e9560e6cb42-c999706bb4697eb8}}
+'''
+
+[[block]]
+key = "37d92e9560e6cb42-6caff6db8deca768"
+type = "listItem"
+composite = true
+origin = '''
+- {{37d92e9560e6cb42-6caff6db8deca768-bd04167872ff9f4b}}
+'''
+translate = '''
+- {{37d92e9560e6cb42-6caff6db8deca768-bd04167872ff9f4b}}
+'''
+
+[[block]]
+key = "37d92e9560e6cb42-6caff6db8deca768-bd04167872ff9f4b"
+type = "paragraph"
+origin = '''
+**金属丝宽度：** 0.2–1.2 mm，步进 0.1 mm，控制线框在水平面上的线宽。
+'''
+translate = '''
+**Wire Width:** 0.2–1.2 mm in 0.1 mm steps. Controls horizontal wireframe thickness.
+'''
+
+[[block]]
+key = "37d92e9560e6cb42-c999706bb4697eb8"
+type = "listItem"
+composite = true
+origin = '''
+- {{37d92e9560e6cb42-c999706bb4697eb8-3f7954636c020865}}
+'''
+translate = '''
+- {{37d92e9560e6cb42-c999706bb4697eb8-3f7954636c020865}}
+'''
+
+[[block]]
+key = "37d92e9560e6cb42-c999706bb4697eb8-3f7954636c020865"
+type = "paragraph"
+origin = '''
+**金属丝高度：** 0.04–1.0 mm，步进 0.04 mm，控制 **Wire** 对象高出彩色表面的高度。
+'''
+translate = '''
+**Wire Height:** 0.04–1.0 mm in 0.04 mm steps. Controls how far **Wire** rises above the color regions.
+'''
+
+[[block]]
+key = "6086c68a076ef1de"
+type = "paragraph"
+origin = '''
+宽度过小可能低于喷嘴可稳定打印的最小线宽，过大则会遮挡相邻色块；适当增加高度能强化表面浮凸触感，但过高也会增大喷嘴空驶时的擦碰风险。
+'''
+translate = '''
+Setting **Wire Width** too low can fall below what the nozzle prints reliably, while setting it too high can cover adjacent colors. Increasing **Wire Height** creates stronger surface texture, though tall wires also increase the chance of nozzle contact during travel moves.
+'''
+
+[[block]]
+key = "e4a7fbe2c2043949"
+type = "heading"
+origin = '''
+## 使用限制
+'''
+translate = '''
+## Limitations
+'''
+
+[[block]]
+key = "564df20867363a5c"
+type = "list"
+composite = true
+origin = '''
+{{564df20867363a5c-ff09c7fa1420cdcd}}
+{{564df20867363a5c-6b41d29f6b8dca4e}}
+{{564df20867363a5c-5ac5c712c8ecc425}}
+{{564df20867363a5c-ee321a8a4f79b0d1}}
+'''
+translate = '''
+{{564df20867363a5c-ff09c7fa1420cdcd}}
+{{564df20867363a5c-6b41d29f6b8dca4e}}
+{{564df20867363a5c-5ac5c712c8ecc425}}
+{{564df20867363a5c-ee321a8a4f79b0d1}}
+'''
+
+[[block]]
+key = "564df20867363a5c-ff09c7fa1420cdcd"
+type = "listItem"
+composite = true
+origin = '''
+- {{564df20867363a5c-ff09c7fa1420cdcd-fe6f71573e0e9689}}
+'''
+translate = '''
+- {{564df20867363a5c-ff09c7fa1420cdcd-fe6f71573e0e9689}}
+'''
+
+[[block]]
+key = "564df20867363a5c-ff09c7fa1420cdcd-fe6f71573e0e9689"
+type = "paragraph"
+origin = '''
+与浮雕互斥，开启其中一项会自动关闭另一项。
+'''
+translate = '''
+Mutually exclusive with Relief; enabling one turns off the other.
+'''
+
+[[block]]
+key = "564df20867363a5c-6b41d29f6b8dca4e"
+type = "listItem"
+composite = true
+origin = '''
+- {{564df20867363a5c-6b41d29f6b8dca4e-df44953655828c1b}}
+'''
+translate = '''
+- {{564df20867363a5c-6b41d29f6b8dca4e-df44953655828c1b}}
+'''
+
+[[block]]
+key = "564df20867363a5c-6b41d29f6b8dca4e-df44953655828c1b"
+type = "paragraph"
+origin = '''
+矢量建模模式下该开关不可用。
+'''
+translate = '''
+Disabled in Vector modeling mode.
+'''
+
+[[block]]
+key = "564df20867363a5c-5ac5c712c8ecc425"
+type = "listItem"
+composite = true
+origin = '''
+- {{564df20867363a5c-5ac5c712c8ecc425-2da395d3945eb793}}
+'''
+translate = '''
+- {{564df20867363a5c-5ac5c712c8ecc425-2da395d3945eb793}}
+'''
+
+[[block]]
+key = "564df20867363a5c-5ac5c712c8ecc425-2da395d3945eb793"
+type = "paragraph"
+origin = '''
+预览中的 **Wire** 对象固定以金色显示以便区分，实际打印颜色由切片软件中的耗材映射决定。
+'''
+translate = '''
+**Wire** uses a fixed gold preview color for visibility; actual print color follows the filament assignment in your slicer.
+'''
+
+[[block]]
+key = "564df20867363a5c-ee321a8a4f79b0d1"
+type = "listItem"
+composite = true
+origin = '''
+- {{564df20867363a5c-ee321a8a4f79b0d1-6a04e8d52d947b0f}}
+'''
+translate = '''
+- {{564df20867363a5c-ee321a8a4f79b0d1-6a04e8d52d947b0f}}
+'''
+
+[[block]]
+key = "564df20867363a5c-ee321a8a4f79b0d1-6a04e8d52d947b0f"
+type = "paragraph"
+origin = '''
+修改参数后需重新生成 3MF。
+'''
+translate = '''
+Regenerate the 3MF after changing any parameter.
+'''
+
+[[block]]
+key = "65d36672bafcca47"
+type = "paragraph"
+origin = '''
+在包含该入口的旧版本中使用时，建议导出后在切片软件中逐层检查 **Wire** 对象、对象列表及色块衔接，并先打印小尺寸样件验证效果。
+'''
+translate = '''
+When working in an older version that includes Cloisonné, check the 3D preview, object list, and sliced layers, and print a small test piece before starting a full build.
+'''

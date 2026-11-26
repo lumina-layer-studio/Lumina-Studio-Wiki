@@ -1,0 +1,930 @@
+[metadata]
+reviewed_source = "d8343e46100975da260b6ca564b6dd57704f407f0cb51fd86f41992510104d7f"
+
+[[block]]
+key = "7b3a7f9526c6189c"
+type = "yaml"
+origin = '''
+---
+title: "2.0 开发月报：2026 年 4 月"
+description: "Lumina Studio 2.0 在 2026 年 4 月的完整开发进展"
+sidebar_position: 31
+---
+'''
+translate = '''
+---
+title: "2.0 Development Report: April 2026"
+description: "Complete Lumina Studio 2.0 development progress for April 2026"
+sidebar_position: 31
+---
+'''
+
+[[block]]
+key = "57a4d31993d3f07e"
+type = "heading"
+origin = '''
+# Lumina Studio 2.0 开发月报：2026 年 4 月
+'''
+translate = '''
+# Lumina Studio 2.0 Development Report: April 2026
+'''
+
+[[block]]
+key = "221b8040870f7a3f"
+type = "blockquote"
+composite = true
+origin = '''
+> {{221b8040870f7a3f-ecf763d6a8b8eb1b}}
+'''
+translate = '''
+> {{221b8040870f7a3f-ecf763d6a8b8eb1b}}
+'''
+
+[[block]]
+key = "221b8040870f7a3f-ecf763d6a8b8eb1b"
+type = "paragraph"
+origin = '''
+本月合并 123 个 PR
+'''
+translate = '''
+123 pull requests merged
+'''
+
+[[block]]
+key = "9fbc7e8cd8ef3fc4"
+type = "paragraph"
+origin = '''
+[← 2026 年 3 月](/zh/docs/releases/2026-03) · [更新日志总览](/zh/docs/releases/overview) · [2026 年 5 月 →](/zh/docs/releases/2026-05)
+'''
+translate = '''
+[← March 2026](/en/docs/releases/2026-03) · [Changelog overview](/en/docs/releases/overview) · [May 2026 →](/en/docs/releases/2026-05)
+'''
+
+[[block]]
+key = "b9afabb3581f03d0"
+type = "heading"
+origin = '''
+## 本月概览
+'''
+translate = '''
+## Monthly overview
+'''
+
+[[block]]
+key = "53bea60d8d2be001"
+type = "paragraph"
+origin = '''
+4 月，Lumina Studio 2.0 从底层迁移全面转入核心工作流重建。矢量引擎、颜色工作站、LUT 管理、校准与材料档案接入统一的数据与预览管线；拼图、冰箱贴、单阶段生成、大画幅和分享卡等工作流陆续成型，3D 预览体积、会话隔离、结构化日志与问题反馈也得到系统改进。
+'''
+translate = '''
+In April, Lumina Studio 2.0 moved from low-level migration into rebuilding end-to-end user workflows. The vector engine, Color Workstation, LUT management, calibration, and material profiles converged onto shared data and preview pipelines. Puzzle, fridge-magnet, single-stage, large-format, and share-card workflows also took shape, alongside major improvements to 3D preview size, session isolation, diagnostics, and bug reporting.
+'''
+
+[[block]]
+key = "3a0557c834aa45af"
+type = "heading"
+origin = '''
+## 重点更新
+'''
+translate = '''
+## Highlights
+'''
+
+[[block]]
+key = "ea1b8d6d4c995906"
+type = "heading"
+origin = '''
+### 矢量引擎与预览/3MF 路径统一
+'''
+translate = '''
+### Unified vector preview and 3MF pipeline
+'''
+
+[[block]]
+key = "40edf27c2c11a30a"
+type = "paragraph"
+origin = '''
+SVG 从解析、遮挡裁剪、颜色匹配、网格挤出到 3MF 导出收敛至同一条原生矢量管线。区域换色、自定义配方、额外颜色层和材料档案均同步写入最终模型，并为复杂几何边界提供可打印的回退处理。
+'''
+translate = '''
+SVG parsing, occlusion clipping, color matching, mesh extrusion, and 3MF export were consolidated into a single native vector pipeline—carrying region recolors, custom recipes, extra color layers, and material profiles directly into the exported model, with printable fallbacks for complex boundary intersections.
+'''
+
+[[block]]
+key = "dcaa347aa94c4eed"
+type = "heading"
+origin = '''
+### 颜色工作站成为独立编辑流程
+'''
+translate = '''
+### Color Workstation as a dedicated editing workflow
+'''
+
+[[block]]
+key = "ecaba70bf8031cf4"
+type = "paragraph"
+origin = '''
+新增 2D 颜色工作站，支持按区域或连通色块选择、原图临时对比、自定义配方及分层预览刷新。当平滑渐变被拆分为多种材料色时，系统会自动识别为渐变分组，支持整组或局部一键“去海带纹”，大幅减少逐块点选操作。
+'''
+translate = '''
+Introduced the 2D Color Workstation with region and connected-component selection, quick source-image comparison, custom recipes, and live layer-preview refresh. Smooth gradients split across multiple filament colors are automatically grouped so banding can be flattened across the whole group or within a local selection.
+'''
+
+[[block]]
+key = "a3850766731ecba0"
+type = "heading"
+origin = '''
+### LUT 浏览、对比与色域可视化
+'''
+translate = '''
+### LUT browsing, comparison, and gamut visualization
+'''
+
+[[block]]
+key = "451c14f936cd2da3"
+type = "paragraph"
+origin = '''
+材料管理新增 LUT 工作流分组、LUT 对比与 LUT 详情视图，可直观查看调色板、各颜色使用占比、色相分布与 Lab 点云，并按品牌与色数筛选传统 LUT。反推或自定义 LUT 优先采用自身调色板，避免旧全局配置造成错配。
+'''
+translate = '''
+Material Management gained grouped LUT workflows, side-by-side LUT comparison, and detailed LUT inspection—displaying palettes, color usage coverage, hue distribution, and Lab point clouds, with brand and color-count filtering for classic LUTs. Inferred and custom LUTs prioritize their own palettes to prevent stale global settings from causing mismatches.
+'''
+
+[[block]]
+key = "51970f6e7f974c52"
+type = "heading"
+origin = '''
+### 一键分享卡与可复现配方
+'''
+translate = '''
+### Share cards with reproducible recipes
+'''
+
+[[block]]
+key = "794098466d1760eb"
+type = "paragraph"
+origin = '''
+预览结果支持导出包含图案、材料、层序和模型参数的分享卡，重新导入即可恢复核心配方，便于跨设备同步或用户间复现。在缺少部分浏览器加密接口的普通 HTTP 环境下，也提供了兼容导出路径。
+'''
+translate = '''
+Preview results can be exported as share cards bundling the artwork, materials, layer order, and model settings. Reimporting a card restores the full recipe, with a built-in fallback for plain HTTP environments where browser Web Crypto APIs are unavailable.
+'''
+
+[[block]]
+key = "e8d45bee1f58c18e"
+type = "heading"
+origin = '''
+## 新功能
+'''
+translate = '''
+## New features
+'''
+
+[[block]]
+key = "67422a982a5360f4"
+type = "heading"
+origin = '''
+### 拼图与冰箱贴工作流
+'''
+translate = '''
+### Puzzle and fridge-magnet workflows
+'''
+
+[[block]]
+key = "fc39e262565aa1f3"
+type = "paragraph"
+origin = '''
+拼图模式补齐切割、分片生成与 SVG 导出；冰箱贴模式新增磁铁槽位以及主体与底板组合逻辑，两者均接入统一的预览、配方和 3MF 导出管线。
+'''
+translate = '''
+Puzzle mode added piece cutting, per-piece generation, and SVG export, while fridge-magnet mode introduced magnet cavities and combined artwork/backing geometry—both built on the unified preview, recipe, and 3MF export pipeline.
+'''
+
+[[block]]
+key = "c0a007973d988922"
+type = "heading"
+origin = '''
+### 原生 SVG、单阶段与大画幅
+'''
+translate = '''
+### Native SVG, single-stage, and large-format workflows
+'''
+
+[[block]]
+key = "2c9b1b452a474144"
+type = "paragraph"
+origin = '''
+新增原生 SVG 工程包、单阶段材料工作流，以及面向大幅面图案的分块生成。大画幅流程会自动识别 SVG 的可打印边界，让矢量作品优先走高效的原生矢量管线。
+'''
+translate = '''
+Added native SVG bundles, a single-stage material workflow, and tiled generation for oversized artwork. Large-format processing checks printable SVG bounds first so vector-ready files stay on the fast native vector path.
+'''
+
+[[block]]
+key = "bae4afc21110facb"
+type = "heading"
+origin = '''
+### 8 色完整校准与 5 色配方色块
+'''
+translate = '''
+### End-to-end 8-color calibration and 5-color validation swatches
+'''
+
+[[block]]
+key = "1caec9b267d5d505"
+type = "paragraph"
+origin = '''
+打通 8 色双页校准全流程；5 色扩展模式支持生成配方验证色块，并修复第二页引导提示、层数与基础色读取问题。
+'''
+translate = '''
+Connected the two-page 8-color calibration workflow end to end, and added recipe validation swatches for 5-Color Extended along with fixes for second-page prompts, layer counts, and base-color loading.
+'''
+
+[[block]]
+key = "f12d286538de4a85"
+type = "heading"
+origin = '''
+## 校准与材料
+'''
+translate = '''
+## Calibration and materials
+'''
+
+[[block]]
+key = "bfb768bee5a703e2"
+type = "list"
+composite = true
+origin = '''
+{{bfb768bee5a703e2-2dce61000b961087}}
+{{bfb768bee5a703e2-6f107ffed37c1a25}}
+{{bfb768bee5a703e2-89c4998db4b6ef53}}
+'''
+translate = '''
+{{bfb768bee5a703e2-2dce61000b961087}}
+{{bfb768bee5a703e2-6f107ffed37c1a25}}
+{{bfb768bee5a703e2-89c4998db4b6ef53}}
+'''
+
+[[block]]
+key = "bfb768bee5a703e2-2dce61000b961087"
+type = "listItem"
+composite = true
+origin = '''
+- {{bfb768bee5a703e2-2dce61000b961087-66585886bc0d2a58}}
+'''
+translate = '''
+- {{bfb768bee5a703e2-2dce61000b961087-66585886bc0d2a58}}
+'''
+
+[[block]]
+key = "bfb768bee5a703e2-2dce61000b961087-66585886bc0d2a58"
+type = "paragraph"
+origin = '''
+优化梯度卡生成、提取、旋转、角点顺序及黑白底朝向交互；默认层高调整为常用的 0.08 mm，并支持融合多次拍摄样本重新拟合。
+'''
+translate = '''
+Streamlined gradient-card generation, extraction, rotation, corner ordering, and black/white backing orientation; updated the default layer height to 0.08 mm and supported refitting across multiple captured samples.
+'''
+
+[[block]]
+key = "bfb768bee5a703e2-6f107ffed37c1a25"
+type = "listItem"
+composite = true
+origin = '''
+- {{bfb768bee5a703e2-6f107ffed37c1a25-2851e65e27b7e2a0}}
+'''
+translate = '''
+- {{bfb768bee5a703e2-6f107ffed37c1a25-2851e65e27b7e2a0}}
+'''
+
+[[block]]
+key = "bfb768bee5a703e2-6f107ffed37c1a25-2851e65e27b7e2a0"
+type = "paragraph"
+origin = '''
+材料品牌改为可复用的可编辑下拉项，已保存的材料档案支持直接重命名；默认材料输入改为受控选择器，统一槽位命名。
+'''
+translate = '''
+Made material brands reusable and editable, enabled in-place renaming for saved profiles, and replaced free-text default material inputs with a controlled selector to keep slot names consistent.
+'''
+
+[[block]]
+key = "bfb768bee5a703e2-89c4998db4b6ef53"
+type = "listItem"
+composite = true
+origin = '''
+- {{bfb768bee5a703e2-89c4998db4b6ef53-362d55c57ea4e75a}}
+'''
+translate = '''
+- {{bfb768bee5a703e2-89c4998db4b6ef53-362d55c57ea4e75a}}
+'''
+
+[[block]]
+key = "bfb768bee5a703e2-89c4998db4b6ef53-362d55c57ea4e75a"
+type = "paragraph"
+origin = '''
+提取器在清除角点、切换页面及切换 5/6 色模式时自动同步重置状态，避免残留上一轮识别结果。
+'''
+translate = '''
+Reset extractor state cleanly when clearing corners, switching pages, or toggling 5- and 6-color modes so prior detections never carry over into a new calibration.
+'''
+
+[[block]]
+key = "ad9ea4e91bbd4e68"
+type = "heading"
+origin = '''
+## 矢量化与建模
+'''
+translate = '''
+## Vectorization and modeling
+'''
+
+[[block]]
+key = "b592d06990cc7b26"
+type = "list"
+composite = true
+origin = '''
+{{b592d06990cc7b26-d988bd767a560042}}
+{{b592d06990cc7b26-988b293d77026cdb}}
+'''
+translate = '''
+{{b592d06990cc7b26-d988bd767a560042}}
+{{b592d06990cc7b26-988b293d77026cdb}}
+'''
+
+[[block]]
+key = "b592d06990cc7b26-d988bd767a560042"
+type = "listItem"
+composite = true
+origin = '''
+- {{b592d06990cc7b26-d988bd767a560042-0168f48e86fafd29}}
+'''
+translate = '''
+- {{b592d06990cc7b26-d988bd767a560042-0168f48e86fafd29}}
+'''
+
+[[block]]
+key = "b592d06990cc7b26-d988bd767a560042-0168f48e86fafd29"
+type = "paragraph"
+origin = '''
+自定义配方支持添加 LUT 之外的虚拟材料和额外颜色层，并在导出的 SVG 3MF 中生成对应模型对象。
+'''
+translate = '''
+Custom recipes now support virtual materials and extra color layers outside the active LUT, generating the corresponding objects in exported SVG 3MF files.
+'''
+
+[[block]]
+key = "b592d06990cc7b26-988b293d77026cdb"
+type = "listItem"
+composite = true
+origin = '''
+- {{b592d06990cc7b26-988b293d77026cdb-9b3062819b13e642}}
+'''
+translate = '''
+- {{b592d06990cc7b26-988b293d77026cdb-9b3062819b13e642}}
+'''
+
+[[block]]
+key = "b592d06990cc7b26-988b293d77026cdb-9b3062819b13e642"
+type = "paragraph"
+origin = '''
+保护插画细线条宽度不被意外加粗；复杂几何布尔合并失败时保留边界回退，避免细节变形或整次生成中断。
+'''
+translate = '''
+Preserved fine illustrated stroke widths without silent thickening, and added boundary fallbacks when complex boolean unions fail so jobs complete cleanly without distorting detail.
+'''
+
+[[block]]
+key = "8b0b7544b72086da"
+type = "heading"
+origin = '''
+## 预览与交互
+'''
+translate = '''
+## Preview and interaction
+'''
+
+[[block]]
+key = "58069fdf277514ed"
+type = "list"
+composite = true
+origin = '''
+{{58069fdf277514ed-9348f68ceac3eb11}}
+{{58069fdf277514ed-05c6c6b7d52d59cc}}
+{{58069fdf277514ed-7fc2829a3290813a}}
+{{58069fdf277514ed-a36be058abc94130}}
+'''
+translate = '''
+{{58069fdf277514ed-9348f68ceac3eb11}}
+{{58069fdf277514ed-05c6c6b7d52d59cc}}
+{{58069fdf277514ed-7fc2829a3290813a}}
+{{58069fdf277514ed-a36be058abc94130}}
+'''
+
+[[block]]
+key = "58069fdf277514ed-9348f68ceac3eb11"
+type = "listItem"
+composite = true
+origin = '''
+- {{58069fdf277514ed-9348f68ceac3eb11-3b035a3a27abcdba}}
+'''
+translate = '''
+- {{58069fdf277514ed-9348f68ceac3eb11-3b035a3a27abcdba}}
+'''
+
+[[block]]
+key = "58069fdf277514ed-9348f68ceac3eb11-3b035a3a27abcdba"
+type = "paragraph"
+origin = '''
+新增 2D 与 3D 悬停检查器，鼠标指向图案即可查看颜色、材料与分层信息；分层遮罩窗口新增跟随光标的局部放大镜。
+'''
+translate = '''
+Added 2D and 3D hover inspectors showing color, material, and layer details under the pointer, plus a cursor-tracking magnifier in the layer-mask viewer.
+'''
+
+[[block]]
+key = "58069fdf277514ed-05c6c6b7d52d59cc"
+type = "listItem"
+composite = true
+origin = '''
+- {{58069fdf277514ed-05c6c6b7d52d59cc-0a3d684a8f7d8639}}
+'''
+translate = '''
+- {{58069fdf277514ed-05c6c6b7d52d59cc-0a3d684a8f7d8639}}
+'''
+
+[[block]]
+key = "58069fdf277514ed-05c6c6b7d52d59cc-0a3d684a8f7d8639"
+type = "paragraph"
+origin = '''
+3D 预览由逐像素体素改为轮廓挤出，典型预览体积缩小约 155 倍，显著加快远程加载与浏览器渲染，且不影响最终导出的 3MF 精度。
+'''
+translate = '''
+Replaced per-pixel preview voxels with contour extrusion, shrinking a representative preview mesh by roughly 155× for faster remote loading and smoother browser rendering while keeping exported 3MF accuracy unchanged.
+'''
+
+[[block]]
+key = "58069fdf277514ed-7fc2829a3290813a"
+type = "listItem"
+composite = true
+origin = '''
+- {{58069fdf277514ed-7fc2829a3290813a-9b8a1207869336e4}}
+'''
+translate = '''
+- {{58069fdf277514ed-7fc2829a3290813a-9b8a1207869336e4}}
+'''
+
+[[block]]
+key = "58069fdf277514ed-7fc2829a3290813a-9b8a1207869336e4"
+type = "paragraph"
+origin = '''
+修复画布滚轮缩放带动整页滚动、滑块自动跳半格、放大后光标遮挡小色块以及按钮加载状态受浏览器扩展干扰等问题。
+'''
+translate = '''
+Fixed page scrolling during canvas wheel zoom, half-step slider jumps, cursor occlusion over tiny color patches when zoomed in, and button loading states disrupted by browser extensions.
+'''
+
+[[block]]
+key = "58069fdf277514ed-a36be058abc94130"
+type = "listItem"
+composite = true
+origin = '''
+- {{58069fdf277514ed-a36be058abc94130-7e94798cc40cf9c7}}
+'''
+translate = '''
+- {{58069fdf277514ed-a36be058abc94130-7e94798cc40cf9c7}}
+'''
+
+[[block]]
+key = "58069fdf277514ed-a36be058abc94130-7e94798cc40cf9c7"
+type = "paragraph"
+origin = '''
+转换器面板拆分为“核心”“颜色”“高级”三个子标签页，重排帮助提示、诊断信息、展开动画与工具栏布局，让常用参数一目了然。
+'''
+translate = '''
+Split the Converter panel into Core, Color, and Advanced tabs, reorganizing tooltips, diagnostics, accordion animations, and toolbar layout so everyday controls stay concise.
+'''
+
+[[block]]
+key = "f01f61106cf9f93e"
+type = "heading"
+origin = '''
+## 切片器与 3MF
+'''
+translate = '''
+## Slicers and 3MF
+'''
+
+[[block]]
+key = "197ed351209a1b9c"
+type = "list"
+composite = true
+origin = '''
+{{197ed351209a1b9c-197ed351209a1b9c}}
+'''
+translate = '''
+{{197ed351209a1b9c-197ed351209a1b9c}}
+'''
+
+[[block]]
+key = "197ed351209a1b9c-197ed351209a1b9c"
+type = "listItem"
+composite = true
+origin = '''
+- {{197ed351209a1b9c-197ed351209a1b9c-c1c50105b4b86520}}
+'''
+translate = '''
+- {{197ed351209a1b9c-197ed351209a1b9c-c1c50105b4b86520}}
+'''
+
+[[block]]
+key = "197ed351209a1b9c-197ed351209a1b9c-c1c50105b4b86520"
+type = "paragraph"
+origin = '''
+3MF 新增底板层高修改器，导入 Bambu Studio 后底板可独立采用更大层高；同时修复材料定义冲突及 Anycubic Slicer Next 预览占位图卡死问题。
+'''
+translate = '''
+Added a backing-plate layer-height modifier for Bambu Studio 3MF projects, resolved duplicate material definitions, and replaced an invalid preview thumbnail placeholder that could freeze Anycubic Slicer Next.
+'''
+
+[[block]]
+key = "cf7a859e1c123da7"
+type = "heading"
+origin = '''
+## 问题反馈与更新沟通
+'''
+translate = '''
+## Feedback and update communication
+'''
+
+[[block]]
+key = "afbc3584a1c32a60"
+type = "list"
+composite = true
+origin = '''
+{{afbc3584a1c32a60-0643fd6775c5a10e}}
+{{afbc3584a1c32a60-b4913f31e211f353}}
+'''
+translate = '''
+{{afbc3584a1c32a60-0643fd6775c5a10e}}
+{{afbc3584a1c32a60-b4913f31e211f353}}
+'''
+
+[[block]]
+key = "afbc3584a1c32a60-0643fd6775c5a10e"
+type = "listItem"
+composite = true
+origin = '''
+- {{afbc3584a1c32a60-0643fd6775c5a10e-bc97812c96ed54f8}}
+'''
+translate = '''
+- {{afbc3584a1c32a60-0643fd6775c5a10e-bc97812c96ed54f8}}
+'''
+
+[[block]]
+key = "afbc3584a1c32a60-0643fd6775c5a10e-bc97812c96ed54f8"
+type = "paragraph"
+origin = '''
+应用内新增中英文双语更新公告，按日期归档并支持逐条关闭。
+'''
+translate = '''
+Added bilingual in-app update announcements organized by date with individual dismissal controls.
+'''
+
+[[block]]
+key = "afbc3584a1c32a60-b4913f31e211f353"
+type = "listItem"
+composite = true
+origin = '''
+- {{afbc3584a1c32a60-b4913f31e211f353-9260628d2544922a}}
+'''
+translate = '''
+- {{afbc3584a1c32a60-b4913f31e211f353-9260628d2544922a}}
+'''
+
+[[block]]
+key = "afbc3584a1c32a60-b4913f31e211f353-9260628d2544922a"
+type = "paragraph"
+origin = '''
+新增 Bug Report v2.1：提交时自动附带当前工作流、色彩模式、LUT、会话及浏览器信息；邮件发送不可用时自动保存本地 JSON，提交成功后保留工单号便于复制。
+'''
+translate = '''
+Added Bug Report v2.1, automatically attaching the active workflow, color mode, LUT, session, and browser context, saving a local JSON fallback if email delivery is unavailable, and keeping the ticket ID easy to copy.
+'''
+
+[[block]]
+key = "d31eb325d81b59ff"
+type = "heading"
+origin = '''
+## 稳定性、性能与基础设施
+'''
+translate = '''
+## Stability, performance, and infrastructure
+'''
+
+[[block]]
+key = "100dd1aefa676a4f"
+type = "paragraph"
+origin = '''
+建立结构化日志与工作流回归门禁，覆盖颜色提取、预览、换色、SVG、模型生成与多色模式；修复跨会话共享预览文件、长时运行工作进程内存增长、输入文件过早清理等问题，并完成内部可选数据库存储的基础适配。
+'''
+translate = '''
+Established structured diagnostic logging and automated workflow regression gates across extraction, preview, recoloring, SVG, generation, and multicolor modes; fixed cross-session preview path collisions, worker memory growth, and premature input cleanup; and added internal scaffolding for optional database storage.
+'''
+
+[[block]]
+key = "2b7b84c0c28abaf9"
+type = "heading"
+origin = '''
+## 已知限制
+'''
+translate = '''
+## Known limitations
+'''
+
+[[block]]
+key = "71f5c124c63ce932"
+type = "list"
+composite = true
+origin = '''
+{{71f5c124c63ce932-9c9363b796e65f3f}}
+{{71f5c124c63ce932-742aac18822d055a}}
+{{71f5c124c63ce932-7c0e084d9a04fc1a}}
+'''
+translate = '''
+{{71f5c124c63ce932-9c9363b796e65f3f}}
+{{71f5c124c63ce932-742aac18822d055a}}
+{{71f5c124c63ce932-7c0e084d9a04fc1a}}
+'''
+
+[[block]]
+key = "71f5c124c63ce932-9c9363b796e65f3f"
+type = "listItem"
+composite = true
+origin = '''
+- {{71f5c124c63ce932-9c9363b796e65f3f-fd24ef32821ef210}}
+'''
+translate = '''
+- {{71f5c124c63ce932-9c9363b796e65f3f-fd24ef32821ef210}}
+'''
+
+[[block]]
+key = "71f5c124c63ce932-9c9363b796e65f3f-fd24ef32821ef210"
+type = "paragraph"
+origin = '''
+大画幅、描边、涂层与部分建模模式存在互斥组合，界面会按当前模式自动限制可选项。
+'''
+translate = '''
+Certain combinations of large-format tiling, outlines, coating, and modeling modes remain mutually exclusive and are automatically restricted in the UI.
+'''
+
+[[block]]
+key = "71f5c124c63ce932-742aac18822d055a"
+type = "listItem"
+composite = true
+origin = '''
+- {{71f5c124c63ce932-742aac18822d055a-c196245e6216e6e0}}
+'''
+translate = '''
+- {{71f5c124c63ce932-742aac18822d055a-c196245e6216e6e0}}
+'''
+
+[[block]]
+key = "71f5c124c63ce932-742aac18822d055a-c196245e6216e6e0"
+type = "paragraph"
+origin = '''
+新版预览内核与可选数据库后端仍处于内部验证阶段，默认未启用。
+'''
+translate = '''
+New preview kernels and optional database storage remained internal infrastructure and were disabled by default.
+'''
+
+[[block]]
+key = "71f5c124c63ce932-7c0e084d9a04fc1a"
+type = "listItem"
+composite = true
+origin = '''
+- {{71f5c124c63ce932-7c0e084d9a04fc1a-da596e30b762467e}}
+'''
+translate = '''
+- {{71f5c124c63ce932-7c0e084d9a04fc1a-da596e30b762467e}}
+'''
+
+[[block]]
+key = "71f5c124c63ce932-7c0e084d9a04fc1a-da596e30b762467e"
+type = "paragraph"
+origin = '''
+材料档案与传统 LUT 仍在逐步统一，部分旧版 JSON/NPY 文件通过兼容路径读取。
+'''
+translate = '''
+Material profiles and classic LUTs were still being unified, with compatibility loaders retained for legacy JSON and NPY files.
+'''
+
+[[block]]
+key = "9fbc7e8cd8ef3fc4"
+type = "paragraph"
+origin = '''
+[← 2026 年 3 月](/zh/docs/releases/2026-03) · [更新日志总览](/zh/docs/releases/overview) · [2026 年 5 月 →](/zh/docs/releases/2026-05)
+'''
+translate = '''
+[← March 2026](/en/docs/releases/2026-03) · [Changelog overview](/en/docs/releases/overview) · [May 2026 →](/en/docs/releases/2026-05)
+'''
+
+[[block]]
+key = "fed70d9e9084add2"
+type = "definition"
+origin = '''
+[devlog-entry:2026-04-vector-engine]: # "prs:24,26,32,41,42,45,47,48,73,79,83,97"
+'''
+translate = '''
+[devlog-entry:2026-04-vector-engine]: # "prs:24,26,32,41,42,45,47,48,73,79,83,97"
+'''
+
+[[block]]
+key = "e71fc86b19a1b4f8"
+type = "definition"
+origin = '''
+[devlog-entry:2026-04-color-workstation]: # "prs:29,30,31,62,66,69,80,82,89,90,93,94"
+'''
+translate = '''
+[devlog-entry:2026-04-color-workstation]: # "prs:29,30,31,62,66,69,80,82,89,90,93,94"
+'''
+
+[[block]]
+key = "dab48e0d04156426"
+type = "definition"
+origin = '''
+[devlog-entry:2026-04-lut-management]: # "prs:17,19,25,43,74,78,84,95,111,116,135"
+'''
+translate = '''
+[devlog-entry:2026-04-lut-management]: # "prs:17,19,25,43,74,78,84,95,111,116,135"
+'''
+
+[[block]]
+key = "d9399b800e927609"
+type = "definition"
+origin = '''
+[devlog-entry:2026-04-share-card]: # "prs:28"
+'''
+translate = '''
+[devlog-entry:2026-04-share-card]: # "prs:28"
+'''
+
+[[block]]
+key = "d4e3a5cc1f65161d"
+type = "definition"
+origin = '''
+[devlog-entry:2026-04-puzzle-fridge-magnet]: # "prs:34,37"
+'''
+translate = '''
+[devlog-entry:2026-04-puzzle-fridge-magnet]: # "prs:34,37"
+'''
+
+[[block]]
+key = "4d0019bf1e35950f"
+type = "definition"
+origin = '''
+[devlog-entry:2026-04-native-single-stage-large-format]: # "prs:38,41"
+'''
+translate = '''
+[devlog-entry:2026-04-native-single-stage-large-format]: # "prs:38,41"
+'''
+
+[[block]]
+key = "f1ebe7b2db507ffd"
+type = "definition"
+origin = '''
+[devlog-entry:2026-04-multicolor-calibration]: # "prs:36,40,61,132"
+'''
+translate = '''
+[devlog-entry:2026-04-multicolor-calibration]: # "prs:36,40,61,132"
+'''
+
+[[block]]
+key = "fd21257222d6419a"
+type = "definition"
+origin = '''
+[devlog-entry:2026-04-gradient-card-workflow]: # "prs:35,49,54,63,71,96,123,127"
+'''
+translate = '''
+[devlog-entry:2026-04-gradient-card-workflow]: # "prs:35,49,54,63,71,96,123,127"
+'''
+
+[[block]]
+key = "87b8355f0f3d8e57"
+type = "definition"
+origin = '''
+[devlog-entry:2026-04-material-library-editing]: # "prs:58,59"
+'''
+translate = '''
+[devlog-entry:2026-04-material-library-editing]: # "prs:58,59"
+'''
+
+[[block]]
+key = "c9eedce47b2d6142"
+type = "definition"
+origin = '''
+[devlog-entry:2026-04-extractor-state]: # "prs:60,61"
+'''
+translate = '''
+[devlog-entry:2026-04-extractor-state]: # "prs:60,61"
+'''
+
+[[block]]
+key = "5d2d533b3be59d03"
+type = "definition"
+origin = '''
+[devlog-entry:2026-04-virtual-material-recipes]: # "prs:69,79"
+'''
+translate = '''
+[devlog-entry:2026-04-virtual-material-recipes]: # "prs:69,79"
+'''
+
+[[block]]
+key = "28827a96a55f6209"
+type = "definition"
+origin = '''
+[devlog-entry:2026-04-svg-detail-preservation]: # "prs:42,45,83"
+'''
+translate = '''
+[devlog-entry:2026-04-svg-detail-preservation]: # "prs:42,45,83"
+'''
+
+[[block]]
+key = "6798fcbf25a3bffc"
+type = "definition"
+origin = '''
+[devlog-entry:2026-04-preview-inspectors]: # "prs:30,31,46,80,82"
+'''
+translate = '''
+[devlog-entry:2026-04-preview-inspectors]: # "prs:30,31,46,80,82"
+'''
+
+[[block]]
+key = "94323d99b280d781"
+type = "definition"
+origin = '''
+[devlog-entry:2026-04-preview-size-performance]: # "prs:68,75"
+'''
+translate = '''
+[devlog-entry:2026-04-preview-size-performance]: # "prs:68,75"
+'''
+
+[[block]]
+key = "47423c0ec152535a"
+type = "definition"
+origin = '''
+[devlog-entry:2026-04-ui-precision]: # "prs:55,56,77,87,89"
+'''
+translate = '''
+[devlog-entry:2026-04-ui-precision]: # "prs:55,56,77,87,89"
+'''
+
+[[block]]
+key = "9b5b9ca3d93ae1af"
+type = "definition"
+origin = '''
+[devlog-entry:2026-04-converter-ux]: # "prs:57,81,85,91,121"
+'''
+translate = '''
+[devlog-entry:2026-04-converter-ux]: # "prs:57,81,85,91,121"
+'''
+
+[[block]]
+key = "e563fdf998dd8598"
+type = "definition"
+origin = '''
+[devlog-entry:2026-04-slicer-3mf-compatibility]: # "prs:52,76,114"
+'''
+translate = '''
+[devlog-entry:2026-04-slicer-3mf-compatibility]: # "prs:52,76,114"
+'''
+
+[[block]]
+key = "51e798d0e5f75ebe"
+type = "definition"
+origin = '''
+[devlog-entry:2026-04-in-app-announcements]: # "prs:64,65,67,72,125"
+'''
+translate = '''
+[devlog-entry:2026-04-in-app-announcements]: # "prs:64,65,67,72,125"
+'''
+
+[[block]]
+key = "118dd5816bc20a0d"
+type = "definition"
+origin = '''
+[devlog-entry:2026-04-bug-report-v2]: # "prs:122"
+'''
+translate = '''
+[devlog-entry:2026-04-bug-report-v2]: # "prs:122"
+'''
+
+[[block]]
+key = "16140f23a450cf97"
+type = "definition"
+origin = '''
+[devlog-entry:2026-04-engineering-foundation]: # "prs:18,20,21,22,23,27,39,44,50,51,53,70,86,88,92,98,99,100,101,102,103,104,105,106,107,108,109,110,112,113,117,118,119,120,124,126,128,129,130,131,133,134,136,137,138,139,140,141"
+'''
+translate = '''
+[devlog-entry:2026-04-engineering-foundation]: # "prs:18,20,21,22,23,27,39,44,50,51,53,70,86,88,92,98,99,100,101,102,103,104,105,106,107,108,109,110,112,113,117,118,119,120,124,126,128,129,130,131,133,134,136,137,138,139,140,141"
+'''

@@ -1,0 +1,323 @@
+[metadata]
+reviewed_source = "a36cc353a58851c73502469a434f0d997f3f29c3141e8188406de9349e85cfe3"
+
+[[block]]
+key = "80e499c883f0c4ff"
+type = "yaml"
+origin = '''
+---
+title: "底板填充率"
+description: "了解底板填充率的作用、观赏面实心保护区，以及调整后如何在切片器中检查。"
+sidebar_position: 8
+---
+'''
+translate = '''
+---
+title: "Base Plate Infill"
+description: "Learn how Base plate infill and the 3 mm solid protection zone work, and how to inspect the sliced result."
+sidebar_position: 8
+---
+'''
+
+[[block]]
+key = "4fe4a061d3029fc0"
+type = "heading"
+origin = '''
+# 底板填充率
+'''
+translate = '''
+# Base Plate Infill
+'''
+
+[[block]]
+key = "d09bf86594438285"
+type = "paragraph"
+origin = '''
+**底板填充率**用于控制厚底板深层区域的稀疏填充密度。调低数值可减少厚底板的耗材用量与打印时间；设为 **100%** 时，底板整体采用实心填充。显色层始终保持实心，底板总厚度也不受该项影响。
+'''
+translate = '''
+**Base plate infill** controls the sparse infill density deep inside thick base plates. Lowering this value reduces filament usage and print time on thick bases, while **100%** keeps the entire base solid. Color layers always print solid, and base plate thickness itself remains unchanged.
+'''
+
+[[block]]
+key = "cc46a9a7a91098a5"
+type = "paragraph"
+origin = '''
+该选项位于转换页面基础设置的“底板厚度”下方，调节范围为 **5%–100%**，默认值为 **100%**。拖动滑块时以 **5%** 为步长递增，也可直接在右侧输入框中填入范围内的任意整数。
+'''
+translate = '''
+Find **Base plate infill** in the Converter's basic settings directly below **Base plate thickness**. It ranges from **5%–100%** with a default of **100%**. Drag the slider in **5%** steps, or type any whole number within that range into the input box on the right.
+'''
+
+[[block]]
+key = "9f4e5a23cf9ffd2e"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/00-base-plate-infill.jpg').default}
+  alt="Lumina Studio 的尺寸和底板设置，底板填充率位于底板厚度下方"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/00-base-plate-infill.jpg').default}
+  alt="Lumina Studio size and base plate settings with Base plate infill below Base plate thickness"
+/>
+'''
+
+[[block]]
+key = "a44dc75d330baaab"
+type = "heading"
+origin = '''
+## 为什么调低后底板仍是实心的？
+'''
+translate = '''
+## Why does a lower setting still produce a solid base?
+'''
+
+[[block]]
+key = "8d66fe1d1f3bcb52"
+type = "paragraph"
+origin = '''
+为避免内部填充纹路透过底板影响观赏面观感，Lumina 会从显色层与底板的交界处向底板内部保留 **3 mm 实心保护区**。双面作品的正反两侧各保留 3 mm 实心区，显色层本身也保持实心。
+'''
+translate = '''
+To prevent internal infill patterns from showing through the viewing surface, Lumina keeps a **3 mm solid protection zone** inside the base plate, measured inward from the boundary between the color layers and the base. Double-sided prints reserve a 3 mm solid zone behind each face, and the color layers themselves remain solid as well.
+'''
+
+[[block]]
+key = "106b90020954da5f"
+type = "paragraph"
+origin = '''
+因此，当单面作品的实际底板厚度不超过 **3 mm** 时，整块底板都处于保护区内；双面作品的底板厚度不超过 **6 mm** 时，两侧保护区相接或重叠，底板同样全部保持实心。在这些厚度下，即使调低滑块，导出的 3MF 仍会对底板使用 100% 实心填充。
+'''
+translate = '''
+Because of this protection zone, a single-sided base **3 mm** or thinner lies completely inside the solid region. Likewise, a double-sided base **6 mm** or thinner has touching or overlapping protection zones and stays solid throughout. At those thicknesses, the exported 3MF uses 100% infill for the base regardless of a lower slider setting.
+'''
+
+[[block]]
+key = "3782b3cb721e2bd0"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-protected-backing.webp').default}
+  alt="单面作品的底板截面示意：2 mm 底板全部处于实心保护区；6 mm 底板中靠近显色层的 3 mm 保持实心，其余部分可以使用所选填充率"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-protected-backing.webp').default}
+  alt="Single-sided base plate cross-sections: a 2 mm base is fully protected, while a 6 mm base has 3 mm of solid protection next to the color layers and an adjustable infill region beyond it"
+/>
+'''
+
+[[block]]
+key = "9e71c4ec71cfc2c4"
+type = "paragraph"
+origin = '''
+*底板实心保护区截面示意图（图中颜色仅用于区分结构区域）。*
+'''
+translate = '''
+*Cross-section diagram of the solid protection zone (colors indicate structural regions rather than slicer toolpaths).*
+'''
+
+[[block]]
+key = "938e96e4b46ca8fd"
+type = "paragraph"
+origin = '''
+以底板填充率设为 **20%** 为例：
+'''
+translate = '''
+For example, with **Base plate infill** set to **20%**:
+'''
+
+[[block]]
+key = "e598f18017fa94c1"
+type = "table"
+origin = '''
+| 作品类型 | 实际底板厚度 | 导出的填充设置 |
+| --- | --- | --- |
+| 单面 | 1.20 mm | 底板全部保持实心 |
+| 单面 | 4.00 mm | 靠近显色层的 3 mm 保持实心，深层区域使用 20% 稀疏填充 |
+| 双面 | 6.00 mm | 两侧保护区相接，底板全部保持实心 |
+| 双面 | 8.00 mm | 两侧各 3 mm 保持实心，中间夹层使用 20% 稀疏填充 |
+'''
+translate = '''
+| Artwork | Generated base thickness | Exported infill behavior |
+| --- | --- | --- |
+| Single-sided | 1.20 mm | Entire base stays solid |
+| Single-sided | 4.00 mm | 3 mm next to the color layers stays solid; deeper section uses 20% sparse infill |
+| Double-sided | 6.00 mm | Protection zones meet, so the entire base stays solid |
+| Double-sided | 8.00 mm | 3 mm on each side stays solid; center core uses 20% sparse infill |
+'''
+
+[[block]]
+key = "9303ad07fcdecd1e"
+type = "paragraph"
+origin = '''
+表中的厚度指生成模型时按打印层高对齐后的**底板厚度**（不含显色层高度）。底板厚度接近临界值时，可在切片预览中拖动层滑块确认内部填充边界。
+'''
+translate = '''
+This threshold is based on the **layer-aligned base thickness** generated for the model, excluding the height of the color layers. When your base thickness is close to the 3 mm or 6 mm boundary, scrub through the layers in your slicer preview to verify where sparse infill begins.
+'''
+
+[[block]]
+key = "37823e236af726dd"
+type = "heading"
+origin = '''
+### 切片效果对比
+'''
+translate = '''
+### Slicing comparison
+'''
+
+[[block]]
+key = "6659ff29b34f2a3f"
+type = "paragraph"
+origin = '''
+以 20 × 20 mm 单面模型为例，分别按 20% 和 100% 底板填充率导出 3MF 并在 Bambu Studio 中切片：底板为 2 mm 时，两组均位于 3 mm 保护区内，预估耗材用量一致；底板增至 6 mm 时，20% 填充率会在深层生成稀疏网格路径，预估耗材用量与打印时间随之降低。实际节省幅度还会随作品面积、底板厚度以及切片软件中的墙层数和顶底壳设置变化。
+'''
+translate = '''
+When exporting a 20 × 20 mm single-sided test block from Lumina at 20% and 100% infill and slicing both in Bambu Studio, a 2 mm base produces identical filament estimates because the entire base falls within the 3 mm solid zone. Increasing the base to 6 mm introduces sparse internal paths in the 20% project, reducing both estimated filament usage and print time. Exact savings vary with print area, base thickness, wall count, and top/bottom shell settings.
+'''
+
+[[block]]
+key = "17b427db7f90a7dd"
+type = "heading"
+origin = '''
+## 在切片软件中检查填充路径
+'''
+translate = '''
+## Check the result in your slicer
+'''
+
+[[block]]
+key = "17ccfe969b4a5d69"
+type = "list"
+composite = true
+origin = '''
+{{17ccfe969b4a5d69-fa1db19bff6cc3af}}
+{{17ccfe969b4a5d69-25089b7ca19fd78d}}
+{{17ccfe969b4a5d69-159fbb5a8cbfba0b}}
+{{17ccfe969b4a5d69-ed6f15d1d4d75fe8}}
+'''
+translate = '''
+{{17ccfe969b4a5d69-fa1db19bff6cc3af}}
+{{17ccfe969b4a5d69-25089b7ca19fd78d}}
+{{17ccfe969b4a5d69-159fbb5a8cbfba0b}}
+{{17ccfe969b4a5d69-ed6f15d1d4d75fe8}}
+'''
+
+[[block]]
+key = "17ccfe969b4a5d69-fa1db19bff6cc3af"
+type = "listItem"
+composite = true
+origin = '''
+1. {{17ccfe969b4a5d69-fa1db19bff6cc3af-16eab4755b0cecf6}}
+'''
+translate = '''
+1. {{17ccfe969b4a5d69-fa1db19bff6cc3af-16eab4755b0cecf6}}
+'''
+
+[[block]]
+key = "17ccfe969b4a5d69-fa1db19bff6cc3af-16eab4755b0cecf6"
+type = "paragraph"
+origin = '''
+根据作品需求设置[底板厚度](../backing-thickness/backing-thickness.mdx)与底板填充率，重新生成 3MF。
+'''
+translate = '''
+Set [Base-Plate Thickness](../backing-thickness/backing-thickness.mdx) and **Base plate infill** for your print, then generate a new 3MF.
+'''
+
+[[block]]
+key = "17ccfe969b4a5d69-25089b7ca19fd78d"
+type = "listItem"
+composite = true
+origin = '''
+2. {{17ccfe969b4a5d69-25089b7ca19fd78d-dc46f2ce3d5d6396}}
+'''
+translate = '''
+2. {{17ccfe969b4a5d69-25089b7ca19fd78d-dc46f2ce3d5d6396}}
+'''
+
+[[block]]
+key = "17ccfe969b4a5d69-25089b7ca19fd78d-dc46f2ce3d5d6396"
+type = "paragraph"
+origin = '''
+在支持 3MF 项目参数的切片软件中，将文件**作为完整项目打开**（仅导入几何网格时不会带入填充修改器）。
+'''
+translate = '''
+Open the 3MF **as a complete project** in a compatible slicer—importing raw geometry alone skips 3MF infill modifiers.
+'''
+
+[[block]]
+key = "17ccfe969b4a5d69-159fbb5a8cbfba0b"
+type = "listItem"
+composite = true
+origin = '''
+3. {{17ccfe969b4a5d69-159fbb5a8cbfba0b-30eeb0ebd3a284d8}}
+'''
+translate = '''
+3. {{17ccfe969b4a5d69-159fbb5a8cbfba0b-30eeb0ebd3a284d8}}
+'''
+
+[[block]]
+key = "17ccfe969b4a5d69-159fbb5a8cbfba0b-30eeb0ebd3a284d8"
+type = "paragraph"
+origin = '''
+点击切片，在预览界面上下拖动层滑块查看底板内部走线。
+'''
+translate = '''
+Slice the project and drag the layer slider down into the base to inspect the internal toolpaths beneath the solid shells.
+'''
+
+[[block]]
+key = "17ccfe969b4a5d69-ed6f15d1d4d75fe8"
+type = "listItem"
+composite = true
+origin = '''
+4. {{17ccfe969b4a5d69-ed6f15d1d4d75fe8-383f4a41d12e1b0c}}
+'''
+translate = '''
+4. {{17ccfe969b4a5d69-ed6f15d1d4d75fe8-383f4a41d12e1b0c}}
+'''
+
+[[block]]
+key = "17ccfe969b4a5d69-ed6f15d1d4d75fe8-383f4a41d12e1b0c"
+type = "paragraph"
+origin = '''
+如需横向对比，可保持其余参数不变，分别用不同填充率导出项目并切片，对比内部路径、耗材预估与打印时长。
+'''
+translate = '''
+To compare infill values directly, keep all other parameters identical, export and slice separate 3MF projects, and compare internal paths, material estimates, and print times.
+'''
+
+[[block]]
+key = "8b263caf93fbd62d"
+type = "paragraph"
+origin = '''
+切片软件的顶面、底面与墙层数设置同样会影响实心区域占比；若所用切片软件对 3MF 项目修改器的读取方式不同，可在切片后通过逐层预览核对内部路径。
+'''
+translate = '''
+Top shells, bottom shells, and perimeter walls in your slicer also occupy solid volume, and third-party slicers vary in how they interpret 3MF modifier settings. Use the layer-by-layer preview after slicing to confirm the internal infill layout.
+'''
+
+[[block]]
+key = "033434fbbd047178"
+type = "heading"
+origin = '''
+## 不可用的情形
+'''
+translate = '''
+## When is the control unavailable?
+'''
+
+[[block]]
+key = "d99441cfcabd5b5e"
+type = "paragraph"
+origin = '''
+开启**模型贴图**（部分提示中也称“模型覆面”）或**浮雕**时，底板填充率控件会自动禁用；平面拼图模式不受这两项限制。此外，底板填充率控制的是内部填充密度，而底板层高修改器控制的是单层打印高度，两者的区别详见[底板、显色层和层高修改器](../../../knowledge/base-color-layer-height/base-color-layer-height.mdx)。
+'''
+translate = '''
+**Base plate infill** is disabled when **Model Texture** (also labeled “Model Surface” in some tooltips) or **Relief** is enabled; flat puzzles remain adjustable. Note that **Base plate infill** adjusts infill density rather than layer thickness—to print thick bases faster with taller layers, see [Backing, Color Layers, and Layer-Height Modifiers](../../../knowledge/base-color-layer-height/base-color-layer-height.mdx).
+'''

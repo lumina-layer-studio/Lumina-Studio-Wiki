@@ -1,0 +1,457 @@
+[metadata]
+migration_layout = "preserved English structure; root blocks retain grouped or omitted source sections"
+reviewed_source = "f581c0bb7c8db6195985f1b8b34ea8c47b40547e6cf830c450d778afdcebcec2"
+
+[[block]]
+key = "50d83cc5e56e5b72"
+type = "yaml"
+origin = '''
+---
+title: "2.0 开发月报：2026 年 8 月"
+description: "项目保存、统一选区、动态材料层数、底板工艺与切片器适配。"
+sidebar_position: 35
+---
+'''
+translate = '''
+---
+title: "2.0 Development Report: August 2026"
+description: "Project saving, shared selection, dynamic layers, backing settings and device support."
+sidebar_position: 35
+---
+'''
+
+[[block]]
+key = "10c46f5f5af8e212"
+type = "heading"
+origin = '''
+# Lumina Studio 2.0 开发月报：2026 年 8 月
+'''
+translate = '''
+# Lumina Studio 2.0 Development Report: August 2026
+'''
+
+[[block]]
+key = "bdf9a85de282b101"
+type = "paragraph"
+origin = '''
+8 月重点完善项目保存与持续编辑工作流，同时提升材料叠色一致性、底板工艺控制和复杂 SVG 导出的可靠性。
+'''
+translate = '''
+August focused on project saving and iterative editing workflows, alongside improvements to simulated filament-stack consistency, backing controls, and complex SVG exports.
+'''
+
+[[block]]
+key = "ffbc3c2e6b419840"
+type = "heading"
+origin = '''
+## 项目保存与选区编辑
+'''
+translate = '''
+## Projects and unified selection
+'''
+
+[[block]]
+key = "3ecbcaaccdc1409f"
+type = "heading"
+origin = '''
+### 保存项目，继续对比参数
+'''
+translate = '''
+'''
+
+[[block]]
+key = "435b7062583e0caf"
+type = "paragraph"
+origin = '''
+支持将原图、输出设置、全图换色与自定义配方历史保存为 Lumina 项目，便于后续重新打开并对比不同参数或材料组合。此阶段的项目文件暂未包含局部空间选区（局部换色、区域配方与选区的完整保存已于 10 月补齐）；详细说明见[保存项目与分享卡](../knowledge/share-card-json/share-card-json.mdx)。
+'''
+translate = '''
+Projects can now save source artwork, output parameters, whole-image recoloring, and custom-recipe history so different settings or filament combinations can be reopened and compared later. Spatial selection persistence arrived in October with full saving for local recolors, regional recipes, and active selections.
+'''
+
+[[block]]
+key = "370aa5146b42b518"
+type = "heading"
+origin = '''
+### 统一选区与画笔
+'''
+translate = '''
+'''
+
+[[block]]
+key = "744c5347930cff4f"
+type = "paragraph"
+origin = '''
+颜色调整新增统一选区、画笔工具与检查点撤销，并以清晰的边缘轮廓标示选中范围。各选择工具共享同一份选区状态，确保界面预览与最终生成范围一致；应用区域配方后取消选区，已确认的编辑结果仍会保留。
+'''
+translate = '''
+Color Adjustment introduced a shared selection state, a brush tool, and checkpoint undo with clear boundary outlines. Every selection tool operates on the same active region so previews and exported geometry stay aligned, and clearing a selection after applying a regional recipe preserves the confirmed edit.
+'''
+
+[[block]]
+key = "10478c0cd95956dd"
+type = "heading"
+origin = '''
+## 材料、配方与底板
+'''
+translate = '''
+## Materials and backing
+'''
+
+[[block]]
+key = "1edbe8afbf8465f5"
+type = "list"
+composite = true
+origin = '''
+{{1edbe8afbf8465f5-1b008e18bcf5856e}}
+{{1edbe8afbf8465f5-e4b4d00001cc58d2}}
+{{1edbe8afbf8465f5-8507bfb3e9224a06}}
+{{1edbe8afbf8465f5-bb62ba190abf0cf4}}
+'''
+translate = '''
+- Completed dynamic layer-count handling across color matching, preview, and 3MF generation.
+- Unified simulated optical-stack colors across conversion previews, custom recipes, achievable-color suggestions, and material-library lookups.
+- Extended maximum backing thickness to 10 mm and added independent infill control for deeper backing layers while keeping the zone behind the viewing face solid.
+- Fixed backing-to-color-layer alignment, semitransparent PNG matching, and large-format backing layer-height modifiers.
+'''
+
+[[block]]
+key = "1edbe8afbf8465f5-1b008e18bcf5856e"
+type = "listItem"
+composite = true
+origin = '''
+- {{1edbe8afbf8465f5-1b008e18bcf5856e-1ab53c5219d8c2d6}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1edbe8afbf8465f5-1b008e18bcf5856e-1ab53c5219d8c2d6"
+type = "paragraph"
+origin = '''
+完善动态材料层数流程，材料组合按实际层数参与匹配、预览与最终生成。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1edbe8afbf8465f5-e4b4d00001cc58d2"
+type = "listItem"
+composite = true
+origin = '''
+- {{1edbe8afbf8465f5-e4b4d00001cc58d2-ec5bba850c7017be}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1edbe8afbf8465f5-e4b4d00001cc58d2-ec5bba850c7017be"
+type = "paragraph"
+origin = '''
+同一组耗材叠层在转换预览、自定义配方、可达色推荐及材料库查询中采用一致的模拟颜色计算。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1edbe8afbf8465f5-8507bfb3e9224a06"
+type = "listItem"
+composite = true
+origin = '''
+- {{1edbe8afbf8465f5-8507bfb3e9224a06-ea4fd62f87a302b2}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1edbe8afbf8465f5-8507bfb3e9224a06-ea4fd62f87a302b2"
+type = "paragraph"
+origin = '''
+底板厚度上限扩展至 10 mm，并为深层底板新增独立填充率控制，靠近观赏面的区域继续保持实心。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1edbe8afbf8465f5-bb62ba190abf0cf4"
+type = "listItem"
+composite = true
+origin = '''
+- {{1edbe8afbf8465f5-bb62ba190abf0cf4-56895f373814738d}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1edbe8afbf8465f5-bb62ba190abf0cf4-56895f373814738d"
+type = "paragraph"
+origin = '''
+修正底板厚度与显色层高对齐、半透明 PNG 颜色匹配以及大画幅底板层高修改器的生成逻辑。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "63e5f3f64696d5c8"
+type = "heading"
+origin = '''
+## 设备与 3MF
+'''
+translate = '''
+## Devices and 3MF exports
+'''
+
+[[block]]
+key = "66243e7373814107"
+type = "list"
+composite = true
+origin = '''
+{{66243e7373814107-b9c9f62b930b31eb}}
+{{66243e7373814107-8f82acc20ee4572f}}
+{{66243e7373814107-dff47b0e0456bfde}}
+{{66243e7373814107-1c0f7bd96607df88}}
+{{66243e7373814107-1f003b11c8d6bbc9}}
+'''
+translate = '''
+- Reorganized system settings by category, with sharper printer illustrations and high-DPI rendering.
+- Added native slicer build-plate selection, remembered per slicer and printer model.
+- Added multicolor project support for QIDI Studio.
+- Added an option to name standard single-model 3MF exports after the uploaded image filename while preserving dedicated naming schemes for batch, puzzle, and large-format exports.
+- Resolved cross-slicer wipe-tower placement, mirrored puzzle-piece offsets, and single-slot filament identity issues.
+'''
+
+[[block]]
+key = "66243e7373814107-b9c9f62b930b31eb"
+type = "listItem"
+composite = true
+origin = '''
+- {{66243e7373814107-b9c9f62b930b31eb-3d42b723fd01700e}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "66243e7373814107-b9c9f62b930b31eb-3d42b723fd01700e"
+type = "paragraph"
+origin = '''
+按功能分类重构系统设置面板，优化设备卡片、打印机配图与高分屏显示效果。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "66243e7373814107-8f82acc20ee4572f"
+type = "listItem"
+composite = true
+origin = '''
+- {{66243e7373814107-8f82acc20ee4572f-b214ffcbe2f89a27}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "66243e7373814107-8f82acc20ee4572f-b214ffcbe2f89a27"
+type = "paragraph"
+origin = '''
+支持选择切片软件原生打印板，并按切片软件与机型组合自动记忆板型。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "66243e7373814107-dff47b0e0456bfde"
+type = "listItem"
+composite = true
+origin = '''
+- {{66243e7373814107-dff47b0e0456bfde-3f544b83f17228fb}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "66243e7373814107-dff47b0e0456bfde-3f544b83f17228fb"
+type = "paragraph"
+origin = '''
+新增 QIDI Studio 多色工程适配。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "66243e7373814107-1c0f7bd96607df88"
+type = "listItem"
+composite = true
+origin = '''
+- {{66243e7373814107-1c0f7bd96607df88-33095269ba1237c7}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "66243e7373814107-1c0f7bd96607df88-33095269ba1237c7"
+type = "paragraph"
+origin = '''
+普通单件导出支持沿用上传原图的文件名；批量、拼图与大画幅模式保留各自的命名规则。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "66243e7373814107-1f003b11c8d6bbc9"
+type = "listItem"
+composite = true
+origin = '''
+- {{66243e7373814107-1f003b11c8d6bbc9-8ce5a5a7790d7d40}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "66243e7373814107-1f003b11c8d6bbc9-8ce5a5a7790d7d40"
+type = "paragraph"
+origin = '''
+持续修复跨切片器的擦料塔排布、拼图背面镜像偏移及单槽位材料标识问题。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "9ba02a7f467697c0"
+type = "heading"
+origin = '''
+## SVG 与轻量预览
+'''
+translate = '''
+## SVG performance and lightweight previews
+'''
+
+[[block]]
+key = "738e6a8440550a1d"
+type = "paragraph"
+origin = '''
+多轮优化复杂 SVG 首次分析耗时与生成内存占用，修复描边未闭合与细小孔洞丢失问题。颜色区域分析与材料求解引入并行计算并限制中间结果内存峰值，显著提升大图处理的稳定性。
+'''
+translate = '''
+Multiple optimization passes reduced initial analysis time and peak memory usage on complex SVGs while fixing open outlines and lost pinhole details. Color-region analysis and material solving now run in parallel within bounded memory budgets.
+'''
+
+[[block]]
+key = "c782045686bc1834"
+type = "paragraph"
+origin = '''
+浏览器端预览改用轻量化网格表示，减少直接加载完整打印网格的开销（9 月进一步推广至更多工作流），下载导出的 3MF 仍保持完整打印精度。
+'''
+translate = '''
+Browser 3D previews switched to lightweight display meshes for faster interactive loading—expanded across additional workflows in September—while exported 3MF files retain full print geometry.
+'''
+
+[[block]]
+key = "e538d0a3f029fece"
+type = "heading"
+origin = '''
+## 模型贴图、浮雕与创意工坊
+'''
+translate = '''
+## Creative workflows and ongoing work
+'''
+
+[[block]]
+key = "bde9a2f6baaacb46"
+type = "list"
+composite = true
+origin = '''
+{{bde9a2f6baaacb46-0a1c079e73aa4d63}}
+{{bde9a2f6baaacb46-f726be6988cf2274}}
+{{bde9a2f6baaacb46-48e7ee1c1aca8b2d}}
+'''
+translate = '''
+- Added base-mesh manifold validation prior to model-surface generation and fixed vertical artwork translation and orientation.
+- Standardized heightmap brightness-to-elevation mapping in relief mode and fixed heightmap drag-and-drop uploads.
+- Expanded Creative Workshop module installation and management while keeping seamless handoff from Fuse Bead Studio into native conversion.
+'''
+
+[[block]]
+key = "bde9a2f6baaacb46-0a1c079e73aa4d63"
+type = "listItem"
+composite = true
+origin = '''
+- {{bde9a2f6baaacb46-0a1c079e73aa4d63-1ba11423a0a858de}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bde9a2f6baaacb46-0a1c079e73aa4d63-1ba11423a0a858de"
+type = "paragraph"
+origin = '''
+模型贴图在生成前自动校验底模实体封闭性，并修正图案垂直移动与朝向偏差。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bde9a2f6baaacb46-f726be6988cf2274"
+type = "listItem"
+composite = true
+origin = '''
+- {{bde9a2f6baaacb46-f726be6988cf2274-7fa84be889276712}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bde9a2f6baaacb46-f726be6988cf2274-7fa84be889276712"
+type = "paragraph"
+origin = '''
+高度图浮雕统一明暗值与高低起伏的映射方向，修复高度图拖放上传问题。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bde9a2f6baaacb46-48e7ee1c1aca8b2d"
+type = "listItem"
+composite = true
+origin = '''
+- {{bde9a2f6baaacb46-48e7ee1c1aca8b2d-2f67cdc49e8a0e3b}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bde9a2f6baaacb46-48e7ee1c1aca8b2d-2f67cdc49e8a0e3b"
+type = "paragraph"
+origin = '''
+完善创意工坊模块的安装与管理体验，拼豆工作台整理后的图案可直接交回原生转换流程。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c43e3cdf4efc4ae3"
+type = "heading"
+origin = '''
+## 阶段说明
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4d2763e630f0893c"
+type = "paragraph"
+origin = '''
+复杂矢量接触边界与模型内外壳结构在 9 月继续结合切片测试深入优化。
+'''
+translate = '''
+Refinements to complex vector boundaries and inner/outer shell geometry continued in September.
+'''
+
+[[block]]
+key = "eb295d2c0dd81ec2"
+type = "paragraph"
+origin = '''
+[← 2026 年 7 月](./2026-07.md) · [2026 年 9 月 →](./2026-09.md) · [更新日志总览](./overview.md)
+'''
+translate = '''
+[← July](./2026-07.md) · [September →](./2026-09.md) · [Changelog](./overview.md)
+'''

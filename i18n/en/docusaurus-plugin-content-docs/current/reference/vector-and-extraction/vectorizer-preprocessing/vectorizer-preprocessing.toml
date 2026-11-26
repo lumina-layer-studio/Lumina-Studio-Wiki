@@ -1,0 +1,366 @@
+[metadata]
+reviewed_source = "ffea5bb9800300cef5403aa0bdabe4c956f7ab34e3257ad776fb28a6bf1780fa"
+
+[[block]]
+key = "c9d4a3cfc1510b17"
+type = "yaml"
+origin = '''
+---
+title: "图像预处理"
+description: "在颜色分割前设定内部工作像素上限，并通过 Mean Shift 平滑抑制画面噪点与碎块。"
+sidebar_position: 4
+---
+'''
+translate = '''
+---
+title: "Image Preprocessing"
+description: "Set the internal working pixel cap and apply Mean Shift smoothing to clean up source noise before color segmentation."
+sidebar_position: 4
+---
+'''
+
+[[block]]
+key = "b60c57f0c3612d1d"
+type = "heading"
+origin = '''
+# 图像预处理
+'''
+translate = '''
+# Image Preprocessing
+'''
+
+[[block]]
+key = "4465698cd213779b"
+type = "paragraph"
+origin = '''
+图像预处理在颜色分割之前执行，负责控制内部工作分辨率，并通过 Mean Shift 滤波平滑相邻像素中的杂色与压缩噪点。
+'''
+translate = '''
+**Image Preprocessing** runs before color segmentation, capping the internal working resolution and applying Mean Shift smoothing to suppress compression artifacts and pixel noise.
+'''
+
+[[block]]
+key = "3cf87a034d8bf84c"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-preprocessing.webp').default}
+  alt="图像转矢量的预处理参数"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-preprocessing.webp').default}
+  alt="Image Vectorizer preprocessing controls"
+/>
+'''
+
+[[block]]
+key = "26235897b1a29ca5"
+type = "heading"
+origin = '''
+## 空间平滑半径
+'''
+translate = '''
+## Spatial Smoothing
+'''
+
+[[block]]
+key = "e0fd68ca54b38e44"
+type = "paragraph"
+origin = '''
+取值范围为 `0–50`，默认值为 `15`，定义 Mean Shift 搜索相邻像素的空间窗口半径：
+'''
+translate = '''
+Ranges from `0–50`, with a default of `15`. Sets the spatial neighborhood radius used by Mean Shift filtering:
+'''
+
+[[block]]
+key = "abed368c89c42be6"
+type = "list"
+composite = true
+origin = '''
+{{abed368c89c42be6-ef97b4303976636d}}
+{{abed368c89c42be6-2cf1c686b4e88415}}
+'''
+translate = '''
+{{abed368c89c42be6-ef97b4303976636d}}
+{{abed368c89c42be6-2cf1c686b4e88415}}
+'''
+
+[[block]]
+key = "abed368c89c42be6-ef97b4303976636d"
+type = "listItem"
+composite = true
+origin = '''
+- {{abed368c89c42be6-ef97b4303976636d-f2ee5d5788b1d8ec}}
+'''
+translate = '''
+- {{abed368c89c42be6-ef97b4303976636d-f2ee5d5788b1d8ec}}
+'''
+
+[[block]]
+key = "abed368c89c42be6-ef97b4303976636d-f2ee5d5788b1d8ec"
+type = "paragraph"
+origin = '''
+**调大数值**：在更广的邻域内抹平局部噪点与颗粒感；
+'''
+translate = '''
+**Higher values** smooth out grain and noise across a wider pixel radius.
+'''
+
+[[block]]
+key = "abed368c89c42be6-2cf1c686b4e88415"
+type = "listItem"
+composite = true
+origin = '''
+- {{abed368c89c42be6-2cf1c686b4e88415-6a02d9aa1a58645c}}
+'''
+translate = '''
+- {{abed368c89c42be6-2cf1c686b4e88415-6a02d9aa1a58645c}}
+'''
+
+[[block]]
+key = "abed368c89c42be6-2cf1c686b4e88415-6a02d9aa1a58645c"
+type = "paragraph"
+origin = '''
+**调得过大**：间距很近的细线与微小结构可能被一并柔化融合。
+'''
+translate = '''
+**Excessive values** can blur closely spaced fine lines and tiny details together.
+'''
+
+[[block]]
+key = "f6b8a2a128889820"
+type = "heading"
+origin = '''
+## 颜色平滑半径
+'''
+translate = '''
+## Color Smoothing
+'''
+
+[[block]]
+key = "c59da8869aa01ac7"
+type = "paragraph"
+origin = '''
+取值范围为 `0–80`，默认值为 `25`，定义色差在多大范围内的像素可归入同一次 Mean Shift 聚合：
+'''
+translate = '''
+Ranges from `0–80`, with a default of `25`. Controls how far apart two pixel colors can be and still merge within a Mean Shift pass:
+'''
+
+[[block]]
+key = "6a0319b6097784dd"
+type = "list"
+composite = true
+origin = '''
+{{6a0319b6097784dd-d19cfb2e28c80d11}}
+{{6a0319b6097784dd-016214b67956b18f}}
+'''
+translate = '''
+{{6a0319b6097784dd-d19cfb2e28c80d11}}
+{{6a0319b6097784dd-016214b67956b18f}}
+'''
+
+[[block]]
+key = "6a0319b6097784dd-d19cfb2e28c80d11"
+type = "listItem"
+composite = true
+origin = '''
+- {{6a0319b6097784dd-d19cfb2e28c80d11-b884798e8e5b9f39}}
+'''
+translate = '''
+- {{6a0319b6097784dd-d19cfb2e28c80d11-b884798e8e5b9f39}}
+'''
+
+[[block]]
+key = "6a0319b6097784dd-d19cfb2e28c80d11-b884798e8e5b9f39"
+type = "paragraph"
+origin = '''
+**调大数值**：相近色阶更容易聚合成整块，显著减少细碎色斑；
+'''
+translate = '''
+**Higher values** consolidate similar shades into cleaner blocks and cut down fragmentation.
+'''
+
+[[block]]
+key = "6a0319b6097784dd-016214b67956b18f"
+type = "listItem"
+composite = true
+origin = '''
+- {{6a0319b6097784dd-016214b67956b18f-298d28bfa06d4be8}}
+'''
+translate = '''
+- {{6a0319b6097784dd-016214b67956b18f-298d28bfa06d4be8}}
+'''
+
+[[block]]
+key = "6a0319b6097784dd-016214b67956b18f-298d28bfa06d4be8"
+type = "paragraph"
+origin = '''
+**调得过大**：原本需要拉开层次的近似色也可能被合并为同一种颜色。
+'''
+translate = '''
+**Excessive values** can merge neighboring tones that you want to keep distinct.
+'''
+
+[[block]]
+key = "bc9950c44e37b723"
+type = "paragraph"
+origin = '''
+“空间平滑半径”决定滤波覆盖的几何距离，“颜色平滑半径”决定合并所需的色彩相似度，两者协同控制平滑力度。
+'''
+translate = '''
+**Spatial Smoothing** sets *how far* the filter reaches across the canvas, while **Color Smoothing** sets *how similar* colors must be to group together.
+'''
+
+[[block]]
+key = "54a0e6f756666efd"
+type = "heading"
+origin = '''
+## 最大工作像素数
+'''
+translate = '''
+## Max Working Pixels
+'''
+
+[[block]]
+key = "f0c430b991d77f14"
+type = "paragraph"
+origin = '''
+取值范围为 `100,000–10,000,000`，默认值为 `3,000,000`。当输入图像的总像素数超出该上限时，引擎会先等比缩小工作图像，再进入后续分割流程：
+'''
+translate = '''
+Ranges from `100,000–10,000,000`, with a default of `3,000,000`. When an uploaded image exceeds this total pixel count, the engine downscales it proportionally before segmentation:
+'''
+
+[[block]]
+key = "fe99b326a4dc4655"
+type = "list"
+composite = true
+origin = '''
+{{fe99b326a4dc4655-eac9041413a6398b}}
+{{fe99b326a4dc4655-7e7f5cbeef539d6d}}
+'''
+translate = '''
+{{fe99b326a4dc4655-eac9041413a6398b}}
+{{fe99b326a4dc4655-7e7f5cbeef539d6d}}
+'''
+
+[[block]]
+key = "fe99b326a4dc4655-eac9041413a6398b"
+type = "listItem"
+composite = true
+origin = '''
+- {{fe99b326a4dc4655-eac9041413a6398b-441761afa6b102ff}}
+'''
+translate = '''
+- {{fe99b326a4dc4655-eac9041413a6398b-441761afa6b102ff}}
+'''
+
+[[block]]
+key = "fe99b326a4dc4655-eac9041413a6398b-441761afa6b102ff"
+type = "paragraph"
+origin = '''
+**调低上限**：降低内存占用，加快大图矢量化速度；
+'''
+translate = '''
+**Lower limits** reduce memory footprint and speed up large images.
+'''
+
+[[block]]
+key = "fe99b326a4dc4655-7e7f5cbeef539d6d"
+type = "listItem"
+composite = true
+origin = '''
+- {{fe99b326a4dc4655-7e7f5cbeef539d6d-3be30fc95634cfa7}}
+'''
+translate = '''
+- {{fe99b326a4dc4655-7e7f5cbeef539d6d-3be30fc95634cfa7}}
+'''
+
+[[block]]
+key = "fe99b326a4dc4655-7e7f5cbeef539d6d-3be30fc95634cfa7"
+type = "paragraph"
+origin = '''
+**调高上限**：为高分辨率大图保留更细腻的边缘细节，相应增加计算耗时。
+'''
+translate = '''
+**Higher limits** preserve finer micro-detail on high-resolution artwork at the cost of longer processing time.
+'''
+
+[[block]]
+key = "ae9b92340e20bae0"
+type = "paragraph"
+origin = '''
+总像素低于该上限的图片会直接按原始分辨率处理，不会被放大。结果摘要中的“宽 × 高”始终显示源图原始像素尺寸。
+'''
+translate = '''
+Images already below this pixel limit stay at their native resolution and are never upscaled. The result summary always reports the original source dimensions.
+'''
+
+[[block]]
+key = "2ebb014b8f68bd72"
+type = "heading"
+origin = '''
+## 相关页面
+'''
+translate = '''
+## Related pages
+'''
+
+[[block]]
+key = "467bc48dfbf1c76b"
+type = "list"
+composite = true
+origin = '''
+{{467bc48dfbf1c76b-75ce30386cbfc458}}
+{{467bc48dfbf1c76b-a7a08c51bc0533ff}}
+'''
+translate = '''
+{{467bc48dfbf1c76b-75ce30386cbfc458}}
+{{467bc48dfbf1c76b-a7a08c51bc0533ff}}
+'''
+
+[[block]]
+key = "467bc48dfbf1c76b-75ce30386cbfc458"
+type = "listItem"
+composite = true
+origin = '''
+- {{467bc48dfbf1c76b-75ce30386cbfc458-025b108e6fc7e7ac}}
+'''
+translate = '''
+- {{467bc48dfbf1c76b-75ce30386cbfc458-025b108e6fc7e7ac}}
+'''
+
+[[block]]
+key = "467bc48dfbf1c76b-75ce30386cbfc458-025b108e6fc7e7ac"
+type = "paragraph"
+origin = '''
+[颜色数量、平滑度与细节等级](../vectorizer-color-and-detail/vectorizer-color-and-detail.mdx)
+'''
+translate = '''
+[Colors, Smoothness, and Detail](../vectorizer-color-and-detail/vectorizer-color-and-detail.mdx)
+'''
+
+[[block]]
+key = "467bc48dfbf1c76b-a7a08c51bc0533ff"
+type = "listItem"
+composite = true
+origin = '''
+- {{467bc48dfbf1c76b-a7a08c51bc0533ff-a589955dee71307b}}
+'''
+translate = '''
+- {{467bc48dfbf1c76b-a7a08c51bc0533ff-a589955dee71307b}}
+'''
+
+[[block]]
+key = "467bc48dfbf1c76b-a7a08c51bc0533ff-a589955dee71307b"
+type = "paragraph"
+origin = '''
+[超像素分割与抗锯齿检测](../vectorizer-segmentation/vectorizer-segmentation.mdx)
+'''
+translate = '''
+[Superpixel Segmentation and Antialiasing](../vectorizer-segmentation/vectorizer-segmentation.mdx)
+'''

@@ -1,0 +1,642 @@
+[metadata]
+reviewed_source = "896060845fecb734e6b3ba056d9bb25f70ed161fb5ecac1dd514947d40c80df9"
+
+[[block]]
+key = "53a4dd6d8e6dc20e"
+type = "yaml"
+origin = '''
+---
+title: "梯度卡提取"
+description: "从白底、黑底梯度卡照片拟合并保存耗材档案。"
+sidebar_position: 6
+---
+'''
+translate = '''
+---
+title: "Gradient Card Extraction"
+description: "Fit and save a material archive from white- and black-substrate card photos."
+sidebar_position: 6
+---
+'''
+
+[[block]]
+key = "b5e2d4673ac977db"
+type = "heading"
+origin = '''
+# 梯度卡提取
+'''
+translate = '''
+# Gradient Card Extraction
+'''
+
+[[block]]
+key = "e468670f8f1578ed"
+type = "paragraph"
+origin = '''
+梯度卡提取根据同一种耗材在白色基底与黑色基底上的实拍梯度卡照片，拟合光学透射与吸收参数，并保存为可供叠层颜色预测使用的耗材档案。
+'''
+translate = '''
+Gradient Card Extraction fits optical transmission and absorption parameters from photos of white-substrate and black-substrate gradient cards printed with the same filament, then saves a reusable material archive for layer-stack color prediction.
+'''
+
+[[block]]
+key = "11de71905bc8478e"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-gradient-card-inputs.webp').default}
+  alt="梯度卡提取的 ZIP、名称和图片入口"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-gradient-card-inputs.webp').default}
+  alt="Kit ZIP, material name, and image inputs"
+/>
+'''
+
+[[block]]
+key = "8dd4b46445c53f13"
+type = "heading"
+origin = '''
+## 准备文件
+'''
+translate = '''
+## Required files
+'''
+
+[[block]]
+key = "5357319d5a1a8f14"
+type = "paragraph"
+origin = '''
+提取前需准备三项文件：
+'''
+translate = '''
+Prepare three inputs before starting:
+'''
+
+[[block]]
+key = "9dde344afd3628d9"
+type = "list"
+composite = true
+origin = '''
+{{9dde344afd3628d9-cc85fb9015bc564e}}
+{{9dde344afd3628d9-d45539c4c3ec57a4}}
+{{9dde344afd3628d9-29e0e5438292929e}}
+'''
+translate = '''
+{{9dde344afd3628d9-cc85fb9015bc564e}}
+{{9dde344afd3628d9-d45539c4c3ec57a4}}
+{{9dde344afd3628d9-29e0e5438292929e}}
+'''
+
+[[block]]
+key = "9dde344afd3628d9-cc85fb9015bc564e"
+type = "listItem"
+composite = true
+origin = '''
+1. {{9dde344afd3628d9-cc85fb9015bc564e-97c38423c3226e15}}
+'''
+translate = '''
+1. {{9dde344afd3628d9-cc85fb9015bc564e-97c38423c3226e15}}
+'''
+
+[[block]]
+key = "9dde344afd3628d9-cc85fb9015bc564e-97c38423c3226e15"
+type = "paragraph"
+origin = '''
+在[梯度卡生成](../gradient-card-generation/gradient-card-generation.mdx)页面下载的 Kit ZIP 配置包；
+'''
+translate = '''
+The Kit ZIP downloaded from [Gradient Card Generation](../gradient-card-generation/gradient-card-generation.mdx).
+'''
+
+[[block]]
+key = "9dde344afd3628d9-d45539c4c3ec57a4"
+type = "listItem"
+composite = true
+origin = '''
+2. {{9dde344afd3628d9-d45539c4c3ec57a4-cdf9acc1233a37b2}}
+'''
+translate = '''
+2. {{9dde344afd3628d9-d45539c4c3ec57a4-cdf9acc1233a37b2}}
+'''
+
+[[block]]
+key = "9dde344afd3628d9-d45539c4c3ec57a4-cdf9acc1233a37b2"
+type = "paragraph"
+origin = '''
+白色基底梯度卡的完整实拍照片；
+'''
+translate = '''
+A complete photo of the white-substrate gradient card.
+'''
+
+[[block]]
+key = "9dde344afd3628d9-29e0e5438292929e"
+type = "listItem"
+composite = true
+origin = '''
+3. {{9dde344afd3628d9-29e0e5438292929e-d6a0a5ce6c34aac7}}
+'''
+translate = '''
+3. {{9dde344afd3628d9-29e0e5438292929e-d6a0a5ce6c34aac7}}
+'''
+
+[[block]]
+key = "9dde344afd3628d9-29e0e5438292929e-d6a0a5ce6c34aac7"
+type = "paragraph"
+origin = '''
+黑色基底梯度卡的完整实拍照片。
+'''
+translate = '''
+A complete photo of the black-substrate gradient card.
+'''
+
+[[block]]
+key = "84ba0aab4aee38c1"
+type = "paragraph"
+origin = '''
+支持常见图片格式（如 PNG、JPG）及系统可直接解码的相机照片格式；若当前系统不支持读取 HEIC/HEIF，请先转换为 PNG 或 JPG。拍摄两张照片时，请固定使用同一台相机、相同曝光参数、白平衡与校色设置，并避开表面反光、高光过曝或遮挡色块的阴影。
+'''
+translate = '''
+Capture both cards with the same camera, exposure, white balance, and color calibration workflow, avoiding surface glare, clipped highlights, or shadows across sample patches. Standard formats such as PNG and JPG are supported along with camera formats your system can decode directly; if your environment cannot open HEIC/HEIF files, convert them to PNG or JPG first.
+'''
+
+[[block]]
+key = "ab97bfc0a5076b04"
+type = "heading"
+origin = '''
+## 图像来源与 ColorChecker
+'''
+translate = '''
+## Image source and ColorChecker
+'''
+
+[[block]]
+key = "04d900e3ed60a322"
+type = "paragraph"
+origin = '''
+默认直接按相机或扫描仪原图提取。开启“ColorChecker 校色”后，需分别校正并确认白底图与黑底图；确认后的图像会在档案中标记为 ColorChecker 校色来源。
+'''
+translate = '''
+By default, extraction processes direct camera or scanner captures. Turning on **ColorChecker Calibration** lets you calibrate and confirm the white-card and black-card photos individually, recording them as ColorChecker-calibrated sources.
+'''
+
+[[block]]
+key = "a994b7d8bd3db8ec"
+type = "paragraph"
+origin = '''
+对同一份耗材执行多次复验并合并结果时，图像来源类型必须一致——原图样本与 ColorChecker 校色样本分开记录，不支持混合合并。
+'''
+translate = '''
+When re-verifying a material across multiple runs, only runs from the same image source class can be merged—uncalibrated captures and ColorChecker-calibrated images are tracked separately.
+'''
+
+[[block]]
+key = "655f8a6086a147f9"
+type = "heading"
+origin = '''
+## 旋转、角点和纯色块位置
+'''
+translate = '''
+## Rotation, corners, and anchor patches
+'''
+
+[[block]]
+key = "1329f72b679cf801"
+type = "paragraph"
+origin = '''
+上传照片后，可按需顺时针或逆时针旋转 90°，然后按以下顺序依次点击梯度卡的四个角点：
+'''
+translate = '''
+After uploading an image, rotate it 90° clockwise or counterclockwise if needed, then click the four corners of the gradient card in order:
+'''
+
+[[block]]
+key = "c49b5cbf30ef35da"
+type = "list"
+composite = true
+origin = '''
+{{c49b5cbf30ef35da-d3e9fff84b2e21c5}}
+{{c49b5cbf30ef35da-708ea7ab4df6ad5b}}
+{{c49b5cbf30ef35da-34c608284fc7f7ef}}
+{{c49b5cbf30ef35da-da4b736828b356b6}}
+'''
+translate = '''
+{{c49b5cbf30ef35da-d3e9fff84b2e21c5}}
+{{c49b5cbf30ef35da-708ea7ab4df6ad5b}}
+{{c49b5cbf30ef35da-34c608284fc7f7ef}}
+{{c49b5cbf30ef35da-da4b736828b356b6}}
+'''
+
+[[block]]
+key = "c49b5cbf30ef35da-d3e9fff84b2e21c5"
+type = "listItem"
+composite = true
+origin = '''
+1. {{c49b5cbf30ef35da-d3e9fff84b2e21c5-fef304a69096b2c3}}
+'''
+translate = '''
+1. {{c49b5cbf30ef35da-d3e9fff84b2e21c5-fef304a69096b2c3}}
+'''
+
+[[block]]
+key = "c49b5cbf30ef35da-d3e9fff84b2e21c5-fef304a69096b2c3"
+type = "paragraph"
+origin = '''
+左上
+'''
+translate = '''
+Top-left
+'''
+
+[[block]]
+key = "c49b5cbf30ef35da-708ea7ab4df6ad5b"
+type = "listItem"
+composite = true
+origin = '''
+2. {{c49b5cbf30ef35da-708ea7ab4df6ad5b-ddf11974a72b465a}}
+'''
+translate = '''
+2. {{c49b5cbf30ef35da-708ea7ab4df6ad5b-ddf11974a72b465a}}
+'''
+
+[[block]]
+key = "c49b5cbf30ef35da-708ea7ab4df6ad5b-ddf11974a72b465a"
+type = "paragraph"
+origin = '''
+右上
+'''
+translate = '''
+Top-right
+'''
+
+[[block]]
+key = "c49b5cbf30ef35da-34c608284fc7f7ef"
+type = "listItem"
+composite = true
+origin = '''
+3. {{c49b5cbf30ef35da-34c608284fc7f7ef-eae5305a5c764661}}
+'''
+translate = '''
+3. {{c49b5cbf30ef35da-34c608284fc7f7ef-eae5305a5c764661}}
+'''
+
+[[block]]
+key = "c49b5cbf30ef35da-34c608284fc7f7ef-eae5305a5c764661"
+type = "paragraph"
+origin = '''
+右下
+'''
+translate = '''
+Bottom-right
+'''
+
+[[block]]
+key = "c49b5cbf30ef35da-da4b736828b356b6"
+type = "listItem"
+composite = true
+origin = '''
+4. {{c49b5cbf30ef35da-da4b736828b356b6-8537c17b8e3e8ce3}}
+'''
+translate = '''
+4. {{c49b5cbf30ef35da-da4b736828b356b6-8537c17b8e3e8ce3}}
+'''
+
+[[block]]
+key = "c49b5cbf30ef35da-da4b736828b356b6-8537c17b8e3e8ce3"
+type = "paragraph"
+origin = '''
+左下
+'''
+translate = '''
+Bottom-left
+'''
+
+[[block]]
+key = "c247f60a8664cd70"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/02-corner-controls.webp').default}
+  alt="纯色块位置和角点微调控件"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/02-corner-controls.webp').default}
+  alt="Pure-patch position and corner nudge controls"
+/>
+'''
+
+[[block]]
+key = "1711967ce2177ae8"
+type = "paragraph"
+origin = '''
+“纯白色块位置”和“纯黑色块位置”用于确定色块采样方向。一般保持“自动检测（推荐）”即可；当自动识别方向不准时，再手动指定照片中纯基底色块所在的角。
+'''
+translate = '''
+**Pure White Block Position** and **Pure Black Block Position** control the patch sampling orientation. Leave both set to **Auto Detect** unless automatic orientation detection fails, in which case select the corner containing the exposed pure substrate patch.
+'''
+
+[[block]]
+key = "cdc5a2a0a5fc45e1"
+type = "paragraph"
+origin = '''
+放置四个角点后，可选中第 1–4 个角点，在 `1–10` 像素范围内设置步长并用方向按钮微调位置。请将角点紧贴梯度卡有效区域边缘，避开桌面、手指或卡外背景。
+'''
+translate = '''
+After placing all four points, you can select corner 1–4, set a `1–10` pixel step size, and fine-tune its position with the directional buttons. Align the boundary tightly around the active card surface, keeping the table, fingers, and surrounding background outside the frame.
+'''
+
+[[block]]
+key = "a54ee6a7cc6bb383"
+type = "heading"
+origin = '''
+## 提取与保存
+'''
+translate = '''
+## Extract and save
+'''
+
+[[block]]
+key = "776a299a61095fce"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/03-extract-action.webp').default}
+  alt="黑底梯度卡与提取耗材按钮"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/03-extract-action.webp').default}
+  alt="Black card area and Extract Material action"
+/>
+'''
+
+[[block]]
+key = "1d4331d26daaf2ec"
+type = "paragraph"
+origin = '''
+上传 Kit ZIP、白底图与黑底图并标定好两组四角后，“提取耗材”按钮即可点击。提取完成后，结果区会展示：
+'''
+translate = '''
+**Extract Material** becomes available once the Kit ZIP, both photos, and both four-corner sets are in place. The results panel displays:
+'''
+
+[[block]]
+key = "2667687e77c42a64"
+type = "list"
+composite = true
+origin = '''
+{{2667687e77c42a64-d62b3711cb12d63e}}
+{{2667687e77c42a64-92c02e6b79e190fe}}
+{{2667687e77c42a64-43e471c9430db408}}
+{{2667687e77c42a64-3390b745474bbfd2}}
+{{2667687e77c42a64-263008f427e8fb28}}
+{{2667687e77c42a64-22c59b033c8ae50b}}
+'''
+translate = '''
+{{2667687e77c42a64-d62b3711cb12d63e}}
+{{2667687e77c42a64-92c02e6b79e190fe}}
+{{2667687e77c42a64-43e471c9430db408}}
+{{2667687e77c42a64-3390b745474bbfd2}}
+{{2667687e77c42a64-263008f427e8fb28}}
+{{2667687e77c42a64-22c59b033c8ae50b}}
+'''
+
+[[block]]
+key = "2667687e77c42a64-d62b3711cb12d63e"
+type = "listItem"
+composite = true
+origin = '''
+- {{2667687e77c42a64-d62b3711cb12d63e-3a48a63971255a83}}
+'''
+translate = '''
+- {{2667687e77c42a64-d62b3711cb12d63e-3a48a63971255a83}}
+'''
+
+[[block]]
+key = "2667687e77c42a64-d62b3711cb12d63e-3a48a63971255a83"
+type = "paragraph"
+origin = '''
+透视校正结果与各色块的实际采样框；
+'''
+translate = '''
+Perspective-corrected card views and actual patch sampling boxes
+'''
+
+[[block]]
+key = "2667687e77c42a64-92c02e6b79e190fe"
+type = "listItem"
+composite = true
+origin = '''
+- {{2667687e77c42a64-92c02e6b79e190fe-3ee39759120b81d7}}
+'''
+translate = '''
+- {{2667687e77c42a64-92c02e6b79e190fe-3ee39759120b81d7}}
+'''
+
+[[block]]
+key = "2667687e77c42a64-92c02e6b79e190fe-3ee39759120b81d7"
+type = "paragraph"
+origin = '''
+估算耗材颜色（RGB / HEX）；
+'''
+translate = '''
+Estimated filament color (RGB / HEX)
+'''
+
+[[block]]
+key = "2667687e77c42a64-43e471c9430db408"
+type = "listItem"
+composite = true
+origin = '''
+- {{2667687e77c42a64-43e471c9430db408-2e29f1a62c34366d}}
+'''
+translate = '''
+- {{2667687e77c42a64-43e471c9430db408-2e29f1a62c34366d}}
+'''
+
+[[block]]
+key = "2667687e77c42a64-43e471c9430db408-2e29f1a62c34366d"
+type = "paragraph"
+origin = '''
+平均 ΔE 与最大 ΔE；
+'''
+translate = '''
+Mean and maximum ΔE
+'''
+
+[[block]]
+key = "2667687e77c42a64-3390b745474bbfd2"
+type = "listItem"
+composite = true
+origin = '''
+- {{2667687e77c42a64-3390b745474bbfd2-c5790767714bd46c}}
+'''
+translate = '''
+- {{2667687e77c42a64-3390b745474bbfd2-c5790767714bd46c}}
+'''
+
+[[block]]
+key = "2667687e77c42a64-3390b745474bbfd2-c5790767714bd46c"
+type = "paragraph"
+origin = '''
+线性及分通道 RMSE；
+'''
+translate = '''
+Linear and per-channel RMSE
+'''
+
+[[block]]
+key = "2667687e77c42a64-263008f427e8fb28"
+type = "listItem"
+composite = true
+origin = '''
+- {{2667687e77c42a64-263008f427e8fb28-82cc804b81bb93ec}}
+'''
+translate = '''
+- {{2667687e77c42a64-263008f427e8fb28-82cc804b81bb93ec}}
+'''
+
+[[block]]
+key = "2667687e77c42a64-263008f427e8fb28-82cc804b81bb93ec"
+type = "paragraph"
+origin = '''
+白底卡与黑底卡的识别方向及方向置信度；
+'''
+translate = '''
+Detected white/black card orientations and orientation confidence
+'''
+
+[[block]]
+key = "2667687e77c42a64-22c59b033c8ae50b"
+type = "listItem"
+composite = true
+origin = '''
+- {{2667687e77c42a64-22c59b033c8ae50b-61b85b1dd3a0700b}}
+'''
+translate = '''
+- {{2667687e77c42a64-22c59b033c8ae50b-61b85b1dd3a0700b}}
+'''
+
+[[block]]
+key = "2667687e77c42a64-22c59b033c8ae50b-61b85b1dd3a0700b"
+type = "paragraph"
+origin = '''
+光学拟合参数与材料诊断摘要。
+'''
+translate = '''
+Fitted optical parameters and diagnostic summary
+'''
+
+[[block]]
+key = "05f9f579b9e9b46e"
+type = "paragraph"
+origin = '''
+填写耗材名称后即可保存档案；品牌可从已有品牌中选择，也可直接输入新品牌名称，系统会按品牌与名称创建档案目录。展开结果详情还可下载 `stage_A_parameters.json`，用于留存本次拟合参数与诊断记录。
+'''
+translate = '''
+Enter a material name to save the archive. Selecting or typing a brand is optional—you can pick an existing brand or enter a new one. From the details view, you can also download `stage_A_parameters.json` to archive the fitted parameters and diagnostics from the current run.
+'''
+
+[[block]]
+key = "35c5e9b54eaffa6f"
+type = "paragraph"
+origin = '''
+若从已有档案发起复验，保存时可在三种操作中选择（详见[编辑与复验耗材](../material-edit-and-verification/material-edit-and-verification.mdx)）：
+'''
+translate = '''
+When re-verifying an existing material archive, choose how to apply the new run (see [Editing and Re-Verification](../material-edit-and-verification/material-edit-and-verification.mdx)):
+'''
+
+[[block]]
+key = "0fe68fa51b105b6a"
+type = "list"
+composite = true
+origin = '''
+{{0fe68fa51b105b6a-8e403d797587dd7f}}
+{{0fe68fa51b105b6a-b74f85e5f64e7491}}
+{{0fe68fa51b105b6a-f0750170047ff562}}
+'''
+translate = '''
+{{0fe68fa51b105b6a-8e403d797587dd7f}}
+{{0fe68fa51b105b6a-b74f85e5f64e7491}}
+{{0fe68fa51b105b6a-f0750170047ff562}}
+'''
+
+[[block]]
+key = "0fe68fa51b105b6a-8e403d797587dd7f"
+type = "listItem"
+composite = true
+origin = '''
+- {{0fe68fa51b105b6a-8e403d797587dd7f-09a0f6270f411ac4}}
+'''
+translate = '''
+- {{0fe68fa51b105b6a-8e403d797587dd7f-09a0f6270f411ac4}}
+'''
+
+[[block]]
+key = "0fe68fa51b105b6a-8e403d797587dd7f-09a0f6270f411ac4"
+type = "paragraph"
+origin = '''
+**合并结果**：将本次有效样本并入同一图像来源的历史数据共同重拟合。
+'''
+translate = '''
+**Merge Result**: Appends the new samples to existing history of the same source class and refits jointly.
+'''
+
+[[block]]
+key = "0fe68fa51b105b6a-b74f85e5f64e7491"
+type = "listItem"
+composite = true
+origin = '''
+- {{0fe68fa51b105b6a-b74f85e5f64e7491-a90cdc1489444eb5}}
+'''
+translate = '''
+- {{0fe68fa51b105b6a-b74f85e5f64e7491-a90cdc1489444eb5}}
+'''
+
+[[block]]
+key = "0fe68fa51b105b6a-b74f85e5f64e7491-a90cdc1489444eb5"
+type = "paragraph"
+origin = '''
+**覆盖结果**：用本次拟合结果替换档案当前的数据。
+'''
+translate = '''
+**Override Result**: Replaces the archive's current fitted data with this run.
+'''
+
+[[block]]
+key = "0fe68fa51b105b6a-f0750170047ff562"
+type = "listItem"
+composite = true
+origin = '''
+- {{0fe68fa51b105b6a-f0750170047ff562-189627fa083c87af}}
+'''
+translate = '''
+- {{0fe68fa51b105b6a-f0750170047ff562-189627fa083c87af}}
+'''
+
+[[block]]
+key = "0fe68fa51b105b6a-f0750170047ff562-189627fa083c87af"
+type = "paragraph"
+origin = '''
+**取消复验**：退出当前复验模式，耗材库中原有的档案保持不变。
+'''
+translate = '''
+**Cancel Re-Verification**: Exits re-verification mode while leaving the existing archive untouched in the library.
+'''
+
+[[block]]
+key = "6d97bc61327e1127"
+type = "paragraph"
+origin = '''
+保存完成后，可在[耗材库](../material-library/material-library.mdx)中查看档案，并前往[耗材配方查询](../material-recipe-query/material-recipe-query.mdx)验证叠层混色预测效果。
+'''
+translate = '''
+Once saved, inspect the archive in the [Material Library](../material-library/material-library.mdx) and test its stack predictions in [Material Recipe Query](../material-recipe-query/material-recipe-query.mdx).
+'''

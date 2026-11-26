@@ -1,0 +1,140 @@
+[metadata]
+reviewed_source = "0ee901ca849bf2fb9931a3ee0f6ecf3cf60f02a4bbfedd337cc148fbe2c2fdfb"
+
+[[block]]
+key = "1c96d17d00bff447"
+type = "yaml"
+origin = '''
+---
+title: "照片校正与角点定位"
+description: "LUT 提取器中的偏移、缩放、畸变、暗角、白平衡和角点微调。"
+sidebar_position: 5
+---
+'''
+translate = '''
+---
+title: "Photo Correction and Corner Placement"
+description: "Offset, zoom, distortion, vignette, white balance, and corner nudging in LUT Extractor."
+sidebar_position: 5
+---
+'''
+
+[[block]]
+key = "a646d975e8bea4ef"
+type = "heading"
+origin = '''
+# 照片校正与角点定位
+'''
+translate = '''
+# Photo Correction and Corner Placement
+'''
+
+[[block]]
+key = "deeafa863f042402"
+type = "paragraph"
+origin = '''
+照片校正用于将实拍校准板的色块网格与提取采样模板精确对齐。所有调整仅作用于当前会话上传的图像，不会修改磁盘上的原始照片。
+'''
+translate = '''
+Photo correction aligns the photographed board grid with the extraction sampling template. Adjustments apply only to the current upload in memory and leave the original file on disk untouched.
+'''
+
+[[block]]
+key = "fa4cd48335893d78"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-photo-correction.webp').default}
+  alt="LUT 提取器的照片校正与角点微调控件"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-photo-correction.webp').default}
+  alt="Photo correction and corner fine-tuning controls in LUT Extractor"
+/>
+'''
+
+[[block]]
+key = "198e31445e28f673"
+type = "heading"
+origin = '''
+## 校正参数
+'''
+translate = '''
+## Correction controls
+'''
+
+[[block]]
+key = "8471bd9e30ef0dd4"
+type = "table"
+origin = '''
+| 控件 | 范围 | 作用 |
+| --- | --- | --- |
+| 水平偏移 | `-30–30` | 沿 X 方向整体平移采样模板 |
+| 垂直偏移 | `-30–30` | 沿 Y 方向整体平移采样模板 |
+| 缩放 | `0.80–1.20` | 等比例放大或缩小每个色块的采样区域 |
+| 畸变校正 | `-0.20–0.20` | 补偿镜头产生的桶形或枕形畸变 |
+| 暗角校正 | 开/关 | 补偿画面四角与边缘的亮度衰减 |
+| 自动白平衡 | 开/关 | 为当前照片生成自动白平衡预览 |
+'''
+translate = '''
+| Control | Range | Effect |
+| --- | --- | --- |
+| Horizontal Offset | `-30–30` | Shifts the sampling template along X |
+| Vertical Offset | `-30–30` | Shifts the sampling template along Y |
+| Zoom | `0.80–1.20` | Scales the patch sampling area uniformly |
+| Distortion Correction | `-0.20–0.20` | Compensates for lens barrel or pincushion distortion |
+| Vignette Correction | On/off | Compensates for brightness falloff near image edges |
+| Auto White Balance | On/off | Generates a white-balanced preview for the active photo |
+'''
+
+[[block]]
+key = "a35972dd19e5c5b1"
+type = "paragraph"
+origin = '''
+上述参数适合修正整张画面的系统性偏移或镜头畸变；若仅有个别角点未对齐，直接拖动该角点或使用下方的像素微调更为精准。
+'''
+translate = '''
+Use these controls to correct systematic shifts or lens distortion across the entire image. When only one corner is slightly displaced, move that corner directly rather than shifting the whole template.
+'''
+
+[[block]]
+key = "7658958b3452c4dc"
+type = "heading"
+origin = '''
+## 角点定位与微调
+'''
+translate = '''
+## Corner placement and fine-tuning
+'''
+
+[[block]]
+key = "36f5feb92d23899c"
+type = "paragraph"
+origin = '''
+在画布上按顺序点击放置四个角点后，可选中任一角点进行精细调节。**微调步长**范围为 `1–10 px`，点击面板方向按钮或按键盘方向键即可按设定步长移动当前角点。点击**清除角点**仅移除画布上的定位点，已上传的照片仍会保留。
+'''
+translate = '''
+After placing four corners on the canvas, select a corner to make it active. **Step (px)** accepts `1–10 px`; both the on-screen arrow buttons and your keyboard arrow keys nudge the active corner by that step size. **Clear Corners** removes the placed points while keeping the uploaded photo loaded.
+'''
+
+[[block]]
+key = "94e926b85cb2d444"
+type = "paragraph"
+origin = '''
+放置角点时，请对准校准板四周的定位外框角，确保采样网格与每个色块中心严格对应。若拉正预览中的网格出现整体倾斜或翻转，请先核对四角点击顺序，再调整**畸变校正**。
+'''
+translate = '''
+Align the four points with the outer border corners of the calibration board so the sampling grid registers cleanly over every block center. If the rectified grid still appears skewed or flipped, verify the corner placement order first, then adjust **Distortion Correction**.
+'''
+
+[[block]]
+key = "a88b7b9f194b07bc"
+type = "paragraph"
+origin = '''
+继续阅读 [LUT 提取流程](../lut-extractor/lut-extractor.mdx)。
+'''
+translate = '''
+Continue with [LUT Extraction Workflow](../lut-extractor/lut-extractor.mdx).
+'''

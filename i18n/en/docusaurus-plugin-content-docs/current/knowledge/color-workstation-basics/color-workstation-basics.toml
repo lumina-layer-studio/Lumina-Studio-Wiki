@@ -1,0 +1,1056 @@
+[metadata]
+migration_layout = "preserved English structure; root blocks retain grouped or omitted source sections"
+reviewed_source = "81bd00f1f3528f5deea6efccee644ddaa95f9cab8241eb4e47d308eb93226dc4"
+
+[[block]]
+key = "a5cfb7a6df672a3c"
+type = "yaml"
+origin = '''
+---
+title: "颜色工作站入门：选择、替换、撤销和自由色"
+description: "了解颜色工作站的选择工具、可达色替换、撤销与清空替换，以及自由色对象的导出用法。"
+sidebar_position: 26
+---
+'''
+translate = '''
+---
+title: "Color Workstation Basics: Select, Replace, Undo, and Free Color"
+description: "Learn how to select color regions, apply reachable target colors, use Undo and Clear Remaps, and export Free Color objects."
+sidebar_position: 26
+---
+'''
+
+[[block]]
+key = "1958ecc676e2c47c"
+type = "heading"
+origin = '''
+# 颜色工作站入门：选择、替换、撤销和自由色
+'''
+translate = '''
+# Color Workstation Basics: Select, Replace, Undo, and Free Color
+'''
+
+[[block]]
+key = "c659d676af65a619"
+type = "paragraph"
+origin = '''
+完成图片预览后，可以在颜色工作站中精细调整局部或全局配色：先框定需要修改的区域，再替换为当前耗材可组合出的目标颜色，或将特定色块提取为自由色对象。
+'''
+translate = '''
+Once an image has been previewed, **Color Workstation** lets you refine matched colors across the entire piece or within specific regions, apply custom recipes, or isolate selected shades as **Free Color** objects.
+'''
+
+[[block]]
+key = "e48190a3740e1814"
+type = "paragraph"
+origin = '''
+基本操作流程如下：
+'''
+translate = '''
+A typical editing pass follows six steps:
+'''
+
+[[block]]
+key = "63dd7b95b6484920"
+type = "list"
+composite = true
+origin = '''
+{{63dd7b95b6484920-d89e70c78ad67980}}
+{{63dd7b95b6484920-e5e30b13367ac327}}
+{{63dd7b95b6484920-20249394a856b0c7}}
+{{63dd7b95b6484920-5ade5587e5838567}}
+{{63dd7b95b6484920-3f42565dea935ed0}}
+{{63dd7b95b6484920-8e7023d84b530633}}
+'''
+translate = '''
+1. Run **Preview** to generate the initial color match and **Palette**;
+2. Choose a selection tool that fits the scope of your edit;
+3. Select the source color or region on the preview canvas or **Palette**;
+4. Pick a reachable target color from your current Classic LUT or Material Archives;
+5. Review the pending source-to-target pair and confirm the replacement;
+6. Check the updated 2D, 3D, and **Layer Preview** views, then click **Generate** to export a fresh 3MF.
+'''
+
+[[block]]
+key = "63dd7b95b6484920-d89e70c78ad67980"
+type = "listItem"
+composite = true
+origin = '''
+1. {{63dd7b95b6484920-d89e70c78ad67980-284385d1819e6f27}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "63dd7b95b6484920-d89e70c78ad67980-284385d1819e6f27"
+type = "paragraph"
+origin = '''
+点击“预览”生成基础分色与调色板；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "63dd7b95b6484920-e5e30b13367ac327"
+type = "listItem"
+composite = true
+origin = '''
+2. {{63dd7b95b6484920-e5e30b13367ac327-97e80bdce74ecb3a}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "63dd7b95b6484920-e5e30b13367ac327-97e80bdce74ecb3a"
+type = "paragraph"
+origin = '''
+选择合适的选区工具；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "63dd7b95b6484920-20249394a856b0c7"
+type = "listItem"
+composite = true
+origin = '''
+3. {{63dd7b95b6484920-20249394a856b0c7-db3c6e0c39d0324e}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "63dd7b95b6484920-20249394a856b0c7-db3c6e0c39d0324e"
+type = "paragraph"
+origin = '''
+在预览图或调色板中选中源色或局部色块；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "63dd7b95b6484920-5ade5587e5838567"
+type = "listItem"
+composite = true
+origin = '''
+4. {{63dd7b95b6484920-5ade5587e5838567-48e08696bd02eb88}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "63dd7b95b6484920-5ade5587e5838567-48e08696bd02eb88"
+type = "paragraph"
+origin = '''
+从当前经典 LUT 或耗材档案的可达色候选中选定目标色；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "63dd7b95b6484920-3f42565dea935ed0"
+type = "listItem"
+composite = true
+origin = '''
+5. {{63dd7b95b6484920-3f42565dea935ed0-bcbfad559a45bb67}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "63dd7b95b6484920-3f42565dea935ed0-bcbfad559a45bb67"
+type = "paragraph"
+origin = '''
+核对“源色 → 目标色”并点击“确认替换”；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "63dd7b95b6484920-8e7023d84b530633"
+type = "listItem"
+composite = true
+origin = '''
+6. {{63dd7b95b6484920-8e7023d84b530633-4727bae27871fa44}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "63dd7b95b6484920-8e7023d84b530633-4727bae27871fa44"
+type = "paragraph"
+origin = '''
+检查更新后的 2D、3D 与分层预览，重新点击“生成”导出新 3MF。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "5fed79ac8e7bb5bb"
+type = "paragraph"
+origin = '''
+面板中的“撤销”“清空替换”和“清除自由色”分别对应单步回退、重置全部换色与移除自由色标记三种独立操作。
+'''
+translate = '''
+**Undo**, **Clear Remaps**, and **Clear Free Colors** act independently: **Undo** steps back one action, **Clear Remaps** resets all color replacements, and **Clear Free Colors** removes Free Color object markers without touching color edits.
+'''
+
+[[block]]
+key = "0400527e60621ab8"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/color-workstation-flow.webp').default}
+  alt="颜色工作站从生成预览、选择范围、点选源色到检查并重新生成的六步流程"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/color-workstation-flow.webp').default}
+  alt="Six-step Color Workstation workflow from Preview and selection scope through replacement, verification, and a new 3MF"
+/>
+'''
+
+[[block]]
+key = "b4aae9328f95888e"
+type = "heading"
+origin = '''
+## 启用前提与会话规则
+'''
+translate = '''
+## Availability and Session Behavior
+'''
+
+[[block]]
+key = "0d72a8ec851cd4fb"
+type = "paragraph"
+origin = '''
+颜色工作站基于当前图片的分色结果与调色板运行，成功生成首次预览后即可打开使用。
+'''
+translate = '''
+**Color Workstation** operates on the active preview's matched color map and **Palette**, so it unlocks as soon as your first **Preview** completes.
+'''
+
+[[block]]
+key = "d71ca88ec49b4b43"
+type = "paragraph"
+origin = '''
+如果中途更换了原图、切换了耗材档案或经典 LUT，或修改了显色层数与层高，基础分色结果会随之改变，原有的选区和高亮需按新预览重新点选。完成任何颜色调整后，请重新生成 3MF，以确保导出的模型包含最新配色。
+'''
+translate = '''
+Uploading a new image, switching Material Archives or Classic LUTs, or changing **Color Layers** or **Layer Height** rebuilds the underlying match—make fresh selections after any of those changes. Likewise, any 3MF exported before your color edits reflects the earlier state, so click **Generate** again when you finish editing.
+'''
+
+[[block]]
+key = "ea17cebba83d16d6"
+type = "heading"
+origin = '''
+## 四种选区工具的适用范围
+'''
+translate = '''
+## Choosing a Selection Tool
+'''
+
+[[block]]
+key = "c9542627b83865cb"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-selection-tools.webp').default}
+  alt="颜色工作站的四种选择工具和快速换色面板"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-selection-tools.webp').default}
+  alt="The four selection tools and quick recolor panel in Color Workstation"
+/>
+'''
+
+[[block]]
+key = "d9040ce130a91a19"
+type = "heading"
+origin = '''
+### 同颜色全选
+'''
+translate = '''
+### Same color
+'''
+
+[[block]]
+key = "4014b3ccb1bf87ad"
+type = "paragraph"
+origin = '''
+选中某一种匹配色后，整张画面里凡是使用该匹配色的区域都会一并纳入选区；也可以连续多选几种相近匹配色，统一归并为同一个目标色。
+'''
+translate = '''
+Selects every region across the entire image that shares the chosen matched color. You can also select multiple matched colors and merge them into a single target shade.
+'''
+
+[[block]]
+key = "d06c9af98a9c74b8"
+type = "list"
+composite = true
+origin = '''
+{{d06c9af98a9c74b8-ef2865e9a9693727}}
+{{d06c9af98a9c74b8-e2601358a940a850}}
+'''
+translate = '''
+- **Best for**: Replacing a background shade everywhere, consolidating stepped color bands, or applying one **Custom Recipe** to an entire color group.
+- **Keep in mind**: If a character's eyes and clothing share the same matched color, **Same color** selects both. Use **Pick blocks** when you want to edit an isolated feature.
+'''
+
+[[block]]
+key = "d06c9af98a9c74b8-ef2865e9a9693727"
+type = "listItem"
+composite = true
+origin = '''
+- {{d06c9af98a9c74b8-ef2865e9a9693727-fa1419b0582beec2}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "d06c9af98a9c74b8-ef2865e9a9693727-fa1419b0582beec2"
+type = "paragraph"
+origin = '''
+**适合场景**：统一替换全图的某一种背景灰、合并相邻阶梯色带，或为整类颜色套用同一条自定义配方。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "d06c9af98a9c74b8-e2601358a940a850"
+type = "listItem"
+composite = true
+origin = '''
+- {{d06c9af98a9c74b8-e2601358a940a850-32da15c503d36e04}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "d06c9af98a9c74b8-e2601358a940a850-32da15c503d36e04"
+type = "paragraph"
+origin = '''
+**留意边界**：若人物眼睛与衣服恰好匹配到了同一种颜色，使用该工具会同时改变这两处；仅修改单处细节时请改用“点选色块”。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2d09624eec65f25e"
+type = "heading"
+origin = '''
+### 相近颜色
+'''
+translate = '''
+### Similar colors
+'''
+
+[[block]]
+key = "e2077cafd8518f01"
+type = "paragraph"
+origin = '''
+点击画面中的某个色块，自动一并选中色彩接近的区域。调高容差会扩大纳入的颜色范围，容差设为 `0` 时仅选中完全相同的匹配色。处理渐变附近区域时，先观察高亮边界再确认替换。
+'''
+translate = '''
+Click a region on the preview to select blocks within a color tolerance. Raising the tolerance widens the selection; setting tolerance to `0` selects only exact matches. Check the highlight overlay carefully near smooth gradients before confirming.
+'''
+
+[[block]]
+key = "e762b6dd01bb7a2e"
+type = "heading"
+origin = '''
+### 点选色块
+'''
+translate = '''
+### Pick blocks
+'''
+
+[[block]]
+key = "a31c11bdde23ec66"
+type = "paragraph"
+origin = '''
+在预览图上逐个点击连通色块以添加或取消选中，适合精准修改眼睛、高光、小字或局部饰品等独立细节。
+'''
+translate = '''
+Click individual connected regions on the preview canvas to toggle them in or out of your selection—ideal for isolated details such as eyes, specular highlights, or lettering.
+'''
+
+[[block]]
+key = "be7f955e4638904c"
+type = "heading"
+origin = '''
+### 选区画笔
+'''
+translate = '''
+### Selection brush
+'''
+
+[[block]]
+key = "f78a14ed8447ec67"
+type = "paragraph"
+origin = '''
+按住鼠标在预览图上涂抹并应用选区。画笔会完整选中笔迹触及的连通色块，支持调节画笔粗细，涂抹后可通过高亮轮廓确认实际命中范围。
+'''
+translate = '''
+Drag across the preview canvas and apply the stroke to select every contiguous color block touched by the brush. Adjust the brush size as needed and inspect the highlighted boundary before choosing a target color.
+'''
+
+[[block]]
+key = "27023c507f15347b"
+type = "heading"
+origin = '''
+### 跨工具组合选区
+'''
+translate = '''
+### Combining Tools
+'''
+
+[[block]]
+key = "c93c82672fc20980"
+type = "paragraph"
+origin = '''
+四种选区工具共享当前选中状态，切换工具不会清空已有选区，方便先框选大块再用点选微调。如需清空重选，点击“全不选”即可。
+'''
+translate = '''
+All four tools work on the same active selection, so switching tools keeps your current selection intact. Click **Select none** whenever you want to clear the selection and start fresh.
+'''
+
+[[block]]
+key = "b3163b5ba39c1546"
+type = "heading"
+origin = '''
+## 完成一次颜色替换
+'''
+translate = '''
+## Making a Color Replacement
+'''
+
+[[block]]
+key = "15a85175298421e4"
+type = "heading"
+origin = '''
+### 第一步：确认基础预览正常
+'''
+translate = '''
+### 1. Check the Base Preview First
+'''
+
+[[block]]
+key = "b46f42b5fda572d9"
+type = "paragraph"
+origin = '''
+开始局部微调前，先确认原图的主体轮廓、透明抠图与整体色调正常。若基础预览存在大面积偏色、破洞或轮廓错位，建议先调整原图、色彩来源或建模模式，再进入颜色工作站细修。
+'''
+translate = '''
+Verify that the model's outer silhouette, transparency, and overall palette look sound before fine-tuning individual regions. Issues such as missing alpha boundaries, holes, or mismatched filament sets are best resolved in your source image or converter settings first.
+'''
+
+[[block]]
+key = "41202ca8f397f89a"
+type = "heading"
+origin = '''
+### 第二步：选定修改范围
+'''
+translate = '''
+### 2. Select the Target Scope
+'''
+
+[[block]]
+key = "84f06e6456b4c79b"
+type = "paragraph"
+origin = '''
+根据目标属于“全图同色”还是“独立连通色块”选用对应工具，并通过画面上的高亮遮罩核对实际选区边界。
+'''
+translate = '''
+Pick a global or local selection tool and rely on the highlight overlay on the canvas to verify exactly which regions will change.
+'''
+
+[[block]]
+key = "ad30d26d1293e826"
+type = "heading"
+origin = '''
+### 第三步：挑选并确认目标色
+'''
+translate = '''
+### 3. Pick and Confirm a Target Color
+'''
+
+[[block]]
+key = "168962548a86d96a"
+type = "paragraph"
+origin = '''
+可选的目标色取决于当前使用的色彩数据来源：
+'''
+translate = '''
+Available target colors depend on your active **Source Type**:
+'''
+
+[[block]]
+key = "bd6d7b2a1e740e2c"
+type = "list"
+composite = true
+origin = '''
+{{bd6d7b2a1e740e2c-5013976914bcb4bc}}
+{{bd6d7b2a1e740e2c-33c148f0474d652b}}
+'''
+translate = '''
+- **Classic LUT**: Pick directly from the calibrated colors included in that LUT.
+- **Material Archive**: Enter or pick a desired shade, and Lumina calculates the closest reachable candidates that your selected filaments, layer count, and layer height can physically produce.
+'''
+
+[[block]]
+key = "bd6d7b2a1e740e2c-5013976914bcb4bc"
+type = "listItem"
+composite = true
+origin = '''
+- {{bd6d7b2a1e740e2c-5013976914bcb4bc-baa7224b44daf101}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bd6d7b2a1e740e2c-5013976914bcb4bc-baa7224b44daf101"
+type = "paragraph"
+origin = '''
+**经典 LUT**：直接从该 LUT 已标定的色板中挑选目标颜色；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bd6d7b2a1e740e2c-33c148f0474d652b"
+type = "listItem"
+composite = true
+origin = '''
+- {{bd6d7b2a1e740e2c-33c148f0474d652b-2fe6a1017b598f25}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bd6d7b2a1e740e2c-33c148f0474d652b-2fe6a1017b598f25"
+type = "paragraph"
+origin = '''
+**耗材档案**：输入期望接近的颜色值后，软件会基于当前已选耗材实时计算可拼配出的相近候选色，供你从中点选最合适的一项。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "630f162f745630fc"
+type = "paragraph"
+origin = '''
+点选目标色后，面板会展示待生效的“源色 → 目标色”对照条。核对两端色块与选区无误后点击“确认替换”；若想放弃本次选择，点击旁边的“取消”即可，已生效的历史修改不会受影响。
+'''
+translate = '''
+Selecting a candidate displays a pending source → target row. Verify both swatches and the highlighted canvas area, then confirm. Clicking **Cancel** on that pending row dismisses only the unconfirmed change without affecting earlier edits.
+'''
+
+[[block]]
+key = "0ee441697355a8cf"
+type = "heading"
+origin = '''
+### 第四步：核对更新后的预览
+'''
+translate = '''
+### 4. Review the Updated Previews
+'''
+
+[[block]]
+key = "ed9d939d94d2853a"
+type = "paragraph"
+origin = '''
+确认替换后，依次检查以下细节：
+'''
+translate = '''
+After confirming a replacement, check four things:
+'''
+
+[[block]]
+key = "3a182343aa40a6f1"
+type = "list"
+composite = true
+origin = '''
+{{3a182343aa40a6f1-1f4722ef14d3f422}}
+{{3a182343aa40a6f1-d066bedce9ab8099}}
+{{3a182343aa40a6f1-0d7ea5a6dce4c249}}
+{{3a182343aa40a6f1-3b30fd95652cb12d}}
+'''
+translate = '''
+- **2D Preview**: Only the intended regions changed color;
+- **3D Preview**: The 3D mesh has finished refreshing (give 3D geometry a moment if it finishes right after the 2D view);
+- **Layer Preview**: The stacked filament sequence matches your updated color;
+- **Exported 3MF**: Newly generated objects map cleanly to your physical spools in the slicer.
+'''
+
+[[block]]
+key = "3a182343aa40a6f1-1f4722ef14d3f422"
+type = "listItem"
+composite = true
+origin = '''
+- {{3a182343aa40a6f1-1f4722ef14d3f422-5d4cdccc2a362444}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "3a182343aa40a6f1-1f4722ef14d3f422-5d4cdccc2a362444"
+type = "paragraph"
+origin = '''
+**2D 预览**：仅目标区域变色，其他同色小细节未被连带改动；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "3a182343aa40a6f1-d066bedce9ab8099"
+type = "listItem"
+composite = true
+origin = '''
+- {{3a182343aa40a6f1-d066bedce9ab8099-771a737cb56b0eb8}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "3a182343aa40a6f1-d066bedce9ab8099-771a737cb56b0eb8"
+type = "paragraph"
+origin = '''
+**3D 预览**：模型表面已同步刷新为新配色（3D 网格重算稍慢于 2D 时，等待加载完成即可）；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "3a182343aa40a6f1-0d7ea5a6dce4c249"
+type = "listItem"
+composite = true
+origin = '''
+- {{3a182343aa40a6f1-0d7ea5a6dce4c249-9938ae19955586be}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "3a182343aa40a6f1-0d7ea5a6dce4c249-9938ae19955586be"
+type = "paragraph"
+origin = '''
+**悬停 / 分层预览**：逐层耗材叠放顺序符合新配方；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "3a182343aa40a6f1-3b30fd95652cb12d"
+type = "listItem"
+composite = true
+origin = '''
+- {{3a182343aa40a6f1-3b30fd95652cb12d-928ab82982bb643f}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "3a182343aa40a6f1-3b30fd95652cb12d-928ab82982bb643f"
+type = "paragraph"
+origin = '''
+**重新导出 3MF**：在切片软件中核对对象与实体线盘映射正常。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "d64da44a67fa9e8c"
+type = "heading"
+origin = '''
+## 撤销、清空替换与取消的区别
+'''
+translate = '''
+## Undo, Clear Remaps, and Cancel
+'''
+
+[[block]]
+key = "cc5155843e8ea183"
+type = "list"
+composite = true
+origin = '''
+{{cc5155843e8ea183-abbca0de2c2ff215}}
+{{cc5155843e8ea183-3b778bec766207a9}}
+{{cc5155843e8ea183-d3302688dbae677c}}
+'''
+translate = '''
+- **Undo / Redo**: **Undo** reverts the most recent selection or replacement step, and **Redo** reapplies an undone action.
+- **Clear Remaps**: Strips all global color remaps and local-region edits from the current session, restoring the base automatic match. Click **Generate** afterward if you want a fresh 3MF of the restored match.
+- **Cancel (pending row)**: Discards only the uncommitted source → target pair currently awaiting confirmation.
+'''
+
+[[block]]
+key = "cc5155843e8ea183-abbca0de2c2ff215"
+type = "listItem"
+composite = true
+origin = '''
+- {{cc5155843e8ea183-abbca0de2c2ff215-6db5259f934a9f0a}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "cc5155843e8ea183-abbca0de2c2ff215-6db5259f934a9f0a"
+type = "paragraph"
+origin = '''
+**撤销 / 重做**：“撤销”回退上一步选区或换色操作，“重做”恢复刚撤回的修改。操作后可结合预览画面与高亮状态确认当前步骤。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "cc5155843e8ea183-3b778bec766207a9"
+type = "listItem"
+composite = true
+origin = '''
+- {{cc5155843e8ea183-3b778bec766207a9-16d60a7fd4e31c6b}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "cc5155843e8ea183-3b778bec766207a9-16d60a7fd4e31c6b"
+type = "paragraph"
+origin = '''
+**清空替换**：移除当前会话中的所有全局换色与局部区域替换，直接按初始自动匹配结果重建预览，适合多轮尝试后想回到起点重新微调时使用。重置后如需下载基础版模型，请重新点击生成 3MF。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "cc5155843e8ea183-d3302688dbae677c"
+type = "listItem"
+composite = true
+origin = '''
+- {{cc5155843e8ea183-d3302688dbae677c-baebd58fd058d50f}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "cc5155843e8ea183-d3302688dbae677c-baebd58fd058d50f"
+type = "paragraph"
+origin = '''
+**取消（待确认项）**：仅放弃当前尚未点击“确认替换”的那一条预览配对，不影响此前已确认的换色记录。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "28ee3ddccb1603ba"
+type = "heading"
+origin = '''
+## 自由色的作用与用法
+'''
+translate = '''
+## Working with Free Color
+
+Clicking **Mark as Free Color** flags the selected matched color so that the next **Generate** exports its geometry as a standalone 3MF object (for example, `Free_FF0000`).
+
+**When to use Free Color:**
+
+- You want to map a logo, border, or flat accent directly to a dedicated spool in your slicer;
+- You prefer to assign a specialty filament—such as silk, metallic, or glow-in-the-dark—outside the automatic layered color stack.
+'''
+
+[[block]]
+key = "fbca253fc469e983"
+type = "paragraph"
+origin = '''
+点击“标记为自由色”会将当前选中的**匹配色**登记为自由色，并在下次生成 3MF 时把画面中所有使用该匹配色的区域提取为独立的 `Free_颜色值` 对象：
+'''
+translate = '''
+**How Free Color behaves:**
+'''
+
+[[block]]
+key = "1548a1460d88b135"
+type = "list"
+composite = true
+origin = '''
+{{1548a1460d88b135-bbe0e3e5e643fb05}}
+{{1548a1460d88b135-b787f262f646e323}}
+'''
+translate = '''
+- It groups geometry by matched color, so every region sharing that matched color enters the same `Free_` object;
+- Hardware slot limits still apply—make sure your printer or AMS has a slot ready for the spool you assign in your slicer;
+- **Clear Free Colors** removes Free Color flags while leaving all color replacements and **Custom Recipes** untouched.
+'''
+
+[[block]]
+key = "1548a1460d88b135-bbe0e3e5e643fb05"
+type = "listItem"
+composite = true
+origin = '''
+- {{1548a1460d88b135-bbe0e3e5e643fb05-37b2c47a93b328c0}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1548a1460d88b135-bbe0e3e5e643fb05-37b2c47a93b328c0"
+type = "paragraph"
+origin = '''
+**主要用途**：将该颜色区域在切片器中单独选中，直接指定给手头某一卷专色、丝绸或夜光等实体线材；或在自动叠色不便表现时改由切片器手动指定耗材槽位。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1548a1460d88b135-b787f262f646e323"
+type = "listItem"
+composite = true
+origin = '''
+- {{1548a1460d88b135-b787f262f646e323-b94f98e8bed30918}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1548a1460d88b135-b787f262f646e323-b94f98e8bed30918"
+type = "paragraph"
+origin = '''
+**作用范围**：按匹配色值提取对象（画面中凡属同一匹配色的色块都会归入同一个 `Free_` 对象），且实际可用颜色种类仍取决于打印机的多色料槽容量与实体线盘。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4637b5dcefc454bb"
+type = "paragraph"
+origin = '''
+已标记的自由色会在色板上显示专属标识。点击“清除自由色”只会移除自由色对象标记，不会清空已完成的颜色替换或自定义配方。导出 3MF 后，请在切片器对象列表中找到对应的 `Free_颜色值` 对象，手动为其绑定目标耗材与物理料槽。
+'''
+translate = '''
+After clicking **Generate**, locate the `Free_FF0000` (or corresponding `Free_` hex) object in your slicer's object list and assign it to the physical filament spool you plan to load.
+'''
+
+[[block]]
+key = "ab3aca503700989f"
+type = "heading"
+origin = '''
+## 渐变分组（海带纹）处理
+'''
+translate = '''
+## Handling Gradient Groups
+'''
+
+[[block]]
+key = "1b67ef33ea1e0fbb"
+type = "paragraph"
+origin = '''
+在耗材档案模式下，平滑渐变有时会被匹配成几条交替切换的相邻材料色带。当系统识别到这类区域时，会在面板中列出“渐变分组（海带纹）”供你按需处理：
+'''
+translate = '''
+In **Material Archive** mode, smooth gradients can occasionally step across adjacent filament combinations, forming visible contour bands. When **Color Workstation** detects these patterns, it lists them as gradient groups:
+'''
+
+[[block]]
+key = "f0d78fe1aec43dc0"
+type = "list"
+composite = true
+origin = '''
+{{f0d78fe1aec43dc0-d7bed00a3a5c0d07}}
+{{f0d78fe1aec43dc0-6ddfb0206d32a48a}}
+{{f0d78fe1aec43dc0-08b729dc4631ce0b}}
+'''
+translate = '''
+- Click a group or sub-region first to inspect its highlight on the canvas;
+- Merge a noisy sub-region or unify the group into a single representative shade when you want cleaner flat areas;
+- Leave intentional shading, soft shadows, or skin-tone transitions unmerged when multi-step gradation looks better.
+'''
+
+[[block]]
+key = "f0d78fe1aec43dc0-d7bed00a3a5c0d07"
+type = "listItem"
+composite = true
+origin = '''
+- {{f0d78fe1aec43dc0-d7bed00a3a5c0d07-b3a17a36d69b465a}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f0d78fe1aec43dc0-d7bed00a3a5c0d07-b3a17a36d69b465a"
+type = "paragraph"
+origin = '''
+先点击查看分组或子区域的高亮位置；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f0d78fe1aec43dc0-6ddfb0206d32a48a"
+type = "listItem"
+composite = true
+origin = '''
+- {{f0d78fe1aec43dc0-6ddfb0206d32a48a-bae1d50d4a4ebacb}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f0d78fe1aec43dc0-6ddfb0206d32a48a-bae1d50d4a4ebacb"
+type = "paragraph"
+origin = '''
+若属于影响观感的杂乱色带，可将单个局部区域或整组统一合并为代表色；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f0d78fe1aec43dc0-08b729dc4631ce0b"
+type = "listItem"
+composite = true
+origin = '''
+- {{f0d78fe1aec43dc0-08b729dc4631ce0b-64d7131802ec61c1}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f0d78fe1aec43dc0-08b729dc4631ce0b-64d7131802ec61c1"
+type = "paragraph"
+origin = '''
+若该分组恰好是你想保留的阴影层次或肤色柔和过渡，保持原样即可（自动合并默认关闭）。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "cbbf3b866f003400"
+type = "heading"
+origin = '''
+## 常见问题 Q&A
+'''
+translate = '''
+## Common Questions
+'''
+
+[[block]]
+key = "3345fdb8b9635bc6"
+type = "heading"
+origin = '''
+### 为什么点击调色板色块没有反应？
+'''
+translate = '''
+### Why does clicking a swatch in the Palette do nothing?
+'''
+
+[[block]]
+key = "765ffe0f11d329d1"
+type = "paragraph"
+origin = '''
+请先确认已完成首次“预览”，并留意当前激活的选区工具：“点选色块”和“选区画笔”直接在预览画布上点选或涂抹；想从调色板整组选色时，请切换至“同颜色全选”。
+'''
+translate = '''
+Make sure **Preview** has completed first, and check which selection tool is active: **Pick blocks** and **Selection brush** select directly on the preview canvas, whereas **Same color** lets you select matched colors across the image.
+'''
+
+[[block]]
+key = "07ad1ceb2f7b42af"
+type = "heading"
+origin = '''
+### 为什么只想改眼睛颜色，衣服也跟着变色了？
+'''
+translate = '''
+### Why did the character's clothes change when I only meant to edit the eyes?
+'''
+
+[[block]]
+key = "e1616b1f98866a01"
+type = "paragraph"
+origin = '''
+当眼睛和衣服使用了同一个匹配色时，“同颜色全选”会一并选中两处。点击“撤销”退回上一步，改用“点选色块”单独点中眼睛区域并确认高亮范围后再替换即可。
+'''
+translate = '''
+Both areas shared the same matched color while **Same color** was active. Click **Undo**, switch to **Pick blocks**, click only the eye regions, and confirm the highlight before applying the target color.
+'''
+
+[[block]]
+key = "d46bc7a06bcb500a"
+type = "heading"
+origin = '''
+### 为什么输入了目标 RGB，给出的候选色仍有细微差别？
+'''
+translate = '''
+### Why doesn't the candidate color match the exact RGB hex I typed in?
+'''
+
+[[block]]
+key = "fc6dd7670f16a3ec"
+type = "paragraph"
+origin = '''
+耗材档案模式会严格从当前已选实体耗材、层数与层高所能拼出的真实配方中筛选最接近的可达色。挑选观感最接近的候选色后，建议打印小样确认实物效果。
+'''
+translate = '''
+**Material Archive** mode calculates colors achievable with your selected physical filaments, **Color Layers**, and **Layer Height**. Pick the closest reachable candidate and confirm critical shades with a small test print.
+'''
+
+[[block]]
+key = "a34941119aaddca2"
+type = "heading"
+origin = '''
+### 完成替换后需要重新点击预览和生成吗？
+'''
+translate = '''
+### Do I need to run Preview again after confirming a replacement?
+'''
+
+[[block]]
+key = "e239ddbf2d6ff482"
+type = "paragraph"
+origin = '''
+点击“确认替换”会自动刷新当前的 2D、3D 与分层预览；确认画面满意后，需要重新点击“生成”以导出更新后的 3MF 文件。
+'''
+translate = '''
+Confirming a replacement refreshes the 2D, 3D, and **Layer Preview** views automatically. Once you are happy with the result, click **Generate** to export an updated 3MF.
+'''
+
+[[block]]
+key = "598f3c30044300eb"
+type = "heading"
+origin = '''
+### 自由色和颜色替换有什么区别？
+'''
+translate = '''
+### How does Free Color differ from color replacement?
+'''
+
+[[block]]
+key = "43794b43c1450c7b"
+type = "paragraph"
+origin = '''
+“颜色替换”改变的是显色配方，让选中区域改用另一套可达叠色方案；“自由色”改变的是 3MF 对象拆分结构，把该匹配色单独导出为一个几何对象，留待切片器里手动绑定实体线材。
+'''
+translate = '''
+Color replacement assigns a different reachable filament stack to your selected region. **Free Color** changes how 3MF meshes are split, exporting that matched color as its own object so you can assign a filament manually in your slicer.
+'''
+
+[[block]]
+key = "26274be309c1e678"
+type = "heading"
+origin = '''
+### 怎样保存当前的换色方案以便下次继续编辑？
+'''
+translate = '''
+### How can I save my color edits for later?
+'''
+
+[[block]]
+key = "2f0d674156cd9965"
+type = "paragraph"
+origin = '''
+可通过[分享卡与 JSON：导出、导入和继续编辑](pathname:///zh/docs/knowledge/share-card-json/)导出配方文件，与原图、所用耗材档案 / LUT 及最终 3MF 一并归档保存，方便日后载入继续微调。
+'''
+translate = '''
+Export a recipe file via [Share Cards and JSON](pathname:///en/docs/knowledge/share-card-json/) and store it alongside your original image, Material Archives or LUT, and final 3MF so you can reload and refine the project later.
+'''

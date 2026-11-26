@@ -1,0 +1,180 @@
+[metadata]
+reviewed_source = "6d30b166e1134ad3fa153b3bf7d2cf12f36c8c67e34eee5aa50f3ba306b22ae5"
+
+[[block]]
+key = "7af6c7fe11a687e5"
+type = "yaml"
+origin = '''
+---
+title: "求解缓存"
+description: "查看、预构建和删除耗材组合的固定层数或动态层数求解缓存。"
+sidebar_position: 9
+---
+'''
+translate = '''
+---
+title: "Solver Cache"
+description: "Inspect, prebuild and delete fixed-layer or dynamic-layer solver caches for a material combination."
+sidebar_position: 9
+---
+'''
+
+[[block]]
+key = "a7fc7996c4223cf0"
+type = "heading"
+origin = '''
+# 求解缓存
+'''
+translate = '''
+# Solver Cache
+'''
+
+[[block]]
+key = "cffce029f859c691"
+type = "paragraph"
+origin = '''
+求解缓存保存一组耗材已经算过的叠层候选，便于之后的配色与转换复用。它是计算结果，不是耗材原始档案；删除缓存不会删除耗材库中的测量数据。
+'''
+translate = '''
+Solver caches store previously calculated stack candidates for a material combination so matching and conversion can reuse them. They are calculation results, not original material profiles. Deleting a cache does not delete measurements from the material library.
+'''
+
+[[block]]
+key = "1e79265343837bed"
+type = "heading"
+origin = '''
+## 打开缓存概览
+'''
+translate = '''
+## Open the cache overview
+'''
+
+[[block]]
+key = "c8d1a059d572169f"
+type = "paragraph"
+origin = '''
+在“耗材管理 → 求解缓存”中选择耗材组合与层数设置，或从转换页点击“管理缓存”带入当前选择。缓存概览读取已有状态，不会因为打开页面就自动开始一次完整构建。
+'''
+translate = '''
+Open **Solver cache** under material management and select a combination and layer settings, or choose **Manage cache** in the converter to bring in its current selection. The overview reads existing status; opening it does not automatically start a full build.
+'''
+
+[[block]]
+key = "3e437c420cd88fe1"
+type = "paragraph"
+origin = '''
+这里与“色域覆盖”共用工作台的耗材及层数选择。工作台里的改动不会替换转换页的当前参数。转换使用白底条件，缓存页面也按白底管理，不显示色域分析中的黑底切换。
+'''
+translate = '''
+It shares the workbench's material and layer selection with **Gamut coverage**. Changes in the workbench do not replace the converter's current parameters. Conversion uses a white substrate, so cache management also uses white and does not show the gamut view's black-substrate option.
+'''
+
+[[block]]
+key = "2d3f855b06410d9f"
+type = "heading"
+origin = '''
+## 固定层数
+'''
+translate = '''
+## Fixed layers
+'''
+
+[[block]]
+key = "64eeb50e5733d2b1"
+type = "paragraph"
+origin = '''
+固定层数下可以查看、建立或删除穷举缓存与智能缓存。选择改变后，状态对应新的耗材组合、层数与层高；看到其他组合已有缓存，不表示当前组合也已准备好。
+'''
+translate = '''
+In fixed-layer mode, inspect, build or delete exhaustive and smart caches. After changing the selection, status applies to the new material combination, layer count and layer height. A cache for another combination does not mean the current one is ready.
+'''
+
+[[block]]
+key = "f098126c56eb7490"
+type = "paragraph"
+origin = '''
+固定层数的穷举缓存最多支持 10 层，更深的叠层使用智能缓存。界面默认的固定层数上限为 10，开启高级层数设置后可到 30；扩大层数范围不意味着穷举缓存也能超过 10 层。
+'''
+translate = '''
+Fixed-layer exhaustive caches support up to 10 layers; deeper stacks use smart caches. The fixed-layer UI limit defaults to 10 and can be raised to 30 through advanced settings. Raising that limit does not extend exhaustive caching beyond 10 layers.
+'''
+
+[[block]]
+key = "f60086fae5c0a72c"
+type = "heading"
+origin = '''
+## 动态层数
+'''
+translate = '''
+## Dynamic layers
+'''
+
+[[block]]
+key = "93ac074e7316ffc2"
+type = "paragraph"
+origin = '''
+动态模式可选择 5–30 层，默认范围为 5–10 层，并指定参与补位的底板耗材。点击“预构建”后，软件会保存范围内的逐层候选，再建立转换使用的合并目录。
+'''
+translate = '''
+Dynamic mode supports 5–30 layers, defaults to 5–10, and requires a backing material for filling the remaining layers. **Prebuild** saves candidates for the selected layer counts, then creates the combined catalog used by conversion.
+'''
+
+[[block]]
+key = "bf0de8ea0c4b385a"
+type = "table"
+origin = '''
+| 状态 | 含义 |
+| --- | --- |
+| 已就绪 | 当前组合与范围的目录可以复用 |
+| 部分层数可复用 | 一部分逐层候选已经存在，仍需准备其余部分或合并目录 |
+| 未准备 | 当前设置没有可直接复用的预构建结果 |
+| 查询失败 | 读取状态未完成，可根据提示重试；不等于耗材档案已损坏 |
+'''
+translate = '''
+| Status | Meaning |
+| --- | --- |
+| Ready | The catalog for this combination and range can be reused |
+| Some layers reusable | Some per-layer candidates exist, but other layers or the combined catalog still need preparation |
+| Not prepared | No ready prebuilt result is available for these settings |
+| Status request failed | Status could not be read; retry as prompted. This does not establish that a material profile is corrupt |
+'''
+
+[[block]]
+key = "dc2f1b9c84fffdcd"
+type = "paragraph"
+origin = '''
+动态计算可以复用兼容的手动智能缓存。选择更宽的层数范围时，每层分配的候选预算也可能变化，所以不能仅看层数相同就判断所有缓存都通用。
+'''
+translate = '''
+Dynamic calculation can reuse compatible manually built smart caches. Selecting a wider layer range can change the candidate budget assigned to each layer, so a matching layer count alone does not make every cache interchangeable.
+'''
+
+[[block]]
+key = "41eb46587708f9f2"
+type = "heading"
+origin = '''
+## 删除后会怎样
+'''
+translate = '''
+## What deletion changes
+'''
+
+[[block]]
+key = "25605bfde007f0c4"
+type = "paragraph"
+origin = '''
+“删除预构建缓存”移除当前组合与范围对应的合并目录和预构建逐层候选，不删除已有的手动智能缓存。只有手动缓存可复用时，不显示预构建删除操作。
+'''
+translate = '''
+**Delete prebuilt cache** removes the combined catalog and prebuilt per-layer candidates for the current combination and range. It does not delete existing manual smart caches. If only manual caches are reusable, the prebuilt-cache deletion action is not shown.
+'''
+
+[[block]]
+key = "aa953911a5fe6e9e"
+type = "paragraph"
+origin = '''
+删除后，下次需要这些候选时可以重新计算。想回收计算文件的空间时使用此入口；想备份或移走耗材档案时，使用[导入与导出耗材](../material-import-export/material-import-export.mdx)。系统设置中的[缓存管理](../../settings-import-export/cache-maintenance/cache-maintenance.mdx)主要处理临时文件和转换会话，是另一个入口。
+'''
+translate = '''
+Deleted candidates can be recalculated when needed. Use this page to reclaim solver-cache space. To back up or move material profiles, use [Import and export materials](../material-import-export/material-import-export.mdx). [Cache management](../../settings-import-export/cache-maintenance/cache-maintenance.mdx) in system settings is a separate operation, mainly for temporary files and conversion sessions.
+'''

@@ -1,0 +1,1633 @@
+[metadata]
+migration_layout = "preserved English structure; root blocks retain grouped or omitted source sections"
+reviewed_source = "0c43bd77065000e64074bb3174c3265dafa96b3c3a15bf638af23136f787c20e"
+
+[[block]]
+key = "ab4a8efbc1017abf"
+type = "yaml"
+origin = '''
+---
+title: "校准板校色"
+description: "Lumina Studio 校准板照片的色彩校准教程"
+sidebar_position: 8
+---
+'''
+translate = '''
+---
+title: "Color-Chart Calibration"
+unlisted: true
+translation_status: pending
+---
+'''
+
+[[block]]
+key = "071ff99a84414529"
+type = "heading"
+origin = '''
+# 校准板校色
+'''
+translate = '''
+# Color-Chart Calibration
+'''
+
+[[block]]
+key = "9dabcfb4ad5a0d47"
+type = "paragraph"
+origin = '''
+如果在预览时发现明显色偏（例如肤色发绿、中性灰偏绿），通常是因为生成 LUT 时上传的校准板照片未经标准校色。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "aca00213f3cbcdf4"
+type = "paragraph"
+origin = '''
+本文介绍结合 24 色卡、Camera Raw 与 Photoshop 的进阶校准板校色流程，帮助你制作高精度的自定义 LUT。项目开发组已对部分常见品牌耗材完成了官方校准并标注，日常使用建议优先直接选用已校准数据。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "e9b5221d13a6e90c"
+type = "heading"
+origin = '''
+## 拍摄器材准备
+'''
+translate = '''
+'''
+
+[[block]]
+key = "5f39fc64ba588732"
+type = "list"
+composite = true
+origin = '''
+{{5f39fc64ba588732-a34c71be0965dd0d}}
+{{5f39fc64ba588732-fa38f7212f8183de}}
+{{5f39fc64ba588732-b816b3a2eb6da74f}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "5f39fc64ba588732-a34c71be0965dd0d"
+type = "listItem"
+composite = true
+origin = '''
+1. {{5f39fc64ba588732-a34c71be0965dd0d-a17a4dd88f416c31}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "5f39fc64ba588732-a34c71be0965dd0d-a17a4dd88f416c31"
+type = "paragraph"
+origin = '''
+一台支持拍摄 RAW 格式的数码相机，如微单、单反或桥式相机（暂不建议使用手机或运动相机拍摄 RAW）；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "5f39fc64ba588732-fa38f7212f8183de"
+type = "listItem"
+composite = true
+origin = '''
+2. {{5f39fc64ba588732-fa38f7212f8183de-01a9ec3fb091ac38}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "5f39fc64ba588732-fa38f7212f8183de-01a9ec3fb091ac38"
+type = "paragraph"
+origin = '''
+一张爱色丽（X-Rite）标准 ColorChecker Classic 24 色卡；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "5f39fc64ba588732-b816b3a2eb6da74f"
+type = "listItem"
+composite = true
+origin = '''
+3. {{5f39fc64ba588732-b816b3a2eb6da74f-aeee1ae5e6bfee40}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "5f39fc64ba588732-b816b3a2eb6da74f-aeee1ae5e6bfee40"
+type = "paragraph"
+origin = '''
+一块通过 Lumina Studio 生成并打印完成的实体校准板。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "fa2f00c8d35db96d"
+type = "heading"
+origin = '''
+## 电脑软件准备
+'''
+translate = '''
+'''
+
+[[block]]
+key = "29f1b5b991b4247b"
+type = "list"
+composite = true
+origin = '''
+{{29f1b5b991b4247b-5b1c8b8585daaa93}}
+{{29f1b5b991b4247b-7d6f110d9d3aadf2}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "29f1b5b991b4247b-5b1c8b8585daaa93"
+type = "listItem"
+composite = true
+origin = '''
+1. {{29f1b5b991b4247b-5b1c8b8585daaa93-dddb619d3cd34dde}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "29f1b5b991b4247b-5b1c8b8585daaa93-dddb619d3cd34dde"
+type = "paragraph"
+origin = '''
+**ColorChecker Camera Calibration**（或新版替代软件 **Calibrite PROFILER**）；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "29f1b5b991b4247b-7d6f110d9d3aadf2"
+type = "listItem"
+composite = true
+origin = '''
+2. {{29f1b5b991b4247b-7d6f110d9d3aadf2-7fcea7ff5e9753f6}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "29f1b5b991b4247b-7d6f110d9d3aadf2-7fcea7ff5e9753f6"
+type = "paragraph"
+origin = '''
+**Adobe Photoshop**（含 Camera Raw 插件）。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b79a1ac1a486bdf7"
+type = "admonition"
+composite = true
+origin = '''
+:::note[软件版本说明]
+{{b79a1ac1a486bdf7-e9f5bba9822dc688}}
+:::
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b79a1ac1a486bdf7-e9f5bba9822dc688"
+type = "paragraph"
+origin = '''
+目前 **Calibrite PROFILER** 已接替旧版 ColorChecker Camera Calibration，两者校色流程一致且新版操作更简便，推荐直接从 [Calibrite 官方下载页](https://calibrite.com/cn/software-downloads/)获取。下文以经典的 ColorChecker Camera Calibration 界面为例演示。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "584ac8f5efa1ca55"
+type = "heading"
+origin = '''
+## 拍摄环境要求
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b6eb92e88e6991f8"
+type = "list"
+composite = true
+origin = '''
+{{b6eb92e88e6991f8-ee8b61cca275c936}}
+{{b6eb92e88e6991f8-49f9c7924dad341f}}
+{{b6eb92e88e6991f8-d323b6197ad00ba6}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b6eb92e88e6991f8-ee8b61cca275c936"
+type = "listItem"
+composite = true
+origin = '''
+1. {{b6eb92e88e6991f8-ee8b61cca275c936-ac5247e13909da2f}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b6eb92e88e6991f8-ee8b61cca275c936-ac5247e13909da2f"
+type = "paragraph"
+origin = '''
+选择晴天户外无阴影遮挡的位置拍摄；周围避免紧邻大面积高饱和纯色物体（比如一棵绿树或彩色墙面），防止环境反光污染校准板与色卡；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b6eb92e88e6991f8-49f9c7924dad341f"
+type = "listItem"
+composite = true
+origin = '''
+2. {{b6eb92e88e6991f8-49f9c7924dad341f-21d794b4091f5664}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b6eb92e88e6991f8-49f9c7924dad341f-21d794b4091f5664"
+type = "paragraph"
+origin = '''
+观察光照角度，确保阳光照射在校准板上不会拉出凸显打印层纹的阴影或刺眼高光点，如有反光可微调摆放角度；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b6eb92e88e6991f8-d323b6197ad00ba6"
+type = "listItem"
+composite = true
+origin = '''
+3. {{b6eb92e88e6991f8-d323b6197ad00ba6-a99b7de38856bbeb}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b6eb92e88e6991f8-d323b6197ad00ba6-a99b7de38856bbeb"
+type = "paragraph"
+origin = '''
+避开日出、日落前后的低色温时段。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f69248798af6ee89"
+type = "admonition"
+composite = true
+origin = '''
+:::tip[关于人造光源]
+{{f69248798af6ee89-ab02db712d61ec93}}
+:::
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f69248798af6ee89-ab02db712d61ec93"
+type = "paragraph"
+origin = '''
+光源显色性直接决定校色精度。若使用高显色指数（Ra > 95）的专业摄影灯，且布光后校准板四角与中心五点的照度均匀度高于 90%，可替代晴天自然光；否则建议优先在晴天日光下拍摄。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c57f03508fe46235"
+type = "heading"
+origin = '''
+## 拍摄构图
+'''
+translate = '''
+'''
+
+[[block]]
+key = "66c8b44078b246a3"
+type = "list"
+composite = true
+origin = '''
+{{66c8b44078b246a3-933f1fc0ce5024ce}}
+{{66c8b44078b246a3-8859904988916b81}}
+{{66c8b44078b246a3-1e7aae7e3396edd0}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "66c8b44078b246a3-933f1fc0ce5024ce"
+type = "listItem"
+composite = true
+origin = '''
+1. {{66c8b44078b246a3-933f1fc0ce5024ce-1db2653f1a2a5c24}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "66c8b44078b246a3-933f1fc0ce5024ce-1db2653f1a2a5c24"
+type = "paragraph"
+origin = '''
+在同一张画面中同时拍入实体校准板和 24 色卡；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "66c8b44078b246a3-8859904988916b81"
+type = "listItem"
+composite = true
+origin = '''
+2. {{66c8b44078b246a3-8859904988916b81-d2d5de9121fd2418}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "66c8b44078b246a3-8859904988916b81-d2d5de9121fd2418"
+type = "paragraph"
+origin = '''
+校准板在画面中的面积占比不低于 30%；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "66c8b44078b246a3-1e7aae7e3396edd0"
+type = "listItem"
+composite = true
+origin = '''
+3. {{66c8b44078b246a3-1e7aae7e3396edd0-2d4d0378d8f19e43}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "66c8b44078b246a3-1e7aae7e3396edd0-2d4d0378d8f19e43"
+type = "paragraph"
+origin = '''
+镜头正对平面垂直拍摄，避免透视歪斜，使校准板在画面中保持端正的正方形；必要时可使用三脚架辅助固定机位。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "586dff9d4a781f2c"
+type = "mdxJsxFlowElement"
+composite = true
+origin = '''
+<figure class="image">{{586dff9d4a781f2c-7b0ba1e758823a79}}
+  {{586dff9d4a781f2c-c06df3adcc5d1ec7}}
+</figure>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "586dff9d4a781f2c-7b0ba1e758823a79"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/snipaste_2026-04-15_18-07-41.webp').default} alt="" />
+'''
+translate = '''
+'''
+
+[[block]]
+key = "586dff9d4a781f2c-c06df3adcc5d1ec7"
+type = "paragraph"
+origin = '''
+<figcaption>拍摄成图样例</figcaption>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "934563cfbe626cd1"
+type = "heading"
+origin = '''
+## 相机参数设定
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f89e9f098b93d300"
+type = "list"
+composite = true
+origin = '''
+{{f89e9f098b93d300-2cb514e59cf35115}}
+{{f89e9f098b93d300-6294d1cdd67ce73a}}
+{{f89e9f098b93d300-d19144a335ffbd78}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f89e9f098b93d300-2cb514e59cf35115"
+type = "listItem"
+composite = true
+origin = '''
+1. {{f89e9f098b93d300-2cb514e59cf35115-683822eb7a38db6c}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f89e9f098b93d300-2cb514e59cf35115-683822eb7a38db6c"
+type = "paragraph"
+origin = '''
+开启相机的 RAW 格式存储；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f89e9f098b93d300-6294d1cdd67ce73a"
+type = "listItem"
+composite = true
+origin = '''
+2. {{f89e9f098b93d300-6294d1cdd67ce73a-cdd48ba009b8e24d}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f89e9f098b93d300-6294d1cdd67ce73a-cdd48ba009b8e24d"
+type = "paragraph"
+origin = '''
+选用相机标准/默认色彩模式，关闭胶片模拟、创意滤镜或动态范围优化等会影响原始色彩的功能；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f89e9f098b93d300-d19144a335ffbd78"
+type = "listItem"
+composite = true
+origin = '''
+3. {{f89e9f098b93d300-d19144a335ffbd78-fe12ebba67abf41e}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f89e9f098b93d300-d19144a335ffbd78-fe12ebba67abf41e"
+type = "paragraph"
+origin = '''
+切换至 **A 档**（光圈优先），白平衡设为自动，感光度设为 **ISO 100**（相机原生 Base ISO，常见为 100），光圈设为 **F8**。晴天日光下，快门速度通常快于 1/200 s。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c5197ad017925066"
+type = "heading"
+origin = '''
+## 在 Camera Raw 中将 RAW 转换为 DNG
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4a74423308797772"
+type = "paragraph"
+origin = '''
+将相机拍摄的 RAW 文件拖入 Photoshop，会自动打开 Camera Raw 插件界面。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "26dee418673caf9f"
+type = "mdxJsxFlowElement"
+composite = true
+origin = '''
+<figure class="image">{{26dee418673caf9f-17e314933a54843e}}</figure>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "26dee418673caf9f-17e314933a54843e"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/转dng-1.webp').default} alt="" />
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0c598ae0ef9ea1c5"
+type = "heading"
+origin = '''
+### 1. 修改 Camera Raw 工作色彩空间
+'''
+translate = '''
+'''
+
+[[block]]
+key = "aad6a77af9af6fdb"
+type = "paragraph"
+origin = '''
+点击窗口底部中央的工作流设置链接：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8cad5324801a1768"
+type = "mdxJsxFlowElement"
+composite = true
+origin = '''
+<figure class="image">{{8cad5324801a1768-b7a23003883ae89b}}</figure>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8cad5324801a1768-b7a23003883ae89b"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/校色-cameraraw颜色设置.jpg').default} />
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2c2d873d8852cd2c"
+type = "paragraph"
+origin = '''
+按转换要求设定色彩空间与色彩深度（该项只需设置一次，Camera Raw 会自动记住）：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "62fda4fec9d38232"
+type = "mdxJsxFlowElement"
+composite = true
+origin = '''
+<figure class="image">{{62fda4fec9d38232-0b1196376be4dd80}}</figure>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "62fda4fec9d38232-0b1196376be4dd80"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/校色-cameraraw颜色设置-2.png').default} />
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ca252adf653b378f"
+type = "heading"
+origin = '''
+### 2. 初步吸取白平衡
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8318016293cf48ae"
+type = "paragraph"
+origin = '''
+选择白平衡吸管工具，在色卡中性灰色块上拖拽框选（框选色块中心约 50% 的区域即可）：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "78dfbc5022143d72"
+type = "mdxJsxFlowElement"
+composite = true
+origin = '''
+<figure class="image">{{78dfbc5022143d72-7d6dd7f1a2853f94}}</figure>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "78dfbc5022143d72-7d6dd7f1a2853f94"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/转dng-2.webp').default} alt="" />
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7d09ba7da1fcfb48"
+type = "heading"
+origin = '''
+### 3. RAW 降噪（可选）
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a3e13e6b96702c64"
+type = "paragraph"
+origin = '''
+在右侧“细节”面板中可勾选“去杂色”并微调强度：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "fe40a683d2194274"
+type = "mdxJsxFlowElement"
+composite = true
+origin = '''
+<figure class="image">{{fe40a683d2194274-b81bcf6d32059749}}</figure>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "fe40a683d2194274-b81bcf6d32059749"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/降噪设置.webp').default} alt="" />
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b7743f32a6340a8d"
+type = "admonition"
+composite = true
+origin = '''
+:::note[旧版软件提示]
+{{b7743f32a6340a8d-cec1a383820f717f}}
+:::
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b7743f32a6340a8d-cec1a383820f717f"
+type = "paragraph"
+origin = '''
+“去杂色”是较新版本 Photoshop 引入的降噪功能。若使用 Photoshop CS6 等早期版本，仅有手动降噪滑块，建议直接跳过此步，或在不损失色彩饱和度的前提下轻微调整。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ec30bcb96514b8b6"
+type = "heading"
+origin = '''
+### 4. 存储为 DNG 并关闭 Photoshop
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8e7a2f982453a615"
+type = "paragraph"
+origin = '''
+点击界面右上角的“存储”图标：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "d6947798e283746f"
+type = "mdxJsxFlowElement"
+composite = true
+origin = '''
+<figure class="image">{{d6947798e283746f-ee15201c10a97d80}}</figure>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "d6947798e283746f-ee15201c10a97d80"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/存储dng.webp').default} alt="" />
+'''
+translate = '''
+'''
+
+[[block]]
+key = "141834a6dc8b0860"
+type = "paragraph"
+origin = '''
+按下图设置格式选项并保存 DNG 文件：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "892ebb93df30f32c"
+type = "mdxJsxFlowElement"
+composite = true
+origin = '''
+<figure class="image">{{892ebb93df30f32c-173342c5ca5b8674}}</figure>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "892ebb93df30f32c-173342c5ca5b8674"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/存储dng-3.png').default} alt="" />
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1146b038c7ebc841"
+type = "paragraph"
+origin = '''
+保存完成后，**先完全关闭 Photoshop**，以便下一步生成的相机配置文件能在重新启动时被正确读取。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "11d5036764c38f39"
+type = "heading"
+origin = '''
+## 在 ColorChecker 软件中生成相机配置文件
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bc9721c563ea0e59"
+type = "paragraph"
+origin = '''
+打开 ColorChecker Camera Calibration 并导入刚保存的 DNG 文件。若软件已自动识别并对齐 24 色卡，可直接跳至“创建相机配置文件”；若提示自动识别失败（如下图），则手动定位四角：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1212693408c1397d"
+type = "mdxJsxFlowElement"
+composite = true
+origin = '''
+<figure class="image">{{1212693408c1397d-d1799cb3d9281333}}</figure>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1212693408c1397d-d1799cb3d9281333"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/colorchecker校准-1.webp').default} alt="" />
+'''
+translate = '''
+'''
+
+[[block]]
+key = "e03f3a3a9fa50ea6"
+type = "heading"
+origin = '''
+### 手动定位 24 色卡四角（自动识别不准时使用）
+'''
+translate = '''
+'''
+
+[[block]]
+key = "080aa8b8be75cc2d"
+type = "paragraph"
+origin = '''
+先用放大镜工具放大色卡区域：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8e06727558cd2c6c"
+type = "mdxJsxFlowElement"
+composite = true
+origin = '''
+<figure class="image">{{8e06727558cd2c6c-29f58de97e23a70a}}</figure>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8e06727558cd2c6c-29f58de97e23a70a"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/colorchecker校准-2.webp').default} alt="" />
+'''
+translate = '''
+'''
+
+[[block]]
+key = "052aa800c3bf007a"
+type = "paragraph"
+origin = '''
+切换至裁切标记工具，依次点击 24 色卡色块矩阵的四个外角，使绿色采样框准确落在每个色块中央：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1b9be020657ccac4"
+type = "mdxJsxFlowElement"
+composite = true
+origin = '''
+<figure class="image">{{1b9be020657ccac4-ae5376dd7f673152}}</figure>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1b9be020657ccac4-ae5376dd7f673152"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/colorchecker校准-3.webp').default} alt="" />
+'''
+translate = '''
+'''
+
+[[block]]
+key = "6bbc57d100b5884d"
+type = "heading"
+origin = '''
+### 创建相机配置文件
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7b93c3a8e4d61661"
+type = "paragraph"
+origin = '''
+点击“创建配置文件”并命名保存，即可生成专用于当前相机与光线环境的色彩配置文件。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "3710fdce78a6bbb9"
+type = "mdxJsxFlowElement"
+composite = true
+origin = '''
+<figure class="image">{{3710fdce78a6bbb9-dd3428799fdd7841}}</figure>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "3710fdce78a6bbb9-dd3428799fdd7841"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/colorchecker校准-4.webp').default} alt="" />
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4fafa225cc8f9349"
+type = "heading"
+origin = '''
+## 在 Photoshop 中完成精细校色
+'''
+translate = '''
+'''
+
+[[block]]
+key = "059600003ba039eb"
+type = "paragraph"
+origin = '''
+重新启动 Photoshop，打开前面导出的 DNG 文件。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "452c9da581c68536"
+type = "heading"
+origin = '''
+### 1. 应用相机配置文件
+'''
+translate = '''
+'''
+
+[[block]]
+key = "fb36ba3cfceb9458"
+type = "paragraph"
+origin = '''
+在 Camera Raw 右侧的“配置文件”栏打开浏览菜单：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0e664cbce347f075"
+type = "mdxJsxFlowElement"
+composite = true
+origin = '''
+<figure class="image">{{0e664cbce347f075-94a1cb90200c9432}}</figure>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0e664cbce347f075-94a1cb90200c9432"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/校色-选择配置文件-1.jpg').default} />
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2326dcfce28d1f4b"
+type = "paragraph"
+origin = '''
+选中刚才创建的自定义配置文件（若列表中未出现，请确认是否已重启 Photoshop）：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "36c2779300e3af65"
+type = "mdxJsxFlowElement"
+composite = true
+origin = '''
+<figure class="image">{{36c2779300e3af65-b66e68963ec8ca77}}</figure>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "36c2779300e3af65-b66e68963ec8ca77"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/校色-选择配置文件-2.jpg').default} />
+'''
+translate = '''
+'''
+
+[[block]]
+key = "5c5c55514a571996"
+type = "heading"
+origin = '''
+### 2. 校正白平衡与曝光
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c4ab55a9f6998064"
+type = "paragraph"
+origin = '''
+使用白平衡吸管点击色卡中性灰格完成白平衡校正：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a9733676cdc13f72"
+type = "mdxJsxFlowElement"
+composite = true
+origin = '''
+<figure class="image">{{a9733676cdc13f72-b3dbd882393de200}}</figure>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a9733676cdc13f72-b3dbd882393de200"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/校色-白平衡.jpg').default} />
+'''
+translate = '''
+'''
+
+[[block]]
+key = "9cd06e950dfe290d"
+type = "paragraph"
+origin = '''
+按下图参考校正 RAW 曝光度：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "fe12ccb7f2e0c8f7"
+type = "mdxJsxFlowElement"
+composite = true
+origin = '''
+<figure class="image">{{fe12ccb7f2e0c8f7-49727345a79b4cc6}}</figure>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "fe12ccb7f2e0c8f7-49727345a79b4cc6"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/校色-曝光.jpg').default} />
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f14c47fdf525966b"
+type = "paragraph"
+origin = '''
+点击右下角的“打开”，进入 Photoshop 主界面：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b33df8653231255e"
+type = "mdxJsxFlowElement"
+composite = true
+origin = '''
+<figure class="image">{{b33df8653231255e-9bcb192d5a133cb4}}</figure>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b33df8653231255e-9bcb192d5a133cb4"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/校色-打开raw.jpg').default} />
+'''
+translate = '''
+'''
+
+[[block]]
+key = "04d7ec0a1f1c4fb9"
+type = "heading"
+origin = '''
+### 3. 修改 Photoshop 色彩设置
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ff57d794cf19649c"
+type = "paragraph"
+origin = '''
+依次点击菜单栏“编辑 → 颜色设置”：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "5bf255bdece57502"
+type = "mdxJsxFlowElement"
+composite = true
+origin = '''
+<figure class="image">{{5bf255bdece57502-427d02f467aa1bb1}}</figure>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "5bf255bdece57502-427d02f467aa1bb1"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/校色-颜色设置-1.webp').default} />
+'''
+translate = '''
+'''
+
+[[block]]
+key = "d1f19c7f9556b9ba"
+type = "paragraph"
+origin = '''
+按下图修改工作色彩空间与色彩管理方案：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "dafa49955f833529"
+type = "mdxJsxFlowElement"
+composite = true
+origin = '''
+<figure class="image">{{dafa49955f833529-2c9dd44b4cf2ccb2}}</figure>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "dafa49955f833529-2c9dd44b4cf2ccb2"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/校色-颜色设置.png').default} />
+'''
+translate = '''
+'''
+
+[[block]]
+key = "3859888b984b8528"
+type = "heading"
+origin = '''
+### 4. 放置颜色取样器并调整色阶
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c1508d5faeecca42"
+type = "paragraph"
+origin = '''
+在左侧工具栏选用“颜色取样器工具”，在校准板对应基准色块上打点取样：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "5aa8e1bf131a4943"
+type = "mdxJsxFlowElement"
+composite = true
+origin = '''
+<figure class="image">{{5aa8e1bf131a4943-f438e26a53f04eda}}</figure>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "5aa8e1bf131a4943-f438e26a53f04eda"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/校色-颜色取样器-1.webp').default} />
+'''
+translate = '''
+'''
+
+[[block]]
+key = "5ef54b76581948aa"
+type = "mdxJsxFlowElement"
+composite = true
+origin = '''
+<figure class="image">{{5ef54b76581948aa-5a19a975e2a70c0f}}</figure>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "5ef54b76581948aa-5a19a975e2a70c0f"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/校色-颜色取样器-2.webp').default} />
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4f992183e6c7e611"
+type = "paragraph"
+origin = '''
+在右侧“调整”面板中点击“色阶”图标，新建一个位于背景图层上方的色阶调整图层：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bbf97249b29b91a2"
+type = "mdxJsxFlowElement"
+composite = true
+origin = '''
+<figure class="image image_resized legacy-figure-third">{{bbf97249b29b91a2-611aa3efc1b590f7}}</figure>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bbf97249b29b91a2-611aa3efc1b590f7"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/校色-添加色阶图层-1.png').default} />
+'''
+translate = '''
+'''
+
+[[block]]
+key = "44cc6b082d006907"
+type = "mdxJsxFlowElement"
+composite = true
+origin = '''
+<figure class="image image_resized legacy-figure-third">{{44cc6b082d006907-9cdc425a66cf01c2}}</figure>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "44cc6b082d006907-9cdc425a66cf01c2"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/校色-添加色阶图层-2.png').default} />
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b058a24fc63c7695"
+type = "paragraph"
+origin = '''
+使用色阶面板中的白场吸管点击校准板的白色色块，将其设为白点：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2f425598472786bb"
+type = "mdxJsxFlowElement"
+composite = true
+origin = '''
+<figure class="image">{{2f425598472786bb-2a2d57f30d0846df}}</figure>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2f425598472786bb-2a2d57f30d0846df"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/校色-色阶白点-1.webp').default} />
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ad8607c2bd95afb4"
+type = "paragraph"
+origin = '''
+设定后，取样点 1 的 RGB 输出值应达到 `255/255/255`（如下图）。若个别通道略低于 255（例如 `253`），可继续向左微调白场输入滑块，直至三通道输出均为 `255/255/255`：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4cf7ac2f55d4ed68"
+type = "mdxJsxFlowElement"
+composite = true
+origin = '''
+<figure class="image">{{4cf7ac2f55d4ed68-6f24476b912d2e0d}}</figure>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4cf7ac2f55d4ed68-6f24476b912d2e0d"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/校色-色阶白点-2.png').default} />
+'''
+translate = '''
+'''
+
+[[block]]
+key = "40d8ba810626ca9c"
+type = "paragraph"
+origin = '''
+接着按下图参考调整黑场滑块，校准暗部黑点：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0c3be5f3956eee78"
+type = "mdxJsxFlowElement"
+composite = true
+origin = '''
+<figure class="image">{{0c3be5f3956eee78-44b135c39118b66b}}</figure>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0c3be5f3956eee78-44b135c39118b66b"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/校色-色阶黑点-1.webp').default} />
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bb209ae7a3943ac8"
+type = "heading"
+origin = '''
+### 5. 将黑色色块填充为纯黑（5/6/8 色模式可选，4 色模式跳过）
+'''
+translate = '''
+'''
+
+[[block]]
+key = "03e8460fd5a4db86"
+type = "paragraph"
+origin = '''
+在图层面板右下角点击“新建图层”：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "eb58d83acb27be3c"
+type = "mdxJsxFlowElement"
+composite = true
+origin = '''
+<figure class="image">{{eb58d83acb27be3c-ed5a8ba59f248b16}}</figure>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "eb58d83acb27be3c-ed5a8ba59f248b16"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/新建图层.png').default} />
+'''
+translate = '''
+'''
+
+[[block]]
+key = "495efd163cacd57e"
+type = "paragraph"
+origin = '''
+将工具栏前景色设为纯黑（`#000000`）：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f5cbf6e03e1be98c"
+type = "mdxJsxFlowElement"
+composite = true
+origin = '''
+<figure class="image">{{f5cbf6e03e1be98c-842749ffb3ef9b98}}</figure>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f5cbf6e03e1be98c-842749ffb3ef9b98"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/校色-前景色改成黑色-1.webp').default} />
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c32ababf2366dd28"
+type = "paragraph"
+origin = '''
+使用矩形选框工具，在新建图层上框选校准板的黑色色块：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7cb956efcc8f4cf6"
+type = "list"
+composite = true
+origin = '''
+{{7cb956efcc8f4cf6-399ad2b5de5093b1}}
+{{7cb956efcc8f4cf6-3398324d391b7591}}
+{{7cb956efcc8f4cf6-a0f5b6ebf414f653}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7cb956efcc8f4cf6-399ad2b5de5093b1"
+type = "listItem"
+composite = true
+origin = '''
+- {{7cb956efcc8f4cf6-399ad2b5de5093b1-5701c0e3197fc129}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7cb956efcc8f4cf6-399ad2b5de5093b1-5701c0e3197fc129"
+type = "paragraph"
+origin = '''
+**5 色模式**：黑色色块位于 `Page 2` 左上角第 1 个；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7cb956efcc8f4cf6-3398324d391b7591"
+type = "listItem"
+composite = true
+origin = '''
+- {{7cb956efcc8f4cf6-3398324d391b7591-060738330968013e}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7cb956efcc8f4cf6-3398324d391b7591-060738330968013e"
+type = "paragraph"
+origin = '''
+**6 色模式**：黑色色块位于左上角第 6 个；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7cb956efcc8f4cf6-a0f5b6ebf414f653"
+type = "listItem"
+composite = true
+origin = '''
+- {{7cb956efcc8f4cf6-a0f5b6ebf414f653-b249146705302db2}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7cb956efcc8f4cf6-a0f5b6ebf414f653-b249146705302db2"
+type = "paragraph"
+origin = '''
+**8 色模式**：黑色色块位于 `Page 1` 左上角第 5 个。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "43f4fc2d03437cbe"
+type = "mdxJsxFlowElement"
+composite = true
+origin = '''
+<figure class="image">{{43f4fc2d03437cbe-c224b6ddcfb7e291}}</figure>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "43f4fc2d03437cbe-c224b6ddcfb7e291"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/校色-填色-1.webp').default} />
+'''
+translate = '''
+'''
+
+[[block]]
+key = "e687dbcd860ef578"
+type = "paragraph"
+origin = '''
+在选区内右键选择“填充”，内容设为“前景色”：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "cb4d7290dd174f58"
+type = "mdxJsxFlowElement"
+composite = true
+origin = '''
+<figure class="image">{{cb4d7290dd174f58-44c31ae007fee49f}}</figure>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "cb4d7290dd174f58-44c31ae007fee49f"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/校色-填充-1.webp').default} />
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1371affee646e5a5"
+type = "mdxJsxFlowElement"
+composite = true
+origin = '''
+<figure class="image">{{1371affee646e5a5-d898855e95041446}}</figure>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1371affee646e5a5-d898855e95041446"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/校色-填充-2.png').default} />
+'''
+translate = '''
+'''
+
+[[block]]
+key = "5344d90873ab4e87"
+type = "paragraph"
+origin = '''
+可暂时隐藏背景图层确认黑色色块是否已准确填充；检查无误后，**记得重新点亮显示背景图层**：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b8f8b708b5855acc"
+type = "mdxJsxFlowElement"
+composite = true
+origin = '''
+<figure class="image">{{b8f8b708b5855acc-9b40dab5594a73b4}}</figure>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b8f8b708b5855acc-9b40dab5594a73b4"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/校色-填充-3.webp').default} />
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f7898ac4be84b93c"
+type = "heading"
+origin = '''
+### 6. 导出最终校色图
+'''
+translate = '''
+'''
+
+[[block]]
+key = "01ace38c197bd73f"
+type = "paragraph"
+origin = '''
+依次点击菜单栏“文件 → 导出 → 导出为”：
+'''
+translate = '''
+The English edition of this calibration guide is being reviewed. It is hidden from English navigation until every camera, color-space, and Photoshop instruction has been translated and verified.
+'''
+
+[[block]]
+key = "da26aa10634f44cf"
+type = "mdxJsxFlowElement"
+composite = true
+origin = '''
+<figure class="image">{{da26aa10634f44cf-5a514fcc39d03622}}</figure>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "da26aa10634f44cf-5a514fcc39d03622"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/校色-导出-1.webp').default} />
+'''
+translate = '''
+'''
+
+[[block]]
+key = "776f12542f642461"
+type = "paragraph"
+origin = '''
+文件格式选择 **PNG**，同时勾选**转换为 sRGB**与**嵌入颜色配置文件**，点击导出即可得到可直接上传至 Lumina Studio 的标准校色图。
+'''
+translate = '''
+For the complete current guide, switch the site language to Simplified Chinese.
+'''
+
+[[block]]
+key = "3983562865fb1a8d"
+type = "mdxJsxFlowElement"
+composite = true
+origin = '''
+<figure class="image">{{3983562865fb1a8d-8f657da27c428026}}</figure>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "3983562865fb1a8d-8f657da27c428026"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/校色-导出-2.webp').default} />
+'''
+translate = '''
+'''

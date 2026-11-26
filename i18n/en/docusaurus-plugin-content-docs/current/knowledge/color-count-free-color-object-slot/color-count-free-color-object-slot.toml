@@ -1,0 +1,1327 @@
+[metadata]
+reviewed_source = "284c8741f04714b8d4f02ba223e78480ae30e6e102c4ac3c0d75e1bf7036b533"
+
+[[block]]
+key = "06044aaa84a59b16"
+type = "yaml"
+origin = '''
+---
+title: "颜色数、自由色、对象与料槽有什么区别？"
+description: "分清原图颜色、量化色、匹配色、叠色层、自由色、3MF 对象、项目耗材和真实料槽在打印流程中的对应关系。"
+sidebar_position: 28
+---
+'''
+translate = '''
+---
+title: "What Is the Difference Between Color Count, Free Color, Objects, and Material Slots?"
+description: "Understand how source colors, Quantize Colors, matched recipes, Color Layers, Free Color, 3MF objects, project filaments, and machine slots relate to each other."
+sidebar_position: 28
+---
+'''
+
+[[block]]
+key = "9946dc094a837740"
+type = "heading"
+origin = '''
+# 颜色数、自由色、对象与料槽有什么区别？
+'''
+translate = '''
+# What Is the Difference Between Color Count, Free Color, Objects, and Material Slots?
+'''
+
+[[block]]
+key = "45d252d0ee85444e"
+type = "paragraph"
+origin = '''
+从导入图片到上机打印，Lumina Studio 与切片器中的几个“颜色/数量”概念分别对应流程中的不同环节，彼此数值无需相等。例如：一张插画可以聚类为 **48 个量化颜色组**，由 **4 卷实体耗材**通过 **5 层叠色配方**混出丰富色彩；导出的 3MF 可能包含 **多于 4 个几何对象**，最终再映射到打印机上任意编号的 **4 个物理料槽**。
+'''
+translate = '''
+From source image to finished print, the color and count numbers in Lumina Studio and your slicer describe distinct stages of the pipeline—and they do not need to match one another. For instance, a single illustration can be clustered into **48 quantized color groups**, mixed using **4 physical spools** stacked across **5 Color Layers**, exported as a 3MF with **more than 4 geometry objects**, and mapped to **4 AMS slots** at any slot positions you choose.
+'''
+
+[[block]]
+key = "74dc6a05b5ddcb37"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/color-relationship-map.webp').default}
+  alt="从原图颜色、量化色、匹配色和叠色配方，到 3MF 对象、项目耗材和实际料槽的关系"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/color-relationship-map.webp').default}
+  alt="Relationship from source pixels and quantised colours through matched recipes, selected materials, Color Layers, 3MF objects, and physical slots"
+/>
+'''
+
+[[block]]
+key = "17b5454418092b86"
+type = "heading"
+origin = '''
+## 八个概念速查表
+'''
+translate = '''
+## Quick Reference: Eight Distinct Concepts
+'''
+
+[[block]]
+key = "d963b0ac38b38bd5"
+type = "table"
+origin = '''
+| 名称 | 作用与含义 | 与其他层级的边界 |
+| --- | --- | --- |
+| 原图颜色 | 图片文件中每个像素原始的 RGB 颜色值 | 需经过量化与耗材配方匹配后才能转换为打印结构 |
+| 量化颜色数 | 高保真模式将相近像素聚类成的目标色组上限 | 只控制图像分色粒度，独立于实体线盘数、AMS 槽位数与 3MF 对象数 |
+| 匹配色 / 叠色配方 | 每个目标色在当前色彩来源中匹配到的可达色与层序 | 依靠多层混色实现，无需为每种画面结果色准备单独一卷线材 |
+| 已选耗材 | 当前耗材档案或经典 LUT 参与计算的真实材料通道 | 决定可用基础材料种类，无需与机器物理槽位保持同号 |
+| 叠色层数 | 单个像素配方沿 Z 轴参与混色的显色层数 | 控制纵向混色层数，同一份耗材可在多层中重复使用 |
+| 自由色 | 将指定匹配色区域额外拆分为独立的 `Free_颜色HEX` 对象 | 便于在切片器中单独指定线盘，仍受机器实际槽位数限制 |
+| 3MF 对象 / 零件 | 切片器中可独立选中与指定材料的几何体 | 底板、轮廓、挂环与分离色块都会生成独立对象，多个对象可共用同一份耗材 |
+| 项目耗材与实际料槽 | 3MF 内的材料编号定义，以及实体线盘所在的机器槽位 | 两套编号互相独立，切片前将项目耗材映射到对应物理槽位即可 |
+'''
+translate = '''
+| Concept | What it defines | How it relates to other stages |
+| --- | --- | --- |
+| Source color | The original RGB value of each pixel in your image | Converted into printable layers through quantization and recipe matching |
+| Quantize Colors | How many target color groups High-Fidelity clusters similar pixels into | Controls color grouping granularity, independent of spool count, AMS slots, or 3MF objects |
+| Matched color & layered recipe | The reachable color and Z-layer sequence assigned to each target group | Mixes shades across thin layers so a handful of spools can produce dozens of colors |
+| Selected Materials | Which Material Archives or Classic LUT channels participate in solving | Defines your active filament pool without requiring matching hardware slot numbers |
+| Color Layers | Maximum number of stacked color-mixing layers per pixel along Z | Sets recipe depth; a single filament can repeat across multiple layers |
+| Free Color | Exports a matched color's geometry as a separate `Free_HEX` 3MF object | Lets you assign a dedicated spool in your slicer, within your printer's slot capacity |
+| 3MF object / part | Individual geometry meshes selectable in your slicer's object tree | Backing, outlines, loops, and Free Color regions form separate objects that can share filaments |
+| Project filament, physical spool & machine slot | The 3MF filament entry, your real spool, and its hardware slot | Numbered independently—map each project filament to its real slot before printing |
+'''
+
+[[block]]
+key = "d22e988b5f89aaca"
+type = "heading"
+origin = '''
+## 量化颜色数：控制高保真模式的分色粒度
+'''
+translate = '''
+## Quantize Colors: Grouping Continuous Pixels
+'''
+
+[[block]]
+key = "347d1af1cfa13b0e"
+type = "paragraph"
+origin = '''
+照片、渐变插画与抗锯齿边缘往往包含成千上万种细微变化的 RGB 值。高保真模式会先通过颜色聚类将相近像素归纳为有限数量的目标色组，该上限即“量化颜色数”：
+'''
+translate = '''
+Photographs, digital paintings, and anti-aliased artwork often contain thousands of subtle RGB variations. Rather than solving every unique pixel separately, **High-Fidelity** mode clusters nearby shades into a manageable set of target groups controlled by **Quantize Colors**:
+'''
+
+[[block]]
+key = "e416be33c7aa93a1"
+type = "list"
+composite = true
+origin = '''
+{{e416be33c7aa93a1-e9391a7640f50379}}
+{{e416be33c7aa93a1-0236f39e16da471a}}
+{{e416be33c7aa93a1-6a85c15f76363297}}
+'''
+translate = '''
+{{e416be33c7aa93a1-e9391a7640f50379}}
+{{e416be33c7aa93a1-0236f39e16da471a}}
+{{e416be33c7aa93a1-6a85c15f76363297}}
+'''
+
+[[block]]
+key = "e416be33c7aa93a1-e9391a7640f50379"
+type = "listItem"
+composite = true
+origin = '''
+- {{e416be33c7aa93a1-e9391a7640f50379-187fc6a7f8a46ebd}}
+'''
+translate = '''
+- {{e416be33c7aa93a1-e9391a7640f50379-187fc6a7f8a46ebd}}
+'''
+
+[[block]]
+key = "e416be33c7aa93a1-e9391a7640f50379-187fc6a7f8a46ebd"
+type = "paragraph"
+origin = '''
+**适用模式**：仅作用于高保真模式；矢量模式直接使用 SVG 色块，不经过像素聚类。
+'''
+translate = '''
+**Scope**: Applies to pixel quantization in **High-Fidelity** mode (Vector mode uses SVG shapes directly).
+'''
+
+[[block]]
+key = "e416be33c7aa93a1-0236f39e16da471a"
+type = "listItem"
+composite = true
+origin = '''
+- {{e416be33c7aa93a1-0236f39e16da471a-d527ab607798d677}}
+'''
+translate = '''
+- {{e416be33c7aa93a1-0236f39e16da471a-d527ab607798d677}}
+'''
+
+[[block]]
+key = "e416be33c7aa93a1-0236f39e16da471a-d527ab607798d677"
+type = "paragraph"
+origin = '''
+**取值范围**：常规范围为 `8–256`，也可开启“自动计算”；解锁上限后最高支持 `8192`（内存占用与计算耗时大幅增加，仅用于色彩层次极其复杂的特殊素材）。
+'''
+translate = '''
+**Range**: Standard slider values cover `8–256` plus **Auto Calculate**; unlocking the limit allows up to `8192` for extreme tonal artwork at higher memory and processing cost.
+'''
+
+[[block]]
+key = "e416be33c7aa93a1-6a85c15f76363297"
+type = "listItem"
+composite = true
+origin = '''
+- {{e416be33c7aa93a1-6a85c15f76363297-a369aa3dfae1a9df}}
+'''
+translate = '''
+- {{e416be33c7aa93a1-6a85c15f76363297-a369aa3dfae1a9df}}
+'''
+
+[[block]]
+key = "e416be33c7aa93a1-6a85c15f76363297-a369aa3dfae1a9df"
+type = "paragraph"
+origin = '''
+**调节效果**：调高可保留更细腻的渐变过渡；调低则归并出更简练的大色块并加快预览速度。
+'''
+translate = '''
+**Effect**: Higher values preserve smoother gradient transitions, while lower values consolidate flat regions and speed up **Preview**.
+'''
+
+[[block]]
+key = "ef5b1d891a70e097"
+type = "paragraph"
+origin = '''
+将量化颜色数设为 `48`，代表软件最多把画面归纳为约 48 个目标色组，后续这些色组会共用你所选的那几卷真实耗材，通过不同叠层顺序表现出来。
+'''
+translate = '''
+Setting **Quantize Colors** to `48` groups the image into roughly 48 target shades, which are then reproduced using layered combinations of your selected filaments—you do not need 48 spools.
+'''
+
+[[block]]
+key = "83798f3eef1e631d"
+type = "admonition"
+composite = true
+origin = '''
+:::tip[调整时机]
+{{83798f3eef1e631d-35c12bdd806a05ad}}
+:::
+'''
+translate = '''
+:::tip[When to Adjust]
+{{83798f3eef1e631d-35c12bdd806a05ad}}
+:::
+'''
+
+[[block]]
+key = "83798f3eef1e631d-35c12bdd806a05ad"
+type = "paragraph"
+origin = '''
+大面积柔和渐变出现生硬色阶断层时，可保持其他参数不变、适度调高量化颜色数；画面配色简单或预览较慢时则可适当调低。
+'''
+translate = '''
+If smooth gradients show visible stair-stepping, raise **Quantize Colors** moderately while keeping other settings fixed. If your artwork uses simple flat colors or **Preview** feels slow, lower the count.
+'''
+
+[[block]]
+key = "5225ba26e055b25e"
+type = "heading"
+origin = '''
+## 匹配色与叠色配方：少量线材混出丰富色彩
+'''
+translate = '''
+## Matched Colors and Layered Recipes
+'''
+
+[[block]]
+key = "a5bf40b40e21eb37"
+type = "paragraph"
+origin = '''
+完成像素量化后，每个目标色会匹配到当前耗材档案或经典 LUT 能组合出的最接近配方。通过改变多层耗材的堆叠顺序与重复次数，少量基础线材即可混出远超线盘数量的视觉颜色。
+'''
+translate = '''
+Once target groups are formed, Lumina matches each group to the closest color achievable with your selected Classic LUT or Material Archives. By varying the stacking order and repetition of thin semi-translucent layers, a small set of filaments produces a wide palette of visible shades.
+'''
+
+[[block]]
+key = "8f182803d4e2b84b"
+type = "paragraph"
+origin = '''
+例如选择白、红、黄、蓝 4 份耗材档案、5 层叠色时，不同色组可分别采用：
+'''
+translate = '''
+With four Material Archives—white, red, yellow, and blue—and five **Color Layers**, different regions might stack:
+'''
+
+[[block]]
+key = "9ede05e3d558640d"
+type = "list"
+composite = true
+origin = '''
+{{9ede05e3d558640d-8f571a9c4f214b80}}
+{{9ede05e3d558640d-ae15fadb7fea946a}}
+{{9ede05e3d558640d-f70afda1d02ad52f}}
+'''
+translate = '''
+{{9ede05e3d558640d-8f571a9c4f214b80}}
+{{9ede05e3d558640d-ae15fadb7fea946a}}
+{{9ede05e3d558640d-f70afda1d02ad52f}}
+'''
+
+[[block]]
+key = "9ede05e3d558640d-8f571a9c4f214b80"
+type = "listItem"
+composite = true
+origin = '''
+- {{9ede05e3d558640d-8f571a9c4f214b80-64d6365bd0cab3db}}
+'''
+translate = '''
+- {{9ede05e3d558640d-8f571a9c4f214b80-64d6365bd0cab3db}}
+'''
+
+[[block]]
+key = "9ede05e3d558640d-8f571a9c4f214b80-64d6365bd0cab3db"
+type = "paragraph"
+origin = '''
+白 → 红 → 白 → 白 → 白
+'''
+translate = '''
+White → Red → White → White → White
+'''
+
+[[block]]
+key = "9ede05e3d558640d-ae15fadb7fea946a"
+type = "listItem"
+composite = true
+origin = '''
+- {{9ede05e3d558640d-ae15fadb7fea946a-c149a79b49ca35f8}}
+'''
+translate = '''
+- {{9ede05e3d558640d-ae15fadb7fea946a-c149a79b49ca35f8}}
+'''
+
+[[block]]
+key = "9ede05e3d558640d-ae15fadb7fea946a-c149a79b49ca35f8"
+type = "paragraph"
+origin = '''
+白 → 黄 → 红 → 白 → 白
+'''
+translate = '''
+White → Yellow → Red → White → White
+'''
+
+[[block]]
+key = "9ede05e3d558640d-f70afda1d02ad52f"
+type = "listItem"
+composite = true
+origin = '''
+- {{9ede05e3d558640d-f70afda1d02ad52f-7c25da69ff5985f0}}
+'''
+translate = '''
+- {{9ede05e3d558640d-f70afda1d02ad52f-7c25da69ff5985f0}}
+'''
+
+[[block]]
+key = "9ede05e3d558640d-f70afda1d02ad52f-7c25da69ff5985f0"
+type = "paragraph"
+origin = '''
+白 → 蓝 → 红 → 黄 → 白
+'''
+translate = '''
+White → Blue → Red → Yellow → White
+'''
+
+[[block]]
+key = "a833bef024e325e1"
+type = "paragraph"
+origin = '''
+三种配方同样只用这 4 卷线材，却能呈现不同的浅红、橙红与暗紫色调。因此，画面最终呈现的颜色种类可以远多于已选耗材数；若发现整体缺乏某一色系（如缺少鲜艳绿色或冷青色），补充对应色系的耗材档案比单纯拉高量化颜色数更有效。色彩来源的选型方法见[耗材档案和经典 LUT 怎么选？](../material-profile-selection/material-profile-selection.mdx)。
+'''
+translate = '''
+All three recipes draw from the same four spools while producing distinct tints and hues. As a result, visible colors in your print routinely outnumber your loaded spools. If an entire hue family is missing from the preview, changing or adding a filament in your Material Archives or LUT will expand the gamut far more effectively than raising **Quantize Colors** alone. See [Material Archives or Classic LUT?](../material-profile-selection/material-profile-selection.mdx).
+'''
+
+[[block]]
+key = "832679b407942410"
+type = "heading"
+origin = '''
+## 已选耗材与叠色层数：材料种类 vs. 纵向层数
+'''
+translate = '''
+## Selected Materials vs. Color Layers
+'''
+
+[[block]]
+key = "75169e1e65ec292c"
+type = "paragraph"
+origin = '''
+在耗材档案模式下，四个常见参数分工明确：
+'''
+translate = '''
+When **Source Type** is set to **Material Archive**, four controls divide the work cleanly:
+'''
+
+[[block]]
+key = "f0bda0b7e58e367d"
+type = "list"
+composite = true
+origin = '''
+{{f0bda0b7e58e367d-cee1f9584bac52c7}}
+{{f0bda0b7e58e367d-bca5b3f5fb76b56e}}
+{{f0bda0b7e58e367d-a5e073ab6dbf1cd7}}
+{{f0bda0b7e58e367d-4ca794dca328aa0c}}
+'''
+translate = '''
+{{f0bda0b7e58e367d-cee1f9584bac52c7}}
+{{f0bda0b7e58e367d-bca5b3f5fb76b56e}}
+{{f0bda0b7e58e367d-a5e073ab6dbf1cd7}}
+{{f0bda0b7e58e367d-4ca794dca328aa0c}}
+'''
+
+[[block]]
+key = "f0bda0b7e58e367d-cee1f9584bac52c7"
+type = "listItem"
+composite = true
+origin = '''
+- {{f0bda0b7e58e367d-cee1f9584bac52c7-41047e59bfc4ab64}}
+'''
+translate = '''
+- {{f0bda0b7e58e367d-cee1f9584bac52c7-41047e59bfc4ab64}}
+'''
+
+[[block]]
+key = "f0bda0b7e58e367d-cee1f9584bac52c7-41047e59bfc4ab64"
+type = "paragraph"
+origin = '''
+**已选耗材**：允许参与混色计算的实体材料档案；
+'''
+translate = '''
+**Selected Materials**: The filament archives available to the color solver;
+'''
+
+[[block]]
+key = "f0bda0b7e58e367d-bca5b3f5fb76b56e"
+type = "listItem"
+composite = true
+origin = '''
+- {{f0bda0b7e58e367d-bca5b3f5fb76b56e-5854c18e6768d9f3}}
+'''
+translate = '''
+- {{f0bda0b7e58e367d-bca5b3f5fb76b56e-5854c18e6768d9f3}}
+'''
+
+[[block]]
+key = "f0bda0b7e58e367d-bca5b3f5fb76b56e-5854c18e6768d9f3"
+type = "paragraph"
+origin = '''
+**底板耗材**：指定用于底板支撑与衬底的材料；
+'''
+translate = '''
+**Base Plate Material**: The filament assigned to the structural backing;
+'''
+
+[[block]]
+key = "f0bda0b7e58e367d-a5e073ab6dbf1cd7"
+type = "listItem"
+composite = true
+origin = '''
+- {{f0bda0b7e58e367d-a5e073ab6dbf1cd7-335daad7273617ed}}
+'''
+translate = '''
+- {{f0bda0b7e58e367d-a5e073ab6dbf1cd7-335daad7273617ed}}
+'''
+
+[[block]]
+key = "f0bda0b7e58e367d-a5e073ab6dbf1cd7-335daad7273617ed"
+type = "paragraph"
+origin = '''
+**叠色层数**：每个像素配方沿 Z 轴堆叠的显色层数；
+'''
+translate = '''
+**Color Layers**: How many color-producing layers stack vertically per pixel;
+'''
+
+[[block]]
+key = "f0bda0b7e58e367d-4ca794dca328aa0c"
+type = "listItem"
+composite = true
+origin = '''
+- {{f0bda0b7e58e367d-4ca794dca328aa0c-5ee8ae3f3644d2a7}}
+'''
+translate = '''
+- {{f0bda0b7e58e367d-4ca794dca328aa0c-5ee8ae3f3644d2a7}}
+'''
+
+[[block]]
+key = "f0bda0b7e58e367d-4ca794dca328aa0c-5ee8ae3f3644d2a7"
+type = "paragraph"
+origin = '''
+**层高**：每一层显色材料的物理厚度。
+'''
+translate = '''
+**Layer Height**: The physical thickness of each color layer.
+'''
+
+[[block]]
+key = "3d00308ce6816074"
+type = "paragraph"
+origin = '''
+因此，“选用 4 份耗材档案 + 5 层叠色”是非常标准的组合——5 层之中可以多次重复使用同一种耗材，无需准备第 5 卷线材。
+'''
+translate = '''
+Pairing four **Selected Materials** with five **Color Layers** is completely standard—any five-layer stack can reuse the same filament multiple times without needing a fifth spool.
+'''
+
+[[block]]
+key = "8c628e59eb1c9349"
+type = "paragraph"
+origin = '''
+同理，经典 LUT 名称中的 2 色、4 色、5 色、6 色或 8 色，代表该 LUT 标定所用的基础材料通道数，与高保真量化颜色数、叠色层数互不冲突。只需确保打印机当前可用的多色料槽（或手动换料计划）能容纳本次实际使用的材料通道数即可。
+'''
+translate = '''
+Similarly, terms like 2-color, 4-color, 6-color, or 8-color in Classic LUT names indicate how many filament channels that LUT was calibrated with, rather than capping the number of visible shades on the print. Make sure your multi-material unit (or manual filament-swap plan) covers the active filament channels in your project.
+'''
+
+[[block]]
+key = "98fb088f1eb5e2b3"
+type = "heading"
+origin = '''
+## 自由色：将特定色块拆分为独立对象
+'''
+translate = '''
+## Free Color: Exporting an Independently Assignable Object
+'''
+
+[[block]]
+key = "2d8bb0402828e3c7"
+type = "paragraph"
+origin = '''
+生成预览后，在颜色工作站中选中某个已匹配的颜色并点击“标记为自由色”，重新导出 3MF 时，Lumina 会将该颜色覆盖的区域单独提取为名为 `Free_颜色HEX` 的独立几何对象。
+'''
+translate = '''
+After running **Preview**, you can select any matched color in **Color Workstation** and click **Mark as Free Color**. On the next **Generate**, Lumina extracts that color's regions into a standalone 3MF object named from its hex code (for example, `Free_FF0000`).
+'''
+
+[[block]]
+key = "707df8d65917667f"
+type = "paragraph"
+origin = '''
+**适用场景：**
+'''
+translate = '''
+**Common uses:**
+'''
+
+[[block]]
+key = "e8b57733b3b35877"
+type = "list"
+composite = true
+origin = '''
+{{e8b57733b3b35877-033d48c9af4ccc84}}
+{{e8b57733b3b35877-a8f90fe3881d0ac8}}
+{{e8b57733b3b35877-6681f3b9f10946a0}}
+'''
+translate = '''
+{{e8b57733b3b35877-033d48c9af4ccc84}}
+{{e8b57733b3b35877-a8f90fe3881d0ac8}}
+{{e8b57733b3b35877-6681f3b9f10946a0}}
+'''
+
+[[block]]
+key = "e8b57733b3b35877-033d48c9af4ccc84"
+type = "listItem"
+composite = true
+origin = '''
+- {{e8b57733b3b35877-033d48c9af4ccc84-eccfd33d5cf988d1}}
+'''
+translate = '''
+- {{e8b57733b3b35877-033d48c9af4ccc84-eccfd33d5cf988d1}}
+'''
+
+[[block]]
+key = "e8b57733b3b35877-033d48c9af4ccc84-eccfd33d5cf988d1"
+type = "paragraph"
+origin = '''
+Logo、文字或关键色块希望直接指定给手头某一卷专色线材；
+'''
+translate = '''
+Assigning a specific specialty or brand-color spool to a logo, border, or lettering;
+'''
+
+[[block]]
+key = "e8b57733b3b35877-a8f90fe3881d0ac8"
+type = "listItem"
+composite = true
+origin = '''
+- {{e8b57733b3b35877-a8f90fe3881d0ac8-f95f8f877c976efe}}
+'''
+translate = '''
+- {{e8b57733b3b35877-a8f90fe3881d0ac8-f95f8f877c976efe}}
+'''
+
+[[block]]
+key = "e8b57733b3b35877-a8f90fe3881d0ac8-f95f8f877c976efe"
+type = "paragraph"
+origin = '''
+需要在切片器对象列表中单独选中该区域并手动指定项目耗材；
+'''
+translate = '''
+Selecting and remapping a flat region directly in your slicer's object list;
+'''
+
+[[block]]
+key = "e8b57733b3b35877-6681f3b9f10946a0"
+type = "listItem"
+composite = true
+origin = '''
+- {{e8b57733b3b35877-6681f3b9f10946a0-ae4cc644843d8b12}}
+'''
+translate = '''
+- {{e8b57733b3b35877-6681f3b9f10946a0-ae4cc644843d8b12}}
+'''
+
+[[block]]
+key = "e8b57733b3b35877-6681f3b9f10946a0-ae4cc644843d8b12"
+type = "paragraph"
+origin = '''
+希望将夜光、丝绸、金属等特殊质感线材与常规叠色区域分开管理。
+'''
+translate = '''
+Isolating silk, metallic, or glow-in-the-dark filament from standard color-mixing layers.
+'''
+
+[[block]]
+key = "d1356e39feb91be4"
+type = "paragraph"
+origin = '''
+标记或清除自由色后，需重新点击生成以导出包含最新对象结构的 3MF，随后在切片器中将该 `Free_颜色HEX` 对象分配给目标耗材并完成料槽映射。
+'''
+translate = '''
+Whenever you mark or clear a Free Color, click **Generate** again to export an updated 3MF, then assign that `Free_FF0000` object to your chosen project filament and physical slot in the slicer.
+'''
+
+[[block]]
+key = "f392dcadb4e4b473"
+type = "admonition"
+composite = true
+origin = '''
+:::warning[实物显色说明]
+{{f392dcadb4e4b473-5961a5b63c14307f}}
+:::
+'''
+translate = '''
+:::warning[Physical Filament Determines Color]
+{{f392dcadb4e4b473-5961a5b63c14307f}}
+:::
+'''
+
+[[block]]
+key = "f392dcadb4e4b473-5961a5b63c14307f"
+type = "paragraph"
+origin = '''
+自由色用于生成独立的可分配对象，最终打印出的颜色由实际装入机器的实体线材、材料预设、首层质量与环境光线共同决定。
+'''
+translate = '''
+Free Color creates an independent object for manual assignment in your slicer. The printed color depends on the physical spool you load, filament settings, build plate texture, and lighting.
+'''
+
+[[block]]
+key = "91bfd3437c57f673"
+type = "heading"
+origin = '''
+## 对象、项目耗材、真实线盘与实际料槽
+'''
+translate = '''
+## Objects, Project Filaments, Spools, and Slots
+'''
+
+[[block]]
+key = "5f71d1afcefb852f"
+type = "paragraph"
+origin = '''
+导入切片器后，可以按从左到右的四个层级依次核对：
+'''
+translate = '''
+Inside your slicer, verify material assignments across four distinct levels:
+'''
+
+[[block]]
+key = "e7ab3c98831fc6b5"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/slicer-mapping-layers.webp').default}
+  alt="切片器中的项目耗材、对象分配、真实线盘和实际料槽是四个不同层级"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/slicer-mapping-layers.webp').default}
+  alt="Concept map separating slicer project filaments, object assignment, physical spools, and machine slots"
+/>
+'''
+
+[[block]]
+key = "df1b133edaec8784"
+type = "heading"
+origin = '''
+### 1. 对象（零件）
+'''
+translate = '''
+### 1. Objects and Parts
+'''
+
+[[block]]
+key = "122085034f1bc757"
+type = "paragraph"
+origin = '''
+对象是 3MF 中的独立几何网格。底板、各材料显色网格、外轮廓、挂件环与自由色都会各自成为对象，因此对象总数往往多于已选耗材卷数，多个对象可以共用同一份项目耗材。
+'''
+translate = '''
+Objects are individual 3D meshes. Backing plates, per-material meshes, outlines, keychain loops, coatings, and Free Color regions all export as separate objects—so seeing more objects than filaments is normal, and multiple objects can share the same project filament.
+'''
+
+[[block]]
+key = "a16206638f4f6285"
+type = "heading"
+origin = '''
+### 2. 项目耗材
+'''
+translate = '''
+### 2. Project Filaments
+'''
+
+[[block]]
+key = "b76a5a4c52b2eb8c"
+type = "paragraph"
+origin = '''
+项目耗材是 3MF 文件内保存的材料槽定义。对象旁显示的数字代表它引用的是“项目耗材几号”，色块仅作视觉区分参考。
+'''
+translate = '''
+Project filaments are the numbered filament definitions embedded inside the 3MF. The badge next to each object indicates which project filament it uses, and its on-screen swatch serves as a visual label.
+'''
+
+[[block]]
+key = "0f67ad5f95a65eb2"
+type = "heading"
+origin = '''
+### 3. 真实线盘与实际料槽
+'''
+translate = '''
+### 3. Physical Spools and Machine Slots
+'''
+
+[[block]]
+key = "f0b47683d14f2358"
+type = "paragraph"
+origin = '''
+真实线盘是你手头准备上机的实体耗材；实际料槽则是该线盘当前装在 AMS、ACE、MMU 或外置料架上的物理位置。
+'''
+translate = '''
+Your physical spool is the real filament roll on hand, and the machine slot is where that roll currently sits in your AMS, ACE, MMU, or external spool holder.
+'''
+
+[[block]]
+key = "5b6c28550dd34940"
+type = "paragraph"
+origin = '''
+导入切片器后的标准核对流程：
+'''
+translate = '''
+Follow this check order before printing:
+'''
+
+[[block]]
+key = "1d0799208cdbe987"
+type = "list"
+composite = true
+origin = '''
+{{1d0799208cdbe987-4e76b3914952458f}}
+{{1d0799208cdbe987-e454b540f4f54aff}}
+{{1d0799208cdbe987-92ea1ab00a1bb27c}}
+{{1d0799208cdbe987-c4711d2f825346c1}}
+'''
+translate = '''
+{{1d0799208cdbe987-4e76b3914952458f}}
+{{1d0799208cdbe987-e454b540f4f54aff}}
+{{1d0799208cdbe987-92ea1ab00a1bb27c}}
+{{1d0799208cdbe987-c4711d2f825346c1}}
+'''
+
+[[block]]
+key = "1d0799208cdbe987-4e76b3914952458f"
+type = "listItem"
+composite = true
+origin = '''
+1. {{1d0799208cdbe987-4e76b3914952458f-f1f6135790690644}}
+'''
+translate = '''
+1. {{1d0799208cdbe987-4e76b3914952458f-f1f6135790690644}}
+'''
+
+[[block]]
+key = "1d0799208cdbe987-4e76b3914952458f-f1f6135790690644"
+type = "paragraph"
+origin = '''
+展开对象列表，确认各对象引用的项目耗材符合预期；
+'''
+translate = '''
+Confirm that every object in the tree points to the right project filament;
+'''
+
+[[block]]
+key = "1d0799208cdbe987-e454b540f4f54aff"
+type = "listItem"
+composite = true
+origin = '''
+2. {{1d0799208cdbe987-e454b540f4f54aff-032bc4b704487fbc}}
+'''
+translate = '''
+2. {{1d0799208cdbe987-e454b540f4f54aff-032bc4b704487fbc}}
+'''
+
+[[block]]
+key = "1d0799208cdbe987-e454b540f4f54aff-032bc4b704487fbc"
+type = "paragraph"
+origin = '''
+核对每份项目耗材对应的实体线盘品牌与颜色；
+'''
+translate = '''
+Match each project filament to the exact brand, material type, and color spool you plan to print with;
+'''
+
+[[block]]
+key = "1d0799208cdbe987-92ea1ab00a1bb27c"
+type = "listItem"
+composite = true
+origin = '''
+3. {{1d0799208cdbe987-92ea1ab00a1bb27c-2221fee368f508f3}}
+'''
+translate = '''
+3. {{1d0799208cdbe987-92ea1ab00a1bb27c-2221fee368f508f3}}
+'''
+
+[[block]]
+key = "1d0799208cdbe987-92ea1ab00a1bb27c-2221fee368f508f3"
+type = "paragraph"
+origin = '''
+在切片及发送打印界面，将项目耗材映射到该线盘实际所在的物理料槽（例如将“项目耗材 3”映射到“AMS A1”）；
+'''
+translate = '''
+Map each project filament to the hardware slot holding that spool (for example, mapping Project Filament 3 to AMS Slot A1);
+'''
+
+[[block]]
+key = "1d0799208cdbe987-c4711d2f825346c1"
+type = "listItem"
+composite = true
+origin = '''
+4. {{1d0799208cdbe987-c4711d2f825346c1-d50a7b6f44155641}}
+'''
+translate = '''
+4. {{1d0799208cdbe987-c4711d2f825346c1-d50a7b6f44155641}}
+'''
+
+[[block]]
+key = "1d0799208cdbe987-c4711d2f825346c1-d50a7b6f44155641"
+type = "paragraph"
+origin = '''
+执行切片，旋转至显色面逐层检查刀路与换料顺序。
+'''
+translate = '''
+Slice the plate and inspect the display surface layer by layer in Preview.
+'''
+
+[[block]]
+key = "41bac1435cfc1d7d"
+type = "paragraph"
+origin = '''
+图文映射步骤详见[把 Lumina 3MF 正确导入切片器](pathname:///zh/docs/tutorials/slicer-material-mapping/)。
+'''
+translate = '''
+For a full walkthrough, see [Open a Lumina 3MF in Your Slicer](pathname:///en/docs/tutorials/slicer-material-mapping/).
+'''
+
+[[block]]
+key = "014b1908d33e04a0"
+type = "heading"
+origin = '''
+## 按调整目标快速定位参数
+'''
+translate = '''
+## Which Setting Should You Adjust?
+'''
+
+[[block]]
+key = "03523111abb05637"
+type = "table"
+origin = '''
+| 期望改善的效果 | 对应调整项 | 说明 |
+| --- | --- | --- |
+| 渐变色阶断层明显、色块过粗 | 调高**量化颜色数** | 细化目标色组，无需增加实体线盘 |
+| 量化已足够细，但整体偏暗或缺某类色相 | 调整**耗材档案 / LUT**及已选耗材 | 补充对应色相或高透/高饱和线材以扩展色域 |
+| 希望增加纵向混色过渡细腻度 | 调整**叠色层数** | 同步关注模型总厚度与换料时间变化 |
+| 指定某块图形直接使用专色线材 | 标记**自由色**并重新生成 3MF | 导入切片器后为 `Free_` 对象手动指定专色料槽 |
+| 切片器对象列表条目较多 | 检查各对象的**项目耗材分配** | 属于正常几何拆分，核对材料归属即可 |
+| 项目耗材编号与机器 AMS 槽号不一致 | 在切片器中配置**料槽映射** | 直接指定对应槽位即可，无需手动调换线盘位置 |
+'''
+translate = '''
+| Goal | What to adjust | Notes |
+| --- | --- | --- |
+| Smooth out visible banding in gradients | Raise **Quantize Colors** | Adds finer target color groups without adding physical spools |
+| Expand a missing hue range across the image | Change **Material Archives / LUT** or **Selected Materials** | Gamut limits come from your chosen filaments rather than quantization |
+| Increase vertical color-mixing combinations | Adjust **Color Layers** | Balance finer tonal steps against model thickness and print time |
+| Print a specific region with a dedicated spool | **Mark as Free Color** and **Generate** again | Assign the exported `Free_` object to your target spool in the slicer |
+| Manage a long list of objects in the slicer | Check **object-to-filament assignments** | Multiple structural and color meshes routinely share one project filament |
+| Align project filaments with different AMS slots | Remap slots in your slicer's **Send Print** dialog | No need to physically rearrange spools just to match slot numbers |
+'''
+
+[[block]]
+key = "8c5c4ad4a305a0a0"
+type = "heading"
+origin = '''
+## 两个典型示例
+'''
+translate = '''
+## Two Practical Examples
+'''
+
+[[block]]
+key = "41cf2e3468504012"
+type = "heading"
+origin = '''
+### 示例 1：48 个量化色 + 4 卷耗材 + 5 层叠色
+'''
+translate = '''
+### Example 1: 48 Quantized Colors, 4 Spools, 5 Color Layers
+'''
+
+[[block]]
+key = "cbb6490cc828adfc"
+type = "paragraph"
+origin = '''
+高保真模式下将量化颜色数设为 `48`，选用白、红、黄、蓝 4 份耗材档案，叠色层数设为 `5`：
+'''
+translate = '''
+An illustration uses `48` **Quantize Colors**, four Material Archives (white, red, yellow, and blue), and `5` **Color Layers**:
+'''
+
+[[block]]
+key = "6363520951cb7620"
+type = "list"
+composite = true
+origin = '''
+{{6363520951cb7620-676e060213b4c314}}
+{{6363520951cb7620-0faedbd7715d4afe}}
+{{6363520951cb7620-76cbf3eb05feb98f}}
+'''
+translate = '''
+{{6363520951cb7620-676e060213b4c314}}
+{{6363520951cb7620-0faedbd7715d4afe}}
+{{6363520951cb7620-76cbf3eb05feb98f}}
+'''
+
+[[block]]
+key = "6363520951cb7620-676e060213b4c314"
+type = "listItem"
+composite = true
+origin = '''
+- {{6363520951cb7620-676e060213b4c314-5f180ad56b765954}}
+'''
+translate = '''
+- {{6363520951cb7620-676e060213b4c314-5f180ad56b765954}}
+'''
+
+[[block]]
+key = "6363520951cb7620-676e060213b4c314-5f180ad56b765954"
+type = "paragraph"
+origin = '''
+原图被聚类为最多约 48 个目标色组；
+'''
+translate = '''
+Lumina clusters the image into up to 48 target color groups;
+'''
+
+[[block]]
+key = "6363520951cb7620-0faedbd7715d4afe"
+type = "listItem"
+composite = true
+origin = '''
+- {{6363520951cb7620-0faedbd7715d4afe-500224379f00d04d}}
+'''
+translate = '''
+- {{6363520951cb7620-0faedbd7715d4afe-500224379f00d04d}}
+'''
+
+[[block]]
+key = "6363520951cb7620-0faedbd7715d4afe-500224379f00d04d"
+type = "paragraph"
+origin = '''
+每个色组由这 4 种耗材组合成最多 5 层的叠色配方，全程只需 4 个多色料槽；
+'''
+translate = '''
+Each group receives a recipe up to five layers deep drawn from those four filaments, requiring only four feeder slots;
+'''
+
+[[block]]
+key = "6363520951cb7620-76cbf3eb05feb98f"
+type = "listItem"
+composite = true
+origin = '''
+- {{6363520951cb7620-76cbf3eb05feb98f-908985fbf84b3a2b}}
+'''
+translate = '''
+- {{6363520951cb7620-76cbf3eb05feb98f-908985fbf84b3a2b}}
+'''
+
+[[block]]
+key = "6363520951cb7620-76cbf3eb05feb98f-908985fbf84b3a2b"
+type = "paragraph"
+origin = '''
+若同时开启了外轮廓或分离底板，导出的 3MF 对象总数会多于 4 个，各对象仍共享这 4 份项目耗材。
+'''
+translate = '''
+Enabling **Separate Backing** or **Outline** adds extra geometry objects in the 3MF while still sharing the same four project filaments.
+'''
+
+[[block]]
+key = "e6bc7f6541b891c2"
+type = "heading"
+origin = '''
+### 示例 2：将红色 Logo 标记为自由色
+'''
+translate = '''
+### Example 2: Marking a Red Logo as Free Color
+'''
+
+[[block]]
+key = "d947cd97dc359738"
+type = "paragraph"
+origin = '''
+完成预览后，选中 Logo 区域的匹配红并标记为自由色，重新导出 3MF：
+'''
+translate = '''
+After **Preview**, you select the matched red on a logo, click **Mark as Free Color**, and click **Generate** again:
+'''
+
+[[block]]
+key = "559fb850b4ddb9d6"
+type = "list"
+composite = true
+origin = '''
+{{559fb850b4ddb9d6-26961e436e11ed87}}
+{{559fb850b4ddb9d6-81f54867d0f8fe7c}}
+{{559fb850b4ddb9d6-8c8e63aa1633d46f}}
+'''
+translate = '''
+{{559fb850b4ddb9d6-26961e436e11ed87}}
+{{559fb850b4ddb9d6-81f54867d0f8fe7c}}
+{{559fb850b4ddb9d6-8c8e63aa1633d46f}}
+'''
+
+[[block]]
+key = "559fb850b4ddb9d6-26961e436e11ed87"
+type = "listItem"
+composite = true
+origin = '''
+- {{559fb850b4ddb9d6-26961e436e11ed87-d7b73f8fa20a82a9}}
+'''
+translate = '''
+- {{559fb850b4ddb9d6-26961e436e11ed87-d7b73f8fa20a82a9}}
+'''
+
+[[block]]
+key = "559fb850b4ddb9d6-26961e436e11ed87-d7b73f8fa20a82a9"
+type = "paragraph"
+origin = '''
+原图的量化颜色数保持不变；
+'''
+translate = '''
+**Quantize Colors** stays unchanged;
+'''
+
+[[block]]
+key = "559fb850b4ddb9d6-81f54867d0f8fe7c"
+type = "listItem"
+composite = true
+origin = '''
+- {{559fb850b4ddb9d6-81f54867d0f8fe7c-390c49dee6d6ea42}}
+'''
+translate = '''
+- {{559fb850b4ddb9d6-81f54867d0f8fe7c-390c49dee6d6ea42}}
+'''
+
+[[block]]
+key = "559fb850b4ddb9d6-81f54867d0f8fe7c-390c49dee6d6ea42"
+type = "paragraph"
+origin = '''
+3MF 中新增一个独立的 `Free_` 对象承载该红色区域；
+'''
+translate = '''
+The new 3MF includes a dedicated `Free_` mesh for that logo region;
+'''
+
+[[block]]
+key = "559fb850b4ddb9d6-8c8e63aa1633d46f"
+type = "listItem"
+composite = true
+origin = '''
+- {{559fb850b4ddb9d6-8c8e63aa1633d46f-26379892786e2bc8}}
+'''
+translate = '''
+- {{559fb850b4ddb9d6-8c8e63aa1633d46f-26379892786e2bc8}}
+'''
+
+[[block]]
+key = "559fb850b4ddb9d6-8c8e63aa1633d46f-26379892786e2bc8"
+type = "paragraph"
+origin = '''
+在切片器中将该对象指定给你准备好的正红实体线盘（若新增了第 5 种实体耗材，需确保多色系统有空闲槽位并重新切片）。
+'''
+translate = '''
+In your slicer, you assign that object to your dedicated red spool (making sure an AMS slot is available if it introduces an extra filament) and slice the plate.
+'''
+
+[[block]]
+key = "cbbf3b866f003400"
+type = "heading"
+origin = '''
+## 常见问题 Q&A
+'''
+translate = '''
+## Common Questions
+'''
+
+[[block]]
+key = "df6f809106f8d02d"
+type = "heading"
+origin = '''
+### 量化颜色数设为 256，需要 256 个料槽吗？
+'''
+translate = '''
+### Does setting Quantize Colors to 256 require 256 AMS slots?
+'''
+
+[[block]]
+key = "1ec7f149d333e747"
+type = "paragraph"
+origin = '''
+不需要。256 只是高保真模式对原图像素聚类的目标色组上限，所有色组仍由你选定的那几卷实体耗材通过多层叠色表现。
+'''
+translate = '''
+No. `256` sets the ceiling on target color clusters in **High-Fidelity** mode—all clusters are mixed from the small set of physical filaments you selected.
+'''
+
+[[block]]
+key = "70cb21c117083da6"
+type = "heading"
+origin = '''
+### 选了 8 种耗材，为什么叠色层数还是 5？
+'''
+translate = '''
+### Why can I select eight filaments when Color Layers is set to 5?
+'''
+
+[[block]]
+key = "66ad3d141e562c2e"
+type = "paragraph"
+origin = '''
+耗材数量代表可选用的材料池大小，叠色层数代表单个像素沿 Z 轴堆叠的层数。每个像素的 5 层配方会从这 8 种耗材中挑选最合适的组合。
+'''
+translate = '''
+**Selected Materials** sets the pool of available filaments, whereas **Color Layers** sets how many layers stack vertically at any single pixel. Each 5-layer recipe picks the best combination from your 8-filament pool.
+'''
+
+[[block]]
+key = "1015685d6491c7b3"
+type = "heading"
+origin = '''
+### 经典 LUT 的 4 色 / 6 色 / 8 色模式和自由色是一回事吗？
+'''
+translate = '''
+### Are Classic 4-color, 6-color, or 8-color LUTs the same thing as Free Color?
+'''
+
+[[block]]
+key = "cd1641ad236dbf4d"
+type = "paragraph"
+origin = '''
+不同。经典 LUT 的色数指该预设标定的基础耗材通道数；自由色则是将某个已匹配色块单独拆成独立 3MF 对象，方便你在切片器里手动指定耗材。
+'''
+translate = '''
+No. Those numbers describe how many base filament channels a Classic LUT uses. **Free Color** extracts a specific matched color into its own 3MF object so you can assign a filament manually in your slicer.
+'''
+
+[[block]]
+key = "da4b06e02f9a8574"
+type = "heading"
+origin = '''
+### 转换时只选了 4 种耗材，为什么切片器里出现了七八个对象？
+'''
+translate = '''
+### Why does my slicer list more objects than the four filaments I picked?
+'''
+
+[[block]]
+key = "ebe8bafe2530718a"
+type = "paragraph"
+origin = '''
+底板、外轮廓、挂环、透明镀层以及自由色都会作为独立几何对象导出，多个几何对象共用同一份项目耗材即可正常打印。
+'''
+translate = '''
+Structural parts—such as separated backing, outlines, loops, transparent coatings, and Free Color regions—export as distinct meshes while sharing your project filaments.
+'''
+
+[[block]]
+key = "f4f73abfde8e6bd1"
+type = "heading"
+origin = '''
+### 项目耗材 2 一定要装进 AMS 2 号槽吗？
+'''
+translate = '''
+### Does Project Filament 2 have to sit in AMS Slot 2?
+'''
+
+[[block]]
+key = "bd10e8b3e24abbdc"
+type = "paragraph"
+origin = '''
+不需要。发送打印前在切片器的料槽映射界面将“项目耗材 2”指向该线盘实际所在的槽位即可。
+'''
+translate = '''
+No. Project filament numbers and physical hardware slots are independent; simply map Project Filament 2 to whichever AMS slot holds that spool when sending the print.
+'''
+
+[[block]]
+key = "0b8504a387f29fc6"
+type = "heading"
+origin = '''
+### 切片器里的耗材示意色块和手头线盘颜色有色差，会打错吗？
+'''
+translate = '''
+### My slicer swatch looks slightly different from my real spool. Will it print the wrong color?
+'''
+
+[[block]]
+key = "65bfe7be56ecccc9"
+type = "paragraph"
+origin = '''
+只要“对象 → 项目耗材 → 物理料槽”的映射关系正确，机器就会抽取对应槽位里的真实线盘打印；软件色块仅用于界面识别，不会改变实际出料。
+'''
+translate = '''
+On-screen swatches are approximate identifiers. As long as the chain from object → project filament → physical spool → machine slot is mapped accurately, the printer will feed the right spool.
+'''
+
+[[block]]
+key = "92356bbf7ffa75f4"
+type = "heading"
+origin = '''
+## 延伸阅读
+'''
+translate = '''
+## Further Reading
+'''
+
+[[block]]
+key = "88ba5ec6964b2ae2"
+type = "list"
+composite = true
+origin = '''
+{{88ba5ec6964b2ae2-2a101f174571ed00}}
+{{88ba5ec6964b2ae2-baf4f342f2a96502}}
+{{88ba5ec6964b2ae2-d798eed2721e08c3}}
+{{88ba5ec6964b2ae2-aecebb42cd5a4847}}
+'''
+translate = '''
+{{88ba5ec6964b2ae2-2a101f174571ed00}}
+{{88ba5ec6964b2ae2-baf4f342f2a96502}}
+{{88ba5ec6964b2ae2-d798eed2721e08c3}}
+{{88ba5ec6964b2ae2-aecebb42cd5a4847}}
+'''
+
+[[block]]
+key = "88ba5ec6964b2ae2-2a101f174571ed00"
+type = "listItem"
+composite = true
+origin = '''
+- {{88ba5ec6964b2ae2-2a101f174571ed00-bd6bbda1cb96552f}}
+'''
+translate = '''
+- {{88ba5ec6964b2ae2-2a101f174571ed00-bd6bbda1cb96552f}}
+'''
+
+[[block]]
+key = "88ba5ec6964b2ae2-2a101f174571ed00-bd6bbda1cb96552f"
+type = "paragraph"
+origin = '''
+[高保真、像素艺术与矢量模式怎么选？](pathname:///zh/docs/knowledge/image-mode-selection/)
+'''
+translate = '''
+[How Do I Choose High-Fidelity, Pixel Art, or Vector Mode?](pathname:///en/docs/knowledge/image-mode-selection/)
+'''
+
+[[block]]
+key = "88ba5ec6964b2ae2-baf4f342f2a96502"
+type = "listItem"
+composite = true
+origin = '''
+- {{88ba5ec6964b2ae2-baf4f342f2a96502-652971e7915a5853}}
+'''
+translate = '''
+- {{88ba5ec6964b2ae2-baf4f342f2a96502-652971e7915a5853}}
+'''
+
+[[block]]
+key = "88ba5ec6964b2ae2-baf4f342f2a96502-652971e7915a5853"
+type = "paragraph"
+origin = '''
+[Lumina 2.0 怎样选择和保管耗材？](pathname:///zh/docs/knowledge/filament-selection-and-storage/)
+'''
+translate = '''
+[How Should I Choose and Store Filament for Lumina 2.0?](pathname:///en/docs/knowledge/filament-selection-and-storage/)
+'''
+
+[[block]]
+key = "88ba5ec6964b2ae2-d798eed2721e08c3"
+type = "listItem"
+composite = true
+origin = '''
+- {{88ba5ec6964b2ae2-d798eed2721e08c3-4267cce7c04498f6}}
+'''
+translate = '''
+- {{88ba5ec6964b2ae2-d798eed2721e08c3-4267cce7c04498f6}}
+'''
+
+[[block]]
+key = "88ba5ec6964b2ae2-d798eed2721e08c3-4267cce7c04498f6"
+type = "paragraph"
+origin = '''
+[把 Lumina 3MF 正确导入切片器](pathname:///zh/docs/tutorials/slicer-material-mapping/)
+'''
+translate = '''
+[Open a Lumina 3MF in Your Slicer](pathname:///en/docs/tutorials/slicer-material-mapping/)
+'''
+
+[[block]]
+key = "88ba5ec6964b2ae2-aecebb42cd5a4847"
+type = "listItem"
+composite = true
+origin = '''
+- {{88ba5ec6964b2ae2-aecebb42cd5a4847-a4315eacd37056f3}}
+'''
+translate = '''
+- {{88ba5ec6964b2ae2-aecebb42cd5a4847-a4315eacd37056f3}}
+'''
+
+[[block]]
+key = "88ba5ec6964b2ae2-aecebb42cd5a4847-a4315eacd37056f3"
+type = "paragraph"
+origin = '''
+[为什么 Lumina 预览、切片器预览和打印实物不一样？](pathname:///zh/docs/knowledge/preview-slicer-print-differences/)
+'''
+translate = '''
+[Why Do Lumina Preview, Slicer Preview, and the Physical Print Look Different?](pathname:///en/docs/knowledge/preview-slicer-print-differences/)
+'''

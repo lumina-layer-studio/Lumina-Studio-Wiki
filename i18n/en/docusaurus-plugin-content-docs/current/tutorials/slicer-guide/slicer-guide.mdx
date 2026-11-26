@@ -14,6 +14,8 @@ Recent versions of Lumina Studio bundle printer and slicer presets directly insi
 The values below apply to **0.08 mm** gradient cards. For everyday `.3mf` project opening, object filament assignment, and AMS slot mapping, see [Open a Lumina 3MF in Your Slicer](../slicer-material-mapping/slicer-material-mapping.mdx).
 :::
 
+
+
 ## Bambu Studio
 
 ### Step 1: Select the printer and 0.08 mm process preset
@@ -32,6 +34,8 @@ Under **Quality**, set:
 - **Layer height:** `0.08 mm`
 - **Initial layer height:** `0.08 mm`
 - **Line width → Initial layer:** `0.42 mm` (for a `0.4 mm` nozzle)
+
+
 
 <img
   src={require('./assets/p2s02.png').default}
@@ -140,6 +144,8 @@ Textured PEI build plates imprint their surface grain onto the bottom of a print
 
 On a standard gradient card, the backing plate is `1.6 mm` thick. Once flipped, the white backing occupies `0–1.6 mm`. Set global **Initial layer height** to `0.2 mm`.
 
+
+
 <img
   src={require('./assets/p2s10.png').default}
   alt="Set the initial layer height to 0.2 millimeters for a flipped model"
@@ -149,6 +155,8 @@ On a standard gradient card, the backing plate is `1.6 mm` thick. Once flipped, 
 
 Right-click the model and select **Height range Modifier**. Set the range to `0–1.6 mm` and set **Layer height** for that range to `0.2 mm`.
 
+
+
 <img
   src={require('./assets/p2s11.png').default}
   alt="Set a 0 to 1.6 millimeter height range modifier to a 0.2 millimeter layer height"
@@ -157,6 +165,8 @@ Right-click the model and select **Height range Modifier**. Set the range to `0�
 ### Step 3: Verify the five top color layers
 
 Slice the plate and inspect the top layers in **Preview**. The uppermost **5** layers should be the `0.08 mm` color layers; if you count 4 or 6 color layers instead, recheck your initial layer height and modifier range.
+
+
 
 <img
   src={require('./assets/p2s12.png').default}

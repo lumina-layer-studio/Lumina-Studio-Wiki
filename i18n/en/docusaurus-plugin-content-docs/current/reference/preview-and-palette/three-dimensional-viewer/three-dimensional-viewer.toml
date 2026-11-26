@@ -1,0 +1,462 @@
+[metadata]
+reviewed_source = "890001e20d77d07babd7777f5c79a74f8fb39f47dc278a96d46d5f53083bd8ad"
+
+[[block]]
+key = "fbf4d0bd7b3c23e4"
+type = "yaml"
+origin = '''
+---
+title: "3D 查看器、截图、性能统计与诊断"
+description: "3D 画布的视角操控、全屏与截图功能，以及性能统计与渲染诊断各项指标的含义。"
+sidebar_position: 8
+---
+'''
+translate = '''
+---
+title: "3D Viewer, Screenshot, Performance, and Diagnostics"
+description: "Navigate the 3D viewport, capture screenshots, and read the Performance and Diagnostics panels."
+sidebar_position: 8
+---
+'''
+
+[[block]]
+key = "619fd9564700cd87"
+type = "heading"
+origin = '''
+# 3D 查看器、截图、性能统计与诊断
+'''
+translate = '''
+# 3D Viewer, Screenshot, Performance, and Diagnostics
+'''
+
+[[block]]
+key = "dad90136b241f80e"
+type = "paragraph"
+origin = '''
+完成**预览**或**生成**后，3D 查看器会将模型放置在当前所选机型的热床网格上，用于直观检查模型朝向、外轮廓、结构附件与整体尺寸比例；最终打印走线与逐层路径请以切片软件预览为准。
+'''
+translate = '''
+After running **Preview** or **Generate**, the 3D Viewer places your model on the active printer's build-plate grid so you can inspect orientation, silhouette, structural attachments, and overall scale. Check your slicer preview to inspect final toolpaths and printable layers.
+'''
+
+[[block]]
+key = "3dd9ba5629ee8e1c"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/viewer-main.webp').default}
+  alt="Lumina Studio 中文界面中的真实 3D 预览、热床和右下角查看器按钮"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/viewer-main.webp').default}
+  alt="Real Lumina Studio English 3D Preview with build plate and viewer controls"
+/>
+'''
+
+[[block]]
+key = "1d3fa162b244b383"
+type = "heading"
+origin = '''
+## 视角操控
+'''
+translate = '''
+## Camera controls
+'''
+
+[[block]]
+key = "0c09d8da2a54d477"
+type = "list"
+composite = true
+origin = '''
+{{0c09d8da2a54d477-2f931a5eb5a02ee0}}
+{{0c09d8da2a54d477-48a0448ab3f27133}}
+{{0c09d8da2a54d477-00037789a70968eb}}
+{{0c09d8da2a54d477-8d1d1189585e792a}}
+'''
+translate = '''
+{{0c09d8da2a54d477-2f931a5eb5a02ee0}}
+{{0c09d8da2a54d477-48a0448ab3f27133}}
+{{0c09d8da2a54d477-00037789a70968eb}}
+{{0c09d8da2a54d477-8d1d1189585e792a}}
+'''
+
+[[block]]
+key = "0c09d8da2a54d477-2f931a5eb5a02ee0"
+type = "listItem"
+composite = true
+origin = '''
+- {{0c09d8da2a54d477-2f931a5eb5a02ee0-d2392058357d5891}}
+'''
+translate = '''
+- {{0c09d8da2a54d477-2f931a5eb5a02ee0-d2392058357d5891}}
+'''
+
+[[block]]
+key = "0c09d8da2a54d477-2f931a5eb5a02ee0-d2392058357d5891"
+type = "paragraph"
+origin = '''
+**旋转：** 在画布上按住鼠标左键拖动，围绕模型旋转观察视角。
+'''
+translate = '''
+**Orbit:** Click and drag on the canvas to rotate around the model.
+'''
+
+[[block]]
+key = "0c09d8da2a54d477-48a0448ab3f27133"
+type = "listItem"
+composite = true
+origin = '''
+- {{0c09d8da2a54d477-48a0448ab3f27133-341919c21e343e45}}
+'''
+translate = '''
+- {{0c09d8da2a54d477-48a0448ab3f27133-341919c21e343e45}}
+'''
+
+[[block]]
+key = "0c09d8da2a54d477-48a0448ab3f27133-341919c21e343e45"
+type = "paragraph"
+origin = '''
+**缩放：** 滚动鼠标滚轮拉近或推远镜头。
+'''
+translate = '''
+**Zoom:** Scroll the mouse wheel to move closer or farther away.
+'''
+
+[[block]]
+key = "0c09d8da2a54d477-00037789a70968eb"
+type = "listItem"
+composite = true
+origin = '''
+- {{0c09d8da2a54d477-00037789a70968eb-74e1e6fdda328264}}
+'''
+translate = '''
+- {{0c09d8da2a54d477-00037789a70968eb-74e1e6fdda328264}}
+'''
+
+[[block]]
+key = "0c09d8da2a54d477-00037789a70968eb-74e1e6fdda328264"
+type = "paragraph"
+origin = '''
+**平滑阻尼：** 视角转动带有惯性阻尼，松手后平滑停稳。
+'''
+translate = '''
+**Smooth damping:** Camera motion decelerates smoothly when you release the pointer.
+'''
+
+[[block]]
+key = "0c09d8da2a54d477-8d1d1189585e792a"
+type = "listItem"
+composite = true
+origin = '''
+- {{0c09d8da2a54d477-8d1d1189585e792a-eaab576fb9d022be}}
+'''
+translate = '''
+- {{0c09d8da2a54d477-8d1d1189585e792a-eaab576fb9d022be}}
+'''
+
+[[block]]
+key = "0c09d8da2a54d477-8d1d1189585e792a-eaab576fb9d022be"
+type = "paragraph"
+origin = '''
+**退出磁铁选中：** 处于磁铁槽编辑模式时，点击模型外部的空白画布可取消当前选中的磁铁槽。
+'''
+translate = '''
+**Deselect magnet:** While editing Fridge Magnet slots, clicking empty space outside the model clears the active magnet selection.
+'''
+
+[[block]]
+key = "4446f4ee071305b6"
+type = "paragraph"
+origin = '''
+相机支持大范围远近缩放；若模型在热床网格上显得过小，请先核对目标尺寸与预览尺寸参数。
+'''
+translate = '''
+The camera supports a wide zoom range; if your model looks tiny on the build plate, verify your target and preview dimensions first.
+'''
+
+[[block]]
+key = "f4a70a4f410b91a3"
+type = "heading"
+origin = '''
+## 右下角工具栏
+'''
+translate = '''
+## Bottom-right toolbar
+'''
+
+[[block]]
+key = "ec957769858c59f8"
+type = "paragraph"
+origin = '''
+画布右下角从左至右依次提供四个按钮：
+'''
+translate = '''
+From left to right, the four buttons in the lower-right corner open:
+'''
+
+[[block]]
+key = "174c9f4d0f692dc6"
+type = "list"
+composite = true
+origin = '''
+{{174c9f4d0f692dc6-deb1db01476a5935}}
+{{174c9f4d0f692dc6-ae44fbf687089171}}
+{{174c9f4d0f692dc6-e84e39f9a0397ea1}}
+{{174c9f4d0f692dc6-f2dbf3d98874a0b3}}
+'''
+translate = '''
+{{174c9f4d0f692dc6-deb1db01476a5935}}
+{{174c9f4d0f692dc6-ae44fbf687089171}}
+{{174c9f4d0f692dc6-e84e39f9a0397ea1}}
+{{174c9f4d0f692dc6-f2dbf3d98874a0b3}}
+'''
+
+[[block]]
+key = "174c9f4d0f692dc6-deb1db01476a5935"
+type = "listItem"
+composite = true
+origin = '''
+1. {{174c9f4d0f692dc6-deb1db01476a5935-e5327de09df24c94}}
+'''
+translate = '''
+1. {{174c9f4d0f692dc6-deb1db01476a5935-e5327de09df24c94}}
+'''
+
+[[block]]
+key = "174c9f4d0f692dc6-deb1db01476a5935-e5327de09df24c94"
+type = "paragraph"
+origin = '''
+**性能统计**
+'''
+translate = '''
+**Performance**
+'''
+
+[[block]]
+key = "174c9f4d0f692dc6-ae44fbf687089171"
+type = "listItem"
+composite = true
+origin = '''
+2. {{174c9f4d0f692dc6-ae44fbf687089171-eb50fc69675d2d0a}}
+'''
+translate = '''
+2. {{174c9f4d0f692dc6-ae44fbf687089171-eb50fc69675d2d0a}}
+'''
+
+[[block]]
+key = "174c9f4d0f692dc6-ae44fbf687089171-eb50fc69675d2d0a"
+type = "paragraph"
+origin = '''
+**3D 诊断**
+'''
+translate = '''
+**Diagnostics**
+'''
+
+[[block]]
+key = "174c9f4d0f692dc6-e84e39f9a0397ea1"
+type = "listItem"
+composite = true
+origin = '''
+3. {{174c9f4d0f692dc6-e84e39f9a0397ea1-fe8a2791d005808c}}
+'''
+translate = '''
+3. {{174c9f4d0f692dc6-e84e39f9a0397ea1-fe8a2791d005808c}}
+'''
+
+[[block]]
+key = "174c9f4d0f692dc6-e84e39f9a0397ea1-fe8a2791d005808c"
+type = "paragraph"
+origin = '''
+**全屏**
+'''
+translate = '''
+**Fullscreen**
+'''
+
+[[block]]
+key = "174c9f4d0f692dc6-f2dbf3d98874a0b3"
+type = "listItem"
+composite = true
+origin = '''
+4. {{174c9f4d0f692dc6-f2dbf3d98874a0b3-1ed123617976e3c9}}
+'''
+translate = '''
+4. {{174c9f4d0f692dc6-f2dbf3d98874a0b3-1ed123617976e3c9}}
+'''
+
+[[block]]
+key = "174c9f4d0f692dc6-f2dbf3d98874a0b3-1ed123617976e3c9"
+type = "paragraph"
+origin = '''
+**截图**
+'''
+translate = '''
+**Screenshot**
+'''
+
+[[block]]
+key = "416b33ab730c6815"
+type = "paragraph"
+origin = '''
+**全屏**按钮在支持 Fullscreen API 的浏览器中自动显示，退出全屏后直接回到原工作区。**截图**会直接捕获当前 WebGL 3D 画布并下载为 `lumina-3d-screenshot-时间戳.png` 纯图像文件；如需同时保存可恢复的参数与配方，请使用**导出分享卡**或项目导出功能。
+'''
+translate = '''
+**Fullscreen** appears automatically in browsers that support the Fullscreen API, and exiting returns directly to the same workspace. **Screenshot** captures the current WebGL viewport as `lumina-3d-screenshot-<timestamp>.png`. To save recoverable settings and filament recipes alongside an image, use **Export Share Card** or **Export JSON** instead.
+'''
+
+[[block]]
+key = "56c63c6f82b1503a"
+type = "heading"
+origin = '''
+## 性能统计
+'''
+translate = '''
+## Performance
+'''
+
+[[block]]
+key = "b376d05eb8e3c920"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/viewer-performance.webp').default}
+  alt="Lumina Studio 3D 查看器性能统计，显示真实预览请求的各阶段耗时"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/viewer-performance.webp').default}
+  alt="Lumina Studio Performance panel showing timing from a real Preview request"
+/>
+'''
+
+[[block]]
+key = "85040c636c6f97d7"
+type = "paragraph"
+origin = '''
+性能统计面板展示最近一次**预览**或**生成**各阶段的实际耗时：
+'''
+translate = '''
+The **Performance** panel breaks down execution time from your latest **Preview** or **Generate** run:
+'''
+
+[[block]]
+key = "6602820d2bc54817"
+type = "table"
+origin = '''
+| 指标 | 含义 |
+| --- | --- |
+| 总耗时 | 本次预览或生成从发起到完成的总用时 |
+| 上传处理 | 接收并预处理输入图像素材的用时 |
+| 核心计算 | 执行图像色彩转换与三维几何建模的用时 |
+| 缓存读取 | 读取已保存中间数据的用时 |
+| 预览 GLB | 构建 3D 查看器分段网格模型的用时 |
+| 调色板 | 汇总预览颜色占比与配方数据的用时 |
+| 调度开销 | 总耗时中除核心计算外的任务准备与传输用时 |
+'''
+translate = '''
+| Metric | Meaning |
+| --- | --- |
+| Total | End-to-end duration for the completed stage |
+| Upload processing | Time spent receiving and preparing the source image |
+| Worker | Core color conversion and 3D geometry computation time |
+| Cache load | Time spent reading cached intermediate data |
+| Preview GLB | Time spent building the segmented GLB mesh for the 3D Viewer |
+| Palette | Time spent assembling preview color coverage and recipe data |
+| Overhead | Request handling and transfer time outside core computation |
+'''
+
+[[block]]
+key = "015d1b03f28a06f2"
+type = "paragraph"
+origin = '''
+面板仅列出当前任务实际执行的计时项。**性能统计**与**3D 诊断**面板互斥，打开其中一个会自动收起另一个。
+'''
+translate = '''
+Only stages involved in the latest run are displayed. **Performance** and **Diagnostics** are mutually exclusive—opening one closes the other.
+'''
+
+[[block]]
+key = "647c2a932c7c493b"
+type = "heading"
+origin = '''
+## 3D 诊断
+'''
+translate = '''
+## Diagnostics
+'''
+
+[[block]]
+key = "a39991f4766298f6"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/viewer-diagnostics.webp').default}
+  alt="Lumina Studio 3D 诊断面板，显示来源、FPS、内存、三角面、调用数、纹理和画布"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/viewer-diagnostics.webp').default}
+  alt="Lumina Studio Diagnostics panel showing source, FPS, heap, triangles, calls, textures, and canvas"
+/>
+'''
+
+[[block]]
+key = "6e2fabea452d8da8"
+type = "table"
+origin = '''
+| 指标 | 含义 |
+| --- | --- |
+| 来源 | 当前画布加载的数据源（预览 GLB、生成模型、批量预览或空闲画布） |
+| FPS / 帧时间 | 浏览器实时刷新帧率及单帧渲染耗时 |
+| JS 堆 | 浏览器开放内存接口时，显示已用与总计 JavaScript 堆内存 |
+| 三角面 | 当前场景提交渲染的三角形总数 |
+| 调用数 | 单帧 WebGL 绘制调用（Draw Calls）次数 |
+| 纹理 | 当前渲染器驻留的纹理数量 |
+| 画布 | WebGL 画布物理像素尺寸与设备像素比（DPR） |
+'''
+translate = '''
+| Metric | Meaning |
+| --- | --- |
+| Source | Active viewport content: preview GLB, generated model, batch preview, or idle canvas |
+| FPS / frame time | Live browser frame rate and estimated render time per frame |
+| JS heap | Used and total JavaScript heap memory (when exposed by the browser) |
+| Triangles | Total triangles submitted in the current frame |
+| Calls | WebGL draw calls per frame |
+| Textures | Active textures held by the renderer |
+| Canvas | WebGL canvas pixel dimensions and device pixel ratio |
+'''
+
+[[block]]
+key = "2c42619404ba225d"
+type = "paragraph"
+origin = '''
+**3D 诊断**用于区分“模型计算耗时长”与“本地浏览器渲染卡顿”。若出现帧率偏低、三角面或绘制调用数过高的情况，可先关闭暂不需要的复杂 3D 结构附件、降低预览精度，并检查浏览器是否已开启硬件加速。
+'''
+translate = '''
+Use **Diagnostics** to tell whether a delay comes from model generation or from local WebGL rendering. If FPS drops alongside high triangle or draw-call counts, turn off unneeded 3D attachments, lower preview complexity, and check that browser hardware acceleration is enabled.
+'''
+
+[[block]]
+key = "0d2069b93c55ea9e"
+type = "heading"
+origin = '''
+## 与高精度颜色预览的关系
+'''
+translate = '''
+## Relationship to High-precision 3D Color Preview
+'''
+
+[[block]]
+key = "e551d420a1b01745"
+type = "paragraph"
+origin = '''
+**3D 高精度颜色预览**决定模型表面保留的颜色网格上限，而本页的**性能统计**与**3D 诊断**用于实时观测画布负载。有关颜色网格合并规则与显存占用的详细说明，请参阅[3D 高精度颜色预览](../high-precision-3d-preview/high-precision-3d-preview.mdx)。
+'''
+translate = '''
+**High-precision 3D Color Preview** controls how many color meshes are retained on the preview surface, while **Performance** and **Diagnostics** monitor live viewport load. For details on mesh budgets and memory impact, see [High-precision 3D Color Preview](../high-precision-3d-preview/high-precision-3d-preview.mdx).
+'''

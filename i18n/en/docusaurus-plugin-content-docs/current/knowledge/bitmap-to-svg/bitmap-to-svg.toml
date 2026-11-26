@@ -1,0 +1,1153 @@
+[metadata]
+migration_layout = "preserved English structure; root blocks retain grouped or omitted source sections"
+reviewed_source = "33cfb0521487492d4badaa838a8bce84a34cd9f1b6da7e32a0f4b8d0efbed5e0"
+
+[[block]]
+key = "6a98fdc58a8320ab"
+type = "yaml"
+origin = '''
+---
+title: "从位图生成 SVG，再发送到图像转换"
+description: "在 Lumina Studio 中把 PNG、JPG、WebP 或 BMP 重新描摹成 SVG，检查矢量化结果，并继续进入图像转换工作流。"
+sidebar_position: 33
+---
+'''
+translate = '''
+---
+title: "Convert a Bitmap to SVG, Then Continue in Image Converter"
+description: "Trace PNG, JPG, WebP, or BMP artwork into SVG in Lumina Studio, compare the result, download it, and continue through the Vector workflow."
+sidebar_position: 33
+---
+'''
+
+[[block]]
+key = "24b455e5b9a8bb9f"
+type = "heading"
+origin = '''
+# 从位图生成 SVG，再发送到图像转换
+'''
+translate = '''
+# Convert a Bitmap to SVG, Then Continue in Image Converter
+'''
+
+[[block]]
+key = "dac76b69fecb9b02"
+type = "paragraph"
+origin = '''
+当手头只有 PNG、JPG、WebP 或 BMP 位图，而图案本身是边界清晰的 Logo、图标、线稿或纯色色块时，可以先用 Lumina Studio 的“图像转矢量”工具将像素描摹为 SVG 路径，再送入“图像转换”继续建模。
+'''
+translate = '''
+Lumina's **Vectorizer** traces bitmap images—PNG, JPG, WebP, or BMP—into clean SVG paths so logos, icons, line art, and flat-color illustrations can scale smoothly and use the native Vector workflow.
+'''
+
+[[block]]
+key = "f438eaaec5263bc9"
+type = "paragraph"
+origin = '''
+如果不清楚何时保留位图、何时使用 SVG，可先阅读[位图与矢量图有什么区别？](pathname:///zh/docs/knowledge/bitmap-vs-vector/)。
+'''
+translate = '''
+Because automatic tracing fits new curves to existing pixels, it works best on artwork with clear edges rather than photographs or soft gradients, and it cannot recover detail that is missing or blurred in the original image.
+'''
+
+[[block]]
+key = "9d7a65faa672a251"
+type = "admonition"
+composite = true
+origin = '''
+:::info[流程概览]
+{{9d7a65faa672a251-9f1068b71d5443a1}}
+:::
+'''
+translate = '''
+'''
+
+[[block]]
+key = "9d7a65faa672a251-9f1068b71d5443a1"
+type = "paragraph"
+origin = '''
+本文涵盖从上传位图、调整矢量化参数、对比原图与 SVG，到下载文件或直接发送到“图像转换”的完整步骤。照片、复杂绘画与柔和渐变通常建议直接使用原始位图。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4372ce3dc3cdc142"
+type = "heading"
+origin = '''
+## 先判断素材是否适合矢量化
+'''
+translate = '''
+## Check Whether Tracing Fits Your Artwork
+'''
+
+[[block]]
+key = "faeb9fcd0cb9a4e3"
+type = "paragraph"
+origin = '''
+**适合自动矢量化：**
+'''
+translate = '''
+**Good candidates for tracing:**
+'''
+
+[[block]]
+key = "ec3960ffc48a511c"
+type = "list"
+composite = true
+origin = '''
+{{ec3960ffc48a511c-9c7285d2c408ca5e}}
+{{ec3960ffc48a511c-c1da0d4de4e1d19b}}
+{{ec3960ffc48a511c-2a27671566e5453d}}
+{{ec3960ffc48a511c-30f6fbab4633df34}}
+'''
+translate = '''
+- Logos, icons, signs, and symbols;
+- Line art with crisp boundaries;
+- Flat-color illustrations with a limited palette;
+- Outlined lettering and clear geometric shapes.
+'''
+
+[[block]]
+key = "ec3960ffc48a511c-9c7285d2c408ca5e"
+type = "listItem"
+composite = true
+origin = '''
+- {{ec3960ffc48a511c-9c7285d2c408ca5e-bd49e960e5a33a5d}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ec3960ffc48a511c-9c7285d2c408ca5e-bd49e960e5a33a5d"
+type = "paragraph"
+origin = '''
+Logo、图标、文字轮廓与简单标志；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ec3960ffc48a511c-c1da0d4de4e1d19b"
+type = "listItem"
+composite = true
+origin = '''
+- {{ec3960ffc48a511c-c1da0d4de4e1d19b-1220e59b98d7a25f}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ec3960ffc48a511c-c1da0d4de4e1d19b-1220e59b98d7a25f"
+type = "paragraph"
+origin = '''
+边界分明、颜色种类较少的平涂色块图；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ec3960ffc48a511c-2a27671566e5453d"
+type = "listItem"
+composite = true
+origin = '''
+- {{ec3960ffc48a511c-2a27671566e5453d-eadfae3f73e5660a}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ec3960ffc48a511c-2a27671566e5453d-eadfae3f73e5660a"
+type = "paragraph"
+origin = '''
+背景干净、线条清晰的线稿；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ec3960ffc48a511c-30f6fbab4633df34"
+type = "listItem"
+composite = true
+origin = '''
+- {{ec3960ffc48a511c-30f6fbab4633df34-ca8c72922aeadf76}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ec3960ffc48a511c-30f6fbab4633df34-ca8c72922aeadf76"
+type = "paragraph"
+origin = '''
+需要在矢量编辑器中进一步修改路径、节点或填充色的图案。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "9c2b818f41369a4d"
+type = "paragraph"
+origin = '''
+**建议保留原始位图：**
+'''
+translate = '''
+**Better kept as a bitmap (or cleaned up before tracing):**
+'''
+
+[[block]]
+key = "de404143facd0237"
+type = "list"
+composite = true
+origin = '''
+{{de404143facd0237-d0f9fdf28ca14b48}}
+{{de404143facd0237-a0b93383bf028695}}
+{{de404143facd0237-15378184554d96ff}}
+{{de404143facd0237-c9c0dcb3a65bb857}}
+'''
+translate = '''
+- Photographs and natural textures;
+- Soft drop shadows and continuous gradients;
+- Tiny or heavily compressed JPG files;
+- Transparent edges with gray or white halos;
+- Pixel art or noisy scans full of isolated specks.
+'''
+
+[[block]]
+key = "de404143facd0237-d0f9fdf28ca14b48"
+type = "listItem"
+composite = true
+origin = '''
+- {{de404143facd0237-d0f9fdf28ca14b48-167b6c00eb5b88cc}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "de404143facd0237-d0f9fdf28ca14b48-167b6c00eb5b88cc"
+type = "paragraph"
+origin = '''
+人像照片、毛发、皮肤、云雾与复杂自然纹理；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "de404143facd0237-a0b93383bf028695"
+type = "listItem"
+composite = true
+origin = '''
+- {{de404143facd0237-a0b93383bf028695-0d6396a66aa2d40e}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "de404143facd0237-a0b93383bf028695-0d6396a66aa2d40e"
+type = "paragraph"
+origin = '''
+大面积柔和阴影、半透明、发光与连续渐变；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "de404143facd0237-15378184554d96ff"
+type = "listItem"
+composite = true
+origin = '''
+- {{de404143facd0237-15378184554d96ff-f5a0dac40a8ae05e}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "de404143facd0237-15378184554d96ff-f5a0dac40a8ae05e"
+type = "paragraph"
+origin = '''
+JPG 压缩伪影明显或噪点较重的低清图片；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "de404143facd0237-c9c0dcb3a65bb857"
+type = "listItem"
+composite = true
+origin = '''
+- {{de404143facd0237-c9c0dcb3a65bb857-fe21e0a1a5296b98}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "de404143facd0237-c9c0dcb3a65bb857-fe21e0a1a5296b98"
+type = "paragraph"
+origin = '''
+以像素方格作为视觉风格的像素画。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b33ab8fbcb293fbe"
+type = "paragraph"
+origin = '''
+自动矢量化会根据现有像素拟合轮廓，无法凭空恢复低清原图中已经模糊或缺失的五官、小字与细微纹理。开始前请先保存一份原始位图备份。
+'''
+translate = '''
+If your file is already a native SVG, upload it directly to **Image Converter** instead of tracing it again. For background on both formats, see [Bitmap vs Vector Images](pathname:///en/docs/knowledge/bitmap-vs-vector/).
+'''
+
+[[block]]
+key = "585badd3432219ca"
+type = "heading"
+origin = '''
+## 第一步：上传位图并生成基准结果
+'''
+translate = '''
+## Step 1: Upload the Bitmap and Run Defaults
+
+Open **Vectorizer** and upload a PNG, JPG, WebP, or BMP file while keeping a backup of the original image.
+'''
+
+[[block]]
+key = "9736b2d0649df0dc"
+type = "list"
+composite = true
+origin = '''
+{{9736b2d0649df0dc-421cfcef04ce211e}}
+{{9736b2d0649df0dc-519a0d81bb501753}}
+{{9736b2d0649df0dc-6bad8f87d3086440}}
+{{9736b2d0649df0dc-dd5891c76b78a1c2}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "9736b2d0649df0dc-421cfcef04ce211e"
+type = "listItem"
+composite = true
+origin = '''
+1. {{9736b2d0649df0dc-421cfcef04ce211e-bc8f22a07598a4f4}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "9736b2d0649df0dc-421cfcef04ce211e-bc8f22a07598a4f4"
+type = "paragraph"
+origin = '''
+点击 Lumina Studio 顶部导航栏的“图像转矢量”；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "9736b2d0649df0dc-519a0d81bb501753"
+type = "listItem"
+composite = true
+origin = '''
+2. {{9736b2d0649df0dc-519a0d81bb501753-acac2d1cf33bcbec}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "9736b2d0649df0dc-519a0d81bb501753-acac2d1cf33bcbec"
+type = "paragraph"
+origin = '''
+将 PNG、JPG、WebP 或 BMP 文件拖入上传区（或点击上传）；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "9736b2d0649df0dc-6bad8f87d3086440"
+type = "listItem"
+composite = true
+origin = '''
+3. {{9736b2d0649df0dc-6bad8f87d3086440-c9b900bcefde3e45}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "9736b2d0649df0dc-6bad8f87d3086440-c9b900bcefde3e45"
+type = "paragraph"
+origin = '''
+确认上传区已正确显示目标图片；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "9736b2d0649df0dc-dd5891c76b78a1c2"
+type = "listItem"
+composite = true
+origin = '''
+4. {{9736b2d0649df0dc-dd5891c76b78a1c2-fc03b5ae810a4e06}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "9736b2d0649df0dc-dd5891c76b78a1c2-fc03b5ae810a4e06"
+type = "paragraph"
+origin = '''
+首次运行保持默认参数，点击“开始矢量化”。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1fd9b5914e69f671"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-upload-and-defaults.webp').default}
+  alt="在图像转矢量页面上传位图并保留自动颜色、默认平滑度和默认细节设置"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-upload-and-defaults.webp').default}
+  alt="Real English Lumina Vectorizer interface with a bitmap uploaded and default vectorisation settings highlighted"
+/>
+'''
+
+[[block]]
+key = "ea441903b0a41969"
+type = "paragraph"
+origin = '''
+默认状态下，颜色数量设为自动判断，平滑度处于中间档位，统一细节控制保持关闭。先跑一次默认结果作为对照基准，更容易看清后续需要针对哪一处微调。
+'''
+translate = '''
+Start with a baseline pass:
+
+1. Leave **Color Count** set to **Auto**;
+2. Keep **Smoothness** and **Detail Level** at their default values;
+3. Click **Start Vectorization** and wait for the preview to finish.
+'''
+
+[[block]]
+key = "a1345c8661b971e3"
+type = "heading"
+origin = '''
+## 第二步：了解三个基础参数
+'''
+translate = '''
+'''
+
+[[block]]
+key = "51439da571c0a0d6"
+type = "table"
+origin = '''
+| 参数 | 作用 | 何时调整 |
+| --- | --- | --- |
+| 颜色数量 | 控制允许保留或归并的颜色类别数 | 自动结果出现过多相近杂色，或图案本身只有固定几种颜色时，切换为手动指定 |
+| 平滑度 | 控制路径抽稀与边缘平滑程度 | 轮廓锯齿明显时逐步调高；小字、尖角或细线开始钝化消失时适当回调 |
+| 细节等级 | 启用后用单个滑块联动多项细节阈值 | 想在不逐项展开高级参数的情况下，快速对比“更简练”与“保留更多细节”两档效果时开启 |
+'''
+translate = '''
+'''
+
+[[block]]
+key = "12a56ad374d1b376"
+type = "paragraph"
+origin = '''
+这里的“颜色数量”指 SVG 归纳出的色块类别数，而非打印所需的真实耗材卷数。进入“图像转换”后，软件会结合所选的经典 LUT 或耗材档案重新计算叠色方案。调整时以关键轮廓和文字清晰度为准即可，无需追求过高的颜色数或形状数。
+'''
+translate = '''
+Running defaults first gives you a clear reference point before adjusting individual sliders.
+'''
+
+[[block]]
+key = "f838cba6daf40c64"
+type = "heading"
+origin = '''
+## 第三步：并排核对原图与 SVG 预览
+'''
+translate = '''
+## Step 2: Compare the Original and SVG Previews
+'''
+
+[[block]]
+key = "48d32f7d760cd29e"
+type = "paragraph"
+origin = '''
+矢量化完成后，界面会并排展示“原始图片”和“SVG 预览”。放大画面，按以下顺序检查关键部位：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "6058bc4381f31213"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/02-compare-result.webp').default}
+  alt="Lumina Studio 并排显示原始位图和自动矢量化后的 SVG 结果"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/02-compare-result.webp').default}
+  alt="Real English Lumina Vectorizer source and SVG result comparison with text, thin lines, corners, and colour regions called out"
+/>
+
+Inspect these key areas side by side:
+'''
+
+[[block]]
+key = "cb32a03379dcc7e2"
+type = "list"
+composite = true
+origin = '''
+{{cb32a03379dcc7e2-565d273e454daf82}}
+{{cb32a03379dcc7e2-143c5eb5b73e38c9}}
+{{cb32a03379dcc7e2-1594a45f1d305f46}}
+{{cb32a03379dcc7e2-63f9648c96ffbb4d}}
+{{cb32a03379dcc7e2-4a4cf44fc97ec314}}
+{{cb32a03379dcc7e2-e719d60bac844925}}
+'''
+translate = '''
+- **Text and small symbols**: Check that letter counters and enclosed loops stay open.
+- **Thin lines**: Confirm that narrow strokes stay continuous and even.
+- **Sharp corners**: Make sure crisp points have not been overly rounded or clipped.
+- **Closed color regions**: Look for pinholes, color bleed, or stray islands.
+- **Transparent borders**: Check that empty background areas did not turn into a solid rectangle.
+- **Gradients**: Check whether banded color steps look clean at your intended print size.
+'''
+
+[[block]]
+key = "cb32a03379dcc7e2-565d273e454daf82"
+type = "listItem"
+composite = true
+origin = '''
+1. {{cb32a03379dcc7e2-565d273e454daf82-dc414c8c92253524}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "cb32a03379dcc7e2-565d273e454daf82-dc414c8c92253524"
+type = "paragraph"
+origin = '''
+**外轮廓**：斜边、圆角与尖角是否保持原有走势；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "cb32a03379dcc7e2-143c5eb5b73e38c9"
+type = "listItem"
+composite = true
+origin = '''
+2. {{cb32a03379dcc7e2-143c5eb5b73e38c9-08924fb32414958d}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "cb32a03379dcc7e2-143c5eb5b73e38c9-08924fb32414958d"
+type = "paragraph"
+origin = '''
+**小字与细线**：字怀孔洞、细笔画与窄线条是否连贯未断；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "cb32a03379dcc7e2-1594a45f1d305f46"
+type = "listItem"
+composite = true
+origin = '''
+3. {{cb32a03379dcc7e2-1594a45f1d305f46-1d30520ba75a6ad9}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "cb32a03379dcc7e2-1594a45f1d305f46-1d30520ba75a6ad9"
+type = "paragraph"
+origin = '''
+**封闭区域**：眼睛、镂空与独立小色块有无被填死或粘连；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "cb32a03379dcc7e2-63f9648c96ffbb4d"
+type = "listItem"
+composite = true
+origin = '''
+4. {{cb32a03379dcc7e2-63f9648c96ffbb4d-4679bb087edc3934}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "cb32a03379dcc7e2-63f9648c96ffbb4d-4679bb087edc3934"
+type = "paragraph"
+origin = '''
+**背景区域**：透明背景、JPG 噪点或纸张底纹有没有被误描成多余色块；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "cb32a03379dcc7e2-4a4cf44fc97ec314"
+type = "listItem"
+composite = true
+origin = '''
+5. {{cb32a03379dcc7e2-4a4cf44fc97ec314-d8fa4391c8b89d56}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "cb32a03379dcc7e2-4a4cf44fc97ec314-d8fa4391c8b89d56"
+type = "paragraph"
+origin = '''
+**渐变过渡**：连续渐变拆分成色带后，分区边界是否自然可接受；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "cb32a03379dcc7e2-e719d60bac844925"
+type = "listItem"
+composite = true
+origin = '''
+6. {{cb32a03379dcc7e2-e719d60bac844925-d3df9db1e9eea179}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "cb32a03379dcc7e2-e719d60bac844925-d3df9db1e9eea179"
+type = "paragraph"
+origin = '''
+**成品尺寸表现**：缩放到目标打印尺寸观察，整体观感是否优于直接使用位图。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "3c99518d609ead7c"
+type = "paragraph"
+origin = '''
+上图的测试素材在默认参数下生成了 **155 个形状、24 种颜色、900 × 600 像素画布**，用于直观反映当前 SVG 的路径复杂度与色块统计。
+'''
+translate = '''
+Zoom in on the smallest feature that matters in your print, keeping in mind that features narrower than your nozzle's extrusion width at the final millimeter scale still cannot be printed physically.
+'''
+
+[[block]]
+key = "7590afed87acfd0e"
+type = "admonition"
+composite = true
+origin = '''
+:::warning[先检查细节]
+{{7590afed87acfd0e-f5fe8f95c4175e01}}
+:::
+'''
+translate = '''
+:::tip[Change one setting at a time]
+If edges look jagged, adjust **Smoothness** or **Detail Level** one step at a time and compare again. If the trace produces hundreds of tiny stray paths, clean up background noise in the bitmap or lower **Color Count** rather than increasing color steps.
+:::
+'''
+
+[[block]]
+key = "7590afed87acfd0e-f5fe8f95c4175e01"
+type = "paragraph"
+origin = '''
+如果文字、五官或细线在 SVG 预览中已经丢失，后续生成 3MF 时无法恢复。请先在当前页面回调参数重新矢量化，或改用原始位图配合高保真模式。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f4f491dc89f04cdb"
+type = "heading"
+origin = '''
+## 按问题现象微调参数
+'''
+translate = '''
+'''
+
+[[block]]
+key = "71c4afe41c641b31"
+type = "paragraph"
+origin = '''
+建议每次只调整一项参数并重新生成对比，以便确认每次修改的实际效果：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "9e3b4fc128689329"
+type = "table"
+origin = '''
+| 观察到的现象 | 优先调整 | 避免的做法 |
+| --- | --- | --- |
+| 出现大量近似色碎块 | 手动调低颜色数量，或小幅提高平滑度 | 一次性把所有高级过滤滑块拉满 |
+| 细线、小字或尖角缺失 | 降低平滑度，调小区域过滤，或开启细节等级微调 | 仅因文件体积更小就保留缺损结果 |
+| 相邻色块间露出细白缝 | 保留“输出增强”中的描边与覆盖修复，必要时微调宽度 | 大幅加粗描边导致相邻色块互相侵占 |
+| 轮廓边缘仍有锯齿毛刺 | 小幅提高平滑度，观察曲线与转角变化 | 试图靠拉高细节等级修复低清马赛克 |
+| 形状数极高、响应变慢 | 减少颜色数量、先清理原图噪点，或适度过滤微小杂斑 | 完全不清理照片噪点直接矢量化 |
+| 渐变被切成明显色阶带 | 属于矢量色块的正常特征；可与原位图的高保真预览对比 | 盲目拉高颜色上限生成成千上万条碎路径 |
+'''
+translate = '''
+'''
+
+[[block]]
+key = "e8e242023ffefadd"
+type = "paragraph"
+origin = '''
+其中，“输出增强”用于消除色块接缝并保护细线；“高级参数”提供预处理、超像素分割、曲线拟合与区域过滤。常规图形使用基础参数即可满足需求；确需精细控制时再展开对应高级分组单项微调。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "145356a5af4437d0"
+type = "heading"
+origin = '''
+## 第四步：下载 SVG，或发送到图像转换
+'''
+translate = '''
+## Step 3: Download the SVG or Send It to Image Converter
+'''
+
+[[block]]
+key = "55d0648b2ded48d9"
+type = "paragraph"
+origin = '''
+结果栏会汇总形状数、颜色数、画布尺寸与提取出的色板，并提供两个后续入口：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4a5f38e75e568aa5"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/03-result-actions.webp').default}
+  alt="矢量化结果区域显示形状数、颜色数，并提供发送到图像转换和下载 SVG 两个按钮"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/03-result-actions.webp').default}
+  alt="Real English Lumina Vectorization Result with shape count, Download SVG, and Send to Image Converter controls highlighted"
+/>
+'''
+
+[[block]]
+key = "70ce05a48de2c827"
+type = "heading"
+origin = '''
+### 下载 SVG
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bffe27a964977b6a"
+type = "paragraph"
+origin = '''
+适用于需要将结果留档，或先导入 Inkscape、Adobe Illustrator 等矢量软件手动修整节点、删减杂色路径、修改填充与画布边界的场景。下载文件默认名为 `vectorized.svg`，建议及时按项目与版本重命名（例如 `logo-vector-v1.svg`），方便后续管理。
+'''
+translate = '''
+The result summary displays the generated shape count, color count, and palette swatches. Keep in mind that a higher shape count reflects greater path complexity rather than sharper detail.
+'''
+
+[[block]]
+key = "b7c69069943c2266"
+type = "heading"
+origin = '''
+### 发送到图像转换
+'''
+translate = '''
+'''
+
+[[block]]
+key = "e74af2404ac9941b"
+type = "paragraph"
+origin = '''
+确认 SVG 预览满意后，点击“发送到图像转换”，Lumina 会自动将该 SVG 载入转换器并切换至“矢量模式”。
+'''
+translate = '''
+Choose how to proceed:
+
+- **Download SVG**: Saves the traced file locally so you can archive a copy or refine nodes, paths, and fills in an external vector editor.
+- **Send to Image Converter**: Loads the traced SVG directly into Lumina's converter and switches **Modeling Mode** to **Vector**.
+
+## Step 4: Finish Modeling in Vector Mode
+'''
+
+[[block]]
+key = "e5332d2d9264304e"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/04-vector-mode.webp').default}
+  alt="发送完成后图像转换页面自动选择矢量模式"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/04-vector-mode.webp').default}
+  alt="Real English Lumina Image Converter after the traced SVG is loaded and Vector mode is selected"
+/>
+'''
+
+[[block]]
+key = "710b83196461ed10"
+type = "paragraph"
+origin = '''
+接下来按标准建模流程完成配置即可：
+'''
+translate = '''
+Once **Send to Image Converter** loads your traced SVG in **Vector** mode, complete the conversion workflow:
+'''
+
+[[block]]
+key = "84873caa0be421ee"
+type = "list"
+composite = true
+origin = '''
+{{84873caa0be421ee-23094c92405694e8}}
+{{84873caa0be421ee-0b848ff2b3f309af}}
+{{84873caa0be421ee-c424b0a44e789768}}
+{{84873caa0be421ee-d29d21b57ffa0ce0}}
+'''
+translate = '''
+1. Select **Source Type** and choose your Classic LUT or Material Archives;
+2. Set the finished millimeter dimensions, **Backing Thickness**, and structure mode;
+3. Click **Preview** to inspect matched color regions and layered recipes;
+4. Click **Generate** to export the 3MF, then open the full project in your slicer to verify layer toolpaths.
+'''
+
+[[block]]
+key = "84873caa0be421ee-23094c92405694e8"
+type = "listItem"
+composite = true
+origin = '''
+1. {{84873caa0be421ee-23094c92405694e8-dc79a49bd34cd22d}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "84873caa0be421ee-23094c92405694e8-dc79a49bd34cd22d"
+type = "paragraph"
+origin = '''
+选择色彩数据来源（经典 LUT 或耗材档案）及实际使用的耗材组合；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "84873caa0be421ee-0b848ff2b3f309af"
+type = "listItem"
+composite = true
+origin = '''
+2. {{84873caa0be421ee-0b848ff2b3f309af-a51ef65eba61f5fa}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "84873caa0be421ee-0b848ff2b3f309af-a51ef65eba61f5fa"
+type = "paragraph"
+origin = '''
+设置目标宽高、底板厚度与单双面结构；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "84873caa0be421ee-c424b0a44e789768"
+type = "listItem"
+composite = true
+origin = '''
+3. {{84873caa0be421ee-c424b0a44e789768-f6cb9c3dd0ced1bc}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "84873caa0be421ee-c424b0a44e789768-f6cb9c3dd0ced1bc"
+type = "paragraph"
+origin = '''
+点击“预览”，核对配色方案、色块边界与分层叠色；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "84873caa0be421ee-d29d21b57ffa0ce0"
+type = "listItem"
+composite = true
+origin = '''
+4. {{84873caa0be421ee-d29d21b57ffa0ce0-8a79b87d04a3586b}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "84873caa0be421ee-d29d21b57ffa0ce0-8a79b87d04a3586b"
+type = "paragraph"
+origin = '''
+预览无误后导出 3MF，并在切片器中检查实际刀路。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "cb61636632eff7a3"
+type = "paragraph"
+origin = '''
+色彩来源与建模模式的选型指南，请参阅[耗材档案和经典 LUT 怎么选？](../material-profile-selection/material-profile-selection.mdx)与[高保真、像素艺术与矢量模式怎么选？](pathname:///zh/docs/knowledge/image-mode-selection/)。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "aa741b435a76ad53"
+type = "heading"
+origin = '''
+## SVG 颜色与打印耗材的关系
+'''
+translate = '''
+## Troubleshooting Common Trace Issues
+
+| Symptom | Recommended fix |
+| --- | --- |
+| A solid white background appears | Remove the background or crop empty canvas margins before tracing |
+| Letter counters or small holes fill in | Start from a higher-resolution source, use bolder type, or clean up paths in a vector editor |
+| Thin lines vanish | Thicken strokes in the source artwork and check nozzle line-width limits at print size |
+| Hundreds of tiny stray shapes | Clean up JPG compression artifacts and specks, or reduce **Color Count** |
+| Smooth gradients split into visible bands | Expected for flat vector regions; switch to the original bitmap in **High-Fidelity** mode for smooth tonal transitions |
+| SVG loads with holes or missing fills | Check path closure, compound paths, masks, and fill rules |
+| Tracing takes a long time | Crop tightly and avoid tracing photographic textures or heavy noise |
+'''
+
+[[block]]
+key = "e5a1efbc4751e676"
+type = "paragraph"
+origin = '''
+矢量化阶段提取的是原图的屏幕 RGB 色块与路径边界；而最终 3D 打印效果由真实线材的透光率、层高、底板色、叠层顺序和喷嘴线宽共同决定：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "780b7c6bf5ac37df"
+type = "list"
+composite = true
+origin = '''
+{{780b7c6bf5ac37df-b55056ea70240619}}
+{{780b7c6bf5ac37df-4063bb01bf72c73d}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "780b7c6bf5ac37df-b55056ea70240619"
+type = "listItem"
+composite = true
+origin = '''
+- {{780b7c6bf5ac37df-b55056ea70240619-1e6a98d7453b71d8}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "780b7c6bf5ac37df-b55056ea70240619-1e6a98d7453b71d8"
+type = "paragraph"
+origin = '''
+SVG 识别出 24 种颜色，并不需要准备 24 卷实体耗材，Lumina 会用所选的几卷耗材通过多层叠色组合出相近色彩；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "780b7c6bf5ac37df-4063bb01bf72c73d"
+type = "listItem"
+composite = true
+origin = '''
+- {{780b7c6bf5ac37df-4063bb01bf72c73d-f872ece963f26867}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "780b7c6bf5ac37df-4063bb01bf72c73d-f872ece963f26867"
+type = "paragraph"
+origin = '''
+屏幕上的 SVG 颜色在匹配到具体耗材配方后会产生色域映射，最终效果需结合 Lumina 预览、切片器逐层预览与试打样件综合确认。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "dfa27d38f8cab5f8"
+type = "paragraph"
+origin = '''
+各阶段预览的差异说明见[为什么 Lumina 预览、切片器预览和打印实物不一样？](pathname:///zh/docs/knowledge/preview-slicer-print-differences/)。
+'''
+translate = '''
+For deeper SVG diagnostics, see [SVG Upload, White Background, Holes, and Missing Detail](pathname:///en/docs/knowledge/svg-troubleshooting/).
+'''
+
+[[block]]
+key = "cbbf3b866f003400"
+type = "heading"
+origin = '''
+## 常见问题 Q&A
+'''
+translate = '''
+## Common Questions
+'''
+
+[[block]]
+key = "73d1d57d0793e8f8"
+type = "heading"
+origin = '''
+### 位图转成 SVG 后画质一定会变清晰吗？
+'''
+translate = '''
+'''
+
+[[block]]
+key = "6ddb8ee1646a3e9e"
+type = "paragraph"
+origin = '''
+不会自动提升原图清晰度。SVG 的优势是路径可任意缩放而不产生像素马赛克，但路径形状来自对原图像素的描摹；若原图本身存在模糊、锯齿或压缩色块，这些瑕疵也会被描摹进路径里。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "067668a4ad02578c"
+type = "heading"
+origin = '''
+### 颜色数量设多少合适？
+'''
+translate = '''
+### Does vectorization increase the resolution of a blurry image?
+'''
+
+[[block]]
+key = "0f1fddfeee2153e6"
+type = "paragraph"
+origin = '''
+首次运行建议先用“自动”档查看基准效果。Logo 和图标可手动设为原设计的实际配色数；若复杂插画需要设极高的颜色数才能勉强还原层次，直接使用原始位图配合高保真模式往往更自然。
+'''
+translate = '''
+Tracing replaces pixel grids with mathematical curves that scale smoothly without blocky edges, but it cannot reconstruct facial features, fine lettering, or textures that were already blurred in the source bitmap.
+'''
+
+[[block]]
+key = "d920c64337573f6d"
+type = "heading"
+origin = '''
+### 形状数越多代表细节越好吗？
+'''
+translate = '''
+### Should I set Color Count as high as possible?
+'''
+
+[[block]]
+key = "d27073376e347ed2"
+type = "paragraph"
+origin = '''
+不一定。形状数偏高既可能是保留了丰富细节，也可能是把背景噪点、压缩伪影和渐变切成了大量细碎色块。判断标准是主体轮廓是否准确、文件后续预览和切片是否顺畅。
+'''
+translate = '''
+No. Extra colors often split anti-aliased edges and compression noise into fragile slivers. Use the lowest **Color Count** that captures the intended palette cleanly.
+'''
+
+[[block]]
+key = "a7019eafb50401c9"
+type = "heading"
+origin = '''
+### 为什么连续渐变转成 SVG 后变成了一条条色带？
+'''
+translate = '''
+### Why does a traced photo look posterized?
+'''
+
+[[block]]
+key = "f6a4d70ab1522ae5"
+type = "paragraph"
+origin = '''
+矢量图由边界明确的填充色块组成，处理连续渐变时会自动离散为有限级数的色阶区域。如果平滑渐变是画面的核心表现，建议保留原始位图并使用高保真模式。
+'''
+translate = '''
+Vector tracing represents continuous tone using discrete flat-color shapes. Unless you want a stylized poster effect, keep photographs as bitmaps and use **High-Fidelity** mode.
+'''
+
+[[block]]
+key = "111a34e8652cd69e"
+type = "heading"
+origin = '''
+### 发送到图像转换后，为什么还要重新选 LUT 或耗材档案？
+'''
+translate = '''
+### Can I edit the downloaded SVG in another app before converting?
+'''
+
+[[block]]
+key = "995e93ff94a78a17"
+type = "paragraph"
+origin = '''
+SVG 文件只记录二维几何路径与屏幕显示色，不包含任何打印机与耗材叠色配方。选定经典 LUT 或耗材档案后，Lumina 才能将 SVG 色块转换为可打印的多层结构。
+'''
+translate = '''
+Yes. Click **Download SVG**, edit paths and fills in Illustrator, Inkscape, or Affinity Designer, and upload the saved SVG to **Image Converter**. Stick to standard closed paths and solid fills—external fonts, blur filters, complex masks, and embedded rasters may not convert into 3D geometry.
+'''
+
+[[block]]
+key = "fdc7638fef995ddf"
+type = "heading"
+origin = '''
+### 发送到图像转换后还能换回原始位图吗？
+'''
+translate = '''
+### Why does a clean detail in the SVG disappear after slicing?
+'''
+
+[[block]]
+key = "0da71563fa109dd5"
+type = "paragraph"
+origin = '''
+可以随时重新上传此前备份的原始位图。由于矢量化是有损重绘过程，无法从生成的 SVG 反向还原原图的全部像素与纹理。
+'''
+translate = '''
+A vector shape can be mathematically sharp yet narrower than your nozzle's minimum line width at the target print dimensions. Always check fine details in your slicer's Layer Preview.
+'''
+
+[[block]]
+key = "268f9e40a20d6c50"
+type = "heading"
+origin = '''
+### SVG 导入图像转换后出现白底、破洞或局部缺失怎么办？
+'''
+translate = '''
+### Should I trace pixel art into SVG?
+'''
+
+[[block]]
+key = "9aaaebb662bd3c74"
+type = "paragraph"
+origin = '''
+先核对“图像转矢量”页面的 SVG 预览是否正常；若预览正常而转换页面异常，可按[SVG 上传失败、白底、破洞和细节异常怎么排查？](pathname:///zh/docs/knowledge/svg-troubleshooting/)逐项检查画布边界、路径闭合、蒙版与滤镜。
+'''
+translate = '''
+Keep pixel art as a bitmap and select **Pixel Art** mode instead—it preserves crisp grid cells directly without rounding or merging corners. See [Choose High-Fidelity, Pixel Art, or Vector Mode](pathname:///en/docs/knowledge/image-mode-selection/).
+'''
