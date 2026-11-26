@@ -1,0 +1,41 @@
+---
+title: "Online Preview and Export Allowance"
+description: "Try Lumina Studio in a browser and understand daily new-image exports, community accounts and desktop use."
+sidebar_position: 5
+---
+
+# Online Preview and Export Allowance
+
+Open the [Lumina Studio online preview site](https://test.luminastudio.com.cn/) to upload an image, adjust its palette and export a model without signing in. Calculations run on the service. Download the resulting 3MF and open it in your local slicer.
+
+## How the daily allowance works
+
+| Access | Daily allowance for new-image exports |
+| --- | --- |
+| Without signing in | 3 distinct source images |
+| With a connected Lumina community account | 3 anonymous + 3 additional exports: 6 distinct source images in total |
+
+The anonymous allowance is counted per IP address. It counts **distinct source images successfully exported**, not button presses. Re-exporting the same image after adjusting settings does not use another new-image slot; failed generation and queued requests do not consume one either.
+
+The page displays the remaining allowance and reset time in China Standard Time (UTC+8). People sharing an internet connection may share the anonymous allowance. Once it is used up, wait for the reset or continue working in the local desktop edition.
+
+## Connect a community account
+
+In the bottom-right status card, choose the Lumina sign-in button offering **+3 new images per day**. You can also connect through the community-account entry in the material or LUT library. Follow the sign-in verification steps, check that the **10-character one-time connection code** matches the one in Studio, confirm the account and allow the connection. The additional 3 new-image exports become available that day, on top of the 3 anonymous exports: 6 per day in total. Signing in repeatedly does not grant the bonus again.
+
+**The online site's public material and LUT libraries are preinstalled on the server.** Once connected, use your likes and saved resources to filter the preinstalled items directly in the pickers; there is no need to download and install each item in the browser. The local-download action on the online site displays a notice that public materials and color charts are already preinstalled; it does not save those resources to your computer.
+
+Use the desktop edition to download cloud resources on demand into your own private library, manage local materials or submit your calibration results with **Share to public library**. **My submissions** is also managed in the desktop edition. See [Community Account, Saved Resources and Submissions](../../reference/materials-and-recipes/community-resources/community-resources.mdx) for account connection and submission steps.
+
+## From preview to print
+
+1. Upload the source image and select profiles or a LUT matching your filaments.
+2. Set the finished dimensions, layer height and other parameters, then preview the palette.
+3. Generate the model, download the 3MF and save it on your computer.
+4. Open it in your slicer, check the printer, nozzle, filament slots and layer heights, then slice and print.
+
+Wait for an active generation task to finish instead of repeatedly clicking. For generation or download problems, see [Page and generation troubleshooting](../../knowledge/web-generation-troubleshooting/web-generation-troubleshooting.mdx).
+
+## Does desktop use require sign-in?
+
+No. The packaged desktop edition can use local materials, LUTs, offline resources and model generation without a community account. The account adds online features such as saved resources and submissions. The online site's daily new-image allowance does not apply to the local desktop workflow.

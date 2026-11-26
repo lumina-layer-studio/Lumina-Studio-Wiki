@@ -6,7 +6,11 @@ sidebar_position: 35
 
 # Build Material Stacks, Predict Color, and Print Validation Swatches
 
+
+
 **Material Recipe Query** estimates the surface color of a custom filament stack built from your Material Archives. Using a forward optical model, you select the filament layers, substrate, and color-layer height, compare predicted colors side by side, and export candidate stacks as a printable validation-swatch 3MF.
+
+
 
 :::info[Forward color prediction]
 Recipe Query calculates the resulting color from a filament stack you assemble. It does not perform an inverse search from a target HEX value.
@@ -21,23 +25,41 @@ Every stack is listed from **viewing face → substrate**:
 - Both the substrate (**White** or **Black**) and the color-layer height affect the predicted color.
 - Reversing the same set of filaments changes the resulting color.
 
+
+
 ## Step 1: Choose substrate and layer height
 
+
+
 Open **Material Management → Recipe Query**.
+
+
 
 <img
   src={require('./assets/01-query-overview.webp').default}
   alt="Real English Lumina Material Recipe Query with substrate, layer height, recipe list, predicted color, queue, and material library areas highlighted"
 />
 
+
+
 Configure the base conditions for your test:
 
 - **White** or **Black** substrate to match your model's actual backing.
 - The color-layer height matching your Material Archives and planned slicer profile (`0.04 mm`, `0.08 mm`, or `0.10 mm`).
 
+
+
+
+
 Light transmission and coverage change with layer thickness, so keep the layer height consistent across all candidates queued onto the same swatch plate.
 
 ## Step 2: Find the target Material Archives
+
+
+
+
+
+
 
 <img
   src={require('./assets/02-search-materials.webp').default}
@@ -53,6 +75,14 @@ Filter the library by material name, brand, archive directory name, or HEX color
 For guidance on choosing color sources, see [Choose Material Archives or a Classic LUT](../material-profile-selection/material-profile-selection.mdx).
 
 ## Step 3: Build the stack in order
+
+
+
+
+
+
+
+
 
 Click material cards in sequence from the viewing face toward the substrate.
 
@@ -77,6 +107,16 @@ Whenever you change the stack order, click **Compute color** to update the predi
 
 ## Step 4: Compare original and reversed stacks
 
+
+
+
+
+
+
+
+
+
+
 <img
   src={require('./assets/04-order-changes-result.webp').default}
   alt="Real English comparison of Yellow Yellow Blue and Blue Yellow Yellow stacks with different predicted colors"
@@ -95,9 +135,17 @@ Always record the exact layer order alongside the filament names when saving a r
 Screen predictions help narrow down candidate stacks quickly, while real prints also depend on filament batch, moisture, nozzle temperature, flow, first-layer squish, and ambient lighting. Print a validation swatch and inspect it under neutral lighting before committing to a final piece.
 :::
 
+
+
+
+
+
+
 ## Step 5: Queue candidates and configure swatch layout
 
 Click **Add to queue** to save a computed stack, then modify or reverse the layers, compute again, and add other candidates you want to compare on the same plate.
+
+
 
 <img
   src={require('./assets/05-queue-settings.webp').default}
@@ -115,10 +163,18 @@ Configure the validation plate below the queue:
 
 Click **Generate swatch** and wait for **Download 3MF** and the numbered grid legend to appear.
 
+
+
 <img
   src={require('./assets/06-swatch-ready.webp').default}
   alt="Real English Lumina generated validation swatch with Download 3MF and row-column legend highlighted"
 />
+
+
+
+
+
+
 
 1. Click **Download 3MF** and save a screenshot of the row/column legend.
 2. Open the 3MF **as a complete project** in your slicer.
@@ -127,7 +183,13 @@ Click **Generate swatch** and wait for **Download 3MF** and the numbered grid le
 5. Print with your target nozzle and color-layer height.
 6. Match each square on the cooled print to the row/column legend under consistent, neutral lighting.
 
+
+
+
+
 ## Evaluating printed swatches
+
+
 
 - Allow the plate to cool completely before judging gloss and color.
 - Hold all candidates under the same neutral light source and viewing angle.
@@ -135,7 +197,13 @@ Click **Generate swatch** and wait for **Download 3MF** and the numbered grid le
 - Check opacity, surface smoothness, and edge cleanliness alongside hue.
 - Print a fresh swatch if you switch filament batches, layer heights, nozzles, or backing colors.
 
+
+
 ## Common questions
+
+
+
+
 
 ### Can I enter a target HEX color to find the closest stack automatically?
 

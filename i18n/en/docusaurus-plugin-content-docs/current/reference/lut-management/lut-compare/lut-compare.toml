@@ -1,0 +1,272 @@
+[metadata]
+reviewed_source = "8b001a6abca4aa0b3d127dff511cbd607dc1209ca33e0f337c56d43b5cbc9194"
+
+[[block]]
+key = "daac898aaf8438a9"
+type = "yaml"
+origin = '''
+---
+title: "LUT 对比"
+description: "按共享配方比较两个 LUT 的 ΔE00、覆盖率、兼容性警告和最大差异。"
+sidebar_position: 8
+---
+'''
+translate = '''
+---
+title: "LUT Compare"
+description: "Shared-recipe ΔE00, coverage, compatibility warnings, and largest differences between two LUTs."
+sidebar_position: 8
+---
+'''
+
+[[block]]
+key = "97ac7d9a81a8c426"
+type = "heading"
+origin = '''
+# LUT 对比
+'''
+translate = '''
+# LUT Compare
+'''
+
+[[block]]
+key = "a810bc7b9851b959"
+type = "paragraph"
+origin = '''
+LUT 对比将**基准 LUT** 与**对比 LUT** 按相同配方键逐条关联，并计算两者颜色之间的 ΔE00 色差，适用于评估耗材批次波动、复测校准一致性以及验证校准更新前后的色彩变化。
+'''
+translate = '''
+LUT Compare joins a **Baseline LUT** and a **Comparison LUT** by matching recipe keys and calculates the ΔE00 color difference for each pair. Use it to evaluate filament batch drift, check repeat-calibration consistency, or review color shifts before and after an update.
+'''
+
+[[block]]
+key = "95934e9d4797decb"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-lut-compare.webp').default}
+  alt="两份真实 LUT 的对比统计和最大差异配方"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-lut-compare.webp').default}
+  alt="Real LUT comparison statistics and largest-difference recipes"
+/>
+'''
+
+[[block]]
+key = "56879b6a77bde00b"
+type = "heading"
+origin = '''
+## 统计指标
+'''
+translate = '''
+## Statistics
+'''
+
+[[block]]
+key = "51598c2b5e148fc8"
+type = "list"
+composite = true
+origin = '''
+{{51598c2b5e148fc8-8caf096be4584203}}
+{{51598c2b5e148fc8-c5874cddbe0f33ca}}
+{{51598c2b5e148fc8-f35cac0e3d6c3955}}
+{{51598c2b5e148fc8-fe9963207b1907d8}}
+'''
+translate = '''
+{{51598c2b5e148fc8-8caf096be4584203}}
+{{51598c2b5e148fc8-c5874cddbe0f33ca}}
+{{51598c2b5e148fc8-f35cac0e3d6c3955}}
+{{51598c2b5e148fc8-fe9963207b1907d8}}
+'''
+
+[[block]]
+key = "51598c2b5e148fc8-8caf096be4584203"
+type = "listItem"
+composite = true
+origin = '''
+- {{51598c2b5e148fc8-8caf096be4584203-3d0f89401546edeb}}
+'''
+translate = '''
+- {{51598c2b5e148fc8-8caf096be4584203-3d0f89401546edeb}}
+'''
+
+[[block]]
+key = "51598c2b5e148fc8-8caf096be4584203-3d0f89401546edeb"
+type = "paragraph"
+origin = '''
+**共享配方**：两份 LUT 中可按相同配方键配对的记录数量。
+'''
+translate = '''
+**Shared Recipes:** Number of records paired across both LUTs by identical recipe key.
+'''
+
+[[block]]
+key = "51598c2b5e148fc8-c5874cddbe0f33ca"
+type = "listItem"
+composite = true
+origin = '''
+- {{51598c2b5e148fc8-c5874cddbe0f33ca-5d896f41b671ea5c}}
+'''
+translate = '''
+- {{51598c2b5e148fc8-c5874cddbe0f33ca-5d896f41b671ea5c}}
+'''
+
+[[block]]
+key = "51598c2b5e148fc8-c5874cddbe0f33ca-5d896f41b671ea5c"
+type = "paragraph"
+origin = '''
+**RGB 完全一致**：共享配方中两侧 RGB 数值完全相同的条目数。
+'''
+translate = '''
+**Exact RGB Matches:** Paired records whose RGB values match identically.
+'''
+
+[[block]]
+key = "51598c2b5e148fc8-f35cac0e3d6c3955"
+type = "listItem"
+composite = true
+origin = '''
+- {{51598c2b5e148fc8-f35cac0e3d6c3955-992280a2ecee98eb}}
+'''
+translate = '''
+- {{51598c2b5e148fc8-f35cac0e3d6c3955-992280a2ecee98eb}}
+'''
+
+[[block]]
+key = "51598c2b5e148fc8-f35cac0e3d6c3955-992280a2ecee98eb"
+type = "paragraph"
+origin = '''
+**平均 / P95 / 最大 ΔE00**：共享配方的整体平均色差、尾部色差与极值色差。
+'''
+translate = '''
+**Mean / P95 / Max ΔE00:** Average, 95th-percentile, and worst-case color differences across shared recipes.
+'''
+
+[[block]]
+key = "51598c2b5e148fc8-fe9963207b1907d8"
+type = "listItem"
+composite = true
+origin = '''
+- {{51598c2b5e148fc8-fe9963207b1907d8-f6caa8fd9ba735ed}}
+'''
+translate = '''
+- {{51598c2b5e148fc8-fe9963207b1907d8-f6caa8fd9ba735ed}}
+'''
+
+[[block]]
+key = "51598c2b5e148fc8-fe9963207b1907d8-f6caa8fd9ba735ed"
+type = "paragraph"
+origin = '''
+**A / B 覆盖率**：共享配方分别占基准 LUT 与对比 LUT 可比较记录数的百分比。
+'''
+translate = '''
+**A / B Coverage:** Shared recipes expressed as a percentage of each LUT's comparable records.
+'''
+
+[[block]]
+key = "c1d5b07c5079b75d"
+type = "paragraph"
+origin = '''
+其中 **P95 ΔE00** 表示 95% 的共享配方色差均不超过该数值，比单一极值更能稳定反映整体一致性；**最大 ΔE00** 则便于快速定位偏差最显著的个别配方。
+'''
+translate = '''
+**P95 ΔE00** indicates that 95% of shared recipes fall at or below that threshold, offering a steadier measure of overall agreement than a single outlier, while **Max ΔE00** pinpoints the largest individual shift.
+'''
+
+[[block]]
+key = "680b0dcf5eca7d33"
+type = "heading"
+origin = '''
+## 兼容性提示与差异明细
+'''
+translate = '''
+## Compatibility warnings and largest differences
+'''
+
+[[block]]
+key = "bf6791099a707360"
+type = "paragraph"
+origin = '''
+当两份 LUT 的颜色模式、层数、层高、线宽、Schema、预测能力或动态能力不一致时，结果顶部会显示兼容性警告。对比始终按实际配方键匹配；若两份 LUT 不存在共享配方，系统会提示无法进行逐配方比较。
+'''
+translate = '''
+If the two LUTs differ in color mode, layer count, layer height, line width, schema, predictive capability, or dynamic capability, compatibility warnings appear above the summary. Records are always paired by recipe key rather than table row index; if two LUTs share no recipes, no recipe-level ΔE00 comparison is generated.
+'''
+
+[[block]]
+key = "b324595f7be1acae"
+type = "paragraph"
+origin = '''
+下方的**最大差异配方**列表并排展示两侧色块、完整叠色层序、HEX 色值及 ΔE00，方便回溯核查对应校准板照片或耗材批次。整个对比过程为只读分析，不会修改、合并或覆盖任何 LUT 文件。
+'''
+translate = '''
+**Largest Recipe Diffs** lists the widest shifts side by side—showing both swatches, the layer sequence, HEX values, and ΔE00—so you can trace anomalies back to a calibration photo or filament spool. Comparing LUTs is strictly read-only and leaves both files unchanged.
+'''
+
+[[block]]
+key = "8e598e329cd91d51"
+type = "paragraph"
+origin = '''
+相关页面：
+'''
+translate = '''
+Related pages:
+'''
+
+[[block]]
+key = "18c3aa00d6e3701b"
+type = "list"
+composite = true
+origin = '''
+{{18c3aa00d6e3701b-903a3559ced45c87}}
+{{18c3aa00d6e3701b-fd0bf42f3ccdd683}}
+'''
+translate = '''
+{{18c3aa00d6e3701b-903a3559ced45c87}}
+{{18c3aa00d6e3701b-fd0bf42f3ccdd683}}
+'''
+
+[[block]]
+key = "18c3aa00d6e3701b-903a3559ced45c87"
+type = "listItem"
+composite = true
+origin = '''
+- {{18c3aa00d6e3701b-903a3559ced45c87-ee7396ed30e2b221}}
+'''
+translate = '''
+- {{18c3aa00d6e3701b-903a3559ced45c87-ee7396ed30e2b221}}
+'''
+
+[[block]]
+key = "18c3aa00d6e3701b-903a3559ced45c87-ee7396ed30e2b221"
+type = "paragraph"
+origin = '''
+[LUT 详情与色域图](../lut-details/lut-details.mdx)
+'''
+translate = '''
+[LUT Details and Gamut Charts](../lut-details/lut-details.mdx)
+'''
+
+[[block]]
+key = "18c3aa00d6e3701b-fd0bf42f3ccdd683"
+type = "listItem"
+composite = true
+origin = '''
+- {{18c3aa00d6e3701b-fd0bf42f3ccdd683-89c69cf8d0cb90eb}}
+'''
+translate = '''
+- {{18c3aa00d6e3701b-fd0bf42f3ccdd683-89c69cf8d0cb90eb}}
+'''
+
+[[block]]
+key = "18c3aa00d6e3701b-fd0bf42f3ccdd683-89c69cf8d0cb90eb"
+type = "paragraph"
+origin = '''
+[LUT 库](../lut-library/lut-library.mdx)
+'''
+translate = '''
+[LUT Library](../lut-library/lut-library.mdx)
+'''

@@ -1,0 +1,496 @@
+[metadata]
+reviewed_source = "1060821c838ebf3b6c385124ac0c63b668e08c4a043d7433716954b0d7536b04"
+
+[[block]]
+key = "0bc0b81825ad426b"
+type = "yaml"
+origin = '''
+---
+title: "图片上传、批量选择、裁剪与旋转"
+description: "说明图像转换入口支持的素材格式、单图与批量模式、分享卡识别、裁剪比例与图像旋转。"
+sidebar_position: 1
+---
+'''
+translate = '''
+---
+title: "Image Import, Batch Selection, Crop, and Rotation"
+description: "Understand accepted artwork formats, single and batch input, share-card detection, crop ratios and coordinates, and image rotation."
+sidebar_position: 1
+---
+'''
+
+[[block]]
+key = "f0441e8dcb3d0e27"
+type = "heading"
+origin = '''
+# 图片上传、批量选择、裁剪与旋转
+'''
+translate = '''
+# Image Import, Batch Selection, Crop, and Rotation
+'''
+
+[[block]]
+key = "dc3845122854044b"
+type = "paragraph"
+origin = '''
+导入图片是图像转换的第一步，后续的预览、颜色匹配与模型几何轮廓都基于此处载入的素材。你可以点击上传区选择文件，也可以直接将文件拖入上传区；载入图片后上传区会收起为单行，点击文件名区域即可重新展开。
+'''
+translate = '''
+Importing an image is the first step in Converter—subsequent previews, color matching, and model geometry all build on the artwork loaded here. Click the upload area to choose files or drag and drop them directly onto it. Once an image is loaded, the upload area collapses to a single row; click the filename row at any time to expand it again.
+'''
+
+[[block]]
+key = "38bc4528ec2b6427"
+type = "heading"
+origin = '''
+## 支持的文件格式
+'''
+translate = '''
+## Accepted file formats
+'''
+
+[[block]]
+key = "f9f93f3940e18d8f"
+type = "paragraph"
+origin = '''
+转换入口支持导入以下类型的文件：
+'''
+translate = '''
+Converter accepts the following input formats:
+'''
+
+[[block]]
+key = "d31ccc3cfee7e7bd"
+type = "list"
+composite = true
+origin = '''
+{{d31ccc3cfee7e7bd-b060777aca2b2ff4}}
+{{d31ccc3cfee7e7bd-fdb0b8282ef3342a}}
+{{d31ccc3cfee7e7bd-7f0365b2d0c0a5d2}}
+{{d31ccc3cfee7e7bd-8809e3e9e91babd7}}
+'''
+translate = '''
+{{d31ccc3cfee7e7bd-b060777aca2b2ff4}}
+{{d31ccc3cfee7e7bd-fdb0b8282ef3342a}}
+{{d31ccc3cfee7e7bd-7f0365b2d0c0a5d2}}
+{{d31ccc3cfee7e7bd-8809e3e9e91babd7}}
+'''
+
+[[block]]
+key = "d31ccc3cfee7e7bd-b060777aca2b2ff4"
+type = "listItem"
+composite = true
+origin = '''
+- {{d31ccc3cfee7e7bd-b060777aca2b2ff4-3488d3dcd352db5c}}
+'''
+translate = '''
+- {{d31ccc3cfee7e7bd-b060777aca2b2ff4-3488d3dcd352db5c}}
+'''
+
+[[block]]
+key = "d31ccc3cfee7e7bd-b060777aca2b2ff4-3488d3dcd352db5c"
+type = "paragraph"
+origin = '''
+JPEG、PNG、SVG 和 WebP；
+'''
+translate = '''
+JPEG, PNG, SVG, and WebP;
+'''
+
+[[block]]
+key = "d31ccc3cfee7e7bd-fdb0b8282ef3342a"
+type = "listItem"
+composite = true
+origin = '''
+- {{d31ccc3cfee7e7bd-fdb0b8282ef3342a-c25280b6832edd9c}}
+'''
+translate = '''
+- {{d31ccc3cfee7e7bd-fdb0b8282ef3342a-c25280b6832edd9c}}
+'''
+
+[[block]]
+key = "d31ccc3cfee7e7bd-fdb0b8282ef3342a-c25280b6832edd9c"
+type = "paragraph"
+origin = '''
+HEIC 与 HEIF；
+'''
+translate = '''
+HEIC and HEIF;
+'''
+
+[[block]]
+key = "d31ccc3cfee7e7bd-7f0365b2d0c0a5d2"
+type = "listItem"
+composite = true
+origin = '''
+- {{d31ccc3cfee7e7bd-7f0365b2d0c0a5d2-0610a265156c1c81}}
+'''
+translate = '''
+- {{d31ccc3cfee7e7bd-7f0365b2d0c0a5d2-0610a265156c1c81}}
+'''
+
+[[block]]
+key = "d31ccc3cfee7e7bd-7f0365b2d0c0a5d2-0610a265156c1c81"
+type = "paragraph"
+origin = '''
+DNG、CR2、CR3、NEF、ARW、ORF、RW2、RAF、PEF、SRW 及通用 RAW 格式；
+'''
+translate = '''
+DNG, CR2, CR3, NEF, ARW, ORF, RW2, RAF, PEF, SRW, and generic RAW formats;
+'''
+
+[[block]]
+key = "d31ccc3cfee7e7bd-8809e3e9e91babd7"
+type = "listItem"
+composite = true
+origin = '''
+- {{d31ccc3cfee7e7bd-8809e3e9e91babd7-bbaeb7bb5c2ee242}}
+'''
+translate = '''
+- {{d31ccc3cfee7e7bd-8809e3e9e91babd7-bbaeb7bb5c2ee242}}
+'''
+
+[[block]]
+key = "d31ccc3cfee7e7bd-8809e3e9e91babd7-bbaeb7bb5c2ee242"
+type = "paragraph"
+origin = '''
+Lumina 的 `.lumina.json` 项目文件。
+'''
+translate = '''
+Lumina `.lumina.json` project files.
+'''
+
+[[block]]
+key = "487097bb9bbbf3e9"
+type = "paragraph"
+origin = '''
+RAW、HEIC 和 HEIF 的直接读取取决于当前运行环境的解码支持；若环境不支持直接解码，软件会提示先将其转换为 PNG 或 JPEG。上传 SVG 时按矢量图形处理，即使开启了“上传后裁剪”，也不会自动弹出位图裁剪窗口。
+'''
+translate = '''
+RAW, HEIC, and HEIF support depends on the decoders available in your system environment; if a file cannot be decoded directly, Lumina prompts you to convert it to PNG or JPEG first. SVG files are processed as vector artwork and do not automatically open the bitmap crop dialog when **Crop after upload** is enabled.
+'''
+
+[[block]]
+key = "71efec90e60798e0"
+type = "heading"
+origin = '''
+## 单图、追加与批量模式
+'''
+translate = '''
+## Single image, add more, and batch mode
+'''
+
+[[block]]
+key = "53ef2f5417ff739e"
+type = "paragraph"
+origin = '''
+载入单张普通图片时，上传区会展示当前图片预览，并提供两项操作：
+'''
+translate = '''
+When a single standard image is loaded, the uploader displays the current image and provides two actions:
+'''
+
+[[block]]
+key = "fb2d213a664e9075"
+type = "list"
+composite = true
+origin = '''
+{{fb2d213a664e9075-4566a8b866ba6a00}}
+{{fb2d213a664e9075-c5717989c131176e}}
+'''
+translate = '''
+{{fb2d213a664e9075-4566a8b866ba6a00}}
+{{fb2d213a664e9075-c5717989c131176e}}
+'''
+
+[[block]]
+key = "fb2d213a664e9075-4566a8b866ba6a00"
+type = "listItem"
+composite = true
+origin = '''
+- {{fb2d213a664e9075-4566a8b866ba6a00-8c2393a77743a0a0}}
+'''
+translate = '''
+- {{fb2d213a664e9075-4566a8b866ba6a00-8c2393a77743a0a0}}
+'''
+
+[[block]]
+key = "fb2d213a664e9075-4566a8b866ba6a00-8c2393a77743a0a0"
+type = "paragraph"
+origin = '''
+**更换当前图片：** 替换当前任务所使用的图片；
+'''
+translate = '''
+**Replace current image:** Replaces the artwork in the current task.
+'''
+
+[[block]]
+key = "fb2d213a664e9075-c5717989c131176e"
+type = "listItem"
+composite = true
+origin = '''
+- {{fb2d213a664e9075-c5717989c131176e-a9d273b8b9bd13c4}}
+'''
+translate = '''
+- {{fb2d213a664e9075-c5717989c131176e-a9d273b8b9bd13c4}}
+'''
+
+[[block]]
+key = "fb2d213a664e9075-c5717989c131176e-a9d273b8b9bd13c4"
+type = "paragraph"
+origin = '''
+**添加更多图片：** 追加文件并切换为批量转换任务。
+'''
+translate = '''
+**Add more images:** Appends additional files and switches to batch mode.
+'''
+
+[[block]]
+key = "e7f9dcc7f79b4597"
+type = "paragraph"
+origin = '''
+进入批量模式后，上传区会展示文件列表，支持继续追加或逐个移除文件。列表最多直接列出 **40** 个文件名，超出部分以剩余文件数汇总显示。批量模式下不提供单图裁剪开关，请在加入队列前预先调整好每张图片的方向与构图。
+'''
+translate = '''
+Batch mode lists queued files and lets you add more or remove individual items. Up to **40** filenames are listed directly, with any additional files summarized by count. Because the single-image crop toggle is hidden in batch mode, prepare each image's framing and orientation before adding it to a batch.
+'''
+
+[[block]]
+key = "28e5a30e1ea4003a"
+type = "paragraph"
+origin = '''
+当一次仅选择单个 `.lumina.json` 文件或带有 Lumina 配方的 PNG 分享卡时，软件会自动按项目文件导入并恢复对应参数；不含有效配方数据的普通 PNG 仍按常规图片导入。完整恢复流程详见[分享卡与 JSON：导出、导入和继续编辑](../../../knowledge/share-card-json/share-card-json.mdx)。
+'''
+translate = '''
+When you select a single `.lumina.json` file or a PNG share card containing an embedded Lumina recipe, Lumina imports it as a project and restores its saved parameters. Standard PNGs without valid recipe data are imported as regular images. For the full workflow, see [Share Card and JSON: Export, Import, and Continue Editing](../../../knowledge/share-card-json/share-card-json.mdx).
+'''
+
+[[block]]
+key = "0eb32b2fb2d88be6"
+type = "heading"
+origin = '''
+## 上传后裁剪
+'''
+translate = '''
+## Crop after upload
+'''
+
+[[block]]
+key = "7a6185b953737e87"
+type = "paragraph"
+origin = '''
+开启**上传后裁剪**后，每次新选入单张位图都会自动打开裁剪窗口。关闭该开关仅对后续新选入的图片生效，当前已完成裁剪的图片保持不变。
+'''
+translate = '''
+When **Crop after upload** is turned on, selecting a new single bitmap automatically opens the crop dialog. Turning the toggle off applies only to future uploads and leaves your currently cropped image intact.
+'''
+
+[[block]]
+key = "f5c45eb597e0d904"
+type = "paragraph"
+origin = '''
+裁剪窗口提供以下控制项：
+'''
+translate = '''
+The crop dialog includes:
+'''
+
+[[block]]
+key = "97b2a0a8d1fd943f"
+type = "list"
+composite = true
+origin = '''
+{{97b2a0a8d1fd943f-085fe59859204c78}}
+{{97b2a0a8d1fd943f-c6c90ccd96de17b0}}
+{{97b2a0a8d1fd943f-17ce6f9d8350d067}}
+{{97b2a0a8d1fd943f-e0c4104d6b2aca31}}
+{{97b2a0a8d1fd943f-10f22238bc6d2530}}
+'''
+translate = '''
+{{97b2a0a8d1fd943f-085fe59859204c78}}
+{{97b2a0a8d1fd943f-c6c90ccd96de17b0}}
+{{97b2a0a8d1fd943f-17ce6f9d8350d067}}
+{{97b2a0a8d1fd943f-e0c4104d6b2aca31}}
+{{97b2a0a8d1fd943f-10f22238bc6d2530}}
+'''
+
+[[block]]
+key = "97b2a0a8d1fd943f-085fe59859204c78"
+type = "listItem"
+composite = true
+origin = '''
+- {{97b2a0a8d1fd943f-085fe59859204c78-7e63e4ef3ea43f14}}
+'''
+translate = '''
+- {{97b2a0a8d1fd943f-085fe59859204c78-7e63e4ef3ea43f14}}
+'''
+
+[[block]]
+key = "97b2a0a8d1fd943f-085fe59859204c78-7e63e4ef3ea43f14"
+type = "paragraph"
+origin = '''
+自由比例；
+'''
+translate = '''
+Free aspect ratio;
+'''
+
+[[block]]
+key = "97b2a0a8d1fd943f-c6c90ccd96de17b0"
+type = "listItem"
+composite = true
+origin = '''
+- {{97b2a0a8d1fd943f-c6c90ccd96de17b0-530db6591385c82b}}
+'''
+translate = '''
+- {{97b2a0a8d1fd943f-c6c90ccd96de17b0-530db6591385c82b}}
+'''
+
+[[block]]
+key = "97b2a0a8d1fd943f-c6c90ccd96de17b0-530db6591385c82b"
+type = "paragraph"
+origin = '''
+`1:1`、`4:3`、`3:2`、`16:9`、`9:16` 和 `3:4` 固定比例；
+'''
+translate = '''
+`1:1`, `4:3`, `3:2`, `16:9`, `9:16`, and `3:4` aspect presets;
+'''
+
+[[block]]
+key = "97b2a0a8d1fd943f-17ce6f9d8350d067"
+type = "listItem"
+composite = true
+origin = '''
+- {{97b2a0a8d1fd943f-17ce6f9d8350d067-22bca2e4781282c9}}
+'''
+translate = '''
+- {{97b2a0a8d1fd943f-17ce6f9d8350d067-22bca2e4781282c9}}
+'''
+
+[[block]]
+key = "97b2a0a8d1fd943f-17ce6f9d8350d067-22bca2e4781282c9"
+type = "paragraph"
+origin = '''
+原图尺寸与当前选区像素尺寸显示；
+'''
+translate = '''
+Original image dimensions and current selection dimensions in pixels;
+'''
+
+[[block]]
+key = "97b2a0a8d1fd943f-e0c4104d6b2aca31"
+type = "listItem"
+composite = true
+origin = '''
+- {{97b2a0a8d1fd943f-e0c4104d6b2aca31-aa378ccb5491189e}}
+'''
+translate = '''
+- {{97b2a0a8d1fd943f-e0c4104d6b2aca31-aa378ccb5491189e}}
+'''
+
+[[block]]
+key = "97b2a0a8d1fd943f-e0c4104d6b2aca31-aa378ccb5491189e"
+type = "paragraph"
+origin = '''
+`X`、`Y`、宽度与高度的精确像素输入框；
+'''
+translate = '''
+Numeric pixel inputs for `X`, `Y`, width, and height;
+'''
+
+[[block]]
+key = "97b2a0a8d1fd943f-10f22238bc6d2530"
+type = "listItem"
+composite = true
+origin = '''
+- {{97b2a0a8d1fd943f-10f22238bc6d2530-d80244459dff0683}}
+'''
+translate = '''
+- {{97b2a0a8d1fd943f-10f22238bc6d2530-d80244459dff0683}}
+'''
+
+[[block]]
+key = "97b2a0a8d1fd943f-10f22238bc6d2530-d80244459dff0683"
+type = "paragraph"
+origin = '''
+**向左旋转 90°**、**向右旋转 90°**、**取消**和**应用更改**按钮。
+'''
+translate = '''
+**Rotate left 90°**, **Rotate right 90°**, **Cancel**, and **Apply Changes**.
+'''
+
+[[block]]
+key = "bad4f2568c3bbde9"
+type = "paragraph"
+origin = '''
+拖动画面选框与手动输入像素数值会实时同步，且选区自动限制在原图边界之内。点击**应用更改**后，当前任务的图片、预览和宽高比会一并更新为裁剪结果；按 `Esc`、关闭窗口或点击**取消**则会放弃本次改动。
+'''
+translate = '''
+Dragging the crop box and typing pixel coordinates stay synchronized in real time, and the selection stays constrained within the image bounds. Clicking **Apply Changes** updates the working image, preview, and aspect ratio to the cropped result. Pressing `Esc`, closing the dialog, or clicking **Cancel** discards uncommitted edits.
+'''
+
+[[block]]
+key = "e4330a22d055a17e"
+type = "heading"
+origin = '''
+## 图像旋转
+'''
+translate = '''
+## Image rotation
+'''
+
+[[block]]
+key = "24467764f86729ee"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/03-current-crop.webp').default}
+  alt="裁切与旋转窗口中的左右旋转和应用更改按钮"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/03-current-crop.webp').default}
+  alt="Crop & Rotate dialog with rotation buttons and Apply Changes highlighted"
+/>
+'''
+
+[[block]]
+key = "cc23a4fb5e210f9b"
+type = "paragraph"
+origin = '''
+上传单张图片后，点击**裁切与旋转**打开编辑窗口，选择**向左旋转 90°**或**向右旋转 90°**（连续点击两次可旋转 180°），最后点击**应用更改**保存。
+'''
+translate = '''
+With a single image loaded, click **Crop & Rotate**, then use **Rotate left 90°** or **Rotate right 90°** (click twice for 180°) and click **Apply Changes** to confirm.
+'''
+
+[[block]]
+key = "1534d87dd70fb2b3"
+type = "paragraph"
+origin = '''
+确认旋转后，软件会更新当前工作图片及其宽高比，后续的 2D/3D 预览、颜色匹配、分享卡、JSON 导出与 3MF 模型均采用旋转后的方向。SVG 文件同样可在此窗口旋转方向并完整保留矢量路径，不会执行位图化裁剪。
+'''
+translate = '''
+Applying rotation writes an updated working image and refreshes its aspect ratio, so all subsequent 2D and 3D previews, color matching, share cards, JSON exports, and 3MF models use the new orientation. Consecutive rotations build directly on the current working image. SVG files can also be rotated here while preserving vector paths, without bitmap cropping.
+'''
+
+[[block]]
+key = "cc97d753e2cdcfe4"
+type = "heading"
+origin = '''
+## 修改图片后的检查
+'''
+translate = '''
+## Check after changing the image
+'''
+
+[[block]]
+key = "b843855deea46176"
+type = "paragraph"
+origin = '''
+更换、裁剪或旋转图片后，原先的预览已不再反映最新素材。请重新点击**预览**，核对模型外轮廓、方向、透明镂空区域、分层图与目标物理尺寸。完整操作步骤见[上传、裁剪与旋转图片](../../../knowledge/image-upload-crop-rotate/image-upload-crop-rotate.mdx)。
+'''
+translate = '''
+Replacing, cropping, or rotating an image makes the previous preview outdated. Click **Preview** again to verify the updated outline, orientation, transparent cutouts, layer images, and physical dimensions. For a step-by-step walkthrough, see [Upload, Crop, and Rotate an Image](../../../knowledge/image-upload-crop-rotate/image-upload-crop-rotate.mdx).
+'''

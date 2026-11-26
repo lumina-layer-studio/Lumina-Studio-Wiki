@@ -1,0 +1,541 @@
+[metadata]
+migration_layout = "preserved English structure; root blocks retain grouped or omitted source sections"
+reviewed_source = "1f33f438e218de76f4d2f5cb2b4abafa597f63e58e0c3cc15f11d5af86bb8207"
+
+[[block]]
+key = "839b1dbb9bbf74a0"
+type = "yaml"
+origin = '''
+---
+title: "分离底板"
+description: "分离底板对 3MF 对象结构、背板输出模式与底板耗材归属的影响，以及切片检查要点。"
+sidebar_position: 1
+---
+'''
+translate = '''
+---
+title: "Separate Backing"
+description: "How Separate Backing structures 3MF objects, handles backing output modes, and maps backing filament in your slicer."
+sidebar_position: 1
+---
+'''
+
+[[block]]
+key = "93546269b721d3da"
+type = "heading"
+origin = '''
+# 分离底板
+'''
+translate = '''
+# Separate Backing
+'''
+
+[[block]]
+key = "39cd7aba08647007"
+type = "paragraph"
+origin = '''
+“分离底板”决定底板网格是并入底色对象，还是作为独立对象写入导出的 3MF，同时保持底板厚度与耗材归属不变。开启后，符合条件的单面作品还可通过“背板输出”将模型与背板分别保存为独立工程。
+'''
+translate = '''
+**Separate Backing** controls whether the backing mesh merges into the base-color object or exports as its own object in the 3MF, while keeping backing thickness and filament assignment unchanged. Eligible single-sided projects also offer **Backing output**, which can save the artwork and backing as separate 3MF projects.
+'''
+
+[[block]]
+key = "e7ae7b3be5eb67fe"
+type = "paragraph"
+origin = '''
+此项默认关闭。
+'''
+translate = '''
+This option is off by default.
+'''
+
+[[block]]
+key = "0ef779c18ec11294"
+type = "heading"
+origin = '''
+## 控件位置
+'''
+translate = '''
+## Location
+
+Open **Converter → Core Settings → Advanced Settings**, then locate **Separate Backing**.
+'''
+
+[[block]]
+key = "2e3fa10f1e7d76ab"
+type = "list"
+composite = true
+origin = '''
+{{2e3fa10f1e7d76ab-f384c4d6ff55e5a0}}
+{{2e3fa10f1e7d76ab-6c8c66c4abcef302}}
+{{2e3fa10f1e7d76ab-c9cfa7af85f6bbcd}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2e3fa10f1e7d76ab-f384c4d6ff55e5a0"
+type = "listItem"
+composite = true
+origin = '''
+1. {{2e3fa10f1e7d76ab-f384c4d6ff55e5a0-4842356f18ef681b}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2e3fa10f1e7d76ab-f384c4d6ff55e5a0-4842356f18ef681b"
+type = "paragraph"
+origin = '''
+进入“图像转换”。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2e3fa10f1e7d76ab-6c8c66c4abcef302"
+type = "listItem"
+composite = true
+origin = '''
+2. {{2e3fa10f1e7d76ab-6c8c66c4abcef302-e2068d169687894e}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2e3fa10f1e7d76ab-6c8c66c4abcef302-e2068d169687894e"
+type = "paragraph"
+origin = '''
+打开“核心设置”中的“高级设置”。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2e3fa10f1e7d76ab-c9cfa7af85f6bbcd"
+type = "listItem"
+composite = true
+origin = '''
+3. {{2e3fa10f1e7d76ab-c9cfa7af85f6bbcd-3405707350b8b0fe}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2e3fa10f1e7d76ab-c9cfa7af85f6bbcd-3405707350b8b0fe"
+type = "paragraph"
+origin = '''
+找到“分离底板”。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "de4a802b14c1ddc1"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-separate-backing-location.webp').default}
+  alt="Lumina Studio 高级设置中的分离底板开关"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-separate-backing-location.webp').default}
+  alt="Separate Backing in Lumina Studio Advanced Settings"
+/>
+'''
+
+[[block]]
+key = "0047d6f6cb4886d5"
+type = "heading"
+origin = '''
+## 关闭时
+'''
+translate = '''
+## When disabled
+'''
+
+[[block]]
+key = "0e6d22ad1eaab442"
+type = "paragraph"
+origin = '''
+底板会并入当前选定的底板耗材对象。切片软件会将其与使用同一耗材的画面区域视为单个对象，对象列表更精简。
+'''
+translate = '''
+The backing merges into the object assigned to the selected backing filament. Your slicer presents it alongside artwork geometry that shares the same filament, keeping the object list compact.
+'''
+
+[[block]]
+key = "041a32a83e21cd8a"
+type = "heading"
+origin = '''
+## 开启时
+'''
+translate = '''
+## When enabled
+'''
+
+[[block]]
+key = "73069763a89a3323"
+type = "paragraph"
+origin = '''
+软件会保留独立的底板网格：
+'''
+translate = '''
+Lumina writes a dedicated backing mesh:
+'''
+
+[[block]]
+key = "0af219908392721c"
+type = "list"
+composite = true
+origin = '''
+{{0af219908392721c-396df6912d197cd9}}
+{{0af219908392721c-4a01c08f8c12448c}}
+{{0af219908392721c-48dba9fa458d2b58}}
+{{0af219908392721c-5fa80cf344ff7687}}
+'''
+translate = '''
+- Raster and High-Fidelity models create a separate `Backing` object.
+- Native Vector models create a separate `Board` object.
+- The backing retains the selected backing-filament metadata without adding an extra filament slot.
+- Large-format tiled exports apply the same rule to every valid tile.
+'''
+
+[[block]]
+key = "0af219908392721c-396df6912d197cd9"
+type = "listItem"
+composite = true
+origin = '''
+- {{0af219908392721c-396df6912d197cd9-513f5d1d89ab050f}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0af219908392721c-396df6912d197cd9-513f5d1d89ab050f"
+type = "paragraph"
+origin = '''
+像素与高保真模型中，底板以独立的 `Backing` 对象写入场景。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0af219908392721c-4a01c08f8c12448c"
+type = "listItem"
+composite = true
+origin = '''
+- {{0af219908392721c-4a01c08f8c12448c-e06450150ac37512}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0af219908392721c-4a01c08f8c12448c-e06450150ac37512"
+type = "paragraph"
+origin = '''
+原生矢量模型中，底板以独立的 `Board` 对象保留。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0af219908392721c-48dba9fa458d2b58"
+type = "listItem"
+composite = true
+origin = '''
+- {{0af219908392721c-48dba9fa458d2b58-4b2d4078667cdf91}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0af219908392721c-48dba9fa458d2b58-4b2d4078667cdf91"
+type = "paragraph"
+origin = '''
+底板仍使用当前选定的底板耗材配置，不会额外占用新的耗材槽位。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0af219908392721c-5fa80cf344ff7687"
+type = "listItem"
+composite = true
+origin = '''
+- {{0af219908392721c-5fa80cf344ff7687-799ebec42ec00425}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0af219908392721c-5fa80cf344ff7687-799ebec42ec00425"
+type = "paragraph"
+origin = '''
+大画幅分块生成时，每个有效分块都会按相同规则保留独立底板对象。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "defe4de50e4eeef8"
+type = "paragraph"
+origin = '''
+导入切片软件后，请在对象列表中确认底板对象已生成，并核对其映射的耗材槽位。
+'''
+translate = '''
+After importing the 3MF into your slicer, check the object list to confirm that the backing object is present and mapped to the intended filament.
+'''
+
+[[block]]
+key = "835fb187bd010ab9"
+type = "heading"
+origin = '''
+## 预览与重新生成
+'''
+translate = '''
+## Preview and regeneration
+'''
+
+[[block]]
+key = "aaf99dc824cbfad7"
+type = "paragraph"
+origin = '''
+2D 颜色预览仅展示配色效果；切换“分离底板”后请重新生成模型，并在导出的 3MF 及切片软件对象列表中查看拆分结果。该设置会随 Lumina 配方卡一并保存。
+'''
+translate = '''
+The 2D color preview shows color matching only. Regenerate the 3MF after toggling **Separate Backing** and inspect the resulting structure in your slicer's object list. Lumina recipe cards save this setting.
+'''
+
+[[block]]
+key = "c0be5164f1205e7f"
+type = "heading"
+origin = '''
+## 适用场景
+'''
+translate = '''
+## Typical uses
+'''
+
+[[block]]
+key = "57472fdbba47378c"
+type = "heading"
+origin = '''
+### 背板输出
+'''
+translate = '''
+### Backing output
+'''
+
+[[block]]
+key = "7b1c51d7dbb0a383"
+type = "table"
+origin = '''
+| 选项 | 下载结果 | 用途 |
+| --- | --- | --- |
+| 同一工程 | 模型与独立底板对象保存在同一份 3MF 中 | 在切片软件中统一管理与同盘切片 |
+| 独立分盘工程（ZIP） | 模型和背板分别输出为独立 3MF 并打包下载 | 两份工程分别切片、分盘打印 |
+'''
+translate = '''
+| Option | Download | Purpose |
+| --- | --- | --- |
+| Same project | Artwork and separate backing object in one 3MF | Manage and slice them together |
+| Independent plate projects (ZIP) | Separate model and backing 3MF files in a ZIP archive | Slice and print each plate independently |
+'''
+
+[[block]]
+key = "e603e55a20bf8ecf"
+type = "paragraph"
+origin = '''
+独立分盘工程会保持作品原始物理尺寸，不会自动缩小以适应打印板。解压后请分别打开每份 3MF，核对模型、裙边（Brim）与擦料塔的摆放位置，若有手动检查提示请先调整妥当再切片打印。
+'''
+translate = '''
+Independent projects preserve exact physical dimensions without scaling artwork down to fit the bed. Extract the ZIP, open each 3MF, resolve any placement warnings, and verify object, brim, and wipe-tower positions before slicing.
+'''
+
+[[block]]
+key = "159b7e94f4ce3c24"
+type = "paragraph"
+origin = '''
+“独立分盘工程（ZIP）”适用于单面、无浮雕的单模型导出；双面、浮雕、五色扩展、批量、拼图、大画幅和模型贴图流程请使用“同一工程”或对应模式自带的分块输出。分盘导出保持原有的显色层顺序，打印完成后可将面板与背板对齐粘接或组装。
+'''
+translate = '''
+**Independent plate projects (ZIP)** is available for single-sided, non-relief, single-model exports. For double-sided, relief, five-color extended, batch, puzzle, large-format, or Model texture workflows, use **Same project** or that workflow's built-in tiled output. Exporting separate plates preserves the color-layer order; bond or assemble the printed parts after printing.
+'''
+
+[[block]]
+key = "71be3f7ae6041803"
+type = "heading"
+origin = '''
+### 何时建议开启
+'''
+translate = '''
+### When a separate backing object helps
+'''
+
+[[block]]
+key = "99e7193defc11ad1"
+type = "list"
+composite = true
+origin = '''
+{{99e7193defc11ad1-ca1eec22e0ddd8ca}}
+{{99e7193defc11ad1-a05e24667dd154d3}}
+{{99e7193defc11ad1-3627a31208e990de}}
+'''
+translate = '''
+- Select, hide, or configure the backing independently in your slicer.
+- Print or post-process the backing as a standalone part.
+- Match a printer or slicer workflow that manages backing and color objects separately.
+'''
+
+[[block]]
+key = "99e7193defc11ad1-ca1eec22e0ddd8ca"
+type = "listItem"
+composite = true
+origin = '''
+- {{99e7193defc11ad1-ca1eec22e0ddd8ca-c27d9db6466f3754}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "99e7193defc11ad1-ca1eec22e0ddd8ca-c27d9db6466f3754"
+type = "paragraph"
+origin = '''
+需要在切片软件中单独选择、隐藏或检查底板参数。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "99e7193defc11ad1-a05e24667dd154d3"
+type = "listItem"
+composite = true
+origin = '''
+- {{99e7193defc11ad1-a05e24667dd154d3-a8a893cd675a7d29}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "99e7193defc11ad1-a05e24667dd154d3-a8a893cd675a7d29"
+type = "paragraph"
+origin = '''
+需要将底板拆分为独立零件进行分盘打印或后处理。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "99e7193defc11ad1-3627a31208e990de"
+type = "listItem"
+composite = true
+origin = '''
+- {{99e7193defc11ad1-3627a31208e990de-880301e8c3580852}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "99e7193defc11ad1-3627a31208e990de-880301e8c3580852"
+type = "paragraph"
+origin = '''
+当前打印机或切片工作流需要将底板与显色层对象分开管理。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "fd398b9d8381471e"
+type = "paragraph"
+origin = '''
+若无需单独操作底板，保持关闭即可获得更简洁的对象结构。
+'''
+translate = '''
+If you do not need separate control over the backing, leave this option off for a simpler object list.
+'''
+
+[[block]]
+key = "2ebb014b8f68bd72"
+type = "heading"
+origin = '''
+## 相关页面
+'''
+translate = '''
+## Related pages
+'''
+
+[[block]]
+key = "72c56cf0c81f7d83"
+type = "list"
+composite = true
+origin = '''
+{{72c56cf0c81f7d83-3df9e69baf2e40ab}}
+{{72c56cf0c81f7d83-014853c3daa66037}}
+{{72c56cf0c81f7d83-0f31f523f383e0ca}}
+'''
+translate = '''
+- [Base-color Layer Height and Backing Thickness](../../../knowledge/base-color-layer-height/base-color-layer-height.mdx)
+- [Why Lumina Preview, Slicer Preview, and the Print Differ](../../../knowledge/preview-slicer-print-differences/preview-slicer-print-differences.mdx)
+- [Material Mapping in a Slicer](../../../tutorials/slicer-material-mapping/slicer-material-mapping.mdx)
+'''
+
+[[block]]
+key = "72c56cf0c81f7d83-3df9e69baf2e40ab"
+type = "listItem"
+composite = true
+origin = '''
+- {{72c56cf0c81f7d83-3df9e69baf2e40ab-3708498805b2c231}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "72c56cf0c81f7d83-3df9e69baf2e40ab-3708498805b2c231"
+type = "paragraph"
+origin = '''
+[底色层高与底板厚度](../../../knowledge/base-color-layer-height/base-color-layer-height.mdx)
+'''
+translate = '''
+'''
+
+[[block]]
+key = "72c56cf0c81f7d83-014853c3daa66037"
+type = "listItem"
+composite = true
+origin = '''
+- {{72c56cf0c81f7d83-014853c3daa66037-3a29d0f832cefddd}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "72c56cf0c81f7d83-014853c3daa66037-3a29d0f832cefddd"
+type = "paragraph"
+origin = '''
+[切片预览、软件预览与实物为什么不同](../../../knowledge/preview-slicer-print-differences/preview-slicer-print-differences.mdx)
+'''
+translate = '''
+'''
+
+[[block]]
+key = "72c56cf0c81f7d83-0f31f523f383e0ca"
+type = "listItem"
+composite = true
+origin = '''
+- {{72c56cf0c81f7d83-0f31f523f383e0ca-6c683f6fd31c190b}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "72c56cf0c81f7d83-0f31f523f383e0ca-6c683f6fd31c190b"
+type = "paragraph"
+origin = '''
+[切片软件中的耗材映射](../../../tutorials/slicer-material-mapping/slicer-material-mapping.mdx)
+'''
+translate = '''
+'''

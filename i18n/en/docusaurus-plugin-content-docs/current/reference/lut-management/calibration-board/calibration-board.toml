@@ -1,0 +1,272 @@
+[metadata]
+reviewed_source = "95845f0504125dcf51f2931d1b1e760209c365321a2a5d2b3ceded60eaf6ec11"
+
+[[block]]
+key = "6ccc9df920223f01"
+type = "yaml"
+origin = '''
+---
+title: "生成 LUT 校准板"
+description: "LUT 校准板的颜色模式、色块尺寸、间距、底板和输出方式。"
+sidebar_position: 3
+---
+'''
+translate = '''
+---
+title: "Generate a LUT Calibration Board"
+description: "Color mode, block size, spacing, backing, and output of LUT calibration boards."
+sidebar_position: 3
+---
+'''
+
+[[block]]
+key = "655efbf9dedcd8b7"
+type = "heading"
+origin = '''
+# 生成 LUT 校准板
+'''
+translate = '''
+# Generate a LUT Calibration Board
+'''
+
+[[block]]
+key = "61dd7ddeeba5e539"
+type = "paragraph"
+origin = '''
+校准板将选定颜色模式下的叠色配方排布为实体打印色块。完成打印与实拍后，可通过 LUT 提取器读取色块实测值并生成专属 LUT。
+'''
+translate = '''
+A calibration board arranges the layering recipes of a selected color mode into printable color blocks. After printing and photographing the board, you can sample the measured colors in LUT Extractor to build a custom LUT.
+'''
+
+[[block]]
+key = "335f2ea0b040c12e"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-calibration-board.webp').default}
+  alt="LUT 校准板生成参数"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-calibration-board.webp').default}
+  alt="LUT calibration-board parameters"
+/>
+'''
+
+[[block]]
+key = "0fcf82a38f668a10"
+type = "heading"
+origin = '''
+## 参数
+'''
+translate = '''
+## Parameters
+'''
+
+[[block]]
+key = "bf9120dedf82f90b"
+type = "list"
+composite = true
+origin = '''
+{{bf9120dedf82f90b-69cfeae6d9275adb}}
+{{bf9120dedf82f90b-00ef48cb569f48f4}}
+{{bf9120dedf82f90b-87ee54ae29cb1b2a}}
+{{bf9120dedf82f90b-fe830460eb9b3756}}
+'''
+translate = '''
+{{bf9120dedf82f90b-69cfeae6d9275adb}}
+{{bf9120dedf82f90b-00ef48cb569f48f4}}
+{{bf9120dedf82f90b-87ee54ae29cb1b2a}}
+{{bf9120dedf82f90b-fe830460eb9b3756}}
+'''
+
+[[block]]
+key = "bf9120dedf82f90b-69cfeae6d9275adb"
+type = "listItem"
+composite = true
+origin = '''
+- {{bf9120dedf82f90b-69cfeae6d9275adb-dc22c2cfb500c182}}
+'''
+translate = '''
+- {{bf9120dedf82f90b-69cfeae6d9275adb-dc22c2cfb500c182}}
+'''
+
+[[block]]
+key = "bf9120dedf82f90b-69cfeae6d9275adb-dc22c2cfb500c182"
+type = "paragraph"
+origin = '''
+**颜色模式**：决定叠色配方集合与校准板页数，支持黑白、4 色、5 色扩展、6 色和 8 色模式。
+'''
+translate = '''
+**Color Mode:** Selects the recipe set and page count. Supports BW, 4-color, 5-color Extended, 6-color, and 8-color modes.
+'''
+
+[[block]]
+key = "bf9120dedf82f90b-00ef48cb569f48f4"
+type = "listItem"
+composite = true
+origin = '''
+- {{bf9120dedf82f90b-00ef48cb569f48f4-f5dd9a142a58938f}}
+'''
+translate = '''
+- {{bf9120dedf82f90b-00ef48cb569f48f4-f5dd9a142a58938f}}
+'''
+
+[[block]]
+key = "bf9120dedf82f90b-00ef48cb569f48f4-f5dd9a142a58938f"
+type = "paragraph"
+origin = '''
+**色块尺寸**：`3–10 mm`，步进 `0.5 mm`（默认 `5.00 mm`）。调大尺寸便于相机对焦与中心采样，同时会增大整板面积；打印幅面受限时可适当调小。
+'''
+translate = '''
+**Block Size:** `3–10 mm` in `0.5 mm` steps (default `5.00 mm`). Larger blocks make camera focusing and center sampling easier while increasing overall board dimensions; reduce the size when build-plate space is tight.
+'''
+
+[[block]]
+key = "bf9120dedf82f90b-87ee54ae29cb1b2a"
+type = "listItem"
+composite = true
+origin = '''
+- {{bf9120dedf82f90b-87ee54ae29cb1b2a-a78e472d6d042604}}
+'''
+translate = '''
+- {{bf9120dedf82f90b-87ee54ae29cb1b2a-a78e472d6d042604}}
+'''
+
+[[block]]
+key = "bf9120dedf82f90b-87ee54ae29cb1b2a-a78e472d6d042604"
+type = "paragraph"
+origin = '''
+**色块间距**：`0.4–2.0 mm`，步进 `0.01 mm`（默认 `0.84 mm`）。用于分隔相邻色块并保留网格定位边界，调大可减少邻块溢色或边缘阴影干扰。
+'''
+translate = '''
+**Block Gap:** `0.4–2.0 mm` in `0.01 mm` steps (default `0.84 mm`). Separates adjacent blocks and preserves the grid boundary, helping prevent color bleed or edge-shadow overlap.
+'''
+
+[[block]]
+key = "bf9120dedf82f90b-fe830460eb9b3756"
+type = "listItem"
+composite = true
+origin = '''
+- {{bf9120dedf82f90b-fe830460eb9b3756-a65856cd81c80637}}
+'''
+translate = '''
+- {{bf9120dedf82f90b-fe830460eb9b3756-a65856cd81c80637}}
+'''
+
+[[block]]
+key = "bf9120dedf82f90b-fe830460eb9b3756-a65856cd81c80637"
+type = "paragraph"
+origin = '''
+**底板厚度**：`0.4–3.5 mm`，步进 `0.08 mm`（默认 `1.20 mm`）。调厚底板可提升板件刚性并减少透光影响。
+'''
+translate = '''
+**Backing Thickness:** `0.4–3.5 mm` in `0.08 mm` steps (default `1.20 mm`). Increasing thickness improves board rigidity and reduces light bleed from behind.
+'''
+
+[[block]]
+key = "7b91e83025948cf1"
+type = "paragraph"
+origin = '''
+选择 8 色模式时，面板会显示**全量导出**开关。5 色扩展与 8 色模式包含的配方数量较多，校准板会自动拆分为多页，并以配置包形式输出。
+'''
+translate = '''
+Selecting an 8-color mode exposes the **Full Export** toggle. Because 5-color Extended and 8-color calibrations contain more recipes than fit on a single plate, they split across multiple pages and export as a multi-page package.
+'''
+
+[[block]]
+key = "5a41c00a43ba92be"
+type = "heading"
+origin = '''
+## 生成结果
+'''
+translate = '''
+## Output
+'''
+
+[[block]]
+key = "253365b17469ae3c"
+type = "paragraph"
+origin = '''
+生成完成后，右侧预览区会展示整板效果与逐层分布图；点击任意逐层缩略图即可放大检查单层细节。底部切片操作（如**生成并在 Bambu Studio 中打开**）会调用系统设置中已配置的打印机、喷嘴和切片软件参数。
+'''
+translate = '''
+After generation, the right panel displays the full-board preview alongside per-layer thumbnails; click any thumbnail to inspect that layer at full size. Direct slicer actions (such as **Generate & open in Bambu Studio**) use the printer, nozzle, and slicer configured in **Settings**.
+'''
+
+[[block]]
+key = "1ecce02fceb8272f"
+type = "paragraph"
+origin = '''
+拍摄校准板时请完整保留四周定位边界。后续在 LUT 提取器中上传照片时，请选择与生成时一致的颜色模式与对应页码，并在同一提取会话中仅处理同一模式的校准板照片。
+'''
+translate = '''
+Keep the outer positioning border intact when photographing and cropping the board. During extraction, select the exact color mode and page number used to generate each board, and keep each extraction session limited to photos from the same calibration mode.
+'''
+
+[[block]]
+key = "2425e9e5eaa467db"
+type = "paragraph"
+origin = '''
+下一步：
+'''
+translate = '''
+Next:
+'''
+
+[[block]]
+key = "5ebdf6a9619011b2"
+type = "list"
+composite = true
+origin = '''
+{{5ebdf6a9619011b2-65165d5755b43995}}
+{{5ebdf6a9619011b2-c4e33fe12df05035}}
+'''
+translate = '''
+{{5ebdf6a9619011b2-65165d5755b43995}}
+{{5ebdf6a9619011b2-c4e33fe12df05035}}
+'''
+
+[[block]]
+key = "5ebdf6a9619011b2-65165d5755b43995"
+type = "listItem"
+composite = true
+origin = '''
+- {{5ebdf6a9619011b2-65165d5755b43995-48bf00553082606b}}
+'''
+translate = '''
+- {{5ebdf6a9619011b2-65165d5755b43995-48bf00553082606b}}
+'''
+
+[[block]]
+key = "5ebdf6a9619011b2-65165d5755b43995-48bf00553082606b"
+type = "paragraph"
+origin = '''
+[LUT 提取流程](../lut-extractor/lut-extractor.mdx)
+'''
+translate = '''
+[LUT Extraction Workflow](../lut-extractor/lut-extractor.mdx)
+'''
+
+[[block]]
+key = "5ebdf6a9619011b2-c4e33fe12df05035"
+type = "listItem"
+composite = true
+origin = '''
+- {{5ebdf6a9619011b2-c4e33fe12df05035-ef29a4c00246a0ca}}
+'''
+translate = '''
+- {{5ebdf6a9619011b2-c4e33fe12df05035-ef29a4c00246a0ca}}
+'''
+
+[[block]]
+key = "5ebdf6a9619011b2-c4e33fe12df05035-ef29a4c00246a0ca"
+type = "paragraph"
+origin = '''
+[照片校正与角点定位](../extractor-photo-correction/extractor-photo-correction.mdx)
+'''
+translate = '''
+[Photo Correction and Corner Placement](../extractor-photo-correction/extractor-photo-correction.mdx)
+'''

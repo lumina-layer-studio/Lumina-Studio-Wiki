@@ -1,0 +1,1255 @@
+[metadata]
+reviewed_source = "0dde60e99d4754bf080435bf37f5a4ffd7a27bf856562265bf70448563369a0c"
+
+[[block]]
+key = "85b6edfe52c9917b"
+type = "yaml"
+origin = '''
+---
+title: "耗材档案和经典 LUT 怎么选？"
+description: "分清耗材档案与经典 LUT，判断何时使用现成数据、何时为自己的线材制作档案。"
+sidebar_position: 23
+---
+'''
+translate = '''
+---
+title: "Material Archives or Classic LUTs?"
+description: "Compare Material Archives and Classic LUTs, and decide when to use existing data or calibrate your own filament."
+sidebar_position: 23
+---
+'''
+
+[[block]]
+key = "40457be44b50867e"
+type = "heading"
+origin = '''
+# 耗材档案和经典 LUT 怎么选？
+'''
+translate = '''
+# Material Archives or Classic LUTs?
+'''
+
+[[block]]
+key = "dad1fa47d218a3a1"
+type = "paragraph"
+origin = '''
+挑选色彩数据来源时，以手头真实线材、计划打印层高与当前工作流为准：
+'''
+translate = '''
+Pick the color data source that matches your physical spools, target Layer Height, and project workflow:
+'''
+
+[[block]]
+key = "96cf6dff1174b090"
+type = "list"
+composite = true
+origin = '''
+{{96cf6dff1174b090-7b450da43fb9a6a8}}
+{{96cf6dff1174b090-c5ca77ae3c8987b9}}
+{{96cf6dff1174b090-35eb23fb895c40c2}}
+'''
+translate = '''
+{{96cf6dff1174b090-7b450da43fb9a6a8}}
+{{96cf6dff1174b090-c5ca77ae3c8987b9}}
+{{96cf6dff1174b090-35eb23fb895c40c2}}
+'''
+
+[[block]]
+key = "96cf6dff1174b090-7b450da43fb9a6a8"
+type = "listItem"
+composite = true
+origin = '''
+- {{96cf6dff1174b090-7b450da43fb9a6a8-d307c0ffd4aa9d98}}
+'''
+translate = '''
+- {{96cf6dff1174b090-7b450da43fb9a6a8-d307c0ffd4aa9d98}}
+'''
+
+[[block]]
+key = "96cf6dff1174b090-7b450da43fb9a6a8-d307c0ffd4aa9d98"
+type = "paragraph"
+origin = '''
+手头线材已有型号、系列与颜色完全一致且经过验证的**耗材档案**时，可直接选用；
+'''
+translate = '''
+Start with an **installed Material Archive** when a verified profile already matches your exact filament brand, product line, and shade.
+'''
+
+[[block]]
+key = "96cf6dff1174b090-c5ca77ae3c8987b9"
+type = "listItem"
+composite = true
+origin = '''
+- {{96cf6dff1174b090-c5ca77ae3c8987b9-93d4962d7b993701}}
+'''
+translate = '''
+- {{96cf6dff1174b090-c5ca77ae3c8987b9-93d4962d7b993701}}
+'''
+
+[[block]]
+key = "96cf6dff1174b090-c5ca77ae3c8987b9-93d4962d7b993701"
+type = "paragraph"
+origin = '''
+库内尚无对应档案，或作品对肤色、灰阶与专色一致性要求较高时，可为手头线材**自制耗材档案**；
+'''
+translate = '''
+Create a **custom Material Archive** when your spool isn't in the library yet or when your artwork demands tight color accuracy.
+'''
+
+[[block]]
+key = "96cf6dff1174b090-35eb23fb895c40c2"
+type = "listItem"
+composite = true
+origin = '''
+- {{96cf6dff1174b090-35eb23fb895c40c2-f0893b69778ec206}}
+'''
+translate = '''
+- {{96cf6dff1174b090-35eb23fb895c40c2-f0893b69778ec206}}
+'''
+
+[[block]]
+key = "96cf6dff1174b090-35eb23fb895c40c2-f0893b69778ec206"
+type = "paragraph"
+origin = '''
+需要打开 1.x 旧工程，或继续沿用已验证成熟的固定多色配方表时，选择**经典 LUT**。
+'''
+translate = '''
+Choose a **Classic LUT** when reopening a Lumina 1.x project or reusing a fixed multi-spool palette you have already validated.
+'''
+
+[[block]]
+key = "36e4d45d4b0161c2"
+type = "paragraph"
+origin = '''
+Lumina 2.0 的色彩数据来源分为“耗材档案”和“经典 LUT”两类（旧版中的“传统 LUT”现已统一命名为“经典 LUT”，[反推 LUT](../../reference/converter-basic/inferred-lut-source/inferred-lut-source.mdx)入口当前隐藏）。常说的“现成档案”与“自制档案”，指的都是“耗材档案”的不同获取途径。
+'''
+translate = '''
+In Lumina 2.0, **Color Data Source** offers **Material Archive** and **Classic LUT** (previously called Legacy LUT; the [Inferred LUT](../../reference/converter-basic/inferred-lut-source/inferred-lut-source.mdx) option is currently hidden). Terms like "installed" and "custom" simply describe how a Material Archive was created.
+'''
+
+[[block]]
+key = "a3e2aedc642791b4"
+type = "heading"
+origin = '''
+## 两种色彩来源的核心区别
+'''
+translate = '''
+## How the two color sources compare
+'''
+
+[[block]]
+key = "ed333a83c2b51fb9"
+type = "table"
+origin = '''
+| 来源类型 | 适用场景 | 选型核心依据 | 使用注意事项 |
+| --- | --- | --- | --- |
+| 耗材档案 | 从耗材库中按需挑选多份单卷耗材档案，自由组合当前作品配色 | 实体线材的材质、品牌系列、色号与校准层高 | 若现成档案与手头线盘型号或批次存在差异，预览成色仅供参考 |
+| 经典 LUT | 复用已验证的固定多色查找表或兼容 1.x 旧版 LUT 文件 | 原 LUT 绑定的颜色模式、通道耗材顺序、层数与层高 | 更换任一通道的实际耗材后，原 LUT 的色彩映射均需重新试打确认 |
+'''
+translate = '''
+| Source Type | Best suited for | Key selection criteria | Keep in mind |
+| --- | --- | --- | --- |
+| Material Archive | Mixing and matching individual single-spool profiles freely per artwork | Exact polymer family, brand, product line, shade, and calibrated Layer Height | If an installed archive doesn't match your physical spool, treat Preview colors as a rough estimate |
+| Classic LUT | Reproducing a fixed, pre-validated color set or opening 1.x LUT files | Original Color Mode, channel filament order, layer count, and Layer Height | Swapping any physical spool in the set invalidates the original color mapping until retested |
+'''
+
+[[block]]
+key = "d1a423965020a756"
+type = "paragraph"
+origin = '''
+单次转换任务只会启用当前选定的一种色彩来源；切换来源类型后，请重新点击“预览”刷新配色结果。
+'''
+translate = '''
+Each conversion uses one active Source Type at a time. Whenever you switch sources, click **Preview** again to compute fresh recipes for the new palette.
+'''
+
+[[block]]
+key = "aea13a3c40100c92"
+type = "heading"
+origin = '''
+## 耗材档案：面向 2.0 的自由多色组合
+'''
+translate = '''
+## Material Archive: flexible palettes for Lumina 2.0
+'''
+
+[[block]]
+key = "c4c657fea39d8bea"
+type = "paragraph"
+origin = '''
+每份耗材档案记录了单卷线材在白底与黑底梯度色卡上的实测透光与显色规律。转换图像时，你可以从耗材库中自由勾选本次上机的几卷耗材档案，并按需设定叠色层数、显色层高与底板耗材。
+'''
+translate = '''
+Each Material Archive captures how a single spool transmits and reflects light across printed gradient cards over white and black backings. During conversion, you pick whichever single-spool archives you want from the Material Library, then set **Color Layers**, **Layer Height**, and **Base Plate Material** for your artwork.
+'''
+
+[[block]]
+key = "b64b67420cee48c2"
+type = "paragraph"
+origin = '''
+本地耗材库中的档案主要来自三种渠道：
+'''
+translate = '''
+Archives in your local Material Library typically come from three places:
+'''
+
+[[block]]
+key = "1af79530935b66ff"
+type = "list"
+composite = true
+origin = '''
+{{1af79530935b66ff-530eacef47b0c8bf}}
+{{1af79530935b66ff-3afddc50bb2b647b}}
+{{1af79530935b66ff-58ac43d3a6dad48d}}
+'''
+translate = '''
+{{1af79530935b66ff-530eacef47b0c8bf}}
+{{1af79530935b66ff-3afddc50bb2b647b}}
+{{1af79530935b66ff-58ac43d3a6dad48d}}
+'''
+
+[[block]]
+key = "1af79530935b66ff-530eacef47b0c8bf"
+type = "listItem"
+composite = true
+origin = '''
+- {{1af79530935b66ff-530eacef47b0c8bf-19ea5f853b73e7e4}}
+'''
+translate = '''
+- {{1af79530935b66ff-530eacef47b0c8bf-19ea5f853b73e7e4}}
+'''
+
+[[block]]
+key = "1af79530935b66ff-530eacef47b0c8bf-19ea5f853b73e7e4"
+type = "paragraph"
+origin = '''
+从公开云端目录按需下载，或从离线包中挑选添加的档案；
+'''
+translate = '''
+Profiles downloaded on demand from the public cloud catalog or selected from an offline pack;
+'''
+
+[[block]]
+key = "1af79530935b66ff-3afddc50bb2b647b"
+type = "listItem"
+composite = true
+origin = '''
+- {{1af79530935b66ff-3afddc50bb2b647b-46f8e959afa913ef}}
+'''
+translate = '''
+- {{1af79530935b66ff-3afddc50bb2b647b-46f8e959afa913ef}}
+'''
+
+[[block]]
+key = "1af79530935b66ff-3afddc50bb2b647b-46f8e959afa913ef"
+type = "paragraph"
+origin = '''
+由其他创作者实测分享、经核对来源后手动导入的 ZIP 档案；
+'''
+translate = '''
+Community-shared ZIP archives imported after checking their source details
+'''
+
+[[block]]
+key = "1af79530935b66ff-58ac43d3a6dad48d"
+type = "listItem"
+composite = true
+origin = '''
+- {{1af79530935b66ff-58ac43d3a6dad48d-8bf32047bf7f1523}}
+'''
+translate = '''
+- {{1af79530935b66ff-58ac43d3a6dad48d-8bf32047bf7f1523}}
+'''
+
+[[block]]
+key = "1af79530935b66ff-58ac43d3a6dad48d-8bf32047bf7f1523"
+type = "paragraph"
+origin = '''
+用手头线盘亲自打印梯度色卡并拍照提取的自制档案。
+'''
+translate = '''
+Custom archives you calibrated yourself from printed gradient cards
+'''
+
+[[block]]
+key = "09003e09a27fb1d0"
+type = "paragraph"
+origin = '''
+三种档案在转换界面中的勾选方式完全一致：预设与共享档案便于快速上手测试，而自制档案能精准反映你手头这卷线材在当前设备上的真实表现。
+'''
+translate = '''
+All three work identically in the converter picker: installed profiles get you started right away, while custom profiles reflect your exact spool, printer, and lighting conditions.
+'''
+
+[[block]]
+key = "fd461d7c7767a657"
+type = "paragraph"
+origin = '''
+新安装的本地库可以为空，先浏览目录、确认下载，再回到选择器勾选使用，不需要预先装入全库。查找商品、切换地区包装名称与使用离线包的方法见[云端耗材库](../../reference/materials-and-recipes/cloud-material-library/cloud-material-library.mdx)。
+'''
+translate = '''
+A new local library can be empty. Browse the catalog, download the profiles you need, then return to the picker to select them; there is no need to install the full library first. See the [Cloud Material Library](../../reference/materials-and-recipes/cloud-material-library/cloud-material-library.mdx) for product search, regional product names and offline packs.
+'''
+
+[[block]]
+key = "5eebf07fddd3c2e7"
+type = "heading"
+origin = '''
+### 什么时候可以直接用现成档案？
+'''
+translate = '''
+### When an installed archive is a good starting point
+'''
+
+[[block]]
+key = "94db2caf3194a71b"
+type = "paragraph"
+origin = '''
+同时满足以下条件时，可先用现成档案配合小样测试：
+'''
+translate = '''
+Test an installed archive on a small swatch first when all of the following line up:
+'''
+
+[[block]]
+key = "0e220eecde91da23"
+type = "list"
+composite = true
+origin = '''
+{{0e220eecde91da23-09fb18c390dd3ae2}}
+{{0e220eecde91da23-51240b9dd8d692c3}}
+{{0e220eecde91da23-de303a865f853199}}
+{{0e220eecde91da23-38fc61368e249a43}}
+{{0e220eecde91da23-954627cfc287e4ae}}
+'''
+translate = '''
+{{0e220eecde91da23-09fb18c390dd3ae2}}
+{{0e220eecde91da23-51240b9dd8d692c3}}
+{{0e220eecde91da23-de303a865f853199}}
+{{0e220eecde91da23-38fc61368e249a43}}
+{{0e220eecde91da23-954627cfc287e4ae}}
+'''
+
+[[block]]
+key = "0e220eecde91da23-09fb18c390dd3ae2"
+type = "listItem"
+composite = true
+origin = '''
+- {{0e220eecde91da23-09fb18c390dd3ae2-b6b044b2072e440c}}
+'''
+translate = '''
+- {{0e220eecde91da23-09fb18c390dd3ae2-b6b044b2072e440c}}
+'''
+
+[[block]]
+key = "0e220eecde91da23-09fb18c390dd3ae2-b6b044b2072e440c"
+type = "paragraph"
+origin = '''
+材质类型一致（如均为 PLA，或均为 PETG）；
+'''
+translate = '''
+Polymer family matches (PLA with PLA, PETG with PETG).
+'''
+
+[[block]]
+key = "0e220eecde91da23-51240b9dd8d692c3"
+type = "listItem"
+composite = true
+origin = '''
+- {{0e220eecde91da23-51240b9dd8d692c3-4593411a00536f48}}
+'''
+translate = '''
+- {{0e220eecde91da23-51240b9dd8d692c3-4593411a00536f48}}
+'''
+
+[[block]]
+key = "0e220eecde91da23-51240b9dd8d692c3-4593411a00536f48"
+type = "paragraph"
+origin = '''
+品牌、产品系列（如基础、哑光、丝绸）与商品颜色名称一致；
+'''
+translate = '''
+Brand, product line (such as Basic, Matte, or Silk), and color name match.
+'''
+
+[[block]]
+key = "0e220eecde91da23-de303a865f853199"
+type = "listItem"
+composite = true
+origin = '''
+- {{0e220eecde91da23-de303a865f853199-7c338ca5751ad4a5}}
+'''
+translate = '''
+- {{0e220eecde91da23-de303a865f853199-7c338ca5751ad4a5}}
+'''
+
+[[block]]
+key = "0e220eecde91da23-de303a865f853199-7c338ca5751ad4a5"
+type = "paragraph"
+origin = '''
+档案状态正常，验证记录完整；
+'''
+translate = '''
+The archive loads cleanly with valid verification metrics.
+'''
+
+[[block]]
+key = "0e220eecde91da23-38fc61368e249a43"
+type = "listItem"
+composite = true
+origin = '''
+- {{0e220eecde91da23-38fc61368e249a43-2ee06c7639fea35d}}
+'''
+translate = '''
+- {{0e220eecde91da23-38fc61368e249a43-2ee06c7639fea35d}}
+'''
+
+[[block]]
+key = "0e220eecde91da23-38fc61368e249a43-2ee06c7639fea35d"
+type = "paragraph"
+origin = '''
+本次计划打印的显色层高与档案校准层高匹配；
+'''
+translate = '''
+Your planned Layer Height matches the archive's calibrated Layer Height.
+'''
+
+[[block]]
+key = "0e220eecde91da23-954627cfc287e4ae"
+type = "listItem"
+composite = true
+origin = '''
+- {{0e220eecde91da23-954627cfc287e4ae-e640d5fe68283626}}
+'''
+translate = '''
+- {{0e220eecde91da23-954627cfc287e4ae-e640d5fe68283626}}
+'''
+
+[[block]]
+key = "0e220eecde91da23-954627cfc287e4ae-e640d5fe68283626"
+type = "paragraph"
+origin = '''
+上机线盘身份明确，未与相近颜色的其他线盘混淆。
+'''
+translate = '''
+You know the exact spool loaded on the machine rather than guessing from a similar shade.
+'''
+
+[[block]]
+key = "2f32e26d02a1c9de"
+type = "paragraph"
+origin = '''
+即便商品标签完全相同，不同生产批次、含水状态与打印温度仍可能带来细微色差；正式打印大幅作品前，先打一小块测试件确认最为稳妥。
+'''
+translate = '''
+Because pigment batches, moisture levels, and nozzle temperatures still introduce subtle shifts between spools sold under the same name, a quick physical test swatch is the fastest way to confirm accuracy before a large print.
+'''
+
+[[block]]
+key = "bddf57576cd36e34"
+type = "heading"
+origin = '''
+### 什么时候建议自制耗材档案？
+'''
+translate = '''
+### When to calibrate your own Material Archive
+'''
+
+[[block]]
+key = "ec8ad54e723ec50b"
+type = "paragraph"
+origin = '''
+符合以下任一情况时，建议为该卷线材单独校准建档：
+'''
+translate = '''
+Create a custom archive whenever:
+'''
+
+[[block]]
+key = "31531f47fac73df0"
+type = "list"
+composite = true
+origin = '''
+{{31531f47fac73df0-b67893b90f230687}}
+{{31531f47fac73df0-1f5b61a0fd0056d6}}
+{{31531f47fac73df0-8fde73185097234a}}
+{{31531f47fac73df0-dbd0c8301fd31ad2}}
+{{31531f47fac73df0-e3eeb31267746569}}
+'''
+translate = '''
+{{31531f47fac73df0-b67893b90f230687}}
+{{31531f47fac73df0-1f5b61a0fd0056d6}}
+{{31531f47fac73df0-8fde73185097234a}}
+{{31531f47fac73df0-dbd0c8301fd31ad2}}
+{{31531f47fac73df0-e3eeb31267746569}}
+'''
+
+[[block]]
+key = "31531f47fac73df0-b67893b90f230687"
+type = "listItem"
+composite = true
+origin = '''
+- {{31531f47fac73df0-b67893b90f230687-b2102893989da957}}
+'''
+translate = '''
+- {{31531f47fac73df0-b67893b90f230687-b2102893989da957}}
+'''
+
+[[block]]
+key = "31531f47fac73df0-b67893b90f230687-b2102893989da957"
+type = "paragraph"
+origin = '''
+耗材库中没有同品牌、同系列、同材质或同色号的现成档案；
+'''
+translate = '''
+Your filament brand, product line, polymer, or shade isn't in the Material Library.
+'''
+
+[[block]]
+key = "31531f47fac73df0-1f5b61a0fd0056d6"
+type = "listItem"
+composite = true
+origin = '''
+- {{31531f47fac73df0-1f5b61a0fd0056d6-dbda4e8426e5687e}}
+'''
+translate = '''
+- {{31531f47fac73df0-1f5b61a0fd0056d6-dbda4e8426e5687e}}
+'''
+
+[[block]]
+key = "31531f47fac73df0-1f5b61a0fd0056d6-dbda4e8426e5687e"
+type = "paragraph"
+origin = '''
+套用同名现成档案试打后，实物色调或明暗与预览偏差明显；
+'''
+translate = '''
+A test swatch using a similarly named archive shifts noticeably from Preview.
+'''
+
+[[block]]
+key = "31531f47fac73df0-8fde73185097234a"
+type = "listItem"
+composite = true
+origin = '''
+- {{31531f47fac73df0-8fde73185097234a-ab7d1cb24dfe494f}}
+'''
+translate = '''
+- {{31531f47fac73df0-8fde73185097234a-ab7d1cb24dfe494f}}
+'''
+
+[[block]]
+key = "31531f47fac73df0-8fde73185097234a-ab7d1cb24dfe494f"
+type = "paragraph"
+origin = '''
+使用半透明、夜光、木粉、丝绸等光学特性特殊或批次波动明显的线材；
+'''
+translate = '''
+Your filament uses translucent resins, silk sheen, matte additives, or specialty fillers, or varies visibly between batches.
+'''
+
+[[block]]
+key = "31531f47fac73df0-dbd0c8301fd31ad2"
+type = "listItem"
+composite = true
+origin = '''
+- {{31531f47fac73df0-dbd0c8301fd31ad2-84f1e6a2650a4c0d}}
+'''
+translate = '''
+- {{31531f47fac73df0-dbd0c8301fd31ad2-84f1e6a2650a4c0d}}
+'''
+
+[[block]]
+key = "31531f47fac73df0-dbd0c8301fd31ad2-84f1e6a2650a4c0d"
+type = "paragraph"
+origin = '''
+作品包含人像肤色、平滑灰阶或严格的品牌标准色；
+'''
+translate = '''
+Your artwork relies on accurate portraits, smooth neutral grays, or exact brand colors.
+'''
+
+[[block]]
+key = "31531f47fac73df0-e3eeb31267746569"
+type = "listItem"
+composite = true
+origin = '''
+- {{31531f47fac73df0-e3eeb31267746569-a2b9b43b619ad80e}}
+'''
+translate = '''
+- {{31531f47fac73df0-e3eeb31267746569-a2b9b43b619ad80e}}
+'''
+
+[[block]]
+key = "31531f47fac73df0-e3eeb31267746569-a2b9b43b619ad80e"
+type = "paragraph"
+origin = '''
+希望为常用主力耗材建立可长期复用、与实体线盘一一对应的专属档案库。
+'''
+translate = '''
+You want a dependable, traceable library tied directly to the labeled spools on your shelf.
+'''
+
+[[block]]
+key = "8456612f45906fdd"
+type = "paragraph"
+origin = '''
+完整建档步骤请参阅[生成并打印梯度色卡](pathname:///zh/docs/tutorials/gradient-card-generate-print/)与[拍摄并提取梯度卡：创建耗材档案](pathname:///zh/docs/tutorials/gradient-card-extract-profile/)。
+'''
+translate = '''
+To calibrate a new spool, follow [Generate and Print Gradient Calibration Cards](pathname:///en/docs/tutorials/gradient-card-generate-print/) and [Photograph and Extract Gradient Cards](pathname:///en/docs/tutorials/gradient-card-extract-profile/).
+'''
+
+[[block]]
+key = "90d5d1b78a71ad26"
+type = "heading"
+origin = '''
+## 经典 LUT：复用成熟固定组合与旧版工程
+'''
+translate = '''
+## Classic LUT: fixed palettes and 1.x projects
+'''
+
+[[block]]
+key = "f67babd042173329"
+type = "paragraph"
+origin = '''
+经典 LUT 是预先生成好的“目标颜色 → 叠层配方”查找表，适合复现早期验证过的固定 2/4/6/8 色材料组合，或导入 Lumina 1.x 工作流留存的 LUT 文件。
+'''
+translate = '''
+A Classic LUT stores a precomputed lookup table mapping target colors directly to multi-layer filament stacks. It remains handy for reproducing validated fixed palettes and working with LUT files saved from Lumina 1.x.
+'''
+
+[[block]]
+key = "4c893c0fbf076bba"
+type = "paragraph"
+origin = '''
+选用经典 LUT 时，请一并核对四项配套条件：
+'''
+translate = '''
+When printing with a Classic LUT, keep these four details aligned:
+'''
+
+[[block]]
+key = "834061b4d467f034"
+type = "list"
+composite = true
+origin = '''
+{{834061b4d467f034-355a9e7ec3a7b86c}}
+{{834061b4d467f034-dcbb067d9444d4c9}}
+{{834061b4d467f034-b97b678bba643c09}}
+{{834061b4d467f034-55f0c2c7a0033ea2}}
+'''
+translate = '''
+{{834061b4d467f034-355a9e7ec3a7b86c}}
+{{834061b4d467f034-dcbb067d9444d4c9}}
+{{834061b4d467f034-b97b678bba643c09}}
+{{834061b4d467f034-55f0c2c7a0033ea2}}
+'''
+
+[[block]]
+key = "834061b4d467f034-355a9e7ec3a7b86c"
+type = "listItem"
+composite = true
+origin = '''
+- {{834061b4d467f034-355a9e7ec3a7b86c-424c0d9f3a3c3da3}}
+'''
+translate = '''
+- {{834061b4d467f034-355a9e7ec3a7b86c-424c0d9f3a3c3da3}}
+'''
+
+[[block]]
+key = "834061b4d467f034-355a9e7ec3a7b86c-424c0d9f3a3c3da3"
+type = "paragraph"
+origin = '''
+该 LUT 对应的颜色模式与各通道耗材排列顺序；
+'''
+translate = '''
+The LUT's original **Color Mode** and channel order
+'''
+
+[[block]]
+key = "834061b4d467f034-dcbb067d9444d4c9"
+type = "listItem"
+composite = true
+origin = '''
+- {{834061b4d467f034-dcbb067d9444d4c9-f1bf3ded2f748b82}}
+'''
+translate = '''
+- {{834061b4d467f034-dcbb067d9444d4c9-f1bf3ded2f748b82}}
+'''
+
+[[block]]
+key = "834061b4d467f034-dcbb067d9444d4c9-f1bf3ded2f748b82"
+type = "paragraph"
+origin = '''
+每个颜色通道实际装入的具体线材型号；
+'''
+translate = '''
+The exact physical filament assigned to each channel
+'''
+
+[[block]]
+key = "834061b4d467f034-b97b678bba643c09"
+type = "listItem"
+composite = true
+origin = '''
+- {{834061b4d467f034-b97b678bba643c09-b315709e5e46bbc8}}
+'''
+translate = '''
+- {{834061b4d467f034-b97b678bba643c09-b315709e5e46bbc8}}
+'''
+
+[[block]]
+key = "834061b4d467f034-b97b678bba643c09-b315709e5e46bbc8"
+type = "paragraph"
+origin = '''
+该 LUT 支持的叠色层数与层高；
+'''
+translate = '''
+Supported layer count and **Layer Height**
+'''
+
+[[block]]
+key = "834061b4d467f034-55f0c2c7a0033ea2"
+type = "listItem"
+composite = true
+origin = '''
+- {{834061b4d467f034-55f0c2c7a0033ea2-e0864b8e7444aecb}}
+'''
+translate = '''
+- {{834061b4d467f034-55f0c2c7a0033ea2-e0864b8e7444aecb}}
+'''
+
+[[block]]
+key = "834061b4d467f034-55f0c2c7a0033ea2-e0864b8e7444aecb"
+type = "paragraph"
+origin = '''
+当初校准验证该 LUT 时使用的切片参数与喷嘴配置。
+'''
+translate = '''
+The nozzle and slicer settings used when that LUT was validated
+'''
+
+[[block]]
+key = "071537f420abb714"
+type = "paragraph"
+origin = '''
+部分经典 LUT 支持动态调整层数与层高，部分则绑定固定规格；若界面提示当前 LUT 为固定模式，直接沿用其内置层数与层高即可。
+'''
+translate = '''
+Some Classic LUTs allow dynamic layer counts and heights, while others lock to a fixed configuration; if the interface indicates dynamic settings aren't supported for a given LUT, stick with its built-in layer parameters.
+'''
+
+[[block]]
+key = "573447df22eed651"
+type = "paragraph"
+origin = '''
+经典 LUT 上传入口支持 `.npy`、`.json`、`.npz` 与 `.msgpack` 格式。文件顺利解析仅代表数据格式合规，实际成色仍取决于装机耗材是否与制作该 LUT 时的线材一致。
+'''
+translate = '''
+The Classic LUT uploader accepts `.npy`, `.json`, `.npz`, and `.msgpack` files. Keep in mind that a valid file load only confirms readable syntax—accurate print colors still depend on loading the exact spools the LUT was built for.
+'''
+
+[[block]]
+key = "cb59acac090742d1"
+type = "heading"
+origin = '''
+## 选定来源后的四项必查清单
+'''
+translate = '''
+## Four details to double-check after selecting a source
+'''
+
+[[block]]
+key = "052b50eb9bdc0ce8"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/profile-identity-check.webp').default}
+  alt="核对材质、品牌系列与颜色、层高和实际线盘槽位的四项清单"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/profile-identity-check.webp').default}
+  alt="Four checks for material type, brand and colour, layer settings, and physical spools and slots"
+/>
+'''
+
+[[block]]
+key = "40cd3981c6750159"
+type = "heading"
+origin = '''
+### 1. 材质类型
+'''
+translate = '''
+### 1. Material family
+'''
+
+[[block]]
+key = "99aeb914f5b2adcf"
+type = "paragraph"
+origin = '''
+PLA、PETG 等不同高分子基材不仅打印温度各异，透光率与表面折射也有明显差别，即便肉眼外观颜色接近，也不宜跨材质混用同一份档案。
+'''
+translate = '''
+PLA, PETG, and other polymers differ in print temperature, crystallinity, light transmission, and surface gloss. Even if two spools look identical on the reel, keep separate archives for each material family.
+'''
+
+[[block]]
+key = "0df415b65df8e832"
+type = "heading"
+origin = '''
+### 2. 品牌、系列与色号
+'''
+translate = '''
+### 2. Brand, product line, and shade
+'''
+
+[[block]]
+key = "ea13d26eab595f96"
+type = "paragraph"
+origin = '''
+“红色”“白色”只是宽泛的色系名称。选档时请具体核对到品牌、子系列（如基础 PLA 与哑光 PLA）及官方色号；导入他人共享档案时，同样先确认作者实测的具体线材型号。
+'''
+translate = '''
+Generic labels like "red" or "white" span wide optical ranges. Match the exact brand, product line (for example, Basic PLA vs. Matte PLA), and shade code—and check which exact product a contributor measured before relying on a shared archive.
+'''
+
+[[block]]
+key = "b32391d8acdbe1c4"
+type = "heading"
+origin = '''
+### 3. 显色层高与叠色层数
+'''
+translate = '''
+### 3. Layer Height and Color Layers
+'''
+
+[[block]]
+key = "2ffb04707fde2ec4"
+type = "paragraph"
+origin = '''
+耗材档案记录了校准时的基准层高，图像转换页面则可设定当前作品的叠色层数与层高。层高直接决定单层透光厚度与色彩累积速度，请确保转换设置、耗材档案与切片器层高三者协调一致。
+'''
+translate = '''
+Every Material Archive logs the Layer Height used during calibration, while the converter lets you configure **Color Layers** and **Layer Height** for the artwork. Because changing layer thickness alters how much light each layer absorbs and transmits, keep your archive, converter settings, and slicer Layer Height aligned.
+'''
+
+[[block]]
+key = "119b066e487abcc5"
+type = "heading"
+origin = '''
+### 4. 实体线盘与硬件料槽
+'''
+translate = '''
+### 4. Physical spools and feeder slots
+'''
+
+[[block]]
+key = "a8903ee510bd1779"
+type = "paragraph"
+origin = '''
+Lumina 中的档案名称、3MF 中的项目耗材编号与供料器中的物理槽位分属三个环节。导出 3MF 后，请在切片器内按实体线盘逐一核对料槽映射，切勿仅凭屏幕近似色块盲目对应。具体步骤见[把 Lumina 3MF 正确导入切片器](pathname:///zh/docs/tutorials/slicer-material-mapping/)。
+'''
+translate = '''
+Lumina archive names, slicer project-filament slots, and physical feeder bays on your printer are three distinct links in the chain. After exporting your 3MF, map each project filament to its matching physical spool in the slicer rather than trusting approximate screen swatches—see [Open a Lumina 3MF in Your Slicer](pathname:///en/docs/tutorials/slicer-material-mapping/).
+'''
+
+[[block]]
+key = "f9ae03a3eef5e419"
+type = "heading"
+origin = '''
+## 选错档案或 LUT 时的典型表现
+'''
+translate = '''
+## Signs of a mismatched archive or LUT
+'''
+
+[[block]]
+key = "f030652a4dcdc4b9"
+type = "paragraph"
+origin = '''
+当色彩数据与实体线材不匹配时，常会出现以下现象：
+'''
+translate = '''
+Using an archive or LUT that doesn't match your loaded spools typically shows up as:
+'''
+
+[[block]]
+key = "cfefc21ba1c22e9c"
+type = "list"
+composite = true
+origin = '''
+{{cfefc21ba1c22e9c-de1aedba8cf0e145}}
+{{cfefc21ba1c22e9c-9f6038efaec2037a}}
+{{cfefc21ba1c22e9c-ed239b945f6686d4}}
+{{cfefc21ba1c22e9c-74d7e5e0712d53d6}}
+{{cfefc21ba1c22e9c-ea2c0645c25ae560}}
+'''
+translate = '''
+{{cfefc21ba1c22e9c-de1aedba8cf0e145}}
+{{cfefc21ba1c22e9c-9f6038efaec2037a}}
+{{cfefc21ba1c22e9c-ed239b945f6686d4}}
+{{cfefc21ba1c22e9c-74d7e5e0712d53d6}}
+{{cfefc21ba1c22e9c-ea2c0645c25ae560}}
+'''
+
+[[block]]
+key = "cfefc21ba1c22e9c-de1aedba8cf0e145"
+type = "listItem"
+composite = true
+origin = '''
+- {{cfefc21ba1c22e9c-de1aedba8cf0e145-7c3b1cf050dae5a4}}
+'''
+translate = '''
+- {{cfefc21ba1c22e9c-de1aedba8cf0e145-7c3b1cf050dae5a4}}
+'''
+
+[[block]]
+key = "cfefc21ba1c22e9c-de1aedba8cf0e145-7c3b1cf050dae5a4"
+type = "paragraph"
+origin = '''
+Lumina 2D 预览阶段画面已出现发灰、偏绿、暗部死黑或高光断层；
+'''
+translate = '''
+Washed-out grays, unexpected color casts, crushed shadows, or clipped highlights right inside Lumina Preview
+'''
+
+[[block]]
+key = "cfefc21ba1c22e9c-9f6038efaec2037a"
+type = "listItem"
+composite = true
+origin = '''
+- {{cfefc21ba1c22e9c-9f6038efaec2037a-5157c306fe8e9822}}
+'''
+translate = '''
+- {{cfefc21ba1c22e9c-9f6038efaec2037a-5157c306fe8e9822}}
+'''
+
+[[block]]
+key = "cfefc21ba1c22e9c-9f6038efaec2037a-5157c306fe8e9822"
+type = "paragraph"
+origin = '''
+网页预览看似正常，但打印实物整体色相偏移或明暗反差失调；
+'''
+translate = '''
+A clean on-screen Preview that prints noticeably warmer, cooler, darker, or flatter on the build plate
+'''
+
+[[block]]
+key = "cfefc21ba1c22e9c-ed239b945f6686d4"
+type = "listItem"
+composite = true
+origin = '''
+- {{cfefc21ba1c22e9c-ed239b945f6686d4-595c048e71cc9a3a}}
+'''
+translate = '''
+- {{cfefc21ba1c22e9c-ed239b945f6686d4-595c048e71cc9a3a}}
+'''
+
+[[block]]
+key = "cfefc21ba1c22e9c-ed239b945f6686d4-595c048e71cc9a3a"
+type = "paragraph"
+origin = '''
+画面局部被分配了意料之外的冷暖色耗材组合；
+'''
+translate = '''
+Unexpected filament combinations assigned to neutral or skin-tone regions
+'''
+
+[[block]]
+key = "cfefc21ba1c22e9c-74d7e5e0712d53d6"
+type = "listItem"
+composite = true
+origin = '''
+- {{cfefc21ba1c22e9c-74d7e5e0712d53d6-54ee1ab7b4be6297}}
+'''
+translate = '''
+- {{cfefc21ba1c22e9c-74d7e5e0712d53d6-54ee1ab7b4be6297}}
+'''
+
+[[block]]
+key = "cfefc21ba1c22e9c-74d7e5e0712d53d6-54ee1ab7b4be6297"
+type = "paragraph"
+origin = '''
+切片器内的材料类型、项目耗材列表与实际装机线盘脱节；
+'''
+translate = '''
+Slicer material presets or feeder slots pointing to the wrong physical spool
+'''
+
+[[block]]
+key = "cfefc21ba1c22e9c-ea2c0645c25ae560"
+type = "listItem"
+composite = true
+origin = '''
+- {{cfefc21ba1c22e9c-ea2c0645c25ae560-36b472b72425b8e2}}
+'''
+translate = '''
+- {{cfefc21ba1c22e9c-ea2c0645c25ae560-36b472b72425b8e2}}
+'''
+
+[[block]]
+key = "cfefc21ba1c22e9c-ea2c0645c25ae560-36b472b72425b8e2"
+type = "paragraph"
+origin = '''
+沿用旧工程参数重打时，因更换了线材品牌或新批次而出现明显色差。
+'''
+translate = '''
+Repeat prints shifting in color after swapping to a different brand or fresh spool batch
+'''
+
+[[block]]
+key = "f7b9cab3e6a84e0a"
+type = "paragraph"
+origin = '''
+遇到偏色时，建议先核查色彩来源类型、档案身份、显色层高与切片器料槽映射，定位根源后再决定是否重制档案，避免直接靠拉偏原图色彩来勉强凑色。完整的三阶段比对方法见[为什么 Lumina 预览、切片器预览和打印实物不一样？](pathname:///zh/docs/knowledge/preview-slicer-print-differences/)。
+'''
+translate = '''
+Instead of editing your source artwork to compensate for a color shift, verify Source Type, archive identity, Layer Height, and slicer slot mapping first, then recalibrate if needed. For a step-by-step diagnostic order, read [Why Do Lumina Preview, Slicer Preview, and the Physical Print Look Different?](pathname:///en/docs/knowledge/preview-slicer-print-differences/).
+'''
+
+[[block]]
+key = "388c67d809e1f995"
+type = "heading"
+origin = '''
+## 档案缺失或误删后的恢复方法
+'''
+translate = '''
+## Recovering missing or removed archives
+'''
+
+[[block]]
+key = "96f819400681c48e"
+type = "list"
+composite = true
+origin = '''
+{{96f819400681c48e-d6e3656122c5a249}}
+{{96f819400681c48e-2943e281b9eee0ea}}
+{{96f819400681c48e-3675f861ec5f6e37}}
+{{96f819400681c48e-5bc583317aa72a0b}}
+{{96f819400681c48e-f25fa29b0f59cd43}}
+'''
+translate = '''
+{{96f819400681c48e-d6e3656122c5a249}}
+{{96f819400681c48e-2943e281b9eee0ea}}
+{{96f819400681c48e-3675f861ec5f6e37}}
+{{96f819400681c48e-5bc583317aa72a0b}}
+{{96f819400681c48e-f25fa29b0f59cd43}}
+'''
+
+[[block]]
+key = "96f819400681c48e-d6e3656122c5a249"
+type = "listItem"
+composite = true
+origin = '''
+1. {{96f819400681c48e-d6e3656122c5a249-10661f4ad5278881}}
+'''
+translate = '''
+1. {{96f819400681c48e-d6e3656122c5a249-10661f4ad5278881}}
+'''
+
+[[block]]
+key = "96f819400681c48e-d6e3656122c5a249-10661f4ad5278881"
+type = "paragraph"
+origin = '''
+在转换页或耗材库点击刷新按钮，排除列表缓存未及时更新的情况；
+'''
+translate = '''
+Click **Refresh** in the converter picker or Material Library to rule out an unrefreshed list.
+'''
+
+[[block]]
+key = "96f819400681c48e-2943e281b9eee0ea"
+type = "listItem"
+composite = true
+origin = '''
+2. {{96f819400681c48e-2943e281b9eee0ea-c0e08d857f6d8f80}}
+'''
+translate = '''
+2. {{96f819400681c48e-2943e281b9eee0ea-c0e08d857f6d8f80}}
+'''
+
+[[block]]
+key = "96f819400681c48e-2943e281b9eee0ea-c0e08d857f6d8f80"
+type = "paragraph"
+origin = '''
+前往“耗材管理 → 耗材库”，查看目标档案是否仍在库内、数据是否完整；
+'''
+translate = '''
+Open **Material Management → Material Library** to check whether the archive is still installed and intact.
+'''
+
+[[block]]
+key = "96f819400681c48e-3675f861ec5f6e37"
+type = "listItem"
+composite = true
+origin = '''
+3. {{96f819400681c48e-3675f861ec5f6e37-8cfaf3aa498fc33a}}
+'''
+translate = '''
+3. {{96f819400681c48e-3675f861ec5f6e37-8cfaf3aa498fc33a}}
+'''
+
+[[block]]
+key = "96f819400681c48e-3675f861ec5f6e37-8cfaf3aa498fc33a"
+type = "paragraph"
+origin = '''
+若此前备份过耗材档案 ZIP，可按[耗材档案管理教程](pathname:///zh/docs/knowledge/material-library-management/)重新导入恢复；
+'''
+translate = '''
+If you saved an offline backup ZIP earlier, reinstall it via **Import Material ZIP**—see the [Material Archive management guide](pathname:///en/docs/knowledge/material-library-management/).
+'''
+
+[[block]]
+key = "96f819400681c48e-5bc583317aa72a0b"
+type = "listItem"
+composite = true
+origin = '''
+4. {{96f819400681c48e-5bc583317aa72a0b-30023ee1a789efd2}}
+'''
+translate = '''
+4. {{96f819400681c48e-5bc583317aa72a0b-30023ee1a789efd2}}
+'''
+
+[[block]]
+key = "96f819400681c48e-5bc583317aa72a0b-30023ee1a789efd2"
+type = "paragraph"
+origin = '''
+若旧档案来源已不可考且手头有对应实体线材，直接打印一套梯度色卡重新建档最为可靠；
+'''
+translate = '''
+If an older archive's origin is unknown, calibrate a fresh archive directly from your physical spool.
+'''
+
+[[block]]
+key = "96f819400681c48e-f25fa29b0f59cd43"
+type = "listItem"
+composite = true
+origin = '''
+5. {{96f819400681c48e-f25fa29b0f59cd43-64dca52c89c4228d}}
+'''
+translate = '''
+5. {{96f819400681c48e-f25fa29b0f59cd43-64dca52c89c4228d}}
+'''
+
+[[block]]
+key = "96f819400681c48e-f25fa29b0f59cd43-64dca52c89c4228d"
+type = "paragraph"
+origin = '''
+对于需要长期复产的重要项目，建议将原图、分享卡配置、耗材档案 ZIP（或 LUT 文件）、导出的 3MF 与切片工程打包归档，避免只留存一张参数截图。
+'''
+translate = '''
+For repeatable production jobs, archive the source image, Lumina Share Card or settings, Material Archive ZIP (or LUT file), exported 3MF, and sliced project together in one folder rather than saving only a screenshot of profile names.
+'''
+
+[[block]]
+key = "cbbf3b866f003400"
+type = "heading"
+origin = '''
+## 常见问题 Q&A
+'''
+translate = '''
+## Common questions
+'''
+
+[[block]]
+key = "4cded23558640d39"
+type = "heading"
+origin = '''
+### 库里已经有同品牌同色号的现成档案，还需要自己校准吗？
+'''
+translate = '''
+### An installed archive already matches my filament's brand and color—should I still calibrate my own?
+'''
+
+[[block]]
+key = "6c2f79747b67703e"
+type = "paragraph"
+origin = '''
+可以先用现成档案打印一小块测试图，对比网页预览、切片路径与实物成色。若还原准确即可直接投入使用；若系列细分不同（如哑光与普通基础色）或实物存在肉眼可见的偏差，再为手头这卷线材自制档案。
+'''
+translate = '''
+Run a small test swatch with the installed archive first and compare Preview, sliced paths, and the physical print. If the colors match well, you're set; if your spool comes from a different sub-line (such as Matte vs. Basic) or shifts noticeably on the bed, calibrate a custom archive for your spool.
+'''
+
+[[block]]
+key = "94c69acc595057f4"
+type = "heading"
+origin = '''
+### 找不到完全同款的档案时，能临时挑一个颜色最接近的凑合吗？
+'''
+translate = '''
+### If no archive matches my spool, can I pick the closest swatch color?
+'''
+
+[[block]]
+key = "c18c451fcee9f10a"
+type = "paragraph"
+origin = '''
+初次熟悉软件操作流程时可以用来练习预览，但正式打印时不建议用近似色档案替代。尤其是白色、黑色、半透明及含填料耗材，即便表面色块接近，透光深度往往天差地别；正式作品前请先试打或自制对应档案。
+'''
+translate = '''
+Using a rough color stand-in is fine while learning the interface, but avoid relying on it for finished prints. White, black, translucent, and filled filaments with similar surface swatches can have dramatically different transmission depths when stacked—print a test swatch or calibrate the spool first.
+'''
+
+[[block]]
+key = "17ca835cfc673ef8"
+type = "heading"
+origin = '''
+### 同一份耗材档案能同时给 PLA 和 PETG 共用吗？
+'''
+translate = '''
+### Can one Material Archive cover both PLA and PETG?
+'''
+
+[[block]]
+key = "1da8e7d575c0fd9a"
+type = "paragraph"
+origin = '''
+不能。耗材档案记录的是特定材质与配方的光学测量参数；更换基材后，打印温度、结晶透光率与表面漫反射都会改变，请分别选用与实际线材材质一致的档案及切片预设。
+'''
+translate = '''
+No. Each archive models the measured optics of one specific filament formula; switching polymers changes print temperature, translucency, and surface finish. Maintain separate archives and slicer presets for each material family.
+'''
+
+[[block]]
+key = "eac1209fa9066c7e"
+type = "heading"
+origin = '''
+### 老版本的经典 LUT 文件能直接转换成 2.0 的耗材档案吗？
+'''
+translate = '''
+### Can I convert an older Classic LUT directly into 2.0 Material Archives?
+'''
+
+[[block]]
+key = "08a8f26187dda7e6"
+type = "paragraph"
+origin = '''
+不能直接转换。经典 LUT 记录的是整套多色组合的查表结果，而 2.0 耗材档案记录的是单卷线材的独立光学模型，直接改文件名或扩展名无法互通。旧项目可继续在“经典 LUT”模式下打开；如需转入 2.0 自由组合工作流，请按梯度色卡流程为各单卷耗材建档。
+'''
+translate = '''
+No—a Classic LUT stores pre-blended multi-spool combinations, whereas 2.0 Material Archives store single-spool optical models, so renaming file extensions will not convert one into the other. Keep using **Classic LUT** mode for legacy projects, and print single-spool gradient cards when moving spools into the Material Archive workflow.
+'''
+
+[[block]]
+key = "1a5aa9d46dd2e259"
+type = "heading"
+origin = '''
+### 为什么切换色彩来源后，刚才生成的预览就清空了？
+'''
+translate = '''
+### Why did my Preview clear when I switched Source Type?
+'''
+
+[[block]]
+key = "1978c31ed4e47629"
+type = "paragraph"
+origin = '''
+更换色彩来源会同步改变当前可用的耗材调色板、叠层配方与材料通道顺序，重新点击“预览”才能计算出新来源下的真实配色效果。
+'''
+translate = '''
+Switching between Material Archives and Classic LUTs changes the active palette, channel order, and optical recipe engine. Click **Preview** again to generate an accurate preview for the newly selected source.
+'''

@@ -1,0 +1,372 @@
+[metadata]
+reviewed_source = "f6bb9ebc1b546f459746075e128899d637da54a9315602a1eedee21a1a750104"
+
+[[block]]
+key = "65d2137c0b305a9c"
+type = "yaml"
+origin = '''
+---
+title: "色域覆盖与各耗材的贡献"
+description: "比较耗材组合的颜色范围、匹配误差，以及移除一卷耗材后哪些颜色受到影响。"
+sidebar_position: 8
+---
+'''
+translate = '''
+---
+title: "Gamut Coverage and Material Contributions"
+description: "Compare a filament combination's color range, estimated match error, and the colors affected by removing each filament."
+sidebar_position: 8
+---
+'''
+
+[[block]]
+key = "173b49cbc8b14e34"
+type = "heading"
+origin = '''
+# 色域覆盖与各耗材的贡献
+'''
+translate = '''
+# Gamut Coverage and Material Contributions
+'''
+
+[[block]]
+key = "ab467ee06ed77f1f"
+type = "paragraph"
+origin = '''
+“色域覆盖”用于比较一组耗材能表现的颜色范围，以及每卷耗材在这组配色中的作用。它使用耗材档案预测叠层颜色，不需要先生成模型或打印测试件。
+'''
+translate = '''
+**Gamut Coverage** compares the color range of a material combination and the role of each filament in that palette. It predicts stacked colors from material profiles, without first generating a model or printing a test piece.
+'''
+
+[[block]]
+key = "0dc06e0e02d6528e"
+type = "heading"
+origin = '''
+## 选择组合并计算
+'''
+translate = '''
+## Choose a combination and calculate
+'''
+
+[[block]]
+key = "e7f2947ae99e2c8b"
+type = "list"
+composite = true
+origin = '''
+{{e7f2947ae99e2c8b-850d23e4597a449f}}
+{{e7f2947ae99e2c8b-ec200fcde31ca55a}}
+{{e7f2947ae99e2c8b-737765231660ce12}}
+{{e7f2947ae99e2c8b-042538cab6dde517}}
+'''
+translate = '''
+{{e7f2947ae99e2c8b-850d23e4597a449f}}
+{{e7f2947ae99e2c8b-ec200fcde31ca55a}}
+{{e7f2947ae99e2c8b-737765231660ce12}}
+{{e7f2947ae99e2c8b-042538cab6dde517}}
+'''
+
+[[block]]
+key = "e7f2947ae99e2c8b-850d23e4597a449f"
+type = "listItem"
+composite = true
+origin = '''
+1. {{e7f2947ae99e2c8b-850d23e4597a449f-e301355d72478dad}}
+'''
+translate = '''
+1. {{e7f2947ae99e2c8b-850d23e4597a449f-e301355d72478dad}}
+'''
+
+[[block]]
+key = "e7f2947ae99e2c8b-850d23e4597a449f-e301355d72478dad"
+type = "paragraph"
+origin = '''
+打开“耗材管理 → 色域覆盖”，选择至少一种耗材。
+'''
+translate = '''
+Open **Gamut Coverage** under **Material Management** and select at least one material.
+'''
+
+[[block]]
+key = "e7f2947ae99e2c8b-ec200fcde31ca55a"
+type = "listItem"
+composite = true
+origin = '''
+2. {{e7f2947ae99e2c8b-ec200fcde31ca55a-4ecce3788c2cf320}}
+'''
+translate = '''
+2. {{e7f2947ae99e2c8b-ec200fcde31ca55a-4ecce3788c2cf320}}
+'''
+
+[[block]]
+key = "e7f2947ae99e2c8b-ec200fcde31ca55a-4ecce3788c2cf320"
+type = "paragraph"
+origin = '''
+设置层高与固定层数，或开启动态层数并填写最小、最大层数及底板耗材。
+'''
+translate = '''
+Set the layer height and fixed layer count, or enable dynamic layers and choose the minimum, maximum and backing material.
+'''
+
+[[block]]
+key = "e7f2947ae99e2c8b-737765231660ce12"
+type = "listItem"
+composite = true
+origin = '''
+3. {{e7f2947ae99e2c8b-737765231660ce12-e8b15e07ac0cbf1d}}
+'''
+translate = '''
+3. {{e7f2947ae99e2c8b-737765231660ce12-e8b15e07ac0cbf1d}}
+'''
+
+[[block]]
+key = "e7f2947ae99e2c8b-737765231660ce12-e8b15e07ac0cbf1d"
+type = "paragraph"
+origin = '''
+核对模拟使用的白底或黑底，点击“计算覆盖率”。
+'''
+translate = '''
+Check the simulated white or black substrate, then select **Calculate coverage**.
+'''
+
+[[block]]
+key = "e7f2947ae99e2c8b-042538cab6dde517"
+type = "listItem"
+composite = true
+origin = '''
+4. {{e7f2947ae99e2c8b-042538cab6dde517-39b05668fca9ebb2}}
+'''
+translate = '''
+4. {{e7f2947ae99e2c8b-042538cab6dde517-39b05668fca9ebb2}}
+'''
+
+[[block]]
+key = "e7f2947ae99e2c8b-042538cab6dde517-39b05668fca9ebb2"
+type = "paragraph"
+origin = '''
+查看覆盖率、匹配误差、亮度范围、颜色分布和各耗材的贡献。
+'''
+translate = '''
+Inspect coverage, match error, lightness range, color distribution and material contributions.
+'''
+
+[[block]]
+key = "6b72d939c5c8517f"
+type = "paragraph"
+origin = '''
+从转换页点击“查看色域”会带入当前配色，也可以点击“使用转换器当前选择”重新带入。在工作台中试换耗材或层数不会改动转换页的设置。参数改变后，旧结果会标记为之前组合的结果，需要重新计算再比较。
+'''
+translate = '''
+Opening the gamut view from the converter brings in its current palette. Select **Use converter selection** to bring it in again. Trying different materials or layer counts in the workbench does not change the converter's settings. After parameters change, the previous result is marked as belonging to the earlier combination; recalculate before comparing.
+'''
+
+[[block]]
+key = "75dfdcb1b2ffdf3b"
+type = "heading"
+origin = '''
+## 覆盖率和匹配误差有什么区别
+'''
+translate = '''
+## Coverage versus match error
+'''
+
+[[block]]
+key = "903cad104bcdde6f"
+type = "table"
+origin = '''
+| 指标 | 表示什么 | 怎样比较 |
+| --- | --- | --- |
+| sRGB 覆盖率 | 这组耗材触达了参考颜色范围中的多少个色彩单元 | 数值越高，覆盖范围越广；不表示每种颜色都更准确 |
+| 匹配误差估计 | 参考颜色与邻近可打印颜色之间的平均 ΔE00 色差 | 同一颜色组内越小越接近，可分别查看灰黑白、暗色、肤色、鲜艳色等 |
+| 亮度范围 | 预测颜色中从暗到亮的范围 | 配合暗部细节、灰阶或高光需求观察 |
+| 候选完整 / 候选近似 | 计算是否保留全部叠层候选颜色 | 近似结果可能遗漏可达颜色，比较时要留意候选来源 |
+'''
+translate = '''
+| Metric | What it measures | How to compare it |
+| --- | --- | --- |
+| sRGB coverage | How many reference color cells the combination reaches | Higher means a wider range, not necessarily more accurate matching for every color |
+| Estimated match error | Average ΔE00 between reference colors and nearby printable colors | Lower is closer within a color group; inspect greys, dark colors, skin tones and vivid colors separately |
+| Lightness range | The predicted range from dark to light | Consider it alongside shadow detail, greyscale and highlight requirements |
+| Complete / Approximate candidates | Whether all possible stack colors were retained | Approximate results can omit reachable colors; keep the candidate source in mind |
+'''
+
+[[block]]
+key = "c0b3a013ca69ebf2"
+type = "paragraph"
+origin = '''
+覆盖率默认将 Lab 颜色空间划分为边长 5 ΔE 的小格，统计预测颜色触达了多少个包含 sRGB 颜色的格子。匹配误差则在每个参考色的八个邻近候选中计算最小 ΔE00，再按颜色组取平均。因此，“候选完整”也不表示匹配误差已经求得全局最小值。
+'''
+translate = '''
+By default, coverage divides Lab space into cells with edges of 5 ΔE, then counts how many cells containing sRGB colors are reached by predicted colors. Match error takes the smallest ΔE00 among eight nearby candidates for each reference color, then averages by color group. Even **Complete candidates** does not mean the reported match error is a global minimum.
+'''
+
+[[block]]
+key = "09dc850121f8b8d8"
+type = "heading"
+origin = '''
+## “各耗材的贡献”怎样读
+'''
+translate = '''
+## Read the material contribution table
+'''
+
+[[block]]
+key = "9b4d4322e2730970"
+type = "paragraph"
+origin = '''
+第一行是完整组合的基线，后续每一行表示**移除该卷耗材**后的变化，而不是该卷耗材单独打印的效果。
+'''
+translate = '''
+The first row is the full combination's baseline. Each subsequent row shows what happens **when that filament is removed**, not what the filament prints on its own.
+'''
+
+[[block]]
+key = "fd2596c635534032"
+type = "list"
+composite = true
+origin = '''
+{{fd2596c635534032-d4321726f6c4437b}}
+{{fd2596c635534032-ee6bfe28451a41a3}}
+{{fd2596c635534032-f44b2102d4fc8900}}
+{{fd2596c635534032-970efc1b1c8c44d5}}
+'''
+translate = '''
+{{fd2596c635534032-d4321726f6c4437b}}
+{{fd2596c635534032-ee6bfe28451a41a3}}
+{{fd2596c635534032-f44b2102d4fc8900}}
+{{fd2596c635534032-970efc1b1c8c44d5}}
+'''
+
+[[block]]
+key = "fd2596c635534032-d4321726f6c4437b"
+type = "listItem"
+composite = true
+origin = '''
+- {{fd2596c635534032-d4321726f6c4437b-222141ecc0c8e397}}
+'''
+translate = '''
+- {{fd2596c635534032-d4321726f6c4437b-222141ecc0c8e397}}
+'''
+
+[[block]]
+key = "fd2596c635534032-d4321726f6c4437b-222141ecc0c8e397"
+type = "paragraph"
+origin = '''
+某颜色组的色差增加得越多，说明这卷耗材对该组颜色越重要。
+'''
+translate = '''
+A larger increase in a color group's error means that filament matters more to that group.
+'''
+
+[[block]]
+key = "fd2596c635534032-ee6bfe28451a41a3"
+type = "listItem"
+composite = true
+origin = '''
+- {{fd2596c635534032-ee6bfe28451a41a3-995274a83345c36a}}
+'''
+translate = '''
+- {{fd2596c635534032-ee6bfe28451a41a3-995274a83345c36a}}
+'''
+
+[[block]]
+key = "fd2596c635534032-ee6bfe28451a41a3-995274a83345c36a"
+type = "paragraph"
+origin = '''
+最暗亮度升高，说明移除后暗色能力减弱。
+'''
+translate = '''
+An increase in the darkest lightness means the remaining combination cannot reach as dark a color.
+'''
+
+[[block]]
+key = "fd2596c635534032-f44b2102d4fc8900"
+type = "listItem"
+composite = true
+origin = '''
+- {{fd2596c635534032-f44b2102d4fc8900-ed4f32f67ea7147e}}
+'''
+translate = '''
+- {{fd2596c635534032-f44b2102d4fc8900-ed4f32f67ea7147e}}
+'''
+
+[[block]]
+key = "fd2596c635534032-f44b2102d4fc8900-ed4f32f67ea7147e"
+type = "paragraph"
+origin = '''
+覆盖率下降，说明组合少了一部分可表达的颜色范围。
+'''
+translate = '''
+A drop in coverage means part of the available color range is lost.
+'''
+
+[[block]]
+key = "fd2596c635534032-970efc1b1c8c44d5"
+type = "listItem"
+composite = true
+origin = '''
+- {{fd2596c635534032-970efc1b1c8c44d5-9de927189a415238}}
+'''
+translate = '''
+- {{fd2596c635534032-970efc1b1c8c44d5-9de927189a415238}}
+'''
+
+[[block]]
+key = "fd2596c635534032-970efc1b1c8c44d5-9de927189a415238"
+type = "paragraph"
+origin = '''
+显示没有明显变化时，表示当前组合与计算条件下差别较小，不代表这卷耗材在其他作品里没有用途。
+'''
+translate = '''
+Little visible change means the difference is small for this combination and calculation, not that the filament has no use in other projects.
+'''
+
+[[block]]
+key = "3a3a216336d36f70"
+type = "paragraph"
+origin = '''
+例如，某卷耗材移除后肤色色差明显增加，而鲜艳色变化很小，它对这组配色的肤色更有帮助。是否保留仍取决于作品中的颜色、可用料槽与实际打印要求，不宜只按总覆盖率排名。
+'''
+translate = '''
+For example, if removing a filament increases skin-tone error substantially but barely affects vivid colors, that filament is particularly useful for skin tones in this palette. Whether to keep it depends on the artwork, available filament slots and printing requirements, rather than coverage alone.
+'''
+
+[[block]]
+key = "1ec192201d103afd"
+type = "paragraph"
+origin = '''
+逐卷比较采用同一个固定层数和 100 万候选预算。动态模式按**最大层数**进行这项比较，因此贡献表的基线与动态范围的总覆盖率可能不同。
+'''
+translate = '''
+Per-filament comparisons use the same fixed layer count and a one-million-candidate budget. In dynamic mode, this comparison uses the **maximum layer count**, so its baseline can differ from the coverage of the full dynamic range.
+'''
+
+[[block]]
+key = "d3693be2ded66449"
+type = "heading"
+origin = '''
+## 动态层数与缓存
+'''
+translate = '''
+## Dynamic layers and caching
+'''
+
+[[block]]
+key = "7bd9341057ddbdce"
+type = "paragraph"
+origin = '''
+动态模式还会展示不同有效层数上限的累计覆盖率。首次计算需要建立逐层候选和合并目录，保存后可供后续转换复用。固定层数、动态范围或耗材组合改变后，对应的可用缓存也会不同，详见[求解缓存](../material-solver-cache/material-solver-cache.mdx)。
+'''
+translate = '''
+Dynamic mode also shows cumulative coverage at different effective layer-count limits. Its first calculation builds per-layer candidates and a combined catalog, which later conversions can reuse. Changing the fixed count, dynamic range or material combination changes which caches apply. See [Solver Cache](../material-solver-cache/material-solver-cache.mdx).
+'''
+
+[[block]]
+key = "3af208131a91b39b"
+type = "paragraph"
+origin = '''
+计算依据是所选档案的测量与拟合数据。它适合在一致的层高、底色和候选条件下比较组合；实际打印仍会受到耗材批次、温度与测量条件的影响。
+'''
+translate = '''
+The calculation uses the selected profiles' measured and fitted data. Compare combinations under consistent layer-height, substrate and candidate conditions; actual prints are also affected by filament batch, temperature and measurement conditions.
+'''

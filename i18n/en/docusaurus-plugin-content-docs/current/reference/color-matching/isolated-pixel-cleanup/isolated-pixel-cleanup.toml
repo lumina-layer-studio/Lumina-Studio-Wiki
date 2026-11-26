@@ -1,0 +1,402 @@
+[metadata]
+migration_layout = "preserved English structure; root blocks retain grouped or omitted source sections"
+reviewed_source = "37b5c6c0cfbad7dcd9aee6b355fd7eb5353fb60d85caadf50de775fa10c25d23"
+
+[[block]]
+key = "5c9daa48fac687cb"
+type = "yaml"
+origin = '''
+---
+title: "孤立像素清理"
+description: "自动检测并替换颜色匹配后与周围邻居配方完全不同的单像素杂点，减少打印碎点。"
+sidebar_position: 4
+---
+'''
+translate = '''
+---
+title: "Isolated Pixel Cleanup"
+description: "Remove strict single-pixel recipe outliers after color matching by copying the most common neighboring material stack."
+sidebar_position: 4
+---
+'''
+
+[[block]]
+key = "ff183316feea1aea"
+type = "heading"
+origin = '''
+# 孤立像素清理
+'''
+translate = '''
+# Isolated Pixel Cleanup
+'''
+
+[[block]]
+key = "9e4a70e989ff81be"
+type = "paragraph"
+origin = '''
+“孤立像素清理”用于消除颜色匹配后残留的严格单像素杂点。只有当某个像素的整套材料堆叠与周围所有相邻像素均不同时，系统才会将其判定为孤立点并替换为周围最常见的材料配方，不会模糊整体画面或磨平正常边缘。
+'''
+translate = '''
+**Isolated Pixel Cleanup** removes strict single-pixel recipe outliers after color matching. Instead of blurring the image or softening edges, it replaces a pixel only when its complete material stack differs from every surrounding neighbor.
+'''
+
+[[block]]
+key = "d1f5964c9cda7aee"
+type = "paragraph"
+origin = '''
+此项默认开启。
+'''
+translate = '''
+This option is enabled by default.
+'''
+
+[[block]]
+key = "0ef779c18ec11294"
+type = "heading"
+origin = '''
+## 控件位置
+'''
+translate = '''
+## Location
+'''
+
+[[block]]
+key = "6da68e6e420b15d9"
+type = "paragraph"
+origin = '''
+依次打开“图像转换 → 核心设置 → 高级设置”，即可找到“孤立像素清理”。
+'''
+translate = '''
+Open **Converter → Core Settings → Advanced Settings**, then locate **Isolated Pixel Cleanup**.
+'''
+
+[[block]]
+key = "2da0d013ff04e4bb"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-isolated-pixel-cleanup-location.webp').default}
+  alt="Lumina Studio 高级设置中的孤立像素清理开关"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-isolated-pixel-cleanup-location.webp').default}
+  alt="Isolated Pixel Cleanup in Lumina Studio Advanced Settings"
+/>
+'''
+
+[[block]]
+key = "0aa8fb9242912c21"
+type = "heading"
+origin = '''
+## 清理规则
+'''
+translate = '''
+## How cleanup works
+'''
+
+[[block]]
+key = "e4eea260bc3b344c"
+type = "paragraph"
+origin = '''
+清理在像素完成材料配方匹配之后执行。系统会逐像素检查周围最多 8 个相邻像素（图像边缘与四角按实际存在的邻居计算）：
+'''
+translate = '''
+Cleanup runs after pixels have been matched to printable material recipes. For each pixel, Lumina Studio inspects up to eight surrounding neighbors (edge and corner pixels are checked against their existing neighbors):
+'''
+
+[[block]]
+key = "24f01f2c9460a40f"
+type = "list"
+composite = true
+origin = '''
+{{24f01f2c9460a40f-921817cf06d03f2d}}
+{{24f01f2c9460a40f-a3222ae7e475c3e5}}
+{{24f01f2c9460a40f-73196b7ee02a5002}}
+{{24f01f2c9460a40f-3f2525f134b76308}}
+'''
+translate = '''
+1. Compares the complete **material layer stack**, not just the on-screen RGB color.
+2. Marks the pixel as isolated only if its stack differs from every valid neighbor.
+3. Identifies the most frequent material stack among those neighbors.
+4. Copies both the material stack and the matched color from a neighbor with that winning stack.
+'''
+
+[[block]]
+key = "24f01f2c9460a40f-921817cf06d03f2d"
+type = "listItem"
+composite = true
+origin = '''
+1. {{24f01f2c9460a40f-921817cf06d03f2d-4c69fcca9fd3c5e1}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "24f01f2c9460a40f-921817cf06d03f2d-4c69fcca9fd3c5e1"
+type = "paragraph"
+origin = '''
+按整套**材料层堆叠配方**进行比对，而非仅比较屏幕显示的 RGB 颜色。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "24f01f2c9460a40f-a3222ae7e475c3e5"
+type = "listItem"
+composite = true
+origin = '''
+2. {{24f01f2c9460a40f-a3222ae7e475c3e5-0d5016607953a730}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "24f01f2c9460a40f-a3222ae7e475c3e5-0d5016607953a730"
+type = "paragraph"
+origin = '''
+仅当当前像素的材料堆叠与周围所有有效邻居均不相同，才将其标记为孤立点。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "24f01f2c9460a40f-73196b7ee02a5002"
+type = "listItem"
+composite = true
+origin = '''
+3. {{24f01f2c9460a40f-73196b7ee02a5002-c3ce2bc71d03376c}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "24f01f2c9460a40f-73196b7ee02a5002-c3ce2bc71d03376c"
+type = "paragraph"
+origin = '''
+统计周围邻居中出现频次最高的材料堆叠。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "24f01f2c9460a40f-3f2525f134b76308"
+type = "listItem"
+composite = true
+origin = '''
+4. {{24f01f2c9460a40f-3f2525f134b76308-57b032fbb4cbe691}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "24f01f2c9460a40f-3f2525f134b76308-57b032fbb4cbe691"
+type = "paragraph"
+origin = '''
+直接复制该常见邻居的材料堆叠与匹配颜色完成替换。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "804d9db0fe392e7d"
+type = "paragraph"
+origin = '''
+由于替换配方直接取自相邻像素，清理过程始终复用调色板内已有的合法配方，不会生成调色板之外的新颜色。
+'''
+translate = '''
+Because replacements are copied directly from neighboring pixels, cleanup always reuses valid recipes already present in the image and never introduces out-of-palette colors.
+'''
+
+[[block]]
+key = "8e6e56700e1db8c8"
+type = "heading"
+origin = '''
+## 保留范围与成片碎点排查
+'''
+translate = '''
+## What stays untouched
+'''
+
+[[block]]
+key = "24740cbf96a054e5"
+type = "paragraph"
+origin = '''
+以下结构不属于严格单像素孤立点，清理时会完整保留：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "138bab714a402907"
+type = "list"
+composite = true
+origin = '''
+{{138bab714a402907-2cb42eadc0865e98}}
+{{138bab714a402907-aced7053fba59e80}}
+'''
+translate = '''
+- Clusters of two or more connected pixels sharing the same stack are preserved.
+- Fine lines, outlines, and small details remain intact whenever at least one adjacent pixel shares the same stack.
+'''
+
+[[block]]
+key = "138bab714a402907-2cb42eadc0865e98"
+type = "listItem"
+composite = true
+origin = '''
+- {{138bab714a402907-2cb42eadc0865e98-9b04e40c0d122529}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "138bab714a402907-2cb42eadc0865e98-9b04e40c0d122529"
+type = "paragraph"
+origin = '''
+两个及以上相连且同配方的像素块；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "138bab714a402907-aced7053fba59e80"
+type = "listItem"
+composite = true
+origin = '''
+- {{138bab714a402907-aced7053fba59e80-a3e6ac0d01be5453}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "138bab714a402907-aced7053fba59e80-a3e6ac0d01be5453"
+type = "paragraph"
+origin = '''
+至少与一个相邻像素共用同一材料堆叠的细线、轮廓与微小色块。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "e92a03b0c3fc9d73"
+type = "paragraph"
+origin = '''
+若开启后画面仍存在成片噪点或细碎色块，建议结合[量化颜色数](../../converter-basic/quantize-colors/quantize-colors.mdx)、原图降噪以及目标打印尺寸一并调整。
+'''
+translate = '''
+If noticeable speckling or color chatter remains, check [Quantize Colors](../../converter-basic/quantize-colors/quantize-colors.mdx), source image noise, and your target print dimensions.
+'''
+
+[[block]]
+key = "319a5114d3fa7cdf"
+type = "heading"
+origin = '''
+## 生效范围
+'''
+translate = '''
+## Supported workflows
+'''
+
+[[block]]
+key = "fa515ead368e2840"
+type = "paragraph"
+origin = '''
+传统 LUT、预测匹配与耗材档案的位图像素流程均采用这套邻居配方清理规则；原生 SVG 矢量路径直接按图形对象匹配颜色，不经过单像素清理。
+'''
+translate = '''
+Standard LUT, predictive matching, and Material Archive pixel pipelines all apply this neighbor-copy rule. Native SVG vector shapes are matched per vector object and bypass single-pixel cleanup.
+'''
+
+[[block]]
+key = "0d3d6cf69da7d208"
+type = "paragraph"
+origin = '''
+切换开关后，此前生成的预览与 3MF 文件将失效，请重新生成预览和模型以查看变化。Lumina 配方卡会保存该开关状态。
+'''
+translate = '''
+Toggling this option clears any previously generated preview and 3MF output—rebuild both to compare results. Lumina recipe cards save this setting.
+'''
+
+[[block]]
+key = "2ebb014b8f68bd72"
+type = "heading"
+origin = '''
+## 相关页面
+'''
+translate = '''
+## Related pages
+'''
+
+[[block]]
+key = "48bffaa052d08ef5"
+type = "list"
+composite = true
+origin = '''
+{{48bffaa052d08ef5-0760dbe789b14d71}}
+{{48bffaa052d08ef5-f43fc166571f0862}}
+{{48bffaa052d08ef5-ec6323d0c8ba3dcf}}
+'''
+translate = '''
+- [Quantize Colors](../../converter-basic/quantize-colors/quantize-colors.mdx)
+- [Precise Color Matching](../precise-color-matching/precise-color-matching.mdx)
+- [Hue Protection](../hue-protection/hue-protection.mdx)
+'''
+
+[[block]]
+key = "48bffaa052d08ef5-0760dbe789b14d71"
+type = "listItem"
+composite = true
+origin = '''
+- {{48bffaa052d08ef5-0760dbe789b14d71-b70dd73d6108ec62}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "48bffaa052d08ef5-0760dbe789b14d71-b70dd73d6108ec62"
+type = "paragraph"
+origin = '''
+[量化颜色数](../../converter-basic/quantize-colors/quantize-colors.mdx)
+'''
+translate = '''
+'''
+
+[[block]]
+key = "48bffaa052d08ef5-f43fc166571f0862"
+type = "listItem"
+composite = true
+origin = '''
+- {{48bffaa052d08ef5-f43fc166571f0862-5dc3074a3c8ed20b}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "48bffaa052d08ef5-f43fc166571f0862-5dc3074a3c8ed20b"
+type = "paragraph"
+origin = '''
+[高精度颜色匹配](../precise-color-matching/precise-color-matching.mdx)
+'''
+translate = '''
+'''
+
+[[block]]
+key = "48bffaa052d08ef5-ec6323d0c8ba3dcf"
+type = "listItem"
+composite = true
+origin = '''
+- {{48bffaa052d08ef5-ec6323d0c8ba3dcf-9c9ce422b315baa4}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "48bffaa052d08ef5-ec6323d0c8ba3dcf-9c9ce422b315baa4"
+type = "paragraph"
+origin = '''
+[色相保护](../hue-protection/hue-protection.mdx)
+'''
+translate = '''
+'''

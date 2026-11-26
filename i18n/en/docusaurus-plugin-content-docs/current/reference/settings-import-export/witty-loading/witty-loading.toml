@@ -1,0 +1,76 @@
+[metadata]
+reviewed_source = "4057a9baf6f564a8c1aeaffb1bf481cddc3e303c9e974310b7a4ef28fb780f58"
+
+[[block]]
+key = "c819385e72268721"
+type = "yaml"
+origin = '''
+---
+title: "加载趣味消息"
+description: "控制预览与生成等待界面的趣味提示语轮播，以及本地保存规则。"
+sidebar_position: 7
+---
+'''
+translate = '''
+---
+title: "Loading Witty Messages"
+description: "Control playful waiting-screen status prompts and how the preference is stored locally."
+sidebar_position: 7
+---
+'''
+
+[[block]]
+key = "0a5a30a78d1cfcb7"
+type = "heading"
+origin = '''
+# 加载趣味消息
+'''
+translate = '''
+# Loading Witty Messages
+'''
+
+[[block]]
+key = "59dfb4f083b4afc7"
+type = "paragraph"
+origin = '''
+开启“加载趣味消息”后，预览、生成等任务等待界面会轮播简短的趣味提示语；关闭后仅显示常规的加载进度与状态。
+'''
+translate = '''
+When **Loading Witty Messages** is enabled, preview and generation screens rotate through playful short prompts while tasks run. Turning it off keeps the standard loading indicator without the extra copy.
+'''
+
+[[block]]
+key = "6ae30f9a6d82d74a"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-witty-loading.webp').default}
+  alt="加载趣味消息开关"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-witty-loading.webp').default}
+  alt="Loading Witty Messages switch"
+/>
+'''
+
+[[block]]
+key = "3f514c5c22917ca1"
+type = "paragraph"
+origin = '''
+该开关仅控制等待界面的展示文案，不影响图像处理算法、配色与三维模型结果、任务计算速度，也不会隐藏进度状态或错误提示。
+'''
+translate = '''
+This switch affects waiting-screen text only—image processing, color matching, generated geometry, computation speed, progress indicators, and error alerts all remain unchanged.
+'''
+
+[[block]]
+key = "76d733a51e0fd203"
+type = "paragraph"
+origin = '''
+偏好保存在当前本地存储中，刷新页面后依然保留；更换浏览器、清除站点数据或切换设备后可重新设置。
+'''
+translate = '''
+Your preference is saved in local browser storage across page reloads. Set it again if you switch browsers, clear site data, or move to another device.
+'''

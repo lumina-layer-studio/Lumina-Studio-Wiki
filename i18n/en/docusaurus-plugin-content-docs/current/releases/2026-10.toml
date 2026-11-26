@@ -1,0 +1,717 @@
+[metadata]
+migration_layout = "preserved English structure; root blocks retain grouped or omitted source sections"
+reviewed_source = "09172f79128c7ea4bf89e1dde18a0c1bdcadf444282f671687f6f6190a3c4ea9"
+
+[[block]]
+key = "ced9ead07dd0ea37"
+type = "yaml"
+origin = '''
+---
+title: "2.0 开发月报：2026 年 10 月"
+description: "截至 10 月 30 日：开源发布、2.0.1 源码、转换预设、界面调整与打印工程修复。"
+sidebar_position: 37
+---
+'''
+translate = '''
+---
+title: "2.0 Development Report: October 2026"
+description: "Through October 30: open-source release, 2.0.1 source, conversion presets, interface changes and export fixes."
+sidebar_position: 37
+---
+'''
+
+[[block]]
+key = "23db012e98eb410c"
+type = "heading"
+origin = '''
+# Lumina Studio 2.0 开发月报：2026 年 10 月
+'''
+translate = '''
+# Lumina Studio 2.0 Development Report: October 2026
+'''
+
+[[block]]
+key = "c0eb27b91fe97806"
+type = "blockquote"
+composite = true
+origin = '''
+> {{c0eb27b91fe97806-220b2d78b83dfe6d}}
+'''
+translate = '''
+> In progress · Updated through October 30, 2026
+'''
+
+[[block]]
+key = "c0eb27b91fe97806-220b2d78b83dfe6d"
+type = "paragraph"
+origin = '''
+持续更新 · 统计至 2026 年 10 月 30 日
+'''
+translate = '''
+'''
+
+[[block]]
+key = "d15109894b648f22"
+type = "paragraph"
+origin = '''
+10 月，Lumina Studio 正式转向开源维护并发布 2.0.1，同时打通多项核心工作流：项目保存完整支持局部编辑，颜色调整新增快速换色与相似配方，导出前加入耗材与打印板兼容性预检，并支持将分离底板导出为独立打印工程。
+'''
+translate = '''
+In October, Lumina Studio moved to open-source development and published version 2.0.1 while connecting several major workflows end to end: project saving now preserves local spatial edits, Color Adjustment gained quick recoloring and similar-recipe suggestions, exports run pre-flight filament and build-plate checks, and separated backings can be exported as standalone print projects.
+'''
+
+[[block]]
+key = "97abe30efa340737"
+type = "heading"
+origin = '''
+## 开源发布与 2.0.1
+'''
+translate = '''
+## Open-source release and 2.0.1
+'''
+
+[[block]]
+key = "59e8197c6c7662ce"
+type = "paragraph"
+origin = '''
+Lumina Studio 已转为在 [Lumina-Layers 公开仓库](https://github.com/lumina-layer-studio/Lumina-Layers)开源维护，并于 10 月 28 日发布 [2.0.1 正式源码](https://github.com/lumina-layer-studio/Lumina-Layers/releases/tag/v2.0.1)。GitHub Releases 页面提供源码归档下载，桌面端安装与版本更新继续通过官方启动器分发。
+'''
+translate = '''
+Lumina Studio is now developed openly in the [Lumina-Layers repository](https://github.com/lumina-layer-studio/Lumina-Layers), with the [2.0.1 source release](https://github.com/lumina-layer-studio/Lumina-Layers/releases/tag/v2.0.1) published on October 28. GitHub Releases hosts source archives, while desktop builds and updates continue to be distributed through the official launcher.
+'''
+
+[[block]]
+key = "09d270c45dd2cfcc"
+type = "heading"
+origin = '''
+## 10 月下旬的界面与转换设置
+'''
+translate = '''
+## Late-October interface and conversion updates
+'''
+
+[[block]]
+key = "3a58c6473b440531"
+type = "list"
+composite = true
+origin = '''
+{{3a58c6473b440531-7645be7fed918d90}}
+{{3a58c6473b440531-4674ab0acaecb77a}}
+{{3a58c6473b440531-69e15ed00ec5b4d4}}
+{{3a58c6473b440531-7f04edb81c52c219}}
+{{3a58c6473b440531-a7990ee1e383fccc}}
+{{3a58c6473b440531-f47cc1991905d9d3}}
+'''
+translate = '''
+- Conversion settings can now be saved as named presets, optionally bundling advanced settings, outlines, and coating; preset dimensions track the image's long edge.
+- **Material Archive** is now the default color source when no prior preference is saved. Traditional LUTs have been renamed **Classic LUT**, with cross-brand search and multi-selection in the picker dialog.
+- Image cropping and rotation are combined into a single dialog, allowing SVG artwork to be rotated while preserving vector paths.
+- After previewing, clicking download 3MF or open in slicer automatically generates the print file on demand.
+- Desktop builds added an adjustable, persistent interface scale control; 100% follows the OS display scale without affecting physical model dimensions.
+- Temporarily hid the Cloisonné settings entry while preserving existing saved configuration data.
+'''
+
+[[block]]
+key = "3a58c6473b440531-7645be7fed918d90"
+type = "listItem"
+composite = true
+origin = '''
+- {{3a58c6473b440531-7645be7fed918d90-f9481b647ded6204}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "3a58c6473b440531-7645be7fed918d90-f9481b647ded6204"
+type = "paragraph"
+origin = '''
+常用转换参数支持保存为命名预设，可按需勾选是否包含高级设置、外轮廓与涂层；预设尺寸按图片长边记录。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "3a58c6473b440531-4674ab0acaecb77a"
+type = "listItem"
+composite = true
+origin = '''
+- {{3a58c6473b440531-4674ab0acaecb77a-6250e78bb7d752bf}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "3a58c6473b440531-4674ab0acaecb77a-6250e78bb7d752bf"
+type = "paragraph"
+origin = '''
+颜色来源默认采用“耗材档案”；传统 LUT 更名为“经典 LUT”，支持在搜索窗口中跨品牌检索与多选确认。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "3a58c6473b440531-69e15ed00ec5b4d4"
+type = "listItem"
+composite = true
+origin = '''
+- {{3a58c6473b440531-69e15ed00ec5b4d4-1c9007d0f3596194}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "3a58c6473b440531-69e15ed00ec5b4d4-1c9007d0f3596194"
+type = "paragraph"
+origin = '''
+图片裁剪与旋转整合至同一弹窗，SVG 图案可在弹窗内直接旋转并完整保留矢量结构。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "3a58c6473b440531-7f04edb81c52c219"
+type = "listItem"
+composite = true
+origin = '''
+- {{3a58c6473b440531-7f04edb81c52c219-44fd924773d887ef}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "3a58c6473b440531-7f04edb81c52c219-44fd924773d887ef"
+type = "paragraph"
+origin = '''
+完成预览后可直接点击下载 3MF 或在切片软件中打开，软件会按需自动生成模型文件。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "3a58c6473b440531-a7990ee1e383fccc"
+type = "listItem"
+composite = true
+origin = '''
+- {{3a58c6473b440531-a7990ee1e383fccc-fe661e3669a322a1}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "3a58c6473b440531-a7990ee1e383fccc-fe661e3669a322a1"
+type = "paragraph"
+origin = '''
+桌面版新增界面缩放调节与自动保存，100% 档位跟随系统显示比例，且不影响导出模型的物理尺寸。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "3a58c6473b440531-f47cc1991905d9d3"
+type = "listItem"
+composite = true
+origin = '''
+- {{3a58c6473b440531-f47cc1991905d9d3-12d7335450e13d46}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "3a58c6473b440531-f47cc1991905d9d3-12d7335450e13d46"
+type = "paragraph"
+origin = '''
+暂时隐藏掐丝珐琅设置入口，已有配置数据仍予以保留。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "03ef2163097e16df"
+type = "heading"
+origin = '''
+## 10 月下旬的导出与修复
+'''
+translate = '''
+## Late-October export improvements and fixes
+'''
+
+[[block]]
+key = "ea013dbc94438cd9"
+type = "list"
+composite = true
+origin = '''
+{{ea013dbc94438cd9-bded5bf68d8c993b}}
+{{ea013dbc94438cd9-b0d17706c6262722}}
+{{ea013dbc94438cd9-c69eb6389cd78979}}
+{{ea013dbc94438cd9-14201d1d1b62fcd4}}
+'''
+translate = '''
+- Separately exported backing plates retain the selected filament's color, nozzle/bed temperatures, and flow settings.
+- Merged and batch layouts preserve individual model heights and arrange parts within the selected printer's build area, displaying a warning whenever spacing cannot be verified safely.
+- When a Large Format job completes only a subset of its tiles, finished tiles can be downloaded immediately alongside a list of missing tile IDs.
+- Fixed selection-state feedback and undo history in Color Workstation, and preserved canvas zoom and pan positions when toggling original-image comparison.
+'''
+
+[[block]]
+key = "ea013dbc94438cd9-bded5bf68d8c993b"
+type = "listItem"
+composite = true
+origin = '''
+- {{ea013dbc94438cd9-bded5bf68d8c993b-dd555f54fce1784c}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ea013dbc94438cd9-bded5bf68d8c993b-dd555f54fce1784c"
+type = "paragraph"
+origin = '''
+独立导出的分离底板完整保留所选耗材的颜色、打印温度与流量参数。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ea013dbc94438cd9-b0d17706c6262722"
+type = "listItem"
+composite = true
+origin = '''
+- {{ea013dbc94438cd9-b0d17706c6262722-6e5f2b8382c3e225}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ea013dbc94438cd9-b0d17706c6262722-6e5f2b8382c3e225"
+type = "paragraph"
+origin = '''
+合并导出与批量排版保留各模型原有高度，并按所选打印机的有效热床范围自动摆放；超出安全间距时给出明确提示。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ea013dbc94438cd9-c69eb6389cd78979"
+type = "listItem"
+composite = true
+origin = '''
+- {{ea013dbc94438cd9-c69eb6389cd78979-f25f521aa2aafe09}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ea013dbc94438cd9-c69eb6389cd78979-f25f521aa2aafe09"
+type = "paragraph"
+origin = '''
+大画幅任务若仅有部分分块完成，支持先行下载已生成的分块并列出缺失编号。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ea013dbc94438cd9-14201d1d1b62fcd4"
+type = "listItem"
+composite = true
+origin = '''
+- {{ea013dbc94438cd9-14201d1d1b62fcd4-ed74b600667cc786}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ea013dbc94438cd9-14201d1d1b62fcd4-ed74b600667cc786"
+type = "paragraph"
+origin = '''
+修复颜色工作站的选择状态反馈与撤销历史记录问题，并在切换原图对比时保持当前画布缩放与视图位置。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b2a63d87ce8ca266"
+type = "heading"
+origin = '''
+## 保存项目后继续编辑
+'''
+translate = '''
+## Resuming saved projects
+'''
+
+[[block]]
+key = "7816f9bd13e6cd9e"
+type = "paragraph"
+origin = '''
+JSON 项目文件与 PNG 分享卡现已完整记录已确认的局部换色、区域配方与选区状态，在原图有效且本地具备对应耗材或 LUT 资源时，重新导入即可无缝继续编辑。恢复项目时会自动核对原图与工作坐标，避免将区域修改误套用到其他同尺寸图片上。
+'''
+translate = '''
+JSON project files and PNG share cards now save confirmed local recolors, regional recipes, and active selections so projects can be reopened for further editing whenever the source artwork and required material or LUT resources are available locally. Project restoration validates source artwork and working coordinates so regional edits are never misapplied to a different image of the same dimensions.
+'''
+
+[[block]]
+key = "a5fc474c9361d2fb"
+type = "paragraph"
+origin = '''
+重新生成预览会完整保留已确认的编辑结果；合法修改参数后的配方文件支持正常导入，导入不含区域数据的旧版文件时则会明确提示。材料快捷配方输入框同步支持界面展示的中文材料缩写。
+'''
+translate = '''
+Rebuilding a preview preserves confirmed edits, validly modified recipe parameters can be imported cleanly, and legacy files saved before spatial-edit support clearly note when regional data is absent. Material recipe shortcut inputs also accept the Chinese filament abbreviations displayed in the interface.
+'''
+
+[[block]]
+key = "5d60d212116e7ca2"
+type = "paragraph"
+origin = '''
+详细操作与适用范围见[保存项目与分享卡](../knowledge/share-card-json/share-card-json.mdx)（模型贴图暂不支持通过项目文件或分享卡恢复底模与所选平面）。
+'''
+translate = '''
+**Model Texture** does not yet restore base meshes or selected faces from JSON project files or PNG share cards.
+'''
+
+[[block]]
+key = "f9a943d7d29c63d9"
+type = "heading"
+origin = '''
+## 颜色调整
+'''
+translate = '''
+## Color Adjustment
+'''
+
+[[block]]
+key = "628b42b40271bbcc"
+type = "heading"
+origin = '''
+### 快速换色与相似配方
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b6614d9ab490b043"
+type = "paragraph"
+origin = '''
+颜色调整新增相近颜色选择、目标颜色 B 与吸管取色：先框选或点选目标范围，即可将其替换为指定目标色或推荐的相似材料配方，仅作用于当前选区而不影响全图其余同色区域。候选推荐直观展示叠层顺序、色差数值与“图中已有”标记，方便快速比对。
+'''
+translate = '''
+Quick recoloring added similar-color selection, target color B, and an eyedropper tool. Users can select a local region and replace it with a target color or a suggested similar filament recipe without altering matching colors elsewhere in the artwork. Candidate cards display layer order, color difference, and an “already in image” badge for quick comparison.
+'''
+
+[[block]]
+key = "1afc18994932865f"
+type = "paragraph"
+origin = '''
+同步修复了部分会话无法获取相似配方、透明图片重放全图换色后出现多余实体的问题；多选区场景下的边缘轮廓采用缓存加速，画布缩放与平移更加流畅。详见[快速换色与相似配方](../reference/preview-and-palette/quick-recolor/quick-recolor.mdx)。
+'''
+translate = '''
+Follow-up fixes resolved missing recipe suggestions in some sessions and unwanted solid geometry in transparent areas after replaying global edits, while cached selection outlines keep panning and zooming smooth across complex multi-region selections.
+'''
+
+[[block]]
+key = "658ff709668b5d83"
+type = "heading"
+origin = '''
+## 模型贴图与创意工具
+'''
+translate = '''
+## Model Texture and creative tools
+'''
+
+[[block]]
+key = "7c684223d490e012"
+type = "paragraph"
+origin = '''
+“模型覆面”正式更名为“模型贴图”，并从基础设置独立为专属面板；“高级功能”同步调整为“创意中心”。底模与图案均支持拖放导入，选定平面后自动正视贴图区域，同时保留已调整的模型朝向。
+'''
+translate = '''
+Model Surface Overlay was renamed **Model Texture** and promoted from Basic Settings into its own dedicated panel, while Advanced was renamed **Creative Center**. Base meshes and artwork both support drag-and-drop import, selecting a target face aligns the camera straight on, and previously adjusted model orientation is preserved.
+'''
+
+[[block]]
+key = "86616b2985000937"
+type = "paragraph"
+origin = '''
+此外修复了带细小孔洞图案的开槽失败、底模材料归属异常及部分创意工坊模块偶发无法打开的问题；首次进入工作区新增可跳过的新手引导，后续也可随时从顶栏重新打开。完整操作见[在模型平面上添加图案](../tutorials/model-texture/model-texture.mdx)。
+'''
+translate = '''
+Additional fixes resolved pocket-carving failures around tiny holes, base-mesh material assignment issues, and intermittent launch failures in Creative Workshop modules. First-time workspace entry now includes a skippable onboarding tour that can be replayed anytime from the top bar.
+'''
+
+[[block]]
+key = "e60d2372d97459b8"
+type = "heading"
+origin = '''
+## 打印工程与材料
+'''
+translate = '''
+## Print projects and materials
+'''
+
+[[block]]
+key = "1a69b59c948be50f"
+type = "list"
+composite = true
+origin = '''
+{{1a69b59c948be50f-11ffa5b0e5b3cb73}}
+{{1a69b59c948be50f-c1e4b5fe3e873e52}}
+{{1a69b59c948be50f-e3d6161c35684d59}}
+{{1a69b59c948be50f-93d0c2ea38739a51}}
+{{1a69b59c948be50f-547c8dfa1504f4f3}}
+{{1a69b59c948be50f-3b2194c153a173dc}}
+'''
+translate = '''
+- Added pre-generation compatibility checks for native filament presets and build plates, prompting for an explicit choice whenever multiple matches exist.
+- Added support for reusing filament and global process settings via custom single-plate 3MF templates in supported single-plate workflows.
+- Supported exporting single-sided, non-relief models and their backing plates as separate full-size 3MF projects bundled into a single ZIP archive.
+- Required an explicit coating filament assignment and added clear warnings when incompatible material types are mixed.
+- Added visible tile grid lines and matching tile IDs in Large Format previews.
+- Expanded Prusa printer and project support alongside ongoing slicer parameter and first-layer compatibility updates.
+'''
+
+[[block]]
+key = "1a69b59c948be50f-11ffa5b0e5b3cb73"
+type = "listItem"
+composite = true
+origin = '''
+- {{1a69b59c948be50f-11ffa5b0e5b3cb73-4c838e116bd162bd}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1a69b59c948be50f-11ffa5b0e5b3cb73-4c838e116bd162bd"
+type = "paragraph"
+origin = '''
+生成前自动检查原生耗材预设与打印板兼容性，存在多个匹配项时支持手动确认后继续。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1a69b59c948be50f-c1e4b5fe3e873e52"
+type = "listItem"
+composite = true
+origin = '''
+- {{1a69b59c948be50f-c1e4b5fe3e873e52-2f60d1995604aa97}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1a69b59c948be50f-c1e4b5fe3e873e52-2f60d1995604aa97"
+type = "paragraph"
+origin = '''
+支持通过自定义单盘 3MF 模板复用材料与全局工艺参数，适用范围与覆盖规则见[模板说明](../reference/settings-import-export/custom-3mf-template/custom-3mf-template.mdx)。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1a69b59c948be50f-e3d6161c35684d59"
+type = "listItem"
+composite = true
+origin = '''
+- {{1a69b59c948be50f-e3d6161c35684d59-9a17c643b8640abb}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1a69b59c948be50f-e3d6161c35684d59-9a17c643b8640abb"
+type = "paragraph"
+origin = '''
+单面、无浮雕的单模型支持将主体与背板按原尺寸分别导出为独立 3MF，并自动打包为 ZIP。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1a69b59c948be50f-93d0c2ea38739a51"
+type = "listItem"
+composite = true
+origin = '''
+- {{1a69b59c948be50f-93d0c2ea38739a51-e0e191a6027dc969}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1a69b59c948be50f-93d0c2ea38739a51-e0e191a6027dc969"
+type = "paragraph"
+origin = '''
+启用涂层时需显式指定当前材料或独立耗材档案，混用不同材料类型时自动给出提示。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1a69b59c948be50f-547c8dfa1504f4f3"
+type = "listItem"
+composite = true
+origin = '''
+- {{1a69b59c948be50f-547c8dfa1504f4f3-c4c881eb36ea6f3d}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1a69b59c948be50f-547c8dfa1504f4f3-c4c881eb36ea6f3d"
+type = "paragraph"
+origin = '''
+大画幅预览新增分块切割线与编号标识，便于与导出的分块文件一一对应。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1a69b59c948be50f-3b2194c153a173dc"
+type = "listItem"
+composite = true
+origin = '''
+- {{1a69b59c948be50f-3b2194c153a173dc-f9ca19179d6ff417}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1a69b59c948be50f-3b2194c153a173dc-f9ca19179d6ff417"
+type = "paragraph"
+origin = '''
+新增 Prusa 机型及打印工程适配，并持续更新各切片器的工艺参数与首层兼容性。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "613ce0811fe54d10"
+type = "heading"
+origin = '''
+## 反馈与运行稳定性
+'''
+translate = '''
+## Feedback and runtime stability
+'''
+
+[[block]]
+key = "30c247f61240cd7c"
+type = "list"
+composite = true
+origin = '''
+{{30c247f61240cd7c-ac958be86b697741}}
+{{30c247f61240cd7c-6cd18c21f9185b97}}
+{{30c247f61240cd7c-f4ba6a588ccb8a72}}
+{{30c247f61240cd7c-9d37806b37e602e7}}
+{{30c247f61240cd7c-249ef8ddfc377dec}}
+'''
+translate = '''
+- Bug reports now upload directly to the official collection service with upload progress, status feedback, and retry controls—no personal outgoing-email setup required.
+- Expanded diagnostic collection across source images, SVGs, base meshes, generated outputs, and error logs, with direct entry into bug reporting when unexpected errors occur.
+- Desktop startup now waits for the local backend service before opening the workspace and preserves existing user data when recovering from an occupied port.
+- Fixed static-asset loading on non-ASCII file paths and moved gradient-card save confirmations next to the action button.
+- Removed deprecated legacy Docker deployment configurations and update scripts.
+'''
+
+[[block]]
+key = "30c247f61240cd7c-ac958be86b697741"
+type = "listItem"
+composite = true
+origin = '''
+- {{30c247f61240cd7c-ac958be86b697741-aaf310331c10d4b3}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "30c247f61240cd7c-ac958be86b697741-aaf310331c10d4b3"
+type = "paragraph"
+origin = '''
+问题反馈改为直接上传至官方收集服务，提供实时上传进度、结果提示与重试按钮，无需配置个人发件邮箱。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "30c247f61240cd7c-6cd18c21f9185b97"
+type = "listItem"
+composite = true
+origin = '''
+- {{30c247f61240cd7c-6cd18c21f9185b97-eb196642ec51768e}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "30c247f61240cd7c-6cd18c21f9185b97-eb196642ec51768e"
+type = "paragraph"
+origin = '''
+扩充原图、SVG、底模、导出结果与异常日志的自动收集范围，遇到运行异常时可直接进入反馈提交流程。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "30c247f61240cd7c-f4ba6a588ccb8a72"
+type = "listItem"
+composite = true
+origin = '''
+- {{30c247f61240cd7c-f4ba6a588ccb8a72-af45ec5e336e2629}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "30c247f61240cd7c-f4ba6a588ccb8a72-af45ec5e336e2629"
+type = "paragraph"
+origin = '''
+桌面端首次启动会等待本地后台服务就绪后再进入工作区，并在处理端口占用恢复时完整保留已有用户数据。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "30c247f61240cd7c-9d37806b37e602e7"
+type = "listItem"
+composite = true
+origin = '''
+- {{30c247f61240cd7c-9d37806b37e602e7-14c050186a11747c}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "30c247f61240cd7c-9d37806b37e602e7-14c050186a11747c"
+type = "paragraph"
+origin = '''
+修复中文等非 ASCII 路径下的静态资源加载失败问题，并将梯度卡保存成功提示调整至操作按钮附近。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "30c247f61240cd7c-249ef8ddfc377dec"
+type = "listItem"
+composite = true
+origin = '''
+- {{30c247f61240cd7c-249ef8ddfc377dec-4b1153abb58c45e2}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "30c247f61240cd7c-249ef8ddfc377dec-4b1153abb58c45e2"
+type = "paragraph"
+origin = '''
+移除已废弃的旧版 Docker 部署配置与配套自动更新流程。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1967ec27b4ac1309"
+type = "paragraph"
+origin = '''
+[← 2026 年 9 月](./2026-09.md) · [更新日志总览](./overview.md)
+'''
+translate = '''
+[← September](./2026-09.md) · [Changelog](./overview.md)
+'''

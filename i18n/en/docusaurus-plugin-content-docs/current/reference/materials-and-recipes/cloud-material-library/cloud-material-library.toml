@@ -1,0 +1,334 @@
+[metadata]
+reviewed_source = "172bfb1611acd0c92fbc96d0a047e8aef1904470052e0936f174f313e6a83d7c"
+
+[[block]]
+key = "8eddc10cff57f89f"
+type = "yaml"
+origin = '''
+---
+title: "云端耗材库"
+description: "按品牌、系列和色号查找公开耗材，预览梯度卡，按需下载或从离线包添加。"
+sidebar_position: 4
+---
+'''
+translate = '''
+---
+title: "Cloud Material Library"
+description: "Find public filament profiles by brand, series and color code, preview gradient cards, and add only what you need from the cloud or an offline pack."
+sidebar_position: 4
+---
+'''
+
+[[block]]
+key = "bdb72c572a1c7c86"
+type = "heading"
+origin = '''
+# 云端耗材库
+'''
+translate = '''
+# Cloud Material Library
+'''
+
+[[block]]
+key = "f3b9a38094a07d7e"
+type = "paragraph"
+origin = '''
+云端耗材库收录已公开的单卷耗材档案。先核对料盘上的品牌、系列、材质和色号，再选择与计划打印层高相符的档案。浏览目录不需要先下载整个库。
+'''
+translate = '''
+The cloud material library contains published profiles for individual filaments. Check the brand, series, material and color code on your spool, then choose a profile calibrated at the layer height you plan to print. You do not need to download the entire library to browse it.
+'''
+
+[[block]]
+key = "f5c27f40ec2544ba"
+type = "heading"
+origin = '''
+## 找到并添加耗材
+'''
+translate = '''
+## Find and add a filament
+'''
+
+[[block]]
+key = "17d05724d0de91de"
+type = "list"
+composite = true
+origin = '''
+{{17d05724d0de91de-3f3592f2a52d398e}}
+{{17d05724d0de91de-9a31f385f0ff6db7}}
+{{17d05724d0de91de-94a8637266c4c813}}
+{{17d05724d0de91de-66f735e044f1cd65}}
+{{17d05724d0de91de-5e4422eb3d28d3cd}}
+'''
+translate = '''
+{{17d05724d0de91de-3f3592f2a52d398e}}
+{{17d05724d0de91de-9a31f385f0ff6db7}}
+{{17d05724d0de91de-94a8637266c4c813}}
+{{17d05724d0de91de-66f735e044f1cd65}}
+{{17d05724d0de91de-5e4422eb3d28d3cd}}
+'''
+
+[[block]]
+key = "17d05724d0de91de-3f3592f2a52d398e"
+type = "listItem"
+composite = true
+origin = '''
+1. {{17d05724d0de91de-3f3592f2a52d398e-97ed91a75c2b9a55}}
+'''
+translate = '''
+1. {{17d05724d0de91de-3f3592f2a52d398e-97ed91a75c2b9a55}}
+'''
+
+[[block]]
+key = "17d05724d0de91de-3f3592f2a52d398e-97ed91a75c2b9a55"
+type = "paragraph"
+origin = '''
+在耗材选择器中点击“去云端找耗材”，或打开“耗材管理 → 云端耗材库”。
+'''
+translate = '''
+Select the cloud-library shortcut in the material picker, or open the cloud material library under material management.
+'''
+
+[[block]]
+key = "17d05724d0de91de-9a31f385f0ff6db7"
+type = "listItem"
+composite = true
+origin = '''
+2. {{17d05724d0de91de-9a31f385f0ff6db7-7a02e3bbf8ee3ebb}}
+'''
+translate = '''
+2. {{17d05724d0de91de-9a31f385f0ff6db7-7a02e3bbf8ee3ebb}}
+'''
+
+[[block]]
+key = "17d05724d0de91de-9a31f385f0ff6db7-7a02e3bbf8ee3ebb"
+type = "paragraph"
+origin = '''
+输入品牌、系列、商品名称或色号，结合安装状态筛选。
+'''
+translate = '''
+Search by brand, series, product name or color code, and filter by installation status.
+'''
+
+[[block]]
+key = "17d05724d0de91de-94a8637266c4c813"
+type = "listItem"
+composite = true
+origin = '''
+3. {{17d05724d0de91de-94a8637266c4c813-cda1d8d3b63b032f}}
+'''
+translate = '''
+3. {{17d05724d0de91de-94a8637266c4c813-cda1d8d3b63b032f}}
+'''
+
+[[block]]
+key = "17d05724d0de91de-94a8637266c4c813-cda1d8d3b63b032f"
+type = "paragraph"
+origin = '''
+点开条目，查看梯度卡、校准层高、原始档案名、作者与说明。
+'''
+translate = '''
+Open an entry to inspect its gradient cards, calibration layer height, original profile name, author and notes.
+'''
+
+[[block]]
+key = "17d05724d0de91de-66f735e044f1cd65"
+type = "listItem"
+composite = true
+origin = '''
+4. {{17d05724d0de91de-66f735e044f1cd65-eabef0cc500d7929}}
+'''
+translate = '''
+4. {{17d05724d0de91de-66f735e044f1cd65-eabef0cc500d7929}}
+'''
+
+[[block]]
+key = "17d05724d0de91de-66f735e044f1cd65-eabef0cc500d7929"
+type = "paragraph"
+origin = '''
+确认符合手头线材后，点击“下载到本地”。
+'''
+translate = '''
+Once it matches your filament, select **Download to local**.
+'''
+
+[[block]]
+key = "17d05724d0de91de-5e4422eb3d28d3cd"
+type = "listItem"
+composite = true
+origin = '''
+5. {{17d05724d0de91de-5e4422eb3d28d3cd-b71d8ec495319639}}
+'''
+translate = '''
+5. {{17d05724d0de91de-5e4422eb3d28d3cd-b71d8ec495319639}}
+'''
+
+[[block]]
+key = "17d05724d0de91de-5e4422eb3d28d3cd-b71d8ec495319639"
+type = "paragraph"
+origin = '''
+返回本地选择器，勾选刚添加的档案，再确认用于当前配色。
+'''
+translate = '''
+Return to the local picker, select the added profile and confirm it for your palette.
+'''
+
+[[block]]
+key = "e23dd61ebd6c402a"
+type = "paragraph"
+origin = '''
+下载与选用是两个动作：查看详情、翻页或下载都不会自动替换当前配色。来回切换本地、云端和离线包时，查找用的搜索词会保留。
+'''
+translate = '''
+Downloading and selecting are separate actions: opening details, changing pages or downloading does not replace the current palette. Your search term is retained when moving between local profiles, the cloud and the offline pack.
+'''
+
+[[block]]
+key = "c2a84c146125ef80"
+type = "heading"
+origin = '''
+## 目录和预览怎样加载
+'''
+translate = '''
+## How the catalog and previews load
+'''
+
+[[block]]
+key = "ff6a84bb747d7444"
+type = "paragraph"
+origin = '''
+软件先读取名称、颜色模式等轻量目录，目录完整加载后可搜索全部条目。列表按页面读取色板，不会在打开时安装所有耗材；访问过的预览会复用缓存。目录尚未读完时，暂时没有结果不代表整个库都没有对应耗材。
+'''
+translate = '''
+Studio first loads lightweight catalog details such as names and color modes. Once the catalog is complete, search covers all entries. Preview boards load by page, without installing every filament, and previously viewed previews are cached. While the catalog is still loading, an empty result does not mean the full library has no matching profile.
+'''
+
+[[block]]
+key = "eb802a018a8dbda6"
+type = "paragraph"
+origin = '''
+耗材预览将白底、黑底梯度卡并列展示，便于比较不同厚度的显色。旧档案缺少的采样位置留空；只有代表色时会标明“代表色示意”。缩略图和显示色用于辨认，选择时仍需核对具体商品与校准层高。
+'''
+translate = '''
+Filament previews place the white-base and black-base gradient cards side by side to show color at different thicknesses. Missing samples in older profiles are left blank; entries with only a representative color are labeled accordingly. Thumbnails and display colors help identify a profile, but the exact product and calibration layer height still need to match.
+'''
+
+[[block]]
+key = "cb99bb799edfd3c3"
+type = "table"
+origin = '''
+| 状态 | 含义与操作 |
+| --- | --- |
+| 未安装 | 尚未加入本地，按需下载 |
+| 已安装 | 本地已有当前修订，可以返回选择器使用 |
+| 有新版本 / 本地已有版本 | 同一资源存在不同修订，核对说明后再更新 |
+| 本地文件缺失 | 安装记录仍在，但文件不完整，重新下载对应条目 |
+'''
+translate = '''
+| Status | Meaning and action |
+| --- | --- |
+| Not installed | Not yet in the local library; download when needed |
+| Installed | The current revision is available locally and can be selected |
+| Update available / Local version exists | Another revision of the same resource exists; check its notes before updating |
+| Local files missing | An installation record exists, but its files are incomplete; download that entry again |
+'''
+
+[[block]]
+key = "16facc6c89056aef"
+type = "paragraph"
+origin = '''
+刷新云端目录只更新目录与安装状态，不会删除自测档案。不同来源中名字相同的条目也不一定是同一份数据。
+'''
+translate = '''
+Refreshing the cloud catalog updates the catalog and installation status without deleting your own calibrations. Identically named entries from different sources are not necessarily the same data.
+'''
+
+[[block]]
+key = "9214837f17adc7c8"
+type = "heading"
+origin = '''
+## 中国大陆与国际包装名称
+'''
+translate = '''
+## Mainland China and international product names
+'''
+
+[[block]]
+key = "44be79c0c9b228bc"
+type = "paragraph"
+origin = '''
+打开“设置 → 常规 → 耗材包装名称”，可选择“跟随界面语言”“中国大陆包装”或“国际包装”。同一商品在不同地区可能使用不同名称，切换后列表显示相应名称，详情仍保留原始档案名。
+'''
+translate = '''
+Open **Settings → General → Filament naming region** and choose **Match UI language**, **Mainland China** or **International**. A product may have different names in different markets. The list uses the selected market's name while details retain the original profile name.
+'''
+
+[[block]]
+key = "464f93bd94223eb2"
+type = "paragraph"
+origin = '''
+已核实的地区名称、品牌中英文名、原名和色号都可以用于搜索。没有对应地区名称时继续显示原名；品牌标志只在已有授权与对应资料时显示。切换名称不修改校准数据，也不改变当前选择的耗材。
+'''
+translate = '''
+Search accepts verified regional names, Chinese and English brand names, original names and color codes. Profiles without a regional name keep their original name; brand logos appear only when the corresponding authorized asset is available. Changing the naming region does not alter calibration data or the selected materials.
+'''
+
+[[block]]
+key = "f26823fd6cd614b0"
+type = "heading"
+origin = '''
+## 断网时从离线包挑选
+'''
+translate = '''
+## Choose from an offline pack
+'''
+
+[[block]]
+key = "126629cb8a4394fd"
+type = "paragraph"
+origin = '''
+打包版提供离线包入口。有可用资源包时，点击“从离线包挑选”，查看条目后再“添加到本地”。打开软件、搜索或预览不会把整包全部装入本地；重复添加同一修订会沿用已有记录。
+'''
+translate = '''
+Packaged editions provide an offline-pack entry. When a resource pack is available, select **Browse offline pack**, inspect an entry and choose **Add to local**. Starting Studio, searching and previewing do not install the entire pack; adding the same revision again reuses its existing record.
+'''
+
+[[block]]
+key = "0463f2ee4b30e07e"
+type = "paragraph"
+origin = '''
+离线包是固定版本，不会凭空获得后来新增的档案。联网恢复后，可继续到云端查找更新。没有离线包时，已经安装的耗材仍可使用，也可以[导入耗材 ZIP](../material-import-export/material-import-export.mdx)或自行[制作梯度卡档案](../../../tutorials/gradient-card-extract-profile/gradient-card-extract-profile.mdx)。
+'''
+translate = '''
+An offline pack is a fixed snapshot and does not include profiles published later. Check the cloud for updates when back online. Without an offline pack, installed profiles remain usable; you can also [import a material ZIP](../material-import-export/material-import-export.mdx) or [create a gradient-card profile](../../../tutorials/gradient-card-extract-profile/gradient-card-extract-profile.mdx).
+'''
+
+[[block]]
+key = "e789fd9607f63738"
+type = "heading"
+origin = '''
+## 收藏和投稿
+'''
+translate = '''
+## Save resources and contribute
+'''
+
+[[block]]
+key = "6bbad9df8ea49eee"
+type = "paragraph"
+origin = '''
+公开目录可以直接浏览。连接社区账号后可点赞、收藏资源，收藏会随账号同步；收藏本身不会自动下载整库。自己的实测档案可从详情中的“贡献到公共库”提交审核，步骤见[社区账号、收藏与投稿](../community-resources/community-resources.mdx)。
+'''
+translate = '''
+The public catalog can be browsed without connecting an account. Connect a community account to like and save resources across devices; saving does not download the library. To submit your own measured profile for review, choose **Share to public library** in its details. See [Community account, saved resources and submissions](../community-resources/community-resources.mdx).
+'''
+
+[[block]]
+key = "c7772a05b7506816"
+type = "paragraph"
+origin = '''
+相关页面：[云端 LUT 库](../../lut-management/cloud-lut-library/cloud-lut-library.mdx) · [耗材档案和经典 LUT 怎么选](../../../knowledge/material-profile-selection/material-profile-selection.mdx) · [色域覆盖](../material-gamut/material-gamut.mdx)。
+'''
+translate = '''
+Related pages: [Cloud LUT Library](../../lut-management/cloud-lut-library/cloud-lut-library.mdx) · [Material profiles or classic LUTs?](../../../knowledge/material-profile-selection/material-profile-selection.mdx) · [Gamut coverage](../material-gamut/material-gamut.mdx).
+'''

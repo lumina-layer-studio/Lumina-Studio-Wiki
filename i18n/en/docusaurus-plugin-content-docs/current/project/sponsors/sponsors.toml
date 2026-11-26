@@ -1,0 +1,274 @@
+[metadata]
+migration_layout = "preserved English structure; root blocks retain grouped or omitted source sections"
+reviewed_source = "7e2a59ce87977da2a26c443c9aae26e4abcdcac39b90f5292e4e570317540b8c"
+
+[[block]]
+key = "869174a7d0d2af8b"
+type = "yaml"
+origin = '''
+---
+title: "赞助支持"
+description: "Lumina Studio 开源赞助渠道与合作鸣谢名单。"
+sidebar_position: 13
+---
+'''
+translate = '''
+---
+title: "Sponsors and Support"
+unlisted: true
+translation_status: pending
+---
+'''
+
+[[block]]
+key = "789b7a581f953982"
+type = "mdxjsEsm"
+origin = '''
+import PolymakerLogo from '@site/src/components/PolymakerLogo';
+'''
+translate = '''
+import PolymakerLogo from '@site/src/components/PolymakerLogo';
+'''
+
+[[block]]
+key = "c9035993049749dd"
+type = "heading"
+origin = '''
+# 赞助支持
+'''
+translate = '''
+# Sponsors and Support
+'''
+
+[[block]]
+key = "768b5be0913113cc"
+type = "paragraph"
+origin = '''
+如果您希望通过资金支持开源项目的持续开发，欢迎自愿通过[爱发电](https://ifdian.net/a/MMMINNN)或 [Patreon](https://www.patreon.com/cw/Lumina_studio) 赞助我们。
+'''
+translate = '''
+The English sponsor and support directory is being reviewed. It is hidden from English navigation until company names, trademarks, and disclosures have been checked.
+'''
+
+[[block]]
+key = "d7dd509441b6a5cd"
+type = "paragraph"
+origin = '''
+如果您代表耗材品牌、打印机厂商、配件厂商或高校机构，希望提供耗材样品、硬件或色卡合作支持，欢迎通过社交平台或 QQ 联系开发组：
+'''
+translate = '''
+For the complete current directory, switch the site language to Simplified Chinese.
+'''
+
+[[block]]
+key = "ddbed9052a31e195"
+type = "admonition"
+composite = true
+origin = '''
+:::info[合作联系]
+{{ddbed9052a31e195-09b312fac8c51f27}}
+:::
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ddbed9052a31e195-09b312fac8c51f27"
+type = "paragraph"
+origin = '''
+QQ：`6550671`（大胖肥猫） · QQ：`374612153`（Evan76）
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a6eafb1792535274"
+type = "blockquote"
+composite = true
+origin = '''
+> {{a6eafb1792535274-64f0270b41cb5799}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a6eafb1792535274-64f0270b41cb5799"
+type = "paragraph"
+origin = '''
+**合作声明**：外部赞助与样品支持仅代表合作方对开源项目的鼓励，不干预 Lumina 的技术路线与开源协议。耗材赞助仅用于实拍制作对应色卡预设，Lumina 不捆绑销售或指定任何品牌耗材，也不对具体产品的品控作商业背书；部分渠道推广产生的佣金全部用于社区抽奖福利与后续研发。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "eb364c8f6d25aa4f"
+type = "heading"
+origin = '''
+## 企业品牌与工作室资金赞助鸣谢
+'''
+translate = '''
+## Polymaker filament support
+'''
+
+[[block]]
+key = "dc1f7711d0ea59da"
+type = "blockquote"
+composite = true
+origin = '''
+> {{dc1f7711d0ea59da-886eaa014d79674a}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "dc1f7711d0ea59da-886eaa014d79674a"
+type = "paragraph"
+origin = '''
+以下为通过爱发电或其他渠道向项目提供资金支持的企业与工作室。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "09bc5bc2f1de9151"
+type = "table"
+origin = '''
+| LOGO | 品牌名称 | 官网地址 |
+| :--- | :--- | :--- |
+| <img src={require('./assets/liushuo.jpg').default} height="150" alt="六朔 LIUSHUO" /> | 六朔 / LIUSHUO | — |
+| <img src={require('./assets/aliz.png').default} height="150" alt="爱丽兹三维科技" /> | 爱丽兹三维科技 | <a href="http://www.jylssl.com/print.html#print" >爱丽兹官网（龙山合成）</a> <br /> <a href="https://ailici.tmall.com/category.htm" >爱丽兹旗舰店</a> |
+| <img src={require('./assets/精亮.png').default} height="150" alt="精亮科技" /> | 精亮科技 | <a href="https://www.chingleung.com.cn/" >精亮科技官网</a> <br /> <a href="https://hud5535wk797motnet5g2oauj2qm3ln.taobao.com/" >精亮淘宝企业店</a> |
+'''
+translate = '''
+| Logo | Brand | Status | Type | Legacy LUT | Color notes |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| <PolymakerLogo /> | Polymaker | In progress | PLA | — | Panchroma PLA |
+
+Brand logos indicate filament adaptation and actual support provided, not certification or a guarantee of Lumina Studio or its print results.
+'''
+
+[[block]]
+key = "21f9d6fed42663b8"
+type = "heading"
+origin = '''
+## 产品与耗材支持鸣谢
+'''
+translate = '''
+'''
+
+[[block]]
+key = "710277e3023eb13d"
+type = "heading"
+origin = '''
+### 耗材赞助与色卡提供（按拼音首字母排序）
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ec02c860ae2a3b35"
+type = "blockquote"
+composite = true
+origin = '''
+> {{ec02c860ae2a3b35-871c6d4e1abf486e}}
+>
+> {{ec02c860ae2a3b35-7ea4e92003e3a318}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ec02c860ae2a3b35-871c6d4e1abf486e"
+type = "paragraph"
+origin = '''
+以下为向 Lumina 开发组提供耗材样品、色卡或其他非资金支持的企业、高校与工作室。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ec02c860ae2a3b35-7ea4e92003e3a318"
+type = "paragraph"
+origin = '''
+页面展示的品牌 Logo 均已获品牌方授权（显示 `—` 表示暂未获授或仍在沟通）。品牌 Logo 仅表示耗材适配与实际提供的支持，不代表品牌方对软件整体或打印效果的认证或保证。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "e4723a667e01b451"
+type = "table"
+origin = '''
+| LOGO | 品牌名称 | 适配状态 | 适配类型 | 适配模式<br />（传统LUT） | 品牌颜色说明 |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| <PolymakerLogo /> | Polymaker | 适配中 | PLA | — | Panchroma PLA |
+| <img src={require('./assets/aliz.png').default} height="100" alt="Aliz" /> | 爱丽兹 / Aliz | 已适配 | PLA/PETG | 4色6色8色 | PETG:大红/黄/克莱因蓝/白/柠檬绿/黑/品红/青<br />PLA:红/品红/黄/青/蓝/白/黑/嫩绿 |
+| <img src={require('./assets/elegoo.png').default} height="100" alt="Elegoo" /> | 爱乐酷 / Elegoo | 已适配 | PLA | 4色（RYBW) | PLA:红/黄/钴蓝/白 |
+| <img src={require('./assets/bing3d.png').default} height="100" alt="Bing3D" /> | 必应 / Bing3D | 已适配 | PETG/PLA | 4色（RYBW)  | PETGHF:红/黄/蓝/白<br />PLAHF:红/黄/蓝/白 |
+| <img src={require('./assets/biqu.png').default} height="100" alt="BIQU" /> | 必趣 / BIQU | 已适配 | PLA |2色4色6色  |PLAGO:红/黄/蓝/白/绿/黑  |
+| <img src={require('./assets/cailab.png').default} height="100" alt="CAILAB" /> | 彩多屋/CAILAB  | 已适配 | PLA |2色4色6色8色  |瓷白/海蓝/正红/黄色/青色/品红/黑色/竹子绿  |
+| <img src={require('./assets/snap.png').default} height="100" alt="Snapmaker" /> | 快造/Snapmaker | 已适配 | PLA | 2色4色 | PLA:红黄蓝白/品红黄蓝白 |
+| <img src={require('./assets/inslogic.jpg').default} height="100" alt="Inslogic" /> | Inslogic | 已适配 | PLA | 2色4色6色 | PLA:红/黄/蓝/白/绿/黑 |
+| <img src={require('./assets/精亮.png').default} height="100" alt="CHING LEUNG" /> | 精亮/CHING LEUNG<br />(提供色卡） | 已适配 | PLA | 8色 | PLA:红/黄/蓝/白/绿/黑/品红/青 |
+| <img src={require('./assets/kynix.png').default} height="100" alt="KYNIX" /> | KYNIX | 已适配 | PETG | 4色 | PETG：红/黄/蓝/白 |
+| <img src={require('./assets/魔创.png').default} height="100" alt="魔创" /> | 魔创 | 已适配 | PETG | 2色4色6色8色 | PETG:黑/白/草绿/品红/黄/红/青碧/蓝 |
+| <img src={require('./assets/瑞贝思.png').default} height="100" alt="REBIRTH3D" /> | 瑞贝思 / REBIRTH3D | 已适配 | PLA | 2色4色6色（RYBWGK） | PLA:红/黄/钴蓝/白/绿/黑 |
+| <img src={require('./assets/saina.png').default} height="100" alt="Sailner" /> | 赛纳 / Sailner | 已适配 | PLA | 2色4色6色8色 | PLA:深红 /黄/深蓝/白/绿/黑/品红/青色 |
+| — | 拓竹 / BambuLab | 已适配 | PLA | 4色8色 | PLA:红/黄/深蓝/白/拓竹绿/黑/品红/青 |
+| <img src={require('./assets/xiaoming.png').default} height="100" alt="XYD小明耗材" /> | XYD小明耗材 | 已适配 | PLA/PETG | 4色6色8色 | PLA:黑/红/暖白/黄/品红/荧光绿/青/海军蓝 |
+| <img src={require('./assets/ac1.png').default} height="100" alt="Antinsky" /> | 蚁在云端/Antinsky | 已适配 | PLA | 2色4色6色8色 | PLA:红/黄/蓝/白/绿/黑 |
+| <img src={require('./assets/ac.jpg').default} height="100" alt="Anycubic" /> | 纵维立方/Anycubic | 已适配 | PLA | 2色4色6色8色 | PLA:红/黄/蓝/白/绿/黑/品红/青 |
+'''
+translate = '''
+'''
+
+[[block]]
+key = "453f69a4f17e0131"
+type = "heading"
+origin = '''
+### 硬件与设备支持
+'''
+translate = '''
+'''
+
+[[block]]
+key = "3ad522086b9c2733"
+type = "table"
+origin = '''
+| LOGO | 品牌名称 |
+| :--- | :--- |
+| <img src={require('./assets/biqu.png').default} height="100" alt="BIQU" /> | 必趣 / BIQU |
+| <img src={require('./assets/dafan.png').default} height="100" alt="dfoptix" /> | 大凡光学 / dfoptix |
+| <img src={require('./assets/feituosi.jpg').default} height="100" alt="Phaetus" /> | 菲托斯 / Phaetus |
+| <img src={require('./assets/snap.png').default} height="100" alt="Snapmaker" /> | 快造 / Snapmaker |
+| <img src={require('./assets/ac1.png').default} height="100" alt="Antinsky" /> | 蚁在云端 / Antinsky |
+| <img src={require('./assets/ac.jpg').default} height="100" alt="Anycubic" /> | 纵维立方 / Anycubic |
+'''
+translate = '''
+'''
+
+[[block]]
+key = "49b982077f8af73f"
+type = "heading"
+origin = '''
+### 特别鸣谢（高校与机构支持）
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7e244e5df2dc3954"
+type = "table"
+origin = '''
+| LOGO | 品牌名称 / 高校 / 机构 |
+| :--- | :--- |
+| <img src={require('./assets/aliz.png').default} height="100" alt="爱丽兹" /> | 爱丽兹 |
+| <img src={require('./assets/elegoo.png').default} height="100" alt="爱乐酷" /> | 爱乐酷 |
+| <img src={require('./assets/奥罗玛斯.png').default} height="100" alt="奥罗玛斯" /> | 奥罗玛斯 |
+| <img src={require('./assets/精亮.png').default} height="100" alt="精亮科技" /> | 精亮科技 |
+| <img src={require('./assets/吉林大学.jpeg').default} height="100" alt="吉林大学" /> | 吉林大学机械与航空航天工程学院<br />吉林大学智能制造创新创业实践示范基地 |
+| <img src={require('./assets/snap.png').default} height="100" alt="快造科技" /> | 快造科技 |
+| <img src={require('./assets/karvax.png').default} height="100" alt="无境新材" /> | 无境新材 |
+'''
+translate = '''
+'''

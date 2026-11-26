@@ -1,0 +1,419 @@
+[metadata]
+reviewed_source = "8ca7057ab46794aafd91a5ef229997bd540e9ac0c0e7f9cd21ab1502833dcb23"
+
+[[block]]
+key = "25e73e29b79b31f5"
+type = "yaml"
+origin = '''
+---
+title: "颜色数量、平滑度与细节等级"
+description: "通过图像转矢量的三项基础参数，控制调色板规模、路径平滑程度与整体细节保留力度。"
+sidebar_position: 2
+---
+'''
+translate = '''
+---
+title: "Colors, Smoothness, and Detail"
+description: "Adjust palette size, contour smoothness, and overall detail retention with the three basic Image Vectorizer controls."
+sidebar_position: 2
+---
+'''
+
+[[block]]
+key = "6a2eee7fae02cbc2"
+type = "heading"
+origin = '''
+# 颜色数量、平滑度与细节等级
+'''
+translate = '''
+# Colors, Smoothness, and Detail
+'''
+
+[[block]]
+key = "7bdf5852e775f1df"
+type = "paragraph"
+origin = '''
+基础参数决定了矢量化结果保留多少种颜色，以及轮廓路径在“贴合原图细节”与“线条简洁流畅”之间的平衡点。
+'''
+translate = '''
+The basic parameters control how many colors remain in the palette and how closely vectorized paths follow fine source details versus clean, simplified curves.
+'''
+
+[[block]]
+key = "d67df144f2cc2b3c"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-basic-parameters.webp').default}
+  alt="图像转矢量的基础参数"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-basic-parameters.webp').default}
+  alt="Basic Image Vectorizer parameters"
+/>
+'''
+
+[[block]]
+key = "70894139a3dc5d76"
+type = "heading"
+origin = '''
+## 颜色数量
+'''
+translate = '''
+## Number of Colors
+'''
+
+[[block]]
+key = "5e002a46f712a050"
+type = "paragraph"
+origin = '''
+设为“自动”（参数值 `0`）时，引擎会根据画面内容自动测算合适的调色板规模，并在结果摘要中列出最终采用的颜色数。
+'''
+translate = '''
+In **Auto** mode (value `0`), the vectorizer estimates an appropriate palette size from the image and displays the final color count in the result summary.
+'''
+
+[[block]]
+key = "652c6e7287c263fd"
+type = "paragraph"
+origin = '''
+切换为“手动”后，可在 `2–256` 之间指定颜色数量。该数值对应颜色分割阶段的 K-Means 调色板大小（同一颜色可能分布在多个不相连区域，因此不同于最终 SVG 的形状数）：
+'''
+translate = '''
+Switch to **Manual** to specify `2–256` colors. This sets the K-Means palette size for color segmentation (because multiple separate shapes can share one color, this differs from the total SVG shape count):
+'''
+
+[[block]]
+key = "9cb39706ada7b959"
+type = "list"
+composite = true
+origin = '''
+{{9cb39706ada7b959-cc07bcad41514972}}
+{{9cb39706ada7b959-bac5936d0c193333}}
+'''
+translate = '''
+{{9cb39706ada7b959-cc07bcad41514972}}
+{{9cb39706ada7b959-bac5936d0c193333}}
+'''
+
+[[block]]
+key = "9cb39706ada7b959-cc07bcad41514972"
+type = "listItem"
+composite = true
+origin = '''
+- {{9cb39706ada7b959-cc07bcad41514972-69d19092fca96219}}
+'''
+translate = '''
+- {{9cb39706ada7b959-cc07bcad41514972-69d19092fca96219}}
+'''
+
+[[block]]
+key = "9cb39706ada7b959-cc07bcad41514972-69d19092fca96219"
+type = "paragraph"
+origin = '''
+**调小数值**：合并相近色阶，色块更干净整洁；
+'''
+translate = '''
+**Lower values** merge similar shades into cleaner, more uniform regions.
+'''
+
+[[block]]
+key = "9cb39706ada7b959-bac5936d0c193333"
+type = "listItem"
+composite = true
+origin = '''
+- {{9cb39706ada7b959-bac5936d0c193333-8823a854d22604fb}}
+'''
+translate = '''
+- {{9cb39706ada7b959-bac5936d0c193333-8823a854d22604fb}}
+'''
+
+[[block]]
+key = "9cb39706ada7b959-bac5936d0c193333-8823a854d22604fb"
+type = "paragraph"
+origin = '''
+**调大数值**：保留更多渐变过渡与局部色差，同时也会产生更多细小色块。
+'''
+translate = '''
+**Higher values** preserve subtle gradients and local tonal shifts, though they can also introduce more small fragments.
+'''
+
+[[block]]
+key = "da777bf84481576f"
+type = "paragraph"
+origin = '''
+处理配色明确的图标、徽标或像素画时，可直接按原图色数手动填写；不确定原图色数时，优先使用“自动”即可。
+'''
+translate = '''
+For icons, logos, or pixel art with a known palette, set **Manual** to the exact color count; otherwise, start with **Auto**.
+'''
+
+[[block]]
+key = "3760365c8121f698"
+type = "heading"
+origin = '''
+## 平滑度
+'''
+translate = '''
+## Smoothness
+'''
+
+[[block]]
+key = "55d64c7a771421c3"
+type = "paragraph"
+origin = '''
+取值范围为 `0–1`，默认值为 `0.5`，用于控制轮廓节点的抽稀与平滑力度：
+'''
+translate = '''
+Ranges from `0–1`, with a default of `0.5`. **Smoothness** controls contour point decimation and curve smoothing:
+'''
+
+[[block]]
+key = "e3d6947dd8028d5b"
+type = "list"
+composite = true
+origin = '''
+{{e3d6947dd8028d5b-fcc930a3904ba0b4}}
+{{e3d6947dd8028d5b-a974dfe687768748}}
+'''
+translate = '''
+{{e3d6947dd8028d5b-fcc930a3904ba0b4}}
+{{e3d6947dd8028d5b-a974dfe687768748}}
+'''
+
+[[block]]
+key = "e3d6947dd8028d5b-fcc930a3904ba0b4"
+type = "listItem"
+composite = true
+origin = '''
+- {{e3d6947dd8028d5b-fcc930a3904ba0b4-3094d807e28b9c36}}
+'''
+translate = '''
+- {{e3d6947dd8028d5b-fcc930a3904ba0b4-3094d807e28b9c36}}
+'''
+
+[[block]]
+key = "e3d6947dd8028d5b-fcc930a3904ba0b4-3094d807e28b9c36"
+type = "paragraph"
+origin = '''
+**靠近 `0`**：尽量保留原始折角与微小起伏，生成的路径节点较多；
+'''
+translate = '''
+**Near `0`**: preserves crisp corners and small edge variations using more path nodes.
+'''
+
+[[block]]
+key = "e3d6947dd8028d5b-a974dfe687768748"
+type = "listItem"
+composite = true
+origin = '''
+- {{e3d6947dd8028d5b-a974dfe687768748-b9c167d6deee9afd}}
+'''
+translate = '''
+- {{e3d6947dd8028d5b-a974dfe687768748-b9c167d6deee9afd}}
+'''
+
+[[block]]
+key = "e3d6947dd8028d5b-a974dfe687768748-b9c167d6deee9afd"
+type = "paragraph"
+origin = '''
+**靠近 `1`**：线条更顺滑、路径更精简，但锐利转角和细微凹凸会被适度柔化。
+'''
+translate = '''
+**Near `1`**: produces smoother, cleaner curves with fewer nodes, softening sharp corners and tiny bumps.
+'''
+
+[[block]]
+key = "054bf73663649fd1"
+type = "paragraph"
+origin = '''
+若画面中存在较多细碎杂色块，仅靠提高平滑度无法消除色块本身，建议配合[图像预处理](../vectorizer-preprocessing/vectorizer-preprocessing.mdx)和[曲线拟合与区域过滤](../vectorizer-curve-and-filtering/vectorizer-curve-and-filtering.mdx)一并调整。
+'''
+translate = '''
+To clean up scattered color speckles rather than contour roughness, pair this control with [Image Preprocessing](../vectorizer-preprocessing/vectorizer-preprocessing.mdx) and [Curve Fitting and Region Filtering](../vectorizer-curve-and-filtering/vectorizer-curve-and-filtering.mdx).
+'''
+
+[[block]]
+key = "2553953c8a3e182f"
+type = "heading"
+origin = '''
+## 细节等级
+'''
+translate = '''
+## Detail Level
+'''
+
+[[block]]
+key = "8442c60b2e4fbab6"
+type = "paragraph"
+origin = '''
+“细节等级”默认关闭（参数值 `-1`），此时下方各组高级参数彼此独立生效，适合按阶段精细微调。
+'''
+translate = '''
+**Detail Level** is off by default (value `-1`), allowing every advanced setting below it to act independently.
+'''
+
+[[block]]
+key = "44c360f49102c325"
+type = "paragraph"
+origin = '''
+开启后取值范围为 `0–1`，初始值为 `0.5`。作为全局细节联动滑块，它会同步调节底层多项分割与拟合参数：
+'''
+translate = '''
+When enabled, it ranges from `0–1` and starts at `0.5`, acting as a master slider that coordinates multiple segmentation and fitting thresholds at once:
+'''
+
+[[block]]
+key = "def04a74fa164dd2"
+type = "list"
+composite = true
+origin = '''
+{{def04a74fa164dd2-3d0610ce16cc50f7}}
+{{def04a74fa164dd2-e1948733f8ffa470}}
+'''
+translate = '''
+{{def04a74fa164dd2-3d0610ce16cc50f7}}
+{{def04a74fa164dd2-e1948733f8ffa470}}
+'''
+
+[[block]]
+key = "def04a74fa164dd2-3d0610ce16cc50f7"
+type = "listItem"
+composite = true
+origin = '''
+- {{def04a74fa164dd2-3d0610ce16cc50f7-9f0297e7bac2a21f}}
+'''
+translate = '''
+- {{def04a74fa164dd2-3d0610ce16cc50f7-9f0297e7bac2a21f}}
+'''
+
+[[block]]
+key = "def04a74fa164dd2-3d0610ce16cc50f7-9f0297e7bac2a21f"
+type = "paragraph"
+origin = '''
+**调低数值**：整体偏向概括的大色块与简洁路径；
+'''
+translate = '''
+**Lower values** favor broader regions and cleaner, simpler paths.
+'''
+
+[[block]]
+key = "def04a74fa164dd2-e1948733f8ffa470"
+type = "listItem"
+composite = true
+origin = '''
+- {{def04a74fa164dd2-e1948733f8ffa470-8ce47ea38bb171ba}}
+'''
+translate = '''
+- {{def04a74fa164dd2-e1948733f8ffa470-8ce47ea38bb171ba}}
+'''
+
+[[block]]
+key = "def04a74fa164dd2-e1948733f8ffa470-8ce47ea38bb171ba"
+type = "paragraph"
+origin = '''
+**调高数值**：优先保留细微边缘与小型结构。
+'''
+translate = '''
+**Higher values** retain finer edges and small structural details.
+'''
+
+[[block]]
+key = "c4d3a9d5a1439a97"
+type = "paragraph"
+origin = '''
+调节“细节等级”不会改变“颜色数量”，也不会覆盖高级面板中显示的数值。如需单独锁定并复现某一阶段的高级参数，请先将“细节等级”关闭。
+'''
+translate = '''
+Adjusting **Detail Level** leaves **Number of Colors** unchanged and does not overwrite the numbers shown in the advanced panels. Turn **Detail Level** off whenever you want direct, reproducible control over individual advanced parameters.
+'''
+
+[[block]]
+key = "2ebb014b8f68bd72"
+type = "heading"
+origin = '''
+## 相关页面
+'''
+translate = '''
+## Related pages
+'''
+
+[[block]]
+key = "b51470ff19a6e9ad"
+type = "list"
+composite = true
+origin = '''
+{{b51470ff19a6e9ad-3ba0d0425b0af545}}
+{{b51470ff19a6e9ad-a7a08c51bc0533ff}}
+{{b51470ff19a6e9ad-e9ba8c72c9a498ae}}
+'''
+translate = '''
+{{b51470ff19a6e9ad-3ba0d0425b0af545}}
+{{b51470ff19a6e9ad-a7a08c51bc0533ff}}
+{{b51470ff19a6e9ad-e9ba8c72c9a498ae}}
+'''
+
+[[block]]
+key = "b51470ff19a6e9ad-3ba0d0425b0af545"
+type = "listItem"
+composite = true
+origin = '''
+- {{b51470ff19a6e9ad-3ba0d0425b0af545-613e4c10d7db490e}}
+'''
+translate = '''
+- {{b51470ff19a6e9ad-3ba0d0425b0af545-613e4c10d7db490e}}
+'''
+
+[[block]]
+key = "b51470ff19a6e9ad-3ba0d0425b0af545-613e4c10d7db490e"
+type = "paragraph"
+origin = '''
+[图像转矢量](../vectorizer-overview/vectorizer-overview.mdx)
+'''
+translate = '''
+[Image Vectorizer](../vectorizer-overview/vectorizer-overview.mdx)
+'''
+
+[[block]]
+key = "b51470ff19a6e9ad-a7a08c51bc0533ff"
+type = "listItem"
+composite = true
+origin = '''
+- {{b51470ff19a6e9ad-a7a08c51bc0533ff-a589955dee71307b}}
+'''
+translate = '''
+- {{b51470ff19a6e9ad-a7a08c51bc0533ff-a589955dee71307b}}
+'''
+
+[[block]]
+key = "b51470ff19a6e9ad-a7a08c51bc0533ff-a589955dee71307b"
+type = "paragraph"
+origin = '''
+[超像素分割与抗锯齿检测](../vectorizer-segmentation/vectorizer-segmentation.mdx)
+'''
+translate = '''
+[Superpixel Segmentation and Antialiasing](../vectorizer-segmentation/vectorizer-segmentation.mdx)
+'''
+
+[[block]]
+key = "b51470ff19a6e9ad-e9ba8c72c9a498ae"
+type = "listItem"
+composite = true
+origin = '''
+- {{b51470ff19a6e9ad-e9ba8c72c9a498ae-f28d274d5fcda15a}}
+'''
+translate = '''
+- {{b51470ff19a6e9ad-e9ba8c72c9a498ae-f28d274d5fcda15a}}
+'''
+
+[[block]]
+key = "b51470ff19a6e9ad-e9ba8c72c9a498ae-f28d274d5fcda15a"
+type = "paragraph"
+origin = '''
+[曲线拟合与区域过滤](../vectorizer-curve-and-filtering/vectorizer-curve-and-filtering.mdx)
+'''
+translate = '''
+[Curve Fitting and Region Filtering](../vectorizer-curve-and-filtering/vectorizer-curve-and-filtering.mdx)
+'''

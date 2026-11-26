@@ -1,0 +1,409 @@
+[metadata]
+reviewed_source = "3be9382ffe9a2683c3a0c590a08e51f4e06eb7363f9a6cb94b82466f61e614c3"
+
+[[block]]
+key = "d597e7ebbb1e0e90"
+type = "yaml"
+origin = '''
+---
+title: "超像素分割与抗锯齿检测"
+description: "调整 SLIC 超像素大小、边缘敏感度、边界细化轮次与抗锯齿容差，塑造干净精准的色块边界。"
+sidebar_position: 5
+---
+'''
+translate = '''
+---
+title: "Superpixel Segmentation and Antialiasing"
+description: "Shape clean color boundaries using SLIC region size, edge sensitivity, boundary refinement passes, and antialiasing tolerance."
+sidebar_position: 5
+---
+'''
+
+[[block]]
+key = "2603a8dd32ae7fb9"
+type = "heading"
+origin = '''
+# 超像素分割与抗锯齿检测
+'''
+translate = '''
+# Superpixel Segmentation and Antialiasing
+'''
+
+[[block]]
+key = "8751d0b4ef7a9d76"
+type = "paragraph"
+origin = '''
+多色矢量化会先通过 SLIC 算法将画面划分为局部超像素，再结合颜色与边缘梯度逐轮细化色块归属。本组参数直接决定相邻色块边界的贴合精度与抗锯齿过渡像素的归并方式。
+'''
+translate = '''
+During multicolor vectorization, the engine divides the image into SLIC superpixels and refines their labels using local color and edge gradients. These controls govern how accurately color boundaries snap to edges and how antialiased transition pixels are handled.
+'''
+
+[[block]]
+key = "a93f90ec751f8474"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-segmentation.webp').default}
+  alt="图像转矢量的超像素分割参数"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-segmentation.webp').default}
+  alt="Image Vectorizer superpixel segmentation controls"
+/>
+'''
+
+[[block]]
+key = "f2745ef108aa98ad"
+type = "heading"
+origin = '''
+## 超像素区域大小
+'''
+translate = '''
+## SLIC Region Size
+'''
+
+[[block]]
+key = "d3136f669a519d5e"
+type = "paragraph"
+origin = '''
+取值范围为 `5–100`，默认值为 `20`，用于设定初始 SLIC 超像素的目标尺寸：
+'''
+translate = '''
+Ranges from `5–100`, with a default of `20`. Sets the target size for initial SLIC superpixels:
+'''
+
+[[block]]
+key = "cb99a6d827d366d9"
+type = "list"
+composite = true
+origin = '''
+{{cb99a6d827d366d9-9a6323f13ed183f5}}
+{{cb99a6d827d366d9-f04ebe2ef84e9816}}
+'''
+translate = '''
+{{cb99a6d827d366d9-9a6323f13ed183f5}}
+{{cb99a6d827d366d9-f04ebe2ef84e9816}}
+'''
+
+[[block]]
+key = "cb99a6d827d366d9-9a6323f13ed183f5"
+type = "listItem"
+composite = true
+origin = '''
+- {{cb99a6d827d366d9-9a6323f13ed183f5-557c5705e874cde9}}
+'''
+translate = '''
+- {{cb99a6d827d366d9-9a6323f13ed183f5-557c5705e874cde9}}
+'''
+
+[[block]]
+key = "cb99a6d827d366d9-9a6323f13ed183f5-557c5705e874cde9"
+type = "paragraph"
+origin = '''
+**调小数值**：生成更密集的小超像素，能够捕捉更纤细的局部造型变化；
+'''
+translate = '''
+**Smaller values** generate denser superpixels that capture finer local features.
+'''
+
+[[block]]
+key = "cb99a6d827d366d9-f04ebe2ef84e9816"
+type = "listItem"
+composite = true
+origin = '''
+- {{cb99a6d827d366d9-f04ebe2ef84e9816-0f8893632dedd683}}
+'''
+translate = '''
+- {{cb99a6d827d366d9-f04ebe2ef84e9816-0f8893632dedd683}}
+'''
+
+[[block]]
+key = "cb99a6d827d366d9-f04ebe2ef84e9816-0f8893632dedd683"
+type = "paragraph"
+origin = '''
+**调大数值**：生成更少、更大的超像素，计算更快，色块概括感更强。
+'''
+translate = '''
+**Larger values** generate fewer, broader superpixels for faster processing and cleaner generalization.
+'''
+
+[[block]]
+key = "438c8d20d8e0ca2f"
+type = "paragraph"
+origin = '''
+后续的颜色合并、边界细化与区域过滤仍会进一步重组色块，因此该数值并非最终 SVG 形状的固定尺寸。
+'''
+translate = '''
+Subsequent color merging, boundary refinement, and region filtering continue to reshape regions, so this setting does not lock final SVG shapes to a fixed size.
+'''
+
+[[block]]
+key = "8d7a801e8e2682ed"
+type = "heading"
+origin = '''
+## 边缘敏感度
+'''
+translate = '''
+## Edge Sensitivity
+'''
+
+[[block]]
+key = "8ee8443e5d4e85cc"
+type = "paragraph"
+origin = '''
+取值范围为 `0–1`，默认值为 `0.8`，控制 SLIC 遇到明显颜色边界时放宽空间规则约束的程度：
+'''
+translate = '''
+Ranges from `0–1`, with a default of `0.8`. Controls how strongly SLIC relaxes spatial regularity when it encounters a color edge:
+'''
+
+[[block]]
+key = "79b155e6be0f7b30"
+type = "list"
+composite = true
+origin = '''
+{{79b155e6be0f7b30-332a8b3ba83a25f3}}
+{{79b155e6be0f7b30-08b62f016c1fce3e}}
+'''
+translate = '''
+{{79b155e6be0f7b30-332a8b3ba83a25f3}}
+{{79b155e6be0f7b30-08b62f016c1fce3e}}
+'''
+
+[[block]]
+key = "79b155e6be0f7b30-332a8b3ba83a25f3"
+type = "listItem"
+composite = true
+origin = '''
+- {{79b155e6be0f7b30-332a8b3ba83a25f3-76c0b6f21791ed49}}
+'''
+translate = '''
+- {{79b155e6be0f7b30-332a8b3ba83a25f3-76c0b6f21791ed49}}
+'''
+
+[[block]]
+key = "79b155e6be0f7b30-332a8b3ba83a25f3-76c0b6f21791ed49"
+type = "paragraph"
+origin = '''
+**调高数值**：更积极地贴合颜色边缘收束分界；
+'''
+translate = '''
+**Higher values** snap region boundaries tightly along color transitions.
+'''
+
+[[block]]
+key = "79b155e6be0f7b30-08b62f016c1fce3e"
+type = "listItem"
+composite = true
+origin = '''
+- {{79b155e6be0f7b30-08b62f016c1fce3e-43f8cff721dd1447}}
+'''
+translate = '''
+- {{79b155e6be0f7b30-08b62f016c1fce3e-43f8cff721dd1447}}
+'''
+
+[[block]]
+key = "79b155e6be0f7b30-08b62f016c1fce3e-43f8cff721dd1447"
+type = "paragraph"
+origin = '''
+**调低数值**：优先保持超像素网格的空间匀称度，生成的色块边界更舒展。
+'''
+translate = '''
+**Lower values** favor uniform spatial cells and smoother, more regular boundaries.
+'''
+
+[[block]]
+key = "c3872ccae945b1b5"
+type = "heading"
+origin = '''
+## 边界细化次数
+'''
+translate = '''
+## Refine Passes
+'''
+
+[[block]]
+key = "cfb4ef2f1b8a4fce"
+type = "paragraph"
+origin = '''
+取值范围为 `0–20`，默认值为 `6`。每一轮迭代都会参考邻域标签重新修正色块边界：调高次数可让边界更紧贴原图轮廓，同时相应延长处理时间；设为 `0` 则跳过边界细化阶段。
+'''
+translate = '''
+Ranges from `0–20`, with a default of `6`. Each pass refines boundary labels against neighboring pixels—adding passes aligns boundaries more tightly to intricate edges at the cost of extra processing time, while `0` skips boundary refinement altogether.
+'''
+
+[[block]]
+key = "f5456ae21b702765"
+type = "heading"
+origin = '''
+## 抗锯齿检测与容差
+'''
+translate = '''
+## Antialiasing Detection and AA Tolerance
+'''
+
+[[block]]
+key = "432764347764c8d2"
+type = "paragraph"
+origin = '''
+开启“抗锯齿检测”后，引擎会自动识别两种颜色交界处的半透明或混合过渡像素，避免将抗锯齿边缘拆成一圈零碎的杂色细带。
+'''
+translate = '''
+Enabling **Antialiasing Detection** identifies blended transition pixels along the border between two colors so antialiased halos are merged cleanly instead of becoming thin, stray color bands.
+'''
+
+[[block]]
+key = "4ddf3164d5e92df4"
+type = "list"
+composite = true
+origin = '''
+{{4ddf3164d5e92df4-c8438b851a0e833a}}
+{{4ddf3164d5e92df4-a438a28859437a28}}
+'''
+translate = '''
+{{4ddf3164d5e92df4-c8438b851a0e833a}}
+{{4ddf3164d5e92df4-a438a28859437a28}}
+'''
+
+[[block]]
+key = "4ddf3164d5e92df4-c8438b851a0e833a"
+type = "listItem"
+composite = true
+origin = '''
+- {{4ddf3164d5e92df4-c8438b851a0e833a-32a63687660927a9}}
+'''
+translate = '''
+- {{4ddf3164d5e92df4-c8438b851a0e833a-32a63687660927a9}}
+'''
+
+[[block]]
+key = "4ddf3164d5e92df4-c8438b851a0e833a-32a63687660927a9"
+type = "paragraph"
+origin = '''
+**推荐开启**：边缘柔滑的插画、图标、徽标与文字素材；
+'''
+translate = '''
+**Turn on** for smooth-edged illustrations, icons, logos, and typography.
+'''
+
+[[block]]
+key = "4ddf3164d5e92df4-a438a28859437a28"
+type = "listItem"
+composite = true
+origin = '''
+- {{4ddf3164d5e92df4-a438a28859437a28-9add611b7e2ce01e}}
+'''
+translate = '''
+- {{4ddf3164d5e92df4-a438a28859437a28-9add611b7e2ce01e}}
+'''
+
+[[block]]
+key = "4ddf3164d5e92df4-a438a28859437a28-9add611b7e2ce01e"
+type = "paragraph"
+origin = '''
+**建议关闭**：需要严格保留逐像素阶梯锯齿感的像素画（Pixel Art）。
+'''
+translate = '''
+**Turn off** for pixel art when you want crisp, stair-stepped pixel edges preserved intact.
+'''
+
+[[block]]
+key = "fa84b07703f00ef2"
+type = "paragraph"
+origin = '''
+下方的“抗锯齿容差”取值范围为 `1–50`，默认值为 `10`（单位为 LAB ΔE）。数值越大，允许归入混合过渡边缘的色差范围越宽。
+'''
+translate = '''
+**AA Tolerance** ranges from `1–50`, defaults to `10`, and is measured in LAB ΔE. Higher values allow a wider color difference to qualify as a blended edge pixel.
+'''
+
+[[block]]
+key = "2ebb014b8f68bd72"
+type = "heading"
+origin = '''
+## 相关页面
+'''
+translate = '''
+## Related pages
+'''
+
+[[block]]
+key = "321a6a09826c3fb8"
+type = "list"
+composite = true
+origin = '''
+{{321a6a09826c3fb8-75ce30386cbfc458}}
+{{321a6a09826c3fb8-e154c01f1f52ba1d}}
+{{321a6a09826c3fb8-e9ba8c72c9a498ae}}
+'''
+translate = '''
+{{321a6a09826c3fb8-75ce30386cbfc458}}
+{{321a6a09826c3fb8-e154c01f1f52ba1d}}
+{{321a6a09826c3fb8-e9ba8c72c9a498ae}}
+'''
+
+[[block]]
+key = "321a6a09826c3fb8-75ce30386cbfc458"
+type = "listItem"
+composite = true
+origin = '''
+- {{321a6a09826c3fb8-75ce30386cbfc458-025b108e6fc7e7ac}}
+'''
+translate = '''
+- {{321a6a09826c3fb8-75ce30386cbfc458-025b108e6fc7e7ac}}
+'''
+
+[[block]]
+key = "321a6a09826c3fb8-75ce30386cbfc458-025b108e6fc7e7ac"
+type = "paragraph"
+origin = '''
+[颜色数量、平滑度与细节等级](../vectorizer-color-and-detail/vectorizer-color-and-detail.mdx)
+'''
+translate = '''
+[Colors, Smoothness, and Detail](../vectorizer-color-and-detail/vectorizer-color-and-detail.mdx)
+'''
+
+[[block]]
+key = "321a6a09826c3fb8-e154c01f1f52ba1d"
+type = "listItem"
+composite = true
+origin = '''
+- {{321a6a09826c3fb8-e154c01f1f52ba1d-3cb13da39605a356}}
+'''
+translate = '''
+- {{321a6a09826c3fb8-e154c01f1f52ba1d-3cb13da39605a356}}
+'''
+
+[[block]]
+key = "321a6a09826c3fb8-e154c01f1f52ba1d-3cb13da39605a356"
+type = "paragraph"
+origin = '''
+[图像预处理](../vectorizer-preprocessing/vectorizer-preprocessing.mdx)
+'''
+translate = '''
+[Image Preprocessing](../vectorizer-preprocessing/vectorizer-preprocessing.mdx)
+'''
+
+[[block]]
+key = "321a6a09826c3fb8-e9ba8c72c9a498ae"
+type = "listItem"
+composite = true
+origin = '''
+- {{321a6a09826c3fb8-e9ba8c72c9a498ae-f28d274d5fcda15a}}
+'''
+translate = '''
+- {{321a6a09826c3fb8-e9ba8c72c9a498ae-f28d274d5fcda15a}}
+'''
+
+[[block]]
+key = "321a6a09826c3fb8-e9ba8c72c9a498ae-f28d274d5fcda15a"
+type = "paragraph"
+origin = '''
+[曲线拟合与区域过滤](../vectorizer-curve-and-filtering/vectorizer-curve-and-filtering.mdx)
+'''
+translate = '''
+[Curve Fitting and Region Filtering](../vectorizer-curve-and-filtering/vectorizer-curve-and-filtering.mdx)
+'''

@@ -1,0 +1,364 @@
+[metadata]
+migration_layout = "preserved English structure; root blocks retain grouped or omitted source sections"
+reviewed_source = "f2353882a216341a4067a3a924147d8343ae69a0bc5b537b21ec40cfdc28ff6d"
+
+[[block]]
+key = "4a8c07edf3adde30"
+type = "yaml"
+origin = '''
+---
+title: "2.0 开发月报：2026 年 9 月"
+description: "轻量 SVG 预览、桌面运行、透明图与材料导出、擦料塔和批量生成。"
+sidebar_position: 36
+---
+'''
+translate = '''
+---
+title: "2.0 Development Report: September 2026"
+description: "Lightweight SVG previews, desktop operation, transparency and batch generation."
+sidebar_position: 36
+---
+'''
+
+[[block]]
+key = "9ce1516bdbe2666f"
+type = "heading"
+origin = '''
+# Lumina Studio 2.0 开发月报：2026 年 9 月
+'''
+translate = '''
+# Lumina Studio 2.0 Development Report: September 2026
+'''
+
+[[block]]
+key = "1f8ae564e7891aa9"
+type = "paragraph"
+origin = '''
+9 月重点打通预览、颜色编辑与最终导出之间的状态同步，同时完善桌面端运行体验、透明图像处理与多对象打印工程。
+'''
+translate = '''
+September focused on synchronizing previews, color edits, and final exports, alongside improvements to the desktop app, transparency handling, and multi-object print projects.
+'''
+
+[[block]]
+key = "1cf3677dc024b441"
+type = "heading"
+origin = '''
+## 预览更轻，打印文件保持完整
+'''
+translate = '''
+## Lightweight previews, full-precision print files
+'''
+
+[[block]]
+key = "26ce2f0bbf1f5ce2"
+type = "paragraph"
+origin = '''
+SVG 轻量预览全面扩展至常规矢量、浮雕与模型贴图工作流。调整尺寸或结构参数后，查看器采用适合实时交互的轻量网格响应，生成完成后也无需在浏览器中重新加载庞大的完整打印网格；下载导出的 3MF 仍按实际参数生成完整几何体。
+'''
+translate = '''
+Lightweight interactive previews expanded across standard vector, relief, and model-surface workflows. Adjusting dimensions or structural settings updates a responsive display mesh without reloading the heavy print mesh after generation, while downloaded 3MF files retain full-resolution print geometry.
+'''
+
+[[block]]
+key = "3b1941d169a3be0d"
+type = "paragraph"
+origin = '''
+同步优化热床外观、深浅色主题渲染与选区边缘显示；颜色修改、局部选区与最终导出共享同一份编辑状态，消除换色后导出结果不同步的问题。
+'''
+translate = '''
+Build-plate styling, light/dark theme rendering, and selection states were also refined. Color edits, selections, and exports now share a single editing state so exported models match the active preview.
+'''
+
+[[block]]
+key = "9a50a173039d0a20"
+type = "heading"
+origin = '''
+## SVG 细节与透明区域
+'''
+translate = '''
+## SVG details and transparency
+'''
+
+[[block]]
+key = "c40581464979bedc"
+type = "list"
+composite = true
+origin = '''
+{{c40581464979bedc-195cd04acc55df33}}
+{{c40581464979bedc-688dfd6ab5b505a7}}
+{{c40581464979bedc-9817f54cf07d64eb}}
+{{c40581464979bedc-f55e74a22e6e23d0}}
+{{c40581464979bedc-b13cb0b486691a85}}
+'''
+translate = '''
+- Added a fast native SVG analysis path while keeping automatic fallback compatibility for complex SVG features.
+- Added optional SVG small-hole compensation (off by default) to close pinholes and narrow slits based on physical print dimensions when needed.
+- Fixed boundary-contact handling and native-coordinate conversion so exported geometry aligns cleanly with the preview.
+- Preserved transparent regions in Pixel Art previews and 3MF exports instead of filling a rectangular backing plate.
+- Retained transparent coating settings in batch exports with aligned coating and outline footprints, and preserved full tonal gradation in 16-bit heightmaps.
+'''
+
+[[block]]
+key = "c40581464979bedc-195cd04acc55df33"
+type = "listItem"
+composite = true
+origin = '''
+- {{c40581464979bedc-195cd04acc55df33-fe63f2561bc3865b}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c40581464979bedc-195cd04acc55df33-fe63f2561bc3865b"
+type = "paragraph"
+origin = '''
+新增原生 SVG 快速分析路径，结构规整的矢量图自动走高速通道，复杂图形平滑回退至兼容管线。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c40581464979bedc-688dfd6ab5b505a7"
+type = "listItem"
+composite = true
+origin = '''
+- {{c40581464979bedc-688dfd6ab5b505a7-87a94aa664bc7a3e}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c40581464979bedc-688dfd6ab5b505a7-87a94aa664bc7a3e"
+type = "paragraph"
+origin = '''
+新增 SVG 小洞补偿（默认关闭）：可按成品物理尺寸闭合细小孔洞与窄缝，适合根据图案细节按需开启。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c40581464979bedc-9817f54cf07d64eb"
+type = "listItem"
+composite = true
+origin = '''
+- {{c40581464979bedc-9817f54cf07d64eb-b5e435a370f91e20}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c40581464979bedc-9817f54cf07d64eb-b5e435a370f91e20"
+type = "paragraph"
+origin = '''
+修正复杂矢量路径接触边界及原生坐标转换偏差，确保预览位置与导出模型一致。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c40581464979bedc-f55e74a22e6e23d0"
+type = "listItem"
+composite = true
+origin = '''
+- {{c40581464979bedc-f55e74a22e6e23d0-b0452eb7c708eff5}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c40581464979bedc-f55e74a22e6e23d0-b0452eb7c708eff5"
+type = "paragraph"
+origin = '''
+像素艺术模式的透明区域在预览与导出 3MF 中全程保持镂空，不再自动补齐为矩形底板。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c40581464979bedc-b13cb0b486691a85"
+type = "listItem"
+composite = true
+origin = '''
+- {{c40581464979bedc-b13cb0b486691a85-4defca6aaced7e51}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c40581464979bedc-b13cb0b486691a85-4defca6aaced7e51"
+type = "paragraph"
+origin = '''
+批量导出完整保留透明镀层设置，统一镀层与外描边轮廓范围；16 位高度图准确保留明暗层次。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "742fe6b200c49d0a"
+type = "heading"
+origin = '''
+## 切片、排版与批量处理
+'''
+translate = '''
+## Slicing layout and batch generation
+
+Added an automatic wipe-tower placement toggle in Settings and fixed cases where enabled auto-placement still fell back to template coordinates. Turning it off preserves template positions; turning it on places both the model and wipe tower dynamically for the selected printer.
+'''
+
+[[block]]
+key = "e4a0038890a90b83"
+type = "heading"
+origin = '''
+### 擦料塔自动摆放
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4c04d9ecae88046c"
+type = "paragraph"
+origin = '''
+设置页新增“擦料塔自动摆放”开关，并修复开启后仍沿用模板固定坐标的问题。关闭时保留模板原有布局参数，开启时根据所选打印机尺寸自动排布模型与擦料塔位置。
+'''
+translate = '''
+**Generate and download 3MF** now builds and downloads the print file in one step whenever no generated artifact exists yet. Batch and puzzle workflows process multiple items in parallel while preserving piece order and filament assignments, alongside fixes for single-color puzzle pieces defaulting to slot 1 and keychain loops overlapping irregular outer contours.
+'''
+
+[[block]]
+key = "fad8b89ef2ed6d3b"
+type = "heading"
+origin = '''
+### 下载与多件生成
+'''
+translate = '''
+'''
+
+[[block]]
+key = "e3220377fc0b27bf"
+type = "list"
+composite = true
+origin = '''
+{{e3220377fc0b27bf-fbf56f7542843749}}
+{{e3220377fc0b27bf-f0993d1397ce78c7}}
+{{e3220377fc0b27bf-5738d24589fbfec7}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "e3220377fc0b27bf-fbf56f7542843749"
+type = "listItem"
+composite = true
+origin = '''
+- {{e3220377fc0b27bf-fbf56f7542843749-1bfea455cf02ac80}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "e3220377fc0b27bf-fbf56f7542843749-1bfea455cf02ac80"
+type = "paragraph"
+origin = '''
+点击“生成并下载 3MF”时，若当前尚无现成模型文件，软件会自动完成生成并直接触发下载。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "e3220377fc0b27bf-f0993d1397ce78c7"
+type = "listItem"
+composite = true
+origin = '''
+- {{e3220377fc0b27bf-f0993d1397ce78c7-e3ee66e74bc93da9}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "e3220377fc0b27bf-f0993d1397ce78c7-e3ee66e74bc93da9"
+type = "paragraph"
+origin = '''
+批量与拼图模式支持多核并行生成多件模型，导出结果保持原有排列顺序与材料映射。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "e3220377fc0b27bf-5738d24589fbfec7"
+type = "listItem"
+composite = true
+origin = '''
+- {{e3220377fc0b27bf-5738d24589fbfec7-9c97a7f001009389}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "e3220377fc0b27bf-5738d24589fbfec7-9c97a7f001009389"
+type = "paragraph"
+origin = '''
+修复单色拼图块误用首槽耗材，以及挂件环与不规则外轮廓发生几何重叠的问题。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "db553a9ddb331d93"
+type = "heading"
+origin = '''
+## 桌面运行与 Wiki 帮助
+'''
+translate = '''
+## Desktop app and inline Wiki help
+'''
+
+[[block]]
+key = "af789d77b8b34e8f"
+type = "paragraph"
+origin = '''
+桌面版优化启动流程、本地数据持久化、静态资源加载与外部 Wiki 链接打开方式，修复部分设备启动白屏及资源 MIME 类型识别异常，并移除本地运行时的旧版资源配额限制。
+'''
+translate = '''
+Improved desktop startup reliability, local data persistence, asset loading, and external Wiki link handling—resolving blank-screen launches and MIME-type mismatches on affected systems—and lifted legacy resource quotas when running locally.
+'''
+
+[[block]]
+key = "4b26be5ff602d429"
+type = "paragraph"
+origin = '''
+界面控件旁的帮助图标现已关联中英文 Wiki 对应页面，悬停或点击即可查看简明说明并打开详细文档。
+'''
+translate = '''
+Inline help icons next to controls now display concise tooltips with direct links to the corresponding Chinese or English Wiki articles.
+'''
+
+[[block]]
+key = "7b7d8e2a878b499e"
+type = "heading"
+origin = '''
+## 模型贴图与问题反馈
+'''
+translate = '''
+## Model Texture and bug reporting
+'''
+
+[[block]]
+key = "6bf8284558e055ee"
+type = "paragraph"
+origin = '''
+修复模型贴图重复应用时的坐标偏移、旋转漂移与右侧面板裁切问题。问题反馈完善工单编号唯一性与原图附件收集（反馈直传官方服务于 10 月上线）。
+'''
+translate = '''
+Fixed cumulative transform offsets on repeated placements, rotation drift, and clipped sidebar panels in Model Texture. Bug reports gained guaranteed unique ticket IDs and more reliable source-image collection ahead of October's direct upload service.
+'''
+
+[[block]]
+key = "5cf686bee8664be9"
+type = "paragraph"
+origin = '''
+[← 2026 年 8 月](./2026-08.md) · [2026 年 10 月 →](./2026-10.md) · [更新日志总览](./overview.md)
+'''
+translate = '''
+[← August](./2026-08.md) · [October →](./2026-10.md) · [Changelog](./overview.md)
+'''

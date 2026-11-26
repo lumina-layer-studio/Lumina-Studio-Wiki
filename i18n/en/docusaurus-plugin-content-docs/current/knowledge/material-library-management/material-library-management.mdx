@@ -24,7 +24,11 @@ Adjusting a swatch color only changes how the card appears in your library—it 
 
 Although both files end in `.zip`, they hold different data for different stages of the workflow and cannot be swapped. To create an archive from scratch, see [Generate and Print Gradient Calibration Cards](../../tutorials/gradient-card-generate-print/gradient-card-generate-print.mdx) and [Photograph and Extract Gradient Cards](../../tutorials/gradient-card-extract-profile/gradient-card-extract-profile.mdx).
 
+
+
 ## Step 1: Browse brand groups and selection controls
+
+
 
 Open **Material Management → Material Library**.
 
@@ -44,6 +48,8 @@ Expand a brand group to inspect individual cards rather than relying on color na
 
 ## Step 2: Check archive details before use
 
+
+
 <img
   src={require('./assets/02-material-card.webp').default}
   alt="Real English Lumina Material Archive card with material name, brand, directory, display colour, fit error, verification count, usage count, and layer height highlighted"
@@ -58,11 +64,15 @@ Review these fields on a Material Archive card before selecting, editing, or del
 - **Fit error and verification count:** Optical fitting accuracy and number of merged calibration runs.
 - **Created and last-updated timestamps:** Helpful for telling apart older and newer revisions.
 
+
+
 Note that **Usage Count** simply tracks how many times you've used the archive in conversions rather than scoring calibration quality. When choosing among similarly colored cards, match the exact filament product, polymer family, batch (if known), and Layer Height—see [Choose Material Archives or a Classic LUT](../material-profile-selection/material-profile-selection.mdx).
 
 ## Step 3: Edit display labels and swatches
 
 Click **Edit Details** on a card to tidy up how it appears in your library:
+
+
 
 <img
   src={require('./assets/03-edit-dialog.webp').default}
@@ -101,6 +111,10 @@ Card orientation, `E`, `K`, and white/black `C0` values serve as deeper diagnost
 
 ## Step 5: Re-verify an existing archive
 
+
+
+
+
 Click **Re-Verify** on a card whenever you want to refine or update its optical measurements—for example, after improving your lighting setup, opening a fresh batch of the same filament, or adding another independent sample run:
 
 <img
@@ -117,7 +131,11 @@ Confirm the target archive banner at the top of the extraction page, then:
 
 Only merge runs printed from the same filament product and Layer Height so the archive's optical model stays consistent.
 
+
+
 ## Step 6: Export a ZIP backup before major changes
+
+
 
 Check one or more archive cards and click **Export Selected**:
 
@@ -146,6 +164,8 @@ After importing, expand the brand group and verify:
 - Source provenance and usage rights (if shared by a third party)
 - A quick physical test swatch before starting a large print
 
+
+
 Always import the intact `.zip` package directly rather than unzipping and repacking internal JSON files by hand.
 
 ## Recommended local backup layout
@@ -160,9 +180,19 @@ material-archives/
     reference-photos/
 ```
 
+
+
 Record the exact filament line, batch code, Layer Height, nozzle size, and lighting setup in your notes, and strip any personal machine paths or account details before sharing archives publicly.
 
 ## Common questions
+
+
+
+
+
+
+
+
 
 ### Why doesn't changing Display Color alter my printed colors?
 

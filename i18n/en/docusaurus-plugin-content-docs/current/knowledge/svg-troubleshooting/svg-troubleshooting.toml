@@ -1,0 +1,1867 @@
+[metadata]
+migration_layout = "preserved English structure; root blocks retain grouped or omitted source sections"
+reviewed_source = "66a1aa30e86fe6227af5ea83d9bd79e757a1c7b1b5ed4c7d0e460c6c6b2d7acd"
+
+[[block]]
+key = "30e48769af9ad967"
+type = "yaml"
+origin = '''
+---
+title: "SVG 上传失败、白底、破洞和细节异常怎么排查？"
+description: "按上传、画布、路径、填充、复杂效果和节点数量排查 SVG，并用最小化文件判断问题来自源文件还是 Lumina Studio。"
+sidebar_position: 25
+---
+'''
+translate = '''
+---
+title: "How Do I Fix SVG Upload Failures, White Backgrounds, Holes, or Missing Detail?"
+description: "Diagnose SVG upload, canvas, path, fill, effect, and complexity problems with a minimal-file workflow that separates source-file issues from Lumina Studio issues."
+sidebar_position: 25
+---
+'''
+
+[[block]]
+key = "9bd59a28deacca0d"
+type = "heading"
+origin = '''
+# SVG 上传失败、白底、破洞和细节异常怎么排查？
+'''
+translate = '''
+# How Do I Fix SVG Upload Failures, White Backgrounds, Holes, or Missing Detail?
+'''
+
+[[block]]
+key = "21d06b208b7fc135"
+type = "paragraph"
+origin = '''
+遇到 SVG 导入或预览异常时，最快的定位方式是**先备份原稿，再将副本精简为“有效画布 + 单一闭合路径 + 纯色填充”的最小文件**。若最小文件预览正常，将文字、渐变、蒙版等元素逐类加回即可锁定问题结构；若最小文件仍复现异常，直接保留该文件提交反馈即可。
+'''
+translate = '''
+The fastest way to isolate an SVG issue is to **work on a copy of your file and strip it down to a valid `viewBox`, one closed path, and one flat fill**. If that minimal file previews cleanly, add text, gradients, masks, and extra layers back one group at a time to spot the exact element causing trouble; if even the minimal file fails, you already have a clean test case for support.
+'''
+
+[[block]]
+key = "51c919c4531ca731"
+type = "paragraph"
+origin = '''
+SVG 既能存放闭合矢量路径，也能容纳未转曲文字、嵌入位图、滤镜、蒙版与外部引用。浏览器能够正常渲染的视觉效果，不一定都是可直接生成三维实体的闭合几何。
+'''
+translate = '''
+Because SVG is a flexible container format, a file can mix vector paths with live fonts, strokes, embedded bitmaps, filters, masks, and external links. Visual effects that render in a web browser do not automatically translate into watertight 3D print geometry.
+'''
+
+[[block]]
+key = "7245869931bc0ea4"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/svg-symptoms.webp').default}
+  alt="SVG 上传失败、白色矩形、破洞断线、效果丢失、锯齿和卡住六类症状的检查入口"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/svg-symptoms.webp').default}
+  alt="Diagnostic entry points for upload failure, white backgrounds, broken geometry, missing effects, jagged tracing, and excessive SVG complexity"
+/>
+'''
+
+[[block]]
+key = "797e2589f6c913b3"
+type = "heading"
+origin = '''
+## 稳定建模的 SVG 基准条件
+'''
+translate = '''
+## Clean SVG baseline for 3D modeling
+'''
+
+[[block]]
+key = "37244e4a1a8ab7da"
+type = "paragraph"
+origin = '''
+排查或准备用于 3D 打印的 SVG 时，建议满足以下特征：
+'''
+translate = '''
+For predictable results, prepare SVGs with the following structure:
+'''
+
+[[block]]
+key = "18c7f471080714db"
+type = "list"
+composite = true
+origin = '''
+{{18c7f471080714db-e9d4c1a0db59f888}}
+{{18c7f471080714db-3be033973f960690}}
+{{18c7f471080714db-8a41fcd139ead42a}}
+{{18c7f471080714db-85a6d66b455f911a}}
+{{18c7f471080714db-f63a5a2e03443750}}
+{{18c7f471080714db-5f8d1bd4dd9bf31c}}
+{{18c7f471080714db-7eb7bc2275029f58}}
+'''
+translate = '''
+- A valid `viewBox` that encloses the entire design
+- All live text converted to outlines/paths
+- Closed paths with explicit flat fills for every solid region
+- Important strokes expanded into filled outlines
+- Clean compound paths and consistent fill rules for cutouts and counters
+- No unnecessary blurs, drop shadows, complex masks, clipping paths, external fonts, or remote image URLs
+- A reasonable node count free of stacked duplicate fragments
+'''
+
+[[block]]
+key = "18c7f471080714db-e9d4c1a0db59f888"
+type = "listItem"
+composite = true
+origin = '''
+- {{18c7f471080714db-e9d4c1a0db59f888-de6b7336a404694d}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "18c7f471080714db-e9d4c1a0db59f888-de6b7336a404694d"
+type = "paragraph"
+origin = '''
+带有准确的 `viewBox`，画布边界完整包住全部图形；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "18c7f471080714db-3be033973f960690"
+type = "listItem"
+composite = true
+origin = '''
+- {{18c7f471080714db-3be033973f960690-47d86fb5aaa53fe1}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "18c7f471080714db-3be033973f960690-47d86fb5aaa53fe1"
+type = "paragraph"
+origin = '''
+画面中的文字已全部转为轮廓路径；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "18c7f471080714db-8a41fcd139ead42a"
+type = "listItem"
+composite = true
+origin = '''
+- {{18c7f471080714db-8a41fcd139ead42a-af2b1284cefe0f3c}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "18c7f471080714db-8a41fcd139ead42a-af2b1284cefe0f3c"
+type = "paragraph"
+origin = '''
+所有需要生成实体的区域均为闭合路径，并带有明确的纯色填充；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "18c7f471080714db-85a6d66b455f911a"
+type = "listItem"
+composite = true
+origin = '''
+- {{18c7f471080714db-85a6d66b455f911a-710356ea850f0630}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "18c7f471080714db-85a6d66b455f911a-710356ea850f0630"
+type = "paragraph"
+origin = '''
+粗细线条已在设计软件中执行“扩展描边”转为填充轮廓；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "18c7f471080714db-f63a5a2e03443750"
+type = "listItem"
+composite = true
+origin = '''
+- {{18c7f471080714db-f63a5a2e03443750-9320c58ed453876a}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "18c7f471080714db-f63a5a2e03443750-9320c58ed453876a"
+type = "paragraph"
+origin = '''
+镂空与复合路径方向规范，使用明确的填充规则；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "18c7f471080714db-5f8d1bd4dd9bf31c"
+type = "listItem"
+composite = true
+origin = '''
+- {{18c7f471080714db-5f8d1bd4dd9bf31c-a673a72689687c0f}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "18c7f471080714db-5f8d1bd4dd9bf31c-a673a72689687c0f"
+type = "paragraph"
+origin = '''
+不含多余的高斯模糊、发光阴影、复杂蒙版、剪切路径、外部字体或远程图片链接；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "18c7f471080714db-7eb7bc2275029f58"
+type = "listItem"
+composite = true
+origin = '''
+- {{18c7f471080714db-7eb7bc2275029f58-395dbbf195638b17}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "18c7f471080714db-7eb7bc2275029f58-395dbbf195638b17"
+type = "paragraph"
+origin = '''
+节点数量与图形复杂度匹配，无大量重叠碎片。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "6bc17ce31e9d2c0c"
+type = "paragraph"
+origin = '''
+Lumina Studio 支持多种常见 SVG 结构与部分线性、径向渐变；源文件结构越清晰，解析结果越一致且可预期。
+'''
+translate = '''
+Lumina Studio handles a wide range of multi-layer SVGs as well as linear and radial gradients, while keeping geometry clean avoids discrepancies between vector editors, browsers, and 3D mesh generation.
+'''
+
+[[block]]
+key = "35e8fb6903f467dc"
+type = "heading"
+origin = '''
+## 症状一：SVG 无法上传或上传后无预览
+'''
+translate = '''
+## Symptom 1: The SVG fails to upload or shows no preview
+'''
+
+[[block]]
+key = "824ee2ca39e5e66b"
+type = "paragraph"
+origin = '''
+按以下顺序逐一核查：
+'''
+translate = '''
+Work through these checks in order:
+'''
+
+[[block]]
+key = "48878a32e1dc7dfe"
+type = "list"
+composite = true
+origin = '''
+{{48878a32e1dc7dfe-a2de44450a77f21e}}
+{{48878a32e1dc7dfe-7edf2d5ba9f37daa}}
+{{48878a32e1dc7dfe-e2bc815b8549030d}}
+{{48878a32e1dc7dfe-ad415c6c58de4c7b}}
+{{48878a32e1dc7dfe-983d6ec7e824f422}}
+{{48878a32e1dc7dfe-bc531f15193545f4}}
+'''
+translate = '''
+1. **Confirm the file is genuine SVG XML**: open it in a text editor and check for an `<svg ...>` root tag (renaming a `.png` or `.jpg` to `.svg` leaves binary image data inside; the uploader accepts native JPG, PNG, SVG, WebP, and HEIC files).
+2. **Test in a browser and vector editor**: if neither opens the file, re-export it from your design app first.
+3. **Export as plain SVG**: use **Save As** or **Export** from Illustrator, Inkscape, Figma, or Affinity rather than pasting partial inline SVG snippets.
+4. **Verify canvas bounds**: ensure a non-zero `viewBox` is present and that your artwork sits inside the canvas coordinates.
+5. **Remove external dependencies**: embed linked bitmaps or trace them locally, and outline all fonts.
+6. **Test a single-rectangle SVG**: upload a tiny SVG containing one colored rectangle to confirm the importer itself is working normally.
+'''
+
+[[block]]
+key = "48878a32e1dc7dfe-a2de44450a77f21e"
+type = "listItem"
+composite = true
+origin = '''
+1. {{48878a32e1dc7dfe-a2de44450a77f21e-a99b6af4cddbd87a}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "48878a32e1dc7dfe-a2de44450a77f21e-a99b6af4cddbd87a"
+type = "paragraph"
+origin = '''
+**确认文件为真实 SVG**：用文本编辑器打开文件，检查是否包含 `<svg ...>` 根节点（仅把 PNG 或 JPG 直接改后缀为 `.svg` 无法被解析；转换入口支持原生导出的 JPG、PNG、SVG、WebP 与 HEIC）。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "48878a32e1dc7dfe-7edf2d5ba9f37daa"
+type = "listItem"
+composite = true
+origin = '''
+2. {{48878a32e1dc7dfe-7edf2d5ba9f37daa-b091d5a50d6cd6df}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "48878a32e1dc7dfe-7edf2d5ba9f37daa-b091d5a50d6cd6df"
+type = "paragraph"
+origin = '''
+**在浏览器与矢量设计软件中打开**：若两者均报错，先在设计软件中修复或重新导出源文件。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "48878a32e1dc7dfe-e2bc815b8549030d"
+type = "listItem"
+composite = true
+origin = '''
+3. {{48878a32e1dc7dfe-e2bc815b8549030d-a7755b75b358c32d}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "48878a32e1dc7dfe-e2bc815b8549030d-a7755b75b358c32d"
+type = "paragraph"
+origin = '''
+**重新导出标准 SVG**：在 Illustrator、Inkscape、Figma 或 Affinity 中使用“另存为”或“导出”生成标准 SVG，避免使用截断的网页内联代码片段。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "48878a32e1dc7dfe-ad415c6c58de4c7b"
+type = "listItem"
+composite = true
+origin = '''
+4. {{48878a32e1dc7dfe-ad415c6c58de4c7b-33dc035a2053e3a0}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "48878a32e1dc7dfe-ad415c6c58de4c7b-33dc035a2053e3a0"
+type = "paragraph"
+origin = '''
+**检查画布范围**：确保具备非零 `viewBox`，且图形坐标未全部落在画布边界之外。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "48878a32e1dc7dfe-983d6ec7e824f422"
+type = "listItem"
+composite = true
+origin = '''
+5. {{48878a32e1dc7dfe-983d6ec7e824f422-eb77f721317ac24e}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "48878a32e1dc7dfe-983d6ec7e824f422-eb77f721317ac24e"
+type = "paragraph"
+origin = '''
+**消除外部依赖**：将外部链接图片嵌入文件或转为矢量，将外部字体转为路径。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "48878a32e1dc7dfe-bc531f15193545f4"
+type = "listItem"
+composite = true
+origin = '''
+6. {{48878a32e1dc7dfe-bc531f15193545f4-d4daf3d7c3356d3b}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "48878a32e1dc7dfe-bc531f15193545f4-d4daf3d7c3356d3b"
+type = "paragraph"
+origin = '''
+**最小对照测试**：新建一个仅含单个纯色矩形的 SVG 上传，确认当前转换入口工作正常。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bfa01ecb366c433d"
+type = "heading"
+origin = '''
+## 症状二：透明背景变成了整块白色
+'''
+translate = '''
+## Symptom 2: Transparent background turns into a white block
+'''
+
+[[block]]
+key = "bdf6aef19f089500"
+type = "paragraph"
+origin = '''
+先区分两种不同成因的“白底”：
+'''
+translate = '''
+Distinguish between physical print backing and an actual white shape inside the SVG:
+'''
+
+[[block]]
+key = "93e5ec014a930f29"
+type = "heading"
+origin = '''
+### 情况 A：Lumina 生成的实体支撑底板
+'''
+translate = '''
+### Case A: Physical backing generated by Lumina
+'''
+
+[[block]]
+key = "590431bec9688940"
+type = "paragraph"
+origin = '''
+SVG 的透明画布代表背景无填充色；为了把画面中互不相连的色块托举成一件可整体取下的打印件，Lumina 会按当前设置生成实体底板。
+'''
+translate = '''
+A transparent SVG canvas has no background color on screen, whereas disconnected islands in a 3D print still need a solid base plate to hold them together as one piece.
+'''
+
+[[block]]
+key = "f7bee6eb8f7e0b0a"
+type = "list"
+composite = true
+origin = '''
+{{f7bee6eb8f7e0b0a-12e3ffbb2b64fb8b}}
+{{f7bee6eb8f7e0b0a-171b0a759611ebc4}}
+'''
+translate = '''
+- To change the backing color, select another filament under **Base Plate Material**.
+- To manage or separate the backing object independently in your slicer, enable **Separate Backing** in advanced settings.
+'''
+
+[[block]]
+key = "f7bee6eb8f7e0b0a-12e3ffbb2b64fb8b"
+type = "listItem"
+composite = true
+origin = '''
+- {{f7bee6eb8f7e0b0a-12e3ffbb2b64fb8b-af178674bab5d5b5}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f7bee6eb8f7e0b0a-12e3ffbb2b64fb8b-af178674bab5d5b5"
+type = "paragraph"
+origin = '''
+如需更换底板颜色，在转换页面调整**底板耗材**；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f7bee6eb8f7e0b0a-171b0a759611ebc4"
+type = "listItem"
+composite = true
+origin = '''
+- {{f7bee6eb8f7e0b0a-171b0a759611ebc4-6c3ab7aa42ee980d}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f7bee6eb8f7e0b0a-171b0a759611ebc4-6c3ab7aa42ee980d"
+type = "paragraph"
+origin = '''
+如需在切片器中单独选中、隐藏或处理底板对象，可在高级设置中开启**分离底板**。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "15093f36f2d847ae"
+type = "heading"
+origin = '''
+### 情况 B：SVG 源文件自带白色背景对象
+'''
+translate = '''
+### Case B: A white rectangle or bitmap inside the SVG
+'''
+
+[[block]]
+key = "2cdbb681c3f02a26"
+type = "paragraph"
+origin = '''
+若整个矩形画布都被意外识别成了白色图案区域，请在矢量编辑器的图层面板中检查：
+'''
+translate = '''
+If the entire rectangular canvas turns white as part of the artwork itself, check the layer tree in your vector editor for:
+'''
+
+[[block]]
+key = "8e40028fcc35e87c"
+type = "list"
+composite = true
+origin = '''
+{{8e40028fcc35e87c-8a88f642f1a669a3}}
+{{8e40028fcc35e87c-ce11ff02b7ef7b1f}}
+{{8e40028fcc35e87c-9fd67a266e795076}}
+{{8e40028fcc35e87c-04f4d117d5f26e0a}}
+'''
+translate = '''
+- A full-canvas white rectangle sitting at the bottom of the stack
+- An embedded raster image with an opaque white background
+- A mask or clipping group flattened to white on export
+- A hidden artboard preview layer that was exported alongside the design
+'''
+
+[[block]]
+key = "8e40028fcc35e87c-8a88f642f1a669a3"
+type = "listItem"
+composite = true
+origin = '''
+- {{8e40028fcc35e87c-8a88f642f1a669a3-2bf47ca47c584690}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8e40028fcc35e87c-8a88f642f1a669a3-2bf47ca47c584690"
+type = "paragraph"
+origin = '''
+底层是否有一块与画布等大的白色矩形；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8e40028fcc35e87c-ce11ff02b7ef7b1f"
+type = "listItem"
+composite = true
+origin = '''
+- {{8e40028fcc35e87c-ce11ff02b7ef7b1f-b137bda23f6704e9}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8e40028fcc35e87c-ce11ff02b7ef7b1f-b137bda23f6704e9"
+type = "paragraph"
+origin = '''
+是否嵌入了一张不透明白底位图；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8e40028fcc35e87c-9fd67a266e795076"
+type = "listItem"
+composite = true
+origin = '''
+- {{8e40028fcc35e87c-9fd67a266e795076-beb59595cc040ace}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8e40028fcc35e87c-9fd67a266e795076-beb59595cc040ace"
+type = "paragraph"
+origin = '''
+蒙版或剪切路径在导出时是否被栅格化烘焙成了白底图像；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8e40028fcc35e87c-04f4d117d5f26e0a"
+type = "listItem"
+composite = true
+origin = '''
+- {{8e40028fcc35e87c-04f4d117d5f26e0a-2436f3a60f2a2ca1}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8e40028fcc35e87c-04f4d117d5f26e0a-2436f3a60f2a2ca1"
+type = "paragraph"
+origin = '''
+仅供画板预览的参考背景层是否未隐藏便一并导出。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "14a8c8b49d68abca"
+type = "paragraph"
+origin = '''
+删除多余背景层后重新导出即可，也可导出带透明通道的 PNG 在高保真模式下对比效果。
+'''
+translate = '''
+Delete the background object and re-export, or compare a high-resolution transparent PNG in **High-Fidelity** mode.
+'''
+
+[[block]]
+key = "1b9aa486f779d222"
+type = "heading"
+origin = '''
+## 症状三：路径出现破洞、断线、重叠或自交
+'''
+translate = '''
+## Symptom 3: Holes, broken lines, overlaps, or self-intersections
+'''
+
+[[block]]
+key = "66396f451b0b25f5"
+type = "paragraph"
+origin = '''
+屏幕上看似相连的线条，在几何层面可能并未闭合：
+'''
+translate = '''
+Shapes that look continuous on screen can still contain open endpoints or self-crossing segments:
+'''
+
+[[block]]
+key = "c953f9e3b6006e69"
+type = "heading"
+origin = '''
+### 断线或色块缺失
+'''
+translate = '''
+### Missing regions or broken lines
+'''
+
+[[block]]
+key = "d5db117209598eff"
+type = "list"
+composite = true
+origin = '''
+{{d5db117209598eff-d78a11fcb30b9461}}
+{{d5db117209598eff-0607b43ee72da682}}
+{{d5db117209598eff-69f350fff3a6cbb6}}
+{{d5db117209598eff-4a7651bfe2ed39cb}}
+'''
+translate = '''
+- Close every open path intended to print as a solid region.
+- Convert stroke-only linework using **Stroke to Path** or **Expand Stroke**.
+- Keep thin strokes wide enough at your target print size to exceed the nozzle's extrusion line width.
+- Confirm no shapes sit outside the `viewBox` or an active clipping mask.
+'''
+
+[[block]]
+key = "d5db117209598eff-d78a11fcb30b9461"
+type = "listItem"
+composite = true
+origin = '''
+- {{d5db117209598eff-d78a11fcb30b9461-533816507970522d}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "d5db117209598eff-d78a11fcb30b9461-533816507970522d"
+type = "paragraph"
+origin = '''
+将需要生成实体的开放路径首尾闭合；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "d5db117209598eff-0607b43ee72da682"
+type = "listItem"
+composite = true
+origin = '''
+- {{d5db117209598eff-0607b43ee72da682-ff14f88cfab32acf}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "d5db117209598eff-0607b43ee72da682-ff14f88cfab32acf"
+type = "paragraph"
+origin = '''
+对仅有描边（Stroke）无填充（Fill）的线条执行**描边转路径**或**扩展描边**；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "d5db117209598eff-69f350fff3a6cbb6"
+type = "listItem"
+composite = true
+origin = '''
+- {{d5db117209598eff-69f350fff3a6cbb6-24ffeb9c07dc9476}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "d5db117209598eff-69f350fff3a6cbb6-24ffeb9c07dc9476"
+type = "paragraph"
+origin = '''
+确保关键细线在目标成品尺寸下的物理宽度不小于喷嘴挤出线宽；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "d5db117209598eff-4a7651bfe2ed39cb"
+type = "listItem"
+composite = true
+origin = '''
+- {{d5db117209598eff-4a7651bfe2ed39cb-d14eca76b8de9a3c}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "d5db117209598eff-4a7651bfe2ed39cb-d14eca76b8de9a3c"
+type = "paragraph"
+origin = '''
+检查缺失部分是否超出 `viewBox` 或被剪切路径裁切。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a39e25a9f06eb2e2"
+type = "heading"
+origin = '''
+### 镂空孔洞被填死或错位
+'''
+translate = '''
+### Filled-in or misplaced holes
+'''
+
+[[block]]
+key = "66d6e4f020d79adc"
+type = "list"
+composite = true
+origin = '''
+{{66d6e4f020d79adc-6d42173aefc3269c}}
+{{66d6e4f020d79adc-dae4096029d0f731}}
+{{66d6e4f020d79adc-c0ece68b1347931e}}
+'''
+translate = '''
+- Check compound-path winding direction and `fill-rule` (`evenodd` vs. `nonzero`).
+- Cut holes explicitly with a Boolean **Subtract / Difference** operation rather than laying a white shape over a dark shape (a white overlay will print as solid white filament).
+- Ungroup nested groups to verify that inner cutouts belong to the same compound path as their outer contour.
+'''
+
+[[block]]
+key = "66d6e4f020d79adc-6d42173aefc3269c"
+type = "listItem"
+composite = true
+origin = '''
+- {{66d6e4f020d79adc-6d42173aefc3269c-305472888d7db24b}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "66d6e4f020d79adc-6d42173aefc3269c-305472888d7db24b"
+type = "paragraph"
+origin = '''
+检查复合路径绕向与 `fill-rule`（如 `evenodd` / `nonzero`）；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "66d6e4f020d79adc-dae4096029d0f731"
+type = "listItem"
+composite = true
+origin = '''
+- {{66d6e4f020d79adc-dae4096029d0f731-1beeb596dd616a32}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "66d6e4f020d79adc-dae4096029d0f731-1beeb596dd616a32"
+type = "paragraph"
+origin = '''
+在设计软件中用布尔**差集**（减去顶层）直接切出真实孔洞，避免用白色色块盖在深色图形上来模拟镂空（白色色块会生成白色实体耗材）；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "66d6e4f020d79adc-c0ece68b1347931e"
+type = "listItem"
+composite = true
+origin = '''
+- {{66d6e4f020d79adc-c0ece68b1347931e-3ed1649cf79fabf3}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "66d6e4f020d79adc-c0ece68b1347931e-3ed1649cf79fabf3"
+type = "paragraph"
+origin = '''
+解组嵌套编组后，确认内孔与外轮廓属于同一个复合路径。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "cf533a22d6001795"
+type = "heading"
+origin = '''
+### 重叠与自交路径
+'''
+translate = '''
+### Overlapping and self-intersecting paths
+'''
+
+[[block]]
+key = "fe823d8c38c98361"
+type = "list"
+composite = true
+origin = '''
+{{fe823d8c38c98361-d2d9aaf3fac3798e}}
+{{fe823d8c38c98361-91f78801d5558866}}
+{{fe823d8c38c98361-157a89dd7a3506da}}
+'''
+translate = '''
+- **Unite / Weld** adjacent regions of the same color that belong together.
+- Simplify or redraw figure-eight self-intersections.
+- Delete stacked invisible duplicates and microscopic stray points (always keep a backup of your editable master file before running destructive Booleans).
+'''
+
+[[block]]
+key = "fe823d8c38c98361-d2d9aaf3fac3798e"
+type = "listItem"
+composite = true
+origin = '''
+- {{fe823d8c38c98361-d2d9aaf3fac3798e-930fb38179018c69}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "fe823d8c38c98361-d2d9aaf3fac3798e-930fb38179018c69"
+type = "paragraph"
+origin = '''
+对同色相连区域执行布尔**联集**合并；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "fe823d8c38c98361-91f78801d5558866"
+type = "listItem"
+composite = true
+origin = '''
+- {{fe823d8c38c98361-91f78801d5558866-e28231da96036e8f}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "fe823d8c38c98361-91f78801d5558866-e28231da96036e8f"
+type = "paragraph"
+origin = '''
+修复、简化或重绘自身交叉（8 字形自交）的路径；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "fe823d8c38c98361-157a89dd7a3506da"
+type = "listItem"
+composite = true
+origin = '''
+- {{fe823d8c38c98361-157a89dd7a3506da-ee135ab48307c4f3}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "fe823d8c38c98361-157a89dd7a3506da-ee135ab48307c4f3"
+type = "paragraph"
+origin = '''
+清理肉眼不可见的原位重复路径与极小碎屑（操作前请先留存原稿副本）。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c15a4e5b49dc4838"
+type = "paragraph"
+origin = '''
+Lumina 会自动尝试修复轻度几何异常，但严重自交路径在自动拆分时可能产生多边形碎裂，开路孤立线段则可能被忽略；提前在矢量软件中清理路径最为稳妥。
+'''
+translate = '''
+While Lumina automatically heals minor path flaws, severe self-intersections may split into separate polygons and stray open line segments may be dropped—cleaning paths in your vector editor ensures crisp results.
+'''
+
+[[block]]
+key = "be37c36ea7d8e374"
+type = "heading"
+origin = '''
+## 症状四：渐变、滤镜、蒙版或文字丢失
+'''
+translate = '''
+## Symptom 4: Missing gradients, filters, masks, or text
+'''
+
+[[block]]
+key = "09e388112c45a769"
+type = "heading"
+origin = '''
+### 渐变
+'''
+translate = '''
+### Gradients
+'''
+
+[[block]]
+key = "168b87ad904836b6"
+type = "paragraph"
+origin = '''
+矢量模式会将连续渐变离散化为有限层数的耗材叠色区域。简单的线性与径向渐变可直接预览确认；多层叠加透明度或混合模式渐变建议通过以下两种方式二选一：
+'''
+translate = '''
+Vector mode converts smooth digital gradients into stepped color regions matched to finite filament stacks. Simple linear and radial gradients can be previewed directly; for intricate multi-stop gradients or blend modes, pick the approach that suits your artwork:
+'''
+
+[[block]]
+key = "d9c84ee7224f4271"
+type = "list"
+composite = true
+origin = '''
+{{d9c84ee7224f4271-ef5632d252b2b750}}
+{{d9c84ee7224f4271-ee61539384d8c2de}}
+'''
+translate = '''
+- **Smooth tonal transitions**: export a high-resolution transparent PNG and process it in **High-Fidelity** mode.
+- **Crisp vector contours**: posterize or expand the gradient into discrete flat-filled color bands inside your vector editor before exporting.
+'''
+
+[[block]]
+key = "d9c84ee7224f4271-ef5632d252b2b750"
+type = "listItem"
+composite = true
+origin = '''
+- {{d9c84ee7224f4271-ef5632d252b2b750-52a2c335dba6b232}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "d9c84ee7224f4271-ef5632d252b2b750-52a2c335dba6b232"
+type = "paragraph"
+origin = '''
+**侧重柔和过渡**：从设计软件导出高分辨率透明 PNG，改用**高保真**模式转换；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "d9c84ee7224f4271-ee61539384d8c2de"
+type = "listItem"
+composite = true
+origin = '''
+- {{d9c84ee7224f4271-ee61539384d8c2de-5fd5d1cc655150a4}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "d9c84ee7224f4271-ee61539384d8c2de-5fd5d1cc655150a4"
+type = "paragraph"
+origin = '''
+**侧重锐利矢量边界**：在设计软件中先将渐变分段扩展为明确的纯色色阶路径。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "45b41de84278ba3d"
+type = "heading"
+origin = '''
+### 滤镜、蒙版与剪切路径
+'''
+translate = '''
+### Filters, masks, and clipping paths
+'''
+
+[[block]]
+key = "46cbb077ebc29102"
+type = "paragraph"
+origin = '''
+模糊、外发光、投影、图案填充与多层嵌套蒙版在不同 SVG 解析引擎下表现不一。建议：
+'''
+translate = '''
+Gaussian blurs, glows, drop shadows, pattern fills, and deeply nested masks often render differently across SVG engines:
+'''
+
+[[block]]
+key = "b365b371506b0138"
+type = "list"
+composite = true
+origin = '''
+{{b365b371506b0138-b4cd3b754e2a19d9}}
+{{b365b371506b0138-e8dc8360c30378c3}}
+{{b365b371506b0138-2d60501afdf34bd9}}
+'''
+translate = '''
+- Expand key visual shapes into standard closed paths and flat fills.
+- Rasterize purely photographic or glow effects into a transparent PNG and run **High-Fidelity** mode.
+- Delete hidden editor guides and unused filter definitions.
+'''
+
+[[block]]
+key = "b365b371506b0138-b4cd3b754e2a19d9"
+type = "listItem"
+composite = true
+origin = '''
+- {{b365b371506b0138-b4cd3b754e2a19d9-4c278b4decddf63f}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b365b371506b0138-b4cd3b754e2a19d9-4c278b4decddf63f"
+type = "paragraph"
+origin = '''
+将关键造型扩展为常规闭合路径与纯色填充；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b365b371506b0138-e8dc8360c30378c3"
+type = "listItem"
+composite = true
+origin = '''
+- {{b365b371506b0138-e8dc8360c30378c3-6bf30c2a3e4da070}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b365b371506b0138-e8dc8360c30378c3-6bf30c2a3e4da070"
+type = "paragraph"
+origin = '''
+若作品依赖光影滤镜质感，直接导出高分辨率透明位图使用高保真模式；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b365b371506b0138-2d60501afdf34bd9"
+type = "listItem"
+composite = true
+origin = '''
+- {{b365b371506b0138-2d60501afdf34bd9-10ee409afe55008e}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b365b371506b0138-2d60501afdf34bd9-10ee409afe55008e"
+type = "paragraph"
+origin = '''
+删除隐藏图层与不参与打印的装饰滤镜。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "347498dad7e78c0e"
+type = "paragraph"
+origin = '''
+此外，开启大画幅矢量切分时，含未转曲文字、嵌入图像、图案、剪切路径、蒙版或滤镜的复杂 SVG 会受更严格限制（必要时会自动回退栅格切分），建议先在常规尺寸下验证源文件。
+'''
+translate = '''
+Note that **Large Format Mode** enforces stricter rules for vector tiling when an SVG contains live text, embedded bitmaps, patterns, clipping paths, masks, or filters (falling back to raster tiling where required). Test complex SVGs at standard single-plate dimensions first.
+'''
+
+[[block]]
+key = "0f1875609eb8a9b1"
+type = "heading"
+origin = '''
+### 文字
+'''
+translate = '''
+### Live text
+'''
+
+[[block]]
+key = "20c3e8e755f80a0e"
+type = "paragraph"
+origin = '''
+保留字体引用的文本对象依赖运行环境安装同名同款字体，且可能无法直接作为闭合多边形参与建模。导出前请将全部文字**创建轮廓 / 转为路径**，并检查 `O`、`A`、`B`、`e` 等字腔内孔的复合路径以及小字号笔画宽度。
+'''
+translate = '''
+Unoutlined text relies on matching system fonts and may remain a text node rather than closed polygon geometry. Convert all final lettering to paths before export, then inspect inner letter counters (such as inside `O`, `A`, `B`, and `e`) and stroke widths at your target print size.
+'''
+
+[[block]]
+key = "767176d6e5051d47"
+type = "heading"
+origin = '''
+## 症状五：位图自动描摹转 SVG 后边缘锯齿严重
+'''
+translate = '''
+## Symptom 5: Traced bitmaps still look jagged
+'''
+
+[[block]]
+key = "1a4d408ec0d16966"
+type = "paragraph"
+origin = '''
+位图转矢量的自动描摹算法会忠实拟合原图像素边界：
+'''
+translate = '''
+Auto-tracing converts existing pixel edges into vector curves—including any flaws in the source raster:
+'''
+
+[[block]]
+key = "23ba2551bc2bbad9"
+type = "list"
+composite = true
+origin = '''
+{{23ba2551bc2bbad9-be3010f92f4d0e68}}
+{{23ba2551bc2bbad9-6014f0623c2f351e}}
+{{23ba2551bc2bbad9-823469861dbd7ab0}}
+{{23ba2551bc2bbad9-9dc5b837b754cd94}}
+'''
+translate = '''
+- Low-resolution logos turn stair-stepped pixels into wavy outlines.
+- JPEG compression artifacts break flat areas into dozens of tiny color speckles.
+- Sensor noise spawns tens of thousands of extra anchor points.
+- Anti-aliased edges split into thin gray halo rings.
+'''
+
+[[block]]
+key = "23ba2551bc2bbad9-be3010f92f4d0e68"
+type = "listItem"
+composite = true
+origin = '''
+- {{23ba2551bc2bbad9-be3010f92f4d0e68-383fd1d54aa3da45}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "23ba2551bc2bbad9-be3010f92f4d0e68-383fd1d54aa3da45"
+type = "paragraph"
+origin = '''
+低分辨率 Logo 的像素阶梯会被拟合为波浪状弯曲路径；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "23ba2551bc2bbad9-6014f0623c2f351e"
+type = "listItem"
+composite = true
+origin = '''
+- {{23ba2551bc2bbad9-6014f0623c2f351e-f7951f6d6255070d}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "23ba2551bc2bbad9-6014f0623c2f351e-f7951f6d6255070d"
+type = "paragraph"
+origin = '''
+JPG 压缩伪影会碎裂成大量杂色小块；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "23ba2551bc2bbad9-823469861dbd7ab0"
+type = "listItem"
+composite = true
+origin = '''
+- {{23ba2551bc2bbad9-823469861dbd7ab0-5e3ec41b384cc7d3}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "23ba2551bc2bbad9-823469861dbd7ab0-5e3ec41b384cc7d3"
+type = "paragraph"
+origin = '''
+照片噪点会生成数以万计的冗余锚点；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "23ba2551bc2bbad9-9dc5b837b754cd94"
+type = "listItem"
+composite = true
+origin = '''
+- {{23ba2551bc2bbad9-9dc5b837b754cd94-ee56a47f3cec45fa}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "23ba2551bc2bbad9-9dc5b837b754cd94-ee56a47f3cec45fa"
+type = "paragraph"
+origin = '''
+半透明抗锯齿边缘会被拆解成多圈细碎灰边。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ef0cb3a61fcf9dca"
+type = "paragraph"
+origin = '''
+简洁图形与徽标可在清理边缘后重新描摹；照片与厚涂插画直接保留原位图走**高保真**模式效果更自然。模式对比请参阅[高保真、像素艺术与矢量模式怎么选？](pathname:///zh/docs/knowledge/image-mode-selection/)，软件内置描摹流程请参阅[从位图生成 SVG，再发送到图像转换](pathname:///zh/docs/knowledge/bitmap-to-svg/)。
+'''
+translate = '''
+Clean logos and icons trace cleanly once prepped, whereas photographs and painterly illustrations generally look better kept as bitmaps in **High-Fidelity** mode. See [How Do I Choose High-Fidelity, Pixel Art, or Vector Mode?](pathname:///en/docs/knowledge/image-mode-selection/) and [Convert a Bitmap to SVG, Then Send It to the Converter](pathname:///en/docs/knowledge/bitmap-to-svg/).
+'''
+
+[[block]]
+key = "c487a4a253ab0bbb"
+type = "heading"
+origin = '''
+## 症状六：节点过多导致预览卡顿或生成缓慢
+'''
+translate = '''
+## Symptom 6: Excessive nodes slow down preview or generation
+'''
+
+[[block]]
+key = "7049ef043a6cd9e9"
+type = "paragraph"
+origin = '''
+SVG 的处理耗时取决于锚点与路径数量而非文件字节大小——几百 KB 的描摹稿也可能包含数十万个节点。可按顺序瘦身：
+'''
+translate = '''
+Processing time scales with anchor-point and path count rather than file size—even a 1 MB auto-traced SVG can contain hundreds of thousands of nodes. To streamline heavy files:
+'''
+
+[[block]]
+key = "6345984a757b0b20"
+type = "list"
+composite = true
+origin = '''
+{{6345984a757b0b20-9ed4437bd105660d}}
+{{6345984a757b0b20-81f465339d0d7cc4}}
+{{6345984a757b0b20-23ff19b16e8a77aa}}
+{{6345984a757b0b20-d23f7c809a4d148a}}
+{{6345984a757b0b20-3fccd1f8b4eff167}}
+{{6345984a757b0b20-951f38e80971d30d}}
+'''
+translate = '''
+1. Delete off-canvas, hidden, and duplicate objects.
+2. Unite touching same-color shapes.
+3. Run moderate path simplification without rounding off eyes, lettering, sharp corners, or cutouts.
+4. Strip sub-nozzle-width specks that cannot print at your finished size.
+5. Rasterize photographic or heavily textured backdrops.
+6. Confirm a clean preview at standard size before enabling Large Format Mode or Batch processing.
+'''
+
+[[block]]
+key = "6345984a757b0b20-9ed4437bd105660d"
+type = "listItem"
+composite = true
+origin = '''
+1. {{6345984a757b0b20-9ed4437bd105660d-f15083b96a01beba}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "6345984a757b0b20-9ed4437bd105660d-f15083b96a01beba"
+type = "paragraph"
+origin = '''
+删除画板外、隐藏图层与重复堆叠的对象；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "6345984a757b0b20-81f465339d0d7cc4"
+type = "listItem"
+composite = true
+origin = '''
+2. {{6345984a757b0b20-81f465339d0d7cc4-05ca534502907124}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "6345984a757b0b20-81f465339d0d7cc4-05ca534502907124"
+type = "paragraph"
+origin = '''
+合并同色相邻色块；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "6345984a757b0b20-23ff19b16e8a77aa"
+type = "listItem"
+composite = true
+origin = '''
+3. {{6345984a757b0b20-23ff19b16e8a77aa-37f259439c0662e6}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "6345984a757b0b20-23ff19b16e8a77aa-37f259439c0662e6"
+type = "paragraph"
+origin = '''
+在保持主轮廓不变形的前提下适度简化锚点（切勿一次拉满简化强度，以免吞掉五官、锐角与孔洞）；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "6345984a757b0b20-d23f7c809a4d148a"
+type = "listItem"
+composite = true
+origin = '''
+4. {{6345984a757b0b20-d23f7c809a4d148a-9f9e9e6b1ff93188}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "6345984a757b0b20-d23f7c809a4d148a-9f9e9e6b1ff93188"
+type = "paragraph"
+origin = '''
+清除远小于喷嘴线宽的微小孤立碎点；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "6345984a757b0b20-3fccd1f8b4eff167"
+type = "listItem"
+composite = true
+origin = '''
+5. {{6345984a757b0b20-3fccd1f8b4eff167-acca7911a0569d26}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "6345984a757b0b20-3fccd1f8b4eff167-acca7911a0569d26"
+type = "paragraph"
+origin = '''
+将局部照片或重度纹理区域栅格化处理；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "6345984a757b0b20-951f38e80971d30d"
+type = "listItem"
+composite = true
+origin = '''
+6. {{6345984a757b0b20-951f38e80971d30d-de1a395d11a66ed6}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "6345984a757b0b20-951f38e80971d30d-de1a395d11a66ed6"
+type = "paragraph"
+origin = '''
+先在常规单板尺寸下验证通过，再开启大画幅切分或批量生成。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "da387771ffeb22be"
+type = "heading"
+origin = '''
+## 用最小化文件精准定位问题
+'''
+translate = '''
+## Isolating the culprit with a minimal SVG
+'''
+
+[[block]]
+key = "af1b3270806504be"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/svg-minimal-test.webp').default}
+  alt="复制原文件、只保留一个路径、确认最小文件、逐项加回效果并定位问题的流程"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/svg-minimal-test.webp').default}
+  alt="Five-step workflow that copies the source, keeps one closed path, verifies a minimal preview, and adds SVG features back one type at a time"
+/>
+'''
+
+[[block]]
+key = "309bce232e8e672d"
+type = "list"
+composite = true
+origin = '''
+{{309bce232e8e672d-f7bbf2c1345998c1}}
+{{309bce232e8e672d-0ed83c8d5f6e6b5e}}
+{{309bce232e8e672d-382056cf6c3e9fc2}}
+{{309bce232e8e672d-05424b27f31c88dd}}
+{{309bce232e8e672d-97e873529822150d}}
+'''
+translate = '''
+1. **Duplicate the original SVG** so your master artwork stays untouched.
+2. Strip out everything except a valid `viewBox` and a single closed, flat-filled shape.
+3. Upload the minimal file and run Preview.
+4. Once that passes, reintroduce elements one category at a time (additional paths, outlined text, gradients, masks) until the issue reappears:
+   - **Breaks after adding a specific SVG feature**: expand that feature into standard paths/fills, or export a transparent PNG for High-Fidelity mode.
+   - **Broken in browsers and vector editors too**: re-export or repair the source file first.
+   - **Minimal file renders cleanly elsewhere yet fails in Lumina**: save that minimal SVG and exact steps for a bug report.
+   - **Clean in Lumina Preview, missing only after slicing**: check nozzle size, line width, object assignments, and layer toolpaths in your slicer.
+'''
+
+[[block]]
+key = "309bce232e8e672d-f7bbf2c1345998c1"
+type = "listItem"
+composite = true
+origin = '''
+1. {{309bce232e8e672d-f7bbf2c1345998c1-79434c8cb5dc9217}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "309bce232e8e672d-f7bbf2c1345998c1-79434c8cb5dc9217"
+type = "paragraph"
+origin = '''
+**复制源文件副本**，保持原稿不动；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "309bce232e8e672d-0ed83c8d5f6e6b5e"
+type = "listItem"
+composite = true
+origin = '''
+2. {{309bce232e8e672d-0ed83c8d5f6e6b5e-d595087bcacdd882}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "309bce232e8e672d-0ed83c8d5f6e6b5e-d595087bcacdd882"
+type = "paragraph"
+origin = '''
+删去其余元素，仅保留有效 `viewBox` 与一条闭合纯色路径；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "309bce232e8e672d-382056cf6c3e9fc2"
+type = "listItem"
+composite = true
+origin = '''
+3. {{309bce232e8e672d-382056cf6c3e9fc2-f611c97659f07ed4}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "309bce232e8e672d-382056cf6c3e9fc2-f611c97659f07ed4"
+type = "paragraph"
+origin = '''
+上传至 Lumina 生成预览；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "309bce232e8e672d-05424b27f31c88dd"
+type = "listItem"
+composite = true
+origin = '''
+4. {{309bce232e8e672d-05424b27f31c88dd-f0c40b74384fc594}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "309bce232e8e672d-05424b27f31c88dd-f0c40b74384fc594"
+type = "paragraph"
+origin = '''
+若预览正常，每次加回一类结构（其余路径、转曲文字、渐变、蒙版等），观察哪一步开始触发异常；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "309bce232e8e672d-97e873529822150d"
+type = "listItem"
+composite = true
+origin = '''
+5. {{309bce232e8e672d-97e873529822150d-b5c8b7bd7425405b}}
+   {{309bce232e8e672d-97e873529822150d-74e00d760e18c6b2}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "309bce232e8e672d-97e873529822150d-b5c8b7bd7425405b"
+type = "paragraph"
+origin = '''
+根据测试结果分流处理：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "309bce232e8e672d-97e873529822150d-74e00d760e18c6b2"
+type = "list"
+composite = true
+origin = '''
+{{309bce232e8e672d-97e873529822150d-74e00d760e18c6b2-07906ed9916f619a}}
+{{309bce232e8e672d-97e873529822150d-74e00d760e18c6b2-c3177ae40132f123}}
+{{309bce232e8e672d-97e873529822150d-74e00d760e18c6b2-a09d4b9fd074aae2}}
+{{309bce232e8e672d-97e873529822150d-74e00d760e18c6b2-f20e2f1f304983ce}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "309bce232e8e672d-97e873529822150d-74e00d760e18c6b2-07906ed9916f619a"
+type = "listItem"
+composite = true
+origin = '''
+- {{309bce232e8e672d-97e873529822150d-74e00d760e18c6b2-07906ed9916f619a-66486cbe5671d07c}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "309bce232e8e672d-97e873529822150d-74e00d760e18c6b2-07906ed9916f619a-66486cbe5671d07c"
+type = "paragraph"
+origin = '''
+**加回某类效果后才异常**：在矢量软件中展开该效果，或改用透明 PNG 高保真模式；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "309bce232e8e672d-97e873529822150d-74e00d760e18c6b2-c3177ae40132f123"
+type = "listItem"
+composite = true
+origin = '''
+- {{309bce232e8e672d-97e873529822150d-74e00d760e18c6b2-c3177ae40132f123-5e2884bed803ee76}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "309bce232e8e672d-97e873529822150d-74e00d760e18c6b2-c3177ae40132f123-5e2884bed803ee76"
+type = "paragraph"
+origin = '''
+**源文件在浏览器或编辑器中也显示异常**：先修复导出源；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "309bce232e8e672d-97e873529822150d-74e00d760e18c6b2-a09d4b9fd074aae2"
+type = "listItem"
+composite = true
+origin = '''
+- {{309bce232e8e672d-97e873529822150d-74e00d760e18c6b2-a09d4b9fd074aae2-518af7bbb7aabbb2}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "309bce232e8e672d-97e873529822150d-74e00d760e18c6b2-a09d4b9fd074aae2-518af7bbb7aabbb2"
+type = "paragraph"
+origin = '''
+**最小文件在外部查看器正常、在 Lumina 中稳定报错**：保留该最小 SVG 与复现步骤提交反馈；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "309bce232e8e672d-97e873529822150d-74e00d760e18c6b2-f20e2f1f304983ce"
+type = "listItem"
+composite = true
+origin = '''
+- {{309bce232e8e672d-97e873529822150d-74e00d760e18c6b2-f20e2f1f304983ce-fdcfd34301b48ef5}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "309bce232e8e672d-97e873529822150d-74e00d760e18c6b2-f20e2f1f304983ce-fdcfd34301b48ef5"
+type = "paragraph"
+origin = '''
+**Lumina 预览正常、仅切片后缺损**：转入切片器检查喷嘴、线宽、对象映射与逐层走线。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f915dd168c7d9a31"
+type = "heading"
+origin = '''
+## 提交反馈时建议附上的资料
+'''
+translate = '''
+## What to include in a bug report
+'''
+
+[[block]]
+key = "971298917a3e7fe3"
+type = "list"
+composite = true
+origin = '''
+{{971298917a3e7fe3-50ecf00c1ac34539}}
+{{971298917a3e7fe3-26b0987b3d23402e}}
+{{971298917a3e7fe3-f1b75fc3e28e921d}}
+{{971298917a3e7fe3-81edf0b97daacb41}}
+{{971298917a3e7fe3-b188490088c0654f}}
+'''
+translate = '''
+- The smallest SVG that reproduces the issue (strip personal names, order IDs, and private metadata; if the artwork is confidential, recreate the structure with simple geometric shapes)
+- A screenshot of how the SVG looks in your vector editor or browser
+- Lumina Studio version, **Source Type**, and **Modeling Mode**
+- Target finished dimensions
+- Exact steps from upload to the issue, plus screenshots of where Lumina Preview or slicer preview diverges
+'''
+
+[[block]]
+key = "971298917a3e7fe3-50ecf00c1ac34539"
+type = "listItem"
+composite = true
+origin = '''
+- {{971298917a3e7fe3-50ecf00c1ac34539-7aac87ed3d5b269a}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "971298917a3e7fe3-50ecf00c1ac34539-7aac87ed3d5b269a"
+type = "paragraph"
+origin = '''
+可复现问题的最小化 SVG 文件（隐去姓名、订单号、私有链接等元数据；若原图涉密或受版权限制，可用相同结构画一个简单几何图形复现）；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "971298917a3e7fe3-26b0987b3d23402e"
+type = "listItem"
+composite = true
+origin = '''
+- {{971298917a3e7fe3-26b0987b3d23402e-b92f61c1d0b7c7b6}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "971298917a3e7fe3-26b0987b3d23402e-b92f61c1d0b7c7b6"
+type = "paragraph"
+origin = '''
+设计软件或浏览器中预期的正确显示截图；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "971298917a3e7fe3-f1b75fc3e28e921d"
+type = "listItem"
+composite = true
+origin = '''
+- {{971298917a3e7fe3-f1b75fc3e28e921d-cf2bc2f8d8903b92}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "971298917a3e7fe3-f1b75fc3e28e921d-cf2bc2f8d8903b92"
+type = "paragraph"
+origin = '''
+Lumina Studio 版本、色彩数据来源与建模模式；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "971298917a3e7fe3-81edf0b97daacb41"
+type = "listItem"
+composite = true
+origin = '''
+- {{971298917a3e7fe3-81edf0b97daacb41-4731272d27d36125}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "971298917a3e7fe3-81edf0b97daacb41-4731272d27d36125"
+type = "paragraph"
+origin = '''
+目标成品尺寸；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "971298917a3e7fe3-b188490088c0654f"
+type = "listItem"
+composite = true
+origin = '''
+- {{971298917a3e7fe3-b188490088c0654f-18761e53f4229399}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "971298917a3e7fe3-b188490088c0654f-18761e53f4229399"
+type = "paragraph"
+origin = '''
+从上传到出现异常的操作步骤，以及最早出现异常的预览截图。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "3b30b685be5af364"
+type = "heading"
+origin = '''
+## 常见问题
+'''
+translate = '''
+## Common questions
+'''
+
+[[block]]
+key = "326eec2a686f62ca"
+type = "heading"
+origin = '''
+### SVG 明明是透明背景，为什么生成出来还是有底板？
+'''
+translate = '''
+### Why does my transparent SVG still generate a solid backing plate?
+'''
+
+[[block]]
+key = "670a14781c462b25"
+type = "paragraph"
+origin = '''
+三维打印件需要物理底板将分散的图案色块连成整体。请先确认它是 Lumina 自动生成的底板（可通过**底板耗材**改色或开启**分离底板**），还是 SVG 源文件图层中残留的白色矩形背景。
+'''
+translate = '''
+Physical prints need a base layer to join separate islands into a single part. Check whether the white base is Lumina's generated backing (adjustable via **Base Plate Material** and **Separate Backing**) or an unwanted white rectangle inside your SVG layers.
+'''
+
+[[block]]
+key = "1b6ce63ba11ca981"
+type = "heading"
+origin = '''
+### 为什么浏览器里看着完整，上传到 Lumina 后少了一块？
+'''
+translate = '''
+### Part of my design appears in Chrome/Safari, so why is it missing in Lumina?
+'''
+
+[[block]]
+key = "23658cee6ce9838c"
+type = "paragraph"
+origin = '''
+浏览器支持直接渲染未转曲字体、纯描边线条、剪切蒙版与滤镜，而三维建模需要闭合填充多边形。将缺失的文字转为路径、描边扩展为填充、蒙版烘焙裁剪后重新导出即可恢复。
+'''
+translate = '''
+Browsers render live fonts, unexpanded strokes, clipping masks, and CSS filters on the fly, whereas 3D modeling requires closed polygon geometry. Outline all text, expand strokes to fills, and flatten clipping masks before exporting.
+'''
+
+[[block]]
+key = "627d98a1d6ce40ee"
+type = "heading"
+origin = '''
+### 文字转成路径后就一定能完整打印出来吗？
+'''
+translate = '''
+### If I convert text to outlines, is every letter guaranteed to print?
+'''
+
+[[block]]
+key = "b03cae5207ed457d"
+type = "paragraph"
+origin = '''
+转曲消除了字体缺失问题，但打印效果还取决于目标尺寸下的笔画物理宽度是否大于喷嘴线宽，以及字腔孔洞的复合路径方向是否正确。
+'''
+translate = '''
+Outlining removes font dependencies, while small lettering still needs strokes wide enough for your nozzle's line width and properly oriented compound paths for inner counters.
+'''
+
+[[block]]
+key = "3cc2b503dffbdfbe"
+type = "heading"
+origin = '''
+### 矢量模式预览里色块交界有细白缝，要把所有路径统一加粗吗？
+'''
+translate = '''
+### Vector mode shows hairline white seams between shapes—should I add a thick stroke everywhere?
+'''
+
+[[block]]
+key = "6e6fd266be486805"
+type = "paragraph"
+origin = '''
+先放大切片器的真实走线预览确认：屏幕预览中的极细亮线往往只是图形渲染抗锯齿间隙，切片走线实际紧密贴合；只有当源文件相邻色块确实留有物理缝隙导致切片缺口时，再针对该处接缝做路径贴合或微调，避免盲目全局加粗堵死孔洞与小字。
+'''
+translate = '''
+Inspect the sliced toolpaths in your slicer's Preview tab first: faint hairlines in 2D/3D screen previews are often just GPU anti-aliasing between abutting polygons that slice seamlessly. Only adjust path overlap or selectively expand strokes if the source SVG genuinely has gaps that leave empty channels after slicing.
+'''
+
+[[block]]
+key = "9c2bb69afa4e807f"
+type = "heading"
+origin = '''
+### 遇到特别复杂的 SVG，应该继续简化节点还是换高保真模式？
+'''
+translate = '''
+### Should I keep simplifying a heavy SVG or switch to High-Fidelity mode?
+'''
+
+[[block]]
+key = "4558c62020e5d17d"
+type = "paragraph"
+origin = '''
+徽标、扁平图标与文字排版优先保留 SVG 并适度精简节点，边缘最锐利；包含照片、噪点肌理、柔和阴影或复杂多层渐变的作品，直接导出高分辨率透明 PNG 使用**高保真**模式效率更高。
+'''
+translate = '''
+Keep SVG for crisp logos, typography, badges, and clean line art. For photographs, textured brushwork, soft shading, and complex gradients, exporting a high-resolution transparent PNG and using **High-Fidelity** mode is faster and more faithful.
+'''

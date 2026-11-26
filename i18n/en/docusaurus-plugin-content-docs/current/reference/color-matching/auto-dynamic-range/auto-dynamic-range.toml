@@ -1,0 +1,489 @@
+[metadata]
+reviewed_source = "23f7491814aed1c0a653c6ead35bb33539920b4d6248112e01f7ed79ebaac376"
+
+[[block]]
+key = "d8f58636ceecb989"
+type = "yaml"
+origin = '''
+---
+title: "自动动态范围"
+description: "按当前 LUT 或耗材档案的可达亮度范围自动压缩原图明度，改善极亮高光与极暗阴影的层次还原。"
+sidebar_position: 3
+---
+'''
+translate = '''
+---
+title: "Auto Dynamic Range"
+description: "Compress source image lightness into the reachable L* range of the active LUT or Material Archive to preserve highlight and shadow detail."
+sidebar_position: 3
+---
+'''
+
+[[block]]
+key = "3e1490864b8185f2"
+type = "heading"
+origin = '''
+# 自动动态范围
+'''
+translate = '''
+# Auto Dynamic Range
+'''
+
+[[block]]
+key = "e45cba8d0a6614d1"
+type = "paragraph"
+origin = '''
+“自动动态范围（实验性功能）”会在颜色量化和配方匹配之前，将原图亮度压缩到当前 LUT 或耗材档案可表达的亮度区间内，适合原图明暗跨度超出耗材实际表现范围的场景。
+'''
+translate = '''
+**Auto Dynamic Range (Experimental)** compresses source image lightness into the brightness range reproducible by the active LUT or Material Archive before color quantization and recipe matching. Use it when an image spans brighter highlights or deeper shadows than your loaded filaments can physically produce.
+'''
+
+[[block]]
+key = "e7ae7b3be5eb67fe"
+type = "paragraph"
+origin = '''
+此项默认关闭。
+'''
+translate = '''
+This option is off by default.
+'''
+
+[[block]]
+key = "0ef779c18ec11294"
+type = "heading"
+origin = '''
+## 控件位置
+'''
+translate = '''
+## Location
+'''
+
+[[block]]
+key = "d87bd84d9dc4548e"
+type = "paragraph"
+origin = '''
+依次打开“图像转换 → 核心设置 → 高级设置”，即可找到“自动动态范围（实验性功能）”。
+'''
+translate = '''
+Open **Converter → Core Settings → Advanced Settings**, then locate **Auto Dynamic Range (Experimental)**.
+'''
+
+[[block]]
+key = "7aa411bfabdffaaf"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-auto-dynamic-range-location.webp').default}
+  alt="Lumina Studio 高级设置中的自动动态范围开关"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-auto-dynamic-range-location.webp').default}
+  alt="Auto Dynamic Range in Lumina Studio Advanced Settings"
+/>
+'''
+
+[[block]]
+key = "8842982ac2d87d49"
+type = "heading"
+origin = '''
+## 处理流程
+'''
+translate = '''
+## How it works
+'''
+
+[[block]]
+key = "8090a8b5d0755784"
+type = "paragraph"
+origin = '''
+开启后，Lumina Studio 按以下顺序处理图像亮度：
+'''
+translate = '''
+When enabled, Lumina Studio processes image lightness in five steps:
+'''
+
+[[block]]
+key = "6aa7ffcd3353f03d"
+type = "list"
+composite = true
+origin = '''
+{{6aa7ffcd3353f03d-1bf2321202c9009d}}
+{{6aa7ffcd3353f03d-92904222f9765e62}}
+{{6aa7ffcd3353f03d-5695058d9a77b0aa}}
+{{6aa7ffcd3353f03d-b7321c0bbe304730}}
+{{6aa7ffcd3353f03d-ba2fcbbb74c223bd}}
+'''
+translate = '''
+{{6aa7ffcd3353f03d-1bf2321202c9009d}}
+{{6aa7ffcd3353f03d-92904222f9765e62}}
+{{6aa7ffcd3353f03d-5695058d9a77b0aa}}
+{{6aa7ffcd3353f03d-b7321c0bbe304730}}
+{{6aa7ffcd3353f03d-ba2fcbbb74c223bd}}
+'''
+
+[[block]]
+key = "6aa7ffcd3353f03d-1bf2321202c9009d"
+type = "listItem"
+composite = true
+origin = '''
+1. {{6aa7ffcd3353f03d-1bf2321202c9009d-480a7a2a489a7dbc}}
+'''
+translate = '''
+1. {{6aa7ffcd3353f03d-1bf2321202c9009d-480a7a2a489a7dbc}}
+'''
+
+[[block]]
+key = "6aa7ffcd3353f03d-1bf2321202c9009d-480a7a2a489a7dbc"
+type = "paragraph"
+origin = '''
+读取当前 LUT 或耗材调色板的最低与最高 CIELAB L\* 值。
+'''
+translate = '''
+Reads the minimum and maximum CIELAB L\* values from the active LUT or material palette.
+'''
+
+[[block]]
+key = "6aa7ffcd3353f03d-92904222f9765e62"
+type = "listItem"
+composite = true
+origin = '''
+2. {{6aa7ffcd3353f03d-92904222f9765e62-a59943a1bc848e05}}
+'''
+translate = '''
+2. {{6aa7ffcd3353f03d-92904222f9765e62-a59943a1bc848e05}}
+'''
+
+[[block]]
+key = "6aa7ffcd3353f03d-92904222f9765e62-a59943a1bc848e05"
+type = "paragraph"
+origin = '''
+统计原图实际分布的 L\* 亮度范围。
+'''
+translate = '''
+Measures the actual L\* range present in the source image.
+'''
+
+[[block]]
+key = "6aa7ffcd3353f03d-5695058d9a77b0aa"
+type = "listItem"
+composite = true
+origin = '''
+3. {{6aa7ffcd3353f03d-5695058d9a77b0aa-da56408b7b0deb75}}
+'''
+translate = '''
+3. {{6aa7ffcd3353f03d-5695058d9a77b0aa-da56408b7b0deb75}}
+'''
+
+[[block]]
+key = "6aa7ffcd3353f03d-5695058d9a77b0aa-da56408b7b0deb75"
+type = "paragraph"
+origin = '''
+仅当目标可达范围窄于原图亮度范围时执行压缩。
+'''
+translate = '''
+Compresses lightness only when the target range is narrower than the source range.
+'''
+
+[[block]]
+key = "6aa7ffcd3353f03d-b7321c0bbe304730"
+type = "listItem"
+composite = true
+origin = '''
+4. {{6aa7ffcd3353f03d-b7321c0bbe304730-d3fdec47acff93af}}
+'''
+translate = '''
+4. {{6aa7ffcd3353f03d-b7321c0bbe304730-d3fdec47acff93af}}
+'''
+
+[[block]]
+key = "6aa7ffcd3353f03d-b7321c0bbe304730-d3fdec47acff93af"
+type = "paragraph"
+origin = '''
+对暗部与高光应用平滑的缓入、缓出曲线，轻度压缩时保持中间调斜率不变。
+'''
+translate = '''
+Applies smooth toe and shoulder curves to shadows and highlights, preserving the midtone slope under mild compression.
+'''
+
+[[block]]
+key = "6aa7ffcd3353f03d-ba2fcbbb74c223bd"
+type = "listItem"
+composite = true
+origin = '''
+5. {{6aa7ffcd3353f03d-ba2fcbbb74c223bd-1ee058b2344e011f}}
+'''
+translate = '''
+5. {{6aa7ffcd3353f03d-ba2fcbbb74c223bd-1ee058b2344e011f}}
+'''
+
+[[block]]
+key = "6aa7ffcd3353f03d-ba2fcbbb74c223bd-1ee058b2344e011f"
+type = "paragraph"
+origin = '''
+保持 a\*、b\* 色度通道不变，随后进入颜色量化与配方匹配。
+'''
+translate = '''
+Preserves the a\* and b\* chroma channels, then proceeds to color quantization and recipe matching.
+'''
+
+[[block]]
+key = "8660fe2e6e310cb5"
+type = "paragraph"
+origin = '''
+该压缩采用柔和的曲线过渡：轻度压缩主要收拢暗部与高光两端；当目标亮度范围明显收窄时，中间调对比度也会相应降低，以换取两端细节不丢失。
+'''
+translate = '''
+Rather than applying a flat linear fade toward gray, mild compression rolls in the extremes while keeping midtones intact. When a much narrower target range requires stronger compression, midtone contrast scales down proportionally so shadow and highlight gradation remains distinguishable.
+'''
+
+[[block]]
+key = "783e8a499f0e4ed3"
+type = "heading"
+origin = '''
+## 自动跳过条件
+'''
+translate = '''
+## When compression is skipped
+'''
+
+[[block]]
+key = "0ad19472f42abcae"
+type = "paragraph"
+origin = '''
+遇到以下任一情况时，软件会直接跳过压缩并保持原图亮度不变：
+'''
+translate = '''
+Lumina Studio leaves image lightness unchanged when any of the following applies:
+'''
+
+[[block]]
+key = "e0cd721a96a42ea7"
+type = "list"
+composite = true
+origin = '''
+{{e0cd721a96a42ea7-e388d29a59b494cb}}
+{{e0cd721a96a42ea7-2b95279c670a3167}}
+{{e0cd721a96a42ea7-d490f2dc630e0eea}}
+{{e0cd721a96a42ea7-1f9971ea281772f0}}
+'''
+translate = '''
+{{e0cd721a96a42ea7-e388d29a59b494cb}}
+{{e0cd721a96a42ea7-2b95279c670a3167}}
+{{e0cd721a96a42ea7-d490f2dc630e0eea}}
+{{e0cd721a96a42ea7-1f9971ea281772f0}}
+'''
+
+[[block]]
+key = "e0cd721a96a42ea7-e388d29a59b494cb"
+type = "listItem"
+composite = true
+origin = '''
+- {{e0cd721a96a42ea7-e388d29a59b494cb-501a91863e1827fb}}
+'''
+translate = '''
+- {{e0cd721a96a42ea7-e388d29a59b494cb-501a91863e1827fb}}
+'''
+
+[[block]]
+key = "e0cd721a96a42ea7-e388d29a59b494cb-501a91863e1827fb"
+type = "paragraph"
+origin = '''
+当前颜色来源未提供有效的可达亮度范围；
+'''
+translate = '''
+The active color source does not provide a valid reachable lightness range.
+'''
+
+[[block]]
+key = "e0cd721a96a42ea7-2b95279c670a3167"
+type = "listItem"
+composite = true
+origin = '''
+- {{e0cd721a96a42ea7-2b95279c670a3167-38aebb1b882b57da}}
+'''
+translate = '''
+- {{e0cd721a96a42ea7-2b95279c670a3167-38aebb1b882b57da}}
+'''
+
+[[block]]
+key = "e0cd721a96a42ea7-2b95279c670a3167-38aebb1b882b57da"
+type = "paragraph"
+origin = '''
+耗材可达亮度范围等于或宽于原图亮度范围；
+'''
+translate = '''
+The reachable lightness range is equal to or wider than the source image range.
+'''
+
+[[block]]
+key = "e0cd721a96a42ea7-d490f2dc630e0eea"
+type = "listItem"
+composite = true
+origin = '''
+- {{e0cd721a96a42ea7-d490f2dc630e0eea-bcbc46a082db42a0}}
+'''
+translate = '''
+- {{e0cd721a96a42ea7-d490f2dc630e0eea-bcbc46a082db42a0}}
+'''
+
+[[block]]
+key = "e0cd721a96a42ea7-d490f2dc630e0eea-bcbc46a082db42a0"
+type = "paragraph"
+origin = '''
+原图整体亮度跨度小于 1 L\*（接近纯平单色亮度）；
+'''
+translate = '''
+The source image spans less than 1 L\* (essentially flat lightness).
+'''
+
+[[block]]
+key = "e0cd721a96a42ea7-1f9971ea281772f0"
+type = "listItem"
+composite = true
+origin = '''
+- {{e0cd721a96a42ea7-1f9971ea281772f0-7ec1645d394c6147}}
+'''
+translate = '''
+- {{e0cd721a96a42ea7-1f9971ea281772f0-7ec1645d394c6147}}
+'''
+
+[[block]]
+key = "e0cd721a96a42ea7-1f9971ea281772f0-7ec1645d394c6147"
+type = "paragraph"
+origin = '''
+目标亮度区间无需进一步压缩。
+'''
+translate = '''
+The target range leaves no effective room for compression.
+'''
+
+[[block]]
+key = "9c9a0c9daeae1346"
+type = "paragraph"
+origin = '''
+满足上述条件时，开启该开关前后的预览效果会保持一致。
+'''
+translate = '''
+In any of these cases, toggling the switch produces the same preview.
+'''
+
+[[block]]
+key = "1a892c9d3450224e"
+type = "heading"
+origin = '''
+## 效果评估与注意事项
+'''
+translate = '''
+## Evaluating the result
+'''
+
+[[block]]
+key = "acff478dcd14c548"
+type = "paragraph"
+origin = '''
+建议重点对比原图中接近纯白的高光与接近纯黑的阴影区域：开启后通常能让耗材在这些极端明暗区域拉开层次，但整体明暗反差可能略微柔和。该选项不会改变 LUT 的颜色数量，也不会影响模型材料层高。
+'''
+translate = '''
+Compare near-white highlights and near-black shadows before and after enabling the option. Compression helps active materials separate subtle tonal steps at both ends of the range, though overall contrast may appear slightly softer. This setting does not alter the LUT color count or material layer heights.
+'''
+
+[[block]]
+key = "1734239053831615"
+type = "paragraph"
+origin = '''
+切换开关后需重新生成预览和模型。Lumina 配方卡不包含此实验性开关的状态。
+'''
+translate = '''
+Rebuild both the preview and the 3MF model after toggling this switch. Lumina recipe cards do not save this experimental setting.
+'''
+
+[[block]]
+key = "2ebb014b8f68bd72"
+type = "heading"
+origin = '''
+## 相关页面
+'''
+translate = '''
+## Related pages
+'''
+
+[[block]]
+key = "cda55cc9441ef436"
+type = "list"
+composite = true
+origin = '''
+{{cda55cc9441ef436-ec6323d0c8ba3dcf}}
+{{cda55cc9441ef436-f43fc166571f0862}}
+{{cda55cc9441ef436-5200e36b4419ec4a}}
+'''
+translate = '''
+{{cda55cc9441ef436-ec6323d0c8ba3dcf}}
+{{cda55cc9441ef436-f43fc166571f0862}}
+{{cda55cc9441ef436-5200e36b4419ec4a}}
+'''
+
+[[block]]
+key = "cda55cc9441ef436-ec6323d0c8ba3dcf"
+type = "listItem"
+composite = true
+origin = '''
+- {{cda55cc9441ef436-ec6323d0c8ba3dcf-9c9ce422b315baa4}}
+'''
+translate = '''
+- {{cda55cc9441ef436-ec6323d0c8ba3dcf-9c9ce422b315baa4}}
+'''
+
+[[block]]
+key = "cda55cc9441ef436-ec6323d0c8ba3dcf-9c9ce422b315baa4"
+type = "paragraph"
+origin = '''
+[色相保护](../hue-protection/hue-protection.mdx)
+'''
+translate = '''
+[Hue Protection](../hue-protection/hue-protection.mdx)
+'''
+
+[[block]]
+key = "cda55cc9441ef436-f43fc166571f0862"
+type = "listItem"
+composite = true
+origin = '''
+- {{cda55cc9441ef436-f43fc166571f0862-5dc3074a3c8ed20b}}
+'''
+translate = '''
+- {{cda55cc9441ef436-f43fc166571f0862-5dc3074a3c8ed20b}}
+'''
+
+[[block]]
+key = "cda55cc9441ef436-f43fc166571f0862-5dc3074a3c8ed20b"
+type = "paragraph"
+origin = '''
+[高精度颜色匹配](../precise-color-matching/precise-color-matching.mdx)
+'''
+translate = '''
+[Precise Color Matching](../precise-color-matching/precise-color-matching.mdx)
+'''
+
+[[block]]
+key = "cda55cc9441ef436-5200e36b4419ec4a"
+type = "listItem"
+composite = true
+origin = '''
+- {{cda55cc9441ef436-5200e36b4419ec4a-37de3792f817b32b}}
+'''
+translate = '''
+- {{cda55cc9441ef436-5200e36b4419ec4a-37de3792f817b32b}}
+'''
+
+[[block]]
+key = "cda55cc9441ef436-5200e36b4419ec4a-37de3792f817b32b"
+type = "paragraph"
+origin = '''
+[耗材选择与收纳](../../../knowledge/filament-selection-and-storage/filament-selection-and-storage.mdx)
+'''
+translate = '''
+[Selecting and Storing Filament](../../../knowledge/filament-selection-and-storage/filament-selection-and-storage.mdx)
+'''

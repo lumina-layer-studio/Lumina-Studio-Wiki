@@ -1,0 +1,288 @@
+[metadata]
+reviewed_source = "f022b34be4a74afff4a7fc8b46d5d78949478ecae3493d9737a47418594df7fd"
+
+[[block]]
+key = "a9dbe70b5face110"
+type = "yaml"
+origin = '''
+---
+title: "浮雕"
+description: "浮雕开关、最大高度、深浅凸起映射方向与自定义高度图的作用及联动规则。"
+sidebar_position: 2
+---
+'''
+translate = '''
+---
+title: "Relief"
+description: "How Relief, maximum height, luminance direction, and custom heightmaps shape 2.5D model geometry."
+sidebar_position: 2
+---
+'''
+
+[[block]]
+key = "9020191198cd4142"
+type = "heading"
+origin = '''
+# 浮雕
+'''
+translate = '''
+# Relief
+'''
+
+[[block]]
+key = "84880be4b7609525"
+type = "paragraph"
+origin = '''
+浮雕可将平面彩色模型转换为具有高低起伏的 2.5D 结构：表面颜色仍由耗材叠层配方决定，各区域的高度由浮雕参数控制。
+'''
+translate = '''
+Relief turns a flat color model into 2.5D textured geometry. Color recipes still determine surface colors, while Relief settings control the height assigned to each region.
+'''
+
+[[block]]
+key = "3a8cec575533d986"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-relief-settings.webp').default}
+  alt="Lumina Studio 的浮雕设置面板"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-relief-settings.webp').default}
+  alt="Relief Settings in Lumina Studio"
+/>
+'''
+
+[[block]]
+key = "3a8d321fd2162779"
+type = "heading"
+origin = '''
+## 开启后的联动变化
+'''
+translate = '''
+## What enabling Relief changes
+'''
+
+[[block]]
+key = "57106dd5b4ab9d43"
+type = "list"
+composite = true
+origin = '''
+{{57106dd5b4ab9d43-e1831d8699bfae8c}}
+{{57106dd5b4ab9d43-30fda67bdeb1d2c5}}
+{{57106dd5b4ab9d43-f1a0dcdc617b827f}}
+{{57106dd5b4ab9d43-c422eca69d23a964}}
+{{57106dd5b4ab9d43-2d1ffc2a2436bfc8}}
+'''
+translate = '''
+{{57106dd5b4ab9d43-e1831d8699bfae8c}}
+{{57106dd5b4ab9d43-30fda67bdeb1d2c5}}
+{{57106dd5b4ab9d43-f1a0dcdc617b827f}}
+{{57106dd5b4ab9d43-c422eca69d23a964}}
+{{57106dd5b4ab9d43-2d1ffc2a2436bfc8}}
+'''
+
+[[block]]
+key = "57106dd5b4ab9d43-e1831d8699bfae8c"
+type = "listItem"
+composite = true
+origin = '''
+- {{57106dd5b4ab9d43-e1831d8699bfae8c-f9d06d45a20d71b6}}
+'''
+translate = '''
+- {{57106dd5b4ab9d43-e1831d8699bfae8c-f9d06d45a20d71b6}}
+'''
+
+[[block]]
+key = "57106dd5b4ab9d43-e1831d8699bfae8c-f9d06d45a20d71b6"
+type = "paragraph"
+origin = '''
+结构模式自动切换为单面。
+'''
+translate = '''
+Structure Mode switches to Single-sided.
+'''
+
+[[block]]
+key = "57106dd5b4ab9d43-30fda67bdeb1d2c5"
+type = "listItem"
+composite = true
+origin = '''
+- {{57106dd5b4ab9d43-30fda67bdeb1d2c5-13dc4e38dedf877b}}
+'''
+translate = '''
+- {{57106dd5b4ab9d43-30fda67bdeb1d2c5-13dc4e38dedf877b}}
+'''
+
+[[block]]
+key = "57106dd5b4ab9d43-30fda67bdeb1d2c5-13dc4e38dedf877b"
+type = "paragraph"
+origin = '''
+掐丝珐琅自动关闭（两者互斥）。
+'''
+translate = '''
+Cloisonné turns off because the two geometry modes are mutually exclusive.
+'''
+
+[[block]]
+key = "57106dd5b4ab9d43-f1a0dcdc617b827f"
+type = "listItem"
+composite = true
+origin = '''
+- {{57106dd5b4ab9d43-f1a0dcdc617b827f-ff9a57cefa658518}}
+'''
+translate = '''
+- {{57106dd5b4ab9d43-f1a0dcdc617b827f-ff9a57cefa658518}}
+'''
+
+[[block]]
+key = "57106dd5b4ab9d43-f1a0dcdc617b827f-ff9a57cefa658518"
+type = "paragraph"
+origin = '''
+若当前已有调色板但尚未建立高度数据，软件会按当前所选深浅方向自动生成初始高度。
+'''
+translate = '''
+When a palette exists without height data, Lumina creates an initial height map using the selected luminance direction.
+'''
+
+[[block]]
+key = "57106dd5b4ab9d43-c422eca69d23a964"
+type = "listItem"
+composite = true
+origin = '''
+- {{57106dd5b4ab9d43-c422eca69d23a964-c5b6cbc38d459144}}
+'''
+translate = '''
+- {{57106dd5b4ab9d43-c422eca69d23a964-c5b6cbc38d459144}}
+'''
+
+[[block]]
+key = "57106dd5b4ab9d43-c422eca69d23a964-c5b6cbc38d459144"
+type = "paragraph"
+origin = '''
+原有预览与已导出的 3MF 需要重新预览并生成。
+'''
+translate = '''
+Regenerate the preview and 3MF to apply the updated geometry.
+'''
+
+[[block]]
+key = "57106dd5b4ab9d43-2d1ffc2a2436bfc8"
+type = "listItem"
+composite = true
+origin = '''
+- {{57106dd5b4ab9d43-2d1ffc2a2436bfc8-f48abaa339a4408e}}
+'''
+translate = '''
+- {{57106dd5b4ab9d43-2d1ffc2a2436bfc8-f48abaa339a4408e}}
+'''
+
+[[block]]
+key = "57106dd5b4ab9d43-2d1ffc2a2436bfc8-f48abaa339a4408e"
+type = "paragraph"
+origin = '''
+矢量建模模式下暂不支持浮雕，该开关会自动禁用。
+'''
+translate = '''
+Relief is unavailable in Vector modeling mode.
+'''
+
+[[block]]
+key = "15d506af44fbcbe5"
+type = "heading"
+origin = '''
+## 最大高度
+'''
+translate = '''
+## Maximum height
+'''
+
+[[block]]
+key = "8cbe0f8ea9404b0f"
+type = "paragraph"
+origin = '''
+“最大高度”控制模型最高处的总高度，范围为 **0.08–15 mm**，步进 **0.04 mm**。调整该数值时，已分配给各颜色的高度会按比例同步缩放，保留原有的高低层次关系。
+'''
+translate = '''
+**Maximum Height** ranges from **0.08–15 mm** in **0.04 mm** steps. Changing the maximum rescales existing color heights proportionally, preserving relative relief across the palette.
+'''
+
+[[block]]
+key = "93ff86fc7ed728a1"
+type = "paragraph"
+origin = '''
+使用耗材档案时，最低可用高度还需容纳当前的光学叠层与底板厚度；软件会自动计算并抬高下限，确保所有颜色层完整成型。
+'''
+translate = '''
+With a Material Archive, the minimum height also accommodates the active optical stack and backing thickness so every color layer fits cleanly.
+'''
+
+[[block]]
+key = "f10f9be0b9650460"
+type = "heading"
+origin = '''
+## 自动高度模式
+'''
+translate = '''
+## Auto Height Mode
+'''
+
+[[block]]
+key = "f8eb8550bf6418ac"
+type = "table"
+origin = '''
+| 模式 | 高度来源 | 结果 |
+| --- | --- | --- |
+| 深色凸起 | 当前调色板亮度 | 较暗颜色获得更高的高度 |
+| 浅色凸起 | 当前调色板亮度 | 较亮颜色获得更高的高度 |
+| 根据高度图 | 单独上传的灰度或彩色高度图 | 图像亮度经缩放后映射为连续高度 |
+'''
+translate = '''
+| Mode | Height source | Result |
+| --- | --- | --- |
+| Darker Higher | Current palette luminance | Darker colors receive greater height |
+| Lighter Higher | Current palette luminance | Lighter colors receive greater height |
+| Use Heightmap | A separately uploaded image | Image luminance maps to continuous height |
+'''
+
+[[block]]
+key = "75854e0cba0760bd"
+type = "paragraph"
+origin = '''
+切换“深色凸起”或“浅色凸起”会立即重算颜色高度。选择“根据高度图”时，请先完成一次普通预览以建立会话，再上传 PNG、JPEG、BMP 或 TIFF 图像；上传成功后，软件会保存处理后的高度图预览并在生成模型时应用。
+'''
+translate = '''
+Switching between **Darker Higher** and **Lighter Higher** recalculates the height map immediately. **Use Heightmap** accepts PNG, JPEG, BMP, or TIFF files once a standard preview has created an active session.
+'''
+
+[[block]]
+key = "adde131342aa13ed"
+type = "heading"
+origin = '''
+## 调试建议
+'''
+translate = '''
+## Workflow tips
+'''
+
+[[block]]
+key = "4e5b66c75a825def"
+type = "paragraph"
+origin = '''
+建议先从较小的最大高度开始生成 3D 预览，确认凸起方向与边缘过渡后再逐步加高；导出后在切片软件中逐层检查最高区域、薄边和底板的连续性。
+'''
+translate = '''
+Start with a shallow height, inspect the 3D result to verify relief direction and fine details, then increase height gradually. Before printing, inspect peak regions, thin edges, and backing continuity layer by layer in your slicer.
+'''
+
+[[block]]
+key = "89efc913858b00ab"
+type = "paragraph"
+origin = '''
+相关设置：[结构模式](../../converter-basic/structure-mode/structure-mode.mdx)、[透明镀层](../transparent-coating/transparent-coating.mdx)。
+'''
+translate = '''
+Related: [Structure Mode](../../converter-basic/structure-mode/structure-mode.mdx) and [Transparent Coating](../transparent-coating/transparent-coating.mdx).
+'''

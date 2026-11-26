@@ -1,0 +1,136 @@
+[metadata]
+reviewed_source = "7a0aa3f23c151d7618801ab860bff664f10d8664e30e056470c7ee5224d10910"
+
+[[block]]
+key = "85165661c7bc0dd0"
+type = "yaml"
+origin = '''
+---
+title: "透明镀层"
+description: "透明镀层对象（Coating）、有效层高取整规则、热床贴合放置与透明耗材映射。"
+sidebar_position: 4
+---
+'''
+translate = '''
+---
+title: "Transparent Coating"
+description: "The Coating object, effective layer-height rounding, bed placement, and transparent filament assignment."
+sidebar_position: 4
+---
+'''
+
+[[block]]
+key = "391b86b9f1e41f9d"
+type = "heading"
+origin = '''
+# 透明镀层
+'''
+translate = '''
+# Transparent Coating
+'''
+
+[[block]]
+key = "70a0849f685d5e91"
+type = "paragraph"
+origin = '''
+透明镀层会在作品显色面外侧生成一个名为 **Coating** 的独立对象。导入切片软件后，将该对象映射到透明耗材，即可在画面外表面打印一层透明保护层。
+'''
+translate = '''
+Transparent Coating generates a separate **Coating** object across the outer display face. After importing the 3MF into your slicer, assign **Coating** to a transparent filament to print a clear protective surface layer.
+'''
+
+[[block]]
+key = "d45479cedb5b6e3d"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-transparent-coating-settings.webp').default}
+  alt="Lumina Studio 的透明镀层设置面板"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-transparent-coating-settings.webp').default}
+  alt="Transparent Coating Settings in Lumina Studio"
+/>
+'''
+
+[[block]]
+key = "52497ea27b2a0962"
+type = "heading"
+origin = '''
+## 镀层高度
+'''
+translate = '''
+## Coating height
+'''
+
+[[block]]
+key = "7be94a9a22450f54"
+type = "paragraph"
+origin = '''
+可选高度为 **0.04、0.08、0.12 mm**，默认值为 **0.08 mm**。由于打印按整层堆叠，软件会将“镀层高度 ÷ 当前模型层高”四舍五入并至少保留 1 层，最终物理厚度等于**完整层数 × 当前模型层高**。
+'''
+translate = '''
+Available heights are **0.04, 0.08, and 0.12 mm** (default **0.08 mm**). Because prints build in whole layers, Lumina divides the selected coating height by the active model layer height, rounds to the nearest whole number (minimum one layer), and outputs an effective thickness of `complete layers × model layer height`.
+'''
+
+[[block]]
+key = "5f4def6900bb7fee"
+type = "paragraph"
+origin = '''
+例如当模型层高为 0.08 mm 时，选择 0.04 mm 会生成 1 层（实际 0.08 mm），选择 0.12 mm 会生成 2 层（实际 0.16 mm）。需要精确控制物理厚度时，建议选择当前层高的整数倍。
+'''
+translate = '''
+For example, with a 0.08 mm model layer height, selecting 0.04 mm produces one 0.08 mm layer, while selecting 0.12 mm produces two layers (0.16 mm). Choose an exact multiple of the active layer height when you want a specific physical thickness.
+'''
+
+[[block]]
+key = "13cb4c8231c9edda"
+type = "paragraph"
+origin = '''
+镀层默认覆盖当前作品轮廓；同时开启外轮廓时，覆盖范围也会同步扩展至外轮廓边缘。
+'''
+translate = '''
+**Coating** follows the model silhouette and expands across the border as well when Outline is enabled.
+'''
+
+[[block]]
+key = "de97c853d573adae"
+type = "heading"
+origin = '''
+## 为什么切片后看不到镀层
+'''
+translate = '''
+## If the coating disappears after slicing
+'''
+
+[[block]]
+key = "3f0a8ff34b03cdf3"
+type = "paragraph"
+origin = '''
+**Coating** 生成在模型底面外侧，刚导入切片软件时可能位于打印板平面下方——此时对象列表中虽能看到该对象，但切片器会忽略热床以下的部分。
+'''
+translate = '''
+Because **Coating** is generated outside the model's bottom face, it can import slightly below the build plate—visible in the object list, yet omitted from sliced toolpaths.
+'''
+
+[[block]]
+key = "698b06b64d0f141b"
+type = "paragraph"
+origin = '''
+导入后请选中整个模型组合，执行“放置到热床”或“自动摆放”再重新切片，随后在首层预览中确认透明耗材走线已正常生成。
+'''
+translate = '''
+Select the complete model assembly, run **Place on Bed** or **Auto Arrange**, and slice again. Then check Layer 1 to verify that the transparent-filament toolpath is present.
+'''
+
+[[block]]
+key = "44cb93fde9a04fc5"
+type = "paragraph"
+origin = '''
+日常打印常搭配透明 PETG 等耗材。不同材料组合的打印温度与层间结合力存在差异，正式打印前建议先打小样验证结合效果。
+'''
+translate = '''
+Materials such as transparent PETG are a popular choice; print a small test sample first to dial in temperatures and verify interlayer adhesion with your color filaments.
+'''

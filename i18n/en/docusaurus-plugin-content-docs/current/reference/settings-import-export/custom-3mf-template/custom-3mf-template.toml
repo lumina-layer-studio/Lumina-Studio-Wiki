@@ -1,0 +1,268 @@
+[metadata]
+migration_layout = "preserved English structure; root blocks retain grouped or omitted source sections"
+reviewed_source = "a15829bc02c941e41b1e0afee699f33c94a2aa9e514b3b8dbbdaee50601ec2e2"
+
+[[block]]
+key = "4083adeec02335ef"
+type = "yaml"
+origin = '''
+---
+title: "3MF 项目模板"
+description: "导入切片软件保存的单盘 3MF 项目，复用耗材与工艺参数，并了解保留与覆盖规则。"
+sidebar_position: 2
+---
+'''
+translate = '''
+---
+title: "Custom 3MF project templates"
+description: "Import a single-plate slicer project to reuse filament and process presets, and see which settings are retained or overridden."
+sidebar_position: 2
+---
+'''
+
+[[block]]
+key = "8532be903f0e2aad"
+type = "heading"
+origin = '''
+# 3MF 项目模板
+'''
+translate = '''
+# Custom 3MF project templates
+'''
+
+[[block]]
+key = "e040573ae2c2dd91"
+type = "paragraph"
+origin = '''
+“3MF 项目模板”支持导入你在切片软件中调好的单盘 3MF 项目，直接复用其中的耗材与全局工艺参数。保存模板时，请确保其使用的切片软件、打印机型号和喷嘴直径与 Lumina 当前所选设备一致。
+'''
+translate = '''
+Custom templates let you reuse filament and global process settings already tuned in your slicer. Save a single-plate 3MF project with the same slicer, printer model, and nozzle size selected in Lumina.
+'''
+
+[[block]]
+key = "651647f6553608ad"
+type = "heading"
+origin = '''
+## 导入与启用
+'''
+translate = '''
+## Import and select a template
+'''
+
+[[block]]
+key = "24f02f6d6dd675c8"
+type = "list"
+composite = true
+origin = '''
+{{24f02f6d6dd675c8-b76fe2847b876e28}}
+{{24f02f6d6dd675c8-17bfc851076636b8}}
+{{24f02f6d6dd675c8-a4a63044d999d1d7}}
+{{24f02f6d6dd675c8-bb40b205f81900b6}}
+'''
+translate = '''
+1. Verify the printer, nozzle, build plate, filaments, and process settings in your slicer, then save a single-plate 3MF project.
+2. Open Lumina Settings and locate **3MF Project Templates**.
+3. Choose the 3MF file, optionally enter a descriptive name, and import it.
+4. Select the imported template in the list, then return to Converter to generate your model.
+'''
+
+[[block]]
+key = "24f02f6d6dd675c8-b76fe2847b876e28"
+type = "listItem"
+composite = true
+origin = '''
+1. {{24f02f6d6dd675c8-b76fe2847b876e28-5e8f5cb44e23b67f}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "24f02f6d6dd675c8-b76fe2847b876e28-5e8f5cb44e23b67f"
+type = "paragraph"
+origin = '''
+在切片软件中确认打印机、喷嘴、打印板、耗材与工艺设置无误后，将单盘项目保存为 3MF。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "24f02f6d6dd675c8-17bfc851076636b8"
+type = "listItem"
+composite = true
+origin = '''
+2. {{24f02f6d6dd675c8-17bfc851076636b8-89b12f9e8f82513e}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "24f02f6d6dd675c8-17bfc851076636b8-89b12f9e8f82513e"
+type = "paragraph"
+origin = '''
+打开 Lumina 系统设置，找到“3MF 项目模板”。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "24f02f6d6dd675c8-a4a63044d999d1d7"
+type = "listItem"
+composite = true
+origin = '''
+3. {{24f02f6d6dd675c8-a4a63044d999d1d7-8767988caebf9045}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "24f02f6d6dd675c8-a4a63044d999d1d7-8767988caebf9045"
+type = "paragraph"
+origin = '''
+选择该 3MF 文件，按需填写便于识别的模板名称并完成导入。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "24f02f6d6dd675c8-bb40b205f81900b6"
+type = "listItem"
+composite = true
+origin = '''
+4. {{24f02f6d6dd675c8-bb40b205f81900b6-a0807b8a68a2bb9a}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "24f02f6d6dd675c8-bb40b205f81900b6-a0807b8a68a2bb9a"
+type = "paragraph"
+origin = '''
+在模板列表中选中该模板，返回“图像转换”页面即可按模板生成模型。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b5989b775e7b9b40"
+type = "paragraph"
+origin = '''
+导入后可在列表中核对识别出的设备摘要与耗材槽数量；导出模型时，Lumina 仍会自动校验模板与当前设备及生成流程的兼容性。
+'''
+translate = '''
+Review the detected device summary and filament-slot count in the list. During export, Lumina also verifies that the template matches your active device and workflow.
+'''
+
+[[block]]
+key = "fc8ed564d9bf8697"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/01-template-settings.webp').default} alt="实际导入的示例模板及打印机、切片软件、喷嘴和材料槽位摘要" />
+'''
+translate = '''
+<img src={require('./assets/01-template-settings.webp').default} alt="An imported example template showing its printer, slicer, nozzle and material-slot summary" />
+'''
+
+[[block]]
+key = "2c60fb8922b091dd"
+type = "heading"
+origin = '''
+## 保留与覆盖的参数
+'''
+translate = '''
+## Retained and overridden settings
+'''
+
+[[block]]
+key = "fd86640a59878eee"
+type = "table"
+origin = '''
+| 设置类别 | 处理方式 |
+| --- | --- |
+| 速度、加速度、温度、流量、回抽、冷却 | 沿用模板中的工艺参数 |
+| 材料槽 | 结合当前生成流程保留或整理，导出后请在切片软件中核对映射 |
+| 层高、线宽、墙层数、顶底壳层、填充率 | 由 Lumina 按显色建模要求自动覆盖 |
+| 擦料塔 | 按“擦料塔自动摆放”开关状态处理 |
+| 模板原模型、对象级参数、局部修改器 | 不带入新生成的作品 |
+'''
+translate = '''
+| Setting category | How Lumina handles it |
+| --- | --- |
+| Speed, acceleration, temperature, flow, retraction, cooling | Reuses the template's process settings |
+| Material slots | Retained or trimmed to fit the export workflow; verify mapping in your slicer |
+| Layer height, line width, walls, top/bottom shells, infill | Overridden to meet Lumina's color-modeling requirements |
+| Wipe tower | Handled according to **Automatic wipe-tower placement** |
+| Existing 3D meshes, per-object settings, modifiers | Omitted from the new project |
+'''
+
+[[block]]
+key = "a8556113a2ce7c7a"
+type = "paragraph"
+origin = '''
+模板仅复用全局耗材与工艺配置；原项目中的三维模型与局部修改器不会附着到新作品上，与显色成图直接相关的层高、线宽和壳层参数则由 Lumina 统一接管。
+'''
+translate = '''
+Templates carry over global filament and process tuning only—original models and local modifiers are excluded, while geometry-critical settings such as layer height, line width, shells, and infill are managed by Lumina.
+'''
+
+[[block]]
+key = "7208de6e69ed0dca"
+type = "heading"
+origin = '''
+## 支持的导出流程
+'''
+translate = '''
+## Supported workflows
+
+Templates are supported for standard image, vector, material-archive, large-format tiled, and Model texture exports. Batch, puzzle, calibration, and swatch workflows use built-in configurations.
+'''
+
+[[block]]
+key = "6b7c9ad0508e82d3"
+type = "paragraph"
+origin = '''
+模板当前适用于普通图像、矢量、耗材档案、大画幅分块和模型贴图导出；批量、拼图、校准板和色块生成使用内置配置。若提示模板与当前打印机、喷嘴或切片软件不匹配，请切换对应的设备选项或重新导入匹配的 3MF 模板。
+'''
+translate = '''
+If Lumina reports a mismatch with the selected printer, nozzle, or slicer, update your device selection or import a template saved for that hardware.
+'''
+
+[[block]]
+key = "f53dc42ac69efc88"
+type = "heading"
+origin = '''
+## 恢复内置配置与删除模板
+'''
+translate = '''
+## Switch back to a built-in configuration
+'''
+
+[[block]]
+key = "8694b32627005ce7"
+type = "paragraph"
+origin = '''
+在列表中切回内置配置即可停用自定义模板。删除已存模板前建议先备份原始 3MF 文件；若原引用的模板已被移除，重新选择有效模板或切回内置配置即可。
+'''
+translate = '''
+Select a built-in configuration at any time to stop using a custom template. Back up your original 3MF file before deleting a stored template; if a previously selected template is missing, pick another valid template or return to a built-in configuration.
+'''
+
+[[block]]
+key = "8169a846a06aa285"
+type = "paragraph"
+origin = '''
+在切片软件中打开导出的工程后，建议核对实际耗材映射、打印板类型、显色层顺序与擦料塔位置，完成切片检查后再发起打印。
+'''
+translate = '''
+After opening the generated file in your slicer, check the assigned filaments, build plate, color layers, and wipe-tower placement, then run a full slice before printing.
+'''
+
+[[block]]
+key = "2b5c4de2d55be0c2"
+type = "paragraph"
+origin = '''
+相关页面：[设备与切片软件](../device-and-slicer/device-and-slicer.mdx)、[切片软件与下载](../../converter-basic/slicer-output/slicer-output.mdx)。
+'''
+translate = '''
+Related: [Device & slicer settings](../device-and-slicer/device-and-slicer.mdx), [Slicer output & downloads](../../converter-basic/slicer-output/slicer-output.mdx).
+'''

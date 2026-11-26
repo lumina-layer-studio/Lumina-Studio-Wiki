@@ -1,0 +1,554 @@
+[metadata]
+reviewed_source = "091e18e7688af4005b446dfc2e3f943a278fb7ef401a799e16cda1079edd4a0c"
+
+[[block]]
+key = "bf1e0ac1919bce79"
+type = "yaml"
+origin = '''
+---
+title: "量化颜色数"
+description: "说明量化颜色数如何控制图像色彩聚类上限、自动计算的工作方式，以及在不同建模模式下的作用。"
+sidebar_position: 10
+---
+'''
+translate = '''
+---
+title: "Quantize Colors"
+description: "Set the color-cluster ceiling before recipe matching, use Auto Detect for an initial estimate, and understand how each mode uses this value."
+sidebar_position: 10
+---
+'''
+
+[[block]]
+key = "7d57cf61d11e23d6"
+type = "heading"
+origin = '''
+# 量化颜色数
+'''
+translate = '''
+# Quantize Colors
+'''
+
+[[block]]
+key = "95511b7ca44350db"
+type = "paragraph"
+origin = '''
+**量化颜色数**用于设定图像在匹配叠色配方前最多保留多少种聚类颜色。默认值为 **48**；未解锁上限时可在 **8–256** 之间调整，步长为 **8**。
+'''
+translate = '''
+**Quantize Colors** sets the maximum number of color clusters retained from your image before Lumina Studio matches printable recipes. The default is **48**, adjustable from **8–256** in steps of **8** under the standard ceiling.
+'''
+
+[[block]]
+key = "42663fc04bc78175"
+type = "paragraph"
+origin = '''
+该数值作用于图像色彩聚类阶段，与打印机装载的耗材卷数及最终 3MF 中的对象数量相互独立：同一种聚类颜色会映射为一套多层耗材叠色配方，几种相近的聚类颜色也可能匹配到同一套配方。
+'''
+translate = '''
+This setting controls image color clustering and is independent of both your physical filament count and the object count in the final 3MF: a single quantized color maps to a multilayer filament recipe, and multiple quantized colors can match the same recipe.
+'''
+
+[[block]]
+key = "0ef779c18ec11294"
+type = "heading"
+origin = '''
+## 控件位置
+'''
+translate = '''
+## Location
+'''
+
+[[block]]
+key = "81f8b66386c1f41c"
+type = "paragraph"
+origin = '''
+依次打开**图像转换 → 核心设置 → 基础设置**，在**建模模式**下方即可找到**量化颜色数**。
+'''
+translate = '''
+Go to **Converter → Core Settings → Basic Settings**. **Quantize Colors** is located directly below **Modeling Mode**.
+'''
+
+[[block]]
+key = "f4d19365c9066385"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-quantize-colors-control.webp').default}
+  alt="Lumina Studio 基础设置中的量化颜色数滑块和自动计算按钮"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-quantize-colors-control.webp').default}
+  alt="Quantize Colors and Auto Detect in Lumina Studio Basic Settings"
+/>
+'''
+
+[[block]]
+key = "ac63bd4bc1b17c3f"
+type = "heading"
+origin = '''
+## 数值的作用机制
+'''
+translate = '''
+## How It Works
+'''
+
+[[block]]
+key = "a3b230a98fef1b83"
+type = "paragraph"
+origin = '''
+在高保真位图模式下，软件先按目标物理尺寸缩放图像，再通过 K-Means 将相近像素归并到不超过设定值的颜色中心。调高数值可保留更多局部色差与渐变层次；调低数值则会收拢相近色块，并加快处理速度。
+'''
+translate = '''
+In High-Fidelity raster mode, Lumina Studio first scales the artwork to your target dimensions, then uses K-Means clustering to group similar pixels into no more than the selected number of color centers. Higher values preserve subtler local shading and smoother gradients; lower values consolidate color regions and speed up processing.
+'''
+
+[[block]]
+key = "5fb6527e592c4b53"
+type = "paragraph"
+origin = '''
+该数值为上限值：若缩放后的画面本身只包含少量有效颜色，软件会按实际颜色数保留，不会额外拆分出新颜色。完成颜色量化后，软件再依据当前选定的 LUT 或耗材档案将各聚类颜色匹配为可打印配方。
+'''
+translate = '''
+The number acts as an upper limit. If a resized image already contains fewer distinct colors than the slider value, Lumina Studio keeps the actual palette as-is without inventing extra clusters. Once quantization completes, each cluster is matched to a printable recipe using the active LUT or Material Archive set.
+'''
+
+[[block]]
+key = "c64b713c4a1adad1"
+type = "heading"
+origin = '''
+## 不同模式下的生效范围
+'''
+translate = '''
+## Behavior by Conversion Path
+'''
+
+[[block]]
+key = "03cc0d8ff063fb47"
+type = "table"
+origin = '''
+| 当前路径 | 实际作用 |
+| --- | --- |
+| 高保真位图 | 作为全图 K-Means 聚类的最大颜色数 |
+| 像素艺术 | 控制像素颜色归并上限；若画面可见颜色数未超过上限，直接保留原色板 |
+| 原生 SVG 矢量 | 直接按 SVG 图形的填充与描边颜色处理，不执行全图 K-Means 量化 |
+| SVG + 耗材档案渐变 | 限制渐变区域的离散色带数量，内部有效范围收敛在 16–32 |
+| 验证色卡 | 直接按色卡布局和当前配方生成标准色块，不执行图像颜色量化 |
+'''
+translate = '''
+| Conversion path | How the value is used |
+| --- | --- |
+| High-Fidelity raster | Maximum number of whole-image K-Means clusters |
+| Pixel Art | Pixel-color reduction limit; preserves the original palette untouched when visible colors already fit within the limit |
+| Native SVG Vector | Uses SVG fills and strokes directly without running whole-image K-Means |
+| SVG + Material Archive gradients | Caps the number of discrete gradient bands, clamped internally to 16–32 |
+| Color Card | Builds calibration swatches directly from active recipes without image quantization |
+'''
+
+[[block]]
+key = "efcb062b2f885980"
+type = "paragraph"
+origin = '''
+在矢量模式下，纯色形状与描边始终保留原始颜色；仅当 SVG 包含渐变且搭配“耗材档案”来源时，软件才会参考该数值切分渐变色带（自动限制在 16–32 之间）。
+'''
+translate = '''
+In Vector mode, solid SVG shapes and strokes always retain their source colors; **Quantize Colors** comes into play only when discretizing SVG gradients under Material Archive (clamped to 16–32).
+'''
+
+[[block]]
+key = "17b6b8c75fc6ee2e"
+type = "heading"
+origin = '''
+## 自动计算
+'''
+translate = '''
+## Auto Detect
+'''
+
+[[block]]
+key = "855c7a0189ca639b"
+type = "paragraph"
+origin = '''
+上传图片后点击**自动计算**，软件会结合当前成品宽度分析画面复杂度，并将建议值写回滑块（未上传图片时该按钮不可用）。分析过程综合五项特征：
+'''
+translate = '''
+Once an image is uploaded, click **Auto Detect** to analyze the artwork at the current target width and populate the slider with a suggested value (the button is disabled until an image is loaded). The analyzer evaluates five factors:
+'''
+
+[[block]]
+key = "a5dceb0485294ad9"
+type = "list"
+composite = true
+origin = '''
+{{a5dceb0485294ad9-da4d14de4f6880af}}
+{{a5dceb0485294ad9-77e417b90ca23af6}}
+{{a5dceb0485294ad9-46252150203119bb}}
+{{a5dceb0485294ad9-7691fa93b4a13220}}
+{{a5dceb0485294ad9-ac28e3ba118ab70c}}
+'''
+translate = '''
+{{a5dceb0485294ad9-da4d14de4f6880af}}
+{{a5dceb0485294ad9-77e417b90ca23af6}}
+{{a5dceb0485294ad9-46252150203119bb}}
+{{a5dceb0485294ad9-7691fa93b4a13220}}
+{{a5dceb0485294ad9-ac28e3ba118ab70c}}
+'''
+
+[[block]]
+key = "a5dceb0485294ad9-da4d14de4f6880af"
+type = "listItem"
+composite = true
+origin = '''
+1. {{a5dceb0485294ad9-da4d14de4f6880af-bfb7f78efc9eb9b5}}
+'''
+translate = '''
+1. {{a5dceb0485294ad9-da4d14de4f6880af-bfb7f78efc9eb9b5}}
+'''
+
+[[block]]
+key = "a5dceb0485294ad9-da4d14de4f6880af-bfb7f78efc9eb9b5"
+type = "paragraph"
+origin = '''
+按约 5 px/mm（5 像素/mm）缩放到打印尺寸对应的分析图，最长边不超过 600 像素；
+'''
+translate = '''
+Resizes the image to roughly 5 px/mm (capped at a 600-pixel analysis width);
+'''
+
+[[block]]
+key = "a5dceb0485294ad9-77e417b90ca23af6"
+type = "listItem"
+composite = true
+origin = '''
+2. {{a5dceb0485294ad9-77e417b90ca23af6-46cfe42bdacb25f0}}
+'''
+translate = '''
+2. {{a5dceb0485294ad9-77e417b90ca23af6-46cfe42bdacb25f0}}
+'''
+
+[[block]]
+key = "a5dceb0485294ad9-77e417b90ca23af6-46cfe42bdacb25f0"
+type = "paragraph"
+origin = '''
+统计粗量化后的独特颜色数量；
+'''
+translate = '''
+Counts coarsely quantized unique colors;
+'''
+
+[[block]]
+key = "a5dceb0485294ad9-46252150203119bb"
+type = "listItem"
+composite = true
+origin = '''
+3. {{a5dceb0485294ad9-46252150203119bb-020d25e492348ccd}}
+'''
+translate = '''
+3. {{a5dceb0485294ad9-46252150203119bb-020d25e492348ccd}}
+'''
+
+[[block]]
+key = "a5dceb0485294ad9-46252150203119bb-020d25e492348ccd"
+type = "paragraph"
+origin = '''
+统计显著色相分布与有色像素占比；
+'''
+translate = '''
+Measures significant hue groups and the ratio of colored pixels;
+'''
+
+[[block]]
+key = "a5dceb0485294ad9-7691fa93b4a13220"
+type = "listItem"
+composite = true
+origin = '''
+4. {{a5dceb0485294ad9-7691fa93b4a13220-0e01f6471306b319}}
+'''
+translate = '''
+4. {{a5dceb0485294ad9-7691fa93b4a13220-0e01f6471306b319}}
+'''
+
+[[block]]
+key = "a5dceb0485294ad9-7691fa93b4a13220-0e01f6471306b319"
+type = "paragraph"
+origin = '''
+评估主色调的集中程度；
+'''
+translate = '''
+Evaluates how concentrated the dominant colors are;
+'''
+
+[[block]]
+key = "a5dceb0485294ad9-ac28e3ba118ab70c"
+type = "listItem"
+composite = true
+origin = '''
+5. {{a5dceb0485294ad9-ac28e3ba118ab70c-d4edf7e84b6bab7e}}
+'''
+translate = '''
+5. {{a5dceb0485294ad9-ac28e3ba118ab70c-d4edf7e84b6bab7e}}
+'''
+
+[[block]]
+key = "a5dceb0485294ad9-ac28e3ba118ab70c-d4edf7e84b6bab7e"
+type = "paragraph"
+origin = '''
+计算边缘密度，并按目标宽度的平方根修正建议值。
+'''
+translate = '''
+Measures edge density and scales the estimate by the square root of the target width.
+'''
+
+[[block]]
+key = "9269fc7783c7dc83"
+type = "paragraph"
+origin = '''
+最终建议值会自动对齐到 8、16、24、32、48、64、96、128、160、192 或 256；目标宽度越大，建议值相应提高（宽度系数范围为 0.8–2.5）。
+'''
+translate = '''
+The suggested value snaps to 8, 16, 24, 32, 48, 64, 96, 128, 160, 192, or 256, with the width multiplier bounded between 0.8 and 2.5.
+'''
+
+[[block]]
+key = "205904a33cde2f56"
+type = "paragraph"
+origin = '''
+自动计算基于原图复杂度给出初始建议值，不预设具体 LUT 或耗材档案的可达色域，建议在生成预览后按画面效果微调。
+'''
+translate = '''
+**Auto Detect** estimates image complexity to give you a practical starting point without factoring in the gamut of a specific LUT or filament set—fine-tune the slider after checking your preview.
+'''
+
+[[block]]
+key = "468af23b3c5ec75a"
+type = "heading"
+origin = '''
+## 调整建议
+'''
+translate = '''
+## Tuning Tips
+'''
+
+[[block]]
+key = "97a25a053a44ccfb"
+type = "list"
+composite = true
+origin = '''
+{{97a25a053a44ccfb-89bc05cff995f107}}
+{{97a25a053a44ccfb-3dcb28000fca59c6}}
+{{97a25a053a44ccfb-3a81fd45e0f0e684}}
+{{97a25a053a44ccfb-08f33a62309b404d}}
+'''
+translate = '''
+{{97a25a053a44ccfb-89bc05cff995f107}}
+{{97a25a053a44ccfb-3dcb28000fca59c6}}
+{{97a25a053a44ccfb-3a81fd45e0f0e684}}
+{{97a25a053a44ccfb-08f33a62309b404d}}
+'''
+
+[[block]]
+key = "97a25a053a44ccfb-89bc05cff995f107"
+type = "listItem"
+composite = true
+origin = '''
+- {{97a25a053a44ccfb-89bc05cff995f107-6f2879b3a2662a26}}
+'''
+translate = '''
+- {{97a25a053a44ccfb-89bc05cff995f107-6f2879b3a2662a26}}
+'''
+
+[[block]]
+key = "97a25a053a44ccfb-89bc05cff995f107-6f2879b3a2662a26"
+type = "paragraph"
+origin = '''
+**边缘或渐变被明显合并**：逐步调高数值后重新生成预览观察过渡。
+'''
+translate = '''
+**Merged edges or banded gradients**: Increase the value step by step and regenerate the preview.
+'''
+
+[[block]]
+key = "97a25a053a44ccfb-3dcb28000fca59c6"
+type = "listItem"
+composite = true
+origin = '''
+- {{97a25a053a44ccfb-3dcb28000fca59c6-0f66541b2eeec90d}}
+'''
+translate = '''
+- {{97a25a053a44ccfb-3dcb28000fca59c6-0f66541b2eeec90d}}
+'''
+
+[[block]]
+key = "97a25a053a44ccfb-3dcb28000fca59c6-0f66541b2eeec90d"
+type = "paragraph"
+origin = '''
+**画面出现大量单像素杂色**：先检查原图噪点与成品尺寸；继续调高量化颜色数往往会保留更多细碎杂色，可配合孤立像素清理优化。
+'''
+translate = '''
+**Single-pixel speckles**: Check source image noise and target dimensions first; raising the budget further often preserves more stray speckles. Pair with Isolated Pixel Cleanup if needed.
+'''
+
+[[block]]
+key = "97a25a053a44ccfb-3a81fd45e0f0e684"
+type = "listItem"
+composite = true
+origin = '''
+- {{97a25a053a44ccfb-3a81fd45e0f0e684-f92652195c183d8c}}
+'''
+translate = '''
+- {{97a25a053a44ccfb-3a81fd45e0f0e684-f92652195c183d8c}}
+'''
+
+[[block]]
+key = "97a25a053a44ccfb-3a81fd45e0f0e684-f92652195c183d8c"
+type = "paragraph"
+origin = '''
+**数值已调高，但 3D 预览颜色仍偏少**：检查是否开启了[3D 高精度颜色预览](../../preview-and-palette/high-precision-3d-preview/high-precision-3d-preview.mdx)。
+'''
+translate = '''
+**High value still looks simplified in 3D**: Check whether [High-Precision 3D Color Preview](../../preview-and-palette/high-precision-3d-preview/high-precision-3d-preview.mdx) is enabled.
+'''
+
+[[block]]
+key = "97a25a053a44ccfb-08f33a62309b404d"
+type = "listItem"
+composite = true
+origin = '''
+- {{97a25a053a44ccfb-08f33a62309b404d-595347cbdad38582}}
+'''
+translate = '''
+- {{97a25a053a44ccfb-08f33a62309b404d-595347cbdad38582}}
+'''
+
+[[block]]
+key = "97a25a053a44ccfb-08f33a62309b404d-595347cbdad38582"
+type = "paragraph"
+origin = '''
+**需要超过 256 的上限**：开启[解锁量化颜色数](../../color-matching/unlock-quantize-ceiling/unlock-quantize-ceiling.mdx)，开启后再手动上调滑块数值。
+'''
+translate = '''
+**Need more than 256 colors**: Enable [Unlock Quantize Ceiling](../../color-matching/unlock-quantize-ceiling/unlock-quantize-ceiling.mdx), then raise the slider manually.
+'''
+
+[[block]]
+key = "000f0835998f38fa"
+type = "paragraph"
+origin = '''
+修改量化颜色数后，已生成的 3MF 将失效，需重新生成预览或模型。导出的 Lumina 配方卡会一并记录当前的量化颜色数。
+'''
+translate = '''
+Changing **Quantize Colors** clears any generated 3MF, so regenerate your preview or model afterward. Exported Lumina recipe cards record the active quantize value.
+'''
+
+[[block]]
+key = "2ebb014b8f68bd72"
+type = "heading"
+origin = '''
+## 相关页面
+'''
+translate = '''
+## Related pages
+'''
+
+[[block]]
+key = "686aa139c96f80d9"
+type = "list"
+composite = true
+origin = '''
+{{686aa139c96f80d9-78cd8f80297440b4}}
+{{686aa139c96f80d9-64dfb43204476b15}}
+{{686aa139c96f80d9-dd0ca43399aa0c4d}}
+{{686aa139c96f80d9-91eee80cea9ff96d}}
+'''
+translate = '''
+{{686aa139c96f80d9-78cd8f80297440b4}}
+{{686aa139c96f80d9-64dfb43204476b15}}
+{{686aa139c96f80d9-dd0ca43399aa0c4d}}
+{{686aa139c96f80d9-91eee80cea9ff96d}}
+'''
+
+[[block]]
+key = "686aa139c96f80d9-78cd8f80297440b4"
+type = "listItem"
+composite = true
+origin = '''
+- {{686aa139c96f80d9-78cd8f80297440b4-91c38b38fefbf9e3}}
+'''
+translate = '''
+- {{686aa139c96f80d9-78cd8f80297440b4-91c38b38fefbf9e3}}
+'''
+
+[[block]]
+key = "686aa139c96f80d9-78cd8f80297440b4-91c38b38fefbf9e3"
+type = "paragraph"
+origin = '''
+[解锁量化颜色数](../../color-matching/unlock-quantize-ceiling/unlock-quantize-ceiling.mdx)
+'''
+translate = '''
+[Unlock Quantize Ceiling](../../color-matching/unlock-quantize-ceiling/unlock-quantize-ceiling.mdx)
+'''
+
+[[block]]
+key = "686aa139c96f80d9-64dfb43204476b15"
+type = "listItem"
+composite = true
+origin = '''
+- {{686aa139c96f80d9-64dfb43204476b15-85ca9e37f9aac328}}
+'''
+translate = '''
+- {{686aa139c96f80d9-64dfb43204476b15-85ca9e37f9aac328}}
+'''
+
+[[block]]
+key = "686aa139c96f80d9-64dfb43204476b15-85ca9e37f9aac328"
+type = "paragraph"
+origin = '''
+[孤立像素清理](../../color-matching/isolated-pixel-cleanup/isolated-pixel-cleanup.mdx)
+'''
+translate = '''
+[Isolated Pixel Cleanup](../../color-matching/isolated-pixel-cleanup/isolated-pixel-cleanup.mdx)
+'''
+
+[[block]]
+key = "686aa139c96f80d9-dd0ca43399aa0c4d"
+type = "listItem"
+composite = true
+origin = '''
+- {{686aa139c96f80d9-dd0ca43399aa0c4d-2a294399cca6afb5}}
+'''
+translate = '''
+- {{686aa139c96f80d9-dd0ca43399aa0c4d-2a294399cca6afb5}}
+'''
+
+[[block]]
+key = "686aa139c96f80d9-dd0ca43399aa0c4d-2a294399cca6afb5"
+type = "paragraph"
+origin = '''
+[高精度颜色匹配](../../color-matching/precise-color-matching/precise-color-matching.mdx)
+'''
+translate = '''
+[Precise Color Matching](../../color-matching/precise-color-matching/precise-color-matching.mdx)
+'''
+
+[[block]]
+key = "686aa139c96f80d9-91eee80cea9ff96d"
+type = "listItem"
+composite = true
+origin = '''
+- {{686aa139c96f80d9-91eee80cea9ff96d-3525fefdf5839404}}
+'''
+translate = '''
+- {{686aa139c96f80d9-91eee80cea9ff96d-3525fefdf5839404}}
+'''
+
+[[block]]
+key = "686aa139c96f80d9-91eee80cea9ff96d-3525fefdf5839404"
+type = "paragraph"
+origin = '''
+[3D 高精度颜色预览](../../preview-and-palette/high-precision-3d-preview/high-precision-3d-preview.mdx)
+'''
+translate = '''
+[High-Precision 3D Color Preview](../../preview-and-palette/high-precision-3d-preview/high-precision-3d-preview.mdx)
+'''

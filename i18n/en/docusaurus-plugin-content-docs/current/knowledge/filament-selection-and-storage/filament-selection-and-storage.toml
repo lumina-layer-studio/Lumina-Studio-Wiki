@@ -1,0 +1,1611 @@
+[metadata]
+reviewed_source = "1d7b859f89bf7ff76ebbc3ff9ab4c2af66d205193cc184ba2b4a94bc328abdab"
+
+[[block]]
+key = "540260265e37e281"
+type = "yaml"
+origin = '''
+---
+title: "Lumina 2.0 怎样选择和保管耗材？"
+description: "从材料兼容、表面与透光、耗材档案身份、PLA/PETG 混用边界和干燥保存五个方面，选择并管理用于 Lumina Studio 的真实线材。"
+sidebar_position: 27
+---
+'''
+translate = '''
+---
+title: "How Should I Choose and Store Filament for Lumina 2.0?"
+description: "Choose and manage real filament for Lumina Studio by checking hardware compatibility, material family, optical behavior, Material Archive identity, storage, and drying."
+sidebar_position: 27
+---
+'''
+
+[[block]]
+key = "b45f18ece6964311"
+type = "heading"
+origin = '''
+# Lumina 2.0 怎样选择和保管耗材？
+'''
+translate = '''
+# How Should I Choose and Store Filament for Lumina 2.0?
+'''
+
+[[block]]
+key = "dcf056c979a31c9c"
+type = "paragraph"
+origin = '''
+为 Lumina Studio 挑选耗材时，优先确认打印机能够稳定打印、线盘身份清晰且有对应的耗材档案，再去比较屏幕上的近似颜色。
+'''
+translate = '''
+When choosing filament for Lumina Studio, start with spools your printer handles reliably, whose exact product identity you know, and that match a verified Material Archive—before comparing approximate colors on screen.
+'''
+
+[[block]]
+key = "6aeb9566e1316ae0"
+type = "paragraph"
+origin = '''
+仅凭“红色 PLA”这样的描述不足以锁定叠色效果。材质、品牌、产品系列、色号、批次、表面质感、透光率、含水状态以及所选耗材档案，都会直接影响最终成色。
+'''
+translate = '''
+A generic label like "red PLA" is not enough to predict layered color results. Material family, brand, product line, shade, batch, surface finish, light transmission, moisture level, and the selected Material Archive all shape the final print.
+'''
+
+[[block]]
+key = "8989eb74870f5390"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/material-selection-gates.webp').default}
+  alt="从机器与喷嘴、材料类型、表面与透光、档案身份到真实小样的五步选料顺序"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/material-selection-gates.webp').default}
+  alt="Five-stage filament selection from printer and nozzle compatibility through material identity and a real test print"
+/>
+'''
+
+[[block]]
+key = "e48aed272303cf10"
+type = "heading"
+origin = '''
+## 买料与选料的五步筛选
+'''
+translate = '''
+## Five steps for choosing or buying filament
+'''
+
+[[block]]
+key = "58084ecf65bb918d"
+type = "heading"
+origin = '''
+### 1. 核对机器、供料系统与喷嘴兼容性
+'''
+translate = '''
+### 1. Check printer, feed system, and nozzle compatibility
+'''
+
+[[block]]
+key = "5335c536e2bc91ec"
+type = "paragraph"
+origin = '''
+选料前先核对耗材厂商与设备厂商的硬件要求：
+'''
+translate = '''
+Review the specifications from both the filament and printer manufacturers first:
+'''
+
+[[block]]
+key = "02b5b8baf39aa7ff"
+type = "list"
+composite = true
+origin = '''
+{{02b5b8baf39aa7ff-2d0e76bc0f6062e7}}
+{{02b5b8baf39aa7ff-6aee1599d31c80d0}}
+{{02b5b8baf39aa7ff-39fad94b29c0aa8d}}
+{{02b5b8baf39aa7ff-2ff93f3b8762a201}}
+'''
+translate = '''
+{{02b5b8baf39aa7ff-2d0e76bc0f6062e7}}
+{{02b5b8baf39aa7ff-6aee1599d31c80d0}}
+{{02b5b8baf39aa7ff-39fad94b29c0aa8d}}
+{{02b5b8baf39aa7ff-2ff93f3b8762a201}}
+'''
+
+[[block]]
+key = "02b5b8baf39aa7ff-2d0e76bc0f6062e7"
+type = "listItem"
+composite = true
+origin = '''
+- {{02b5b8baf39aa7ff-2d0e76bc0f6062e7-46395d03e3349a70}}
+'''
+translate = '''
+- {{02b5b8baf39aa7ff-2d0e76bc0f6062e7-46395d03e3349a70}}
+'''
+
+[[block]]
+key = "02b5b8baf39aa7ff-2d0e76bc0f6062e7-46395d03e3349a70"
+type = "paragraph"
+origin = '''
+打印机与自动供料系统是否支持该材质、线盘规格与软硬度；
+'''
+translate = '''
+Does the printer and automatic feed system support this material, spool size, and stiffness?
+'''
+
+[[block]]
+key = "02b5b8baf39aa7ff-6aee1599d31c80d0"
+type = "listItem"
+composite = true
+origin = '''
+- {{02b5b8baf39aa7ff-6aee1599d31c80d0-570ba8ce3b81f330}}
+'''
+translate = '''
+- {{02b5b8baf39aa7ff-6aee1599d31c80d0-570ba8ce3b81f330}}
+'''
+
+[[block]]
+key = "02b5b8baf39aa7ff-6aee1599d31c80d0-570ba8ce3b81f330"
+type = "paragraph"
+origin = '''
+喷嘴材质与口径是否适配线材中的填料；
+'''
+translate = '''
+Are the nozzle material and diameter rated for any fillers in the filament?
+'''
+
+[[block]]
+key = "02b5b8baf39aa7ff-39fad94b29c0aa8d"
+type = "listItem"
+composite = true
+origin = '''
+- {{02b5b8baf39aa7ff-39fad94b29c0aa8d-5d8f3dc5d0bd7975}}
+'''
+translate = '''
+- {{02b5b8baf39aa7ff-39fad94b29c0aa8d-5d8f3dc5d0bd7975}}
+'''
+
+[[block]]
+key = "02b5b8baf39aa7ff-39fad94b29c0aa8d-5d8f3dc5d0bd7975"
+type = "paragraph"
+origin = '''
+切片器中是否有适配当前机型的材料预设；
+'''
+translate = '''
+Does your slicer include a suitable material preset for your printer?
+'''
+
+[[block]]
+key = "02b5b8baf39aa7ff-2ff93f3b8762a201"
+type = "listItem"
+composite = true
+origin = '''
+- {{02b5b8baf39aa7ff-2ff93f3b8762a201-3271f600e84e1cba}}
+'''
+translate = '''
+- {{02b5b8baf39aa7ff-2ff93f3b8762a201-3271f600e84e1cba}}
+'''
+
+[[block]]
+key = "02b5b8baf39aa7ff-2ff93f3b8762a201-3271f600e84e1cba"
+type = "paragraph"
+origin = '''
+打印板材质、温度范围、封箱环境与通风条件是否满足要求。
+'''
+translate = '''
+Do your build plate, temperature limits, enclosure, and ventilation meet the material's requirements?
+'''
+
+[[block]]
+key = "04428323799f03c9"
+type = "paragraph"
+origin = '''
+夜光、碳纤维、玻纤、金属粉、木粉等高填料耗材具有磨蚀性，且更容易堵塞细喷嘴。使用 0.2 mm 喷嘴、普通黄铜喷嘴或自动供料系统前，请先确认耗材与设备的兼容说明，按需更换硬化喷嘴或更大口径喷嘴。
+'''
+translate = '''
+Glow-in-the-dark, carbon-fiber, glass-fiber, metal-filled, wood-filled, and other heavily filled filaments can be abrasive and prone to clogging fine nozzles. Before loading them through a 0.2 mm nozzle, standard brass nozzle, or automatic material system, verify hardware compatibility and switch to a hardened or larger-diameter nozzle when required.
+'''
+
+[[block]]
+key = "df00e2e1e9b09a22"
+type = "heading"
+origin = '''
+### 2. 先确定材料体系，再挑选颜色
+'''
+translate = '''
+### 2. Choose the material family before the color
+'''
+
+[[block]]
+key = "bd9e01b2fe6dd864"
+type = "paragraph"
+origin = '''
+PLA 和 PETG 都可用于平面叠色作品，但两者的打印温度、首层附着、流动性、拉丝表现与层间结合特性各不相同。由于 PLA 与 PETG 层间粘附力较弱（常被用作易剥离支撑界面），在彩色主体中直接混叠容易分层脱落。
+'''
+translate = '''
+Both PLA and PETG work well for flat multicolor prints, but they differ in print temperature, first-layer adhesion, flow behavior, stringing, surface gloss, and interlayer bonding. Because PLA and PETG adhere poorly to each other—a property often used for breakaway support interfaces—stacking them directly in a color print can cause delamination.
+'''
+
+[[block]]
+key = "e220e1edbe6f4b39"
+type = "paragraph"
+origin = '''
+同一件作品建议统一使用同一材料体系。若确实需要跨材料混打，请提前确认：
+'''
+translate = '''
+Stick to a single material family within one artwork whenever possible. If you need to combine different materials in the same print, verify the following first:
+'''
+
+[[block]]
+key = "4896ddcad7fcf391"
+type = "list"
+composite = true
+origin = '''
+{{4896ddcad7fcf391-187c0f399666c04f}}
+{{4896ddcad7fcf391-ee565b00074f4701}}
+{{4896ddcad7fcf391-4184fd06afef633a}}
+{{4896ddcad7fcf391-772c2421e3a303ae}}
+{{4896ddcad7fcf391-5cce32bbe0f41897}}
+'''
+translate = '''
+{{4896ddcad7fcf391-187c0f399666c04f}}
+{{4896ddcad7fcf391-ee565b00074f4701}}
+{{4896ddcad7fcf391-4184fd06afef633a}}
+{{4896ddcad7fcf391-772c2421e3a303ae}}
+{{4896ddcad7fcf391-5cce32bbe0f41897}}
+'''
+
+[[block]]
+key = "4896ddcad7fcf391-187c0f399666c04f"
+type = "listItem"
+composite = true
+origin = '''
+- {{4896ddcad7fcf391-187c0f399666c04f-683fea5475631722}}
+'''
+translate = '''
+- {{4896ddcad7fcf391-187c0f399666c04f-683fea5475631722}}
+'''
+
+[[block]]
+key = "4896ddcad7fcf391-187c0f399666c04f-683fea5475631722"
+type = "paragraph"
+origin = '''
+打印机与切片器支持该材料组合；
+'''
+translate = '''
+Your printer and slicer support the material combination.
+'''
+
+[[block]]
+key = "4896ddcad7fcf391-ee565b00074f4701"
+type = "listItem"
+composite = true
+origin = '''
+- {{4896ddcad7fcf391-ee565b00074f4701-75a22b96afe70e58}}
+'''
+translate = '''
+- {{4896ddcad7fcf391-ee565b00074f4701-75a22b96afe70e58}}
+'''
+
+[[block]]
+key = "4896ddcad7fcf391-ee565b00074f4701-75a22b96afe70e58"
+type = "paragraph"
+origin = '''
+每个项目耗材均保留了对应的材料预设；
+'''
+translate = '''
+Each project filament keeps its own material preset.
+'''
+
+[[block]]
+key = "4896ddcad7fcf391-4184fd06afef633a"
+type = "listItem"
+composite = true
+origin = '''
+- {{4896ddcad7fcf391-4184fd06afef633a-26a09abfd551bcef}}
+'''
+translate = '''
+- {{4896ddcad7fcf391-4184fd06afef633a-26a09abfd551bcef}}
+'''
+
+[[block]]
+key = "4896ddcad7fcf391-4184fd06afef633a-26a09abfd551bcef"
+type = "paragraph"
+origin = '''
+相邻材料在当前模型结构中能够稳固结合；
+'''
+translate = '''
+Adjacent layers bond reliably in your part geometry.
+'''
+
+[[block]]
+key = "4896ddcad7fcf391-772c2421e3a303ae"
+type = "listItem"
+composite = true
+origin = '''
+- {{4896ddcad7fcf391-772c2421e3a303ae-1df443826fe63c9a}}
+'''
+translate = '''
+- {{4896ddcad7fcf391-772c2421e3a303ae-1df443826fe63c9a}}
+'''
+
+[[block]]
+key = "4896ddcad7fcf391-772c2421e3a303ae-1df443826fe63c9a"
+type = "paragraph"
+origin = '''
+冲刷量与换料温度切换不会污染后续浅色层；
+'''
+translate = '''
+Purge volumes and nozzle temperature transitions prevent color contamination.
+'''
+
+[[block]]
+key = "4896ddcad7fcf391-5cce32bbe0f41897"
+type = "listItem"
+composite = true
+origin = '''
+- {{4896ddcad7fcf391-5cce32bbe0f41897-c02817c79339a3df}}
+'''
+translate = '''
+- {{4896ddcad7fcf391-5cce32bbe0f41897-c02817c79339a3df}}
+'''
+
+[[block]]
+key = "4896ddcad7fcf391-5cce32bbe0f41897-c02817c79339a3df"
+type = "paragraph"
+origin = '''
+正式打印前已通过小样测试。
+'''
+translate = '''
+A small test swatch passes inspection before you start the full print.
+'''
+
+[[block]]
+key = "c8703e54cb333961"
+type = "heading"
+origin = '''
+### 3. 区分表面质感与透光特性
+'''
+translate = '''
+### 3. Account for surface finish and light transmission
+'''
+
+[[block]]
+key = "654a89dc3b905938"
+type = "paragraph"
+origin = '''
+即使同样标为“白色”或“红色”，不同表面与配方的线材在叠色中的光学表现也会明显不同，不宜直接共用同一份档案：
+'''
+translate = '''
+Spools that share a color label such as "white" or "red" can behave very differently when stacked and should not automatically share the same archive:
+'''
+
+[[block]]
+key = "06a2f670c575acfa"
+type = "table"
+origin = '''
+| 类型 | 对叠色结果的影响 | 使用前检查重点 |
+| --- | --- | --- |
+| 基础色 | 表现稳定，适合作为基础对照，不同品牌和批次仍有差异 | 核对品牌、系列、色号和批次 |
+| 哑光 | 哑光助剂与表面散射会改变明度和透光率 | 单独测试验证，避免直接套用同色基础 PLA 档案 |
+| 丝绸、金属光泽 | 观察角度与入射光线会明显改变表面观感 | 在固定光线下对比小样 |
+| 透明、半透明、自然色 | 底板与下层颜色更容易透出，混色层数更深 | 优先自制档案，并同时核对白底与黑底表现 |
+| 夜光、木粉、金属粉、碳纤维等填料 | 改变透光与散射特性，同时增加喷嘴磨损、堵头或送料阻力 | 先核对硬件要求，评估是否适合细喷嘴与多色供料系统 |
+| 再生料、混色料或批次波动较大的线材 | 同名线盘之间可能存在色差或透光波动 | 新批次先打小样，关键作品重新验证档案 |
+'''
+translate = '''
+| Filament type | Impact on layered color results | What to check before printing |
+| --- | --- | --- |
+| Basic solid color | Consistent baseline, though brands and batches still vary | Brand, product line, shade, and batch |
+| Matte | Matte additives and surface scattering shift brightness and transmission | Validate separately rather than reusing a basic PLA archive of the same color |
+| Silk or metallic | Viewing angle and lighting direction strongly affect perceived color | Evaluate test prints under consistent lighting |
+| Clear, translucent, or natural | Backing and lower layers show through across more layers | Calibrate a custom archive and check both white- and black-backed cards |
+| Glow, wood, metal, carbon fiber, and other fillers | Alters optics while increasing nozzle wear, clogging, or feed resistance | Confirm nozzle and feeder requirements before using fine nozzles or multi-material units |
+| Recycled, blended, or batch-variable filament | Spools sold under the same name can shift noticeably | Print a test swatch for each new batch and re-verify for color-critical projects |
+'''
+
+[[block]]
+key = "8bfa594b91aafdfc"
+type = "heading"
+origin = '''
+### 4. 将实体线盘与耗材档案一一对应
+'''
+translate = '''
+### 4. Match every physical spool to its Material Archive
+'''
+
+[[block]]
+key = "da5ecd5b02f7f67e"
+type = "paragraph"
+origin = '''
+选择耗材档案时，请逐项核对：
+'''
+translate = '''
+Before generating a print, confirm these five details:
+'''
+
+[[block]]
+key = "cb95a4673fd9085a"
+type = "list"
+composite = true
+origin = '''
+{{cb95a4673fd9085a-76f98249e9e97f92}}
+{{cb95a4673fd9085a-cc7ecd96c9180045}}
+{{cb95a4673fd9085a-73f4af04f5b529cb}}
+{{cb95a4673fd9085a-849b96353b695917}}
+{{cb95a4673fd9085a-5fdb508eefc7b794}}
+'''
+translate = '''
+{{cb95a4673fd9085a-76f98249e9e97f92}}
+{{cb95a4673fd9085a-cc7ecd96c9180045}}
+{{cb95a4673fd9085a-73f4af04f5b529cb}}
+{{cb95a4673fd9085a-849b96353b695917}}
+{{cb95a4673fd9085a-5fdb508eefc7b794}}
+'''
+
+[[block]]
+key = "cb95a4673fd9085a-76f98249e9e97f92"
+type = "listItem"
+composite = true
+origin = '''
+1. {{cb95a4673fd9085a-76f98249e9e97f92-1dcdf70f2be0f3a6}}
+'''
+translate = '''
+1. {{cb95a4673fd9085a-76f98249e9e97f92-1dcdf70f2be0f3a6}}
+'''
+
+[[block]]
+key = "cb95a4673fd9085a-76f98249e9e97f92-1dcdf70f2be0f3a6"
+type = "paragraph"
+origin = '''
+材质类型；
+'''
+translate = '''
+Material family
+'''
+
+[[block]]
+key = "cb95a4673fd9085a-cc7ecd96c9180045"
+type = "listItem"
+composite = true
+origin = '''
+2. {{cb95a4673fd9085a-cc7ecd96c9180045-a8f624da06dc2615}}
+'''
+translate = '''
+2. {{cb95a4673fd9085a-cc7ecd96c9180045-a8f624da06dc2615}}
+'''
+
+[[block]]
+key = "cb95a4673fd9085a-cc7ecd96c9180045-a8f624da06dc2615"
+type = "paragraph"
+origin = '''
+品牌与产品系列；
+'''
+translate = '''
+Brand and product line
+'''
+
+[[block]]
+key = "cb95a4673fd9085a-73f4af04f5b529cb"
+type = "listItem"
+composite = true
+origin = '''
+3. {{cb95a4673fd9085a-73f4af04f5b529cb-4741282cbb9d2cd9}}
+'''
+translate = '''
+3. {{cb95a4673fd9085a-73f4af04f5b529cb-4741282cbb9d2cd9}}
+'''
+
+[[block]]
+key = "cb95a4673fd9085a-73f4af04f5b529cb-4741282cbb9d2cd9"
+type = "paragraph"
+origin = '''
+商品颜色、色号与表面效果；
+'''
+translate = '''
+Commercial color name, shade code, and finish
+'''
+
+[[block]]
+key = "cb95a4673fd9085a-849b96353b695917"
+type = "listItem"
+composite = true
+origin = '''
+4. {{cb95a4673fd9085a-849b96353b695917-25da09271b7aa270}}
+'''
+translate = '''
+4. {{cb95a4673fd9085a-849b96353b695917-25da09271b7aa270}}
+'''
+
+[[block]]
+key = "cb95a4673fd9085a-849b96353b695917-25da09271b7aa270"
+type = "paragraph"
+origin = '''
+档案测试时使用的层高；
+'''
+translate = '''
+The Layer Height used when the archive was calibrated
+'''
+
+[[block]]
+key = "cb95a4673fd9085a-5fdb508eefc7b794"
+type = "listItem"
+composite = true
+origin = '''
+5. {{cb95a4673fd9085a-5fdb508eefc7b794-3aad2e288d416b0c}}
+'''
+translate = '''
+5. {{cb95a4673fd9085a-5fdb508eefc7b794-3aad2e288d416b0c}}
+'''
+
+[[block]]
+key = "cb95a4673fd9085a-5fdb508eefc7b794-3aad2e288d416b0c"
+type = "paragraph"
+origin = '''
+实际装入打印机的线盘与料槽位置。
+'''
+translate = '''
+The physical spool and feeder slot loaded on the printer
+'''
+
+[[block]]
+key = "7f6aa1fc48207641"
+type = "paragraph"
+origin = '''
+屏幕色块与 HEX 色号仅用于界面识别，无法反映耗材在不同叠层厚度、底色与光照下的真实显色。关于色彩数据来源的选择方法，请参阅[耗材档案和经典 LUT 怎么选？](../material-profile-selection/material-profile-selection.mdx)。
+'''
+translate = '''
+On-screen swatches and HEX codes help you identify filaments in the interface, but they cannot capture how light passes through stacked layers over different backing colors. To decide between color sources, see [Material Archives or Classic LUT?](../material-profile-selection/material-profile-selection.mdx).
+'''
+
+[[block]]
+key = "b6e185d190b305dd"
+type = "heading"
+origin = '''
+### 5. 用实物小样完成定稿验证
+'''
+translate = '''
+### 5. Confirm with a physical test swatch
+'''
+
+[[block]]
+key = "5ae248634d0c8161"
+type = "paragraph"
+origin = '''
+正式打印大尺寸作品前，建议先跑通一次“小图导入 → Lumina 预览 → 切片器逐层预览 → 实物试打”的完整流程。试打小样应使用与正式作品一致的线盘、材料预设、喷嘴、显色层高和底板设置。
+'''
+translate = '''
+Before committing to a full-size piece, run a quick end-to-end check: **source image → Lumina Preview → slicer layer preview → physical test print**. Print the swatch with the exact spools, slicer presets, nozzle, color Layer Height, and backing setup planned for the final artwork.
+'''
+
+[[block]]
+key = "eb75e1d34755b5f8"
+type = "paragraph"
+origin = '''
+若小样成色与预览差异明显，请优先检查实际线盘、耗材档案、料槽映射与受潮状态，确认材料环节无误后再微调原图。
+'''
+translate = '''
+If the printed swatch diverges from Preview, check spool identity, archive selection, slot mapping, and filament dryness first before editing the source image.
+'''
+
+[[block]]
+key = "44c2237961b358fc"
+type = "heading"
+origin = '''
+## TD 值与 Lumina 耗材档案的关系
+'''
+translate = '''
+## How TD relates to a Lumina Material Archive
+'''
+
+[[block]]
+key = "afabdb6d60f3b3d1"
+type = "paragraph"
+origin = '''
+TD 是 Transmission Distance（透光距离）的缩写，在耗材叠色工作流中常用来表示实心线材阻挡绝大部分光线所需的厚度（单位为 mm）。通常情况下，较低的 TD 能更快遮盖下层颜色，较高的 TD 则允许下层颜色在更多层内参与混色。
+'''
+translate = '''
+TD stands for **Transmission Distance**. In filament-painting workflows, it measures—in millimeters—the thickness of solid filament needed to block most transmitted light. Lower-TD filaments hide underlying colors in fewer layers, while higher-TD filaments let lower layers blend through a deeper stack.
+'''
+
+[[block]]
+key = "9aa78b24b37d2480"
+type = "paragraph"
+origin = '''
+在 Lumina 2.0 中，单一 TD 数值无法替代完整的耗材档案：
+'''
+translate = '''
+In Lumina 2.0, a single TD number cannot replace a full Material Archive:
+'''
+
+[[block]]
+key = "f7edf050ae085968"
+type = "list"
+composite = true
+origin = '''
+{{f7edf050ae085968-7e43a510496b83dd}}
+{{f7edf050ae085968-86ad2c2e0419becc}}
+{{f7edf050ae085968-10457028e310c673}}
+{{f7edf050ae085968-c4289ee6bc7de93c}}
+'''
+translate = '''
+{{f7edf050ae085968-7e43a510496b83dd}}
+{{f7edf050ae085968-86ad2c2e0419becc}}
+{{f7edf050ae085968-10457028e310c673}}
+{{f7edf050ae085968-c4289ee6bc7de93c}}
+'''
+
+[[block]]
+key = "f7edf050ae085968-7e43a510496b83dd"
+type = "listItem"
+composite = true
+origin = '''
+- {{f7edf050ae085968-7e43a510496b83dd-e041b37ad98e70f8}}
+'''
+translate = '''
+- {{f7edf050ae085968-7e43a510496b83dd-e041b37ad98e70f8}}
+'''
+
+[[block]]
+key = "f7edf050ae085968-7e43a510496b83dd-e041b37ad98e70f8"
+type = "paragraph"
+origin = '''
+TD 无法单独表达色相、明度以及红、绿、蓝三个通道的透光差异；
+'''
+translate = '''
+TD alone does not capture hue shifts, brightness, or differences across red, green, and blue channels.
+'''
+
+[[block]]
+key = "f7edf050ae085968-86ad2c2e0419becc"
+type = "listItem"
+composite = true
+origin = '''
+- {{f7edf050ae085968-86ad2c2e0419becc-25b4797500cb26a5}}
+'''
+translate = '''
+- {{f7edf050ae085968-86ad2c2e0419becc-25b4797500cb26a5}}
+'''
+
+[[block]]
+key = "f7edf050ae085968-86ad2c2e0419becc-25b4797500cb26a5"
+type = "paragraph"
+origin = '''
+无法替代白底与黑底上的实测梯度变化；
+'''
+translate = '''
+It cannot stand in for measured color gradients over both white and black backings.
+'''
+
+[[block]]
+key = "f7edf050ae085968-10457028e310c673"
+type = "listItem"
+composite = true
+origin = '''
+- {{f7edf050ae085968-10457028e310c673-7487696f75ff1b20}}
+'''
+translate = '''
+- {{f7edf050ae085968-10457028e310c673-7487696f75ff1b20}}
+'''
+
+[[block]]
+key = "f7edf050ae085968-10457028e310c673-7487696f75ff1b20"
+type = "paragraph"
+origin = '''
+无法完整反映哑光、丝绸、填料及表面散射带来的光学影响；
+'''
+translate = '''
+It does not fully model matte additives, silk sheen, fillers, or surface light scattering.
+'''
+
+[[block]]
+key = "f7edf050ae085968-c4289ee6bc7de93c"
+type = "listItem"
+composite = true
+origin = '''
+- {{f7edf050ae085968-c4289ee6bc7de93c-13f82d5ebc26cbde}}
+'''
+translate = '''
+- {{f7edf050ae085968-c4289ee6bc7de93c-13f82d5ebc26cbde}}
+'''
+
+[[block]]
+key = "f7edf050ae085968-c4289ee6bc7de93c-13f82d5ebc26cbde"
+type = "paragraph"
+origin = '''
+测量方式、光源、样片厚度与批次不同，测得的 TD 也会有所波动。
+'''
+translate = '''
+Different measurement setups, light sources, sample thicknesses, and batches often yield different TD readings.
+'''
+
+[[block]]
+key = "096dee7fd156e79f"
+type = "paragraph"
+origin = '''
+Lumina 2.0 的耗材档案提取自白底与黑底梯度色卡的实拍数据，记录了色彩预测所需的完整光学拟合参数。网上的 TD 参考值有助于了解耗材的大致透明度，但不能替代与手头线盘对应的耗材档案。
+'''
+translate = '''
+Lumina 2.0 Material Archives are extracted directly from photographed gradient cards printed over white and black backings, capturing full optical fitting data for color prediction. An online TD value is a handy gauge of general translucency, while a matched Material Archive provides the multi-channel data needed for accurate previews.
+'''
+
+[[block]]
+key = "76c5f5db5360f788"
+type = "heading"
+origin = '''
+## 耗材的日常保管与追踪
+'''
+translate = '''
+## Storing and tracking individual spools
+'''
+
+[[block]]
+key = "0f3ebab53d6eb159"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/spool-identity-storage.webp').default}
+  alt="记录线盘身份并依次进行密封保存、打印前检查和按厂商说明主动干燥的流程"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/spool-identity-storage.webp').default}
+  alt="Spool identity card and a four-step workflow for recording, sealed storage, inspection, and active drying"
+/>
+'''
+
+[[block]]
+key = "314669bb99ddd3dc"
+type = "heading"
+origin = '''
+### 开封时建立线盘身份卡
+'''
+translate = '''
+### Label each spool when you open it
+'''
+
+[[block]]
+key = "0d547b8ea8d9d493"
+type = "paragraph"
+origin = '''
+建议在线盘侧面或密封袋上记录以下信息：
+'''
+translate = '''
+Attach a label to the spool or its storage bag with:
+'''
+
+[[block]]
+key = "fad117bb475447cf"
+type = "list"
+composite = true
+origin = '''
+{{fad117bb475447cf-b2c7041c1f045d92}}
+{{fad117bb475447cf-a4e60b5919270ea7}}
+{{fad117bb475447cf-1d60e44a507e7f6c}}
+{{fad117bb475447cf-05f50136da962b39}}
+{{fad117bb475447cf-99fe13dc88b4097f}}
+'''
+translate = '''
+{{fad117bb475447cf-b2c7041c1f045d92}}
+{{fad117bb475447cf-a4e60b5919270ea7}}
+{{fad117bb475447cf-1d60e44a507e7f6c}}
+{{fad117bb475447cf-05f50136da962b39}}
+{{fad117bb475447cf-99fe13dc88b4097f}}
+'''
+
+[[block]]
+key = "fad117bb475447cf-b2c7041c1f045d92"
+type = "listItem"
+composite = true
+origin = '''
+- {{fad117bb475447cf-b2c7041c1f045d92-574f8e32734f4cca}}
+'''
+translate = '''
+- {{fad117bb475447cf-b2c7041c1f045d92-574f8e32734f4cca}}
+'''
+
+[[block]]
+key = "fad117bb475447cf-b2c7041c1f045d92-574f8e32734f4cca"
+type = "paragraph"
+origin = '''
+材质、品牌、系列、颜色、色号与批次；
+'''
+translate = '''
+Material, brand, product line, color, shade code, and batch
+'''
+
+[[block]]
+key = "fad117bb475447cf-a4e60b5919270ea7"
+type = "listItem"
+composite = true
+origin = '''
+- {{fad117bb475447cf-a4e60b5919270ea7-0947f3123f0b1481}}
+'''
+translate = '''
+- {{fad117bb475447cf-a4e60b5919270ea7-0947f3123f0b1481}}
+'''
+
+[[block]]
+key = "fad117bb475447cf-a4e60b5919270ea7-0947f3123f0b1481"
+type = "paragraph"
+origin = '''
+开封日期；
+'''
+translate = '''
+Date opened
+'''
+
+[[block]]
+key = "fad117bb475447cf-1d60e44a507e7f6c"
+type = "listItem"
+composite = true
+origin = '''
+- {{fad117bb475447cf-1d60e44a507e7f6c-0e47f92137afdc51}}
+'''
+translate = '''
+- {{fad117bb475447cf-1d60e44a507e7f6c-0e47f92137afdc51}}
+'''
+
+[[block]]
+key = "fad117bb475447cf-1d60e44a507e7f6c-0e47f92137afdc51"
+type = "paragraph"
+origin = '''
+对应的 Lumina 耗材档案名称；
+'''
+translate = '''
+Matching Lumina Material Archive name
+'''
+
+[[block]]
+key = "fad117bb475447cf-05f50136da962b39"
+type = "listItem"
+composite = true
+origin = '''
+- {{fad117bb475447cf-05f50136da962b39-c96b181be5d0c887}}
+'''
+translate = '''
+- {{fad117bb475447cf-05f50136da962b39-c96b181be5d0c887}}
+'''
+
+[[block]]
+key = "fad117bb475447cf-05f50136da962b39-c96b181be5d0c887"
+type = "paragraph"
+origin = '''
+档案测试层高与最近验证日期；
+'''
+translate = '''
+Calibration Layer Height and last verification date
+'''
+
+[[block]]
+key = "fad117bb475447cf-99fe13dc88b4097f"
+type = "listItem"
+composite = true
+origin = '''
+- {{fad117bb475447cf-99fe13dc88b4097f-a4bdf5ba7db14154}}
+'''
+translate = '''
+- {{fad117bb475447cf-99fe13dc88b4097f-a4bdf5ba7db14154}}
+'''
+
+[[block]]
+key = "fad117bb475447cf-99fe13dc88b4097f-a4bdf5ba7db14154"
+type = "paragraph"
+origin = '''
+烘干记录、打印异常备注与剩余重量。
+'''
+translate = '''
+Drying log, print notes, and approximate remaining weight
+'''
+
+[[block]]
+key = "733d9e6cceea65bd"
+type = "paragraph"
+origin = '''
+余料请勿混装到其他包装袋中，也避免仅凭肉眼深浅区分相近颜色的线盘，以免混淆后无法与软件档案准确对应。
+'''
+translate = '''
+Keep leftover lengths with their original spool rather than combining similar shades in one bag, so every spool stays reliably linked to its calibrated archive.
+'''
+
+[[block]]
+key = "a7a850e400135600"
+type = "heading"
+origin = '''
+### 区分密封保存与主动烘干
+'''
+translate = '''
+### Sealed storage vs. active drying
+'''
+
+[[block]]
+key = "6ebd8bfbe59c5b74"
+type = "paragraph"
+origin = '''
+闲置线材应放入密封袋或密封干燥箱，配合有效干燥剂避光保存，日常减少开盖次数并定期检查密封条与干燥剂状态。
+'''
+translate = '''
+Store idle spools in resealable bags or airtight dry boxes with fresh desiccant. Keep containers closed between prints and check gaskets and desiccant indicators periodically.
+'''
+
+[[block]]
+key = "91416e4b5f8e8b3b"
+type = "paragraph"
+origin = '''
+密封箱与干燥剂的作用是维持低湿环境、减缓线材继续吸湿；已经受潮的线材内部水分难以仅靠静置排出，需要放入烘干设备进行主动加热干燥。
+'''
+translate = '''
+A passive dry box maintains low humidity and slows further moisture absorption, whereas damp filament requires active heated drying to drive moisture out of the polymer.
+'''
+
+[[block]]
+key = "3529027ce463b13f"
+type = "heading"
+origin = '''
+### 按厂商参数设定烘干温度
+'''
+translate = '''
+### Dry according to manufacturer specifications
+'''
+
+[[block]]
+key = "71ed1518df7bf1d4"
+type = "paragraph"
+origin = '''
+不同材质配方与线盘材质的耐温上限差异较大：温度过低难以排出水分，温度过高则可能导致线材粘连或线盘变形。烘干时建议遵循以下步骤：
+'''
+translate = '''
+Heat tolerance varies across filament blends and spool plastics—too little heat leaves moisture behind, while excessive heat can fuse strands or warp the spool:
+'''
+
+[[block]]
+key = "4275ee3967cd74f6"
+type = "list"
+composite = true
+origin = '''
+{{4275ee3967cd74f6-ee70e3895af49522}}
+{{4275ee3967cd74f6-e46983ad89e44197}}
+{{4275ee3967cd74f6-1521ad28a1aa96b8}}
+{{4275ee3967cd74f6-184213c38ed8f409}}
+{{4275ee3967cd74f6-d06ff58d1ed37ffc}}
+'''
+translate = '''
+{{4275ee3967cd74f6-ee70e3895af49522}}
+{{4275ee3967cd74f6-e46983ad89e44197}}
+{{4275ee3967cd74f6-1521ad28a1aa96b8}}
+{{4275ee3967cd74f6-184213c38ed8f409}}
+{{4275ee3967cd74f6-d06ff58d1ed37ffc}}
+'''
+
+[[block]]
+key = "4275ee3967cd74f6-ee70e3895af49522"
+type = "listItem"
+composite = true
+origin = '''
+1. {{4275ee3967cd74f6-ee70e3895af49522-6c109b8d47c3d01b}}
+'''
+translate = '''
+1. {{4275ee3967cd74f6-ee70e3895af49522-6c109b8d47c3d01b}}
+'''
+
+[[block]]
+key = "4275ee3967cd74f6-ee70e3895af49522-6c109b8d47c3d01b"
+type = "paragraph"
+origin = '''
+查阅该线材厂商给出的推荐烘干温度与时长；
+'''
+translate = '''
+Follow the drying temperature and duration specified by the filament manufacturer.
+'''
+
+[[block]]
+key = "4275ee3967cd74f6-e46983ad89e44197"
+type = "listItem"
+composite = true
+origin = '''
+2. {{4275ee3967cd74f6-e46983ad89e44197-741b8bd5c50d2153}}
+'''
+translate = '''
+2. {{4275ee3967cd74f6-e46983ad89e44197-741b8bd5c50d2153}}
+'''
+
+[[block]]
+key = "4275ee3967cd74f6-e46983ad89e44197-741b8bd5c50d2153"
+type = "paragraph"
+origin = '''
+确认线盘材质本身能够承受该温度；
+'''
+translate = '''
+Verify that the spool plastic is rated for that temperature.
+'''
+
+[[block]]
+key = "4275ee3967cd74f6-1521ad28a1aa96b8"
+type = "listItem"
+composite = true
+origin = '''
+3. {{4275ee3967cd74f6-1521ad28a1aa96b8-2bad8fc1dc609e7a}}
+'''
+translate = '''
+3. {{4275ee3967cd74f6-1521ad28a1aa96b8-2bad8fc1dc609e7a}}
+'''
+
+[[block]]
+key = "4275ee3967cd74f6-1521ad28a1aa96b8-2bad8fc1dc609e7a"
+type = "paragraph"
+origin = '''
+使用控温稳定的耗材烘干设备；
+'''
+translate = '''
+Use a dedicated filament dryer with steady temperature control.
+'''
+
+[[block]]
+key = "4275ee3967cd74f6-184213c38ed8f409"
+type = "listItem"
+composite = true
+origin = '''
+4. {{4275ee3967cd74f6-184213c38ed8f409-76c07552bae7e824}}
+'''
+translate = '''
+4. {{4275ee3967cd74f6-184213c38ed8f409-76c07552bae7e824}}
+'''
+
+[[block]]
+key = "4275ee3967cd74f6-184213c38ed8f409-76c07552bae7e824"
+type = "paragraph"
+origin = '''
+烘干结束后趁热移入密封低湿容器保存；
+'''
+translate = '''
+Transfer the spool straight into sealed, low-humidity storage once drying finishes.
+'''
+
+[[block]]
+key = "4275ee3967cd74f6-d06ff58d1ed37ffc"
+type = "listItem"
+composite = true
+origin = '''
+5. {{4275ee3967cd74f6-d06ff58d1ed37ffc-697f3bb742029fb9}}
+'''
+translate = '''
+5. {{4275ee3967cd74f6-d06ff58d1ed37ffc-697f3bb742029fb9}}
+'''
+
+[[block]]
+key = "4275ee3967cd74f6-d06ff58d1ed37ffc-697f3bb742029fb9"
+type = "paragraph"
+origin = '''
+在线盘身份卡上更新本次烘干日期。
+'''
+translate = '''
+Log the drying date on the spool's label.
+'''
+
+[[block]]
+key = "7a43658dc666e13a"
+type = "heading"
+origin = '''
+### 理性排查拉丝原因
+'''
+translate = '''
+### Troubleshooting stringing methodically
+'''
+
+[[block]]
+key = "9347876eab3882d9"
+type = "paragraph"
+origin = '''
+耗材受潮常伴随表面粗糙、气泡、挤出爆裂声、漏料、层间结合变弱或拉丝增多；但喷嘴温度偏高、回抽参数不当、空驶路径过长或材料本身特性同样会导致拉丝。
+'''
+translate = '''
+Absorbed moisture often causes rough surfaces, micro-bubbles, popping sounds at the nozzle, blobs, weaker layer adhesion, or extra stringing. However, stringing can also stem from nozzle temperature, retraction settings, long travel moves, or the polymer's natural viscosity.
+'''
+
+[[block]]
+key = "e67dc4afc6c275c0"
+type = "paragraph"
+origin = '''
+排查时建议每次只调整一个变量：先使用同一个小型测试件对比烘干前后的打印表现，再决定是否微调温度与回抽设置。
+'''
+translate = '''
+Test one variable at a time: print the same small calibration piece before and after active drying first, then fine-tune temperature or retraction if stringing persists.
+'''
+
+[[block]]
+key = "12a57cc094e4da05"
+type = "heading"
+origin = '''
+## 打印前的一分钟检查清单
+'''
+translate = '''
+## One-minute pre-print checklist
+'''
+
+[[block]]
+key = "98b831ef9e2032cf"
+type = "list"
+composite = true
+origin = '''
+{{98b831ef9e2032cf-ff3e813a412d1d8f}}
+{{98b831ef9e2032cf-c04f35223629ffbf}}
+{{98b831ef9e2032cf-b5db34dc2898873b}}
+{{98b831ef9e2032cf-5f9d33948eb78d2c}}
+{{98b831ef9e2032cf-04564eac05af677d}}
+{{98b831ef9e2032cf-4352ee24fab318d4}}
+{{98b831ef9e2032cf-6f9acd4704c521c8}}
+'''
+translate = '''
+{{98b831ef9e2032cf-ff3e813a412d1d8f}}
+{{98b831ef9e2032cf-c04f35223629ffbf}}
+{{98b831ef9e2032cf-b5db34dc2898873b}}
+{{98b831ef9e2032cf-5f9d33948eb78d2c}}
+{{98b831ef9e2032cf-04564eac05af677d}}
+{{98b831ef9e2032cf-4352ee24fab318d4}}
+{{98b831ef9e2032cf-6f9acd4704c521c8}}
+'''
+
+[[block]]
+key = "98b831ef9e2032cf-ff3e813a412d1d8f"
+type = "listItem"
+composite = true
+origin = '''
+- {{98b831ef9e2032cf-ff3e813a412d1d8f-055728b7620fb997}}
+'''
+translate = '''
+- {{98b831ef9e2032cf-ff3e813a412d1d8f-055728b7620fb997}}
+'''
+
+[[block]]
+key = "98b831ef9e2032cf-ff3e813a412d1d8f-055728b7620fb997"
+type = "paragraph"
+origin = '''
+实体线盘标签与 Lumina 中选用的耗材档案一致；
+'''
+translate = '''
+Spool labels match the Material Archives selected in Lumina.
+'''
+
+[[block]]
+key = "98b831ef9e2032cf-c04f35223629ffbf"
+type = "listItem"
+composite = true
+origin = '''
+- {{98b831ef9e2032cf-c04f35223629ffbf-207b341814b42275}}
+'''
+translate = '''
+- {{98b831ef9e2032cf-c04f35223629ffbf-207b341814b42275}}
+'''
+
+[[block]]
+key = "98b831ef9e2032cf-c04f35223629ffbf-207b341814b42275"
+type = "paragraph"
+origin = '''
+切片器中的每个项目耗材均保留了正确的材料类型；
+'''
+translate = '''
+Every project filament in the slicer uses the right material preset.
+'''
+
+[[block]]
+key = "98b831ef9e2032cf-b5db34dc2898873b"
+type = "listItem"
+composite = true
+origin = '''
+- {{98b831ef9e2032cf-b5db34dc2898873b-a226f6c5cd7f907c}}
+'''
+translate = '''
+- {{98b831ef9e2032cf-b5db34dc2898873b-a226f6c5cd7f907c}}
+'''
+
+[[block]]
+key = "98b831ef9e2032cf-b5db34dc2898873b-a226f6c5cd7f907c"
+type = "paragraph"
+origin = '''
+供料槽位中实际装入的线盘与映射记录一致；
+'''
+translate = '''
+Each physical spool is loaded into its assigned feeder slot.
+'''
+
+[[block]]
+key = "98b831ef9e2032cf-5f9d33948eb78d2c"
+type = "listItem"
+composite = true
+origin = '''
+- {{98b831ef9e2032cf-5f9d33948eb78d2c-655ad42448606055}}
+'''
+translate = '''
+- {{98b831ef9e2032cf-5f9d33948eb78d2c-655ad42448606055}}
+'''
+
+[[block]]
+key = "98b831ef9e2032cf-5f9d33948eb78d2c-655ad42448606055"
+type = "paragraph"
+origin = '''
+线材无受潮、脆断、缠绕或送料阻力异常；
+'''
+translate = '''
+Filament is dry, unknotted, not brittle, and feeding smoothly.
+'''
+
+[[block]]
+key = "98b831ef9e2032cf-04564eac05af677d"
+type = "listItem"
+composite = true
+origin = '''
+- {{98b831ef9e2032cf-04564eac05af677d-724a6fa01106fa51}}
+'''
+translate = '''
+- {{98b831ef9e2032cf-04564eac05af677d-724a6fa01106fa51}}
+'''
+
+[[block]]
+key = "98b831ef9e2032cf-04564eac05af677d-724a6fa01106fa51"
+type = "paragraph"
+origin = '''
+含填料线材符合当前喷嘴材质、口径与供料系统要求；
+'''
+translate = '''
+Filled filaments meet nozzle material, diameter, and feeder requirements.
+'''
+
+[[block]]
+key = "98b831ef9e2032cf-4352ee24fab318d4"
+type = "listItem"
+composite = true
+origin = '''
+- {{98b831ef9e2032cf-4352ee24fab318d4-c523e581fc4b4d6c}}
+'''
+translate = '''
+- {{98b831ef9e2032cf-4352ee24fab318d4-c523e581fc4b4d6c}}
+'''
+
+[[block]]
+key = "98b831ef9e2032cf-4352ee24fab318d4-c523e581fc4b4d6c"
+type = "paragraph"
+origin = '''
+更换档案、层高或线盘后，已重新生成预览并完成切片；
+'''
+translate = '''
+You ran Preview and sliced again after any change to archives, Layer Height, or spools.
+'''
+
+[[block]]
+key = "98b831ef9e2032cf-6f9acd4704c521c8"
+type = "listItem"
+composite = true
+origin = '''
+- {{98b831ef9e2032cf-6f9acd4704c521c8-a44affdd9be2e997}}
+'''
+translate = '''
+- {{98b831ef9e2032cf-6f9acd4704c521c8-a44affdd9be2e997}}
+'''
+
+[[block]]
+key = "98b831ef9e2032cf-6f9acd4704c521c8-a44affdd9be2e997"
+type = "paragraph"
+origin = '''
+打印大幅正式作品前已完成小样验证。
+'''
+translate = '''
+A small test swatch passed before starting a large print.
+'''
+
+[[block]]
+key = "a37fbda448d84957"
+type = "paragraph"
+origin = '''
+关于导出模型后对象与实体料槽的对应方法，请参阅[把 Lumina 3MF 正确导入切片器](pathname:///zh/docs/tutorials/slicer-material-mapping/)。
+'''
+translate = '''
+For step-by-step slot assignment in your slicer, continue with [Open a Lumina 3MF in Your Slicer](pathname:///en/docs/tutorials/slicer-material-mapping/).
+'''
+
+[[block]]
+key = "cbbf3b866f003400"
+type = "heading"
+origin = '''
+## 常见问题 Q&A
+'''
+translate = '''
+## Common questions
+'''
+
+[[block]]
+key = "bd046ec6f2c18aec"
+type = "heading"
+origin = '''
+### PLA 和 PETG 都能建立耗材档案吗？
+'''
+translate = '''
+### Can I calibrate archives for both PLA and PETG?
+'''
+
+[[block]]
+key = "cb4d0faf31dcf872"
+type = "paragraph"
+origin = '''
+只要打印机、切片器与实际工作流支持对应材质，PLA 和 PETG 都可以分别建立并使用各自的耗材档案。由于两种材质的光学表现与打印温度不同，请勿混用同一份档案；跨材质同盘叠打前需单独测试层间结合力与冲刷温度。
+'''
+translate = '''
+Yes. As long as your printer, slicer, and workflow support the material, you can create and use dedicated Material Archives for either PLA or PETG. Because print temperatures and optical behavior differ between polymers, keep separate archives for each material family, and test interlayer adhesion and purge temperatures before mixing materials in one print.
+'''
+
+[[block]]
+key = "44867c3defa2694d"
+type = "heading"
+origin = '''
+### 找不到完全同色的耗材时，需要按最接近的 HEX 色号买料吗？
+'''
+translate = '''
+### If I don't have an exact color match, should I shop by the closest HEX code?
+'''
+
+[[block]]
+key = "228e180b753a68a6"
+type = "paragraph"
+origin = '''
+不必刻意追求完全相同的 HEX 色号。屏幕显示色相近并不代表透光率与叠色规律相近。优先选择打印稳定、身份明确且具备可靠耗材档案的线材，再结合 Lumina 预览与实物小样评估成色。
+'''
+translate = '''
+There is no need to hunt for an identical HEX code. Two filaments with similar on-screen swatches can transmit light very differently when stacked. Choose a dependable, clearly identified spool backed by a solid Material Archive, then evaluate the palette in Lumina Preview and with a quick test swatch.
+'''
+
+[[block]]
+key = "adf2255035a093e8"
+type = "heading"
+origin = '''
+### 同品牌同色号换了新批次，需要重新校准吗？
+'''
+translate = '''
+### Do I need to recalibrate every new batch of the same filament?
+'''
+
+[[block]]
+key = "e92bb22b5a8a0f62"
+type = "paragraph"
+origin = '''
+可以先用现有档案试打小样。若成色、透光表现或表面质感与旧批次基本一致，可直接沿用；若新批次出现明显色差，且当前作品对色彩一致性要求较高，建议对新批次执行复验或新建档案。
+'''
+translate = '''
+Start with a small test swatch using your existing archive. If color, translucency, and surface finish match expectations, you can keep using it; if the new batch shifts noticeably and your project demands tight color consistency, run a re-verification or create a fresh archive.
+'''
+
+[[block]]
+key = "79bf035fd9584a23"
+type = "heading"
+origin = '''
+### 哑光 PLA 可以直接套用基础 PLA 的同色档案吗？
+'''
+translate = '''
+### Can matte PLA share an archive with basic PLA of the same color?
+'''
+
+[[block]]
+key = "1d71fbba635e52d7"
+type = "paragraph"
+origin = '''
+建议先单独验证。哑光助剂会改变表面漫反射与内部光线散射，即使色号名称相同，叠层后的明度与色相也可能偏离基础 PLA。对成色精度要求较高时，建议为哑光耗材单独制作档案。
+'''
+translate = '''
+Validate it separately first. Matte additives alter surface reflection and internal light scattering, which often shifts stacked brightness and hue compared to standard PLA. Create a dedicated archive whenever color accuracy matters.
+'''
+
+[[block]]
+key = "1d48e92e93cdc2bd"
+type = "heading"
+origin = '''
+### 透明线材的 TD 值越高越好吗？
+'''
+translate = '''
+### Is a higher TD always better for translucent filaments?
+'''
+
+[[block]]
+key = "61787ffc7698163c"
+type = "paragraph"
+origin = '''
+应根据画面需求搭配选择。高透光耗材适合拉宽混色过渡层次，低透光耗材则擅长快速遮盖底色、提亮局部高光。结合作品风格、层高与其他搭配耗材选型，并通过预览和小样确认即可。
+'''
+translate = '''
+Neither high nor low TD is inherently better—they serve different roles. High-transmission filaments create gradual multi-layer color transitions, while lower-transmission filaments provide stronger coverage and crisp highlights. Pick filaments that suit your artwork, Layer Height, and palette, then confirm with Preview and a swatch.
+'''
+
+[[block]]
+key = "1ef0752f7794cb1e"
+type = "heading"
+origin = '''
+### 0.2 mm 喷嘴能否打印木粉、碳纤维或夜光耗材？
+'''
+translate = '''
+### Can a 0.2 mm nozzle print wood-, carbon-fiber-, or glow-filled filaments?
+'''
+
+[[block]]
+key = "b7a38f0070d2c5eb"
+type = "paragraph"
+origin = '''
+需严格遵循耗材与打印机厂商的规格说明。多数含颗粒或纤维填料的耗材容易堵塞 0.2 mm 喷嘴，且夜光、碳纤维等材质通常要求使用 0.4 mm 及以上的硬化钢喷嘴。仅在双方厂商明确标注支持当前喷嘴口径与供料系统时再投入使用。
+'''
+translate = '''
+Check both the filament and printer manufacturer specifications before trying. Fiber- and particle-filled materials frequently clog 0.2 mm nozzles, and abrasive additives like carbon fiber or glow powder typically require a hardened steel nozzle of 0.4 mm or larger. Only run filled filaments when both manufacturers explicitly support your nozzle and feeder setup.
+'''
+
+[[block]]
+key = "6708398e5a210614"
+type = "heading"
+origin = '''
+### 密封箱里放了干燥剂，为什么线材打印时还是拉丝？
+'''
+translate = '''
+### Why does my filament still string even though it's stored with desiccant?
+'''
+
+[[block]]
+key = "27c5a25e4d500358"
+type = "paragraph"
+origin = '''
+密封箱与干燥剂主要用于阻止外部湿气继续进入，无法高效抽出已渗入线材内部的水分。请先按厂商推荐温度主动烘干线材后再做对比测试；若烘干后仍有拉丝，再依次排查打印温度、回抽距离与空驶路径设置。
+'''
+translate = '''
+Desiccant inside a sealed box slows new moisture absorption, but it rarely pulls existing moisture out of damp filament. Dry the spool actively per the manufacturer's instructions and retest; if stringing continues, inspect nozzle temperature, retraction settings, and travel paths.
+'''
+
+[[block]]
+key = "92356bbf7ffa75f4"
+type = "heading"
+origin = '''
+## 延伸阅读
+'''
+translate = '''
+## Further reading
+'''
+
+[[block]]
+key = "6c3b514c260d0aad"
+type = "list"
+composite = true
+origin = '''
+{{6c3b514c260d0aad-cb1056ae6b28fc6c}}
+{{6c3b514c260d0aad-5fa3057f8b2db9a6}}
+{{6c3b514c260d0aad-f30992a94ea58d5a}}
+{{6c3b514c260d0aad-cea9a316e08120df}}
+{{6c3b514c260d0aad-07a14901664d9e9d}}
+{{6c3b514c260d0aad-059d94b7c762fdc3}}
+'''
+translate = '''
+{{6c3b514c260d0aad-cb1056ae6b28fc6c}}
+{{6c3b514c260d0aad-5fa3057f8b2db9a6}}
+{{6c3b514c260d0aad-f30992a94ea58d5a}}
+{{6c3b514c260d0aad-cea9a316e08120df}}
+{{6c3b514c260d0aad-07a14901664d9e9d}}
+{{6c3b514c260d0aad-059d94b7c762fdc3}}
+'''
+
+[[block]]
+key = "6c3b514c260d0aad-cb1056ae6b28fc6c"
+type = "listItem"
+composite = true
+origin = '''
+- {{6c3b514c260d0aad-cb1056ae6b28fc6c-56bb8f90c505aba0}}
+'''
+translate = '''
+- {{6c3b514c260d0aad-cb1056ae6b28fc6c-56bb8f90c505aba0}}
+'''
+
+[[block]]
+key = "6c3b514c260d0aad-cb1056ae6b28fc6c-56bb8f90c505aba0"
+type = "paragraph"
+origin = '''
+[HueForge Wiki：Transmission Distance 定义](https://hueforge.wiki/index.php/Common_Terms#Transmission_Distance_(TD))
+'''
+translate = '''
+[HueForge Wiki: Transmission Distance](https://hueforge.wiki/index.php/Common_Terms#Transmission_Distance_(TD))
+'''
+
+[[block]]
+key = "6c3b514c260d0aad-5fa3057f8b2db9a6"
+type = "listItem"
+composite = true
+origin = '''
+- {{6c3b514c260d0aad-5fa3057f8b2db9a6-33bfae5f218618c2}}
+'''
+translate = '''
+- {{6c3b514c260d0aad-5fa3057f8b2db9a6-33bfae5f218618c2}}
+'''
+
+[[block]]
+key = "6c3b514c260d0aad-5fa3057f8b2db9a6-33bfae5f218618c2"
+type = "paragraph"
+origin = '''
+[Prusa：Filament Material Guide](https://help.prusa3d.com/filament-material-guide)
+'''
+translate = '''
+[Prusa: Filament Material Guide](https://help.prusa3d.com/filament-material-guide)
+'''
+
+[[block]]
+key = "6c3b514c260d0aad-f30992a94ea58d5a"
+type = "listItem"
+composite = true
+origin = '''
+- {{6c3b514c260d0aad-f30992a94ea58d5a-ab2e36f1095a6263}}
+'''
+translate = '''
+- {{6c3b514c260d0aad-f30992a94ea58d5a-ab2e36f1095a6263}}
+'''
+
+[[block]]
+key = "6c3b514c260d0aad-f30992a94ea58d5a-ab2e36f1095a6263"
+type = "paragraph"
+origin = '''
+[Prusa：Drying filament](https://help.prusa3d.com/article/drying-filament_332086)
+'''
+translate = '''
+[Prusa: Drying filament](https://help.prusa3d.com/article/drying-filament_332086)
+'''
+
+[[block]]
+key = "6c3b514c260d0aad-cea9a316e08120df"
+type = "listItem"
+composite = true
+origin = '''
+- {{6c3b514c260d0aad-cea9a316e08120df-c93e438c6ba22aa0}}
+'''
+translate = '''
+- {{6c3b514c260d0aad-cea9a316e08120df-c93e438c6ba22aa0}}
+'''
+
+[[block]]
+key = "6c3b514c260d0aad-cea9a316e08120df-c93e438c6ba22aa0"
+type = "paragraph"
+origin = '''
+[Prusa：Prusa USS Drybox](https://help.prusa3d.com/article/prusa-uss-drybox_1014382)
+'''
+translate = '''
+[Prusa: Prusa USS Drybox](https://help.prusa3d.com/article/prusa-uss-drybox_1014382)
+'''
+
+[[block]]
+key = "6c3b514c260d0aad-07a14901664d9e9d"
+type = "listItem"
+composite = true
+origin = '''
+- {{6c3b514c260d0aad-07a14901664d9e9d-81d84cb7f26871b8}}
+'''
+translate = '''
+- {{6c3b514c260d0aad-07a14901664d9e9d-81d84cb7f26871b8}}
+'''
+
+[[block]]
+key = "6c3b514c260d0aad-07a14901664d9e9d-81d84cb7f26871b8"
+type = "paragraph"
+origin = '''
+[Prusa：Combining materials (XL)](https://help.prusa3d.com/article/combining-materials-xl_498103)
+'''
+translate = '''
+[Prusa: Combining materials (XL)](https://help.prusa3d.com/article/combining-materials-xl_498103)
+'''
+
+[[block]]
+key = "6c3b514c260d0aad-059d94b7c762fdc3"
+type = "listItem"
+composite = true
+origin = '''
+- {{6c3b514c260d0aad-059d94b7c762fdc3-3a2a9644555b6cab}}
+'''
+translate = '''
+- {{6c3b514c260d0aad-059d94b7c762fdc3-3a2a9644555b6cab}}
+'''
+
+[[block]]
+key = "6c3b514c260d0aad-059d94b7c762fdc3-3a2a9644555b6cab"
+type = "paragraph"
+origin = '''
+[Prusa：Prusament PETG Ultraglow troubleshooting](https://help.prusa3d.com/article/prusament-petg-ultraglow-troubleshooting_1043965)
+'''
+translate = '''
+[Prusa: Prusament PETG Ultraglow troubleshooting](https://help.prusa3d.com/article/prusament-petg-ultraglow-troubleshooting_1043965)
+'''

@@ -1,0 +1,194 @@
+[metadata]
+reviewed_source = "5c57ce62636c0784e29c367717086b9975347b726610da7858266a55e51010aa"
+
+[[block]]
+key = "5057920cf1802b78"
+type = "yaml"
+origin = '''
+---
+title: "结构模式"
+description: "说明双面与单面结构的几何差异，以及浮雕、冰箱贴和五色扩展模式下的自动限制。"
+sidebar_position: 8
+---
+'''
+translate = '''
+---
+title: "Structure Mode"
+description: "Choose between Double-sided and Single-sided geometry, and see how Relief, Fridge Magnet, and 5-Color Extended affect availability."
+sidebar_position: 8
+---
+'''
+
+[[block]]
+key = "a0c4dc6ce346d689"
+type = "heading"
+origin = '''
+# 结构模式
+'''
+translate = '''
+# Structure Mode
+'''
+
+[[block]]
+key = "b9f48a9365a1d9a4"
+type = "paragraph"
+origin = '''
+**结构模式**决定彩色图案层生成在底板的单侧还是双侧。
+'''
+translate = '''
+**Structure Mode** controls whether color layers are built on one side or both sides of the base plate.
+'''
+
+[[block]]
+key = "2ca64590967c3d43"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-structure-mode.webp').default}
+  alt="Lumina Studio 的双面和单面结构模式"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-structure-mode.webp').default}
+  alt="Double-sided and Single-sided Structure Mode options"
+/>
+'''
+
+[[block]]
+key = "0e4b16732cb0ab73"
+type = "heading"
+origin = '''
+## 双面
+'''
+translate = '''
+## Double-sided
+'''
+
+[[block]]
+key = "2c14829c44a09cee"
+type = "paragraph"
+origin = '''
+在底板正反两侧对称建立彩色叠层，适合吊牌、挂件、双面钥匙扣等正反两面都需要展示图案的作品。开启双面结构会相应增加模型总厚度、耗材用量与切片层数。
+'''
+translate = '''
+Builds color layers on both sides of the base plate, making it ideal for hanging tags, charms, and keychains viewed from either side. Double-sided geometry increases overall model thickness, filament usage, and total sliced layers.
+'''
+
+[[block]]
+key = "0f5ca812188760f2"
+type = "heading"
+origin = '''
+## 单面
+'''
+translate = '''
+## Single-sided
+'''
+
+[[block]]
+key = "eabbdb484420a877"
+type = "paragraph"
+origin = '''
+仅在正面建立彩色叠层，背面保留平整底板。常规摆件、画框插片，以及浮雕、冰箱贴等依赖背面结构的功能均采用单面结构。
+'''
+translate = '''
+Builds color layers on one face while leaving the opposite face as the base plate. Standard plaques as well as back-side features such as Relief and Fridge Magnet use single-sided geometry.
+'''
+
+[[block]]
+key = "db33f610b81ff097"
+type = "heading"
+origin = '''
+## 模式联动与限制
+'''
+translate = '''
+## Mode Restrictions
+'''
+
+[[block]]
+key = "6f64e9ae069a4035"
+type = "list"
+composite = true
+origin = '''
+{{6f64e9ae069a4035-af72da5a9f9e1d36}}
+{{6f64e9ae069a4035-c3637bb8a1788b50}}
+{{6f64e9ae069a4035-cb2e471c3dd7bb67}}
+'''
+translate = '''
+{{6f64e9ae069a4035-af72da5a9f9e1d36}}
+{{6f64e9ae069a4035-c3637bb8a1788b50}}
+{{6f64e9ae069a4035-cb2e471c3dd7bb67}}
+'''
+
+[[block]]
+key = "6f64e9ae069a4035-af72da5a9f9e1d36"
+type = "listItem"
+composite = true
+origin = '''
+- {{6f64e9ae069a4035-af72da5a9f9e1d36-4799daeb041cbd53}}
+'''
+translate = '''
+- {{6f64e9ae069a4035-af72da5a9f9e1d36-4799daeb041cbd53}}
+'''
+
+[[block]]
+key = "6f64e9ae069a4035-af72da5a9f9e1d36-4799daeb041cbd53"
+type = "paragraph"
+origin = '''
+开启**浮雕**或**冰箱贴**时，结构模式会被锁定为**单面**；
+'''
+translate = '''
+Enabling **Relief** or **Fridge Magnet** locks Structure Mode to **Single-sided**.
+'''
+
+[[block]]
+key = "6f64e9ae069a4035-c3637bb8a1788b50"
+type = "listItem"
+composite = true
+origin = '''
+- {{6f64e9ae069a4035-c3637bb8a1788b50-630fbd0e07db8a60}}
+'''
+translate = '''
+- {{6f64e9ae069a4035-c3637bb8a1788b50-630fbd0e07db8a60}}
+'''
+
+[[block]]
+key = "6f64e9ae069a4035-c3637bb8a1788b50-630fbd0e07db8a60"
+type = "paragraph"
+origin = '''
+启用**五色扩展模式**时不支持双面，若原本处于双面会自动切回**单面**；
+'''
+translate = '''
+**5-Color Extended** supports **Single-sided** only and automatically switches an active **Double-sided** selection back to **Single-sided**.
+'''
+
+[[block]]
+key = "6f64e9ae069a4035-cb2e471c3dd7bb67"
+type = "listItem"
+composite = true
+origin = '''
+- {{6f64e9ae069a4035-cb2e471c3dd7bb67-f092ae4d1888cdb4}}
+'''
+translate = '''
+- {{6f64e9ae069a4035-cb2e471c3dd7bb67-f092ae4d1888cdb4}}
+'''
+
+[[block]]
+key = "6f64e9ae069a4035-cb2e471c3dd7bb67-f092ae4d1888cdb4"
+type = "paragraph"
+origin = '''
+切换结构模式会清空已生成的 3MF 与下载文件，需重新生成模型。
+'''
+translate = '''
+Changing Structure Mode clears any previously generated 3MF and download, so regenerate the model before slicing.
+'''
+
+[[block]]
+key = "0b86521a68b7184a"
+type = "paragraph"
+origin = '''
+导出 3MF 并导入切片软件后，建议旋转视角同时检查顶面与底面，确认显色面朝向、底板贴合面及背面附加结构均符合预期。
+'''
+translate = '''
+After opening the 3MF in your slicer, inspect both the top face and the underside to verify display-face orientation, build-plate contact, and any back-side features.
+'''

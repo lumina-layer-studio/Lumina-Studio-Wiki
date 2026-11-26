@@ -1,0 +1,249 @@
+[metadata]
+migration_layout = "preserved English structure; root blocks retain grouped or omitted source sections"
+reviewed_source = "1a0bd3b8d13e747376fdb5ec0e88584a89d6d05a56497003eb97526ea2364b79"
+
+[[block]]
+key = "1a4da7a8040108f6"
+type = "yaml"
+origin = '''
+---
+title: "冰箱贴磁铁槽"
+description: "磁铁槽预设、自定义尺寸、多磁铁自动排布与底板厚度自动补偿规则。"
+sidebar_position: 6
+---
+'''
+translate = '''
+---
+title: "Fridge Magnet cavities"
+description: "Magnet presets, custom dimensions, automatic layout, coordinates, and backing-thickness compensation."
+sidebar_position: 6
+---
+'''
+
+[[block]]
+key = "93f9c0230f540aa6"
+type = "heading"
+origin = '''
+# 冰箱贴磁铁槽
+'''
+translate = '''
+# Fridge Magnet cavities
+'''
+
+[[block]]
+key = "9791f4363165b92a"
+type = "paragraph"
+origin = '''
+冰箱贴模式会在模型底板内部切出一个或多个磁铁槽。开启后，结构模式会自动切换为单面，并同时关闭拼图、大画幅和挂件环。
+'''
+translate = '''
+Fridge Magnet mode cuts one or more magnet cavities into the backing. Enabling it switches Structure Mode to Single-sided and turns off Puzzle, Large Format, and Keychain Loop.
+'''
+
+[[block]]
+key = "422280e0c86ca2ff"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-fridge-magnet-settings.webp').default}
+  alt="Lumina Studio 的冰箱贴磁铁槽设置面板"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-fridge-magnet-settings.webp').default}
+  alt="Fridge Magnet Settings in Lumina Studio"
+/>
+'''
+
+[[block]]
+key = "266e01a9cab89d14"
+type = "heading"
+origin = '''
+## 预设与自定义尺寸
+'''
+translate = '''
+## Presets and custom sizes
+'''
+
+[[block]]
+key = "b0eb695b29d726e0"
+type = "paragraph"
+origin = '''
+圆形预设提供 D6×2、D8×3、D10×3 和 D12×3 mm；矩形预设提供 10×5×1、15×5×2 和 20×10×2 mm。切换形状时会先加载该形状的默认预设；手动修改任一尺寸后，当前磁铁会自动变为“自定义”。
+'''
+translate = '''
+Round presets include D6×2, D8×3, D10×3, and D12×3 mm. Rectangular presets include 10×5×1, 15×5×2, and 20×10×2 mm. Changing shape loads that shape's default preset; editing any dimension switches the item to Custom.
+'''
+
+[[block]]
+key = "e9104ffdc5523d2d"
+type = "paragraph"
+origin = '''
+自定义参数范围：
+'''
+translate = '''
+Custom ranges:
+'''
+
+[[block]]
+key = "f8c2398c54967343"
+type = "list"
+composite = true
+origin = '''
+{{f8c2398c54967343-97aa1504ae75f907}}
+{{f8c2398c54967343-f9433d3e140496b7}}
+{{f8c2398c54967343-e9f62d337ad874ef}}
+{{f8c2398c54967343-cc693bde8b8ff47f}}
+'''
+translate = '''
+- Round diameter: 1–50 mm
+- Rectangular width and height: 1–80 mm
+- Thickness: 0.5–3.1 mm
+- Center X and Y: -999–999 mm
+'''
+
+[[block]]
+key = "f8c2398c54967343-97aa1504ae75f907"
+type = "listItem"
+composite = true
+origin = '''
+- {{f8c2398c54967343-97aa1504ae75f907-601e6ed7073e0922}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f8c2398c54967343-97aa1504ae75f907-601e6ed7073e0922"
+type = "paragraph"
+origin = '''
+圆形直径：1–50 mm
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f8c2398c54967343-f9433d3e140496b7"
+type = "listItem"
+composite = true
+origin = '''
+- {{f8c2398c54967343-f9433d3e140496b7-aa6840990acc1237}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f8c2398c54967343-f9433d3e140496b7-aa6840990acc1237"
+type = "paragraph"
+origin = '''
+矩形宽、高：1–80 mm
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f8c2398c54967343-e9f62d337ad874ef"
+type = "listItem"
+composite = true
+origin = '''
+- {{f8c2398c54967343-e9f62d337ad874ef-82a0fa58b22b01f5}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f8c2398c54967343-e9f62d337ad874ef-82a0fa58b22b01f5"
+type = "paragraph"
+origin = '''
+厚度：0.5–3.1 mm
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f8c2398c54967343-cc693bde8b8ff47f"
+type = "listItem"
+composite = true
+origin = '''
+- {{f8c2398c54967343-cc693bde8b8ff47f-3b8986bc9d306a3b}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f8c2398c54967343-cc693bde8b8ff47f-3b8986bc9d306a3b"
+type = "paragraph"
+origin = '''
+中心 X、Y：-999–999 mm
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a100db2b3d070030"
+type = "paragraph"
+origin = '''
+上述数值定义模型中的目标槽位尺寸。由于磁铁实物存在尺寸公差且不同耗材收缩率有别，正式打印前建议实测磁铁并打印小样验证装配余量。
+'''
+translate = '''
+These values set the cavity dimensions in the mesh. Measure your physical magnets and print a quick test piece to verify fit and assembly clearance before running a full batch.
+'''
+
+[[block]]
+key = "25ad44b3424a2ddc"
+type = "heading"
+origin = '''
+## 多磁铁与自动布局
+'''
+translate = '''
+## Multiple magnets and layout
+'''
+
+[[block]]
+key = "673e88d338417582"
+type = "paragraph"
+origin = '''
+点击“添加磁铁”会新增一颗默认规格的圆形磁铁，并自动重排所有磁铁位置；点击“自动布局”会保留各磁铁现有尺寸，仅重新计算中心坐标；“删除当前磁铁”仅移除列表中选中的磁铁。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "585ba1c486230982"
+type = "paragraph"
+origin = '''
+列表选中项与 3D 视图同步（共用同一个磁铁 ID），可通过中心 X、Y 精确微调位置；取消选中不会删除磁铁。
+'''
+translate = '''
+**Add Magnet** inserts a default round magnet and arranges all items automatically. **Auto Layout** keeps each magnet's dimensions and recalculates center positions. **Remove Selected** deletes only the selected item in the list. Selection is shared between the list and the 3D scene; clearing selection leaves the magnet in place.
+'''
+
+[[block]]
+key = "b4234b002a3035b9"
+type = "heading"
+origin = '''
+## 底板厚度自动补偿
+'''
+translate = '''
+## Automatic backing thickness
+'''
+
+[[block]]
+key = "ab5b471c6a7b0efd"
+type = "paragraph"
+origin = '''
+软件会在最厚磁铁下方保留约 **0.4 mm** 的封底层，并按 **0.08 mm** 层高向上取整。当所需厚度高于当前底板设置时，底板会自动增厚（上限为 3.5 mm），面板中的“当前底板厚度”会实时显示补偿后的厚度。
+'''
+translate = '''
+Lumina reserves roughly **0.4 mm** of shell beneath the thickest magnet and rounds to **0.08 mm** layer increments. When needed, the backing thickens automatically up to the 3.5 mm limit, and the panel summary displays the resulting thickness.
+'''
+
+[[block]]
+key = "cad8e8a76bcb4579"
+type = "paragraph"
+origin = '''
+导出 3MF 后，请在切片软件中逐层检查槽位顶部、封底厚度与边缘壁厚，确认磁铁槽未穿透正面显色层。
+'''
+translate = '''
+Before printing, inspect the cavity roof, bottom shell, and perimeter edges layer by layer in your slicer to confirm that no cavity breaks through the display surface.
+'''

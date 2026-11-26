@@ -1,0 +1,267 @@
+[metadata]
+reviewed_source = "0224d74d121efc9a119fe819ecf62bce8fd575c76692b2ee52d3f3282d655803"
+
+[[block]]
+key = "5fd8fef9f5ce2f96"
+type = "yaml"
+origin = '''
+---
+title: "在线预览与导出额度"
+description: "在浏览器中试用 Lumina Studio，了解每日新图导出次数、社区账号与桌面版的区别。"
+sidebar_position: 5
+---
+'''
+translate = '''
+---
+title: "Online Preview and Export Allowance"
+description: "Try Lumina Studio in a browser and understand daily new-image exports, community accounts and desktop use."
+sidebar_position: 5
+---
+'''
+
+[[block]]
+key = "9315a1aafe3704de"
+type = "heading"
+origin = '''
+# 在线预览与导出额度
+'''
+translate = '''
+# Online Preview and Export Allowance
+'''
+
+[[block]]
+key = "124ae6cd3f659c25"
+type = "paragraph"
+origin = '''
+打开 [Lumina Studio 在线预览站](https://test.luminastudio.com.cn/)，无需登录即可上传图片、调整配色并导出模型。在线站的计算在服务端完成；导出后下载 3MF，再用本机切片软件打开。
+'''
+translate = '''
+Open the [Lumina Studio online preview site](https://test.luminastudio.com.cn/) to upload an image, adjust its palette and export a model without signing in. Calculations run on the service. Download the resulting 3MF and open it in your local slicer.
+'''
+
+[[block]]
+key = "56be106cc1ab3e4b"
+type = "heading"
+origin = '''
+## 每日额度怎样计算
+'''
+translate = '''
+## How the daily allowance works
+'''
+
+[[block]]
+key = "664e5c9af745e685"
+type = "table"
+origin = '''
+| 使用方式 | 每日新图导出额度 |
+| --- | --- |
+| 免登录试用 | 3 张不同原图 |
+| 连接 Lumina 社区账号 | 免登录 3 张 + 额外赠送 3 张，共 6 张不同原图 |
+'''
+translate = '''
+| Access | Daily allowance for new-image exports |
+| --- | --- |
+| Without signing in | 3 distinct source images |
+| With a connected Lumina community account | 3 anonymous + 3 additional exports: 6 distinct source images in total |
+'''
+
+[[block]]
+key = "4cd97803e1f98537"
+type = "paragraph"
+origin = '''
+免登录额度按同一 IP 统计。计数对象是**成功导出的不同原图**，不是点击按钮的次数：同一张图调整参数后反复导出，不重复消耗新图额度；生成失败和排队等待也不扣新图次数。
+'''
+translate = '''
+The anonymous allowance is counted per IP address. It counts **distinct source images successfully exported**, not button presses. Re-exporting the same image after adjusting settings does not use another new-image slot; failed generation and queued requests do not consume one either.
+'''
+
+[[block]]
+key = "72e2e53313076a0f"
+type = "paragraph"
+origin = '''
+页面会显示当天剩余额度与恢复时间，时间按北京时间计算。多人共用同一网络出口时，可能共用免登录额度。耗尽后可等待恢复，或改用本地桌面版继续制作。
+'''
+translate = '''
+The page displays the remaining allowance and reset time in China Standard Time (UTC+8). People sharing an internet connection may share the anonymous allowance. Once it is used up, wait for the reset or continue working in the local desktop edition.
+'''
+
+[[block]]
+key = "5d43802f254c7672"
+type = "heading"
+origin = '''
+## 连接社区账号
+'''
+translate = '''
+## Connect a community account
+'''
+
+[[block]]
+key = "6a830511b459eca8"
+type = "paragraph"
+origin = '''
+在在线站右下角状态卡点击 **“登录 Lumina 账号 · 再享 +3 张/天”**，也可从耗材／LUT 库的社区账号入口连接。按登录页提示完成验证，核对网页与 Studio 显示的 **10 位一次性连接码**，确认账号正确后允许连接。连接成功当天即可在免登录 3 张新图的基础上，再获赠 3 张新图额度，合计每天 6 张。反复登录不会重复赠送额度。
+'''
+translate = '''
+In the bottom-right status card, choose the Lumina sign-in button offering **+3 new images per day**. You can also connect through the community-account entry in the material or LUT library. Follow the sign-in verification steps, check that the **10-character one-time connection code** matches the one in Studio, confirm the account and allow the connection. The additional 3 new-image exports become available that day, on top of the 3 anonymous exports: 6 per day in total. Signing in repeatedly does not grant the bonus again.
+'''
+
+[[block]]
+key = "29e65535071672f4"
+type = "paragraph"
+origin = '''
+**在线站已由服务端统一预装公开耗材与 LUT 库**。连接账号后，可直接在选择器中按个人点赞、收藏筛选预装资源，无需在网页端逐条下载安装。网页中的“下载到本地”会提示“公开耗材与色卡已在线预装”，不会将这些资源另存到你的电脑。
+'''
+translate = '''
+**The online site's public material and LUT libraries are preinstalled on the server.** Once connected, use your likes and saved resources to filter the preinstalled items directly in the pickers; there is no need to download and install each item in the browser. The local-download action on the online site displays a notice that public materials and color charts are already preinstalled; it does not save those resources to your computer.
+'''
+
+[[block]]
+key = "4b6dec57dfb272a5"
+type = "paragraph"
+origin = '''
+如需按需下载云端资源到自己的私人库、管理本地耗材，或将自测校准结果“贡献到公共库”，请使用桌面版；“我的投稿”管理也在桌面版完成。账号连接与投稿步骤见[社区账号、收藏与投稿](../../reference/materials-and-recipes/community-resources/community-resources.mdx)。
+'''
+translate = '''
+Use the desktop edition to download cloud resources on demand into your own private library, manage local materials or submit your calibration results with **Share to public library**. **My submissions** is also managed in the desktop edition. See [Community Account, Saved Resources and Submissions](../../reference/materials-and-recipes/community-resources/community-resources.mdx) for account connection and submission steps.
+'''
+
+[[block]]
+key = "8f355e552cdb2fe2"
+type = "heading"
+origin = '''
+## 从预览到打印
+'''
+translate = '''
+## From preview to print
+'''
+
+[[block]]
+key = "cec35a2f3b4992db"
+type = "list"
+composite = true
+origin = '''
+{{cec35a2f3b4992db-9b3e19e3cbb325a8}}
+{{cec35a2f3b4992db-e9b3eda23977b99c}}
+{{cec35a2f3b4992db-c07f04bfd0c15e42}}
+{{cec35a2f3b4992db-44af9a64c2f43194}}
+'''
+translate = '''
+{{cec35a2f3b4992db-9b3e19e3cbb325a8}}
+{{cec35a2f3b4992db-e9b3eda23977b99c}}
+{{cec35a2f3b4992db-c07f04bfd0c15e42}}
+{{cec35a2f3b4992db-44af9a64c2f43194}}
+'''
+
+[[block]]
+key = "cec35a2f3b4992db-9b3e19e3cbb325a8"
+type = "listItem"
+composite = true
+origin = '''
+1. {{cec35a2f3b4992db-9b3e19e3cbb325a8-e74b932ec706aacb}}
+'''
+translate = '''
+1. {{cec35a2f3b4992db-9b3e19e3cbb325a8-e74b932ec706aacb}}
+'''
+
+[[block]]
+key = "cec35a2f3b4992db-9b3e19e3cbb325a8-e74b932ec706aacb"
+type = "paragraph"
+origin = '''
+上传原图，选择与手头耗材对应的档案或 LUT。
+'''
+translate = '''
+Upload the source image and select profiles or a LUT matching your filaments.
+'''
+
+[[block]]
+key = "cec35a2f3b4992db-e9b3eda23977b99c"
+type = "listItem"
+composite = true
+origin = '''
+2. {{cec35a2f3b4992db-e9b3eda23977b99c-ee71ed9a4a9fef37}}
+'''
+translate = '''
+2. {{cec35a2f3b4992db-e9b3eda23977b99c-ee71ed9a4a9fef37}}
+'''
+
+[[block]]
+key = "cec35a2f3b4992db-e9b3eda23977b99c-ee71ed9a4a9fef37"
+type = "paragraph"
+origin = '''
+设置成品尺寸、层高等参数，点击预览检查配色。
+'''
+translate = '''
+Set the finished dimensions, layer height and other parameters, then preview the palette.
+'''
+
+[[block]]
+key = "cec35a2f3b4992db-c07f04bfd0c15e42"
+type = "listItem"
+composite = true
+origin = '''
+3. {{cec35a2f3b4992db-c07f04bfd0c15e42-2dc4cd9e62b06cc2}}
+'''
+translate = '''
+3. {{cec35a2f3b4992db-c07f04bfd0c15e42-2dc4cd9e62b06cc2}}
+'''
+
+[[block]]
+key = "cec35a2f3b4992db-c07f04bfd0c15e42-2dc4cd9e62b06cc2"
+type = "paragraph"
+origin = '''
+生成完成后下载 3MF，保存在自己的电脑上。
+'''
+translate = '''
+Generate the model, download the 3MF and save it on your computer.
+'''
+
+[[block]]
+key = "cec35a2f3b4992db-44af9a64c2f43194"
+type = "listItem"
+composite = true
+origin = '''
+4. {{cec35a2f3b4992db-44af9a64c2f43194-56be622eaa04100e}}
+'''
+translate = '''
+4. {{cec35a2f3b4992db-44af9a64c2f43194-56be622eaa04100e}}
+'''
+
+[[block]]
+key = "cec35a2f3b4992db-44af9a64c2f43194-56be622eaa04100e"
+type = "paragraph"
+origin = '''
+在切片软件中打开，核对机器、喷嘴、耗材槽位与层高，再切片打印。
+'''
+translate = '''
+Open it in your slicer, check the printer, nozzle, filament slots and layer heights, then slice and print.
+'''
+
+[[block]]
+key = "2b4ee3ba7039783d"
+type = "paragraph"
+origin = '''
+同一任务正在生成时等待结果即可，无需连续点击。下载或生成异常时，见[页面与生成问题排查](../../knowledge/web-generation-troubleshooting/web-generation-troubleshooting.mdx)。
+'''
+translate = '''
+Wait for an active generation task to finish instead of repeatedly clicking. For generation or download problems, see [Page and generation troubleshooting](../../knowledge/web-generation-troubleshooting/web-generation-troubleshooting.mdx).
+'''
+
+[[block]]
+key = "c4ef624059dff784"
+type = "heading"
+origin = '''
+## 桌面版需要登录吗
+'''
+translate = '''
+## Does desktop use require sign-in?
+'''
+
+[[block]]
+key = "c711cfe46a9dba75"
+type = "paragraph"
+origin = '''
+不需要。桌面打包版可以不绑定社区账号，直接使用本地耗材、LUT、离线资源和模型生成功能。社区账号提供的是收藏、投稿等联网功能；在线站的每日新图导出额度不套用到桌面本地工作流。
+'''
+translate = '''
+No. The packaged desktop edition can use local materials, LUTs, offline resources and model generation without a community account. The account adds online features such as saved resources and submissions. The online site's daily new-image allowance does not apply to the local desktop workflow.
+'''

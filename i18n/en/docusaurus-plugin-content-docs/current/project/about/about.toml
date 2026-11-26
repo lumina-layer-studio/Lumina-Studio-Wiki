@@ -1,0 +1,87 @@
+[metadata]
+migration_layout = "preserved English structure; root blocks retain grouped or omitted source sections"
+reviewed_source = "03addf4555e3c0a3b478f4db2385f6b9e16f3c158ca1e1a0becf97e4af74ae14"
+
+[[block]]
+key = "26f16bc05c081178"
+type = "yaml"
+origin = '''
+---
+title: "关于我们"
+description: "认识 Lumina Studio 开发团队"
+sidebar_position: 12
+---
+'''
+translate = '''
+---
+title: "About Us"
+description: "Meet the Lumina Studio development team"
+sidebar_position: 12
+---
+'''
+
+[[block]]
+key = "345e890d0d1a36e8"
+type = "heading"
+origin = '''
+## 开发组介绍
+'''
+translate = '''
+## About the team
+'''
+
+[[block]]
+key = "b2bc209c4dc0352d"
+type = "paragraph"
+origin = '''
+我们是一群分散在全国各地的 3D 打印爱好者。聚在一起的初衷很简单：做一款免费、好上手的多色版画与浮雕生成工具。随着项目不断打磨和演进，我们也希望把这套工作流带给全球 3D 打印社区，为大家提供一种新的多色创作方案。
+'''
+translate = '''
+We are a group of 3D-printing enthusiasts from across China. We originally came together to build a free and approachable tool for creating relief and print artwork. As the project developed, we realized that Lumina could also provide a useful workflow for the global 3D-printing community.
+'''
+
+[[block]]
+key = "9d039e07bc021b0b"
+type = "paragraph"
+origin = '''
+无论未来 Lumina 走向何方，感谢每一位使用和支持过我们的朋友！
+'''
+translate = '''
+Whatever direction the project takes in the future, thank you for using Lumina Studio.
+'''
+
+[[block]]
+key = "bcee67d37eb2bd46"
+type = "heading"
+origin = '''
+## 开发组成员（排名不分先后）
+'''
+translate = '''
+## Team members
+
+The list is not ordered by contribution or seniority.
+'''
+
+[[block]]
+key = "d1e876f68d47aab8"
+type = "table"
+origin = '''
+| 成员 | 分工 | 主页 | 说点什么？ |
+| :---: | :--- | :--- | :--- |
+| <img src={require('./assets/58595746.png').default} width="80" alt="大胖肥猫" /><br />大胖肥猫 | 项目发起人 / 开发 / 测试 / 宣传 / 艺术家 | B站：https://space.bilibili.com/17461985<br />MW: https://makerworld.com/zh/@QAQAQ | 想死了 |
+| <img src={require('./assets/阿巴.jpg').default} width="80" alt="猫猫" /><br />猫猫 | 开发 | MW: https://makerworld.com.cn/zh/@CatByCat<br />B站: https://space.bilibili.com/325402813 | Token 拉满，火力全开！ |
+| <img src={require('./assets/142312170.jpg').default} width="80" alt="Neroued" /><br />Neroued | 开发 | Github: https://github.com/Neroued | 迟早把整个项目换成 C++ |
+| <img src={require('./assets/qq图片20260325215611.jpg').default} width="80" alt="二氧化萌" /><br />二氧化萌 | 开发 | B站: https://space.bilibili.com/22531811 | 行行好，给点 Token 吧 |
+| <img src={require('./assets/qq图片20260325215656.jpg').default} width="80" alt="沙盒" /><br />沙盒 | 开发 | MW:https://makerworld.com.cn/zh/@Sandbox<br />B站:https://space.bilibili.com/3546644859587433 | 咕咕嘎嘎！咕咕嘎嘎！咕~咕~嘎~嘎~！ |
+| <img src={require('./assets/qq图片20260325214824.jpg').default} width="80" alt="Evan76" /><br />Evan76 | 测试 / 教程 / 宣传 / Wiki | B站: https://space.bilibili.com/2078042 | 画不完的饼，填不完的坑<br />做不完的视频，写不完的教程 |
+'''
+translate = '''
+| Member | Responsibilities | Links | A few words |
+| :---: | :--- | :--- | :--- |
+| <img src={require('./assets/58595746.png').default} width="80" alt="Big Fat Cat Studio" /><br />Big Fat Cat Studio | Project founder, development, testing, promotion, and artwork | Bilibili: https://space.bilibili.com/17461985<br />MakerWorld: https://makerworld.com/zh/@QAQAQ | Still shipping. |
+| <img src={require('./assets/阿巴.jpg').default} width="80" alt="Cat-by-Cat" /><br />Cat-by-Cat | Development | MakerWorld: https://makerworld.com.cn/zh/@CatByCat<br />Bilibili: https://space.bilibili.com/325402813 | Tokens at maximum; full power. |
+| <img src={require('./assets/142312170.jpg').default} width="80" alt="Neroued" /><br />Neroued | Development | GitHub: https://github.com/Neroued | One day, the whole project will become C++. |
+| <img src={require('./assets/qq图片20260325215611.jpg').default} width="80" alt="DioxideMoe" /><br />DioxideMoe | Development | Bilibili: https://space.bilibili.com/22531811 | Please spare a few tokens. |
+| <img src={require('./assets/qq图片20260325215656.jpg').default} width="80" alt="Sandbox" /><br />Sandbox | Development | MakerWorld: https://makerworld.com.cn/zh/@Sandbox<br />Bilibili: https://space.bilibili.com/3546644859587433 | Coo, cluck, coo. |
+| <img src={require('./assets/qq图片20260325214824.jpg').default} width="80" alt="Evan76" /><br />Evan76 | Testing, tutorials, promotion, and Wiki | Bilibili: https://space.bilibili.com/2078042 | More plans to draw, more gaps to fill, more tutorials to make. |
+'''

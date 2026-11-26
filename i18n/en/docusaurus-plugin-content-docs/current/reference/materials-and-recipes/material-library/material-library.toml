@@ -1,0 +1,414 @@
+[metadata]
+reviewed_source = "507760d7d276d85ac7faa0febb418bb856d46c6b97c98acd4d8c3e84d4ba1f40"
+
+[[block]]
+key = "8dad3d61d33e952a"
+type = "yaml"
+origin = '''
+---
+title: "耗材库"
+description: "查看和管理由梯度卡标定得到的本地耗材档案。"
+sidebar_position: 1
+---
+'''
+translate = '''
+---
+title: "Material Library"
+description: "Inspect and manage locally calibrated material archives."
+sidebar_position: 1
+---
+'''
+
+[[block]]
+key = "dd5030966d4bbc97"
+type = "heading"
+origin = '''
+# 耗材库
+'''
+translate = '''
+# Material Library
+'''
+
+[[block]]
+key = "5b9b2d61b8ef8f8d"
+type = "paragraph"
+origin = '''
+耗材库用于集中查看和管理已完成梯度卡标定的本地耗材档案。每份档案同时保存界面预览颜色与叠层混色预测所需的光学拟合参数及标定层高。
+'''
+translate = '''
+The Material Library stores and organizes locally calibrated filament archives. Alongside a preview swatch for the interface, each archive holds the fitted optical parameters and calibration layer height required for layer-stack color prediction.
+'''
+
+[[block]]
+key = "ce221a2d9686dde4"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-material-library.webp').default}
+  alt="按品牌展开的耗材库"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-material-library.webp').default}
+  alt="Material Library expanded by brand"
+/>
+'''
+
+[[block]]
+key = "023a3f773f213c03"
+type = "heading"
+origin = '''
+## 品牌分组与同名耗材
+'''
+translate = '''
+## Brand groups and duplicate names
+'''
+
+[[block]]
+key = "b78e81c64c9f9790"
+type = "paragraph"
+origin = '''
+耗材默认按品牌折叠展示，未设置品牌的档案归入“未分组”。点击品牌标题栏即可展开或收起对应分组。
+'''
+translate = '''
+Materials are grouped by brand and collapsed by default, with unbranded archives listed under **Unassigned**. Click any brand header to expand or collapse its group.
+'''
+
+[[block]]
+key = "f290b813d95d6031"
+type = "paragraph"
+origin = '''
+当多份档案的品牌与显示名称相同、但底层目录或实测数据不同时，列表会标记“同名 N 份”。每份档案均以各自的磁盘目录名作为唯一标识，彼此独立保存。
+'''
+translate = '''
+An **N copies** indicator appears when multiple archives share the same brand and display name while differing in directory name or measured data. Each archive uses its directory name as a unique identifier and remains stored separately.
+'''
+
+[[block]]
+key = "fef7f27d72c2edc2"
+type = "paragraph"
+origin = '''
+从官方云端频道安装的档案带有“官方”标记，用于说明档案来源；由于实际打印成色还会受到具体打印机、喷嘴状态与线材批次影响，建议根据实际机器情况搭配自测档案选用。
+'''
+translate = '''
+Archives installed from the official cloud channel display an **Official** badge to indicate their source. Because printed color also depends on your specific printer, nozzle condition, and filament batch, choose between official archives and your own calibrated profiles based on your setup.
+'''
+
+[[block]]
+key = "7f26d4c84f09beb9"
+type = "heading"
+origin = '''
+## 卡片字段
+'''
+translate = '''
+## Card fields
+'''
+
+[[block]]
+key = "4e96767667aeb27c"
+type = "list"
+composite = true
+origin = '''
+{{4e96767667aeb27c-2278c26ef933de42}}
+{{4e96767667aeb27c-f2da29309091dacd}}
+{{4e96767667aeb27c-5a4656ca1344f56a}}
+{{4e96767667aeb27c-1f00b2f95e7779ec}}
+{{4e96767667aeb27c-ea87833ba43c8663}}
+{{4e96767667aeb27c-beb533edde405c58}}
+{{4e96767667aeb27c-f4866b1581dcc808}}
+'''
+translate = '''
+{{4e96767667aeb27c-2278c26ef933de42}}
+{{4e96767667aeb27c-f2da29309091dacd}}
+{{4e96767667aeb27c-5a4656ca1344f56a}}
+{{4e96767667aeb27c-1f00b2f95e7779ec}}
+{{4e96767667aeb27c-ea87833ba43c8663}}
+{{4e96767667aeb27c-beb533edde405c58}}
+{{4e96767667aeb27c-f4866b1581dcc808}}
+'''
+
+[[block]]
+key = "4e96767667aeb27c-2278c26ef933de42"
+type = "listItem"
+composite = true
+origin = '''
+- {{4e96767667aeb27c-2278c26ef933de42-25a02b7a34898ae9}}
+'''
+translate = '''
+- {{4e96767667aeb27c-2278c26ef933de42-25a02b7a34898ae9}}
+'''
+
+[[block]]
+key = "4e96767667aeb27c-2278c26ef933de42-25a02b7a34898ae9"
+type = "paragraph"
+origin = '''
+**显示颜色**：由梯度卡拟合估算出的 RGB 预览色，可在编辑窗口中手动调整。
+'''
+translate = '''
+**Display color**: The estimated RGB swatch from the gradient-card fit, which can be customized in the edit dialog.
+'''
+
+[[block]]
+key = "4e96767667aeb27c-f2da29309091dacd"
+type = "listItem"
+composite = true
+origin = '''
+- {{4e96767667aeb27c-f2da29309091dacd-d5680c7096e4342c}}
+'''
+translate = '''
+- {{4e96767667aeb27c-f2da29309091dacd-d5680c7096e4342c}}
+'''
+
+[[block]]
+key = "4e96767667aeb27c-f2da29309091dacd-d5680c7096e4342c"
+type = "paragraph"
+origin = '''
+**创建时间 / 最近更新**：档案首次创建及最近一次写入更新的时间。
+'''
+translate = '''
+**Created / Last Updated**: Timestamps for when the archive was first saved and most recently updated.
+'''
+
+[[block]]
+key = "4e96767667aeb27c-5a4656ca1344f56a"
+type = "listItem"
+composite = true
+origin = '''
+- {{4e96767667aeb27c-5a4656ca1344f56a-7ba1c1a383be8b7f}}
+'''
+translate = '''
+- {{4e96767667aeb27c-5a4656ca1344f56a-7ba1c1a383be8b7f}}
+'''
+
+[[block]]
+key = "4e96767667aeb27c-5a4656ca1344f56a-7ba1c1a383be8b7f"
+type = "paragraph"
+origin = '''
+**品牌 / 目录名**：用于分组归类与唯一定位档案的标识信息。
+'''
+translate = '''
+**Brand / Directory**: Brand grouping metadata and the archive's unique directory identifier.
+'''
+
+[[block]]
+key = "4e96767667aeb27c-1f00b2f95e7779ec"
+type = "listItem"
+composite = true
+origin = '''
+- {{4e96767667aeb27c-1f00b2f95e7779ec-190fdc06055c9372}}
+'''
+translate = '''
+- {{4e96767667aeb27c-1f00b2f95e7779ec-190fdc06055c9372}}
+'''
+
+[[block]]
+key = "4e96767667aeb27c-1f00b2f95e7779ec-190fdc06055c9372"
+type = "paragraph"
+origin = '''
+**拟合误差**：当前拟合结果的平均 ΔE，用于评估该档案自身的采样与拟合质量（受不同颜色透光特性影响，不宜用于跨颜色横向排名）。
+'''
+translate = '''
+**Fit Error**: Mean ΔE of the current fit, useful for evaluating sampling and fit quality for that material (because optical behavior varies by pigment, compare values across runs of the same filament rather than ranking different colors against one another).
+'''
+
+[[block]]
+key = "4e96767667aeb27c-ea87833ba43c8663"
+type = "listItem"
+composite = true
+origin = '''
+- {{4e96767667aeb27c-ea87833ba43c8663-558eb68c63db698e}}
+'''
+translate = '''
+- {{4e96767667aeb27c-ea87833ba43c8663-558eb68c63db698e}}
+'''
+
+[[block]]
+key = "4e96767667aeb27c-ea87833ba43c8663-558eb68c63db698e"
+type = "paragraph"
+origin = '''
+**验证次数**：已并入当前档案的有效实测次数。
+'''
+translate = '''
+**Verification Runs**: Number of valid calibration runs incorporated into the archive.
+'''
+
+[[block]]
+key = "4e96767667aeb27c-beb533edde405c58"
+type = "listItem"
+composite = true
+origin = '''
+- {{4e96767667aeb27c-beb533edde405c58-fac17d06ce4aff0d}}
+'''
+translate = '''
+- {{4e96767667aeb27c-beb533edde405c58-fac17d06ce4aff0d}}
+'''
+
+[[block]]
+key = "4e96767667aeb27c-beb533edde405c58-fac17d06ce4aff0d"
+type = "paragraph"
+origin = '''
+**使用次数**：该档案在各颜色模式中被实际调用的次数；若有记录，还会一并显示最近使用时间。
+'''
+translate = '''
+**Usage Count**: How many times color modes have used this archive, along with its most recent use timestamp when recorded.
+'''
+
+[[block]]
+key = "4e96767667aeb27c-f4866b1581dcc808"
+type = "listItem"
+composite = true
+origin = '''
+- {{4e96767667aeb27c-f4866b1581dcc808-b096b4b319ea7c1f}}
+'''
+translate = '''
+- {{4e96767667aeb27c-f4866b1581dcc808-b096b4b319ea7c1f}}
+'''
+
+[[block]]
+key = "4e96767667aeb27c-f4866b1581dcc808-b096b4b319ea7c1f"
+type = "paragraph"
+origin = '''
+**层高**：打印并拟合该梯度卡时采用的标定层高，后续叠层颜色预测会沿用此项标定条件。
+'''
+translate = '''
+**Layer Height**: The calibration layer height used when printing and fitting the gradient cards.
+'''
+
+[[block]]
+key = "af86ce77c9691db9"
+type = "heading"
+origin = '''
+## 顶部操作
+'''
+translate = '''
+## Top toolbar
+'''
+
+[[block]]
+key = "1e51be806d20bccd"
+type = "paragraph"
+origin = '''
+顶部工具栏中，“全选耗材”用于快速勾选当前列表中的档案以便批量导出；“刷新耗材库”用于重新读取本地存储中的最新档案列表。
+'''
+translate = '''
+In the top toolbar, **Select All** selects every archive in the list for batch export, and **Refresh Library** reloads the latest archives from local storage.
+'''
+
+[[block]]
+key = "5a57cf5590526a06"
+type = "paragraph"
+origin = '''
+批量备份与跨机迁移见[导入与导出耗材](../material-import-export/material-import-export.mdx)。单份档案的“编辑信息”“再次验证”“展开验证历史”与“删除耗材”操作说明见[编辑与复验耗材](../material-edit-and-verification/material-edit-and-verification.mdx)。
+'''
+translate = '''
+For batch backups and transfers, see [Material Import and Export](../material-import-export/material-import-export.mdx). For **Edit Details**, **Re-Verify**, **Verification History**, and **Delete Material**, see [Editing and Re-Verification](../material-edit-and-verification/material-edit-and-verification.mdx).
+'''
+
+[[block]]
+key = "75b96e9b2f202915"
+type = "paragraph"
+origin = '''
+本地没有对应档案时，可以到[云端耗材库](../cloud-material-library/cloud-material-library.mdx)按需下载，或从离线包挑选。想比较几卷耗材搭配后的颜色范围，可打开[色域覆盖](../material-gamut/material-gamut.mdx)；计算结果的复用与清理见[求解缓存](../material-solver-cache/material-solver-cache.mdx)。
+'''
+translate = '''
+If a profile is missing locally, download it from the [Cloud Material Library](../cloud-material-library/cloud-material-library.mdx) or choose it from an offline pack. Use [Gamut coverage](../material-gamut/material-gamut.mdx) to compare the color range of a filament combination; see [Solver cache](../material-solver-cache/material-solver-cache.mdx) for reusing and clearing calculation results.
+'''
+
+[[block]]
+key = "f73c01cb8a23cea6"
+type = "paragraph"
+origin = '''
+“我的投稿”和资源详情中的“贡献到公共库”用于分享自己的校准。社区账号连接、收藏同步与审核流程见[社区账号、收藏与投稿](../community-resources/community-resources.mdx)。
+'''
+translate = '''
+Use **My submissions** and **Share to public library** in resource details to share your own calibrations. Account connection, saved resources and review are explained in [Community account, saved resources and submissions](../community-resources/community-resources.mdx).
+'''
+
+[[block]]
+key = "8e598e329cd91d51"
+type = "paragraph"
+origin = '''
+相关页面：
+'''
+translate = '''
+Related pages:
+'''
+
+[[block]]
+key = "c9a868266de91f60"
+type = "list"
+composite = true
+origin = '''
+{{c9a868266de91f60-be53045298f08fec}}
+{{c9a868266de91f60-e748cf344a01d326}}
+{{c9a868266de91f60-441821a7ef7c6af9}}
+'''
+translate = '''
+{{c9a868266de91f60-be53045298f08fec}}
+{{c9a868266de91f60-e748cf344a01d326}}
+{{c9a868266de91f60-441821a7ef7c6af9}}
+'''
+
+[[block]]
+key = "c9a868266de91f60-be53045298f08fec"
+type = "listItem"
+composite = true
+origin = '''
+- {{c9a868266de91f60-be53045298f08fec-9306ff9ed5dbc0f0}}
+'''
+translate = '''
+- {{c9a868266de91f60-be53045298f08fec-9306ff9ed5dbc0f0}}
+'''
+
+[[block]]
+key = "c9a868266de91f60-be53045298f08fec-9306ff9ed5dbc0f0"
+type = "paragraph"
+origin = '''
+[梯度卡生成](../gradient-card-generation/gradient-card-generation.mdx)
+'''
+translate = '''
+[Gradient Card Generation](../gradient-card-generation/gradient-card-generation.mdx)
+'''
+
+[[block]]
+key = "c9a868266de91f60-e748cf344a01d326"
+type = "listItem"
+composite = true
+origin = '''
+- {{c9a868266de91f60-e748cf344a01d326-53a00bb0d30fdeb9}}
+'''
+translate = '''
+- {{c9a868266de91f60-e748cf344a01d326-53a00bb0d30fdeb9}}
+'''
+
+[[block]]
+key = "c9a868266de91f60-e748cf344a01d326-53a00bb0d30fdeb9"
+type = "paragraph"
+origin = '''
+[梯度卡提取](../gradient-card-extraction/gradient-card-extraction.mdx)
+'''
+translate = '''
+[Gradient Card Extraction](../gradient-card-extraction/gradient-card-extraction.mdx)
+'''
+
+[[block]]
+key = "c9a868266de91f60-441821a7ef7c6af9"
+type = "listItem"
+composite = true
+origin = '''
+- {{c9a868266de91f60-441821a7ef7c6af9-c8ae54e458860d76}}
+'''
+translate = '''
+- {{c9a868266de91f60-441821a7ef7c6af9-c8ae54e458860d76}}
+'''
+
+[[block]]
+key = "c9a868266de91f60-441821a7ef7c6af9-c8ae54e458860d76"
+type = "paragraph"
+origin = '''
+[耗材配方查询](../material-recipe-query/material-recipe-query.mdx)
+'''
+translate = '''
+[Material Recipe Query](../material-recipe-query/material-recipe-query.mdx)
+'''

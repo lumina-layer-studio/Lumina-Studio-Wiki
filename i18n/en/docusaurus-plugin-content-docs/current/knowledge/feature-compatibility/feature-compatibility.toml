@@ -1,0 +1,1282 @@
+[metadata]
+reviewed_source = "c8be4c1e8735b10bcdbf55d51eb52c475f01b0f135b435d4bdf0bad09e7afab9"
+
+[[block]]
+key = "f9b7cb1a33ad7481"
+type = "yaml"
+origin = '''
+---
+title: "哪些功能可以一起用？"
+description: "说明颜色工作站、外轮廓、透明镀层、挂件环、磁铁槽、浮雕、拼图、大画幅和批量模式之间的组合边界。"
+sidebar_position: 27
+---
+'''
+translate = '''
+---
+title: "Which Features Can Be Used Together?"
+description: "Compatibility rules across Color Workstation, Outline, Transparent Coating, Keychain Loop, Fridge Magnet, Relief, Puzzle, Large Format, and Batch workflows."
+sidebar_position: 27
+---
+'''
+
+[[block]]
+key = "24e7236a24412253"
+type = "heading"
+origin = '''
+# 哪些功能可以一起用？
+'''
+translate = '''
+# Which Features Can Be Used Together?
+'''
+
+[[block]]
+key = "0372a07286b569f7"
+type = "paragraph"
+origin = '''
+在 Lumina Studio 中，**色彩微调与外观附件大多可以自由叠加**，而**改变几何结构或导出流程的专用模式则存在明确的互斥规则**：
+'''
+translate = '''
+In Lumina Studio, **color edits and surface add-ons can generally be combined freely**, while **features that alter 3D geometry or export packaging follow clear mutual-exclusion rules**:
+'''
+
+[[block]]
+key = "19a5ddef119720dd"
+type = "list"
+composite = true
+origin = '''
+{{19a5ddef119720dd-93bfbe4f22cef15b}}
+{{19a5ddef119720dd-5e8388abfe970887}}
+{{19a5ddef119720dd-f62eb7822e3db39e}}
+{{19a5ddef119720dd-8e0a4d0aaf259196}}
+{{19a5ddef119720dd-bb07c61f95875e46}}
+{{19a5ddef119720dd-7e069f4ca48ee77c}}
+'''
+translate = '''
+{{19a5ddef119720dd-93bfbe4f22cef15b}}
+{{19a5ddef119720dd-5e8388abfe970887}}
+{{19a5ddef119720dd-f62eb7822e3db39e}}
+{{19a5ddef119720dd-8e0a4d0aaf259196}}
+{{19a5ddef119720dd-bb07c61f95875e46}}
+{{19a5ddef119720dd-7e069f4ca48ee77c}}
+'''
+
+[[block]]
+key = "19a5ddef119720dd-93bfbe4f22cef15b"
+type = "listItem"
+composite = true
+origin = '''
+- {{19a5ddef119720dd-93bfbe4f22cef15b-4d681ecf5f11e089}}
+'''
+translate = '''
+- {{19a5ddef119720dd-93bfbe4f22cef15b-4d681ecf5f11e089}}
+'''
+
+[[block]]
+key = "19a5ddef119720dd-93bfbe4f22cef15b-4d681ecf5f11e089"
+type = "paragraph"
+origin = '''
+**可自由叠加的常规项**：颜色工作站、自定义配方、外轮廓、透明镀层与分离底板，均可配合常规单面或双面作品使用。
+'''
+translate = '''
+**Composable color and surface options**: **Color Workstation**, **Custom Recipe**, **Outline**, **Transparent Coating**, and **Separate Backing** work together on standard single- and double-sided projects.
+'''
+
+[[block]]
+key = "19a5ddef119720dd-5e8388abfe970887"
+type = "listItem"
+composite = true
+origin = '''
+- {{19a5ddef119720dd-5e8388abfe970887-3f90997c17e7b71b}}
+'''
+translate = '''
+- {{19a5ddef119720dd-5e8388abfe970887-3f90997c17e7b71b}}
+'''
+
+[[block]]
+key = "19a5ddef119720dd-5e8388abfe970887-3f90997c17e7b71b"
+type = "paragraph"
+origin = '''
+**结构与流程专用项**：浮雕、冰箱贴磁铁槽、拼图、大画幅与批量模式会改变底层几何或分包逻辑，需按各自支持范围开启。
+'''
+translate = '''
+**Structural and workflow modes**: **Relief**, **Fridge Magnet**, **Puzzle**, **Large Format**, and **Batch** modify underlying geometry or export pipelines and follow specific compatibility rules.
+'''
+
+[[block]]
+key = "19a5ddef119720dd-f62eb7822e3db39e"
+type = "listItem"
+composite = true
+origin = '''
+- {{19a5ddef119720dd-f62eb7822e3db39e-ee5df9fecf0a0cda}}
+'''
+translate = '''
+- {{19a5ddef119720dd-f62eb7822e3db39e-ee5df9fecf0a0cda}}
+'''
+
+[[block]]
+key = "19a5ddef119720dd-f62eb7822e3db39e-ee5df9fecf0a0cda"
+type = "paragraph"
+origin = '''
+**磁铁槽互斥项**：冰箱贴磁铁槽仅支持单面结构，且不可与拼图、大画幅或挂件环同时开启。
+'''
+translate = '''
+**Fridge Magnet exclusions**: **Fridge Magnet** requires a single-sided structure and cannot be combined with **Puzzle**, **Large Format**, or **Keychain Loop**.
+'''
+
+[[block]]
+key = "19a5ddef119720dd-8e0a4d0aaf259196"
+type = "listItem"
+composite = true
+origin = '''
+- {{19a5ddef119720dd-8e0a4d0aaf259196-9f6f75b4380f75c8}}
+'''
+translate = '''
+- {{19a5ddef119720dd-8e0a4d0aaf259196-9f6f75b4380f75c8}}
+'''
+
+[[block]]
+key = "19a5ddef119720dd-8e0a4d0aaf259196-9f6f75b4380f75c8"
+type = "paragraph"
+origin = '''
+**拼图互斥项**：拼图不可与批量模式、大画幅、磁铁槽或挂件环同时开启。
+'''
+translate = '''
+**Puzzle exclusions**: **Puzzle** cannot be combined with **Batch**, **Large Format**, **Fridge Magnet**, or **Keychain Loop**.
+'''
+
+[[block]]
+key = "19a5ddef119720dd-bb07c61f95875e46"
+type = "listItem"
+composite = true
+origin = '''
+- {{19a5ddef119720dd-bb07c61f95875e46-6601fe7b53708dad}}
+'''
+translate = '''
+- {{19a5ddef119720dd-bb07c61f95875e46-6601fe7b53708dad}}
+'''
+
+[[block]]
+key = "19a5ddef119720dd-bb07c61f95875e46-6601fe7b53708dad"
+type = "paragraph"
+origin = '''
+**浮雕与掐丝珐琅**：原生矢量模式不支持浮雕；掐丝珐琅入口在当前版本已隐藏。
+'''
+translate = '''
+**Relief and Cloisonné**: **Relief** is unavailable in **Vector** mode, and the **Cloisonné** entry is hidden in the current release.
+'''
+
+[[block]]
+key = "19a5ddef119720dd-7e069f4ca48ee77c"
+type = "listItem"
+composite = true
+origin = '''
+- {{19a5ddef119720dd-7e069f4ca48ee77c-4c5ec6207747b6b5}}
+'''
+translate = '''
+- {{19a5ddef119720dd-7e069f4ca48ee77c-4c5ec6207747b6b5}}
+'''
+
+[[block]]
+key = "19a5ddef119720dd-7e069f4ca48ee77c-4c5ec6207747b6b5"
+type = "paragraph"
+origin = '''
+**切片核对**：每叠加一项结构或附件功能后，建议重新生成 3MF 并在切片器中逐层确认刀路。
+'''
+translate = '''
+**Slicer verification**: Whenever you combine structural add-ons, export a fresh 3MF and inspect the sliced toolpaths layer by layer.
+'''
+
+[[block]]
+key = "18d4ee50b3636bf4"
+type = "heading"
+origin = '''
+## 按功能类型理解组合逻辑
+'''
+translate = '''
+## Grouping Features by What They Change
+'''
+
+[[block]]
+key = "dbd4c9e74fa935b5"
+type = "heading"
+origin = '''
+### 1. 色彩与叠色配方
+'''
+translate = '''
+### 1. Color and Layered Recipes
+'''
+
+[[block]]
+key = "d77094b8c2026935"
+type = "paragraph"
+origin = '''
+颜色工作站中的全局换色、局部区域替换与自定义配方，只调整显色层如何使用已选耗材。它们可与外轮廓、透明镀层、分离底板及各类单面结构顺畅共用。每次调整配色后重新导出 3MF 即可，具体用法见[颜色工作站入门](pathname:///zh/docs/knowledge/color-workstation-basics/)。
+'''
+translate = '''
+Global replacements, local block edits, and **Custom Recipes** in **Color Workstation** adjust how color layers use your selected filaments. They pair cleanly with **Outline**, **Transparent Coating**, **Separate Backing**, and standard structural features. Simply click **Generate** after any color edit to export an updated 3MF. See [Color Workstation Basics](pathname:///en/docs/knowledge/color-workstation-basics/).
+'''
+
+[[block]]
+key = "94a26afa154a6b85"
+type = "heading"
+origin = '''
+### 2. 外观附件与对象拆分
+'''
+translate = '''
+### 2. Surface Add-Ons and Object Organization
+'''
+
+[[block]]
+key = "3ac54ac60bae874a"
+type = "paragraph"
+origin = '''
+外轮廓、透明镀层、分离底板和自由色会在保持主体结构不变的前提下，新增或拆分导出的 3MF 对象：
+'''
+translate = '''
+These options add or split meshes in the exported 3MF while preserving the base model structure:
+'''
+
+[[block]]
+key = "3ff5c42a6615e28b"
+type = "list"
+composite = true
+origin = '''
+{{3ff5c42a6615e28b-c87d86605716bd28}}
+{{3ff5c42a6615e28b-96a9d1cf99c00761}}
+{{3ff5c42a6615e28b-dbb73e2601b669c1}}
+{{3ff5c42a6615e28b-6899c75b2a234d6d}}
+'''
+translate = '''
+{{3ff5c42a6615e28b-c87d86605716bd28}}
+{{3ff5c42a6615e28b-96a9d1cf99c00761}}
+{{3ff5c42a6615e28b-dbb73e2601b669c1}}
+{{3ff5c42a6615e28b-6899c75b2a234d6d}}
+'''
+
+[[block]]
+key = "3ff5c42a6615e28b-c87d86605716bd28"
+type = "listItem"
+composite = true
+origin = '''
+- {{3ff5c42a6615e28b-c87d86605716bd28-c63882728c085978}}
+'''
+translate = '''
+- {{3ff5c42a6615e28b-c87d86605716bd28-c63882728c085978}}
+'''
+
+[[block]]
+key = "3ff5c42a6615e28b-c87d86605716bd28-c63882728c085978"
+type = "paragraph"
+origin = '''
+**外轮廓**：沿图像有效透明边界生成外围边框（无透明通道或路径过于复杂的 SVG 可能无法生成完整轮廓）；
+'''
+translate = '''
+**Outline**: Traces a border along clean transparent edges (images without an alpha boundary or SVGs with tangled geometry may produce incomplete outlines).
+'''
+
+[[block]]
+key = "3ff5c42a6615e28b-96a9d1cf99c00761"
+type = "listItem"
+composite = true
+origin = '''
+- {{3ff5c42a6615e28b-96a9d1cf99c00761-5c62ca504abb9da8}}
+'''
+translate = '''
+- {{3ff5c42a6615e28b-96a9d1cf99c00761-5c62ca504abb9da8}}
+'''
+
+[[block]]
+key = "3ff5c42a6615e28b-96a9d1cf99c00761-5c62ca504abb9da8"
+type = "paragraph"
+origin = '''
+**透明镀层**：在显色表面生成一层独立的保护覆盖对象，导入切片器后需将其映射到透明耗材；
+'''
+translate = '''
+**Transparent Coating**: Adds a dedicated top-surface mesh—map this object to clear filament in your slicer.
+'''
+
+[[block]]
+key = "3ff5c42a6615e28b-dbb73e2601b669c1"
+type = "listItem"
+composite = true
+origin = '''
+- {{3ff5c42a6615e28b-dbb73e2601b669c1-5e060ee747c6e7ad}}
+'''
+translate = '''
+- {{3ff5c42a6615e28b-dbb73e2601b669c1-5e060ee747c6e7ad}}
+'''
+
+[[block]]
+key = "3ff5c42a6615e28b-dbb73e2601b669c1-5e060ee747c6e7ad"
+type = "paragraph"
+origin = '''
+**分离底板**：将底板拆为独立对象导出，方便单独指定耗材或切片参数，底板总厚度保持不变；
+'''
+translate = '''
+**Separate Backing**: Exports the backing plate as its own object for independent filament or infill control without changing **Backing Thickness**.
+'''
+
+[[block]]
+key = "3ff5c42a6615e28b-6899c75b2a234d6d"
+type = "listItem"
+composite = true
+origin = '''
+- {{3ff5c42a6615e28b-6899c75b2a234d6d-d53cca89da3e61bb}}
+'''
+translate = '''
+- {{3ff5c42a6615e28b-6899c75b2a234d6d-d53cca89da3e61bb}}
+'''
+
+[[block]]
+key = "3ff5c42a6615e28b-6899c75b2a234d6d-d53cca89da3e61bb"
+type = "paragraph"
+origin = '''
+**自由色**：将指定匹配色区域提取为独立对象，便于在切片器里手动绑定专色线盘。
+'''
+translate = '''
+**Free Color**: Extracts a matched color's regions into a standalone object so you can assign a dedicated spool in your slicer.
+'''
+
+[[block]]
+key = "110ddb41dd2cf81c"
+type = "paragraph"
+origin = '''
+叠加多项附件会相应增加 3MF 内的对象数量，导入切片器后展开对象列表逐一核对材料分配即可。
+'''
+translate = '''
+You can stack several of these options together; expand the full object tree in your slicer afterward to confirm every mesh's filament assignment.
+'''
+
+[[block]]
+key = "bd4d4031635aa7d6"
+type = "heading"
+origin = '''
+### 3. 几何结构与专用导出
+'''
+translate = '''
+### 3. Structural Modes and Specialized Exports
+'''
+
+[[block]]
+key = "11b609bca818010a"
+type = "paragraph"
+origin = '''
+浮雕、挂件环、冰箱贴磁铁槽、拼图、大画幅与批量模式直接改变三维几何形态或导出包结构，彼此设有自动互斥保护；导入旧版分享配方时若包含冲突开关，系统也会自动关闭冲突项以确保配置有效。
+'''
+translate = '''
+**Relief**, **Keychain Loop**, **Fridge Magnet**, **Puzzle**, **Large Format**, and **Batch** reshape 3D geometry or change how files are packaged. Lumina enforces mutual-exclusion rules among conflicting options—and if you import an older recipe file containing conflicting toggles, Lumina automatically disables one to keep the project state valid.
+'''
+
+[[block]]
+key = "d1f8ed7d5b0e35b6"
+type = "heading"
+origin = '''
+## 功能兼容性速查表
+'''
+translate = '''
+## Compatibility Quick Reference
+'''
+
+[[block]]
+key = "f55dfa3a281c22fc"
+type = "paragraph"
+origin = '''
+图例说明：
+'''
+translate = '''
+Legend:
+'''
+
+[[block]]
+key = "b460572a9272a87c"
+type = "list"
+composite = true
+origin = '''
+{{b460572a9272a87c-5cdeb93f0f16c952}}
+{{b460572a9272a87c-07cde106fc5bbf6e}}
+{{b460572a9272a87c-4d540ce2448c64fc}}
+'''
+translate = '''
+{{b460572a9272a87c-5cdeb93f0f16c952}}
+{{b460572a9272a87c-07cde106fc5bbf6e}}
+{{b460572a9272a87c-4d540ce2448c64fc}}
+'''
+
+[[block]]
+key = "b460572a9272a87c-5cdeb93f0f16c952"
+type = "listItem"
+composite = true
+origin = '''
+- {{b460572a9272a87c-5cdeb93f0f16c952-ab4418cbadde8311}}
+'''
+translate = '''
+- {{b460572a9272a87c-5cdeb93f0f16c952-ab4418cbadde8311}}
+'''
+
+[[block]]
+key = "b460572a9272a87c-5cdeb93f0f16c952-ab4418cbadde8311"
+type = "paragraph"
+origin = '''
+✅：常规流程直接支持，导出后正常切片核对即可；
+'''
+translate = '''
+✅: Supported in standard workflows (always verify sliced layers before printing);
+'''
+
+[[block]]
+key = "b460572a9272a87c-07cde106fc5bbf6e"
+type = "listItem"
+composite = true
+origin = '''
+- {{b460572a9272a87c-07cde106fc5bbf6e-3ac68dc2bd124b81}}
+'''
+translate = '''
+- {{b460572a9272a87c-07cde106fc5bbf6e-3ac68dc2bd124b81}}
+'''
+
+[[block]]
+key = "b460572a9272a87c-07cde106fc5bbf6e-3ac68dc2bd124b81"
+type = "paragraph"
+origin = '''
+⚠️：需满足特定结构条件，或在切片预览中重点核对边界；
+'''
+translate = '''
+⚠️: Supported under specific structural conditions or requires extra slicer inspection;
+'''
+
+[[block]]
+key = "b460572a9272a87c-4d540ce2448c64fc"
+type = "listItem"
+composite = true
+origin = '''
+- {{b460572a9272a87c-4d540ce2448c64fc-62068849ab2b069e}}
+'''
+translate = '''
+- {{b460572a9272a87c-4d540ce2448c64fc-62068849ab2b069e}}
+'''
+
+[[block]]
+key = "b460572a9272a87c-4d540ce2448c64fc-62068849ab2b069e"
+type = "paragraph"
+origin = '''
+—：不支持组合（界面会自动禁用、互斥关闭，或需改用对应独立流程）。
+'''
+translate = '''
+—: Mutually exclusive or unsupported together.
+'''
+
+[[block]]
+key = "11acd258fb4635e1"
+type = "table"
+origin = '''
+| 功能 | 高保真 / 像素 | 原生矢量 SVG | 单面 / 双面 | 组合与检查要点 |
+| --- | --- | --- | --- | --- |
+| 颜色工作站与自定义配方 | ✅ | ✅ | ✅ | 修改后重新生成 3MF，并在切片器中核对耗材映射 |
+| 外轮廓 | ✅ | ⚠️ | ✅ | 依赖清晰的透明边界；复杂 SVG 需检查轮廓闭合度 |
+| 透明镀层 | ✅ | ✅ | ⚠️ | 双面模式下需核对镀层所在表面与实际打印顺序 |
+| 分离底板 | ✅ | ✅ | ⚠️ | 仅拆分几何对象；双面或带槽结构需逐层核对 |
+| 自由色 | ✅ | — | ⚠️ | 按匹配色提取独立对象；原生矢量模式暂不支持 |
+| 浮雕 | ✅ | — | 仅单面 | 与掐丝珐琅互斥；独立高度图浮雕不支持批量模式 |
+| 掐丝珐琅 | — | — | — | 当前版本隐藏入口；[旧版资料](../../reference/model-features/cloisonne/cloisonne.mdx)供归档参考 |
+| 挂件环 | ✅ | ⚠️ | 推荐单面 | 不与磁铁槽或拼图共用；切片后检查环孔与主体连接宽度 |
+| 冰箱贴磁铁槽 | ✅ | ⚠️ | 仅单面 | 不与拼图、大画幅或挂件环共用 |
+| 拼图 | 专用流程 | — | 专用结构 | 不与批量、大画幅、磁铁槽或挂件环共用 |
+| 大画幅 | 专用流程 | ⚠️ | 逐块检查 | 不与拼图或磁铁槽共用；复杂 SVG 可能自动转为栅格分块 |
+| 批量模式 | 专用流程 | ⚠️ | 逐文件检查 | 不支持拼图、验证色卡与独立高度图浮雕 |
+'''
+translate = '''
+| Feature | High-Fidelity / Pixel Art | Native Vector SVG | Single / Double-Sided | Key considerations |
+| --- | --- | --- | --- | --- |
+| Color Workstation & Custom Recipe | ✅ | ✅ | ✅ | Re-run **Generate** and verify spool mappings after edits |
+| Outline | ✅ | ⚠️ | ✅ | Needs a clean alpha or vector boundary; inspect complex SVG borders |
+| Transparent Coating | ✅ | ✅ | ⚠️ | On double-sided models, check which face is coated and verify print order |
+| Separate Backing | ✅ | ✅ | ⚠️ | Splits meshes only; inspect layers on double-sided or recessed pieces |
+| Free Color | ✅ | — | ⚠️ | Exports matched colors as objects; unavailable in Vector mode |
+| Relief | ✅ | — | Single-sided only | Exclusive with Cloisonné; uploaded height-map Relief is unavailable in Batch |
+| Cloisonné | — | — | — | Hidden in the current release; [older documentation](../../reference/model-features/cloisonne/cloisonne.mdx) is archived |
+| Keychain Loop | ✅ | ⚠️ | Single-sided recommended | Exclusive with Fridge Magnet and Puzzle; check hole clearance and neck width |
+| Fridge Magnet | ✅ | ⚠️ | Single-sided only | Exclusive with Puzzle, Large Format, and Keychain Loop |
+| Puzzle | Dedicated workflow | — | Dedicated structure | Exclusive with Batch, Large Format, Fridge Magnet, and Keychain Loop |
+| Large Format | Dedicated workflow | ⚠️ | Check each tile | Exclusive with Puzzle and Fridge Magnet; complex SVGs may fall back to raster tiling |
+| Batch | Dedicated workflow | ⚠️ | Check each file | Unavailable with Puzzle, Validation Card, and uploaded height-map Relief |
+'''
+
+[[block]]
+key = "c1a711cc7a4affc1"
+type = "paragraph"
+origin = '''
+表中的“原生矢量 SVG”指 Lumina 的矢量建模模式（上传包含真实路径的 SVG）。建模模式选型详见[高保真、像素和 SVG 应该怎么选](pathname:///zh/docs/knowledge/image-mode-selection/)。
+'''
+translate = '''
+Here, **Native Vector SVG** refers to Lumina's **Vector** modeling mode using real SVG path geometry rather than a raster PNG wrapped inside an `.svg` file. See [High-Fidelity, Pixel Art, or Vector?](pathname:///en/docs/knowledge/image-mode-selection/).
+'''
+
+[[block]]
+key = "62dcdf70a2d21e49"
+type = "heading"
+origin = '''
+## 五类常见作品的推荐配置
+'''
+translate = '''
+## Five Common Starting Setups
+'''
+
+[[block]]
+key = "e3facdea5c2d5d0d"
+type = "heading"
+origin = '''
+### 普通平面摆件或画片
+'''
+translate = '''
+### Flat Display Plaques and Prints
+'''
+
+[[block]]
+key = "e8dd1e539edc1c9e"
+type = "paragraph"
+origin = '''
+选用“高保真 / 像素艺术 / 矢量模式”之一，先生成基础预览并用颜色工作站微调色彩；确认画面满意后，再按需逐项开启外轮廓、透明镀层或分离底板。
+'''
+translate = '''
+Pick **High-Fidelity**, **Pixel Art**, or **Vector** mode, verify your base **Preview**, and refine colors in **Color Workstation**. Once the color match looks right, add **Outline**, **Transparent Coating**, or **Separate Backing** one step at a time.
+'''
+
+[[block]]
+key = "dc69a8a7a6861297"
+type = "heading"
+origin = '''
+### 钥匙扣与随身挂件
+'''
+translate = '''
+### Keychains and Pendants
+'''
+
+[[block]]
+key = "162ff87199ebcbe0"
+type = "paragraph"
+origin = '''
+采用单面结构并开启**挂件环**，可搭配外轮廓与透明镀层。导出切片后重点放大检查挂件环与主体边缘的咬合宽度、环孔通畅度及层间连续刀路（开启挂件环时请勿同时勾选磁铁槽或拼图）。
+'''
+translate = '''
+Use a single-sided structure with **Keychain Loop**, then add **Outline** or **Transparent Coating** if desired. In your slicer's Layer Preview, zoom in on the loop joint to confirm a solid, continuous bridge to the main body and an unobstructed hole (leave **Fridge Magnet** and **Puzzle** off).
+'''
+
+[[block]]
+key = "bb8217c503713e4d"
+type = "heading"
+origin = '''
+### 冰箱贴
+'''
+translate = '''
+### Fridge Magnets
+'''
+
+[[block]]
+key = "d5dbf41b5b7627a8"
+type = "paragraph"
+origin = '''
+切换为单面结构并开启**磁铁槽**，可搭配颜色工作站、外轮廓与透明镀层（不与挂件环、拼图或大画幅共用）。设置时需确保底板厚度充足，使磁铁槽深度不会侵入显色层，且槽底留有足够的支撑壁厚。
+'''
+translate = '''
+Select a single-sided structure and enable **Fridge Magnet**. You can pair it with **Color Workstation**, **Outline**, and **Transparent Coating** (while keeping **Keychain Loop**, **Puzzle**, and **Large Format** off). Make sure **Backing Thickness** leaves plenty of solid wall behind the magnet recess without cutting into the fine color layers.
+'''
+
+[[block]]
+key = "9f4a7314887e86a3"
+type = "heading"
+origin = '''
+### 浮雕画
+'''
+translate = '''
+### Relief Models
+'''
+
+[[block]]
+key = "c2d242b3759a5400"
+type = "paragraph"
+origin = '''
+使用位图素材配合单面结构，先单独开启**浮雕**确认高低起伏方向符合预期，再决定是否叠加外轮廓或透明镀层。原生矢量模式不支持浮雕；批量模式仅支持基于颜色计算高度的浮雕，不支持单独上传外部高度图。
+'''
+translate = '''
+Start with a bitmap image and a single-sided structure, enable **Relief** first to verify height direction, and then optionally add **Outline** or **Transparent Coating**. **Vector** mode does not support Relief, and **Batch** mode supports color-driven relief heights rather than separately uploaded height maps.
+'''
+
+[[block]]
+key = "3014f039f140db88"
+type = "heading"
+origin = '''
+### 拼图、大画幅与批量生成
+'''
+translate = '''
+### Puzzle, Large Format, and Batch Workflows
+'''
+
+[[block]]
+key = "2f56c3aba02e986f"
+type = "paragraph"
+origin = '''
+这三项属于独立的专用导出流程：
+'''
+translate = '''
+Run each of these as its own dedicated export workflow:
+'''
+
+[[block]]
+key = "738965981ac98623"
+type = "list"
+composite = true
+origin = '''
+{{738965981ac98623-4bd73345f858cd1f}}
+{{738965981ac98623-e4d06695586e055b}}
+{{738965981ac98623-a058fec11861948e}}
+'''
+translate = '''
+{{738965981ac98623-4bd73345f858cd1f}}
+{{738965981ac98623-e4d06695586e055b}}
+{{738965981ac98623-a058fec11861948e}}
+'''
+
+[[block]]
+key = "738965981ac98623-4bd73345f858cd1f"
+type = "listItem"
+composite = true
+origin = '''
+- {{738965981ac98623-4bd73345f858cd1f-cbeadc331debc7eb}}
+'''
+translate = '''
+- {{738965981ac98623-4bd73345f858cd1f-cbeadc331debc7eb}}
+'''
+
+[[block]]
+key = "738965981ac98623-4bd73345f858cd1f-cbeadc331debc7eb"
+type = "paragraph"
+origin = '''
+**拼图**：关闭大画幅、批量、磁铁槽与挂件环，按拼图专用参数生成并检查咬合公差；
+'''
+translate = '''
+**Puzzle**: Keep **Large Format**, **Batch**, **Fridge Magnet**, and **Keychain Loop** turned off, and inspect interlocking tolerances after slicing.
+'''
+
+[[block]]
+key = "738965981ac98623-e4d06695586e055b"
+type = "listItem"
+composite = true
+origin = '''
+- {{738965981ac98623-e4d06695586e055b-0674ab7b4db3b576}}
+'''
+translate = '''
+- {{738965981ac98623-e4d06695586e055b-0674ab7b4db3b576}}
+'''
+
+[[block]]
+key = "738965981ac98623-e4d06695586e055b-0674ab7b4db3b576"
+type = "paragraph"
+origin = '''
+**大画幅**：先在单件模式下验证好配色与层高，再按[大画幅：分块尺寸、拼接顺序和 ZIP 文件](pathname:///zh/docs/knowledge/large-format/)设置单块尺寸上限并逐块切片；
+'''
+translate = '''
+**Large Format**: Validate colors and layer settings on a normal single piece first, then follow [Large Format: Tile Size, Assembly Order, and ZIP Output](pathname:///en/docs/knowledge/large-format/) to configure tile bounds and slice each tile.
+'''
+
+[[block]]
+key = "738965981ac98623-a058fec11861948e"
+type = "listItem"
+composite = true
+origin = '''
+- {{738965981ac98623-a058fec11861948e-23d63402d052f6f9}}
+'''
+translate = '''
+- {{738965981ac98623-a058fec11861948e-23d63402d052f6f9}}
+'''
+
+[[block]]
+key = "738965981ac98623-a058fec11861948e-23d63402d052f6f9"
+type = "paragraph"
+origin = '''
+**批量生成**：先用一张代表素材在单图模式下跑通全部参数，再导入整批图片统一导出。
+'''
+translate = '''
+**Batch**: Test your shared color source and parameters on one representative image in single-image mode before loading the full queue.
+'''
+
+[[block]]
+key = "44d1bce2916111d5"
+type = "heading"
+origin = '''
+## 为什么开启某项功能后，另一个开关会自动关闭？
+'''
+translate = '''
+## Why Toggling One Feature Turns Another Off
+'''
+
+[[block]]
+key = "00b036356ad7a1a5"
+type = "paragraph"
+origin = '''
+当两个功能在几何结构上互斥时，Lumina Studio 会自动关闭冲突项以保证生成的网格合法：
+'''
+translate = '''
+To prevent invalid 3D meshes, Lumina automatically disables conflicting structural options when you toggle a mutually exclusive mode:
+'''
+
+[[block]]
+key = "725776a58d6b7fd4"
+type = "list"
+composite = true
+origin = '''
+{{725776a58d6b7fd4-4069787d282e5e54}}
+{{725776a58d6b7fd4-5c7294c239035acd}}
+{{725776a58d6b7fd4-9e836f5651cb0719}}
+{{725776a58d6b7fd4-e06e093087a78b4e}}
+'''
+translate = '''
+{{725776a58d6b7fd4-4069787d282e5e54}}
+{{725776a58d6b7fd4-5c7294c239035acd}}
+{{725776a58d6b7fd4-9e836f5651cb0719}}
+{{725776a58d6b7fd4-e06e093087a78b4e}}
+'''
+
+[[block]]
+key = "725776a58d6b7fd4-4069787d282e5e54"
+type = "listItem"
+composite = true
+origin = '''
+- {{725776a58d6b7fd4-4069787d282e5e54-7fa9e5a8d5ee5679}}
+'''
+translate = '''
+- {{725776a58d6b7fd4-4069787d282e5e54-7fa9e5a8d5ee5679}}
+'''
+
+[[block]]
+key = "725776a58d6b7fd4-4069787d282e5e54-7fa9e5a8d5ee5679"
+type = "paragraph"
+origin = '''
+开启**冰箱贴磁铁槽** → 自动切为单面结构，并关闭拼图、大画幅与挂件环；
+'''
+translate = '''
+Enabling **Fridge Magnet** switches to single-sided mode and turns off **Puzzle**, **Large Format**, and **Keychain Loop**;
+'''
+
+[[block]]
+key = "725776a58d6b7fd4-5c7294c239035acd"
+type = "listItem"
+composite = true
+origin = '''
+- {{725776a58d6b7fd4-5c7294c239035acd-794199504005bb33}}
+'''
+translate = '''
+- {{725776a58d6b7fd4-5c7294c239035acd-794199504005bb33}}
+'''
+
+[[block]]
+key = "725776a58d6b7fd4-5c7294c239035acd-794199504005bb33"
+type = "paragraph"
+origin = '''
+开启**拼图** → 自动关闭大画幅、挂件环与磁铁槽；
+'''
+translate = '''
+Enabling **Puzzle** turns off **Large Format**, **Keychain Loop**, and **Fridge Magnet**;
+'''
+
+[[block]]
+key = "725776a58d6b7fd4-9e836f5651cb0719"
+type = "listItem"
+composite = true
+origin = '''
+- {{725776a58d6b7fd4-9e836f5651cb0719-d2ee4852af66ffe8}}
+'''
+translate = '''
+- {{725776a58d6b7fd4-9e836f5651cb0719-d2ee4852af66ffe8}}
+'''
+
+[[block]]
+key = "725776a58d6b7fd4-9e836f5651cb0719-d2ee4852af66ffe8"
+type = "paragraph"
+origin = '''
+开启**浮雕** → 自动切为单面结构（旧版中还会同步关闭掐丝珐琅）；
+'''
+translate = '''
+Enabling **Relief** switches to single-sided mode (and turned off **Cloisonné** in earlier versions);
+'''
+
+[[block]]
+key = "725776a58d6b7fd4-e06e093087a78b4e"
+type = "listItem"
+composite = true
+origin = '''
+- {{725776a58d6b7fd4-e06e093087a78b4e-03ae19d000a7e0e2}}
+'''
+translate = '''
+- {{725776a58d6b7fd4-e06e093087a78b4e-03ae19d000a7e0e2}}
+'''
+
+[[block]]
+key = "725776a58d6b7fd4-e06e093087a78b4e-03ae19d000a7e0e2"
+type = "paragraph"
+origin = '''
+进入**批量模式** → 拼图入口自动禁用。
+'''
+translate = '''
+Entering **Batch** mode disables **Puzzle**.
+'''
+
+[[block]]
+key = "746c16108f877505"
+type = "paragraph"
+origin = '''
+切换结构类功能后，扫一眼右侧或面板中的当前设置摘要即可确认最终生效的组合。
+'''
+translate = '''
+Check the settings summary after switching structural modes to confirm which options are active.
+'''
+
+[[block]]
+key = "53181f4260deda7b"
+type = "heading"
+origin = '''
+## 底板层高修改器的适用边界
+'''
+translate = '''
+## Backing Layer-Height Modifier Boundaries
+'''
+
+[[block]]
+key = "1c7b793a8d6a049d"
+type = "paragraph"
+origin = '''
+底板层高修改器专为常规底板结构与兼容的 Bambu 系切片器设计，在以下场景中需区别对待：
+'''
+translate = '''
+The **Backing Layer Height Modifier** is built for standard flat backings opened in compatible Bambu-family slicers. Keep these exceptions in mind:
+'''
+
+[[block]]
+key = "044102b35d81ebe0"
+type = "list"
+composite = true
+origin = '''
+{{044102b35d81ebe0-85eca5feba1a45c4}}
+{{044102b35d81ebe0-df33c1272ccd7a97}}
+{{044102b35d81ebe0-47fa2ccded9ea4c2}}
+{{044102b35d81ebe0-e31c0cbf69e6dc88}}
+'''
+translate = '''
+{{044102b35d81ebe0-85eca5feba1a45c4}}
+{{044102b35d81ebe0-df33c1272ccd7a97}}
+{{044102b35d81ebe0-47fa2ccded9ea4c2}}
+{{044102b35d81ebe0-e31c0cbf69e6dc88}}
+'''
+
+[[block]]
+key = "044102b35d81ebe0-85eca5feba1a45c4"
+type = "listItem"
+composite = true
+origin = '''
+- {{044102b35d81ebe0-85eca5feba1a45c4-fff739b3028dec2e}}
+'''
+translate = '''
+- {{044102b35d81ebe0-85eca5feba1a45c4-fff739b3028dec2e}}
+'''
+
+[[block]]
+key = "044102b35d81ebe0-85eca5feba1a45c4-fff739b3028dec2e"
+type = "paragraph"
+origin = '''
+**梯度色卡**：具有固定的校准层高与打印规范，不套用常规底板层高修改器；
+'''
+translate = '''
+**Gradient Calibration Cards** use fixed layer calibration heights and do not use the backing modifier;
+'''
+
+[[block]]
+key = "044102b35d81ebe0-df33c1272ccd7a97"
+type = "listItem"
+composite = true
+origin = '''
+- {{044102b35d81ebe0-df33c1272ccd7a97-5c83266dc3235bff}}
+'''
+translate = '''
+- {{044102b35d81ebe0-df33c1272ccd7a97-5c83266dc3235bff}}
+'''
+
+[[block]]
+key = "044102b35d81ebe0-df33c1272ccd7a97-5c83266dc3235bff"
+type = "paragraph"
+origin = '''
+**拼图等专用导出**：由专用结构自行管理切片参数，无需叠加额外高度范围；
+'''
+translate = '''
+**Puzzle** and specialized exports manage their own structural slicing parameters;
+'''
+
+[[block]]
+key = "044102b35d81ebe0-47fa2ccded9ea4c2"
+type = "listItem"
+composite = true
+origin = '''
+- {{044102b35d81ebe0-47fa2ccded9ea4c2-f58ff026b23fa784}}
+'''
+translate = '''
+- {{044102b35d81ebe0-47fa2ccded9ea4c2-f58ff026b23fa784}}
+'''
+
+[[block]]
+key = "044102b35d81ebe0-47fa2ccded9ea4c2-f58ff026b23fa784"
+type = "paragraph"
+origin = '''
+**双面、浮雕与磁铁槽模型**：切片后需拖动层滑块确认粗层高区间仅覆盖纯底板部分，未触及显色层或磁铁槽壁；
+'''
+translate = '''
+**Double-sided, Relief, and Fridge Magnet** models should be checked layer by layer in slicer Preview to confirm that coarse backing layers never encroach on color layers or magnet cavities;
+'''
+
+[[block]]
+key = "044102b35d81ebe0-e31c0cbf69e6dc88"
+type = "listItem"
+composite = true
+origin = '''
+- {{044102b35d81ebe0-e31c0cbf69e6dc88-561f5df3106cd3cd}}
+'''
+translate = '''
+- {{044102b35d81ebe0-e31c0cbf69e6dc88-561f5df3106cd3cd}}
+'''
+
+[[block]]
+key = "044102b35d81ebe0-e31c0cbf69e6dc88-561f5df3106cd3cd"
+type = "paragraph"
+origin = '''
+**分离底板**：分离底板改变的是对象拆分，底板层高修改器改变的是 Z 轴局部层高，两者互不替代。
+'''
+translate = '''
+**Separate Backing** splits the backing into its own mesh, whereas **Backing Layer Height Modifier** adjusts Z-range layer thickness—enable either or both as needed.
+'''
+
+[[block]]
+key = "42394749664caf01"
+type = "paragraph"
+origin = '''
+详细原理与核对方法见[底板、显色层和层高修改器应该怎样设置](pathname:///zh/docs/knowledge/base-color-layer-height/)。
+'''
+translate = '''
+See [Backing, Color Layers, and Layer-Height Modifiers](pathname:///en/docs/knowledge/base-color-layer-height/) for details.
+'''
+
+[[block]]
+key = "23a65be1ed4366b9"
+type = "heading"
+origin = '''
+## 叠加多项功能后的标准核对清单
+'''
+translate = '''
+## Checklist When Combining Features
+'''
+
+[[block]]
+key = "fb176d5125199561"
+type = "list"
+composite = true
+origin = '''
+{{fb176d5125199561-d55d5c120058ba5a}}
+{{fb176d5125199561-1cb43ff1f4b45525}}
+{{fb176d5125199561-7ac6d8e15d206837}}
+{{fb176d5125199561-1232aae91df91555}}
+{{fb176d5125199561-c4449d961e38a93f}}
+{{fb176d5125199561-4e161d3293135c8c}}
+{{fb176d5125199561-29862179c8a814f6}}
+'''
+translate = '''
+{{fb176d5125199561-d55d5c120058ba5a}}
+{{fb176d5125199561-1cb43ff1f4b45525}}
+{{fb176d5125199561-7ac6d8e15d206837}}
+{{fb176d5125199561-1232aae91df91555}}
+{{fb176d5125199561-c4449d961e38a93f}}
+{{fb176d5125199561-4e161d3293135c8c}}
+{{fb176d5125199561-29862179c8a814f6}}
+'''
+
+[[block]]
+key = "fb176d5125199561-d55d5c120058ba5a"
+type = "listItem"
+composite = true
+origin = '''
+1. {{fb176d5125199561-d55d5c120058ba5a-617fd1824ce367ef}}
+'''
+translate = '''
+1. {{fb176d5125199561-d55d5c120058ba5a-617fd1824ce367ef}}
+'''
+
+[[block]]
+key = "fb176d5125199561-d55d5c120058ba5a-617fd1824ce367ef"
+type = "paragraph"
+origin = '''
+**先看基础预览**：确认建模模式、色彩来源、目标尺寸与单双面结构无误；
+'''
+translate = '''
+**Verify the base Preview**: Check your modeling mode, color source, dimensions, and single/double-sided structure first.
+'''
+
+[[block]]
+key = "fb176d5125199561-1cb43ff1f4b45525"
+type = "listItem"
+composite = true
+origin = '''
+2. {{fb176d5125199561-1cb43ff1f4b45525-5c9a833ef373d07f}}
+'''
+translate = '''
+2. {{fb176d5125199561-1cb43ff1f4b45525-5c9a833ef373d07f}}
+'''
+
+[[block]]
+key = "fb176d5125199561-1cb43ff1f4b45525-5c9a833ef373d07f"
+type = "paragraph"
+origin = '''
+**逐项叠加预览**：每增加一项外观或结构功能，及时对照 2D、3D 与分层预览；
+'''
+translate = '''
+**Add features one at a time**: Inspect 2D, 3D, and **Layer Preview** after each addition.
+'''
+
+[[block]]
+key = "fb176d5125199561-7ac6d8e15d206837"
+type = "listItem"
+composite = true
+origin = '''
+3. {{fb176d5125199561-7ac6d8e15d206837-ece827ea19fa01a5}}
+'''
+translate = '''
+3. {{fb176d5125199561-7ac6d8e15d206837-ece827ea19fa01a5}}
+'''
+
+[[block]]
+key = "fb176d5125199561-7ac6d8e15d206837-ece827ea19fa01a5"
+type = "paragraph"
+origin = '''
+**重新导出 3MF**：每次改动开关或配色后点击“生成”下载最新文件；
+'''
+translate = '''
+**Export a fresh 3MF**: Click **Generate** after every parameter or color change.
+'''
+
+[[block]]
+key = "fb176d5125199561-1232aae91df91555"
+type = "listItem"
+composite = true
+origin = '''
+4. {{fb176d5125199561-1232aae91df91555-622bd92e4a52412f}}
+'''
+translate = '''
+4. {{fb176d5125199561-1232aae91df91555-622bd92e4a52412f}}
+'''
+
+[[block]]
+key = "fb176d5125199561-1232aae91df91555-622bd92e4a52412f"
+type = "paragraph"
+origin = '''
+**按完整项目导入切片器**：展开对象列表，核对底板、显色层、自由色、镀层、外轮廓与附件对象齐全；
+'''
+translate = '''
+**Open as a full project**: Expand the slicer's object tree to check the backing, color meshes, Free Color objects, coating, outline, and attachments.
+'''
+
+[[block]]
+key = "fb176d5125199561-c4449d961e38a93f"
+type = "listItem"
+composite = true
+origin = '''
+5. {{fb176d5125199561-c4449d961e38a93f-c884a2faa09082d7}}
+'''
+translate = '''
+5. {{fb176d5125199561-c4449d961e38a93f-c884a2faa09082d7}}
+'''
+
+[[block]]
+key = "fb176d5125199561-c4449d961e38a93f-c884a2faa09082d7"
+type = "paragraph"
+origin = '''
+**绑定物理料槽**：将各项目耗材准确映射到 AMS 或多色系统中的实体线盘；
+'''
+translate = '''
+**Map physical spools**: Match every project filament to the real spool and hardware slot on your printer.
+'''
+
+[[block]]
+key = "fb176d5125199561-4e161d3293135c8c"
+type = "listItem"
+composite = true
+origin = '''
+6. {{fb176d5125199561-4e161d3293135c8c-b8d1f898640dce3d}}
+'''
+translate = '''
+6. {{fb176d5125199561-4e161d3293135c8c-b8d1f898640dce3d}}
+'''
+
+[[block]]
+key = "fb176d5125199561-4e161d3293135c8c-b8d1f898640dce3d"
+type = "paragraph"
+origin = '''
+**逐层检查切片刀路**：旋转至显色面并拖动层滑块，检查每层材料、局部层高过渡与附件连接强度；
+'''
+translate = '''
+**Inspect sliced toolpaths**: Rotate to the display face and scrub through every layer to check filament swaps, local layer heights, and attachment joints.
+'''
+
+[[block]]
+key = "fb176d5125199561-29862179c8a814f6"
+type = "listItem"
+composite = true
+origin = '''
+7. {{fb176d5125199561-29862179c8a814f6-b4245382d603cb1c}}
+'''
+translate = '''
+7. {{fb176d5125199561-29862179c8a814f6-b4245382d603cb1c}}
+'''
+
+[[block]]
+key = "fb176d5125199561-29862179c8a814f6-b4245382d603cb1c"
+type = "paragraph"
+origin = '''
+**关键结构先打小样**：首次尝试磁铁槽公差、细挂环、双面镀层或新耗材组合时，建议先切局部小样试打。
+'''
+translate = '''
+**Print a quick test piece**: For magnet fit, narrow keychain loops, double-sided coatings, or new filament sets, run a small test sample before committing to a large print.
+'''
+
+[[block]]
+key = "38693df323e31ae2"
+type = "paragraph"
+origin = '''
+对象与料槽核对流程详见[把 Lumina 3MF 正确导入切片器](pathname:///zh/docs/tutorials/slicer-material-mapping/)。
+'''
+translate = '''
+For full slicer import and slot-mapping steps, see [Import a Lumina 3MF into Your Slicer Correctly](pathname:///en/docs/tutorials/slicer-material-mapping/).
+'''
+
+[[block]]
+key = "cbbf3b866f003400"
+type = "heading"
+origin = '''
+## 常见问题 Q&A
+'''
+translate = '''
+## Common Questions
+'''
+
+[[block]]
+key = "85858fde80a8dcb0"
+type = "heading"
+origin = '''
+### 外轮廓、透明镀层和挂件环可以同时开启吗？
+'''
+translate = '''
+### Can I combine Outline, Transparent Coating, and Keychain Loop?
+'''
+
+[[block]]
+key = "3d4f5ad1599eb6ce"
+type = "paragraph"
+origin = '''
+制作单面钥匙扣或挂牌时可以同时开启这三项。导出切片后请重点确认三件事：外轮廓未遮盖主体细节、镀层对象已指定为透明耗材、挂件环与主体连接处有连续扎实的打印路径。
+'''
+translate = '''
+Yes—those three work well together on standard single-sided pendants. In your slicer, verify that the outline preserves fine silhouette details, the coating object is assigned to clear filament, and the loop neck prints with continuous perimeters.
+'''
+
+[[block]]
+key = "feba39a4fceaf24f"
+type = "heading"
+origin = '''
+### 能同时加磁铁槽和挂件环做成两用款吗？
+'''
+translate = '''
+### Can I put both a magnet recess and a keychain loop on the same piece?
+'''
+
+[[block]]
+key = "1c4fa957944eada8"
+type = "paragraph"
+origin = '''
+Lumina 内置开关将磁铁槽与挂件环设为互斥项。如需制作带挂环的冰箱贴，可先导出带挂件环的 3MF，再在切片软件中添加圆柱体“负零件”制作背部磁铁槽。
+'''
+translate = '''
+Lumina treats **Fridge Magnet** and **Keychain Loop** as mutually exclusive. If you want a dual-purpose piece, export the model with **Keychain Loop** enabled and add a cylindrical negative part on the back face directly in your slicer to cut the magnet pocket.
+'''
+
+[[block]]
+key = "a52734c9a56b89e3"
+type = "heading"
+origin = '''
+### 为什么切换到矢量模式后找不到浮雕选项？
+'''
+translate = '''
+### Why is Relief missing when Vector mode is selected?
+'''
+
+[[block]]
+key = "6c4a3d5ef011b49c"
+type = "paragraph"
+origin = '''
+浮雕依赖连续像素灰度或高度信息构建起伏曲面，原生矢量模式仅生成平层路径结构。制作浮雕作品请上传 PNG、JPG 或 WebP 位图并选用单面结构。
+'''
+translate = '''
+**Relief** builds continuous height variations from raster pixel data, whereas **Vector** mode extrudes flat path regions. Upload a PNG, JPG, or WebP bitmap in single-sided mode to use **Relief**.
+'''
+
+[[block]]
+key = "bf8f4d0b905bd512"
+type = "heading"
+origin = '''
+### 为什么大画幅模式导入 SVG 后边缘看起来像位图？
+'''
+translate = '''
+### Why does my Large Format SVG look rasterized along tile edges?
+'''
+
+[[block]]
+key = "77f178e8679227aa"
+type = "paragraph"
+origin = '''
+大画幅模式会优先按原生矢量路径分块；若遇到超复杂路径或不支持直接矢量裁切的 SVG 特性，会自动回退为高精度栅格分块以保证顺利生成。建议先打印单块边角样件确认边缘精度。
+'''
+translate = '''
+**Large Format** splits clean vector paths natively whenever possible, falling back to high-resolution raster tiling when an SVG contains unsupported features or extreme path complexity. Inspect edges in Preview and test-print one tile first if sharpness is critical.
+'''
+
+[[block]]
+key = "8eedc8110bb5cbaa"
+type = "heading"
+origin = '''
+### 导入别人的分享配方后少了一个开关，是文件损坏了吗？
+'''
+translate = '''
+### Why did an imported recipe turn off one of its saved switches?
+'''
+
+[[block]]
+key = "e4b06cb15376af27"
+type = "paragraph"
+origin = '''
+通常不是文件损坏。当旧版分享配方中同时记录了新版已设为互斥的选项时，Lumina 会自动关闭其中冲突的一项以恢复合法状态，导入后核对一次设置摘要与预览即可。
+'''
+translate = '''
+If a shared recipe comes from an older version or contains options that conflict under current rules, Lumina disables the conflicting toggle so the project can generate cleanly. Review the active settings summary and **Preview** after importing.
+'''
+
+[[block]]
+key = "c8d295af7e2a033b"
+type = "heading"
+origin = '''
+### 切片软件没有报错，是不是就能直接打印了？
+'''
+translate = '''
+### If my slicer finishes without warnings, is the feature combination ready to print?
+'''
+
+[[block]]
+key = "a68586c99a7ab5ba"
+type = "paragraph"
+origin = '''
+切片无报错说明三维网格闭合合法，而磁铁槽剩余壁厚、挂环抗拉宽度、透明镀层材料分配以及显色面朝向仍需人工在切片“预览”视图中逐层核对确认。
+'''
+translate = '''
+Clean slicing confirms valid 3D mesh geometry, while practical details—magnet floor thickness, keychain loop strength, clear coating assignment, and display-face orientation—still require a quick layer-by-layer check in slicer Preview.
+'''

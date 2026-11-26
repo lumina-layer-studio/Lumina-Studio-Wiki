@@ -1,0 +1,197 @@
+[metadata]
+reviewed_source = "eecb1a7a24ee37e682fca760ee189a844f148e5ac536187573c00a0d95913f54"
+
+[[block]]
+key = "b2a1bb94fea27ce0"
+type = "yaml"
+origin = '''
+---
+title: "色彩数据来源"
+description: "对比耗材档案与经典 LUT 两种色彩数据来源，并说明切换来源后的参数变化。"
+sidebar_position: 2
+---
+'''
+translate = '''
+---
+title: "Color Data Source"
+description: "Compare Material Archive and Classic LUT color data sources and see what resets when you switch between them."
+sidebar_position: 2
+---
+'''
+
+[[block]]
+key = "fda121dce165a910"
+type = "heading"
+origin = '''
+# 色彩数据来源
+'''
+translate = '''
+# Color Data Source
+'''
+
+[[block]]
+key = "e6661fa77524fea1"
+type = "paragraph"
+origin = '''
+**色彩数据来源**决定 Lumina Studio 依据哪类色彩数据，将图片颜色转换为可打印的逐层耗材配方。切换来源不会改动原图，但会同步切换下方可配置的耗材组合或品牌 LUT、叠色层数及底板耗材选项。
+'''
+translate = '''
+**Color Data Source** selects which color data Lumina Studio uses to convert image colors into printable, layer-by-layer filament recipes. Changing the source leaves your artwork untouched while updating the material library, brand LUT, layer count, and base plate options shown below it.
+'''
+
+[[block]]
+key = "e1c52527162e7ab6"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/02-current-source.webp').default}
+  alt="基础设置中的色彩数据来源：耗材档案和经典 LUT"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/02-current-source.webp').default}
+  alt="Color Data Source in Basic Settings, showing Material Archive and Classic LUT"
+/>
+'''
+
+[[block]]
+key = "b33f20e485ea9832"
+type = "heading"
+origin = '''
+## 两种来源对比
+'''
+translate = '''
+## Comparing the Two Sources
+'''
+
+[[block]]
+key = "9c23f345f57f0d4a"
+type = "table"
+origin = '''
+| 选项 | 使用的数据 | 适用场景 |
+| --- | --- | --- |
+| 耗材档案 | 从梯度卡实测提取并保存在耗材库中的单卷耗材档案 | 自由组合已实测耗材，由求解器实时计算逐层叠色配方 |
+| 经典 LUT | 预先生成或实测校准的“颜色—配方”查找表 | 直接选用内置 LUT、组合多个兼容 LUT，或导入自定义 LUT 文件 |
+'''
+translate = '''
+| Option | Data used | When to use |
+| --- | --- | --- |
+| Material Archive | Individual filament profiles measured from gradient cards and saved in your material library | Freely combining measured spools and letting the solver calculate recipes for that set |
+| Classic LUT | A precomputed color-to-recipe lookup table | Using built-in LUTs, combining compatible multi-LUT sets, or importing your own LUT file |
+'''
+
+[[block]]
+key = "578d2678a24ed799"
+type = "paragraph"
+origin = '''
+同一张图片在不同来源下会得到不同的候选色域与配方结果。首次使用且未保存偏好时，默认选中**耗材档案**；已有使用记录时则自动保留上次选定的来源。
+'''
+translate = '''
+The same image can produce different candidate palettes and layer recipes under each source. **Material Archive** is selected by default when no preference has been saved; afterward, Lumina Studio remembers your last selection.
+'''
+
+[[block]]
+key = "de66c49ea8c7d348"
+type = "paragraph"
+origin = '''
+早期版本曾提供“反推 LUT”入口，现已从该开关中移除，历史背景可参阅[旧版说明](../inferred-lut-source/inferred-lut-source.mdx)。
+'''
+translate = '''
+Earlier versions also included an Inferred LUT option, which is no longer part of this selector; see its [older documentation](../inferred-lut-source/inferred-lut-source.mdx) for background.
+'''
+
+[[block]]
+key = "2045a06f64602b54"
+type = "heading"
+origin = '''
+## 切换来源后的变化
+'''
+translate = '''
+## Switching Sources
+'''
+
+[[block]]
+key = "81524eb317a60101"
+type = "paragraph"
+origin = '''
+切换色彩数据来源后，软件会自动清空当前预览、已生成的 3MF 及下载链接，并重置仅适用于原来源的设置项。切换完成后，请重新确认目标耗材组合或 LUT，再重新生成预览与模型。
+'''
+translate = '''
+Switching **Color Data Source** clears the active preview, generated 3MF, and download link, and resets settings specific to the previous source. After switching, confirm your chosen materials or LUT and generate a fresh preview and model.
+'''
+
+[[block]]
+key = "db567adb3579e92c"
+type = "heading"
+origin = '''
+## 选择来源后继续设置
+'''
+translate = '''
+## Continue with Your Selected Source
+'''
+
+[[block]]
+key = "2c7f169c4868de64"
+type = "list"
+composite = true
+origin = '''
+{{2c7f169c4868de64-48e5466aa85c4c10}}
+{{2c7f169c4868de64-923a9cef5e65875c}}
+'''
+translate = '''
+{{2c7f169c4868de64-48e5466aa85c4c10}}
+{{2c7f169c4868de64-923a9cef5e65875c}}
+'''
+
+[[block]]
+key = "2c7f169c4868de64-48e5466aa85c4c10"
+type = "listItem"
+composite = true
+origin = '''
+- {{2c7f169c4868de64-48e5466aa85c4c10-a8a2cb1c2ecd59fb}}
+'''
+translate = '''
+- {{2c7f169c4868de64-48e5466aa85c4c10-a8a2cb1c2ecd59fb}}
+'''
+
+[[block]]
+key = "2c7f169c4868de64-48e5466aa85c4c10-a8a2cb1c2ecd59fb"
+type = "paragraph"
+origin = '''
+[经典 LUT](../legacy-lut-source/legacy-lut-source.mdx)
+'''
+translate = '''
+[Classic LUT](../legacy-lut-source/legacy-lut-source.mdx)
+'''
+
+[[block]]
+key = "2c7f169c4868de64-923a9cef5e65875c"
+type = "listItem"
+composite = true
+origin = '''
+- {{2c7f169c4868de64-923a9cef5e65875c-b21819276af6dfea}}
+'''
+translate = '''
+- {{2c7f169c4868de64-923a9cef5e65875c-b21819276af6dfea}}
+'''
+
+[[block]]
+key = "2c7f169c4868de64-923a9cef5e65875c-b21819276af6dfea"
+type = "paragraph"
+origin = '''
+[耗材档案](../material-archive-source/material-archive-source.mdx)
+'''
+translate = '''
+[Material Archive](../material-archive-source/material-archive-source.mdx)
+'''
+
+[[block]]
+key = "33e0d964c92c6d6d"
+type = "paragraph"
+origin = '''
+若你使用的是通过梯度卡实测并保存在耗材库中的单卷耗材数据，请选择**耗材档案**并直接从耗材库调用；**经典 LUT** 仅用于加载预生成的查找表文件。
+'''
+translate = '''
+When working with individual spools measured from gradient cards in your material library, select **Material Archive** directly; **Classic LUT** is solely for prebuilt lookup tables.
+'''

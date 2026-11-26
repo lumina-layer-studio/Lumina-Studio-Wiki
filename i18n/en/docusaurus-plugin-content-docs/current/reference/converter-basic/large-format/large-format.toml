@@ -1,0 +1,247 @@
+[metadata]
+reviewed_source = "82ab60564aaeacbaf6772a783e02437a061aaac9468c10d05e5aa8df3a661f00"
+
+[[block]]
+key = "53751dd639d3febc"
+type = "yaml"
+origin = '''
+---
+title: "大画幅模式"
+description: "说明大画幅分片、切片宽高、边缘片尺寸、ZIP 输出与矢量分片回退规则。"
+sidebar_position: 11
+---
+'''
+translate = '''
+---
+title: "Large Format Mode"
+description: "Tiling, tile dimensions, edge-tile sizing, ZIP output, and SVG fallback behavior."
+sidebar_position: 11
+---
+'''
+
+[[block]]
+key = "2fd395f123780847"
+type = "heading"
+origin = '''
+# 大画幅模式
+'''
+translate = '''
+# Large Format Mode
+'''
+
+[[block]]
+key = "6498932932e8322d"
+type = "paragraph"
+origin = '''
+**大画幅模式**可将超出单块热床幅面或不便单次打印的作品切分为多块子板，每块独立生成 3MF 文件，并统一打包为 ZIP 压缩包下载。
+'''
+translate = '''
+**Large Format** splits artwork that exceeds a single build plate into a grid of separate 3MF tiles and packages them together as a downloadable ZIP archive.
+'''
+
+[[block]]
+key = "02f55317bfa3fde1"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-large-format.webp').default}
+  alt="大画幅模式、切片宽度和切片高度"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-large-format.webp').default}
+  alt="Large Format Mode with Tile Width and Tile Height"
+/>
+'''
+
+[[block]]
+key = "fade9427f2d8ebf8"
+type = "heading"
+origin = '''
+## 成品尺寸与切片尺寸
+'''
+translate = '''
+## Finished size and tile size
+'''
+
+[[block]]
+key = "f236ff2ab03eb292"
+type = "paragraph"
+origin = '''
+开启大画幅模式后，作品成品宽高的上限会从 `400 mm` 扩展至 **9999 mm**。**切片宽度**与**切片高度**可在 **50–500 mm** 范围内调节，步长为 **10 mm**。
+'''
+translate = '''
+Enabling **Large Format** raises the maximum finished width and height from `400 mm` to **9999 mm**. **Tile Width** and **Tile Height** can each be set from **50–500 mm** in **10 mm** steps.
+'''
+
+[[block]]
+key = "5dfbabae1efc04bb"
+type = "paragraph"
+origin = '''
+分片网格按以下规则计算：
+'''
+translate = '''
+Lumina calculates the tile grid as follows:
+'''
+
+[[block]]
+key = "19f3041d98027759"
+type = "list"
+composite = true
+origin = '''
+{{19f3041d98027759-602b6256bbb674d2}}
+{{19f3041d98027759-30049061c8999252}}
+{{19f3041d98027759-c52d6db5723d71bc}}
+{{19f3041d98027759-24bd1614aed0973e}}
+'''
+translate = '''
+{{19f3041d98027759-602b6256bbb674d2}}
+{{19f3041d98027759-30049061c8999252}}
+{{19f3041d98027759-c52d6db5723d71bc}}
+{{19f3041d98027759-24bd1614aed0973e}}
+'''
+
+[[block]]
+key = "19f3041d98027759-602b6256bbb674d2"
+type = "listItem"
+composite = true
+origin = '''
+- {{19f3041d98027759-602b6256bbb674d2-22fd393170a1a30f}}
+'''
+translate = '''
+- {{19f3041d98027759-602b6256bbb674d2-22fd393170a1a30f}}
+'''
+
+[[block]]
+key = "19f3041d98027759-602b6256bbb674d2-22fd393170a1a30f"
+type = "paragraph"
+origin = '''
+**列数** = 成品宽度 ÷ 切片宽度（向上取整）；
+'''
+translate = '''
+**Columns** = finished width ÷ tile width, rounded up;
+'''
+
+[[block]]
+key = "19f3041d98027759-30049061c8999252"
+type = "listItem"
+composite = true
+origin = '''
+- {{19f3041d98027759-30049061c8999252-ea8f0e7cdbe62e89}}
+'''
+translate = '''
+- {{19f3041d98027759-30049061c8999252-ea8f0e7cdbe62e89}}
+'''
+
+[[block]]
+key = "19f3041d98027759-30049061c8999252-ea8f0e7cdbe62e89"
+type = "paragraph"
+origin = '''
+**行数** = 成品高度 ÷ 切片高度（向上取整）；
+'''
+translate = '''
+**Rows** = finished height ÷ tile height, rounded up;
+'''
+
+[[block]]
+key = "19f3041d98027759-c52d6db5723d71bc"
+type = "listItem"
+composite = true
+origin = '''
+- {{19f3041d98027759-c52d6db5723d71bc-d5d8daa2e17f6ef9}}
+'''
+translate = '''
+- {{19f3041d98027759-c52d6db5723d71bc-d5d8daa2e17f6ef9}}
+'''
+
+[[block]]
+key = "19f3041d98027759-c52d6db5723d71bc-d5d8daa2e17f6ef9"
+type = "paragraph"
+origin = '''
+**总片数** = 行数 × 列数；
+'''
+translate = '''
+**Total tiles** = rows × columns;
+'''
+
+[[block]]
+key = "19f3041d98027759-24bd1614aed0973e"
+type = "listItem"
+composite = true
+origin = '''
+- {{19f3041d98027759-24bd1614aed0973e-e9300a7f8cdaad61}}
+'''
+translate = '''
+- {{19f3041d98027759-24bd1614aed0973e-e9300a7f8cdaad61}}
+'''
+
+[[block]]
+key = "19f3041d98027759-24bd1614aed0973e-e9300a7f8cdaad61"
+type = "paragraph"
+origin = '''
+最右侧一列与最下方一行仅保留实际剩余尺寸，不会补入空白边框凑满整片。
+'''
+translate = '''
+Edge tiles along the last column and bottom row keep only their actual remaining dimensions rather than adding blank padding.
+'''
+
+[[block]]
+key = "d850e240b9000612"
+type = "paragraph"
+origin = '''
+面板底部显示的 `列×行 = 总片数` 即根据上述规则实时计算；若边缘分片小于标准切片宽高，括号内会标明边缘片的实际尺寸。
+'''
+translate = '''
+The `columns × rows = total` summary reflects these exact calculations, with dimensions in parentheses indicating smaller edge tiles.
+'''
+
+[[block]]
+key = "82622cf487fbde4d"
+type = "heading"
+origin = '''
+## 输出与切片注意事项
+'''
+translate = '''
+## Output and slicing
+'''
+
+[[block]]
+key = "f29e523a13b56810"
+type = "paragraph"
+origin = '''
+在大画幅模式下点击生成会直接下载一个 ZIP 压缩包，内部每个 3MF 文件均带有原图名称与行列坐标后缀，打印完成后按编号顺序拼接即可。设置切片宽高时，请使其小于打印机的实际可打印面积，为裙边（Skirt/Brim）、擦料塔或耗材清理区以及热床禁印边界预留余量。
+'''
+translate = '''
+Generating in **Large Format** mode downloads a ZIP archive containing individual 3MF files named with the source artwork title and row/column coordinates for straightforward assembly after printing. Set **Tile Width** and **Tile Height** slightly smaller than your printer's nominal bed size to leave clearance for skirts, brims, prime/purge regions, and bed keep-out boundaries.
+'''
+
+[[block]]
+key = "57d9f5cf1775022c"
+type = "paragraph"
+origin = '''
+上传原生 SVG 时，结构规整的文件会直接按矢量几何路径分片；若遇到难以直接矢量裁切的复杂 SVG 特性，软件会自动回退为按像素预算光栅化后再分片，并在界面显示提示。回退不会改变成品的物理拼接尺寸，但极细微边缘的锐利度可能略受影响。
+'''
+translate = '''
+Native SVG artwork is split directly as vector geometry whenever possible. If an SVG contains structures that cannot be cleanly split as vectors, Lumina falls back to resolution-bounded raster tiling and displays a warning. Finished physical dimensions remain unchanged, though tiny edge details may be rasterized.
+'''
+
+[[block]]
+key = "6d0a3d2ecc444e38"
+type = "heading"
+origin = '''
+## 模式互斥与兼容
+'''
+translate = '''
+## Mode compatibility
+'''
+
+[[block]]
+key = "36b7f1afd2701e0c"
+type = "paragraph"
+origin = '''
+**拼图**模式与**冰箱贴**磁铁槽均与大画幅模式互斥，启用其中任一功能时会自动关闭大画幅模式。普通**浮雕**、**外轮廓**和**透明镀层**均支持随大画幅一同分片生成，打印前建议在预览或切片软件中检查相邻分片接缝处的边缘过渡是否连续。
+'''
+translate = '''
+**Puzzle** and **Fridge Magnet** modes cannot be combined with **Large Format**—enabling either automatically turns **Large Format** off. **Relief**, **Outline**, and **Transparent Coating** can all be tiled, though you should inspect adjacent tile boundaries in the preview or slicer to verify clean seam continuity before printing.
+'''

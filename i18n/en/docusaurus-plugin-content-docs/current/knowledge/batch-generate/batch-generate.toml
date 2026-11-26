@@ -1,0 +1,1678 @@
+[metadata]
+reviewed_source = "a17d4dadd1900cb83e8a31ba830a4635cce2edc3d9af86940ee94c66eb6dc2e6"
+
+[[block]]
+key = "159c906058073e5d"
+type = "yaml"
+origin = '''
+---
+title: "批量生成多个作品：文件列表、结果与失败重试"
+description: "一次导入多张图片，使用同一套颜色来源和主要参数生成合并 3MF，并读懂成功数、失败文件、热床预览与超出范围提示。"
+sidebar_position: 30
+---
+'''
+translate = '''
+---
+title: "Batch Generate Multiple Models: File List, Results, and Retry"
+description: "Import multiple images, apply one shared color source and parameter set, export a merged 3MF, and check success counts, failed files, bed preview, and bounds warnings."
+sidebar_position: 30
+---
+'''
+
+[[block]]
+key = "f1f6e76bc0351532"
+type = "heading"
+origin = '''
+# 批量生成多个作品：文件列表、结果与失败重试
+'''
+translate = '''
+# Batch Generate Multiple Models: File List, Results, and Retry
+'''
+
+[[block]]
+key = "9cb00a6cf2189eea"
+type = "paragraph"
+origin = '''
+当多张图片需要使用**同一套颜色来源和建模参数**时，可以使用批量生成将它们一次导出为同一个合并 3MF，方便在切片软件中统一排版。
+'''
+translate = '''
+**Batch Generate** processes multiple prepared images using **one shared color source and one shared set of modeling settings**, then packages the results into a single merged 3MF for layout and slicing.
+'''
+
+[[block]]
+key = "145c0d9d24c8f1fb"
+type = "paragraph"
+origin = '''
+核心规则速览：
+'''
+translate = '''
+Key points before starting:
+'''
+
+[[block]]
+key = "8b34256380641ebf"
+type = "list"
+composite = true
+origin = '''
+{{8b34256380641ebf-36cfd1e27a1b20ef}}
+{{8b34256380641ebf-ad90d9289b9d07b6}}
+{{8b34256380641ebf-50698f35c32a4f82}}
+{{8b34256380641ebf-2764c9971db7397b}}
+{{8b34256380641ebf-dda19d31e0db31ec}}
+'''
+translate = '''
+{{8b34256380641ebf-36cfd1e27a1b20ef}}
+{{8b34256380641ebf-ad90d9289b9d07b6}}
+{{8b34256380641ebf-50698f35c32a4f82}}
+{{8b34256380641ebf-2764c9971db7397b}}
+{{8b34256380641ebf-dda19d31e0db31ec}}
+'''
+
+[[block]]
+key = "8b34256380641ebf-36cfd1e27a1b20ef"
+type = "listItem"
+composite = true
+origin = '''
+- {{8b34256380641ebf-36cfd1e27a1b20ef-f5b051b08f677ecf}}
+'''
+translate = '''
+- {{8b34256380641ebf-36cfd1e27a1b20ef-f5b051b08f677ecf}}
+'''
+
+[[block]]
+key = "8b34256380641ebf-36cfd1e27a1b20ef-f5b051b08f677ecf"
+type = "paragraph"
+origin = '''
+**进入方式**：首次上传时一次选择多张图片，或在单图页面点击“添加更多图片”，即可进入批量模式。
+'''
+translate = '''
+**Entering Batch mode**: Select multiple files on initial upload, or click **Add more images** from the single-image converter.
+'''
+
+[[block]]
+key = "8b34256380641ebf-ad90d9289b9d07b6"
+type = "listItem"
+composite = true
+origin = '''
+- {{8b34256380641ebf-ad90d9289b9d07b6-70ce87e1200f6412}}
+'''
+translate = '''
+- {{8b34256380641ebf-ad90d9289b9d07b6-70ce87e1200f6412}}
+'''
+
+[[block]]
+key = "8b34256380641ebf-ad90d9289b9d07b6-70ce87e1200f6412"
+type = "paragraph"
+origin = '''
+**共享参数**：列表中的所有图片共用同一套经典 LUT 或耗材档案、目标宽度、底板厚度、结构模式与建模模式。
+'''
+translate = '''
+**Shared settings**: Every file in the list uses the same Classic LUT or Material Archives, Width, Backing Thickness, Structure Mode, and Modeling Mode.
+'''
+
+[[block]]
+key = "8b34256380641ebf-50698f35c32a4f82"
+type = "listItem"
+composite = true
+origin = '''
+- {{8b34256380641ebf-50698f35c32a4f82-0c3f258e538310ff}}
+'''
+translate = '''
+- {{8b34256380641ebf-50698f35c32a4f82-0c3f258e538310ff}}
+'''
+
+[[block]]
+key = "8b34256380641ebf-50698f35c32a4f82-0c3f258e538310ff"
+type = "paragraph"
+origin = '''
+**前期准备**：批量页面不支持逐张裁剪、旋转、颜色工作站微调或单图预览，这些调整需在加入批量前完成。
+'''
+translate = '''
+**Image preparation**: Cropping, rotation, Color Workstation edits, and per-image Preview are not available inside Batch mode—prepare your source images beforehand.
+'''
+
+[[block]]
+key = "8b34256380641ebf-2764c9971db7397b"
+type = "listItem"
+composite = true
+origin = '''
+- {{8b34256380641ebf-2764c9971db7397b-419c46b2ff0492bb}}
+'''
+translate = '''
+- {{8b34256380641ebf-2764c9971db7397b-419c46b2ff0492bb}}
+'''
+
+[[block]]
+key = "8b34256380641ebf-2764c9971db7397b-419c46b2ff0492bb"
+type = "paragraph"
+origin = '''
+**结果与下载**：生成完成后会显示“成功 / 总计”统计；若有部分文件失败，合并 3MF 仅包含成功生成的模型。
+'''
+translate = '''
+**Results and download**: Check **Success / Total** when generation finishes. If any files fail, the merged 3MF contains all successful models.
+'''
+
+[[block]]
+key = "8b34256380641ebf-dda19d31e0db31ec"
+type = "listItem"
+composite = true
+origin = '''
+- {{8b34256380641ebf-dda19d31e0db31ec-dee13424b6969d05}}
+'''
+translate = '''
+- {{8b34256380641ebf-dda19d31e0db31ec-dee13424b6969d05}}
+'''
+
+[[block]]
+key = "8b34256380641ebf-dda19d31e0db31ec-dee13424b6969d05"
+type = "paragraph"
+origin = '''
+**热床预览**：模型较多或尺寸较大时，网页端 3D 热床仅预览部分模型，完整对象列表可在切片软件中查看。
+'''
+translate = '''
+**Bed Preview**: When a batch contains many models or exceeds bed capacity, the 3D preview displays a subset while the downloaded 3MF retains every successful object.
+'''
+
+[[block]]
+key = "f008a07367a02d29"
+type = "heading"
+origin = '''
+## 适用与不适用场景
+'''
+translate = '''
+## When to Use Batch Generate
+'''
+
+[[block]]
+key = "163e85466bc2b044"
+type = "paragraph"
+origin = '''
+**适合使用批量生成：**
+'''
+translate = '''
+**Good fit:**
+'''
+
+[[block]]
+key = "18802ca43f383ef1"
+type = "list"
+composite = true
+origin = '''
+{{18802ca43f383ef1-a8a0242404e291fc}}
+{{18802ca43f383ef1-3624ab8ea416a200}}
+{{18802ca43f383ef1-0e1ca08b0f3aee7a}}
+{{18802ca43f383ef1-6eef939015c069a8}}
+'''
+translate = '''
+{{18802ca43f383ef1-a8a0242404e291fc}}
+{{18802ca43f383ef1-3624ab8ea416a200}}
+{{18802ca43f383ef1-0e1ca08b0f3aee7a}}
+{{18802ca43f383ef1-6eef939015c069a8}}
+'''
+
+[[block]]
+key = "18802ca43f383ef1-a8a0242404e291fc"
+type = "listItem"
+composite = true
+origin = '''
+- {{18802ca43f383ef1-a8a0242404e291fc-3b94eb6eb3dc3f8f}}
+'''
+translate = '''
+- {{18802ca43f383ef1-a8a0242404e291fc-3b94eb6eb3dc3f8f}}
+'''
+
+[[block]]
+key = "18802ca43f383ef1-a8a0242404e291fc-3b94eb6eb3dc3f8f"
+type = "paragraph"
+origin = '''
+同一系列的徽章、冰箱贴、挂牌或测试样件，使用相同的耗材组合与层高；
+'''
+translate = '''
+A set of badges, magnets, tags, or test pieces that share the same filaments and layer settings;
+'''
+
+[[block]]
+key = "18802ca43f383ef1-3624ab8ea416a200"
+type = "listItem"
+composite = true
+origin = '''
+- {{18802ca43f383ef1-3624ab8ea416a200-ef03bbd4754a115b}}
+'''
+translate = '''
+- {{18802ca43f383ef1-3624ab8ea416a200-ef03bbd4754a115b}}
+'''
+
+[[block]]
+key = "18802ca43f383ef1-3624ab8ea416a200-ef03bbd4754a115b"
+type = "paragraph"
+origin = '''
+多张素材已统一整理好朝向、透明边缘与构图，只需套用同一套参数导出；
+'''
+translate = '''
+Pre-cropped artwork with finalized orientation, transparent margins, and framing;
+'''
+
+[[block]]
+key = "18802ca43f383ef1-0e1ca08b0f3aee7a"
+type = "listItem"
+composite = true
+origin = '''
+- {{18802ca43f383ef1-0e1ca08b0f3aee7a-bc2cf78ebb365f80}}
+'''
+translate = '''
+- {{18802ca43f383ef1-0e1ca08b0f3aee7a-bc2cf78ebb365f80}}
+'''
+
+[[block]]
+key = "18802ca43f383ef1-0e1ca08b0f3aee7a-bc2cf78ebb365f80"
+type = "paragraph"
+origin = '''
+希望把多个模型打包进同一个 3MF，再进入切片软件集中排盘；
+'''
+translate = '''
+Multiple models you want combined into one 3MF for multi-plate or single-plate arrangement in your slicer;
+'''
+
+[[block]]
+key = "18802ca43f383ef1-6eef939015c069a8"
+type = "listItem"
+composite = true
+origin = '''
+- {{18802ca43f383ef1-6eef939015c069a8-ce61acd916e5707a}}
+'''
+translate = '''
+- {{18802ca43f383ef1-6eef939015c069a8-ce61acd916e5707a}}
+'''
+
+[[block]]
+key = "18802ca43f383ef1-6eef939015c069a8-ce61acd916e5707a"
+type = "paragraph"
+origin = '''
+文件数量较多，希望先批量跑完，再单独处理个别异常素材。
+'''
+translate = '''
+Large sets where you want to process everything in one pass and retry any failed files afterward.
+'''
+
+[[block]]
+key = "7baad6081579fbb4"
+type = "paragraph"
+origin = '''
+**建议使用单图流程：**
+'''
+translate = '''
+**Use the single-image workflow instead when:**
+'''
+
+[[block]]
+key = "72bec00cabebc614"
+type = "list"
+composite = true
+origin = '''
+{{72bec00cabebc614-01a7ecab00314589}}
+{{72bec00cabebc614-4b70aa4a03c3779e}}
+{{72bec00cabebc614-43a6854a08f65e7a}}
+{{72bec00cabebc614-b525386bbf8e27b5}}
+'''
+translate = '''
+{{72bec00cabebc614-01a7ecab00314589}}
+{{72bec00cabebc614-4b70aa4a03c3779e}}
+{{72bec00cabebc614-43a6854a08f65e7a}}
+{{72bec00cabebc614-b525386bbf8e27b5}}
+'''
+
+[[block]]
+key = "72bec00cabebc614-01a7ecab00314589"
+type = "listItem"
+composite = true
+origin = '''
+- {{72bec00cabebc614-01a7ecab00314589-3e13fb4e87e18c83}}
+'''
+translate = '''
+- {{72bec00cabebc614-01a7ecab00314589-3e13fb4e87e18c83}}
+'''
+
+[[block]]
+key = "72bec00cabebc614-01a7ecab00314589-3e13fb4e87e18c83"
+type = "paragraph"
+origin = '''
+每张图片需要不同的 LUT、耗材档案、厚度、单双面结构或建模模式；
+'''
+translate = '''
+Different images require different LUTs, Material Archives, thicknesses, structures, or Modeling Modes;
+'''
+
+[[block]]
+key = "72bec00cabebc614-4b70aa4a03c3779e"
+type = "listItem"
+composite = true
+origin = '''
+- {{72bec00cabebc614-4b70aa4a03c3779e-dbac641f99504fa8}}
+'''
+translate = '''
+- {{72bec00cabebc614-4b70aa4a03c3779e-dbac641f99504fa8}}
+'''
+
+[[block]]
+key = "72bec00cabebc614-4b70aa4a03c3779e-dbac641f99504fa8"
+type = "paragraph"
+origin = '''
+素材还需逐张裁剪、旋转、局部换色或修图；
+'''
+translate = '''
+Individual files still need cropping, rotation, local recoloring, or cleanup;
+'''
+
+[[block]]
+key = "72bec00cabebc614-43a6854a08f65e7a"
+type = "listItem"
+composite = true
+origin = '''
+- {{72bec00cabebc614-43a6854a08f65e7a-5a2fe24178d98a36}}
+'''
+translate = '''
+- {{72bec00cabebc614-43a6854a08f65e7a-5a2fe24178d98a36}}
+'''
+
+[[block]]
+key = "72bec00cabebc614-43a6854a08f65e7a-5a2fe24178d98a36"
+type = "paragraph"
+origin = '''
+新耗材组合尚未经过单图预览与切片验证；
+'''
+translate = '''
+You have not yet tested your color source and settings on a single representative image;
+'''
+
+[[block]]
+key = "72bec00cabebc614-b525386bbf8e27b5"
+type = "listItem"
+composite = true
+origin = '''
+- {{72bec00cabebc614-b525386bbf8e27b5-5f8599fd7b362289}}
+'''
+translate = '''
+- {{72bec00cabebc614-b525386bbf8e27b5-5f8599fd7b362289}}
+'''
+
+[[block]]
+key = "72bec00cabebc614-b525386bbf8e27b5-5f8599fd7b362289"
+type = "paragraph"
+origin = '''
+需要使用拼图、验证色卡或独立高度图浮雕等批量模式不支持的功能。
+'''
+translate = '''
+You need features unavailable in Batch mode, such as Puzzle, Validation Card, or uploaded height-map Relief.
+'''
+
+[[block]]
+key = "ee4c691453822702"
+type = "paragraph"
+origin = '''
+如果不确定色彩数据来源怎么选，可先参阅[耗材档案和经典 LUT 怎么选？](../material-profile-selection/material-profile-selection.mdx)。
+'''
+translate = '''
+If you are choosing between color sources, see [Material Archives or Classic LUT?](../material-profile-selection/material-profile-selection.mdx).
+'''
+
+[[block]]
+key = "c00680e02dd3a004"
+type = "heading"
+origin = '''
+## 第一步：整理图片素材
+'''
+translate = '''
+## Step 1: Prepare Every Image First
+'''
+
+[[block]]
+key = "017f7280fc2a5c5e"
+type = "paragraph"
+origin = '''
+批量模式直接读取当前页面的共享设置，不会逐张弹出裁剪窗口。导入前请确认每张图片：
+'''
+translate = '''
+Before adding images to a batch, make sure each file meets these criteria:
+'''
+
+[[block]]
+key = "cfbd4f8d7e787289"
+type = "list"
+composite = true
+origin = '''
+{{cfbd4f8d7e787289-94f87be58a2321f1}}
+{{cfbd4f8d7e787289-62004eb4c5fb062b}}
+{{cfbd4f8d7e787289-6a0c0c15c5fb37b0}}
+{{cfbd4f8d7e787289-2f8ed61c475572f4}}
+{{cfbd4f8d7e787289-ff8fb02c7ba5d0b1}}
+'''
+translate = '''
+{{cfbd4f8d7e787289-94f87be58a2321f1}}
+{{cfbd4f8d7e787289-62004eb4c5fb062b}}
+{{cfbd4f8d7e787289-6a0c0c15c5fb37b0}}
+{{cfbd4f8d7e787289-2f8ed61c475572f4}}
+{{cfbd4f8d7e787289-ff8fb02c7ba5d0b1}}
+'''
+
+[[block]]
+key = "cfbd4f8d7e787289-94f87be58a2321f1"
+type = "listItem"
+composite = true
+origin = '''
+1. {{cfbd4f8d7e787289-94f87be58a2321f1-4b9bd6f12404759b}}
+'''
+translate = '''
+1. {{cfbd4f8d7e787289-94f87be58a2321f1-4b9bd6f12404759b}}
+'''
+
+[[block]]
+key = "cfbd4f8d7e787289-94f87be58a2321f1-4b9bd6f12404759b"
+type = "paragraph"
+origin = '''
+方向已摆正，无需再旋转 90°、180° 或 270°；
+'''
+translate = '''
+Orientation is final;
+'''
+
+[[block]]
+key = "cfbd4f8d7e787289-62004eb4c5fb062b"
+type = "listItem"
+composite = true
+origin = '''
+2. {{cfbd4f8d7e787289-62004eb4c5fb062b-625729068733c162}}
+'''
+translate = '''
+2. {{cfbd4f8d7e787289-62004eb4c5fb062b-625729068733c162}}
+'''
+
+[[block]]
+key = "cfbd4f8d7e787289-62004eb4c5fb062b-625729068733c162"
+type = "paragraph"
+origin = '''
+透明边缘、阴影、描边与画布留白干净准确；
+'''
+translate = '''
+Transparent edges, drop shadows, outlines, and canvas margins are clean;
+'''
+
+[[block]]
+key = "cfbd4f8d7e787289-6a0c0c15c5fb37b0"
+type = "listItem"
+composite = true
+origin = '''
+3. {{cfbd4f8d7e787289-6a0c0c15c5fb37b0-b59228e092ebb436}}
+'''
+translate = '''
+3. {{cfbd4f8d7e787289-6a0c0c15c5fb37b0-b59228e092ebb436}}
+'''
+
+[[block]]
+key = "cfbd4f8d7e787289-6a0c0c15c5fb37b0-b59228e092ebb436"
+type = "paragraph"
+origin = '''
+文件可正常打开，且文件名清晰易辨，便于核对结果列表；
+'''
+translate = '''
+The file opens normally and uses a clear, recognizable filename;
+'''
+
+[[block]]
+key = "cfbd4f8d7e787289-2f8ed61c475572f4"
+type = "listItem"
+composite = true
+origin = '''
+4. {{cfbd4f8d7e787289-2f8ed61c475572f4-d6955ecb153c3fbb}}
+'''
+translate = '''
+4. {{cfbd4f8d7e787289-2f8ed61c475572f4-d6955ecb153c3fbb}}
+'''
+
+[[block]]
+key = "cfbd4f8d7e787289-2f8ed61c475572f4-d6955ecb153c3fbb"
+type = "paragraph"
+origin = '''
+适合套用相同的颜色来源、结构模式和目标宽度；
+'''
+translate = '''
+It works well with the group's shared Source Type, structure, and target Width;
+'''
+
+[[block]]
+key = "cfbd4f8d7e787289-ff8fb02c7ba5d0b1"
+type = "listItem"
+composite = true
+origin = '''
+5. {{cfbd4f8d7e787289-ff8fb02c7ba5d0b1-fd764cb532813947}}
+'''
+translate = '''
+5. {{cfbd4f8d7e787289-ff8fb02c7ba5d0b1-fd764cb532813947}}
+'''
+
+[[block]]
+key = "cfbd4f8d7e787289-ff8fb02c7ba5d0b1-fd764cb532813947"
+type = "paragraph"
+origin = '''
+已妥善保存原始文件备份。
+'''
+translate = '''
+You have saved a backup of the untouched original.
+'''
+
+[[block]]
+key = "bdf93b6aa04b7a10"
+type = "paragraph"
+origin = '''
+如需调整画布或构图，可参考[上传、替换、裁剪和旋转图片](pathname:///zh/docs/knowledge/image-upload-crop-rotate/)先导出处理好的图片副本，再统一导入。
+'''
+translate = '''
+For cropping and rotation tips, see [Upload, Replace, Crop, and Rotate an Image](pathname:///en/docs/knowledge/image-upload-crop-rotate/).
+'''
+
+[[block]]
+key = "9c5a0d7f53aa4b2b"
+type = "admonition"
+composite = true
+origin = '''
+:::warning[共享参数说明]
+{{9c5a0d7f53aa4b2b-f7154e26bb80d330}}
+:::
+'''
+translate = '''
+:::warning[Shared Batch Settings]
+{{9c5a0d7f53aa4b2b-f7154e26bb80d330}}
+:::
+'''
+
+[[block]]
+key = "9c5a0d7f53aa4b2b-f7154e26bb80d330"
+type = "paragraph"
+origin = '''
+批量模式统一应用当前页面的参数，不会沿用每张图片之前的单图设置。如果某张图片需要单独的尺寸、换色或耗材组合，请将它移出列表并按单图流程处理。
+'''
+translate = '''
+Batch mode applies the settings currently selected on the Batch page rather than each image's previous single-image settings. If a file needs its own dimensions, color edits, or material set, remove it from the list and process it individually.
+'''
+
+[[block]]
+key = "4b470542c64151e6"
+type = "heading"
+origin = '''
+## 第二步：建立并核对文件列表
+'''
+translate = '''
+## Step 2: Build and Check the File List
+'''
+
+[[block]]
+key = "c2d35422d725d111"
+type = "paragraph"
+origin = '''
+首次上传时多选图片，或上传单张后点击“添加更多图片”，左侧面板顶部就会列出已导入的文件数量与名称。
+'''
+translate = '''
+Select multiple files during your initial upload, or upload one image and click **Add more images**. The total count and filenames appear at the top of **Core Settings**.
+'''
+
+[[block]]
+key = "f869252b5b881aa3"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-batch-file-list.webp').default}
+  alt="Lumina Studio 批量模式中的两张图片文件列表、移除按钮和添加更多图片区域"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-batch-file-list.webp').default}
+  alt="Current English Batch file list with two filenames, remove controls, and Add more images"
+/>
+'''
+
+[[block]]
+key = "ddf687ab88c0b113"
+type = "paragraph"
+origin = '''
+配置参数前，先核对三项信息：
+'''
+translate = '''
+Review three details before adjusting settings:
+'''
+
+[[block]]
+key = "307069a6c64ac5b6"
+type = "list"
+composite = true
+origin = '''
+{{307069a6c64ac5b6-0b8b0610298dc0be}}
+{{307069a6c64ac5b6-c5fc12811d989e58}}
+{{307069a6c64ac5b6-3a0ccfeb4aa82f83}}
+'''
+translate = '''
+{{307069a6c64ac5b6-0b8b0610298dc0be}}
+{{307069a6c64ac5b6-c5fc12811d989e58}}
+{{307069a6c64ac5b6-3a0ccfeb4aa82f83}}
+'''
+
+[[block]]
+key = "307069a6c64ac5b6-0b8b0610298dc0be"
+type = "listItem"
+composite = true
+origin = '''
+- {{307069a6c64ac5b6-0b8b0610298dc0be-78dadcabd72b45dc}}
+'''
+translate = '''
+- {{307069a6c64ac5b6-0b8b0610298dc0be-78dadcabd72b45dc}}
+'''
+
+[[block]]
+key = "307069a6c64ac5b6-0b8b0610298dc0be-78dadcabd72b45dc"
+type = "paragraph"
+origin = '''
+**文件数量**：顶部的“已选 N 个文件”是否与计划生成的总数一致；
+'''
+translate = '''
+**Count**: Confirm that “N files selected” matches your intended batch size.
+'''
+
+[[block]]
+key = "307069a6c64ac5b6-c5fc12811d989e58"
+type = "listItem"
+composite = true
+origin = '''
+- {{307069a6c64ac5b6-c5fc12811d989e58-1be75df8282f3e51}}
+'''
+translate = '''
+- {{307069a6c64ac5b6-c5fc12811d989e58-1be75df8282f3e51}}
+'''
+
+[[block]]
+key = "307069a6c64ac5b6-c5fc12811d989e58-1be75df8282f3e51"
+type = "paragraph"
+origin = '''
+**文件名称**：是否有重复文件、旧版本或误选的临时素材；
+'''
+translate = '''
+**Filenames**: Check for duplicates, older drafts, or accidental inclusions.
+'''
+
+[[block]]
+key = "307069a6c64ac5b6-3a0ccfeb4aa82f83"
+type = "listItem"
+composite = true
+origin = '''
+- {{307069a6c64ac5b6-3a0ccfeb4aa82f83-fefe68f629daee7f}}
+'''
+translate = '''
+- {{307069a6c64ac5b6-3a0ccfeb4aa82f83-fefe68f629daee7f}}
+'''
+
+[[block]]
+key = "307069a6c64ac5b6-3a0ccfeb4aa82f83-fefe68f629daee7f"
+type = "paragraph"
+origin = '''
+**列表增删**：点击文件名右侧的“×”仅将该图片移出本次任务，不会删除本地磁盘文件。
+'''
+translate = '''
+**List edits**: Clicking **×** beside a filename removes it from the queue without deleting the file on disk.
+'''
+
+[[block]]
+key = "75e55063a2c45581"
+type = "paragraph"
+origin = '''
+点击“添加更多图片”可随时追加素材。增删列表文件后，此前的生成结果会失效，需要重新点击生成；当列表删减至只剩 1 张图片时，界面会自动切回单图模式。文件较多时列表会折叠显示前几项，实际队列总数以顶部统计数字为准。
+'''
+translate = '''
+Click **Add more images** to append additional files. Modifying the list clears any previous batch result so you can generate a fresh 3MF; removing files until one remains switches back to the single-image workflow. On long queues, the panel displays the first rows and summarizes the remainder—check the header count for the full total.
+'''
+
+[[block]]
+key = "064d8e595dbdec25"
+type = "heading"
+origin = '''
+## 第三步：配置共享颜色来源与参数
+'''
+translate = '''
+## Step 3: Choose Shared Color and Model Settings
+'''
+
+[[block]]
+key = "305c5a5f3acb47e5"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/02-shared-settings.webp').default}
+  alt="旧版 Lumina Studio 批量页面中的来源类型、品牌和已选传统 LUT"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/02-shared-settings.webp').default}
+  alt="Earlier English Batch interface with Legacy LUT, Inferred LUT, Material Archive, a brand, and a selected LUT highlighted"
+/>
+'''
+
+[[block]]
+key = "db2fd6b2897b7f57"
+type = "paragraph"
+origin = '''
+上图为早期界面截图；当前版本已将“传统 LUT”更名为“经典 LUT”，并移除了反推 LUT 入口。
+'''
+translate = '''
+This screenshot shows an earlier interface: **Legacy LUT** is now named **Classic LUT**, and **Inferred LUT** has been removed.
+'''
+
+[[block]]
+key = "f380b1ce3bcacb2f"
+type = "paragraph"
+origin = '''
+依次选择来源类型及对应的经典 LUT 或耗材档案。选定有效的颜色来源后，右侧“批量生成”按钮才会激活。
+'''
+translate = '''
+Select a **Source Type**, then pick a valid Classic LUT or Material Archive set. **Batch Generate** becomes active once a valid color source is configured.
+'''
+
+[[block]]
+key = "f3af5e921d5fd84e"
+type = "paragraph"
+origin = '''
+同一批次中的所有文件共用以下设置：
+'''
+translate = '''
+Every image in the queue shares:
+'''
+
+[[block]]
+key = "2c8c91989d0e1774"
+type = "list"
+composite = true
+origin = '''
+{{2c8c91989d0e1774-f60074ddadb8386c}}
+{{2c8c91989d0e1774-9d937e9c81974101}}
+{{2c8c91989d0e1774-d54b342e3a864ede}}
+{{2c8c91989d0e1774-cb88d7f42d78d58d}}
+{{2c8c91989d0e1774-07d36170b6c45eff}}
+'''
+translate = '''
+{{2c8c91989d0e1774-f60074ddadb8386c}}
+{{2c8c91989d0e1774-9d937e9c81974101}}
+{{2c8c91989d0e1774-d54b342e3a864ede}}
+{{2c8c91989d0e1774-cb88d7f42d78d58d}}
+{{2c8c91989d0e1774-07d36170b6c45eff}}
+'''
+
+[[block]]
+key = "2c8c91989d0e1774-f60074ddadb8386c"
+type = "listItem"
+composite = true
+origin = '''
+- {{2c8c91989d0e1774-f60074ddadb8386c-f574c616396ca9ca}}
+'''
+translate = '''
+- {{2c8c91989d0e1774-f60074ddadb8386c-f574c616396ca9ca}}
+'''
+
+[[block]]
+key = "2c8c91989d0e1774-f60074ddadb8386c-f574c616396ca9ca"
+type = "paragraph"
+origin = '''
+颜色来源（经典 LUT 或耗材档案）；
+'''
+translate = '''
+Classic LUT or Material Archives;
+'''
+
+[[block]]
+key = "2c8c91989d0e1774-9d937e9c81974101"
+type = "listItem"
+composite = true
+origin = '''
+- {{2c8c91989d0e1774-9d937e9c81974101-376ebe3b55a6eb1d}}
+'''
+translate = '''
+- {{2c8c91989d0e1774-9d937e9c81974101-376ebe3b55a6eb1d}}
+'''
+
+[[block]]
+key = "2c8c91989d0e1774-9d937e9c81974101-376ebe3b55a6eb1d"
+type = "paragraph"
+origin = '''
+目标宽度与底板厚度；
+'''
+translate = '''
+Target **Width** and **Backing Thickness**;
+'''
+
+[[block]]
+key = "2c8c91989d0e1774-d54b342e3a864ede"
+type = "listItem"
+composite = true
+origin = '''
+- {{2c8c91989d0e1774-d54b342e3a864ede-7415d6ab291f23c9}}
+'''
+translate = '''
+- {{2c8c91989d0e1774-d54b342e3a864ede-7415d6ab291f23c9}}
+'''
+
+[[block]]
+key = "2c8c91989d0e1774-d54b342e3a864ede-7415d6ab291f23c9"
+type = "paragraph"
+origin = '''
+单面或双面结构；
+'''
+translate = '''
+Single- or double-sided **Structure Mode**;
+'''
+
+[[block]]
+key = "2c8c91989d0e1774-cb88d7f42d78d58d"
+type = "listItem"
+composite = true
+origin = '''
+- {{2c8c91989d0e1774-cb88d7f42d78d58d-c9ec2ec182ed3ff8}}
+'''
+translate = '''
+- {{2c8c91989d0e1774-cb88d7f42d78d58d-c9ec2ec182ed3ff8}}
+'''
+
+[[block]]
+key = "2c8c91989d0e1774-cb88d7f42d78d58d-c9ec2ec182ed3ff8"
+type = "paragraph"
+origin = '''
+高保真、像素艺术或矢量建模模式；
+'''
+translate = '''
+**High-Fidelity**, **Pixel Art**, or **Vector** Modeling Mode;
+'''
+
+[[block]]
+key = "2c8c91989d0e1774-07d36170b6c45eff"
+type = "listItem"
+composite = true
+origin = '''
+- {{2c8c91989d0e1774-07d36170b6c45eff-29b5e8694e53ba98}}
+'''
+translate = '''
+- {{2c8c91989d0e1774-07d36170b6c45eff-29b5e8694e53ba98}}
+'''
+
+[[block]]
+key = "2c8c91989d0e1774-07d36170b6c45eff-29b5e8694e53ba98"
+type = "paragraph"
+origin = '''
+当前页面支持的颜色细节、高级匹配与设备参数。
+'''
+translate = '''
+Color-detail, matching, and printer settings supported in Batch mode.
+'''
+
+[[block]]
+key = "a3800504574e693d"
+type = "paragraph"
+origin = '''
+所有图片共用同一个目标宽度，另一边尺寸则按各图的原始长宽比自动缩放，因此不同模型的实际高度和热床占地面积可能各不相同。
+'''
+translate = '''
+Each image is scaled to the same target **Width**, while its height follows its own aspect ratio and alpha bounds—so models in the same batch can have different footprints on the build plate.
+'''
+
+[[block]]
+key = "78abf86bed644ff6"
+type = "admonition"
+composite = true
+origin = '''
+:::info[先用单图验证]
+{{78abf86bed644ff6-d4641fc9d618a879}}
+:::
+'''
+translate = '''
+:::info[Test One Image First]
+{{78abf86bed644ff6-d4641fc9d618a879}}
+:::
+'''
+
+[[block]]
+key = "78abf86bed644ff6-d4641fc9d618a879"
+type = "paragraph"
+origin = '''
+首次使用某套耗材组合或参数时，建议先挑一张代表图在单图模式下完成 2D / 3D 预览、导出与切片检查，确认颜色、层数和厚度符合预期后再批量导入。
+'''
+translate = '''
+When using a new material set or parameter combination, run one representative image through 2D Preview, 3D Preview, Generate, and slicer inspection first. Catching a parameter issue on a single file is much faster than re-running an entire batch.
+'''
+
+[[block]]
+key = "dd9a24feac1da449"
+type = "paragraph"
+origin = '''
+关于建模模式与功能叠加规则，可进一步参考[高保真、像素艺术与矢量模式怎么选？](pathname:///zh/docs/knowledge/image-mode-selection/)和[哪些功能可以一起用？](pathname:///zh/docs/knowledge/feature-compatibility/)。
+'''
+translate = '''
+For guidance on modeling modes and feature combinations, see [High-Fidelity, Pixel Art, or Vector?](pathname:///en/docs/knowledge/image-mode-selection/) and [Which Features Can Be Used Together?](pathname:///en/docs/knowledge/feature-compatibility/).
+'''
+
+[[block]]
+key = "04a84bd29a8434c4"
+type = "heading"
+origin = '''
+## 第四步：点击“批量生成”
+'''
+translate = '''
+## Step 4: Run Batch Generate
+'''
+
+[[block]]
+key = "6e7baefac56a5326"
+type = "paragraph"
+origin = '''
+确认颜色来源与参数无误后，点击右侧的“批量生成”按钮开始处理。
+'''
+translate = '''
+Once your color source and parameters are set, click **Batch Generate**.
+'''
+
+[[block]]
+key = "35b786963df0c2b4"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/03-batch-generating.webp').default}
+  alt="点击批量生成后按钮变浅并显示转圈，表示任务正在处理"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/03-batch-generating.webp').default}
+  alt="Current English Batch interface while Batch Generate is disabled and showing an active task"
+/>
+'''
+
+[[block]]
+key = "11f335157d9b7f03"
+type = "paragraph"
+origin = '''
+处理期间按钮会置灰并显示加载动画。总耗时取决于文件数量、分辨率、轮廓复杂度、目标宽度与细节精度。请等待任务完成，避免中途刷新页面或重新上传文件。
+'''
+translate = '''
+While the batch runs, the button shows a spinner. Processing time scales with file count, image resolution, outline complexity, target Width, and detail settings. Leave the tab open without refreshing or uploading new files until processing finishes.
+'''
+
+[[block]]
+key = "d59794db4fdacc6f"
+type = "paragraph"
+origin = '''
+软件会按顺序处理队列中的图片，并将所有成功生成的模型打包进同一个 3MF；即使个别文件生成失败，其余成功项仍会正常保留并汇总展示。
+'''
+translate = '''
+Lumina processes the queue sequentially and merges all completed models into one 3MF. If an individual file fails, the remaining images still finish and export normally.
+'''
+
+[[block]]
+key = "dab62b0ba2a88665"
+type = "heading"
+origin = '''
+## 第五步：查看结果并下载合并 3MF
+'''
+translate = '''
+## Step 5: Check Results and Download the 3MF
+'''
+
+[[block]]
+key = "9820a29d7b80250d"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/04-batch-result.webp').default}
+  alt="批量生成完成后显示成功 2 总计 2、下载批量 3MF 按钮和热床中的两个模型"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/04-batch-result.webp').default}
+  alt="Current English Batch result showing Success 2, Total 2, Download batch 3MF, and two generated models on the bed"
+/>
+'''
+
+[[block]]
+key = "6e83bfa13ca5edcd"
+type = "paragraph"
+origin = '''
+任务完成后，结果面板会显示四项关键信息：
+'''
+translate = '''
+When processing finishes, check four items in the result summary:
+'''
+
+[[block]]
+key = "648773834507bbc7"
+type = "list"
+composite = true
+origin = '''
+{{648773834507bbc7-6659d05d8610faba}}
+{{648773834507bbc7-60aebc4cfa9371d1}}
+{{648773834507bbc7-7ce479d3143d07b3}}
+{{648773834507bbc7-e99659e8853c9136}}
+'''
+translate = '''
+{{648773834507bbc7-6659d05d8610faba}}
+{{648773834507bbc7-60aebc4cfa9371d1}}
+{{648773834507bbc7-7ce479d3143d07b3}}
+{{648773834507bbc7-e99659e8853c9136}}
+'''
+
+[[block]]
+key = "648773834507bbc7-6659d05d8610faba"
+type = "listItem"
+composite = true
+origin = '''
+1. {{648773834507bbc7-6659d05d8610faba-a8cef4186353ecc0}}
+'''
+translate = '''
+1. {{648773834507bbc7-6659d05d8610faba-a8cef4186353ecc0}}
+'''
+
+[[block]]
+key = "648773834507bbc7-6659d05d8610faba-a8cef4186353ecc0"
+type = "paragraph"
+origin = '''
+**成功数**：顺利完成建模的文件数量；
+'''
+translate = '''
+**Success**: Number of models generated successfully;
+'''
+
+[[block]]
+key = "648773834507bbc7-60aebc4cfa9371d1"
+type = "listItem"
+composite = true
+origin = '''
+2. {{648773834507bbc7-60aebc4cfa9371d1-2ae120598a22503f}}
+'''
+translate = '''
+2. {{648773834507bbc7-60aebc4cfa9371d1-2ae120598a22503f}}
+'''
+
+[[block]]
+key = "648773834507bbc7-60aebc4cfa9371d1-2ae120598a22503f"
+type = "paragraph"
+origin = '''
+**总计**：本次队列参与处理的文件总数；
+'''
+translate = '''
+**Total**: Total files processed in the batch;
+'''
+
+[[block]]
+key = "648773834507bbc7-7ce479d3143d07b3"
+type = "listItem"
+composite = true
+origin = '''
+3. {{648773834507bbc7-7ce479d3143d07b3-19a5145a9b001fd2}}
+'''
+translate = '''
+3. {{648773834507bbc7-7ce479d3143d07b3-19a5145a9b001fd2}}
+'''
+
+[[block]]
+key = "648773834507bbc7-7ce479d3143d07b3-19a5145a9b001fd2"
+type = "paragraph"
+origin = '''
+**失败文件**：仅在存在失败项时按文件名列出；
+'''
+translate = '''
+**Failed files**: Listed by filename whenever any item fails;
+'''
+
+[[block]]
+key = "648773834507bbc7-e99659e8853c9136"
+type = "listItem"
+composite = true
+origin = '''
+4. {{648773834507bbc7-e99659e8853c9136-482aecf5e023225b}}
+'''
+translate = '''
+4. {{648773834507bbc7-e99659e8853c9136-482aecf5e023225b}}
+'''
+
+[[block]]
+key = "648773834507bbc7-e99659e8853c9136-482aecf5e023225b"
+type = "paragraph"
+origin = '''
+**下载批量 3MF**：只要有至少 1 个模型成功即可下载，文件内包含全部成功模型。
+'''
+translate = '''
+**Download batch 3MF**: Available whenever at least one file succeeds, containing all successful models.
+'''
+
+[[block]]
+key = "8d7a519a759164d3"
+type = "paragraph"
+origin = '''
+上图中显示“成功 2 / 总计 2”，中央热床预览区展示了生成的两个模型，右侧可直接下载合并 3MF 或调用已配置的切片器打开。建议在生成完成后及时保存 3MF，以免刷新页面、改动文件列表或会话过期导致临时下载链接失效。
+'''
+translate = '''
+In the example above, **Success 2 / Total 2** confirms that both images completed. Download and save the merged 3MF promptly—refreshing the page, editing the file list, or letting temporary session files expire will clear the download link.
+'''
+
+[[block]]
+key = "e0c206c492e559b6"
+type = "heading"
+origin = '''
+### 为什么热床预览里的模型比成功数少？
+'''
+translate = '''
+### Why does the bed Preview show fewer models than Success?
+'''
+
+[[block]]
+key = "100821b35ef31473"
+type = "paragraph"
+origin = '''
+当成功模型数量较多或当前热床单盘放不下所有模型时，网页 3D 预览只会加载前若干个可稳定展示的模型，并提示合并 3MF 仍包含全部成功项。下载后在切片软件的对象列表中即可看到完整模型。
+'''
+translate = '''
+When a batch produces many models or exceeds what the selected printer bed can display cleanly at once, the 3D viewport previews a subset and notes that the 3MF still includes every successful model. Open the downloaded 3MF in your slicer to view the full object list.
+'''
+
+[[block]]
+key = "04fa74fa9c432e1e"
+type = "heading"
+origin = '''
+### 提示“部分模型可能超出热床范围”怎么办？
+'''
+translate = '''
+### What does “some models may be outside the bed” mean?
+'''
+
+[[block]]
+key = "2e6013d63367255a"
+type = "paragraph"
+origin = '''
+出现该提示时，合并 3MF 仍会包含所有成功模型，但自动排盘后的位置超出了当前打印机的热床边界。导入切片软件后，请先使用自动排列、旋转或新增盘面功能整理好排版，再执行切片打印。
+'''
+translate = '''
+The merged 3MF includes all successful models, but automatic placement extended past your selected build plate boundaries. Rearrange, rotate, or split the models across multiple plates in your slicer before printing.
+'''
+
+[[block]]
+key = "88551d02b19580cd"
+type = "heading"
+origin = '''
+## 第六步：在切片软件中排盘与核对
+'''
+translate = '''
+## Step 6: Arrange and Verify in Your Slicer
+'''
+
+[[block]]
+key = "55466713d56220bf"
+type = "paragraph"
+origin = '''
+将合并 3MF 导入 Bambu Studio、OrcaSlicer 或你常用的切片软件后，打印前请核对：
+'''
+translate = '''
+Open the merged 3MF in Bambu Studio, OrcaSlicer, or your configured slicer and check the following before printing:
+'''
+
+[[block]]
+key = "20189e09c9547848"
+type = "list"
+composite = true
+origin = '''
+{{20189e09c9547848-a97905fe905d4681}}
+{{20189e09c9547848-af0aa7c49a1fe929}}
+{{20189e09c9547848-e679af24971b5e4c}}
+{{20189e09c9547848-8f596d0edab2163b}}
+{{20189e09c9547848-d7411e2ea6a991de}}
+{{20189e09c9547848-d3148538798f8a34}}
+'''
+translate = '''
+{{20189e09c9547848-a97905fe905d4681}}
+{{20189e09c9547848-af0aa7c49a1fe929}}
+{{20189e09c9547848-e679af24971b5e4c}}
+{{20189e09c9547848-8f596d0edab2163b}}
+{{20189e09c9547848-d7411e2ea6a991de}}
+{{20189e09c9547848-d3148538798f8a34}}
+'''
+
+[[block]]
+key = "20189e09c9547848-a97905fe905d4681"
+type = "listItem"
+composite = true
+origin = '''
+- {{20189e09c9547848-a97905fe905d4681-f7d172ba6509e02d}}
+'''
+translate = '''
+- {{20189e09c9547848-a97905fe905d4681-f7d172ba6509e02d}}
+'''
+
+[[block]]
+key = "20189e09c9547848-a97905fe905d4681-f7d172ba6509e02d"
+type = "paragraph"
+origin = '''
+对象列表中的模型数量与“成功数”一致；
+'''
+translate = '''
+Total objects match the **Success** count;
+'''
+
+[[block]]
+key = "20189e09c9547848-af0aa7c49a1fe929"
+type = "listItem"
+composite = true
+origin = '''
+- {{20189e09c9547848-af0aa7c49a1fe929-10c01c5322bb1ba6}}
+'''
+translate = '''
+- {{20189e09c9547848-af0aa7c49a1fe929-10c01c5322bb1ba6}}
+'''
+
+[[block]]
+key = "20189e09c9547848-af0aa7c49a1fe929-10c01c5322bb1ba6"
+type = "paragraph"
+origin = '''
+所有模型均位于热床有效范围内，且彼此无重叠；
+'''
+translate = '''
+All models sit inside the build plate boundaries without overlapping;
+'''
+
+[[block]]
+key = "20189e09c9547848-e679af24971b5e4c"
+type = "listItem"
+composite = true
+origin = '''
+- {{20189e09c9547848-e679af24971b5e4c-73e347483da22ca1}}
+'''
+translate = '''
+- {{20189e09c9547848-e679af24971b5e4c-73e347483da22ca1}}
+'''
+
+[[block]]
+key = "20189e09c9547848-e679af24971b5e4c-73e347483da22ca1"
+type = "paragraph"
+origin = '''
+各模型的实际毫米尺寸符合原图比例预期；
+'''
+translate = '''
+Millimeter dimensions match expectations for each image's aspect ratio;
+'''
+
+[[block]]
+key = "20189e09c9547848-8f596d0edab2163b"
+type = "listItem"
+composite = true
+origin = '''
+- {{20189e09c9547848-8f596d0edab2163b-2a9f2d56e781d673}}
+'''
+translate = '''
+- {{20189e09c9547848-8f596d0edab2163b-2a9f2d56e781d673}}
+'''
+
+[[block]]
+key = "20189e09c9547848-8f596d0edab2163b-2a9f2d56e781d673"
+type = "paragraph"
+origin = '''
+项目耗材已准确映射到实际料槽与线盘，打印机型号与喷嘴规格匹配；
+'''
+translate = '''
+Project filaments map to the right physical spools and AMS/slot positions;
+'''
+
+[[block]]
+key = "20189e09c9547848-d7411e2ea6a991de"
+type = "listItem"
+composite = true
+origin = '''
+- {{20189e09c9547848-d7411e2ea6a991de-50493c848833ad65}}
+'''
+translate = '''
+- {{20189e09c9547848-d7411e2ea6a991de-50493c848833ad65}}
+'''
+
+[[block]]
+key = "20189e09c9547848-d7411e2ea6a991de-50493c848833ad65"
+type = "paragraph"
+origin = '''
+单面 / 双面结构的观赏面与底板朝向正确；
+'''
+translate = '''
+Printer profile, nozzle diameter, display face orientation, and single/double-sided settings match your setup;
+'''
+
+[[block]]
+key = "20189e09c9547848-d3148538798f8a34"
+type = "listItem"
+composite = true
+origin = '''
+- {{20189e09c9547848-d3148538798f8a34-69c83f3b7020da15}}
+'''
+translate = '''
+- {{20189e09c9547848-d3148538798f8a34-69c83f3b7020da15}}
+'''
+
+[[block]]
+key = "20189e09c9547848-d3148538798f8a34-69c83f3b7020da15"
+type = "paragraph"
+origin = '''
+切片预览中的逐层配色、换料次数与预计耗材用量正常。
+'''
+translate = '''
+Layer Preview shows clean color transitions, filament swaps, and expected material usage.
+'''
+
+[[block]]
+key = "b199c5e02f0c7212"
+type = "paragraph"
+origin = '''
+如果网页预览与切片预览存在差异，可按[为什么 Lumina 预览、切片器预览和打印实物不一样？](pathname:///zh/docs/knowledge/preview-slicer-print-differences/)逐步排查。
+'''
+translate = '''
+If your slicer preview differs from Lumina's viewport, see [Why Do Lumina Preview, Slicer Preview, and the Physical Print Differ?](pathname:///en/docs/knowledge/preview-slicer-print-differences/).
+'''
+
+[[block]]
+key = "965fcc56c1d1bf89"
+type = "heading"
+origin = '''
+## 失败文件的排查与重试
+'''
+translate = '''
+## Retrying Failed Files
+'''
+
+[[block]]
+key = "157332ef2035277e"
+type = "paragraph"
+origin = '''
+例如结果提示“成功 3 / 总计 5，失败 2”时，可按以下顺序处理：
+'''
+translate = '''
+If a batch finishes with **Success 3 / Total 5**, handle the remaining files in this order:
+'''
+
+[[block]]
+key = "7864f32897b98526"
+type = "list"
+composite = true
+origin = '''
+{{7864f32897b98526-c22c01ef4a41e25c}}
+{{7864f32897b98526-196a84a1fe060225}}
+{{7864f32897b98526-01a8f93f146d6c02}}
+{{7864f32897b98526-94a956efd5eca320}}
+{{7864f32897b98526-6121a59cd7e99072}}
+'''
+translate = '''
+{{7864f32897b98526-c22c01ef4a41e25c}}
+{{7864f32897b98526-196a84a1fe060225}}
+{{7864f32897b98526-01a8f93f146d6c02}}
+{{7864f32897b98526-94a956efd5eca320}}
+{{7864f32897b98526-6121a59cd7e99072}}
+'''
+
+[[block]]
+key = "7864f32897b98526-c22c01ef4a41e25c"
+type = "listItem"
+composite = true
+origin = '''
+1. {{7864f32897b98526-c22c01ef4a41e25c-4ff5d5545110661e}}
+'''
+translate = '''
+1. {{7864f32897b98526-c22c01ef4a41e25c-4ff5d5545110661e}}
+'''
+
+[[block]]
+key = "7864f32897b98526-c22c01ef4a41e25c-4ff5d5545110661e"
+type = "paragraph"
+origin = '''
+先点击“下载批量 3MF”，保存好已成功的 3 个模型；
+'''
+translate = '''
+Click **Download batch 3MF** first to save the three completed models;
+'''
+
+[[block]]
+key = "7864f32897b98526-196a84a1fe060225"
+type = "listItem"
+composite = true
+origin = '''
+2. {{7864f32897b98526-196a84a1fe060225-1c16290590205e02}}
+'''
+translate = '''
+2. {{7864f32897b98526-196a84a1fe060225-1c16290590205e02}}
+'''
+
+[[block]]
+key = "7864f32897b98526-196a84a1fe060225-1c16290590205e02"
+type = "paragraph"
+origin = '''
+记录失败列表中的 2 个文件名；
+'''
+translate = '''
+Note the two filenames listed under failed files;
+'''
+
+[[block]]
+key = "7864f32897b98526-01a8f93f146d6c02"
+type = "listItem"
+composite = true
+origin = '''
+3. {{7864f32897b98526-01a8f93f146d6c02-31405151f2cbdbec}}
+'''
+translate = '''
+3. {{7864f32897b98526-01a8f93f146d6c02-31405151f2cbdbec}}
+'''
+
+[[block]]
+key = "7864f32897b98526-01a8f93f146d6c02-31405151f2cbdbec"
+type = "paragraph"
+origin = '''
+切换回单图模式，单独上传其中一个失败文件，用相同参数尝试预览和生成；
+'''
+translate = '''
+Upload one failed file in single-image mode with the same color source and settings;
+'''
+
+[[block]]
+key = "7864f32897b98526-94a956efd5eca320"
+type = "listItem"
+composite = true
+origin = '''
+4. {{7864f32897b98526-94a956efd5eca320-a7529363f5be98a0}}
+'''
+translate = '''
+4. {{7864f32897b98526-94a956efd5eca320-a7529363f5be98a0}}
+'''
+
+[[block]]
+key = "7864f32897b98526-94a956efd5eca320-a7529363f5be98a0"
+type = "paragraph"
+origin = '''
+检查图片文件是否损坏、画布留白是否异常、SVG 路径节点是否过多，或尺寸与精度设置是否过高；
+'''
+translate = '''
+Check for file corruption, oversized empty canvas margins, overly dense SVG nodes, or extreme width and precision settings;
+'''
+
+[[block]]
+key = "7864f32897b98526-6121a59cd7e99072"
+type = "listItem"
+composite = true
+origin = '''
+5. {{7864f32897b98526-6121a59cd7e99072-743b94a1a33f9683}}
+'''
+translate = '''
+5. {{7864f32897b98526-6121a59cd7e99072-743b94a1a33f9683}}
+'''
+
+[[block]]
+key = "7864f32897b98526-6121a59cd7e99072-743b94a1a33f9683"
+type = "paragraph"
+origin = '''
+修复问题后单独导出，或仅将修复后的文件组成小批次重新生成。
+'''
+translate = '''
+Fix the source image, then generate it individually or run a small batch containing only the repaired files.
+'''
+
+[[block]]
+key = "52bd0cf27c4daa75"
+type = "paragraph"
+origin = '''
+单图模式同样报错或卡住时，请参阅[打不开、一直转圈或生成失败，应该先查什么？](pathname:///zh/docs/knowledge/web-generation-troubleshooting/)；若素材为 SVG，可对照[SVG 上传失败、白底、破洞和细节异常怎么排查？](pathname:///zh/docs/knowledge/svg-troubleshooting/)检查画布、路径、滤镜与嵌入位图。
+'''
+translate = '''
+If the file also fails in single-image mode, see [The Page Will Not Open, Keeps Spinning, or Generation Fails](pathname:///en/docs/knowledge/web-generation-troubleshooting/). For SVG artwork, see [SVG Troubleshooting](pathname:///en/docs/knowledge/svg-troubleshooting/).
+'''
+
+[[block]]
+key = "cbbf3b866f003400"
+type = "heading"
+origin = '''
+## 常见问题 Q&A
+'''
+translate = '''
+## Common Questions
+'''
+
+[[block]]
+key = "bd8ffbb9f79e21d1"
+type = "heading"
+origin = '''
+### 为什么批量模式只有“批量生成”，没有单独的“预览”按钮？
+'''
+translate = '''
+### Why does Batch mode use one Batch Generate button instead of separate Preview and Generate steps?
+'''
+
+[[block]]
+key = "18b43adf277f3cd7"
+type = "paragraph"
+origin = '''
+批量模式面向已验证好参数的成组素材，点击后会直接完成整批计算并给出热床预览与合并下载。如需在导出前精细查看色彩分布、使用颜色工作站换色或逐张确认结构，请使用单图流程。
+'''
+translate = '''
+Batch mode is designed for pre-verified settings, processing the entire queue in one run and presenting a combined bed preview and 3MF download. Switch to single-image mode whenever you want to inspect color layers, adjust colors in Color Workstation, or fine-tune structure per image.
+'''
+
+[[block]]
+key = "47c496e48f1d25f0"
+type = "heading"
+origin = '''
+### 同一次批量任务可以为每张图设置不同宽度或厚度吗？
+'''
+translate = '''
+### Can each image in a batch use a different Width or Thickness?
+'''
+
+[[block]]
+key = "b7c7b27cc19c6479"
+type = "paragraph"
+origin = '''
+不可以。同一批次共用一套目标宽度、厚度和建模设置。不同尺寸规格的素材请分批处理或逐张生成。
+'''
+translate = '''
+No—every file in a batch shares one Width, Backing Thickness, and parameter set. Group images by size into separate batches or generate custom-sized pieces individually.
+'''
+
+[[block]]
+key = "f147e96feb9f3e93"
+type = "heading"
+origin = '''
+### 其中一张图片失败，会影响其他成功模型下载吗？
+'''
+translate = '''
+### Does one failed file block the rest of the download?
+'''
+
+[[block]]
+key = "5ce397a6d5b55fb0"
+type = "paragraph"
+origin = '''
+不会。只要有至少 1 个文件生成成功，即可下载包含所有成功模型的合并 3MF，失败文件名会单独列出以便补做。
+'''
+translate = '''
+No. As long as at least one image succeeds, **Download batch 3MF** exports all successful models and lists any failed filenames separately.
+'''
+
+[[block]]
+key = "51d819a5afeb1862"
+type = "heading"
+origin = '''
+### 下载前又添加或删掉了图片，之前的结果还能直接下载吗？
+'''
+translate = '''
+### Does my previous download stay active if I add another image?
+'''
+
+[[block]]
+key = "df6fe4593be138ca"
+type = "paragraph"
+origin = '''
+修改文件列表会使上一轮批量结果失效。如需保留上一轮文件，请先点击下载，再增删列表并重新生成。
+'''
+translate = '''
+Changing the file list resets the batch state for the new queue. Download your existing 3MF before adding or removing files, then run **Batch Generate** again.
+'''
+
+[[block]]
+key = "c8e9a9386dcb7cb2"
+type = "heading"
+origin = '''
+### 为什么设置了相同的目标宽度，各个模型的高度或占地却不一样？
+'''
+translate = '''
+### Why do models in the same batch have different heights or footprints?
+'''
+
+[[block]]
+key = "ac87669680a17c92"
+type = "paragraph"
+origin = '''
+目标宽度固定的是模型横向尺寸，纵向尺寸和轮廓边界则由每张原图的长宽比、透明区域与附加结构共同决定。可在切片软件中查看每个对象的精确毫米尺寸。
+'''
+translate = '''
+Target **Width** sets the horizontal dimension, while vertical size and footprint follow each image's aspect ratio, transparent bounds, and attachments. Check exact millimeter dimensions in your slicer.
+'''
+
+[[block]]
+key = "283b2ba11c219e48"
+type = "heading"
+origin = '''
+### 一次导入的文件越多越省时间吗？
+'''
+translate = '''
+### Should I put all my images into one huge batch?
+'''
+
+[[block]]
+key = "c97a99d76a529989"
+type = "paragraph"
+origin = '''
+批量模式省去了重复选参数、点生成和逐个导入切片器的操作，但每张图片的几何计算仍需依次完成。文件较多时，建议先用 2–3 张做小批量测试，确认无误后再分批处理。
+'''
+translate = '''
+Batch mode saves repeated setup clicks and slicer imports, while each image still requires full geometry calculation. Testing 2–3 files first helps confirm your shared settings before running larger queues.
+'''
+
+[[block]]
+key = "e3bdc469a4fb0938"
+type = "heading"
+origin = '''
+### 下载合并 3MF 后可以直接发送打印吗？
+'''
+translate = '''
+### Can I print the merged 3MF right after downloading?
+'''
+
+[[block]]
+key = "008b5c07f3f4607b"
+type = "paragraph"
+origin = '''
+打印前请先在切片软件中检查热床边界、模型间距、料槽映射、喷嘴直径与分层刀路预览，确认排版和换料无误后再开始打印。
+'''
+translate = '''
+Always open the 3MF in your slicer first to arrange models within bed bounds, verify filament slot mappings and nozzle size, and inspect the sliced Layer Preview.
+'''

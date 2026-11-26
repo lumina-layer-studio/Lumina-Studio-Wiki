@@ -1,0 +1,4 @@
+# Keep translation hashes and generated documents stable across operating systems.
+*.md text eol=lf
+*.mdx text eol=lf
+*.toml text eol=lf

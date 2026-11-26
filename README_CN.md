@@ -18,6 +18,7 @@ yarn start
 
 ```bash
 yarn typecheck
+yarn test
 yarn build
 ```
 
@@ -26,7 +27,7 @@ yarn build
 | 路径 | 内容 |
 | --- | --- |
 | `docs/` | 简体中文文档（`getting-started/`、`tutorials/`、`reference/`、`knowledge/`、`releases/`、`project/`、`legacy/`） |
-| `i18n/en/docusaurus-plugin-content-docs/current/` | 与 `docs/` 对应的英文文档 |
+| `i18n/en/docusaurus-plugin-content-docs/current/` | 与 `docs/` 对应的英文 TOML 译文、生成的 Markdown/MDX 与英文素材 |
 | `updates/` | 版本更新条目 |
 | `src/` 与 `static/` | 站点组件、样式与静态文件 |
 
@@ -38,6 +39,8 @@ docs/tutorials/example/assets/step-01.webp
 ```
 
 ## 参与贡献
+
+翻译使用 `@neko_vecter/i18n-toolkit`。编辑英文 TOML 后运行 `yarn i18n:build`，不要直接修改生成的英文页面。修改中文后，先提取并核对相应译文，完整步骤见[翻译同步](CONTRIBUTING.md#翻译同步)。
 
 欢迎通过 Issue 或 Pull Request 修正错漏、补充教程、完善控件说明或改进翻译。编写规范见 [CONTRIBUTING.md](CONTRIBUTING.md)，安全问题见 [SECURITY.md](SECURITY.md)。
 

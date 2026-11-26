@@ -1,0 +1,40 @@
+---
+title: "Solver Cache"
+description: "Inspect, prebuild and delete fixed-layer or dynamic-layer solver caches for a material combination."
+sidebar_position: 9
+---
+
+# Solver Cache
+
+Solver caches store previously calculated stack candidates for a material combination so matching and conversion can reuse them. They are calculation results, not original material profiles. Deleting a cache does not delete measurements from the material library.
+
+## Open the cache overview
+
+Open **Solver Cache** under **Material Management** and select a combination and layer settings, or choose **Manage caches** in the converter to bring in its current selection. The overview reads existing status; opening it does not automatically start a full build.
+
+It shares the workbench's material and layer selection with **Gamut Coverage**. Changes in the workbench do not replace the converter's current parameters. Conversion uses a white substrate, so cache management also uses white and does not show the gamut view's black-substrate option.
+
+## Fixed layers
+
+In fixed-layer mode, inspect, build or delete exhaustive and smart caches. After changing the selection, status applies to the new material combination, layer count and layer height. A cache for another combination does not mean the current one is ready.
+
+Fixed-layer exhaustive caches support up to 10 layers; deeper stacks use smart caches. The fixed-layer UI limit defaults to 10 and can be raised to 30 through advanced settings. Raising that limit does not extend exhaustive caching beyond 10 layers.
+
+## Dynamic layers
+
+Dynamic mode supports 5–30 layers, defaults to 5–10, and requires a backing material for filling the remaining layers. **Prebuild** saves candidates for the selected layer counts, then creates the combined catalog used by conversion.
+
+| Status | Meaning |
+| --- | --- |
+| Ready | The catalog for this combination and range can be reused |
+| Some layers reusable | Some per-layer candidates exist, but other layers or the combined catalog still need preparation |
+| Not prepared | No ready prebuilt result is available for these settings |
+| Status request failed | Status could not be read; retry as prompted. This does not establish that a material profile is corrupt |
+
+Dynamic calculation can reuse compatible manually built smart caches. Selecting a wider layer range can change the candidate budget assigned to each layer, so a matching layer count alone does not make every cache interchangeable.
+
+## What deletion changes
+
+**Delete prebuilt cache** removes the combined catalog and prebuilt per-layer candidates for the current combination and range. It does not delete existing manual smart caches. If only manual caches are reusable, the prebuilt-cache deletion action is not shown.
+
+Deleted candidates can be recalculated when needed. Use this page to reclaim solver-cache space. To back up or move material profiles, use [Import and export materials](../material-import-export/material-import-export.mdx). [Cache management](../../settings-import-export/cache-maintenance/cache-maintenance.mdx) in system settings is a separate operation, mainly for temporary files and conversion sessions.

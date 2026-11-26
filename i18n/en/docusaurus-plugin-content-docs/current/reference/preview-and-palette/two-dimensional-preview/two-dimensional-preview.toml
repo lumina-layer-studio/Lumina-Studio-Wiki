@@ -1,0 +1,292 @@
+[metadata]
+reviewed_source = "c4b8ba4e2a79395b66ab286a0cf90a63974ffc87c17fb5aea4b302adcd2f991c"
+
+[[block]]
+key = "eacab3e074ca27f8"
+type = "yaml"
+origin = '''
+---
+title: "2D 预览与悬停检查"
+description: "颜色工作站 2D 预览的缩放平移、原图对比、悬停逐层检查与青色选区轮廓。"
+sidebar_position: 2
+---
+'''
+translate = '''
+---
+title: "2D Preview and Hover Inspection"
+description: "Zoom, original-image comparison, hover layer inspection, and cyan region outlines in the 2D preview."
+sidebar_position: 2
+---
+'''
+
+[[block]]
+key = "0a2cc0396772dffc"
+type = "heading"
+origin = '''
+# 2D 预览与悬停检查
+'''
+translate = '''
+# 2D Preview and Hover Inspection
+'''
+
+[[block]]
+key = "4c127677445eaa06"
+type = "paragraph"
+origin = '''
+2D 预览展示当前会话实际用于建模的配色结果，支持直接在画布上点选颜色、拾取连通区域并逐层核对光学叠色。
+'''
+translate = '''
+The 2D preview displays the exact color result used for 3D modeling and lets you pick colors, select connected regions, and inspect optical filament layers directly on the canvas.
+'''
+
+[[block]]
+key = "f71b87ee332ba006"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-hover-inspector.webp').default}
+  alt="2D 预览上的放大镜、像素坐标、预测颜色和逐层颜色"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-hover-inspector.webp').default}
+  alt="Magnifier, pixel coordinates, predicted colour, and layer colours over the 2D preview"
+/>
+'''
+
+[[block]]
+key = "eda31e66beeba3e0"
+type = "heading"
+origin = '''
+## 缩放与原图对比
+'''
+translate = '''
+## Zooming and comparing with the original
+'''
+
+[[block]]
+key = "f4796acafedaf18b"
+type = "list"
+composite = true
+origin = '''
+{{f4796acafedaf18b-b496ce0a61f02aec}}
+{{f4796acafedaf18b-801e3b6fe1c1ab9c}}
+{{f4796acafedaf18b-73a5e5cadf078e37}}
+'''
+translate = '''
+{{f4796acafedaf18b-b496ce0a61f02aec}}
+{{f4796acafedaf18b-801e3b6fe1c1ab9c}}
+{{f4796acafedaf18b-73a5e5cadf078e37}}
+'''
+
+[[block]]
+key = "f4796acafedaf18b-b496ce0a61f02aec"
+type = "listItem"
+composite = true
+origin = '''
+- {{f4796acafedaf18b-b496ce0a61f02aec-e7730015f99c9fb4}}
+'''
+translate = '''
+- {{f4796acafedaf18b-b496ce0a61f02aec-e7730015f99c9fb4}}
+'''
+
+[[block]]
+key = "f4796acafedaf18b-b496ce0a61f02aec-e7730015f99c9fb4"
+type = "paragraph"
+origin = '''
+**缩放视图：** 使用鼠标滚轮或触控板双指缩放，倍率范围为 `50%–1000%`。
+'''
+translate = '''
+**Zoom:** Scroll with the mouse wheel or trackpad to zoom between `50%` and `1000%`.
+'''
+
+[[block]]
+key = "f4796acafedaf18b-801e3b6fe1c1ab9c"
+type = "listItem"
+composite = true
+origin = '''
+- {{f4796acafedaf18b-801e3b6fe1c1ab9c-4d2ad1187221d6a5}}
+'''
+translate = '''
+- {{f4796acafedaf18b-801e3b6fe1c1ab9c-4d2ad1187221d6a5}}
+'''
+
+[[block]]
+key = "f4796acafedaf18b-801e3b6fe1c1ab9c-4d2ad1187221d6a5"
+type = "paragraph"
+origin = '''
+**平移与复位：** 按住鼠标右键拖动可平移画布，双击画面恢复初始缩放比例。
+'''
+translate = '''
+**Pan and reset:** Right-click and drag to pan across the canvas; double-click to reset the zoom level.
+'''
+
+[[block]]
+key = "f4796acafedaf18b-73a5e5cadf078e37"
+type = "listItem"
+composite = true
+origin = '''
+- {{f4796acafedaf18b-73a5e5cadf078e37-249e20962617af8b}}
+'''
+translate = '''
+- {{f4796acafedaf18b-73a5e5cadf078e37-249e20962617af8b}}
+'''
+
+[[block]]
+key = "f4796acafedaf18b-73a5e5cadf078e37-249e20962617af8b"
+type = "paragraph"
+origin = '''
+**对比原图：** 按住画布右上角的原图对比按钮，或在输入框外按住 `Shift` 键，可临时切换查看上传原图；松开按钮或 `Shift`（或切换窗口焦点）后立即恢复预览图。
+'''
+translate = '''
+**Compare original:** Hold the compare button in the upper-right corner—or hold `Shift` when focus is outside a text field—to temporarily view the uploaded source image. Releasing the button or `Shift` (or switching window focus) immediately restores the processed preview.
+'''
+
+[[block]]
+key = "d7c3151338097ab5"
+type = "paragraph"
+origin = '''
+画布采用像素级锐利渲染，高倍率放大时可直接观察每个预览像素的真实边界。
+'''
+translate = '''
+Pixel-crisp rendering keeps individual preview pixels sharp at high zoom so you can inspect exact region edges without blur.
+'''
+
+[[block]]
+key = "0a9e1dd76fe8d267"
+type = "heading"
+origin = '''
+## 悬停检查器
+'''
+translate = '''
+## Hover inspector
+'''
+
+[[block]]
+key = "df67dc2429b94b3a"
+type = "paragraph"
+origin = '''
+将鼠标指针停留在画面上时，浮动检查器可实时显示该像素的详细信息：
+'''
+translate = '''
+Hovering over any pixel on the canvas displays:
+'''
+
+[[block]]
+key = "393f015a524f26f7"
+type = "list"
+composite = true
+origin = '''
+{{393f015a524f26f7-7e5f8905d552cdf7}}
+{{393f015a524f26f7-eb61770f3107bca4}}
+{{393f015a524f26f7-456bc1ff3eebd16d}}
+'''
+translate = '''
+{{393f015a524f26f7-7e5f8905d552cdf7}}
+{{393f015a524f26f7-eb61770f3107bca4}}
+{{393f015a524f26f7-456bc1ff3eebd16d}}
+'''
+
+[[block]]
+key = "393f015a524f26f7-7e5f8905d552cdf7"
+type = "listItem"
+composite = true
+origin = '''
+- {{393f015a524f26f7-7e5f8905d552cdf7-bdd09b153e933a70}}
+'''
+translate = '''
+- {{393f015a524f26f7-7e5f8905d552cdf7-bdd09b153e933a70}}
+'''
+
+[[block]]
+key = "393f015a524f26f7-7e5f8905d552cdf7-bdd09b153e933a70"
+type = "paragraph"
+origin = '''
+当前像素坐标；
+'''
+translate = '''
+Exact pixel coordinates;
+'''
+
+[[block]]
+key = "393f015a524f26f7-eb61770f3107bca4"
+type = "listItem"
+composite = true
+origin = '''
+- {{393f015a524f26f7-eb61770f3107bca4-3e2b602b439559d8}}
+'''
+translate = '''
+- {{393f015a524f26f7-eb61770f3107bca4-3e2b602b439559d8}}
+'''
+
+[[block]]
+key = "393f015a524f26f7-eb61770f3107bca4-3e2b602b439559d8"
+type = "paragraph"
+origin = '''
+成品表面的预测颜色；
+'''
+translate = '''
+Predicted surface color;
+'''
+
+[[block]]
+key = "393f015a524f26f7-456bc1ff3eebd16d"
+type = "listItem"
+composite = true
+origin = '''
+- {{393f015a524f26f7-456bc1ff3eebd16d-29d4a4b70ab7da4d}}
+'''
+translate = '''
+- {{393f015a524f26f7-456bc1ff3eebd16d-29d4a4b70ab7da4d}}
+'''
+
+[[block]]
+key = "393f015a524f26f7-456bc1ff3eebd16d-29d4a4b70ab7da4d"
+type = "paragraph"
+origin = '''
+同一像素位置每一光学层的耗材颜色。
+'''
+translate = '''
+Filament color on every optical layer at that point.
+'''
+
+[[block]]
+key = "f8c27750f4fe61de"
+type = "paragraph"
+origin = '''
+可通过中间栏的**放大镜**与**分层颜色**两个独立开关按需开启或隐藏对应模块。分层图像在首次查看时按需加载；透明像素或无材料层会显示为空状态。此处列出的是 Lumina 配方中的光学层序，打印时的物理耗材槽位可在切片软件中自由指定。
+'''
+translate = '''
+Use the **Magnifier** and **Layer Colors** toggles in the middle column to show or hide either section independently. Layer images load on demand when first inspected, and transparent pixels or empty layers appear blank. **Layer Colors** reflects the optical stack order in the Lumina recipe; final physical AMS slot assignments are mapped in your slicer.
+'''
+
+[[block]]
+key = "335ae02246e2bf35"
+type = "heading"
+origin = '''
+## 青色选区轮廓
+'''
+translate = '''
+## Cyan selection outlines
+'''
+
+[[block]]
+key = "e4d5379f97c78d5b"
+type = "paragraph"
+origin = '''
+点击画面后的高亮方式取决于当前使用的[选择模式](../selection-modes/selection-modes.mdx)：按色块或连通区域点选时，系统会沿点击位置的连通边界描绘青色轮廓；使用全局同色选择时，则会在整张图上高亮所有相同匹配色的像素。
+'''
+translate = '''
+Clicking the canvas outlines your target based on the active [selection mode](../selection-modes/selection-modes.mdx). Region-based tools trace the connected component around the clicked pixel in cyan, whereas **Same color** highlights all matching pixels across the entire image.
+'''
+
+[[block]]
+key = "1ba3f43622cc0026"
+type = "paragraph"
+origin = '''
+若从**渐变分组**面板中点选某个独立区域，工作站会严格按该区域的空间掩码绘制轮廓，画面其他位置即使存在相同 HEX 色值的像素也不会被一并框入。
+'''
+translate = '''
+When you select an individual area from **Gradient Groups**, Color Workstation outlines only that region's exact spatial mask rather than every pixel sharing the same HEX value elsewhere in the artwork.
+'''

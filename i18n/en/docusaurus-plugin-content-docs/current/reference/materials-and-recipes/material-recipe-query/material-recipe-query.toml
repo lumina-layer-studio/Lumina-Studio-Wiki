@@ -1,0 +1,492 @@
+[metadata]
+reviewed_source = "d13793567a08565e8ed8f34a11c6f98f4b674f82de6422d01113c0f053575b21"
+
+[[block]]
+key = "3e05f122b784dbaa"
+type = "yaml"
+origin = '''
+---
+title: "耗材配方查询"
+description: "按实际层序预测耗材叠层颜色，并生成验证色块 3MF。"
+sidebar_position: 7
+---
+'''
+translate = '''
+---
+title: "Material Recipe Query"
+description: "Predict a real material stack and generate a verification-swatch 3MF."
+sidebar_position: 7
+---
+'''
+
+[[block]]
+key = "b498622dae2128f2"
+type = "heading"
+origin = '''
+# 耗材配方查询
+'''
+translate = '''
+# Material Recipe Query
+'''
+
+[[block]]
+key = "168f70cf7e2532c3"
+type = "paragraph"
+origin = '''
+耗材配方查询基于耗材档案中的 Beer–Lambert 光学正向模型计算任意层数的叠层混色效果，无需依赖传统五色 LUT，也不受固定五层层数限制。
+'''
+translate = '''
+Material Recipe Query predicts stacked filament colors of arbitrary layer counts using the Beer–Lambert forward optical model stored in your material archives, with no five-layer cap or traditional LUT requirement.
+'''
+
+[[block]]
+key = "c81896a5900db758"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-recipe-result.webp').default}
+  alt="四层耗材配方的预测结果"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-recipe-result.webp').default}
+  alt="Predicted result for a four-layer material recipe"
+/>
+'''
+
+[[block]]
+key = "fc9d0031cdba6387"
+type = "heading"
+origin = '''
+## 基底与层厚
+'''
+translate = '''
+## Substrate and layer height
+'''
+
+[[block]]
+key = "c13d109cc3fa9fff"
+type = "paragraph"
+origin = '''
+“白色基底 / 黑色基底”用于指定叠层最底部的衬底颜色。单层厚度可选 `0.04`、`0.08` 或 `0.10 mm`，请与实际切片层高保持一致。
+'''
+translate = '''
+Choose **White** or **Black** to set the underlying substrate color. Set the layer height to `0.04`, `0.08`, or `0.10 mm` to match your actual slicer layer height.
+'''
+
+[[block]]
+key = "6f8da52ab5d6b80c"
+type = "paragraph"
+origin = '''
+调整基底或单层厚度后，需重新点击“计算混色”以更新预测结果。
+'''
+translate = '''
+After changing either the substrate or the layer height, click **Compute Color** again to refresh the prediction.
+'''
+
+[[block]]
+key = "811e6345fd0c2df1"
+type = "heading"
+origin = '''
+## 添加配方层
+'''
+translate = '''
+## Build the stack
+'''
+
+[[block]]
+key = "955e32f9f916e0e2"
+type = "paragraph"
+origin = '''
+耗材列表按品牌分组，支持按耗材名称、品牌或目录名搜索。点击任一耗材，即可在**靠近基底的一侧**追加一层。
+'''
+translate = '''
+Materials are grouped by brand and searchable by material name, brand, or directory. Clicking a material appends one layer on the **substrate side** of the stack.
+'''
+
+[[block]]
+key = "dee9fb33c5baac82"
+type = "paragraph"
+origin = '''
+页面中的配方层始终按从外到内的顺序展示：
+'''
+translate = '''
+The stack is always displayed from outside to inside:
+'''
+
+[[block]]
+key = "659312fa2f6fee1d"
+type = "paragraph"
+origin = '''
+`观赏面 → …… → 基底侧`
+'''
+translate = '''
+`viewing face → … → substrate`
+'''
+
+[[block]]
+key = "67f14de00cdf08e6"
+type = "list"
+composite = true
+origin = '''
+{{67f14de00cdf08e6-0f54b5f0d0e8239a}}
+{{67f14de00cdf08e6-cdd8266f0b322cf8}}
+{{67f14de00cdf08e6-544aad15602767a2}}
+{{67f14de00cdf08e6-4ea2a16976d7876b}}
+'''
+translate = '''
+{{67f14de00cdf08e6-0f54b5f0d0e8239a}}
+{{67f14de00cdf08e6-cdd8266f0b322cf8}}
+{{67f14de00cdf08e6-544aad15602767a2}}
+{{67f14de00cdf08e6-4ea2a16976d7876b}}
+'''
+
+[[block]]
+key = "67f14de00cdf08e6-0f54b5f0d0e8239a"
+type = "listItem"
+composite = true
+origin = '''
+- {{67f14de00cdf08e6-0f54b5f0d0e8239a-5afdd231cac0a4ee}}
+'''
+translate = '''
+- {{67f14de00cdf08e6-0f54b5f0d0e8239a-5afdd231cac0a4ee}}
+'''
+
+[[block]]
+key = "67f14de00cdf08e6-0f54b5f0d0e8239a-5afdd231cac0a4ee"
+type = "paragraph"
+origin = '''
+**撤销最后一层**：移除最近一次追加在基底侧的那一层。
+'''
+translate = '''
+**Undo Last Layer**: Removes the most recently appended layer on the substrate side.
+'''
+
+[[block]]
+key = "67f14de00cdf08e6-cdd8266f0b322cf8"
+type = "listItem"
+composite = true
+origin = '''
+- {{67f14de00cdf08e6-cdd8266f0b322cf8-7a692f79af661f9f}}
+'''
+translate = '''
+- {{67f14de00cdf08e6-cdd8266f0b322cf8-7a692f79af661f9f}}
+'''
+
+[[block]]
+key = "67f14de00cdf08e6-cdd8266f0b322cf8-7a692f79af661f9f"
+type = "paragraph"
+origin = '''
+**×**：单独移除指定层。
+'''
+translate = '''
+**×**: Removes any individual layer from the stack.
+'''
+
+[[block]]
+key = "67f14de00cdf08e6-544aad15602767a2"
+type = "listItem"
+composite = true
+origin = '''
+- {{67f14de00cdf08e6-544aad15602767a2-0ba226c0945a5426}}
+'''
+translate = '''
+- {{67f14de00cdf08e6-544aad15602767a2-0ba226c0945a5426}}
+'''
+
+[[block]]
+key = "67f14de00cdf08e6-544aad15602767a2-0ba226c0945a5426"
+type = "paragraph"
+origin = '''
+**反序**：将当前全部层序首尾翻转。
+'''
+translate = '''
+**Reverse**: Flips the entire layer sequence end to end.
+'''
+
+[[block]]
+key = "67f14de00cdf08e6-4ea2a16976d7876b"
+type = "listItem"
+composite = true
+origin = '''
+- {{67f14de00cdf08e6-4ea2a16976d7876b-bc6a2ea7ddf9d992}}
+'''
+translate = '''
+- {{67f14de00cdf08e6-4ea2a16976d7876b-bc6a2ea7ddf9d992}}
+'''
+
+[[block]]
+key = "67f14de00cdf08e6-4ea2a16976d7876b-bc6a2ea7ddf9d992"
+type = "paragraph"
+origin = '''
+**清空**：清空当前配方中的所有层。
+'''
+translate = '''
+**Clear**: Removes all layers from the current recipe.
+'''
+
+[[block]]
+key = "afb552899b042054"
+type = "heading"
+origin = '''
+## 计算混色
+'''
+translate = '''
+## Compute Color
+'''
+
+[[block]]
+key = "6ba4979cb0b51463"
+type = "paragraph"
+origin = '''
+点击“计算混色”后，系统会从基底侧向观赏面逐层推算光学混色结果，并展示最终预测的 HEX 与 RGB 色值、总层数、单层厚度、基底类型，以及逐层叠加后的过渡颜色预览。
+'''
+translate = '''
+Clicking **Compute Color** evaluates the forward optical model layer by layer from the substrate up to the viewing face. The output displays the predicted HEX and RGB values, total layer count, layer height, substrate, and intermediate color previews after each layer.
+'''
+
+[[block]]
+key = "1a021ae1fad6c853"
+type = "paragraph"
+origin = '''
+界面色块反映标定模型的理论预测值；由于最终实物成色还会受到打印机挤出状态、耗材批次、表面纹理及观察光源影响，关键配色建议打印实体色块加以确认。
+'''
+translate = '''
+Screen swatches show the calibrated model prediction; because physical appearance also varies with extrusion behavior, filament batch, surface texture, and viewing illumination, print a verification swatch to confirm critical colors.
+'''
+
+[[block]]
+key = "826d4abdc95f4650"
+type = "heading"
+origin = '''
+## 配方队列与验证色块
+'''
+translate = '''
+## Queue and verification swatch
+'''
+
+[[block]]
+key = "c26152652393c412"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/02-recipe-queue.webp').default}
+  alt="已加入一个配方后的配方队列"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/02-recipe-queue.webp').default}
+  alt="Recipe queue after adding one prediction"
+/>
+'''
+
+[[block]]
+key = "352df67d5c51495f"
+type = "paragraph"
+origin = '''
+计算完成后点击“添加到队列”，即可保存当前配方的层序、层厚与基底设置（完全相同的配方不会重复入队）。队列中的条目支持逐条移除，也可点击“清空队列”全部清空。生成验证色块 3MF 时可配置以下参数：
+'''
+translate = '''
+Click **Add to Queue** to save the current layer order, layer height, and substrate to the batch queue (identical recipes are skipped automatically). You can remove queued recipes individually or clear the entire queue at once. When generating verification swatches, configure:
+'''
+
+[[block]]
+key = "9d4d5cc66fd1884c"
+type = "list"
+composite = true
+origin = '''
+{{9d4d5cc66fd1884c-ff5f30cd6504c935}}
+{{9d4d5cc66fd1884c-ed12ae88318b1395}}
+{{9d4d5cc66fd1884c-74cf0da5dd458bc2}}
+{{9d4d5cc66fd1884c-eb35c2b281afcfa8}}
+'''
+translate = '''
+{{9d4d5cc66fd1884c-ff5f30cd6504c935}}
+{{9d4d5cc66fd1884c-ed12ae88318b1395}}
+{{9d4d5cc66fd1884c-74cf0da5dd458bc2}}
+{{9d4d5cc66fd1884c-eb35c2b281afcfa8}}
+'''
+
+[[block]]
+key = "9d4d5cc66fd1884c-ff5f30cd6504c935"
+type = "listItem"
+composite = true
+origin = '''
+- {{9d4d5cc66fd1884c-ff5f30cd6504c935-c490836a9beaaef7}}
+'''
+translate = '''
+- {{9d4d5cc66fd1884c-ff5f30cd6504c935-c490836a9beaaef7}}
+'''
+
+[[block]]
+key = "9d4d5cc66fd1884c-ff5f30cd6504c935-c490836a9beaaef7"
+type = "paragraph"
+origin = '''
+**色块尺寸**：`5–50 mm`
+'''
+translate = '''
+**Block size**: `5–50 mm`
+'''
+
+[[block]]
+key = "9d4d5cc66fd1884c-ed12ae88318b1395"
+type = "listItem"
+composite = true
+origin = '''
+- {{9d4d5cc66fd1884c-ed12ae88318b1395-bef0869a84e91758}}
+'''
+translate = '''
+- {{9d4d5cc66fd1884c-ed12ae88318b1395-bef0869a84e91758}}
+'''
+
+[[block]]
+key = "9d4d5cc66fd1884c-ed12ae88318b1395-bef0869a84e91758"
+type = "paragraph"
+origin = '''
+**间距**：`0.5–10 mm`
+'''
+translate = '''
+**Gap**: `0.5–10 mm`
+'''
+
+[[block]]
+key = "9d4d5cc66fd1884c-74cf0da5dd458bc2"
+type = "listItem"
+composite = true
+origin = '''
+- {{9d4d5cc66fd1884c-74cf0da5dd458bc2-72656bb6331ede57}}
+'''
+translate = '''
+- {{9d4d5cc66fd1884c-74cf0da5dd458bc2-72656bb6331ede57}}
+'''
+
+[[block]]
+key = "9d4d5cc66fd1884c-74cf0da5dd458bc2-72656bb6331ede57"
+type = "paragraph"
+origin = '''
+**列数**：`0–20`，设为 `0` 时自动排列
+'''
+translate = '''
+**Columns**: `0–20` (`0` arranges columns automatically)
+'''
+
+[[block]]
+key = "9d4d5cc66fd1884c-eb35c2b281afcfa8"
+type = "listItem"
+composite = true
+origin = '''
+- {{9d4d5cc66fd1884c-eb35c2b281afcfa8-ce7b0b2d7f3f5182}}
+'''
+translate = '''
+- {{9d4d5cc66fd1884c-eb35c2b281afcfa8-ce7b0b2d7f3f5182}}
+'''
+
+[[block]]
+key = "9d4d5cc66fd1884c-eb35c2b281afcfa8-ce7b0b2d7f3f5182"
+type = "paragraph"
+origin = '''
+**结构模式**：单面或双面
+'''
+translate = '''
+**Structure mode**: **Single-sided** or **Double-sided**
+'''
+
+[[block]]
+key = "aa31e62be8120824"
+type = "paragraph"
+origin = '''
+生成时会自动读取“设置”中配置的打印机、切片软件、喷嘴与设备参数以构建对应的 3MF 文件，并生成位置对照预览图。构建完成后即可点击“下载 3MF”保存模型；下载后队列仍会保留，方便调整排列参数并重新生成。
+'''
+translate = '''
+Swatch generation uses the printer, slicer, nozzle, and device profile configured in **Settings** to build a ready-to-slice 3MF alongside a layout legend preview. Once generation finishes, click **Download 3MF** to save the file; your queued recipes remain in place so you can adjust layout settings and generate again if needed.
+'''
+
+[[block]]
+key = "8e598e329cd91d51"
+type = "paragraph"
+origin = '''
+相关页面：
+'''
+translate = '''
+Related pages:
+'''
+
+[[block]]
+key = "9ddde23cf9a83672"
+type = "list"
+composite = true
+origin = '''
+{{9ddde23cf9a83672-11dfc65ce7829551}}
+{{9ddde23cf9a83672-d01ae096da3dee1c}}
+{{9ddde23cf9a83672-ec22b05a26623066}}
+'''
+translate = '''
+{{9ddde23cf9a83672-11dfc65ce7829551}}
+{{9ddde23cf9a83672-d01ae096da3dee1c}}
+{{9ddde23cf9a83672-ec22b05a26623066}}
+'''
+
+[[block]]
+key = "9ddde23cf9a83672-11dfc65ce7829551"
+type = "listItem"
+composite = true
+origin = '''
+- {{9ddde23cf9a83672-11dfc65ce7829551-2b7d183f93e649fc}}
+'''
+translate = '''
+- {{9ddde23cf9a83672-11dfc65ce7829551-2b7d183f93e649fc}}
+'''
+
+[[block]]
+key = "9ddde23cf9a83672-11dfc65ce7829551-2b7d183f93e649fc"
+type = "paragraph"
+origin = '''
+[耗材库](../material-library/material-library.mdx)
+'''
+translate = '''
+[Material Library](../material-library/material-library.mdx)
+'''
+
+[[block]]
+key = "9ddde23cf9a83672-d01ae096da3dee1c"
+type = "listItem"
+composite = true
+origin = '''
+- {{9ddde23cf9a83672-d01ae096da3dee1c-f92c4a5db3f20dbc}}
+'''
+translate = '''
+- {{9ddde23cf9a83672-d01ae096da3dee1c-f92c4a5db3f20dbc}}
+'''
+
+[[block]]
+key = "9ddde23cf9a83672-d01ae096da3dee1c-f92c4a5db3f20dbc"
+type = "paragraph"
+origin = '''
+[设备、切片软件与喷嘴](../../settings-import-export/device-and-slicer/device-and-slicer.mdx)
+'''
+translate = '''
+[Device, Slicer, and Nozzle](../../settings-import-export/device-and-slicer/device-and-slicer.mdx)
+'''
+
+[[block]]
+key = "9ddde23cf9a83672-ec22b05a26623066"
+type = "listItem"
+composite = true
+origin = '''
+- {{9ddde23cf9a83672-ec22b05a26623066-7b633269a501da0c}}
+'''
+translate = '''
+- {{9ddde23cf9a83672-ec22b05a26623066-7b633269a501da0c}}
+'''
+
+[[block]]
+key = "9ddde23cf9a83672-ec22b05a26623066-7b633269a501da0c"
+type = "paragraph"
+origin = '''
+[五色配方查询](../../lut-management/five-color-query/five-color-query.mdx)
+'''
+translate = '''
+[Five-Color Query](../../lut-management/five-color-query/five-color-query.mdx)
+'''

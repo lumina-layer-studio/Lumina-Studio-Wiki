@@ -1,0 +1,1242 @@
+[metadata]
+migration_layout = "preserved English structure; root blocks retain grouped or omitted source sections"
+reviewed_source = "e7c5b720fd7cc776633bd080f2723222e624d557046667c3af454f11086a39a6"
+
+[[block]]
+key = "7ea351c6c7aab8c6"
+type = "yaml"
+origin = '''
+---
+title: "高保真、像素艺术与矢量模式怎么选？"
+description: "按照片、复杂插画、像素画、Logo、文字、线稿和透明 PNG 等常见素材，理解 Lumina Studio 三种建模模式分别保留什么。"
+sidebar_position: 22
+---
+'''
+translate = '''
+---
+title: "How Do I Choose High-Fidelity, Pixel Art, or Vector Mode?"
+description: "Choose a Lumina Studio modeling mode for photos, detailed artwork, pixel art, logos, text, line art, and transparent PNGs by understanding what each mode preserves."
+sidebar_position: 22
+---
+'''
+
+[[block]]
+key = "ceea95a5811bddba"
+type = "heading"
+origin = '''
+# 高保真、像素艺术与矢量模式怎么选？
+'''
+translate = '''
+# How Do I Choose High-Fidelity, Pixel Art, or Vector Mode?
+'''
+
+[[block]]
+key = "0126b84b7be2f63e"
+type = "paragraph"
+origin = '''
+选择建模模式时，先看原图最核心的视觉特征，再挑选对应保留该特征的模式：
+'''
+translate = '''
+Match the modeling mode to the visual structure that matters most in your source artwork:
+'''
+
+[[block]]
+key = "71401e91b3cef562"
+type = "list"
+composite = true
+origin = '''
+{{71401e91b3cef562-50e3e86b8a168065}}
+{{71401e91b3cef562-6ade3f76fb357ebd}}
+{{71401e91b3cef562-8157158038aed09c}}
+'''
+translate = '''
+- For photos, detailed illustrations, soft gradients, and rich textures, start with **High-Fidelity**.
+- For pixel art, grid patterns, and mosaic-style designs, start with **Pixel Art**.
+- For native SVG logos, text, icons, line art, and flat-color shapes, start with **Vector**.
+'''
+
+[[block]]
+key = "71401e91b3cef562-50e3e86b8a168065"
+type = "listItem"
+composite = true
+origin = '''
+- {{71401e91b3cef562-50e3e86b8a168065-cf764eeab8340dc0}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "71401e91b3cef562-50e3e86b8a168065-cf764eeab8340dc0"
+type = "paragraph"
+origin = '''
+照片、复杂插画、柔和渐变与丰富纹理，优先选择 **高保真**；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "71401e91b3cef562-6ade3f76fb357ebd"
+type = "listItem"
+composite = true
+origin = '''
+- {{71401e91b3cef562-6ade3f76fb357ebd-1543a0f3478e0c11}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "71401e91b3cef562-6ade3f76fb357ebd-1543a0f3478e0c11"
+type = "paragraph"
+origin = '''
+像素画、方格拼图与马赛克风格图案，优先选择 **像素艺术**；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "71401e91b3cef562-8157158038aed09c"
+type = "listItem"
+composite = true
+origin = '''
+- {{71401e91b3cef562-8157158038aed09c-1b74e19e968f0b19}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "71401e91b3cef562-8157158038aed09c-1b74e19e968f0b19"
+type = "paragraph"
+origin = '''
+原生 SVG 格式的 Logo、文字、图标、线稿与纯色图形，优先选择 **矢量模式**。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "370c0c45ade4eb0d"
+type = "paragraph"
+origin = '''
+三种模式分别针对不同的画面结构设计，并无高低优劣之分。同一份素材也可以切换不同模式分别预览，再结合成品尺寸、模型复杂度与个人审美做决定。
+'''
+translate = '''
+These three modes target different image structures rather than ranking quality from low to high. You can preview the same artwork in multiple modes and choose based on finished print size, geometry complexity, and visual style.
+'''
+
+[[block]]
+key = "4e50502568049e99"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/mode-selection-overview.webp').default}
+  alt="照片、像素画、Logo、文字和线稿对应高保真、像素艺术与矢量模式的选择概览"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/mode-selection-overview.webp').default}
+  alt="Overview matching photos, pixel art, logos, text, and line art to High-Fidelity, Pixel Art, and Vector modes"
+/>
+'''
+
+[[block]]
+key = "ebb45b66b6623f65"
+type = "admonition"
+composite = true
+origin = '''
+:::info[别只看扩展名]
+{{ebb45b66b6623f65-d795974575531dfb}}
+:::
+'''
+translate = '''
+:::info[Look beyond the file extension]
+A PNG can hold either a photograph or crisp pixel art, and an SVG can contain clean vector paths or nothing more than an embedded bitmap. Choose a mode based on whether you want to preserve continuous color transitions, a deliberate pixel grid, or sharp path boundaries.
+:::
+'''
+
+[[block]]
+key = "ebb45b66b6623f65-d795974575531dfb"
+type = "paragraph"
+origin = '''
+PNG 可能是实拍照片，也可能是像素画；SVG 既可能包含原生矢量路径，也可能只是内嵌了一张位图。选择模式的关键在于你想保留连续色彩过渡、规则像素网格，还是平滑的路径边界。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "fb3842d817d080a1"
+type = "heading"
+origin = '''
+## 三种模式分别保留什么？
+'''
+translate = '''
+## What each mode preserves
+'''
+
+[[block]]
+key = "58833695bc8c3e92"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/mode-comparison.webp').default}
+  alt="高保真保留连续颜色、像素艺术保留方格、矢量模式保留 SVG 路径的原理对比"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/mode-comparison.webp').default}
+  alt="Concept comparison showing High-Fidelity preserving continuous colour, Pixel Art preserving cells, and Vector preserving SVG paths"
+/>
+'''
+
+[[block]]
+key = "51a42bfc360c8fe7"
+type = "paragraph"
+origin = '''
+*注：上图为原理示意图，用于说明三种建模方式各自的边界处理逻辑，并非同一文件导入后的实际输出。真实效果还会受颜色数量、成品尺寸、喷嘴线宽与切片参数影响。*
+'''
+translate = '''
+*Note: This conceptual diagram illustrates what each modeling mode prioritizes rather than actual output from the same file. Final results also depend on color count, finished dimensions, nozzle line width, and slicer settings.*
+'''
+
+[[block]]
+key = "46f0d38f7389a7fa"
+type = "heading"
+origin = '''
+### 高保真：保留连续色彩、纹理与光影过渡
+'''
+translate = '''
+### High-Fidelity: continuous color, texture, and shading
+'''
+
+[[block]]
+key = "7d1155c9a95f0212"
+type = "paragraph"
+origin = '''
+高保真模式将输入画面作为连续图像处理，重点保留色彩渐变、笔触肌理与明暗层次，适合以下素材：
+'''
+translate = '''
+High-Fidelity processes the input as a continuous-tone image to preserve color transitions, brushwork, lighting, and subtle gradients. It works well for:
+'''
+
+[[block]]
+key = "fc7a71b7efd2b44c"
+type = "list"
+composite = true
+origin = '''
+{{fc7a71b7efd2b44c-36b8f9fbfe851877}}
+{{fc7a71b7efd2b44c-9f873176cfa64fe3}}
+{{fc7a71b7efd2b44c-43c5a5cadd1e3e72}}
+{{fc7a71b7efd2b44c-ed6d4789d6bc39f2}}
+'''
+translate = '''
+- Portraits, pets, landscapes, and product photography
+- Detailed illustrations with brush textures, drop shadows, glow effects, or smooth gradients
+- Complex PNGs with transparent backgrounds
+- SVG artwork that relies on raster effects or complex shading best evaluated from its rendered appearance
+'''
+
+[[block]]
+key = "fc7a71b7efd2b44c-36b8f9fbfe851877"
+type = "listItem"
+composite = true
+origin = '''
+- {{fc7a71b7efd2b44c-36b8f9fbfe851877-eb9c3332e64df209}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "fc7a71b7efd2b44c-36b8f9fbfe851877-eb9c3332e64df209"
+type = "paragraph"
+origin = '''
+人物、宠物、风景与产品照片；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "fc7a71b7efd2b44c-9f873176cfa64fe3"
+type = "listItem"
+composite = true
+origin = '''
+- {{fc7a71b7efd2b44c-9f873176cfa64fe3-3d52628e482b3b2d}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "fc7a71b7efd2b44c-9f873176cfa64fe3-3d52628e482b3b2d"
+type = "paragraph"
+origin = '''
+带有笔刷纹理、阴影、发光或柔和渐变的复杂插画；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "fc7a71b7efd2b44c-43c5a5cadd1e3e72"
+type = "listItem"
+composite = true
+origin = '''
+- {{fc7a71b7efd2b44c-43c5a5cadd1e3e72-83c2280902865f38}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "fc7a71b7efd2b44c-43c5a5cadd1e3e72-83c2280902865f38"
+type = "paragraph"
+origin = '''
+带透明背景的复杂 PNG 图像；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "fc7a71b7efd2b44c-ed6d4789d6bc39f2"
+type = "listItem"
+composite = true
+origin = '''
+- {{fc7a71b7efd2b44c-ed6d4789d6bc39f2-93d103f31e6330b4}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "fc7a71b7efd2b44c-ed6d4789d6bc39f2-93d103f31e6330b4"
+type = "paragraph"
+origin = '''
+虽为 SVG 文件，但希望按最终栅格画面而非路径轮廓处理的图形。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "e5089975110847d4"
+type = "paragraph"
+origin = '''
+实际打印能呈现的最小细节仍受物理喷嘴限制：原图中比喷嘴线宽更细的睫毛、微缩文字或噪点，在模型生成或切片阶段可能会合并或省略；色彩变化极度细碎时，生成的色块区域与计算耗时也会相应增加。建议结合计划打印的实际尺寸查看预览效果。
+'''
+translate = '''
+Physical print resolution still depends on your nozzle: eyelashes, tiny lettering, or grain narrower than a single extrusion line may merge or drop out during generation or slicing, and dense color noise can create extra tiny regions. Always evaluate Preview at your actual target print dimensions.
+'''
+
+[[block]]
+key = "958ccce9ab9e23f1"
+type = "heading"
+origin = '''
+### 像素艺术：保留规则网格与有限色板
+'''
+translate = '''
+### Pixel Art: crisp cell grids and limited palettes
+'''
+
+[[block]]
+key = "8e272378c88f2199"
+type = "paragraph"
+origin = '''
+像素艺术模式将规则排列的像素方格作为结构单元直接保留，适合以下素材：
+'''
+translate = '''
+Pixel Art treats regular pixel cells as deliberate structural units, making it ideal for:
+'''
+
+[[block]]
+key = "b5dad42b79ee6e73"
+type = "list"
+composite = true
+origin = '''
+{{b5dad42b79ee6e73-e37e126d0ad12dde}}
+{{b5dad42b79ee6e73-73d1ca9bd30a39aa}}
+{{b5dad42b79ee6e73-3b8bb654a31e9fd1}}
+{{b5dad42b79ee6e73-e131041236edcd1f}}
+'''
+translate = '''
+- Pixel-art characters, sprites, items, and scenes
+- Perler-bead layouts, mosaics, and cross-stitch patterns
+- Artwork quantized to a small palette with crisp grid-aligned edges
+- Designs meant to keep a stepped, blocky aesthetic on the build plate
+'''
+
+[[block]]
+key = "b5dad42b79ee6e73-e37e126d0ad12dde"
+type = "listItem"
+composite = true
+origin = '''
+- {{b5dad42b79ee6e73-e37e126d0ad12dde-24f2bedf6c714ee9}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b5dad42b79ee6e73-e37e126d0ad12dde-24f2bedf6c714ee9"
+type = "paragraph"
+origin = '''
+像素风角色、道具与场景；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b5dad42b79ee6e73-73d1ca9bd30a39aa"
+type = "listItem"
+composite = true
+origin = '''
+- {{b5dad42b79ee6e73-73d1ca9bd30a39aa-68ef79b67eef2c39}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b5dad42b79ee6e73-73d1ca9bd30a39aa-68ef79b67eef2c39"
+type = "paragraph"
+origin = '''
+方格拼豆图案、马赛克与十字绣图稿；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b5dad42b79ee6e73-3b8bb654a31e9fd1"
+type = "listItem"
+composite = true
+origin = '''
+- {{b5dad42b79ee6e73-3b8bb654a31e9fd1-8b4db874488d772f}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b5dad42b79ee6e73-3b8bb654a31e9fd1-8b4db874488d772f"
+type = "paragraph"
+origin = '''
+经过降色处理、色块边界严格对齐网格的图像；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b5dad42b79ee6e73-e131041236edcd1f"
+type = "listItem"
+composite = true
+origin = '''
+- {{b5dad42b79ee6e73-e131041236edcd1f-911a6ea19d79dd70}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b5dad42b79ee6e73-e131041236edcd1f-911a6ea19d79dd70"
+type = "paragraph"
+origin = '''
+希望打印成品呈现清晰阶梯方格感的设计。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "76de95b29ded9fe6"
+type = "paragraph"
+origin = '''
+若将普通照片切入像素艺术模式，连续的面部、天空与阴影过渡会被拆分为肉眼可见的方块，仅适合刻意追求像素化风格的创作。
+'''
+translate = '''
+Applying Pixel Art mode to an ordinary photograph breaks smooth skin tones, skies, and shadows into visible blocks—useful if you want a stylized mosaic look, though High-Fidelity is better for natural photo detail.
+'''
+
+[[block]]
+key = "b9e8f9f7b465aeef"
+type = "paragraph"
+origin = '''
+准备像素画素材时，请尽量保留原始像素网格；如需放大源图，请使用“最近邻（Nearest Neighbor）”插值，避免双线性或平滑缩放把方格边缘变模糊。导入后还需确认单个像素格在目标打印尺寸下的物理宽度大于喷嘴线宽，以免切片时丢失细节。
+'''
+translate = '''
+When preparing pixel art, keep the native pixel grid intact. If you scale the image beforehand, use **nearest-neighbor** interpolation so anti-aliasing does not blur cell boundaries. After importing, confirm that each grid cell is wide enough at your target print size to clear your nozzle's line width.
+'''
+
+[[block]]
+key = "480abe57b7266aa6"
+type = "heading"
+origin = '''
+### 矢量模式：按 SVG 路径重建平滑边界
+'''
+translate = '''
+### Vector: smooth geometry from SVG paths
+'''
+
+[[block]]
+key = "e621d2cf2c97536f"
+type = "paragraph"
+origin = '''
+矢量模式直接读取 SVG 中的路径、轮廓与填充信息来构建三维几何体，适合以下素材：
+'''
+translate = '''
+Vector mode builds 3D geometry directly from the mathematical paths, outlines, and fills inside an SVG file. It is designed for:
+'''
+
+[[block]]
+key = "7200e14962a2f273"
+type = "list"
+composite = true
+origin = '''
+{{7200e14962a2f273-514bc259a423e772}}
+{{7200e14962a2f273-a2fd8f3a6ffea025}}
+{{7200e14962a2f273-8bd5d0e0e1ef5eec}}
+{{7200e14962a2f273-7bb0337e982b0c42}}
+'''
+translate = '''
+- Native SVG logos, badges, icons, and wordmarks
+- Typography converted to outlines (paths)
+- Clean monochrome or flat-color line art
+- Graphics with distinct solid-color regions and crisp edges
+'''
+
+[[block]]
+key = "7200e14962a2f273-514bc259a423e772"
+type = "listItem"
+composite = true
+origin = '''
+- {{7200e14962a2f273-514bc259a423e772-5b30a2639c72d900}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7200e14962a2f273-514bc259a423e772-5b30a2639c72d900"
+type = "paragraph"
+origin = '''
+原生导出的 SVG Logo、图标与徽章；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7200e14962a2f273-a2fd8f3a6ffea025"
+type = "listItem"
+composite = true
+origin = '''
+- {{7200e14962a2f273-a2fd8f3a6ffea025-8c0a089c5d20f21b}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7200e14962a2f273-a2fd8f3a6ffea025-8c0a089c5d20f21b"
+type = "paragraph"
+origin = '''
+已转为轮廓路径的文字；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7200e14962a2f273-8bd5d0e0e1ef5eec"
+type = "listItem"
+composite = true
+origin = '''
+- {{7200e14962a2f273-8bd5d0e0e1ef5eec-4978a4aadad1dfac}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7200e14962a2f273-8bd5d0e0e1ef5eec-4978a4aadad1dfac"
+type = "paragraph"
+origin = '''
+边缘利落的单色或多色线稿；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7200e14962a2f273-7bb0337e982b0c42"
+type = "listItem"
+composite = true
+origin = '''
+- {{7200e14962a2f273-7bb0337e982b0c42-c256c01d218ddf57}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7200e14962a2f273-7bb0337e982b0c42-c256c01d218ddf57"
+type = "paragraph"
+origin = '''
+颜色数量精简、色块边界清晰的平面图形。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4c2fb03a59c814ac"
+type = "paragraph"
+origin = '''
+矢量模式仅在上传 SVG 文件时可选（上传位图时该项不可用）。由于边界直接由数学路径生成，不依赖固定像素分辨率，放大或缩小成品尺寸时依然能保持曲线与斜边的平滑利落。
+'''
+translate = '''
+Vector mode is available only when you upload an SVG file (it is unavailable for raster uploads). Because edges come directly from vector paths rather than a fixed pixel grid, curves and diagonal lines stay sharp at any target print size.
+'''
+
+[[block]]
+key = "2308eb0c5f9d8a27"
+type = "paragraph"
+origin = '''
+需要注意的是，部分 `.svg` 文件内部可能嵌有位图，或使用了滤镜、蒙版、复杂渐变、剪切路径与特殊描边效果。不同解析器对高级 SVG 特性的支持存在差异，导入后请重点核对是否存在缺失区域、填色变化、孔洞异常、路径重叠或未转曲文字变形。
+'''
+translate = '''
+Keep in mind that `.svg` files can also contain embedded bitmaps, blur filters, masks, complex gradients, clipping paths, or live strokes that render differently across parsers. After importing, inspect Preview for missing shapes, shifted fills, lost cutouts, overlapping paths, or unoutlined text.
+'''
+
+[[block]]
+key = "cd102cb48a0dde05"
+type = "heading"
+origin = '''
+## 常见素材选型速查表
+'''
+translate = '''
+## Quick reference by artwork type
+'''
+
+[[block]]
+key = "aa85ee638ec360a6"
+type = "table"
+origin = '''
+| 素材类型 | 推荐首选模式 | 预览检查重点 |
+| --- | --- | --- |
+| 人物、宠物或风景照片 | 高保真 | 五官、毛发、暗部过渡、背景噪点与细碎色块 |
+| 带肌理和柔和渐变的插画 | 高保真 | 渐变是否出现断层、细碎纹理是否过多 |
+| 原生像素画 | 像素艺术 | 像素网格是否对齐、前期缩放是否被意外平滑 |
+| 马赛克或方格拼图 | 像素艺术 | 单个方格的物理尺寸是否满足喷嘴线宽 |
+| 原生 SVG Logo 或图标 | 矢量模式 | 路径闭合、孔洞镂空、图层重叠、填充色与画布边界 |
+| 文字与线稿 | 矢量模式或高保真 | 文字是否已转路径、细线与小字在目标尺寸下能否成形 |
+| 透明背景 PNG | 按画面内容选择 | 边缘白边或灰边、半透明过渡像素与背景孤立杂点 |
+| 自动描摹生成的 SVG | 对比矢量模式与高保真 | 节点是否杂乱、色块是否碎裂、轮廓是否变形 |
+'''
+translate = '''
+| Source artwork | Mode to try first | What to check in Preview |
+| --- | --- | --- |
+| Portrait, pet, or landscape photo | High-Fidelity | Facial features, fur, shadow transitions, background noise, and tiny color islands |
+| Textured or soft-gradient illustration | High-Fidelity | Smoothness of gradients and whether fine texture breaks into excessive tiny regions |
+| Native pixel art | Pixel Art | Clean grid alignment and absence of blurred edges from prior scaling |
+| Mosaic or grid pattern | Pixel Art | Whether individual cells are wide enough for your nozzle line width |
+| Native SVG logo or icon | Vector | Closed paths, interior cutouts, overlapping shapes, fills, and canvas bounds |
+| Typography and line art | Vector or High-Fidelity | Outlined text paths and whether thin strokes or small letters will print cleanly |
+| Transparent PNG | Match to image style | White or gray edge fringes, stray semi-transparent pixels, and isolated specks |
+| Auto-traced SVG | Compare Vector and High-Fidelity | Excess anchor points, fragmented color patches, and distorted contours |
+'''
+
+[[block]]
+key = "324168c4b7691f7a"
+type = "paragraph"
+origin = '''
+上表可作为首次预览的起点。例如只有三种纯色的清晰 PNG Logo 可直接使用高保真模式；若同时拥有设计软件导出的原生 SVG，也可切入矢量模式对比边缘平滑度与模型结构，择优导出。
+'''
+translate = '''
+Treat this table as a starting point. A crisp three-color PNG logo works well in High-Fidelity; if you also have the original design SVG, you can preview it in Vector mode as well and pick whichever geometry slices cleaner.
+'''
+
+[[block]]
+key = "258f2b4a100fdcd3"
+type = "heading"
+origin = '''
+## 透明 PNG 该选哪种模式？
+'''
+translate = '''
+## Which mode should a transparent PNG use?
+'''
+
+[[block]]
+key = "63746e43e76a4f8f"
+type = "paragraph"
+origin = '''
+透明背景 PNG 本质仍是像素位图：
+'''
+translate = '''
+A transparent background does not turn a PNG into vector paths—it is still a raster image:
+'''
+
+[[block]]
+key = "54e15a37c802273a"
+type = "list"
+composite = true
+origin = '''
+{{54e15a37c802273a-1079ea8452bb8cbb}}
+{{54e15a37c802273a-755e90004545f497}}
+{{54e15a37c802273a-80d6000a181f0959}}
+'''
+translate = '''
+- Choose **High-Fidelity** for photos, shaded illustrations, or soft gradients.
+- Choose **Pixel Art** for native pixel art on a transparent canvas.
+- Choose **High-Fidelity** for flat logos or line art when you only have a PNG, or run a clean vector trace first if you want to compare it in **Vector** mode.
+'''
+
+[[block]]
+key = "54e15a37c802273a-1079ea8452bb8cbb"
+type = "listItem"
+composite = true
+origin = '''
+- {{54e15a37c802273a-1079ea8452bb8cbb-a916a01d969a6d41}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "54e15a37c802273a-1079ea8452bb8cbb-a916a01d969a6d41"
+type = "paragraph"
+origin = '''
+画面为照片、复杂插画或柔和渐变时，选择 **高保真**；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "54e15a37c802273a-755e90004545f497"
+type = "listItem"
+composite = true
+origin = '''
+- {{54e15a37c802273a-755e90004545f497-a3fc2bbaca823fe7}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "54e15a37c802273a-755e90004545f497-a3fc2bbaca823fe7"
+type = "paragraph"
+origin = '''
+画面为原生像素画时，选择 **像素艺术**；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "54e15a37c802273a-80d6000a181f0959"
+type = "listItem"
+composite = true
+origin = '''
+- {{54e15a37c802273a-80d6000a181f0959-696591be55f4b8ff}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "54e15a37c802273a-80d6000a181f0959-696591be55f4b8ff"
+type = "paragraph"
+origin = '''
+画面为纯色 Logo 或线稿但手头没有原生 SVG 时，可直接使用 **高保真**，或借助描摹工具另存一份 SVG 与 **矢量模式** 对比效果。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8d14fc7a4e831695"
+type = "paragraph"
+origin = '''
+抠图后的透明边缘常残留浅白边、灰边或半透明杂色像素。这些杂边在深色或浅色单一背景上不易察觉，但生成模型后可能变成独立的一圈异色边缘。建议导入前分别在深色与浅色底色下检查一遍边缘干净度。
+'''
+translate = '''
+Cutout PNGs often carry faint white or gray halos or stray semi-transparent pixels along their silhouette. Halos that blend into a light or dark screen background can turn into an unwanted border ring in the 3D model. Preview your PNG against both dark and light backgrounds before importing.
+'''
+
+[[block]]
+key = "45c569638b21850c"
+type = "heading"
+origin = '''
+## 导入前的原图清理要点
+'''
+translate = '''
+## Clean up your source file before importing
+'''
+
+[[block]]
+key = "6ec9879f44b16577"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/source-cleanup.webp').default}
+  alt="透明边缘、杂点、细线小字和渐变滤镜在导入前的清理检查"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/source-cleanup.webp').default}
+  alt="Checks for transparent edges, specks, thin lines, small text, gradients, filters, and masks before import"
+/>
+'''
+
+[[block]]
+key = "12c8fe4a9e1bf6c6"
+type = "heading"
+origin = '''
+### 透明边缘
+'''
+translate = '''
+### Transparent edges
+'''
+
+[[block]]
+key = "3daf33f7839c4de9"
+type = "paragraph"
+origin = '''
+清理抠图残留的白边、灰边与游离半透明杂点。若画面本身设计了柔和羽化或发光边缘，可先直接用高保真模式预览过渡效果，无需一刀切删光半透明区域。
+'''
+translate = '''
+Trim unwanted white or gray matte fringes and stray semi-transparent pixels around cutouts. If your artwork has intentional soft feathering or outer glow, check it in High-Fidelity Preview first before stripping translucent edges.
+'''
+
+[[block]]
+key = "b0c8955756f8ceb8"
+type = "heading"
+origin = '''
+### 杂点与细小碎片
+'''
+translate = '''
+### Stray specks and compression artifacts
+'''
+
+[[block]]
+key = "cab93214138bd037"
+type = "paragraph"
+origin = '''
+提前擦除画面主体之外的压缩噪点、扫描灰尘与孤立小色斑，避免模型生成大量无意义的细微独立区域、拖慢切片速度。
+'''
+translate = '''
+Erase isolated background specks, JPEG artifacts, and scanner dust outside the main subject so they do not generate tiny disconnected islands in the model.
+'''
+
+[[block]]
+key = "300f88f2868e7ea5"
+type = "heading"
+origin = '''
+### 过细线条与微缩文字
+'''
+translate = '''
+### Hairline strokes and tiny text
+'''
+
+[[block]]
+key = "110e5b99f27ea08b"
+type = "paragraph"
+origin = '''
+按计划打印的物理毫米尺寸评估线宽与字号。屏幕上放大可见的细线，缩放到 60 mm 或 100 mm 幅面后可能窄于单道挤出线宽。必要时提前加粗笔画、放大字号或简化繁琐暗纹。
+'''
+translate = '''
+Check stroke weights and font sizes at your actual print dimensions in millimeters. Details that look sharp when zoomed in on screen may fall below your nozzle's minimum line width once scaled to 60 mm or 100 mm. Thicken fine lines, enlarge small lettering, or simplify tiny ornaments as needed.
+'''
+
+[[block]]
+key = "4960f78f98a393c9"
+type = "heading"
+origin = '''
+### 渐变、滤镜与蒙版
+'''
+translate = '''
+### Gradients, filters, and masks
+'''
+
+[[block]]
+key = "8da0258106234bd5"
+type = "paragraph"
+origin = '''
+若画面效果高度依赖模糊、发光、阴影或复杂蒙版，建议保留位图或导出高分辨率 PNG，使用高保真模式处理；若希望使用矢量模式，请在矢量设计软件中先将外观与描边扩展为普通闭合路径和纯色填充，再导出 SVG。
+'''
+translate = '''
+When shadows, glows, blurs, or complex masks define the look of an artwork, export a clean high-resolution PNG and use High-Fidelity. If you prefer Vector mode, expand strokes, live text, and appearances into standard closed paths and solid fills in your vector editor before saving the SVG.
+'''
+
+[[block]]
+key = "9d05d12fe690ab04"
+type = "admonition"
+composite = true
+origin = '''
+:::note[原图清理提示]
+{{9d05d12fe690ab04-3d78573bce16fde3}}
+:::
+'''
+translate = '''
+:::note[Why clean up the source image]
+Removing edge halos, stray noise, and sub-nozzle fragments upfront keeps region boundaries clean so model generation focuses on the details you want on the print.
+:::
+'''
+
+[[block]]
+key = "9d05d12fe690ab04-3d78573bce16fde3"
+type = "paragraph"
+origin = '''
+导入前清理杂边、噪点与小于线宽的碎屑，能让生成的色块边界更干净，使模型集中表现主体画面。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f430915debbd75b6"
+type = "heading"
+origin = '''
+## 模式选择的四个关键认知
+'''
+translate = '''
+## Four helpful distinctions
+'''
+
+[[block]]
+key = "623102d318dea02c"
+type = "heading"
+origin = '''
+### 自动描摹 SVG 无法恢复已丢失的细节
+'''
+translate = '''
+### Auto-tracing to SVG cannot restore missing detail
+'''
+
+[[block]]
+key = "cb438c8da6bfefb8"
+type = "paragraph"
+origin = '''
+位图转矢量的自动描摹算法只能根据现有像素推算轮廓：对清晰的简单色块 Logo 往往能理顺边缘，但对模糊照片或高压缩图片则容易把噪点与锯齿拆成成百上千个碎路径，原图中已经糊掉的五官或文字并不会因此变清晰。
+'''
+translate = '''
+Automatic bitmap-to-vector tracing guesses contours from existing pixels. While it can tidy up a bold, simple logo, tracing a noisy photo or compressed image often shatters edges into thousands of jagged micro-paths—and cannot recover facial features or lettering already blurred in the source.
+'''
+
+[[block]]
+key = "826e85791b6e09e9"
+type = "heading"
+origin = '''
+### 打印清晰度同时受成品尺寸与喷嘴线宽制约
+'''
+translate = '''
+### Print sharpness is bounded by print size and line width
+'''
+
+[[block]]
+key = "2d2b3a83ab825bbe"
+type = "paragraph"
+origin = '''
+高分辨率原图能提供充足的采样输入，而最终能印出多细的纹理，仍取决于成品物理尺寸、喷嘴口径与切片线宽。关于尺寸与线宽的换算关系，请参阅[0.2 和 0.4 喷嘴相当于多少分辨率？](pathname:///zh/docs/knowledge/nozzle-equivalent-resolution/)。
+'''
+translate = '''
+A high-resolution image gives Lumina plenty of pixel data, while the finest printable detail is ultimately set by physical print dimensions, nozzle diameter, and extrusion line width. To see how image pixels map to nozzle width, read [What Image Resolution Is a 0.2 mm or 0.4 mm Nozzle Equivalent To?](pathname:///en/docs/knowledge/nozzle-equivalent-resolution/).
+'''
+
+[[block]]
+key = "4788a7174bcc5fe6"
+type = "heading"
+origin = '''
+### 矢量模式决定路径边界，不增加可用颜色数
+'''
+translate = '''
+### Vector mode defines boundaries rather than adding colors
+'''
+
+[[block]]
+key = "6f53cc65874e6969"
+type = "paragraph"
+origin = '''
+矢量模式的优势在于平滑还原几何轮廓，而作品最终能呈现多少种颜色，依然由当前选用的耗材档案（或 LUT）与叠层配方决定。
+'''
+translate = '''
+Vector paths keep curves and sharp corners crisp, while your available color palette is still governed by your selected Material Archives (or Classic LUT) and layer stack.
+'''
+
+[[block]]
+key = "46e73279337c143a"
+type = "heading"
+origin = '''
+### 像素艺术的方格感属于明确的视觉风格
+'''
+translate = '''
+### Pixel Art preserves intentional grid styling
+'''
+
+[[block]]
+key = "c67b6a517784da5d"
+type = "paragraph"
+origin = '''
+像素画通过有限网格与精简色板塑造造型，清晰的方格台阶正是其核心设计语言；盲目用平滑算法抹平锯齿反而会破坏原有的像素美感。更多格式差异可参考[位图与矢量图有什么区别？](pathname:///zh/docs/knowledge/bitmap-vs-vector/)。
+'''
+translate = '''
+Pixel art relies on a visible cell grid and compact palette as part of its aesthetic; smoothing those crisp steps into rounded curves softens the original design. For a closer look at raster grids versus vector paths, see [Bitmap vs. Vector Images: What’s the Difference?](pathname:///en/docs/knowledge/bitmap-vs-vector/).
+'''
+
+[[block]]
+key = "6a9273761233410b"
+type = "heading"
+origin = '''
+## 一分钟选型流程
+'''
+translate = '''
+## One-minute selection workflow
+'''
+
+[[block]]
+key = "0761203a4db51bbd"
+type = "paragraph"
+origin = '''
+拿到素材后，可按以下顺序快速判断：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b09bd56d6bce557d"
+type = "list"
+composite = true
+origin = '''
+{{b09bd56d6bce557d-11053e96958f0f41}}
+{{b09bd56d6bce557d-cad3cdf1fb110507}}
+{{b09bd56d6bce557d-8048012befa41ece}}
+{{b09bd56d6bce557d-176cf0358e03f611}}
+{{b09bd56d6bce557d-5caeeaa8315cbf6a}}
+{{b09bd56d6bce557d-13782078e36ca673}}
+'''
+translate = '''
+1. **Check the subject:** Is it a photo/shaded illustration, pixel art, or a flat logo/text/line drawing?
+2. **Inspect the file contents:** If it's an SVG, does it contain real vector paths or just an embedded bitmap and live filters?
+3. **Pick what to preserve:** Smooth tonal transitions, crisp grid cells, or mathematical path edges?
+4. **Tidy up the file:** Clean up cutout fringes, stray specks, hairline strokes, and tiny text.
+5. **Preview at target size:** Zoom in on eyes, lettering, interior cutouts, and small isolated color islands.
+6. **Compare modes when close:** Preview both candidates and inspect the sliced toolpaths to pick the cleanest result.
+'''
+
+[[block]]
+key = "b09bd56d6bce557d-11053e96958f0f41"
+type = "listItem"
+composite = true
+origin = '''
+1. {{b09bd56d6bce557d-11053e96958f0f41-0abd01ffdec71ba3}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b09bd56d6bce557d-11053e96958f0f41-0abd01ffdec71ba3"
+type = "paragraph"
+origin = '''
+**看画面类型**：属于照片/复杂插画、像素画，还是 Logo/文字/线稿？
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b09bd56d6bce557d-cad3cdf1fb110507"
+type = "listItem"
+composite = true
+origin = '''
+2. {{b09bd56d6bce557d-cad3cdf1fb110507-ee5b8882f317090a}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b09bd56d6bce557d-cad3cdf1fb110507-ee5b8882f317090a"
+type = "paragraph"
+origin = '''
+**查文件结构**：若是 SVG，内部是干净的闭合路径，还是内嵌位图与复杂滤镜？
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b09bd56d6bce557d-8048012befa41ece"
+type = "listItem"
+composite = true
+origin = '''
+3. {{b09bd56d6bce557d-8048012befa41ece-b0435ac70ecfb438}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b09bd56d6bce557d-8048012befa41ece-b0435ac70ecfb438"
+type = "paragraph"
+origin = '''
+**定保留目标**：优先保留连续色彩过渡、规则像素方格，还是平滑路径轮廓？
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b09bd56d6bce557d-176cf0358e03f611"
+type = "listItem"
+composite = true
+origin = '''
+4. {{b09bd56d6bce557d-176cf0358e03f611-1353a8b4768d6627}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b09bd56d6bce557d-176cf0358e03f611-1353a8b4768d6627"
+type = "paragraph"
+origin = '''
+**做基础清理**：排查透明杂边、背景噪点、过细线条与极小文字。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b09bd56d6bce557d-5caeeaa8315cbf6a"
+type = "listItem"
+composite = true
+origin = '''
+5. {{b09bd56d6bce557d-5caeeaa8315cbf6a-e3bd54368696902e}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b09bd56d6bce557d-5caeeaa8315cbf6a-e3bd54368696902e"
+type = "paragraph"
+origin = '''
+**按目标尺寸预览**：重点放大检查五官、文字笔画、镂空孔洞与独立小色块。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b09bd56d6bce557d-13782078e36ca673"
+type = "listItem"
+composite = true
+origin = '''
+6. {{b09bd56d6bce557d-13782078e36ca673-8665af2c804be778}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b09bd56d6bce557d-13782078e36ca673-8665af2c804be778"
+type = "paragraph"
+origin = '''
+**双模式对比**：拿不准时切换两种模式对比预览与切片路径，挑选观感更佳的一版。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "cbbf3b866f003400"
+type = "heading"
+origin = '''
+## 常见问题 Q&A
+'''
+translate = '''
+## Common questions
+'''
+
+[[block]]
+key = "a94bb829afb4d1f3"
+type = "heading"
+origin = '''
+### 单独上传 SVG 后，为什么软件默认切到了矢量模式？
+'''
+translate = '''
+### Why does Lumina switch to Vector mode automatically when I upload an SVG?
+'''
+
+[[block]]
+key = "ae6cda3a37dec449"
+type = "paragraph"
+origin = '''
+上传单个 SVG 文件时，Lumina 会默认启用矢量模式以保留路径轮廓。若该 SVG 含有复杂渐变、滤镜或内嵌位图，可随时手动切换到高保真模式对比预览效果。
+'''
+translate = '''
+Uploading a single SVG defaults to Vector mode so native path boundaries stay intact. If your SVG relies on complex gradients, blur filters, or embedded bitmaps, you can switch to High-Fidelity at any time to compare the rendered appearance.
+'''
+
+[[block]]
+key = "82befb51c91064d6"
+type = "heading"
+origin = '''
+### JPG、PNG 和 WebP 能否使用矢量模式？
+'''
+translate = '''
+### Can JPG, PNG, or WebP files use Vector mode?
+'''
+
+[[block]]
+key = "bb159ecaeb89649b"
+type = "paragraph"
+origin = '''
+不能直接开启。这类格式存储的是像素矩阵，仅上传 SVG 时才可使用矢量模式。如需按路径建模，请先准备设计原稿导出的原生 SVG，或通过矢量描摹工具转换并检查路径后再上传（直接修改文件扩展名为 `.svg` 无效）。
+'''
+translate = '''
+Vector mode is enabled only for SVG uploads because JPG, PNG, and WebP store pixel grids rather than vector paths. To use Vector mode, export a native SVG from your design app or trace the artwork in a vector editor and inspect the paths first (simply renaming a file extension to `.svg` will not convert pixel data).
+'''
+
+[[block]]
+key = "c8730a03cf5e4e94"
+type = "heading"
+origin = '''
+### Logo 素材一定要转成 SVG 吗？
+'''
+translate = '''
+### Do I have to convert every logo to SVG?
+'''
+
+[[block]]
+key = "59a65d9e02176c25"
+type = "paragraph"
+origin = '''
+不一定。分辨率充足、边缘清晰的 PNG Logo 使用高保真模式同样能获得干净的打印效果。原生 SVG 在任意缩放尺寸和保持曲线平滑上更有优势；但如果手头只有位图且自动描摹后出现了杂乱节点，直接使用原 PNG 高保真模式往往更稳妥。
+'''
+translate = '''
+Not at all. A clean, high-resolution PNG logo prints well in High-Fidelity mode. Native SVG shines when scaling to large sizes or preserving razor-sharp curves, whereas sticking with the original PNG in High-Fidelity is often cleaner than using a messy auto-traced SVG.
+'''
+
+[[block]]
+key = "6e4d00402d5b43bf"
+type = "heading"
+origin = '''
+### 像素画可以使用高保真模式吗？
+'''
+translate = '''
+### Can I use High-Fidelity mode for pixel art?
+'''
+
+[[block]]
+key = "051f7eb97da9835e"
+type = "paragraph"
+origin = '''
+可以。像素艺术模式会严格锁定网格单元，而高保真模式会将其视作普通连续图像做区域划分。你可以根据想要保留硬朗方格感还是略微柔化的边缘自由选择。
+'''
+translate = '''
+Yes. Pixel Art mode locks geometry to the cell grid, while High-Fidelity treats the image as continuous artwork. Preview both and choose whichever edge treatment fits your project.
+'''
+
+[[block]]
+key = "b2e812b56ba048c4"
+type = "heading"
+origin = '''
+### 矢量模式导入后少了一部分图形怎么办？
+'''
+translate = '''
+### Why did part of my graphic disappear in Vector mode?
+'''
+
+[[block]]
+key = "f7c102f941a859ed"
+type = "paragraph"
+origin = '''
+常见原因包括 SVG 内含嵌入位图、滤镜、蒙版、剪切路径、特殊描边、未转曲文字，或部分图元超出了画布（`viewBox`）范围。可在矢量编辑软件中将文字转曲、将外观与描边扩展为普通填充路径后重新保存导入；也可直接导出高分辨率 PNG 改用高保真模式。
+'''
+translate = '''
+Check whether the SVG contains embedded bitmaps, live filters, masks, clipping paths, unexpanded strokes, unoutlined fonts, or artwork sitting outside the `viewBox` canvas. In your vector editor, convert text to outlines and expand strokes and appearances into standard filled paths, or export a high-resolution PNG and use High-Fidelity mode instead.
+'''
+
+[[block]]
+key = "2ede346e5f98d5a1"
+type = "heading"
+origin = '''
+### 同一张图在多种模式下都能正常生成时，按什么标准定稿？
+'''
+translate = '''
+### If more than one mode generates cleanly, how should I choose?
+'''
+
+[[block]]
+key = "bd2cd2a530b14d73"
+type = "paragraph"
+origin = '''
+结合目标打印尺寸下的预览清晰度、色块碎裂程度、关键细节还原以及切片后的实际走线来挑选即可，无需拘泥于模式名称。
+'''
+translate = '''
+Compare Preview at your finished print dimensions, check how cleanly small regions slice, and pick whichever result looks best for your artwork.
+'''

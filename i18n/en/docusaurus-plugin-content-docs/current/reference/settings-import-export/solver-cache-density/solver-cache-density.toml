@@ -1,0 +1,294 @@
+[metadata]
+reviewed_source = "65a61bf88d3b3f7d7f378e6412e96f7ccbf7ff33832fc9942e264990c9a85464"
+
+[[block]]
+key = "8ef491838c7fe692"
+type = "yaml"
+origin = '''
+---
+title: "穷举缓存精度"
+description: "耗材档案求解器的 Lab 颜色网格细分档位、稀疏缓存机制与内存安全预算。"
+sidebar_position: 3
+---
+'''
+translate = '''
+---
+title: "Exhaustive Cache Density"
+description: "Lab-grid resolution tiers, sparse caching, and memory budgets for the material-profile solver."
+sidebar_position: 3
+---
+'''
+
+[[block]]
+key = "6e0e8642a02945c0"
+type = "heading"
+origin = '''
+# 穷举缓存精度
+'''
+translate = '''
+# Exhaustive Cache Density
+'''
+
+[[block]]
+key = "23f35f4f3aeecd0f"
+type = "paragraph"
+origin = '''
+耗材档案会枚举当前所选耗材与层数可组合出的叠层配方，并将预测颜色索引到三维 Lab 颜色网格中。“穷举缓存精度”决定该网格的细分程度：档位越高，颜色接近但配方不同的组合越不容易落入同一个网格单元。
+'''
+translate = '''
+A material profile enumerates the layer recipes reachable with your selected filaments and layer count, then indexes their predicted colors in a 3D Lab grid. **Exhaustive Cache Density** sets the resolution of that grid—finer grids keep closely spaced colors with distinct recipes from colliding in the same cell.
+'''
+
+[[block]]
+key = "1b6fa94db9853f55"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-solver-cache.webp').default}
+  alt="系统设置中的穷举缓存精度选项"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-solver-cache.webp').default}
+  alt="Exhaustive cache density settings"
+/>
+'''
+
+[[block]]
+key = "797ac37decf1155a"
+type = "heading"
+origin = '''
+## 可选档位
+'''
+translate = '''
+## Resolution tiers
+'''
+
+[[block]]
+key = "5f353bcde102db1b"
+type = "paragraph"
+origin = '''
+提供 `64³`、`128³`、`256³`、`512³`、`1024³` 和 `2048³` 六个档位。未开启“允许自定义穷举数量”时，构建默认统一采用 `64³`。
+'''
+translate = '''
+Available tiers are `64³`, `128³`, `256³`, `512³`, `1024³`, and `2048³`. When custom exhaustive density is turned off, builds default to `64³`.
+'''
+
+[[block]]
+key = "9cca37af95925bdd"
+type = "paragraph"
+origin = '''
+调高档位可减少网格碰撞导致的候选配方合并，适合追求细腻色彩区分的耗材档案；最终可达色域与色彩准确度仍由耗材本身的实测光学数据决定。
+'''
+translate = '''
+Higher tiers preserve more candidate recipes by reducing grid collisions, which helps when a material profile requires fine tonal separation. Overall gamut and color accuracy still depend on the underlying optical measurements of your filaments.
+'''
+
+[[block]]
+key = "25662d958b0f006e"
+type = "heading"
+origin = '''
+## 缓存机制与资源限制
+'''
+translate = '''
+## Cache storage and resource budgets
+'''
+
+[[block]]
+key = "759758ea5ad7f3b8"
+type = "paragraph"
+origin = '''
+缓存采用稀疏存储结构，仅记录物理可达的有效配方，无需分配完整的三维网格空间。每个精度档位各自生成独立的缓存文件，切换档位不会覆盖其他档位已建好的缓存。
+'''
+translate = '''
+The cache uses sparse storage, saving only physically reachable recipes rather than allocating every cell of the 3D grid. Each tier writes its own cache file, so switching tiers leaves existing caches at other resolutions intact.
+'''
+
+[[block]]
+key = "d11811dd3503d1c6"
+type = "paragraph"
+origin = '''
+缓存构建受资源安全预算保护：
+'''
+translate = '''
+Builds stay within automatic resource budgets:
+'''
+
+[[block]]
+key = "3ece4d2677804a04"
+type = "list"
+composite = true
+origin = '''
+{{3ece4d2677804a04-84eec08063521d88}}
+{{3ece4d2677804a04-4176b8c54aa8feef}}
+{{3ece4d2677804a04-b1bb8789d1918e15}}
+'''
+translate = '''
+{{3ece4d2677804a04-84eec08063521d88}}
+{{3ece4d2677804a04-4176b8c54aa8feef}}
+{{3ece4d2677804a04-b1bb8789d1918e15}}
+'''
+
+[[block]]
+key = "3ece4d2677804a04-84eec08063521d88"
+type = "listItem"
+composite = true
+origin = '''
+- {{3ece4d2677804a04-84eec08063521d88-5c8344958dd98c19}}
+'''
+translate = '''
+- {{3ece4d2677804a04-84eec08063521d88-5c8344958dd98c19}}
+'''
+
+[[block]]
+key = "3ece4d2677804a04-84eec08063521d88-5c8344958dd98c19"
+type = "paragraph"
+origin = '''
+小规模组合直接采用精确模式计算。
+'''
+translate = '''
+Small recipe spaces run in exact mode.
+'''
+
+[[block]]
+key = "3ece4d2677804a04-4176b8c54aa8feef"
+type = "listItem"
+composite = true
+origin = '''
+- {{3ece4d2677804a04-4176b8c54aa8feef-62472ab818cd4231}}
+'''
+translate = '''
+- {{3ece4d2677804a04-4176b8c54aa8feef-62472ab818cd4231}}
+'''
+
+[[block]]
+key = "3ece4d2677804a04-4176b8c54aa8feef-62472ab818cd4231"
+type = "paragraph"
+origin = '''
+大规模组合会预先评估内存占用与配方总数。
+'''
+translate = '''
+Larger combinations check estimated memory usage and total recipe count beforehand.
+'''
+
+[[block]]
+key = "3ece4d2677804a04-b1bb8789d1918e15"
+type = "listItem"
+composite = true
+origin = '''
+- {{3ece4d2677804a04-b1bb8789d1918e15-c403d280e747c7ba}}
+'''
+translate = '''
+- {{3ece4d2677804a04-b1bb8789d1918e15-c403d280e747c7ba}}
+'''
+
+[[block]]
+key = "3ece4d2677804a04-b1bb8789d1918e15-c403d280e747c7ba"
+type = "paragraph"
+origin = '''
+超出安全预算时，构建会自动停止，并提示减少耗材数量或叠层层数。
+'''
+translate = '''
+If a build exceeds the active safety budget, it stops cleanly and prompts you to lower the filament or layer count.
+'''
+
+[[block]]
+key = "d3b975054f7b70c1"
+type = "paragraph"
+origin = '''
+首次在某个新档位下构建缓存时耗时较长，建好后再次使用即可直接读取；查色耗时也会随档位提升略有增加。
+'''
+translate = '''
+Building a new tier for the first time takes noticeably longer than loading a saved cache, and color-lookup time increases slightly at higher densities.
+'''
+
+[[block]]
+key = "b68d86f2cd375fa7"
+type = "admonition"
+composite = true
+origin = '''
+:::note[适用范围]
+{{b68d86f2cd375fa7-84f34f6b4af61a61}}
+:::
+'''
+translate = '''
+:::note[Solver scope]
+{{b68d86f2cd375fa7-84f34f6b4af61a61}}
+:::
+'''
+
+[[block]]
+key = "b68d86f2cd375fa7-84f34f6b4af61a61"
+type = "paragraph"
+origin = '''
+该设置仅作用于耗材档案求解器。传统 LUT 直接读取已有的实测颜色与配方，不使用此处的网格精度。
+'''
+translate = '''
+This setting applies only to the material-profile solver. Traditional LUTs read their existing measured colors and recipes directly and do not use this grid density.
+'''
+
+[[block]]
+key = "8e598e329cd91d51"
+type = "paragraph"
+origin = '''
+相关页面：
+'''
+translate = '''
+Related pages:
+'''
+
+[[block]]
+key = "787b2d5ca968df04"
+type = "list"
+composite = true
+origin = '''
+{{787b2d5ca968df04-bec0a2e5a40d8a42}}
+{{787b2d5ca968df04-809842ad4503a951}}
+'''
+translate = '''
+{{787b2d5ca968df04-bec0a2e5a40d8a42}}
+{{787b2d5ca968df04-809842ad4503a951}}
+'''
+
+[[block]]
+key = "787b2d5ca968df04-bec0a2e5a40d8a42"
+type = "listItem"
+composite = true
+origin = '''
+- {{787b2d5ca968df04-bec0a2e5a40d8a42-d175c491032a7160}}
+'''
+translate = '''
+- {{787b2d5ca968df04-bec0a2e5a40d8a42-d175c491032a7160}}
+'''
+
+[[block]]
+key = "787b2d5ca968df04-bec0a2e5a40d8a42-d175c491032a7160"
+type = "paragraph"
+origin = '''
+[耗材档案来源](../../converter-basic/material-archive-source/material-archive-source.mdx)
+'''
+translate = '''
+[Material Profile Source](../../converter-basic/material-archive-source/material-archive-source.mdx)
+'''
+
+[[block]]
+key = "787b2d5ca968df04-809842ad4503a951"
+type = "listItem"
+composite = true
+origin = '''
+- {{787b2d5ca968df04-809842ad4503a951-5c7f2a57f88afda5}}
+'''
+translate = '''
+- {{787b2d5ca968df04-809842ad4503a951-5c7f2a57f88afda5}}
+'''
+
+[[block]]
+key = "787b2d5ca968df04-809842ad4503a951-5c7f2a57f88afda5"
+type = "paragraph"
+origin = '''
+[LUT 颜色网格](../../preview-and-palette/lut-color-grid/lut-color-grid.mdx)
+'''
+translate = '''
+[LUT Color Grid](../../preview-and-palette/lut-color-grid/lut-color-grid.mdx)
+'''

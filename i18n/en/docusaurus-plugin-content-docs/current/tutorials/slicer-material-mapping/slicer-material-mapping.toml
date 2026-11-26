@@ -1,0 +1,1388 @@
+[metadata]
+migration_layout = "preserved English structure; root blocks retain grouped or omitted source sections"
+reviewed_source = "aecfb5e129badfe04f69d6a13a8098052d9489003a8660f2ff1e01886fd11652"
+
+[[block]]
+key = "f58351d2dae08969"
+type = "yaml"
+origin = '''
+---
+title: "把 Lumina 3MF 正确导入切片器"
+description: "在 Bambu Studio 或 OrcaSlicer 中把 Lumina 3MF 作为完整项目打开，核对对象、项目耗材、真实线盘与实际料槽，并在打印前检查切片预览。"
+sidebar_position: 19
+---
+'''
+translate = '''
+---
+title: "Open a Lumina 3MF in Your Slicer"
+description: "Open a Lumina 3MF as a complete project in Bambu Studio or OrcaSlicer, map objects to real filaments and slots, and inspect the sliced display surface before printing."
+sidebar_position: 19
+---
+'''
+
+[[block]]
+key = "98ca3f1f5dedc0ec"
+type = "heading"
+origin = '''
+# 把 Lumina 3MF 正确导入切片器：对象、颜色和 AMS 料槽怎么对应
+'''
+translate = '''
+# Open a Lumina 3MF in Your Slicer: Objects, Colors, and AMS Slots
+
+> Screenshots show Bambu Studio in Simplified Chinese; setting names below match the English interface.
+'''
+
+[[block]]
+key = "ed342ea081ccfc90"
+type = "paragraph"
+origin = '''
+将 Lumina Studio 生成的 3MF 导入切片软件后，各区域的实际打印材料由切片器耗材列表、对象耗材编号、机器内实际装载的线盘及多料槽位共同决定，不能仅凭三维视图中的表面显示色判断。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2295b96baf7821ab"
+type = "paragraph"
+origin = '''
+本教程以 Bambu Studio 和 OrcaSlicer 为例，演示如何将 Lumina 3MF 作为完整项目打开、逐项核对对象与耗材映射，并在切片预览中确认显色面无错色、缺层或细节丢失。
+'''
+translate = '''
+When you open a Lumina Studio `.3mf` file in your slicer, the spool that actually prints each region depends on four linked settings: the slicer's project-filament list, each object's filament number, the physical spools loaded on the printer, and your AMS or external-spool slot mapping—not the preview color shown on the mesh alone.
+'''
+
+[[block]]
+key = "08be1b8a5108115e"
+type = "paragraph"
+origin = '''
+如果 Lumina 未检测到切片软件、点击一键打开无响应，或下载的 3MF 无法正常打开，请先参阅[切片器没检测到，或者 3MF 打不开怎么办？](pathname:///zh/docs/knowledge/slicer-path-and-open-troubleshooting/)，按“文件生成”“自动启动”和“项目导入”三个环节分别排查。
+'''
+translate = '''
+This tutorial walks through opening a Lumina `.3mf` as a full project in Bambu Studio or OrcaSlicer, verifying object and filament assignments, and inspecting the sliced display surface layer by layer before printing.
+'''
+
+[[block]]
+key = "9a14c6472f1cf2a6"
+type = "heading"
+origin = '''
+## 开始前需要准备什么
+'''
+translate = '''
+## Before you begin
+'''
+
+[[block]]
+key = "f2a29f66a4f92246"
+type = "paragraph"
+origin = '''
+请先准备好：
+'''
+translate = '''
+Have the following ready:
+'''
+
+[[block]]
+key = "4bdd59fbc208e7c0"
+type = "list"
+composite = true
+origin = '''
+{{4bdd59fbc208e7c0-7b9bb62019d88f98}}
+{{4bdd59fbc208e7c0-962b814878a7b490}}
+{{4bdd59fbc208e7c0-0020cf5dd0c4cdd1}}
+{{4bdd59fbc208e7c0-abb1acf3e11c907c}}
+'''
+translate = '''
+- The complete `.3mf` file generated and downloaded from Lumina Studio.
+- Your actual printer profile and installed nozzle diameter.
+- Every physical filament spool required by the project.
+- For AMS, ACE, MMU, or other multi-material units, a note of which slot holds each spool.
+'''
+
+[[block]]
+key = "4bdd59fbc208e7c0-7b9bb62019d88f98"
+type = "listItem"
+composite = true
+origin = '''
+- {{4bdd59fbc208e7c0-7b9bb62019d88f98-344696f63c194750}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4bdd59fbc208e7c0-7b9bb62019d88f98-344696f63c194750"
+type = "paragraph"
+origin = '''
+Lumina Studio 生成并下载的完整 3MF 文件；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4bdd59fbc208e7c0-962b814878a7b490"
+type = "listItem"
+composite = true
+origin = '''
+- {{4bdd59fbc208e7c0-962b814878a7b490-4f2746c471eb6e12}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4bdd59fbc208e7c0-962b814878a7b490-4f2746c471eb6e12"
+type = "paragraph"
+origin = '''
+实际使用的打印机与已安装的喷嘴；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4bdd59fbc208e7c0-0020cf5dd0c4cdd1"
+type = "listItem"
+composite = true
+origin = '''
+- {{4bdd59fbc208e7c0-0020cf5dd0c4cdd1-1886c5f445f5d845}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4bdd59fbc208e7c0-0020cf5dd0c4cdd1-1886c5f445f5d845"
+type = "paragraph"
+origin = '''
+作品所需的全部实物耗材线盘；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4bdd59fbc208e7c0-abb1acf3e11c907c"
+type = "listItem"
+composite = true
+origin = '''
+- {{4bdd59fbc208e7c0-abb1acf3e11c907c-a03211d9c71d75c8}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4bdd59fbc208e7c0-abb1acf3e11c907c-a03211d9c71d75c8"
+type = "paragraph"
+origin = '''
+使用 AMS、ACE、MMU 等多料系统时，记录每卷耗材当前所在的物理槽位。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "45f7b4c48f56864d"
+type = "paragraph"
+origin = '''
+若使用他人分享的 3MF，建议先确认对方生成时所用的 Lumina 版本、耗材档案与工艺设置；单独导出的 STL 网格不包含多色对象分组与耗材对应关系。
+'''
+translate = '''
+If you received the `.3mf` from someone else, check which Lumina version, material profiles, and generation settings they used. Standalone `.stl` exports only store raw mesh geometry and do not preserve multicolor object assignments.
+'''
+
+[[block]]
+key = "7f9ae337f30872b0"
+type = "admonition"
+composite = true
+origin = '''
+:::note[参数说明]
+{{7f9ae337f30872b0-17aef7d3b54f1145}}
+:::
+'''
+translate = '''
+:::note[Scope of this guide]
+This guide focuses on opening `.3mf` projects, mapping filaments, and inspecting sliced toolpaths. Choose layer height, line width, flow, and print speed to match your printer, nozzle diameter, and filament.
+:::
+'''
+
+[[block]]
+key = "7f9ae337f30872b0-17aef7d3b54f1145"
+type = "paragraph"
+origin = '''
+本文聚焦 3MF 项目打开、耗材映射与切片预览检查；层高、线宽、流量和打印速度请根据实际机型、喷嘴孔径与线材特性设置。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "3336bbd52ee9bbb9"
+type = "heading"
+origin = '''
+## 第一步：把 3MF 作为完整项目打开
+'''
+translate = '''
+## Step 1: Open the 3MF as a complete project
+'''
+
+[[block]]
+key = "762531098cae4626"
+type = "paragraph"
+origin = '''
+打开 Bambu Studio 或 OrcaSlicer，选择“打开项目”载入 Lumina 生成的 3MF（也可直接双击 3MF 文件并用常用切片软件打开）。
+'''
+translate = '''
+Launch Bambu Studio or OrcaSlicer and choose **Open Project** to load the `.3mf` file from Lumina Studio (or double-click the `.3mf` to open it in your default slicer).
+'''
+
+[[block]]
+key = "404461dca1a4b683"
+type = "paragraph"
+origin = '''
+若弹窗询问“作为项目打开”还是“仅导入模型 / 几何数据”，请选择**作为完整项目打开**。仅导入几何数据会丢失原有的打印盘布局、对象颜色分组、耗材编号及工艺参数。
+'''
+translate = '''
+If prompted to choose between opening as a project or importing geometry only, select **Open as project**. Importing geometry alone strips plate layout, object color assignments, filament slots, and process settings.
+'''
+
+[[block]]
+key = "1ecdb71ad4cf98f1"
+type = "paragraph"
+origin = '''
+项目载入后，先确认界面中能看到以下完整结构：
+'''
+translate = '''
+Once loaded, verify that you see:
+'''
+
+[[block]]
+key = "815049e91c6fa64b"
+type = "list"
+composite = true
+origin = '''
+{{815049e91c6fa64b-60423d307a6827af}}
+{{815049e91c6fa64b-aa276d2d62940cfc}}
+{{815049e91c6fa64b-0f39bd69a1888f35}}
+{{815049e91c6fa64b-fe225924cf17a0fe}}
+'''
+translate = '''
+- One or more build plates.
+- Expandable models, objects, and sub-parts in the **Objects** panel.
+- A numbered list of project filaments.
+- The complete model positioned on the build plate.
+'''
+
+[[block]]
+key = "815049e91c6fa64b-60423d307a6827af"
+type = "listItem"
+composite = true
+origin = '''
+- {{815049e91c6fa64b-60423d307a6827af-736cbc6219faa13d}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "815049e91c6fa64b-60423d307a6827af-736cbc6219faa13d"
+type = "paragraph"
+origin = '''
+一个或多个打印盘；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "815049e91c6fa64b-aa276d2d62940cfc"
+type = "listItem"
+composite = true
+origin = '''
+- {{815049e91c6fa64b-aa276d2d62940cfc-3f96f5b62ddd8e4c}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "815049e91c6fa64b-aa276d2d62940cfc-3f96f5b62ddd8e4c"
+type = "paragraph"
+origin = '''
+左侧对象面板中可展开的模型、对象与子零件；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "815049e91c6fa64b-0f39bd69a1888f35"
+type = "listItem"
+composite = true
+origin = '''
+- {{815049e91c6fa64b-0f39bd69a1888f35-eb435a452ce339f1}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "815049e91c6fa64b-0f39bd69a1888f35-eb435a452ce339f1"
+type = "paragraph"
+origin = '''
+带编号的项目耗材列表；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "815049e91c6fa64b-fe225924cf17a0fe"
+type = "listItem"
+composite = true
+origin = '''
+- {{815049e91c6fa64b-fe225924cf17a0fe-518eda843021df70}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "815049e91c6fa64b-fe225924cf17a0fe-518eda843021df70"
+type = "paragraph"
+origin = '''
+打印板上的完整模型外形。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "13608e2e7d70c447"
+type = "paragraph"
+origin = '''
+若打开后仅显示一个合并的单一网格，无法在对象列表中展开各颜色零件，请关闭当前窗口，重新通过“打开项目”载入原始 3MF。
+'''
+translate = '''
+If the file loads as a single merged mesh without separate color parts in the object list, close the window and reopen the original `.3mf` via **Open Project**.
+'''
+
+[[block]]
+key = "4917b0ddcbe5e13f"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-open-full-project.webp').default}
+  alt="确认 3MF 已作为完整项目打开"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-open-full-project.webp').default}
+  alt="Confirm that the 3MF opened as a complete project"
+/>
+'''
+
+[[block]]
+key = "6a0518e9336e4077"
+type = "heading"
+origin = '''
+## 第二步：核对打印机和喷嘴
+'''
+translate = '''
+## Step 2: Check the printer and nozzle
+'''
+
+[[block]]
+key = "acfdb0d94fa5827c"
+type = "paragraph"
+origin = '''
+在切片器左上角的打印机区域，确认当前机型与实际机器一致，并确认喷嘴直径与当前安装的喷嘴规格一致。
+'''
+translate = '''
+In the top-left **Printer** selector, confirm that both the printer profile and nozzle diameter match your physical setup.
+'''
+
+[[block]]
+key = "98a0600dbe193198"
+type = "paragraph"
+origin = '''
+若切片器提示项目与当前机型或喷嘴不兼容，请先核查原因，避免直接覆盖全部预设：
+'''
+translate = '''
+If the slicer warns that the project is incompatible with your printer or nozzle, check why before overriding settings:
+'''
+
+[[block]]
+key = "3081b9ba2cacd064"
+type = "list"
+composite = true
+origin = '''
+{{3081b9ba2cacd064-e3a878c84f6ba019}}
+{{3081b9ba2cacd064-10adb15902e328c3}}
+{{3081b9ba2cacd064-410ab2aec2a2320f}}
+'''
+translate = '''
+1. Whether the wrong printer or nozzle was selected in Lumina **Settings**.
+2. Whether the target printer preset has not been added to your local slicer yet.
+3. Whether the `.3mf` was originally exported for a different machine.
+'''
+
+[[block]]
+key = "3081b9ba2cacd064-e3a878c84f6ba019"
+type = "listItem"
+composite = true
+origin = '''
+1. {{3081b9ba2cacd064-e3a878c84f6ba019-079f5dd89a6aad20}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "3081b9ba2cacd064-e3a878c84f6ba019-079f5dd89a6aad20"
+type = "paragraph"
+origin = '''
+Lumina“设置”中的打印机或喷嘴是否选错；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "3081b9ba2cacd064-10adb15902e328c3"
+type = "listItem"
+composite = true
+origin = '''
+2. {{3081b9ba2cacd064-10adb15902e328c3-f08e728cbc8b6996}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "3081b9ba2cacd064-10adb15902e328c3-f08e728cbc8b6996"
+type = "paragraph"
+origin = '''
+本地切片器是否尚未添加对应的机型预设；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "3081b9ba2cacd064-410ab2aec2a2320f"
+type = "listItem"
+composite = true
+origin = '''
+3. {{3081b9ba2cacd064-410ab2aec2a2320f-1d296b02d6341863}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "3081b9ba2cacd064-410ab2aec2a2320f-1d296b02d6341863"
+type = "paragraph"
+origin = '''
+该 3MF 是否原本为其他机型配置生成。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4b8c8ec6357018b3"
+type = "paragraph"
+origin = '''
+如果是生成前在 Lumina 中选错了设备规格，直接返回 Lumina Studio 修正切片软件、打印机和喷嘴后重新导出 3MF，比在切片器中逐项手动补齐参数更稳妥。若是有意将项目迁移至其他兼容机型，切换机型后请重新核对耗材列表、层高、可打印范围与切片预览。
+'''
+translate = '''
+If the hardware setting in Lumina was wrong, return to Lumina Studio, select your actual slicer, printer, and nozzle, and export a fresh `.3mf` rather than rebuilding process parameters by hand. If you intentionally switch the project to another compatible printer, recheck the filament list, layer height, build volume, and sliced preview afterward.
+'''
+
+[[block]]
+key = "629a61814a84a05f"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/02-check-printer-nozzle.webp').default}
+  alt="核对实际使用的打印机和喷嘴"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/02-check-printer-nozzle.webp').default}
+  alt="Check the printer and nozzle that you actually use"
+/>
+'''
+
+[[block]]
+key = "934df44dd1238d2e"
+type = "heading"
+origin = '''
+## 第三步：区分四层耗材信息
+'''
+translate = '''
+## Step 3: Understand the four mapping layers
+'''
+
+[[block]]
+key = "494f52a517d364ba"
+type = "paragraph"
+origin = '''
+修改颜色与槽位前，先区分以下四项信息：
+'''
+translate = '''
+Keep these four concepts distinct before editing colors or slots:
+'''
+
+[[block]]
+key = "a45dcfd280d739db"
+type = "table"
+origin = '''
+| 信息层级 | 含义 | 查看位置 |
+| --- | --- | --- |
+| 项目耗材 | 3MF 内记录的耗材编号、界面显示色与材料预设 | 切片器左侧耗材列表 |
+| 对象耗材分配 | 某个几何对象或零件所绑定的项目耗材编号 | 对象列表右侧的编号或色块 |
+| 真实耗材 | 实际准备上机打印的物理线盘（含材质、品牌与颜色） | 实物线盘及标签 |
+| 实际料槽 | 真实线盘当前装在 AMS、多料系统或外置料架的具体位置 | 设备料仓状态与装料记录 |
+'''
+translate = '''
+| Layer | What it represents | Where to check |
+| --- | --- | --- |
+| Project filament | The filament slot number, display swatch, and material preset stored inside the `.3mf` | The slicer's **Filaments** list |
+| Object assignment | Which project-filament number is assigned to a specific object or part | The filament column next to each part in **Objects** |
+| Physical spool | The actual roll of filament you plan to print with (material, brand, and color) | The physical spool and its label |
+| Physical slot | Which AMS slot, multi-material feeder, or external spool holder holds that roll | Printer / AMS status and your loading notes |
+'''
+
+[[block]]
+key = "e8a5e5ff0f3bc2ea"
+type = "paragraph"
+origin = '''
+例如，对象列表中显示编号 `3`，代表该零件使用“项目耗材 3”，并不强制要求把线盘塞进 AMS 的 3 号物理槽位——发送打印时可将项目耗材 3 映射到任意实际装有对应线盘的槽位。同理，切片器中的红、蓝、白色块仅用于界面识别，实际打印颜色由所映射槽位中的物理线盘决定。
+'''
+translate = '''
+For example, a part marked **3** in the object list uses **Project Filament 3**—that spool does not have to sit physically in AMS Slot 3. When sending the print, you can map Project Filament 3 to whichever AMS slot holds that spool. Likewise, on-screen swatches are visual labels only; the printed color comes from the physical spool loaded in the mapped slot.
+'''
+
+[[block]]
+key = "557ffa8d810e97e6"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/03-understand-material-mapping.webp').default}
+  alt="分清项目耗材、对象分配、真实线盘和实际料槽"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/03-understand-material-mapping.webp').default}
+  alt="Keep project filaments, object assignments, physical spools, and actual slots separate"
+/>
+'''
+
+[[block]]
+key = "b4b9bf643193dfd3"
+type = "heading"
+origin = '''
+## 第四步：核对项目耗材列表
+'''
+translate = '''
+## Step 4: Check the project-filament list
+'''
+
+[[block]]
+key = "a404be8d9bb695ac"
+type = "paragraph"
+origin = '''
+逐项检查切片器的项目耗材列表，确认每个编号的材料类型与显示色同 Lumina 中所选的耗材档案一致：
+'''
+translate = '''
+Review the numbered entries in the slicer's **Filaments** list and confirm that each entry's material type and swatch match the material profiles chosen in Lumina Studio:
+'''
+
+[[block]]
+key = "6fe7a691fbe58c53"
+type = "list"
+composite = true
+origin = '''
+{{6fe7a691fbe58c53-3ba8391c212d5bd2}}
+{{6fe7a691fbe58c53-11e61708b3aaecff}}
+{{6fe7a691fbe58c53-7a47049cbb5d8911}}
+'''
+translate = '''
+- Check the material type (such as PLA vs. PETG) alongside color; two spools that look similar on screen are not interchangeable if they use different base materials or optical profiles.
+- Project-filament numbers do not need to follow your physical AMS slot order.
+- If the slicer substituted a missing local preset automatically, confirm that the replacement preset's material type and nozzle/bed temperatures suit your spool.
+'''
+
+[[block]]
+key = "6fe7a691fbe58c53-3ba8391c212d5bd2"
+type = "listItem"
+composite = true
+origin = '''
+- {{6fe7a691fbe58c53-3ba8391c212d5bd2-5d95b2de97da1918}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "6fe7a691fbe58c53-3ba8391c212d5bd2-5d95b2de97da1918"
+type = "paragraph"
+origin = '''
+同时核对材料类型（如 PLA、PETG）与颜色，不同材质或不同光学档案的同色线材不宜直接混用；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "6fe7a691fbe58c53-11e61708b3aaecff"
+type = "listItem"
+composite = true
+origin = '''
+- {{6fe7a691fbe58c53-11e61708b3aaecff-99afc0042fbe9da0}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "6fe7a691fbe58c53-11e61708b3aaecff-99afc0042fbe9da0"
+type = "paragraph"
+origin = '''
+项目耗材的排列顺序无需与 AMS 物理槽位顺序一致；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "6fe7a691fbe58c53-7a47049cbb5d8911"
+type = "listItem"
+composite = true
+origin = '''
+- {{6fe7a691fbe58c53-7a47049cbb5d8911-c24f7914ce4cb1cc}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "6fe7a691fbe58c53-7a47049cbb5d8911-c24f7914ce4cb1cc"
+type = "paragraph"
+origin = '''
+若切片器自动替换了本地缺失的材料预设，请确认替换后的材料类型与打印温度同实物线盘匹配。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c2e83866ce22e6a1"
+type = "paragraph"
+origin = '''
+若某项项目耗材有误，先将其改为实际使用的材料预设与识别色（此步骤修改的是项目级耗材定义，尚未改动零件绑定或物理料槽映射）。
+'''
+translate = '''
+Update any mismatched preset or swatch in the **Filaments** list first—this updates the project filament definition before you check part assignments and physical slots.
+'''
+
+[[block]]
+key = "cce8a224f29c5975"
+type = "heading"
+origin = '''
+## 第五步：逐个检查对象和零件的耗材分配
+'''
+translate = '''
+## Step 5: Check every object's filament assignment
+'''
+
+[[block]]
+key = "2626ffe8b0b6b3c3"
+type = "paragraph"
+origin = '''
+展开对象列表中的打印盘、模型、对象与子零件。不同作品的几何拆分方式不同：同一种画面颜色可能包含多个独立零件，底板、描边、挂环、磁铁槽等结构也会各自生成独立对象。因此，以下四个数量通常并不相等：
+'''
+translate = '''
+Switch to the **Objects** tab and expand the plate, model, objects, and parts. Because one visual color may be split across multiple disconnected regions—and backing plates, outlines, hanging loops, or magnet cutouts form separate parts—these counts rarely match one-to-one:
+'''
+
+[[block]]
+key = "f9b28749d9a266fe"
+type = "list"
+composite = true
+origin = '''
+{{f9b28749d9a266fe-7dc116833e3aa719}}
+{{f9b28749d9a266fe-094d8fbb88d58fc9}}
+{{f9b28749d9a266fe-27e30de07f2ae436}}
+{{f9b28749d9a266fe-afbbef63d51c7d90}}
+'''
+translate = '''
+- Perceived colors in the original artwork.
+- Project filaments generated by Lumina.
+- Individual objects and sub-parts in the slicer tree.
+- Physical feeder slots available on the printer.
+'''
+
+[[block]]
+key = "f9b28749d9a266fe-7dc116833e3aa719"
+type = "listItem"
+composite = true
+origin = '''
+- {{f9b28749d9a266fe-7dc116833e3aa719-d34ae00bd7a35466}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f9b28749d9a266fe-7dc116833e3aa719-d34ae00bd7a35466"
+type = "paragraph"
+origin = '''
+原图肉眼可见的颜色数量；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f9b28749d9a266fe-094d8fbb88d58fc9"
+type = "listItem"
+composite = true
+origin = '''
+- {{f9b28749d9a266fe-094d8fbb88d58fc9-2181c57b8f8aed3f}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f9b28749d9a266fe-094d8fbb88d58fc9-2181c57b8f8aed3f"
+type = "paragraph"
+origin = '''
+Lumina 生成所用的项目耗材数量；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f9b28749d9a266fe-27e30de07f2ae436"
+type = "listItem"
+composite = true
+origin = '''
+- {{f9b28749d9a266fe-27e30de07f2ae436-1b2476a671e202f8}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f9b28749d9a266fe-27e30de07f2ae436-1b2476a671e202f8"
+type = "paragraph"
+origin = '''
+切片器对象列表中的对象与零件总数；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f9b28749d9a266fe-afbbef63d51c7d90"
+type = "listItem"
+composite = true
+origin = '''
+- {{f9b28749d9a266fe-afbbef63d51c7d90-5f2ffa2048407396}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f9b28749d9a266fe-afbbef63d51c7d90-5f2ffa2048407396"
+type = "paragraph"
+origin = '''
+打印机单次可同时供料的物理槽位数量。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "496cebc76d3d6176"
+type = "paragraph"
+origin = '''
+逐一选中对象或零件，检查右侧耗材列中的编号是否指向目标项目耗材；若有偏差，点击该编号或色块重新指定。
+'''
+translate = '''
+Click through the objects and sub-parts and check the number in the filament column. If a part points to the wrong project filament, click its filament badge and assign the intended entry.
+'''
+
+[[block]]
+key = "156a0fa69f88fb24"
+type = "paragraph"
+origin = '''
+核对时请以**该区域实际应由哪卷线材打印**为准，零件名称仅作辅助参考。例如历史项目中的底板零件原名可能仍含 `White`，但实际耗材已改为黑色，最终打印结果始终取决于耗材分配与切片路径。修改单个零件后，请留意模型表面与对象列表高亮范围，避免误改整个组合模型或其他零件。
+'''
+translate = '''
+Assign filaments according to which physical spool should print that region rather than relying on part names alone. Part names are static labels—for instance, a reused project may still list a part named `Base - White` even after its assigned filament is changed to black. After changing a part's filament, double-check the 3D highlight and object tree to make sure you modified only the intended part rather than the parent assembly.
+'''
+
+[[block]]
+key = "8f47d419397b9b73"
+type = "heading"
+origin = '''
+## 第六步：把项目耗材对应到真实料槽
+'''
+translate = '''
+## Step 6: Map project filaments to physical slots
+'''
+
+[[block]]
+key = "943375555c464bf5"
+type = "paragraph"
+origin = '''
+确认所有对象的项目耗材分配无误后，再将项目耗材逐一对应到机器上的物理料槽：
+'''
+translate = '''
+Once object assignments are set, match each project filament to the spools loaded on your printer:
+'''
+
+[[block]]
+key = "533b423f82e1a430"
+type = "list"
+composite = true
+origin = '''
+{{533b423f82e1a430-6aa1871a6615b86d}}
+{{533b423f82e1a430-676590498213acee}}
+{{533b423f82e1a430-a34404cace050267}}
+{{533b423f82e1a430-6f019a28c313b929}}
+'''
+translate = '''
+1. Material types match (for example, PLA to PLA).
+2. Each spool is the exact color calibrated for this project.
+3. Each spool is loaded in the slot you plan to map it to.
+4. External spools are not mistakenly mapped to an automatic feeder slot.
+'''
+
+[[block]]
+key = "533b423f82e1a430-6aa1871a6615b86d"
+type = "listItem"
+composite = true
+origin = '''
+1. {{533b423f82e1a430-6aa1871a6615b86d-0045a82935787979}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "533b423f82e1a430-6aa1871a6615b86d-0045a82935787979"
+type = "paragraph"
+origin = '''
+材质类型完全一致；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "533b423f82e1a430-676590498213acee"
+type = "listItem"
+composite = true
+origin = '''
+2. {{533b423f82e1a430-676590498213acee-ba5e7fd0bd85c834}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "533b423f82e1a430-676590498213acee-ba5e7fd0bd85c834"
+type = "paragraph"
+origin = '''
+线盘实物颜色符合本次作品需求；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "533b423f82e1a430-a34404cace050267"
+type = "listItem"
+composite = true
+origin = '''
+3. {{533b423f82e1a430-a34404cace050267-61d50c55791e1afc}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "533b423f82e1a430-a34404cace050267-61d50c55791e1afc"
+type = "paragraph"
+origin = '''
+线盘已装入目标物理槽位；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "533b423f82e1a430-6f019a28c313b929"
+type = "listItem"
+composite = true
+origin = '''
+4. {{533b423f82e1a430-6f019a28c313b929-1a74a01df5508a6c}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "533b423f82e1a430-6f019a28c313b929-1a74a01df5508a6c"
+type = "paragraph"
+origin = '''
+使用外置料架时，未误选为自动料仓槽位。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4af8ea4c02648f42"
+type = "paragraph"
+origin = '''
+你可以手动指定映射关系，也可在设备在线且料仓识别准确时点击切片器的“同步”按钮。同步仅从设备读取当前槽位的材质与色标，同步完成后请再次复查“对象 → 项目耗材 → 物理槽位”两级对应关系是否被意外改动。
+'''
+translate = '''
+You can map slots manually in the print dialog, or use your slicer's AMS **Sync** button when the printer is online and filament detection is up to date. Syncing pulls slot presets and colors from the printer—always review both **object → project filament** and **project filament → physical slot** afterward to confirm nothing shifted unexpectedly.
+'''
+
+[[block]]
+key = "a3d4a8f8cdbeef13"
+type = "admonition"
+composite = true
+origin = '''
+:::warning[槽位对应原则]
+{{a3d4a8f8cdbeef13-123975d3a74f9447}}
+:::
+'''
+translate = '''
+:::warning[Slot mapping]
+Project-filament numbers do not need to match AMS slot numbers. Map each project filament to whichever slot holds the right spool in the print dialog instead of physically shuffling spools to match numbers.
+:::
+'''
+
+[[block]]
+key = "a3d4a8f8cdbeef13-123975d3a74f9447"
+type = "paragraph"
+origin = '''
+无需为了让编号外观一致而反复调换 AMS 中的物理线盘；只要将每个项目耗材准确映射到实际装有对应线盘的物理槽位即可。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f6672bafe52d1752"
+type = "heading"
+origin = '''
+## 第七步：执行切片并查看预览
+'''
+translate = '''
+## Step 7: Slice the plate and inspect by filament
+
+Click **Slice Plate** and switch to the **Preview** tab—always verify colors in **Preview** rather than stopping on **Prepare**.
+'''
+
+[[block]]
+key = "ecd0308ead9fb6ae"
+type = "paragraph"
+origin = '''
+完成映射后点击切片，待计算结束后进入**预览**页面，将配色方案切换为按**耗材（Filament）**显示并逐项确认：
+'''
+translate = '''
+Set the color scheme to **Filament** and confirm that:
+'''
+
+[[block]]
+key = "7cf02e0f11e749af"
+type = "list"
+composite = true
+origin = '''
+{{7cf02e0f11e749af-de4fdcf0207dc133}}
+{{7cf02e0f11e749af-a502751537663f05}}
+{{7cf02e0f11e749af-5d3b1b3aceacf55b}}
+{{7cf02e0f11e749af-e2abdcccf7440358}}
+'''
+translate = '''
+- Every primary color region uses the expected filament.
+- Backing plates, borders, and mounting features use the intended material.
+- No filament was silently merged or reassigned to another slot.
+- No floating-region, unsliceable, or out-of-bounds warnings appear.
+'''
+
+[[block]]
+key = "7cf02e0f11e749af-de4fdcf0207dc133"
+type = "listItem"
+composite = true
+origin = '''
+- {{7cf02e0f11e749af-de4fdcf0207dc133-4a5597b4009548d8}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7cf02e0f11e749af-de4fdcf0207dc133-4a5597b4009548d8"
+type = "paragraph"
+origin = '''
+画面各主要色块均使用了预期耗材；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7cf02e0f11e749af-a502751537663f05"
+type = "listItem"
+composite = true
+origin = '''
+- {{7cf02e0f11e749af-a502751537663f05-60c262b0053a747e}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7cf02e0f11e749af-a502751537663f05-60c262b0053a747e"
+type = "paragraph"
+origin = '''
+底板、描边与辅助结构未分到错误颜色；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7cf02e0f11e749af-5d3b1b3aceacf55b"
+type = "listItem"
+composite = true
+origin = '''
+- {{7cf02e0f11e749af-5d3b1b3aceacf55b-fd4e950479d17843}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7cf02e0f11e749af-5d3b1b3aceacf55b-fd4e950479d17843"
+type = "paragraph"
+origin = '''
+切片器未自动将某种材料合并或替换到其他槽位；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7cf02e0f11e749af-e2abdcccf7440358"
+type = "listItem"
+composite = true
+origin = '''
+- {{7cf02e0f11e749af-e2abdcccf7440358-2aa0858b3769b544}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7cf02e0f11e749af-e2abdcccf7440358-2aa0858b3769b544"
+type = "paragraph"
+origin = '''
+无悬空路径、无法切片或超出打印边界警告。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7706f9c227c256cf"
+type = "paragraph"
+origin = '''
+若屏幕预览色与线盘实物略有色差，先区分是界面色标近似显示还是映射指向了错误槽位：单纯的屏幕色标色差不影响实际出料，映射槽位错误则需在打印前修正。
+'''
+translate = '''
+If an on-screen swatch looks slightly off compared to the real spool, check whether it is merely an approximate RGB swatch or a wrong slot assignment. Display-swatch differences do not affect extrusion as long as the slot mapping is right.
+'''
+
+[[block]]
+key = "151f6ea797c28929"
+type = "heading"
+origin = '''
+## 第八步：翻到显色面并逐层检查
+'''
+translate = '''
+## Step 8: Inspect the display surface layer by layer
+'''
+
+[[block]]
+key = "f6858ddfa845a85a"
+type = "paragraph"
+origin = '''
+将视角转到作品最终用于观赏的显色面：底面显色作品翻转到底视图查看，顶面显色作品则在顶视图查看。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "5643c105958c25c5"
+type = "paragraph"
+origin = '''
+切片预览中的层号按热床自下而上的实际喷嘴路径编号；而 Lumina 分层预览的第 1 层始终从观赏面算起，详细读法见[怎样读懂 Lumina 分层预览？](pathname:///zh/docs/knowledge/layer-preview-guide/)。
+'''
+translate = '''
+Orient the camera to view the finished display face—flip to the **Bottom** view if the artwork prints face-down against the build plate, or stay on the **Top** view for top-surface prints.
+'''
+
+[[block]]
+key = "8b8da46b67dbf96f"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/04-check-sliced-display-surface.webp').default}
+  alt="切片后翻到显色面并拖动层滑块逐层检查"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/04-check-sliced-display-surface.webp').default}
+  alt="Turn to the display surface and inspect the sliced layers"
+/>
+'''
+
+[[block]]
+key = "8fb9887b729ed2a6"
+type = "paragraph"
+origin = '''
+拖动右侧层滑块，从显色面第 1 层起逐层核查：
+'''
+translate = '''
+Drag the vertical layer slider on the right to step through the print starting from the display face:
+'''
+
+[[block]]
+key = "8ab9248367f0e5d2"
+type = "list"
+composite = true
+origin = '''
+{{8ab9248367f0e5d2-8bbddac3a58a9274}}
+{{8ab9248367f0e5d2-d7a75108f989814e}}
+{{8ab9248367f0e5d2-cb03c5a11d3cfa25}}
+{{8ab9248367f0e5d2-fa15608f638e134d}}
+{{8ab9248367f0e5d2-15144e42039927c3}}
+'''
+translate = '''
+1. First-layer outlines and colors appear cleanly where expected.
+2. Layer-to-layer color transitions occur at the intended heights.
+3. Fine lettering, thin strokes, and small color islands remain intact after slicing.
+4. The backing plate is solid with no unintended gaps or missing layers.
+5. Prime towers, brims, or supports pull from an appropriate filament.
+'''
+
+[[block]]
+key = "8ab9248367f0e5d2-8bbddac3a58a9274"
+type = "listItem"
+composite = true
+origin = '''
+1. {{8ab9248367f0e5d2-8bbddac3a58a9274-74152310a0a5e277}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8ab9248367f0e5d2-8bbddac3a58a9274-74152310a0a5e277"
+type = "paragraph"
+origin = '''
+首层出现的轮廓与颜色是否准确；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8ab9248367f0e5d2-d7a75108f989814e"
+type = "listItem"
+composite = true
+origin = '''
+2. {{8ab9248367f0e5d2-d7a75108f989814e-0a0da12fad5778f2}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8ab9248367f0e5d2-d7a75108f989814e-0a0da12fad5778f2"
+type = "paragraph"
+origin = '''
+层间换色是否发生在预期高度；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8ab9248367f0e5d2-cb03c5a11d3cfa25"
+type = "listItem"
+composite = true
+origin = '''
+3. {{8ab9248367f0e5d2-cb03c5a11d3cfa25-9688b91c143d9a77}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8ab9248367f0e5d2-cb03c5a11d3cfa25-9688b91c143d9a77"
+type = "paragraph"
+origin = '''
+小字、细线或微小色块是否在切片后被过滤消失；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8ab9248367f0e5d2-fa15608f638e134d"
+type = "listItem"
+composite = true
+origin = '''
+4. {{8ab9248367f0e5d2-fa15608f638e134d-74f6fe44f4808a69}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8ab9248367f0e5d2-fa15608f638e134d-74f6fe44f4808a69"
+type = "paragraph"
+origin = '''
+底板与背板是否完整闭合，有无意外孔洞或缺层；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8ab9248367f0e5d2-15144e42039927c3"
+type = "listItem"
+composite = true
+origin = '''
+5. {{8ab9248367f0e5d2-15144e42039927c3-9d52647966df39d6}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8ab9248367f0e5d2-15144e42039927c3-9d52647966df39d6"
+type = "paragraph"
+origin = '''
+擦拭塔、支撑等辅助结构使用的耗材是否合理。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "14372429fe65d91c"
+type = "paragraph"
+origin = '''
+“准备”视图展示的是原始三维网格，唯有“预览”中的切片刀路才代表喷嘴实际执行的打印路径。若细小文字或线条在切片后消失，说明细节尺寸小于当前喷嘴与线宽的成型下限，可放大成品尺寸、更换更细喷嘴、调整生成模式或简化原图细节后重新生成。
+'''
+translate = '''
+**Prepare** shows raw mesh geometry; **Preview** shows the actual extrusion toolpaths your nozzle will lay down. If fine text or thin lines vanish after slicing, those features are narrower than your current nozzle and line width can resolve—scale up the print dimensions, switch to a smaller nozzle, enable Arachne variable walls, or simplify fine details in the source image before re-exporting.
+'''
+
+[[block]]
+key = "3b30b685be5af364"
+type = "heading"
+origin = '''
+## 常见问题
+'''
+translate = '''
+## Troubleshooting
+'''
+
+[[block]]
+key = "faa9786398968e08"
+type = "heading"
+origin = '''
+### 打开 3MF 后，原来的参数和颜色分组都不见了怎么办？
+'''
+translate = '''
+### Settings and color groups disappeared when opening the 3MF
+'''
+
+[[block]]
+key = "1fa23e7aef510846"
+type = "paragraph"
+origin = '''
+请检查打开时是否误选了“仅导入模型 / 几何数据”。关闭当前窗口，重新用“打开项目”载入原始 3MF。若该 3MF 原本针对其他打印机或喷嘴生成，建议返回 Lumina 修改设备设置后重新导出。若切片软件本身无法唤醒或报错，请按[切片器检测与 3MF 打开排障](pathname:///zh/docs/knowledge/slicer-path-and-open-troubleshooting/)逐项排查。
+'''
+translate = '''
+You likely chose **Import geometry only** when opening the file. Close the project and reopen the `.3mf` with **Open Project**. If the `.3mf` targets a different printer or nozzle, update **Settings** in Lumina Studio and export a fresh project.
+'''
+
+[[block]]
+key = "672b3be6909148fe"
+type = "heading"
+origin = '''
+### 为什么切片器自动把项目耗材替换成了错误材料？
+'''
+translate = '''
+### The slicer replaced a project filament with the wrong material
+'''
+
+[[block]]
+key = "248b8622ba4d6617"
+type = "paragraph"
+origin = '''
+通常是因为本地缺少原项目的材料预设，或点击同步后切片器按当前料仓槽位自动重排了材料。请依次检查项目耗材定义、对象耗材编号与打印时的物理槽位映射三处设置。
+'''
+translate = '''
+This happens when a material preset used in the `.3mf` is missing locally, or when syncing with an AMS overwrites the project filament list. Recheck all three links in order: project-filament preset, object assignment, and physical slot mapping.
+'''
+
+[[block]]
+key = "2170020791c9144f"
+type = "heading"
+origin = '''
+### 为什么画面只有几种颜色，对象列表里却有更多对象？
+'''
+translate = '''
+### The object tree has many more parts than there are colors in the image
+'''
+
+[[block]]
+key = "09e7e201d0c70b6c"
+type = "paragraph"
+origin = '''
+对象代表几何零件而非颜色种类：同一种颜色可能拆分为多个不相连零件，底板、描边、挂环、磁铁槽等结构也会单独成组。按零件逐一核对耗材编号即可。
+'''
+translate = '''
+Objects represent 3D mesh regions rather than palette entries. Disconnected islands, backing plates, borders, loops, and magnet cutouts each appear as separate parts—verify their filament badges individually.
+'''
+
+[[block]]
+key = "d02762fc6ee4f637"
+type = "heading"
+origin = '''
+### 切片器预览颜色和真实线盘不完全一样，会打印错吗？
+'''
+translate = '''
+### The Preview swatch color looks slightly different from my physical spool
+'''
+
+[[block]]
+key = "86dc34031f201acd"
+type = "paragraph"
+origin = '''
+只要“对象 → 项目耗材 → 真实线盘与物理槽位”链路对应准确，界面色标的显示色差不会影响实际打印出料；若槽位映射有误，则需修正后再发起打印。
+'''
+translate = '''
+Slicer swatches are approximate screen colors. As long as each object points to the right project filament and that project filament maps to the right physical slot, the printer will extrude the intended spool.
+'''
+
+[[block]]
+key = "a6144302da422b75"
+type = "heading"
+origin = '''
+### 为什么准备页面能看到的小字或细线，切片后消失了？
+'''
+translate = '''
+### Small text or thin lines show up in Prepare but disappear in Preview
+'''
+
+[[block]]
+key = "8eba34042ad9cc2c"
+type = "paragraph"
+origin = '''
+“准备”页面显示三维几何网格，“预览”页面显示实际挤出路径。当局部特征小于当前喷嘴直径与线宽所能稳定成型的尺寸时，切片引擎会自动过滤或合并细碎路径。可通过增大成品尺寸、改用更小口径喷嘴（如 `0.2 mm`）或开启可变线宽（Arachne）来改善细节表现。
+'''
+translate = '''
+**Prepare** renders triangle meshes, whereas **Preview** renders extruded toolpaths constrained by nozzle diameter and minimum line width. Increase the overall print size, use a finer nozzle (such as `0.2 mm`), or simplify sub-nozzle details in the artwork.
+'''
+
+[[block]]
+key = "98c11568c1937a5d"
+type = "heading"
+origin = '''
+## 完成后的下一步
+'''
+translate = '''
+## Next steps
+'''
+
+[[block]]
+key = "8483fbda1c7a2ada"
+type = "paragraph"
+origin = '''
+确认切片预览与物理料槽映射全部准确后，即可正常发起打印。首次尝试新组合时，建议先打印小尺寸测试件，并随手记录所用的 Lumina 耗材档案、项目耗材顺序及物理槽位，便于后续复现或排查色差。
+'''
+translate = '''
+Once the sliced preview and slot mapping match your setup, send the job to your printer. On a first run with new profiles, print a small test piece first and jot down the Lumina material profiles, project-filament order, and AMS slot mapping for easy reference.
+'''
+
+[[block]]
+key = "2dc571aaf03c97d8"
+type = "paragraph"
+origin = '''
+若切片路径与槽位均无误，但打出的实物仍明显偏色，可依次排查耗材光学档案、同款线材批次差异、首层挤出饱满度以及观察环境光源色温。
+'''
+translate = '''
+If toolpaths and slot mappings are accurate but the physical print looks off-color, check your calibrated material profiles, spool batch consistency, first-layer squish, and viewing light temperature.
+'''

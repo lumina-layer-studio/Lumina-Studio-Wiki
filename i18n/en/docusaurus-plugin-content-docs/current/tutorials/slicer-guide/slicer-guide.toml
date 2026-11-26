@@ -1,0 +1,957 @@
+[metadata]
+migration_layout = "preserved English structure; root blocks retain grouped or omitted source sections"
+reviewed_source = "63672d52d9d366fbfccb41a94df6be840573a91706fdcdbae74e32b1f70ab76d"
+
+[[block]]
+key = "71a60f8ac850cff2"
+type = "yaml"
+origin = '''
+---
+title: "切片教程"
+description: ""
+sidebar_position: 10
+---
+'''
+translate = '''
+---
+title: "Slicer Guide"
+description: "Restore the 0.08 mm gradient-card settings in Bambu Studio, check filament mapping, and prepare a top-facing color surface when needed."
+sidebar_position: 10
+---
+'''
+
+[[block]]
+key = "e39b7268b60ad2b4"
+type = "heading"
+origin = '''
+# 切片教程
+'''
+translate = '''
+# Slicer Guide
+
+> Screenshots show Bambu Studio in Simplified Chinese; setting names below match the English interface.
+
+Recent versions of Lumina Studio bundle printer and slicer presets directly inside exported `.3mf` projects, so files normally open with process parameters ready to use. Use the reference settings below if you need to restore the **0.08 mm** gradient-card parameters manually, or if you want to flip a print so its color surface faces up.
+'''
+
+[[block]]
+key = "d401603639ceb9c8"
+type = "admonition"
+composite = true
+origin = '''
+:::warning[旧版资料]
+{{d401603639ceb9c8-0500165900dd8474}}
+:::
+'''
+translate = '''
+:::note[Reference settings]
+The values below apply to **0.08 mm** gradient cards. For everyday `.3mf` project opening, object filament assignment, and AMS slot mapping, see [Open a Lumina 3MF in Your Slicer](../slicer-material-mapping/slicer-material-mapping.mdx).
+:::
+'''
+
+[[block]]
+key = "d401603639ceb9c8-0500165900dd8474"
+type = "paragraph"
+origin = '''
+本页记录早期版本的梯度卡手动切片参数与顶面显色玩法，仅供项目参数丢失或特殊打法时参考，无需套用到所有常规模型。常规 3MF 导入、对象耗材核对与实际料槽映射，请阅读新版教程：[把 Lumina 3MF 正确导入切片器](/zh/docs/tutorials/slicer-material-mapping/)。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f7b0740d8a98929b"
+type = "paragraph"
+origin = '''
+较新版本的 Lumina Studio 已兼容主流切片软件与机型配置，下载的 3MF 通常可直接在切片软件中作为项目打开。若导入后工艺参数意外丢失，可参照以下步骤手动恢复 0.08 mm 梯度卡参数。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "119fe8130444a794"
+type = "heading"
+origin = '''
+## Bambu Studio
+'''
+translate = '''
+## Bambu Studio
+'''
+
+[[block]]
+key = "0fa49569bfa6612e"
+type = "heading"
+origin = '''
+### 1. 选择机型与 0.08 mm 工艺预设
+'''
+translate = '''
+### Step 1: Select the printer and 0.08 mm process preset
+'''
+
+[[block]]
+key = "1f811b9849480d47"
+type = "paragraph"
+origin = '''
+打开 Bambu Studio，先选择实际使用的打印机型号，再将工艺参数切换为 `0.08 mm` 预设。
+'''
+translate = '''
+Open Bambu Studio and select your printer profile. Under **Process**, choose a **0.08 mm** preset such as **0.08 mm High Quality**.
+'''
+
+[[block]]
+key = "63cde69f6dbe6f45"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/p2s01.png').default}
+  alt="p2s01.png"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/p2s01.png').default}
+  alt="Select the matching printer and 0.08 mm process preset"
+/>
+'''
+
+[[block]]
+key = "b1d3b3371b26374c"
+type = "heading"
+origin = '''
+### 2. 设置层高与首层线宽
+'''
+translate = '''
+### Step 2: Set layer heights and initial-layer line width
+'''
+
+[[block]]
+key = "2080f2720a3f09df"
+type = "paragraph"
+origin = '''
+在“质量”设置中修改：
+'''
+translate = '''
+Under **Quality**, set:
+'''
+
+[[block]]
+key = "68a33cd5152d9948"
+type = "list"
+composite = true
+origin = '''
+{{68a33cd5152d9948-12226d416b31accf}}
+{{68a33cd5152d9948-569e24459db853c9}}
+{{68a33cd5152d9948-3b082098d4c3e2be}}
+'''
+translate = '''
+- **Layer height:** `0.08 mm`
+- **Initial layer height:** `0.08 mm`
+- **Line width → Initial layer:** `0.42 mm` (for a `0.4 mm` nozzle)
+'''
+
+[[block]]
+key = "68a33cd5152d9948-12226d416b31accf"
+type = "listItem"
+composite = true
+origin = '''
+- {{68a33cd5152d9948-12226d416b31accf-d91e14357a5454a1}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "68a33cd5152d9948-12226d416b31accf-d91e14357a5454a1"
+type = "paragraph"
+origin = '''
+**层高**：`0.08`（mm）
+'''
+translate = '''
+'''
+
+[[block]]
+key = "68a33cd5152d9948-569e24459db853c9"
+type = "listItem"
+composite = true
+origin = '''
+- {{68a33cd5152d9948-569e24459db853c9-eba68e20fc572745}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "68a33cd5152d9948-569e24459db853c9-eba68e20fc572745"
+type = "paragraph"
+origin = '''
+**首层层高**：`0.08`（mm）
+'''
+translate = '''
+'''
+
+[[block]]
+key = "68a33cd5152d9948-3b082098d4c3e2be"
+type = "listItem"
+composite = true
+origin = '''
+- {{68a33cd5152d9948-3b082098d4c3e2be-1e566ba00a7e5fb6}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "68a33cd5152d9948-3b082098d4c3e2be-1e566ba00a7e5fb6"
+type = "paragraph"
+origin = '''
+**首层线宽**：`0.42`（mm，以 `0.4 mm` 喷嘴为例）
+'''
+translate = '''
+'''
+
+[[block]]
+key = "d0c24381c252e39b"
+type = "admonition"
+composite = true
+origin = '''
+:::warning[其他尺寸喷嘴]
+{{d0c24381c252e39b-7202f9b5f36b36d7}}
+:::
+'''
+translate = '''
+'''
+
+[[block]]
+key = "d0c24381c252e39b-7202f9b5f36b36d7"
+type = "paragraph"
+origin = '''
+若使用 `0.2`、`0.6` 或 `0.8` 喷嘴，只需将“层高”和“首层层高”固定为 `0.08`，线宽随喷嘴孔径相应调整，其余参数保持不变。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a10420386ab94beb"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/p2s02.png').default}
+  alt="p2s02.png"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/p2s02.png').default}
+  alt="Set layer height, initial layer height, and initial-layer line width"
+/>
+
+:::warning[Other nozzle sizes]
+If you use a `0.2`, `0.6`, or `0.8 mm` nozzle, keep both **Layer height** and **Initial layer height** at `0.08 mm`, scale the line widths to match your nozzle diameter, and keep the remaining parameters below unchanged.
+:::
+'''
+
+[[block]]
+key = "5d83d36d9ea7c681"
+type = "heading"
+origin = '''
+### 3. 关闭象脚补偿并启用可变线宽
+'''
+translate = '''
+### Step 3: Set elephant-foot compensation and wall generator
+
+Set **Elephant foot compensation** to `0 mm` to prevent second-layer color bleed around first-layer edges (if slight edge bleed does not matter for your piece, you can leave your usual value).
+'''
+
+[[block]]
+key = "38e843735af6e7db"
+type = "paragraph"
+origin = '''
+将**象脚补偿**设为 `0`（避免第二层颜色渗透到显色面；若对此不敏感可保持默认），并将**墙生成器**切换为**可变线宽（Arachne）**。
+'''
+translate = '''
+Set **Wall generator** to **Arachne** to enable variable-width walls.
+'''
+
+[[block]]
+key = "2137671a1b31060a"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/p2s03.png').default}
+  alt="p2s03.png"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/p2s03.png').default}
+  alt="Set elephant-foot compensation to zero and use the Arachne wall generator"
+/>
+'''
+
+[[block]]
+key = "3fd9fecfdb35ef9d"
+type = "heading"
+origin = '''
+### 4. 调整首层流量比与首层单层墙
+'''
+translate = '''
+### Step 4: Set initial-layer flow and single first-layer wall
+'''
+
+[[block]]
+key = "1096e42e41ec7d16"
+type = "paragraph"
+origin = '''
+将**首层流量比**设为 `1.1`（可根据机器与耗材状态自行微调），并勾选**首层单层墙**。
+'''
+translate = '''
+Set **Initial layer flow ratio** to `1.1` as a baseline (tune as needed for your printer and filament), and enable **Only one wall on first layer**.
+'''
+
+[[block]]
+key = "7a33d7afcd0aa703"
+type = "admonition"
+composite = true
+origin = '''
+:::info[开发者模式]
+{{7a33d7afcd0aa703-8863c331ad64c2b5}}
+:::
+'''
+translate = '''
+:::info[Developer Mode]
+If **Initial layer flow ratio** is hidden, open **Preferences** from the top-left menu and enable **Developer Mode**.
+:::
+'''
+
+[[block]]
+key = "7a33d7afcd0aa703-8863c331ad64c2b5"
+type = "paragraph"
+origin = '''
+若界面中未显示“首层流量比”，请点击切片软件左上角菜单打开“偏好设置”，勾选“开发者模式”。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "9c40a6ac11de8f34"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/p2s04.png').default}
+  alt="p2s04.png"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/p2s04.png').default}
+  alt="Set the initial-layer flow ratio and enable one wall on the first layer"
+/>
+'''
+
+[[block]]
+key = "5bd7522386f4619c"
+type = "heading"
+origin = '''
+### 5. 设置墙层数与壳体表面图案
+'''
+translate = '''
+### Step 5: Configure shells and surface patterns
+'''
+
+[[block]]
+key = "f0c8d19080fd5a2b"
+type = "paragraph"
+origin = '''
+在“强度”设置中调整：
+'''
+translate = '''
+Under **Strength**, set:
+'''
+
+[[block]]
+key = "49d8f841775f46f9"
+type = "list"
+composite = true
+origin = '''
+{{49d8f841775f46f9-7780f135e066b144}}
+{{49d8f841775f46f9-30dbfdf0e8ff6147}}
+{{49d8f841775f46f9-d53961dcbaaeb337}}
+{{49d8f841775f46f9-de6d59bc06e7178c}}
+'''
+translate = '''
+- **Wall loops:** `1`
+- **Top shell layers:** `0` (optional; eliminates crossing top-skin toolpaths)
+- **Bottom shell layers:** `1`
+- **Top surface pattern:** `Monotonic line`
+- **Bottom surface pattern:** `Monotonic line`
+'''
+
+[[block]]
+key = "49d8f841775f46f9-7780f135e066b144"
+type = "listItem"
+composite = true
+origin = '''
+- {{49d8f841775f46f9-7780f135e066b144-d603c40f47f1642f}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "49d8f841775f46f9-7780f135e066b144-d603c40f47f1642f"
+type = "paragraph"
+origin = '''
+**墙层数**：`1`
+'''
+translate = '''
+'''
+
+[[block]]
+key = "49d8f841775f46f9-30dbfdf0e8ff6147"
+type = "listItem"
+composite = true
+origin = '''
+- {{49d8f841775f46f9-30dbfdf0e8ff6147-bf66075cfad591ca}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "49d8f841775f46f9-30dbfdf0e8ff6147-bf66075cfad591ca"
+type = "paragraph"
+origin = '''
+**顶部壳体层数**：`0`（可选，设为 `0` 可避免顶面走线交叉留下网格折痕）
+'''
+translate = '''
+'''
+
+[[block]]
+key = "49d8f841775f46f9-d53961dcbaaeb337"
+type = "listItem"
+composite = true
+origin = '''
+- {{49d8f841775f46f9-d53961dcbaaeb337-f428004957ac8d3f}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "49d8f841775f46f9-d53961dcbaaeb337-f428004957ac8d3f"
+type = "paragraph"
+origin = '''
+**底部壳体层数**：`1`
+'''
+translate = '''
+'''
+
+[[block]]
+key = "49d8f841775f46f9-de6d59bc06e7178c"
+type = "listItem"
+composite = true
+origin = '''
+- {{49d8f841775f46f9-de6d59bc06e7178c-69a6082b1e948f7a}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "49d8f841775f46f9-de6d59bc06e7178c-69a6082b1e948f7a"
+type = "paragraph"
+origin = '''
+**顶面 / 底面图案**：`单调线`
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0a2b8b64c63fc556"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/0001.png').default}
+  alt="0001.png"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/0001.png').default}
+  alt="Set wall loops, shell layers, and surface patterns"
+/>
+'''
+
+[[block]]
+key = "aeeef82647fa2f0b"
+type = "heading"
+origin = '''
+### 6. 设置填充参数
+'''
+translate = '''
+### Step 6: Configure infill
+'''
+
+[[block]]
+key = "98fa51d3f4f747b8"
+type = "paragraph"
+origin = '''
+继续在“强度”中设置：
+'''
+translate = '''
+Still under **Strength**, set:
+'''
+
+[[block]]
+key = "4908f04f8139d346"
+type = "list"
+composite = true
+origin = '''
+{{4908f04f8139d346-836d939ed1532e23}}
+{{4908f04f8139d346-83e2a18c021ac0c3}}
+{{4908f04f8139d346-5296ae6ce7639ac4}}
+{{4908f04f8139d346-b5c44394b74d003d}}
+'''
+translate = '''
+- **Sparse infill density:** `100%`
+- **Sparse infill pattern:** `Aligned Rectilinear` (`Rectilinear` also works)
+- **Infill direction:** `0°` (`45°` also works)
+- **Detect narrow internal solid infill:** disabled
+'''
+
+[[block]]
+key = "4908f04f8139d346-836d939ed1532e23"
+type = "listItem"
+composite = true
+origin = '''
+- {{4908f04f8139d346-836d939ed1532e23-c3b93d921bafc88b}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4908f04f8139d346-836d939ed1532e23-c3b93d921bafc88b"
+type = "paragraph"
+origin = '''
+**稀疏填充密度**：`100%`
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4908f04f8139d346-83e2a18c021ac0c3"
+type = "listItem"
+composite = true
+origin = '''
+- {{4908f04f8139d346-83e2a18c021ac0c3-644ed75677be2115}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4908f04f8139d346-83e2a18c021ac0c3-644ed75677be2115"
+type = "paragraph"
+origin = '''
+**稀疏填充图案**：`直线排列`（也可设为`直线`）
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4908f04f8139d346-5296ae6ce7639ac4"
+type = "listItem"
+composite = true
+origin = '''
+- {{4908f04f8139d346-5296ae6ce7639ac4-c7170bb10982a778}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4908f04f8139d346-5296ae6ce7639ac4-c7170bb10982a778"
+type = "paragraph"
+origin = '''
+**填充方向**：`0`（`0°`，也可设为 `45°`）
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4908f04f8139d346-b5c44394b74d003d"
+type = "listItem"
+composite = true
+origin = '''
+- {{4908f04f8139d346-b5c44394b74d003d-557a5f14440a1d8f}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4908f04f8139d346-b5c44394b74d003d-557a5f14440a1d8f"
+type = "paragraph"
+origin = '''
+取消勾选**识别狭窄内部实心填充**
+'''
+translate = '''
+'''
+
+[[block]]
+key = "eaefccdb6083c954"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/p2s06.png').default}
+  alt="p2s06.png"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/p2s06.png').default}
+  alt="Set the infill density, pattern, direction, and narrow-infill option"
+/>
+'''
+
+[[block]]
+key = "164a06af809e9647"
+type = "heading"
+origin = '''
+### 7. 降低打印速度
+'''
+translate = '''
+### Step 7: Lower print speeds
+'''
+
+[[block]]
+key = "b71b77c648e98d4f"
+type = "paragraph"
+origin = '''
+在“速度”设置中，建议适当降低打印速度以提高细小色块成型质量。图中各项速度以 `50`（mm/s）为推荐起始值，确认打印稳定后可按需提高。
+'''
+translate = '''
+Lower print speeds help small color patches lay down cleanly. Start around `50 mm/s` for the speed fields shown below, and adjust upward once you confirm clean extrusion on your machine.
+'''
+
+[[block]]
+key = "6a79fca2b6b1f327"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/p2s07.png').default}
+  alt="p2s07.png"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/p2s07.png').default}
+  alt="Use 50 millimeters per second as the suggested starting speed"
+/>
+'''
+
+[[block]]
+key = "f4a91de6f319c776"
+type = "heading"
+origin = '''
+### 8. 调整擦拭塔形状
+'''
+translate = '''
+### Step 8: Reshape the prime tower
+'''
+
+[[block]]
+key = "dad5239cb3aaf9a4"
+type = "paragraph"
+origin = '''
+在“其他”页面的“擦拭塔”区域，可先关闭**斜肋外墙**，再将擦拭塔**宽度**调大。切片后擦料塔会变为细长条状，有助于节省热床空间。
+'''
+translate = '''
+Under **Others → Prime tower**, disable **Rib wall** to unlock the tower's **Width** field. Increasing **Width** reshapes the prime tower into a long, narrow strip along the edge of the build plate to save space.
+'''
+
+[[block]]
+key = "d726cb554d22f748"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/p2s08.png').default}
+  alt="p2s08.png"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/p2s08.png').default}
+  alt="Disable the rib wall before changing the prime-tower width"
+/>
+'''
+
+[[block]]
+key = "09adfb75e5766125"
+type = "heading"
+origin = '''
+### 9. 检查并修正耗材映射
+'''
+translate = '''
+### Step 9: Check filament and object mapping
+'''
+
+[[block]]
+key = "1b5fdeee7e30ddf0"
+type = "paragraph"
+origin = '''
+先检查耗材列表是否包含生成时所选模式对应的颜色。若下方对象列表中的颜色映射有误（常见于仅导入几何模型而非打开完整项目），可逐个选中对象手动修改对应的耗材编号。
+'''
+translate = '''
+Verify that the project filament list matches the colors from the mode selected in Lumina Studio. If object assignments are off—most common when importing raw geometry instead of opening the `.3mf` as a project—select each object and assign the intended filament slot.
+'''
+
+[[block]]
+key = "f58ec18752e9cdf9"
+type = "admonition"
+composite = true
+origin = '''
+:::info[预设对象命名]
+{{f58ec18752e9cdf9-5709b38a7f19cc33}}
+:::
+'''
+translate = '''
+:::info[CMYW and RYBW names]
+In four-color and six-color modes, check whether your preset is **CMYW** (cyan, magenta, yellow, white) or **RYBW** (red, yellow, blue, white). Both modes share internal object names: **red and magenta share one object name**, and **blue and cyan share another**. If you generated an **RYBW** project and see objects labeled magenta or cyan, map them to your red and blue filaments.
+:::
+'''
+
+[[block]]
+key = "f58ec18752e9cdf9-5709b38a7f19cc33"
+type = "paragraph"
+origin = '''
+使用四色或六色预设时，请留意所选模式是 CMYW（青、品红、黄、白）还是 RYBW（红、黄、蓝、白）。在这两种模式下，**红色与品红色共用同一对象名**，**蓝色与青色共用同一对象名**。例如使用 RYBW 预设时，生成的对象名若显示为“品红”或“青”，直接将其分配给红色和蓝色耗材即可。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "e9ab5adbc1dfe5fb"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/p2s09.png').default}
+  alt="p2s09.png"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/p2s09.png').default}
+  alt="Check the filament list and correct each object's filament assignment"
+/>
+'''
+
+[[block]]
+key = "d77ac9dba4c2f735"
+type = "paragraph"
+origin = '''
+完成以上全部设置并核对耗材映射后，即可执行切片与打印。
+'''
+translate = '''
+Slice the plate and step through the layers in **Preview** before sending the job to your printer.
+'''
+
+[[block]]
+key = "83fc1ec575a60b37"
+type = "heading"
+origin = '''
+## OrcaSlicer / ElegooSlicer / Snapmaker Orca / AnycubicSlicer Next
+'''
+translate = '''
+## OrcaSlicer, ElegooSlicer, Snapmaker Orca, and AnycubicSlicer Next
+'''
+
+[[block]]
+key = "13abf547b80b8123"
+type = "paragraph"
+origin = '''
+上述参数同样适用于 OrcaSlicer 及各衍生切片软件，按对应分类修改参数并在切片预览中核对分层效果即可。
+'''
+translate = '''
+OrcaSlicer and its derivatives share the same parameter layout. Apply the equivalent values under Quality, Strength, Speed, and Others, then confirm the layer structure in **Preview**.
+'''
+
+[[block]]
+key = "b40055421a9d53ca"
+type = "heading"
+origin = '''
+## 进阶玩法：显色面为顶面
+'''
+translate = '''
+## Advanced workflow: print with the color surface on top
+
+Textured PEI build plates imprint their surface grain onto the bottom of a print. To get a smooth, ungrained top surface on a textured plate, flip the model 180° so the color layers print on top, then use a height-range modifier so the backing still prints quickly:
+
+### Step 1: Set initial layer height to 0.2 mm
+'''
+
+[[block]]
+key = "d83545f848d89e1f"
+type = "paragraph"
+origin = '''
+使用 PEI 纹理热床打印板时，底面纹路可能印在色卡或版画表面。若希望避开热床底纹，可将模型翻转 180° 使显色面朝上打印，并配合高度范围修改器加快背板打印速度：
+'''
+translate = '''
+On a standard gradient card, the backing plate is `1.6 mm` thick. Once flipped, the white backing occupies `0–1.6 mm`. Set global **Initial layer height** to `0.2 mm`.
+'''
+
+[[block]]
+key = "a7749a37c616552a"
+type = "list"
+composite = true
+origin = '''
+{{a7749a37c616552a-a7749a37c616552a}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a7749a37c616552a-a7749a37c616552a"
+type = "listItem"
+composite = true
+origin = '''
+1. {{a7749a37c616552a-a7749a37c616552a-ada729d781bfe62a}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a7749a37c616552a-a7749a37c616552a-ada729d781bfe62a"
+type = "paragraph"
+origin = '''
+以背板厚度 `1.6 mm` 的色卡模型为例，翻转后 `0–1.6 mm` 高度范围为白色背板。先在全局参数中将**首层层高**设为 `0.2`（mm）：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "d8da08e2c820fb84"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/p2s10.png').default}
+  alt="p2s10.png"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/p2s10.png').default}
+  alt="Set the initial layer height to 0.2 millimeters for a flipped model"
+/>
+
+### Step 2: Add a height range modifier
+
+Right-click the model and select **Height range Modifier**. Set the range to `0–1.6 mm` and set **Layer height** for that range to `0.2 mm`.
+'''
+
+[[block]]
+key = "eb4fbbc9b87a57e5"
+type = "list"
+composite = true
+origin = '''
+{{eb4fbbc9b87a57e5-eb4fbbc9b87a57e5}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "eb4fbbc9b87a57e5-eb4fbbc9b87a57e5"
+type = "listItem"
+composite = true
+origin = '''
+2. {{eb4fbbc9b87a57e5-eb4fbbc9b87a57e5-a3559022c2331fe9}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "eb4fbbc9b87a57e5-eb4fbbc9b87a57e5-a3559022c2331fe9"
+type = "paragraph"
+origin = '''
+右键点击模型，选择**添加高度范围修改器**，将高度范围设为 `0–1.6 mm`，并将该范围内的**层高**设为 `0.2`（mm）：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f4d9c053e96338c7"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/p2s11.png').default}
+  alt="p2s11.png"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/p2s11.png').default}
+  alt="Set a 0 to 1.6 millimeter height range modifier to a 0.2 millimeter layer height"
+/>
+
+### Step 3: Verify the five top color layers
+
+Slice the plate and inspect the top layers in **Preview**. The uppermost **5** layers should be the `0.08 mm` color layers; if you count 4 or 6 color layers instead, recheck your initial layer height and modifier range.
+'''
+
+[[block]]
+key = "952384f4b885c411"
+type = "list"
+composite = true
+origin = '''
+{{952384f4b885c411-952384f4b885c411}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "952384f4b885c411-952384f4b885c411"
+type = "listItem"
+composite = true
+origin = '''
+3. {{952384f4b885c411-952384f4b885c411-7fda383578812aaa}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "952384f4b885c411-952384f4b885c411-7fda383578812aaa"
+type = "paragraph"
+origin = '''
+切片后检查最顶部的显色层：正常情况下最上方应恰好为 `5` 层颜色层；若变成 `4` 层或 `6` 层，请重新核对首层层高与修改器高度范围。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a0152837ccec000b"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/p2s12.png').default}
+  alt="p2s12.png"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/p2s12.png').default}
+  alt="Verify that the top five layers are color layers in the sliced preview"
+/>
+'''
+
+[[block]]
+key = "a02a04306627a110"
+type = "admonition"
+composite = true
+origin = '''
+:::tip[换算背板厚度]
+{{a02a04306627a110-1394763757b3a8b8}}
+:::
+'''
+translate = '''
+:::tip[Other backing thicknesses]
+Match the modifier range to your model's actual backing thickness. For example, if a print uses a `1 mm` backing, set **Initial layer height** to `0.2 mm` and apply a `0–1 mm` **Height range Modifier** at `0.2 mm` layer height so all five color layers on top stay intact.
+:::
+'''
+
+[[block]]
+key = "a02a04306627a110-1394763757b3a8b8"
+type = "paragraph"
+origin = '''
+日常打印其他版画模型时，只需按实际生成的背板厚度设置高度范围即可。例如生成时将背板厚度设为 `1 mm`，则首层层高设为 `0.2 mm`，高度范围修改器设为 `0–1 mm`、层高 `0.2 mm`，即可在不影响顶部 `5` 层显色层的前提下快速打完背板。
+'''
+translate = '''
+'''

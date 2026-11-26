@@ -1,0 +1,265 @@
+[metadata]
+reviewed_source = "28ec8b47bc756f36cdfe33ba748da37532ab0f4644742e6cb9a5aa82f567cb2e"
+
+[[block]]
+key = "b60605d883f16ad2"
+type = "yaml"
+origin = '''
+---
+title: "ColorChecker 校色"
+description: "LUT 提取前的 ColorChecker 基准、定位、采样、算法和结果确认。"
+sidebar_position: 6
+---
+'''
+translate = '''
+---
+title: "ColorChecker Calibration"
+description: "Reference, placement, sampling, fitting, and result confirmation before LUT extraction."
+sidebar_position: 6
+---
+'''
+
+[[block]]
+key = "16e94fb5f338b94c"
+type = "heading"
+origin = '''
+# ColorChecker 校色
+'''
+translate = '''
+# ColorChecker Calibration
+'''
+
+[[block]]
+key = "4a9e0f885c7b4609"
+type = "paragraph"
+origin = '''
+在 LUT 提取器中开启 **ColorChecker 校色**后，上传校准板照片会先打开色卡校正对话框，对全分辨率原图进行色彩还原，确认后再将结果送入 LUT 提取流程。
+'''
+translate = '''
+When **ColorChecker Calibration** is enabled in LUT Extractor, uploading a calibration-board photo opens the calibration dialog first. Lumina Studio calibrates the full-resolution photograph and passes the confirmed image into the LUT extraction workflow.
+'''
+
+[[block]]
+key = "51701988485a0493"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-colorchecker-entry.webp').default}
+  alt="LUT 提取器中的 ColorChecker 校色入口"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-colorchecker-entry.webp').default}
+  alt="ColorChecker Calibration entry in LUT Extractor"
+/>
+'''
+
+[[block]]
+key = "2a4382115967c32f"
+type = "heading"
+origin = '''
+## 基准与定位
+'''
+translate = '''
+## Reference and placement
+'''
+
+[[block]]
+key = "b1c873e3fe1ecff1"
+type = "paragraph"
+origin = '''
+首先选择内置基准，或上传 `.xlsx` 文件建立当前会话的自定义基准（包含各色块 Lab 参考值、白点和内容哈希）。基准加载就绪后，自动定位与校色按钮随即启用。
+'''
+translate = '''
+Start by selecting a built-in reference or uploading an `.xlsx` file to create a custom reference for the current session (containing patch Lab values, white point, and content hash). Once a valid reference is ready, auto-detection and calibration controls become active.
+'''
+
+[[block]]
+key = "3c74cb7fb094f5cd"
+type = "paragraph"
+origin = '''
+点击**自动定位色卡**会自动识别四个角点并返回置信度，也可在画布上手动点击或拖动角点。色卡方向支持正常、旋转 180°、水平翻转和垂直翻转；生成拉正预览后，请核对色块排列顺序是否与所选基准一致。
+'''
+translate = '''
+Click **Auto Locate** to detect the four chart corners and view the confidence score, or place and drag the corners manually. Patch orientation supports normal, 180° rotation, horizontal flip, and vertical flip—check the rectified preview to verify that the patch order matches the selected reference.
+'''
+
+[[block]]
+key = "875fa8306442144b"
+type = "heading"
+origin = '''
+## 采样与算法
+'''
+translate = '''
+## Sampling and fitting
+'''
+
+[[block]]
+key = "5ecb209b1e4265ee"
+type = "list"
+composite = true
+origin = '''
+{{5ecb209b1e4265ee-e3d11e963a949ae3}}
+{{5ecb209b1e4265ee-e7c6d705ee1cb1f5}}
+{{5ecb209b1e4265ee-4f34b0a8c9c59293}}
+{{5ecb209b1e4265ee-673d8b2f5ef4c103}}
+{{5ecb209b1e4265ee-df9b7c0fa98243c5}}
+'''
+translate = '''
+{{5ecb209b1e4265ee-e3d11e963a949ae3}}
+{{5ecb209b1e4265ee-e7c6d705ee1cb1f5}}
+{{5ecb209b1e4265ee-4f34b0a8c9c59293}}
+{{5ecb209b1e4265ee-673d8b2f5ef4c103}}
+{{5ecb209b1e4265ee-df9b7c0fa98243c5}}
+'''
+
+[[block]]
+key = "5ecb209b1e4265ee-e3d11e963a949ae3"
+type = "listItem"
+composite = true
+origin = '''
+- {{5ecb209b1e4265ee-e3d11e963a949ae3-d960d52d99fc8347}}
+'''
+translate = '''
+- {{5ecb209b1e4265ee-e3d11e963a949ae3-d960d52d99fc8347}}
+'''
+
+[[block]]
+key = "5ecb209b1e4265ee-e3d11e963a949ae3-d960d52d99fc8347"
+type = "paragraph"
+origin = '''
+**采样方式**：可选均值或中位数。色块表面有细微灰尘或局部噪点时，中位数更具抗干扰性。
+'''
+translate = '''
+**Sampling method:** Choose mean or median. Median is more resistant to minor dust or surface speckle inside a patch.
+'''
+
+[[block]]
+key = "5ecb209b1e4265ee-e7c6d705ee1cb1f5"
+type = "listItem"
+composite = true
+origin = '''
+- {{5ecb209b1e4265ee-e7c6d705ee1cb1f5-6f67b66706fb06cc}}
+'''
+translate = '''
+- {{5ecb209b1e4265ee-e7c6d705ee1cb1f5-6f67b66706fb06cc}}
+'''
+
+[[block]]
+key = "5ecb209b1e4265ee-e7c6d705ee1cb1f5-6f67b66706fb06cc"
+type = "paragraph"
+origin = '''
+**采样半径**：控制每个色块中心的取样范围。适当调大可平滑表面纹理；若色块边缘存在阴影、反光或边框干扰，建议调小半径以避开边缘区域。
+'''
+translate = '''
+**Sample radius:** Controls the center region sampled within each patch. Increasing it averages out print or paper texture, while reducing it keeps sampling clear of patch borders, glare, or edge shadows.
+'''
+
+[[block]]
+key = "5ecb209b1e4265ee-4f34b0a8c9c59293"
+type = "listItem"
+composite = true
+origin = '''
+- {{5ecb209b1e4265ee-4f34b0a8c9c59293-87073bfb4c48e15f}}
+'''
+translate = '''
+- {{5ecb209b1e4265ee-4f34b0a8c9c59293-87073bfb4c48e15f}}
+'''
+
+[[block]]
+key = "5ecb209b1e4265ee-4f34b0a8c9c59293-87073bfb4c48e15f"
+type = "paragraph"
+origin = '''
+**输出柔化**：对校正输出图像施加可选模糊，用于平抑高频噪点。
+'''
+translate = '''
+**Output blur:** Applies optional smoothing to the calibrated output to suppress high-frequency noise.
+'''
+
+[[block]]
+key = "5ecb209b1e4265ee-673d8b2f5ef4c103"
+type = "listItem"
+composite = true
+origin = '''
+- {{5ecb209b1e4265ee-673d8b2f5ef4c103-90c2370f1aa430e5}}
+'''
+translate = '''
+- {{5ecb209b1e4265ee-673d8b2f5ef4c103-90c2370f1aa430e5}}
+'''
+
+[[block]]
+key = "5ecb209b1e4265ee-673d8b2f5ef4c103-90c2370f1aa430e5"
+type = "paragraph"
+origin = '''
+**灰阶归一化**：支持自动、强制启用或回退模式，用于稳定中性灰阶的明度与白平衡基准。
+'''
+translate = '''
+**Gray normalization:** Supports automatic, enabled, or fallback modes to stabilize neutral-gray balance.
+'''
+
+[[block]]
+key = "5ecb209b1e4265ee-df9b7c0fa98243c5"
+type = "listItem"
+composite = true
+origin = '''
+- {{5ecb209b1e4265ee-df9b7c0fa98243c5-077ba1a581595f39}}
+'''
+translate = '''
+- {{5ecb209b1e4265ee-df9b7c0fa98243c5-077ba1a581595f39}}
+'''
+
+[[block]]
+key = "5ecb209b1e4265ee-df9b7c0fa98243c5-077ba1a581595f39"
+type = "paragraph"
+origin = '''
+**校色算法**：支持 3×3 矩阵、3×4 矩阵、根多项式或自动选择。
+'''
+translate = '''
+**Calibration algorithm:** Supports 3×3 matrix, 3×4 matrix, root polynomial, or automatic selection.
+'''
+
+[[block]]
+key = "52e90410081428f7"
+type = "heading"
+origin = '''
+## 确认结果
+'''
+translate = '''
+## Confirming the result
+'''
+
+[[block]]
+key = "a0936c262b2686c0"
+type = "paragraph"
+origin = '''
+结果页会列出平均、中位数、P95 和最大 ΔE00、最差色块以及灰阶检查结果；若存在被排除色块、灰阶偏差或参考数据风险，页面会显示相应警告。点击**确认使用**会将校色后的图像交由 LUT 提取器继续处理；点击**重新校色**则返回参数阶段重新调整。
+'''
+translate = '''
+The results screen reports mean, median, P95, and maximum ΔE00, along with the highest-error patch and gray-balance checks. Warnings highlight excluded patches or elevated neutral-reference deviations. Click **Accept** to pass the calibrated image to extraction, or **Retry** to return to the parameter settings and adjust the fit.
+'''
+
+[[block]]
+key = "a9c5fdcbcc4c3a91"
+type = "admonition"
+composite = true
+origin = '''
+:::tip[拍摄质量要求]
+{{a9c5fdcbcc4c3a91-befc00dd8801f493}}
+:::
+'''
+translate = '''
+:::tip[Photo quality]
+{{a9c5fdcbcc4c3a91-befc00dd8801f493}}
+:::
+'''
+
+[[block]]
+key = "a9c5fdcbcc4c3a91-befc00dd8801f493"
+type = "paragraph"
+origin = '''
+ColorChecker 校色用于消除相机色彩倾向与环境光源色偏。拍摄校准板与色卡时，请确保对焦清晰、布光均匀，避免高光过曝或表面强反光。
+'''
+translate = '''
+ColorChecker calibration compensates for camera response and ambient lighting casts. For accurate results, capture a sharply focused, evenly lit photograph without clipped highlights or specular glare.
+'''

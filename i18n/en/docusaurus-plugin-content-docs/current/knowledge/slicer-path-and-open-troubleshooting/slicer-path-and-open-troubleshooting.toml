@@ -1,0 +1,1656 @@
+[metadata]
+migration_layout = "preserved English structure; root blocks retain grouped or omitted source sections"
+reviewed_source = "81bfdd10244142b389afe0541742398827a4fc520d5ca6cde7b0e47435981767"
+
+[[block]]
+key = "9fa2aa0f24217234"
+type = "yaml"
+origin = '''
+---
+title: "切片器没检测到，或者 3MF 打不开怎么办？"
+description: "分清 Lumina 生成失败、3MF 下载失败、切片软件自动启动失败与项目导入不完整，并在 macOS 中正确设置手动切片软件路径。"
+sidebar_position: 36
+---
+'''
+translate = '''
+---
+title: "Slicer Not Detected or 3MF Will Not Open"
+description: "Separate generation, download, automatic launch, file compatibility, and incomplete-project problems; set a valid macOS .app path and use manual Open Project as a fallback."
+sidebar_position: 36
+---
+'''
+
+[[block]]
+key = "56fcbc06bcd18b42"
+type = "heading"
+origin = '''
+# 切片器没检测到，或者 3MF 打不开怎么办？
+'''
+translate = '''
+# Slicer Not Detected or 3MF Will Not Open
+'''
+
+[[block]]
+key = "d8e92f22e63ae06c"
+type = "paragraph"
+origin = '''
+遇到“打不开 3MF”时，问题通常出现在以下四个环节之一：
+'''
+translate = '''
+When a 3MF will not open in your slicer, the issue typically occurs at one of five distinct points:
+'''
+
+[[block]]
+key = "c6e6d4bf45d4ca2a"
+type = "list"
+composite = true
+origin = '''
+{{c6e6d4bf45d4ca2a-be61c6891ef508ae}}
+{{c6e6d4bf45d4ca2a-d6f7a1a527dabd3d}}
+{{c6e6d4bf45d4ca2a-063f77a51700e1dc}}
+{{c6e6d4bf45d4ca2a-cc1d9232e96ed532}}
+'''
+translate = '''
+1. Lumina has not finished generating a valid 3MF.
+2. The browser download is incomplete or expired.
+3. The 3MF downloaded cleanly, while one-click slicer launch is blocked or unconfigured.
+4. The slicer being used does not match the export format selected in Lumina.
+5. The slicer imported raw geometry only instead of opening the full project.
+'''
+
+[[block]]
+key = "c6e6d4bf45d4ca2a-be61c6891ef508ae"
+type = "listItem"
+composite = true
+origin = '''
+1. {{c6e6d4bf45d4ca2a-be61c6891ef508ae-c478d2413b2c872c}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c6e6d4bf45d4ca2a-be61c6891ef508ae-c478d2413b2c872c"
+type = "paragraph"
+origin = '''
+Lumina 尚未成功生成 3MF；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c6e6d4bf45d4ca2a-d6f7a1a527dabd3d"
+type = "listItem"
+composite = true
+origin = '''
+2. {{c6e6d4bf45d4ca2a-d6f7a1a527dabd3d-ea4ebdd3c0b00518}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c6e6d4bf45d4ca2a-d6f7a1a527dabd3d-ea4ebdd3c0b00518"
+type = "paragraph"
+origin = '''
+3MF 文件未完整下载到本机；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c6e6d4bf45d4ca2a-063f77a51700e1dc"
+type = "listItem"
+composite = true
+origin = '''
+3. {{c6e6d4bf45d4ca2a-063f77a51700e1dc-657644ae7bdc7a9d}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c6e6d4bf45d4ca2a-063f77a51700e1dc-657644ae7bdc7a9d"
+type = "paragraph"
+origin = '''
+3MF 文件正常，但 Lumina 未检测到或未能自动拉起本地切片软件；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c6e6d4bf45d4ca2a-cc1d9232e96ed532"
+type = "listItem"
+composite = true
+origin = '''
+4. {{c6e6d4bf45d4ca2a-cc1d9232e96ed532-c0138a2cc3451828}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c6e6d4bf45d4ca2a-cc1d9232e96ed532-c0138a2cc3451828"
+type = "paragraph"
+origin = '''
+切片软件已打开文件，但只导入了纯几何外形，未载入对象列表、耗材与项目参数。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "03141ef004968d59"
+type = "paragraph"
+origin = '''
+先定位卡在哪一步，就能直接采取对应的解决方法。
+'''
+translate = '''
+Identifying which stage failed saves unnecessary reinstallation or repeated generation.
+'''
+
+[[block]]
+key = "29a82fa6516ec3ff"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/04-open-diagnosis-flow.webp').default}
+  alt="从 Lumina 生成、3MF 下载、手动打开和项目完整性四层判断打不开问题"
+/>
+'''
+translate = '''
+'''
+
+[[block]]
+key = "299bc3bcd16841e2"
+type = "admonition"
+composite = true
+origin = '''
+:::tip[快速判断]
+{{299bc3bcd16841e2-c7c6db0f796e472c}}
+:::
+'''
+translate = '''
+'''
+
+[[block]]
+key = "299bc3bcd16841e2-c7c6db0f796e472c"
+type = "paragraph"
+origin = '''
+先在 Lumina 中点击“下载 3MF”，再从切片软件菜单栏点击“文件 → 打开项目”手动载入。若手动打开一切正常，说明 3MF 文件完好，仅需检查自动检测、系统权限或应用路径；若手动也无法打开，再排查导出格式、文件体积与切片软件版本。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b2592c1c1c78cd3f"
+type = "heading"
+origin = '''
+## 第一步：确认设置中的目标切片软件
+'''
+translate = '''
+## Step 1: Confirm that a valid 3MF downloaded
+'''
+
+[[block]]
+key = "b458d2bec87943e6"
+type = "paragraph"
+origin = '''
+进入“设置”，核对以下三项：
+'''
+translate = '''
+Before troubleshooting your slicer, verify that:
+'''
+
+[[block]]
+key = "c842a435f4032b54"
+type = "list"
+composite = true
+origin = '''
+{{c842a435f4032b54-1f2d2b79f0722a69}}
+{{c842a435f4032b54-7c30028b228a0de2}}
+{{c842a435f4032b54-591ace32285ea68d}}
+'''
+translate = '''
+- Generation finished cleanly rather than stalling on a loading spinner.
+- The **Download 3MF** button is available.
+- The downloaded file has a non-zero size and ends with `.3mf`.
+- The temporary session output has not expired.
+'''
+
+[[block]]
+key = "c842a435f4032b54-1f2d2b79f0722a69"
+type = "listItem"
+composite = true
+origin = '''
+- {{c842a435f4032b54-1f2d2b79f0722a69-ef63c813632854f1}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c842a435f4032b54-1f2d2b79f0722a69-ef63c813632854f1"
+type = "paragraph"
+origin = '''
+**切片软件**：选定你实际使用的切片软件（如 BambuStudio 或 OrcaSlicer）；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c842a435f4032b54-7c30028b228a0de2"
+type = "listItem"
+composite = true
+origin = '''
+- {{c842a435f4032b54-7c30028b228a0de2-761d4ace380e263f}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c842a435f4032b54-7c30028b228a0de2-761d4ace380e263f"
+type = "paragraph"
+origin = '''
+**打印机型号**：选定实际打印机型；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c842a435f4032b54-591ace32285ea68d"
+type = "listItem"
+composite = true
+origin = '''
+- {{c842a435f4032b54-591ace32285ea68d-708d63f8560e04fa}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c842a435f4032b54-591ace32285ea68d-708d63f8560e04fa"
+type = "paragraph"
+origin = '''
+**喷嘴尺寸**：选定机器当前安装的喷嘴直径。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4f22fb38ac09b338"
+type = "paragraph"
+origin = '''
+“切片软件”选项同时决定了自动打开的目标程序以及写入 3MF 的机器预设与工艺参数。选择 BambuStudio 时请搭配 Bambu Studio 打开；选择 OrcaSlicer 时请搭配 OrcaSlicer 打开。更改切片软件、机型或喷嘴后，需返回转换页面重新生成 3MF，此前已导出的旧文件不会自动更新。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "cf8be67b5be50477"
+type = "admonition"
+composite = true
+origin = '''
+:::warning[匹配导出格式]
+{{cf8be67b5be50477-f58efef0dff952c5}}
+:::
+'''
+translate = '''
+'''
+
+[[block]]
+key = "cf8be67b5be50477-f58efef0dff952c5"
+type = "paragraph"
+origin = '''
+当电脑上同时安装了多款切片软件时，请确保打开 3MF 的切片软件与 Lumina“设置”中选定的导出格式一致，以免部分机器预设或项目参数无法完整解析。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "9b1c4fe524fe9bcc"
+type = "heading"
+origin = '''
+## 第二步：检查自动检测状态
+'''
+translate = '''
+'''
+
+[[block]]
+key = "c0a10f9244339e92"
+type = "paragraph"
+origin = '''
+Lumina 会在本机常见安装目录中自动扫描受支持的切片软件，并根据扫描结果显示对应按钮：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0cd8a2a1d02a8105"
+type = "table"
+origin = '''
+| 页面状态 | 显示按钮 | 含义 |
+| --- | --- | --- |
+| 已检测到匹配切片器，尚未生成 | “生成并在 Bambu Studio 中打开”等 | 生成完成后自动调用该切片器打开项目 |
+| 已检测到匹配切片器，已经生成 | “在 Bambu Studio 中打开”等 | 使用刚生成的 3MF 直接启动该切片器 |
+| 未检测到可用切片器 | “生成并下载”或“下载 3MF” | 正常生成 3MF 供本地下载，跳过自动拉起 |
+| 导出格式与本机检测结果不一致 | “当前导出格式为……但本机未检测到……” | 设置中选定的切片器在本机默认目录未找到 |
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ef76ea5898d65fb7"
+type = "paragraph"
+origin = '''
+即使提示未检测到切片软件，3MF 生成与下载也不受影响——点击下载后在切片器中手动打开即可。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "64aa138e7fcb0626"
+type = "paragraph"
+origin = '''
+若希望恢复一键自动打开，请确认：
+'''
+translate = '''
+If the file is missing, `0 KB`, or expired, generate a fresh copy in Lumina first. For page-load or generation issues, see [The Page Will Not Open, Keeps Spinning, or Generation Fails](pathname:///en/docs/knowledge/web-generation-troubleshooting/).
+'''
+
+[[block]]
+key = "f62eab2bc1036f17"
+type = "list"
+composite = true
+origin = '''
+{{f62eab2bc1036f17-306422777238b937}}
+{{f62eab2bc1036f17-823f79cef0b57865}}
+{{f62eab2bc1036f17-4fa534598f066777}}
+{{f62eab2bc1036f17-2b12b595f4d087b3}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f62eab2bc1036f17-306422777238b937"
+type = "listItem"
+composite = true
+origin = '''
+1. {{f62eab2bc1036f17-306422777238b937-883d2300a0718d37}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f62eab2bc1036f17-306422777238b937-883d2300a0718d37"
+type = "paragraph"
+origin = '''
+切片软件已正式安装到系统目录，而非直接在安装包（`.dmg`）或压缩包内临时运行；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f62eab2bc1036f17-823f79cef0b57865"
+type = "listItem"
+composite = true
+origin = '''
+2. {{f62eab2bc1036f17-823f79cef0b57865-8ba270b467604339}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f62eab2bc1036f17-823f79cef0b57865-8ba270b467604339"
+type = "paragraph"
+origin = '''
+切片软件已手动启动过至少一次，且通过了 macOS 首次打开的安全确认；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f62eab2bc1036f17-4fa534598f066777"
+type = "listItem"
+composite = true
+origin = '''
+3. {{f62eab2bc1036f17-4fa534598f066777-d1ebb42af475d3a8}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f62eab2bc1036f17-4fa534598f066777-d1ebb42af475d3a8"
+type = "paragraph"
+origin = '''
+切片软件与 Lumina 后端运行在同一台电脑上（若用浏览器远程访问另一台主机上的 Lumina，请直接下载 3MF 到当前电脑打开）；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f62eab2bc1036f17-2b12b595f4d087b3"
+type = "listItem"
+composite = true
+origin = '''
+4. {{f62eab2bc1036f17-2b12b595f4d087b3-94d3a6eea62f4172}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "f62eab2bc1036f17-2b12b595f4d087b3-94d3a6eea62f4172"
+type = "paragraph"
+origin = '''
+移动过切片软件安装位置后，已重启 Lumina。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ea980adc415bb696"
+type = "heading"
+origin = '''
+## 第三步：在 macOS 中手动指定 `.app` 路径
+'''
+translate = '''
+## Step 2: Match the export format to your slicer
+'''
+
+[[block]]
+key = "71f7d79620b12000"
+type = "paragraph"
+origin = '''
+macOS 版若因自定义安装目录导致自动检测未命中，可在“设置”页面下方的“手动切片软件路径”中直接指定路径：
+'''
+translate = '''
+The slicer setting in Lumina controls both one-click launch and the project metadata written into the 3MF. Open **Settings**, select the exact slicer you plan to use alongside your printer model and nozzle size, and generate a new 3MF whenever you change these options.
+'''
+
+[[block]]
+key = "6d09a60f563d8b71"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-export-format.webp').default}
+  alt="Lumina Studio 设置页面中的手动切片软件路径、校验并保存和清除按钮"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-export-format.webp').default}
+  alt="Real English Lumina Settings page showing slicer selection and the optional macOS manual path controls"
+/>
+'''
+
+[[block]]
+key = "bb3761084674d818"
+type = "list"
+composite = true
+origin = '''
+{{bb3761084674d818-df5a130c1e36bf2c}}
+{{bb3761084674d818-1b87429ef6783ce7}}
+{{bb3761084674d818-97cdde019d83036c}}
+{{bb3761084674d818-914839fcf11d814f}}
+{{bb3761084674d818-70e6fbace1222595}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bb3761084674d818-df5a130c1e36bf2c"
+type = "listItem"
+composite = true
+origin = '''
+1. {{bb3761084674d818-df5a130c1e36bf2c-cd96b5abf9a7724a}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bb3761084674d818-df5a130c1e36bf2c-cd96b5abf9a7724a"
+type = "paragraph"
+origin = '''
+打开 Finder 的“应用程序”目录，找到已安装的切片软件；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bb3761084674d818-1b87429ef6783ce7"
+type = "listItem"
+composite = true
+origin = '''
+2. {{bb3761084674d818-1b87429ef6783ce7-7b4feec115701e11}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bb3761084674d818-1b87429ef6783ce7-7b4feec115701e11"
+type = "paragraph"
+origin = '''
+核对磁盘上的真实应用包名称（注意空格与大小写）；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bb3761084674d818-97cdde019d83036c"
+type = "listItem"
+composite = true
+origin = '''
+3. {{bb3761084674d818-97cdde019d83036c-b84ed8327ebe2498}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bb3761084674d818-97cdde019d83036c-b84ed8327ebe2498"
+type = "paragraph"
+origin = '''
+在输入框填入完整的 `.app` 路径；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bb3761084674d818-914839fcf11d814f"
+type = "listItem"
+composite = true
+origin = '''
+4. {{bb3761084674d818-914839fcf11d814f-6f9f5637234a8d6b}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bb3761084674d818-914839fcf11d814f-6f9f5637234a8d6b"
+type = "paragraph"
+origin = '''
+点击“校验并保存”；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bb3761084674d818-70e6fbace1222595"
+type = "listItem"
+composite = true
+origin = '''
+5. {{bb3761084674d818-70e6fbace1222595-3d8260da16f7d231}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bb3761084674d818-70e6fbace1222595-3d8260da16f7d231"
+type = "paragraph"
+origin = '''
+页面提示“已识别……”后，返回转换页面即可使用一键打开。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "948fb4bc47bed980"
+type = "paragraph"
+origin = '''
+常见路径格式参考（请以本机实际应用包名称为准）：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "aa05c609805bbb4d"
+type = "list"
+composite = true
+origin = '''
+{{aa05c609805bbb4d-0b8afdb9065b8274}}
+{{aa05c609805bbb4d-d9af548aa0897727}}
+{{aa05c609805bbb4d-2af7bc5819440819}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "aa05c609805bbb4d-0b8afdb9065b8274"
+type = "listItem"
+composite = true
+origin = '''
+- {{aa05c609805bbb4d-0b8afdb9065b8274-bd23ac22e412e388}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "aa05c609805bbb4d-0b8afdb9065b8274-bd23ac22e412e388"
+type = "paragraph"
+origin = '''
+`/Applications/BambuStudio.app`
+'''
+translate = '''
+'''
+
+[[block]]
+key = "aa05c609805bbb4d-d9af548aa0897727"
+type = "listItem"
+composite = true
+origin = '''
+- {{aa05c609805bbb4d-d9af548aa0897727-cd2cfeb27a2340e7}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "aa05c609805bbb4d-d9af548aa0897727-cd2cfeb27a2340e7"
+type = "paragraph"
+origin = '''
+`/Applications/OrcaSlicer.app`
+'''
+translate = '''
+'''
+
+[[block]]
+key = "aa05c609805bbb4d-2af7bc5819440819"
+type = "listItem"
+composite = true
+origin = '''
+- {{aa05c609805bbb4d-2af7bc5819440819-2fe38ff50acd4b07}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "aa05c609805bbb4d-2af7bc5819440819-2fe38ff50acd4b07"
+type = "paragraph"
+origin = '''
+`~/Applications/某个受支持的切片软件.app`
+'''
+translate = '''
+'''
+
+[[block]]
+key = "315e4c9be45a67fd"
+type = "heading"
+origin = '''
+## 第四步：核对真实的 `.app` 文件名
+'''
+translate = '''
+## Step 3: Set a manual `.app` path on macOS if auto-detection misses it
+'''
+
+[[block]]
+key = "bfe39b6a761c1e41"
+type = "paragraph"
+origin = '''
+应用窗口标题与磁盘上的 `.app` 包名未必一致，多一个或少一个空格都会导致校验不通过。以 Bambu Studio 在 macOS 上的默认包名为例：
+'''
+translate = '''
+On macOS, if your slicer is installed in a custom location and is not detected automatically, enter the path to the **`.app` bundle** itself—never an internal `Contents` directory, binary executable, mounted `.dmg` disk image, or alias.
+'''
+
+[[block]]
+key = "01fb7fae2d0c91b5"
+type = "list"
+composite = true
+origin = '''
+{{01fb7fae2d0c91b5-50abd508896aff28}}
+{{01fb7fae2d0c91b5-04c1e8afb8c45803}}
+'''
+translate = '''
+1. Open **Applications** in Finder and locate the installed slicer app.
+2. Check its exact filename on disk, including spaces and capitalization.
+3. Enter the full `.app` path in Lumina **Settings**.
+4. Click **Validate and Save**.
+5. Once validation succeeds, return to the Converter to use one-click open.
+'''
+
+[[block]]
+key = "01fb7fae2d0c91b5-50abd508896aff28"
+type = "listItem"
+composite = true
+origin = '''
+- {{01fb7fae2d0c91b5-50abd508896aff28-12ac022df8b4eb1a}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "01fb7fae2d0c91b5-50abd508896aff28-12ac022df8b4eb1a"
+type = "paragraph"
+origin = '''
+`/Applications/Bambu Studio.app`：校验失败（磁盘文件名不含空格）；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "01fb7fae2d0c91b5-04c1e8afb8c45803"
+type = "listItem"
+composite = true
+origin = '''
+- {{01fb7fae2d0c91b5-04c1e8afb8c45803-06536dc87c5990ac}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "01fb7fae2d0c91b5-04c1e8afb8c45803-06536dc87c5990ac"
+type = "paragraph"
+origin = '''
+`/Applications/BambuStudio.app`：校验通过，成功识别为 Bambu Studio。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "5cea496c94369a5a"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/02-path-validation.webp').default}
+  alt="Bambu Studio 手动路径的失败和成功真实校验对比"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/02-path-validation.webp').default}
+  alt="Real English Lumina manual slicer path comparison showing an invalid spaced filename and the valid installed BambuStudio app path"
+/>
+'''
+
+[[block]]
+key = "7c853c537331e46a"
+type = "paragraph"
+origin = '''
+若提示“未识别到受支持的切片软件，请确认路径指向 .app 应用包”，请逐项检查：
+'''
+translate = '''
+Even a single extra space will cause validation to fail—for example, default macOS installations of Bambu Studio omit the space in the `.app` bundle name:
+
+```text
+/Applications/Bambu Studio.app   ← fails validation (space in bundle name)
+/Applications/BambuStudio.app    ← valid installed .app bundle
+```
+'''
+
+[[block]]
+key = "1a9501270364a438"
+type = "list"
+composite = true
+origin = '''
+{{1a9501270364a438-05283cca33f6e3e2}}
+{{1a9501270364a438-a2967a2d42a71ce4}}
+{{1a9501270364a438-dda00083f02a095b}}
+{{1a9501270364a438-29ccf68dd2e5019f}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1a9501270364a438-05283cca33f6e3e2"
+type = "listItem"
+composite = true
+origin = '''
+- {{1a9501270364a438-05283cca33f6e3e2-f87d8429ea217e92}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1a9501270364a438-05283cca33f6e3e2-f87d8429ea217e92"
+type = "paragraph"
+origin = '''
+该路径在磁盘上是否真实存在；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1a9501270364a438-a2967a2d42a71ce4"
+type = "listItem"
+composite = true
+origin = '''
+- {{1a9501270364a438-a2967a2d42a71ce4-2a2e4bb15e57c8ba}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1a9501270364a438-a2967a2d42a71ce4-2a2e4bb15e57c8ba"
+type = "paragraph"
+origin = '''
+路径末尾是否停在 `.app` 层级（不要深入到包内的 `Contents` 或二进制可执行文件）；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1a9501270364a438-dda00083f02a095b"
+type = "listItem"
+composite = true
+origin = '''
+- {{1a9501270364a438-dda00083f02a095b-fd4f9b7c4404765a}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1a9501270364a438-dda00083f02a095b-fd4f9b7c4404765a"
+type = "paragraph"
+origin = '''
+应用是否已拖入“应用程序”文件夹（而非留在“下载”目录或挂载镜像中）；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1a9501270364a438-29ccf68dd2e5019f"
+type = "listItem"
+composite = true
+origin = '''
+- {{1a9501270364a438-29ccf68dd2e5019f-efb3707293f53f64}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1a9501270364a438-29ccf68dd2e5019f-efb3707293f53f64"
+type = "paragraph"
+origin = '''
+空格与大小写是否与 Finder 显示完全一致。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1ea99fadf700a0f7"
+type = "paragraph"
+origin = '''
+校验保存后，Lumina 将优先按该手动路径启动切片器；点击“清除”可恢复默认自动检测。
+'''
+translate = '''
+Check Finder on your own Mac for the exact filename. Once saved, Lumina uses this custom path to launch 3MF projects; click **Clear** at any time to revert to automatic detection.
+'''
+
+[[block]]
+key = "d3f38fc88211718a"
+type = "admonition"
+composite = true
+origin = '''
+:::info[Windows 用户]
+{{d3f38fc88211718a-c35894f79f2dacf1}}
+:::
+'''
+translate = '''
+:::info[Windows]
+The manual `.app` path field applies only to macOS bundles (do not enter a Windows `.exe` path here). On Windows, install your slicer with its standard installer and launch it once so system registration completes; if auto-detection is unavailable, download the 3MF and open it via **File → Open Project** inside the slicer.
+:::
+'''
+
+[[block]]
+key = "d3f38fc88211718a-c35894f79f2dacf1"
+type = "paragraph"
+origin = '''
+“手动切片软件路径”仅面向 macOS 的 `.app` 应用包（请勿填入 Windows 的 `.exe` 路径）。Windows 端通过系统安装注册信息自动识别切片器；若未自动识别，请确认切片器已通过官方安装程序正常安装并启动过一次，或直接下载 3MF 后从切片器的“文件 → 打开项目”载入。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7333e25a0c6110bb"
+type = "heading"
+origin = '''
+## 第五步：使用“打开项目”手动载入（通用备用方案）
+'''
+translate = '''
+## Step 4: Open the project manually as a reliable fallback
+'''
+
+[[block]]
+key = "677223d670440b9a"
+type = "paragraph"
+origin = '''
+一键启动受阻时，手动打开同样能完整保留全部项目数据：
+'''
+translate = '''
+Whenever one-click launch is unavailable or blocked by OS permissions, opening the downloaded file directly preserves every project setting:
+'''
+
+[[block]]
+key = "af21170b61f5c159"
+type = "list"
+composite = true
+origin = '''
+{{af21170b61f5c159-82aaef128f22501f}}
+{{af21170b61f5c159-f8f87f98646a1803}}
+{{af21170b61f5c159-985af8dc6c306dd1}}
+{{af21170b61f5c159-a8bb77a6570f222c}}
+'''
+translate = '''
+1. Click **Download 3MF** and wait for the download to complete.
+2. Open Bambu Studio, OrcaSlicer, or your configured slicer.
+3. Choose **File → Open Project** and select the downloaded `.3mf` file.
+4. When prompted, choose to open it as a **complete project** rather than importing geometry only.
+'''
+
+[[block]]
+key = "af21170b61f5c159-82aaef128f22501f"
+type = "listItem"
+composite = true
+origin = '''
+1. {{af21170b61f5c159-82aaef128f22501f-132b13943fa5a55a}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "af21170b61f5c159-82aaef128f22501f-132b13943fa5a55a"
+type = "paragraph"
+origin = '''
+点击“下载 3MF”，确认文件下载完成且大小不为 `0`；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "af21170b61f5c159-f8f87f98646a1803"
+type = "listItem"
+composite = true
+origin = '''
+2. {{af21170b61f5c159-f8f87f98646a1803-e20152781ec46724}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "af21170b61f5c159-f8f87f98646a1803-e20152781ec46724"
+type = "paragraph"
+origin = '''
+启动 Bambu Studio、OrcaSlicer 或设置中对应的切片软件；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "af21170b61f5c159-985af8dc6c306dd1"
+type = "listItem"
+composite = true
+origin = '''
+3. {{af21170b61f5c159-985af8dc6c306dd1-f7af6d5a133f5a0a}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "af21170b61f5c159-985af8dc6c306dd1-f7af6d5a133f5a0a"
+type = "paragraph"
+origin = '''
+在菜单栏选择“文件 → 打开项目”，选中刚下载的 `.3mf` 文件；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "af21170b61f5c159-a8bb77a6570f222c"
+type = "listItem"
+composite = true
+origin = '''
+4. {{af21170b61f5c159-a8bb77a6570f222c-3f24b592e6c808a9}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "af21170b61f5c159-a8bb77a6570f222c-3f24b592e6c808a9"
+type = "paragraph"
+origin = '''
+若弹窗询问导入方式，选择**作为项目打开**（而非仅导入几何体）。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b9a51a0d27095041"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/03-open-full-project.webp').default}
+  alt="Bambu Studio 中完整打开 Lumina 3MF 后保留对象列表、项目耗材和模型"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/03-open-full-project.webp').default}
+  alt="English concept diagram showing a downloaded Lumina 3MF opened as a complete slicer project with plate, objects, materials, and settings preserved"
+/>
+'''
+
+[[block]]
+key = "69f774f3014af423"
+type = "paragraph"
+origin = '''
+以完整项目打开后，打印盘、对象/零件层级、项目耗材列表与工艺预设都会一并载入。若列表中只剩一个无法展开的合并网格，请关闭当前窗口，重新通过“打开项目”导入。
+'''
+translate = '''
+Opening as a complete project loads the build plate, object/part hierarchy, project filaments, and process presets intact. If you see only a single merged mesh with no object tree or project filaments, close the window and reopen the file as a complete project.
+'''
+
+[[block]]
+key = "7602c7f51c12ae0b"
+type = "paragraph"
+origin = '''
+此外，3MF 本质上是带内部引用关系的工程包，请直接使用原始下载文件打开，避免手动解压修改后再重新压缩导致内部元数据失效。
+'''
+translate = '''
+Always open the downloaded `.3mf` directly without unzipping, editing internal files, and re-zipping it, as manual repacking can break internal XML references.
+'''
+
+[[block]]
+key = "d4c581cf1e8e2e20"
+type = "heading"
+origin = '''
+## 第六步：常见提示与处理对照
+'''
+translate = '''
+## Step 5: Quick diagnostic decision tree
+
+<img
+  src={require('./assets/04-open-diagnosis-flow.webp').default}
+  alt="English diagnostic flow separating Lumina generation, 3MF download, manual slicer open, automatic launch, and incomplete project problems"
+/>
+
+- **No Download 3MF button**: resolve preview or generation first.
+- **Empty or failed download**: generate again and save the `.3mf` locally right away.
+- **Manual Open Project works, one-click launch fails**: the 3MF is intact; check slicer detection, OS launch permissions, or your macOS `.app` path.
+- **Opens in one slicer, fails in another**: check that Lumina's selected export format matches the target slicer and verify both app versions.
+- **Rejected by all slicers**: generate a fresh copy, compare file sizes, and keep the untouched failing `.3mf` for support.
+- **Opens without objects, filaments, or presets**: reopen via **File → Open Project** and select full project import.
+'''
+
+[[block]]
+key = "9af1f75835ad0d97"
+type = "table"
+origin = '''
+| 页面提示或现象 | 原因说明 | 处理方式 |
+| --- | --- | --- |
+| 未检测到切片软件 | 默认目录未扫描到受支持的切片器 | 下载 3MF 手动打开；macOS 可配置手动 `.app` 路径 |
+| 当前导出格式为 A，但本机未检测到 A | 设置中选定的导出软件与本机已装软件不一致 | 在“设置”中切换为实际安装的切片软件并重新生成 3MF |
+| 未找到切片软件 | 原有路径下的应用程序已被移动、改名或卸载 | 重新核对应用位置并校验保存新路径 |
+| 找不到要打开的 3MF | 临时生成产物已过期或被清理 | 返回转换页面重新生成 |
+| 下载文件暂时无法读取 | 临时下载链接已失效 | 重新生成并立即下载保存 |
+| 准备切片器打开文件失败 | 无法写入临时启动副本 | 检查本机剩余磁盘空间与目录权限，或直接下载后手动打开 |
+| 启动切片器失败 | 系统安全拦截或路径异常 | 先从“应用程序”手动打开一次切片软件，再重试 |
+| 打开后缺少对象层级或项目耗材 | 仅导入了几何模型，或导出格式与当前切片器不匹配 | 重新选择“作为完整项目打开”，并核对 Lumina 导出格式 |
+'''
+translate = '''
+'''
+
+[[block]]
+key = "310483887934f341"
+type = "paragraph"
+origin = '''
+由于顶部气泡提示会在数秒后自动收起，若遇到报错建议第一时间截图留存完整文字。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7bf9e53ed7b049db"
+type = "heading"
+origin = '''
+## 第七步：区分启动异常与文件损坏
+'''
+translate = '''
+## Common messages and actions
+
+| Message or symptom | Recommended action |
+| --- | --- |
+| Slicer not detected | Download the 3MF and open it via **File → Open Project**; on macOS, check your `.app` path |
+| Export format and installed slicer differ | Select the slicer you actually use in **Settings** and generate a new 3MF |
+| Slicer path no longer exists | Point to the app's current location after moving or reinstalling, then click **Validate and Save** |
+| 3MF result cannot be found | Generate again—temporary session outputs expire after cleanup |
+| Download is temporarily unavailable | Generate a fresh 3MF and download it immediately |
+| Preparing a launch copy failed | Check free disk space and folder permissions, or download and open manually |
+| Slicer starts but no project loads | Let the slicer finish starting up, then click open again or use **File → Open Project** |
+| Project opens with missing materials or objects | Reopen as a complete project and confirm the export format matches your slicer |
+'''
+
+[[block]]
+key = "fed09a73387fb042"
+type = "heading"
+origin = '''
+### 下载后手动能正常打开
+'''
+translate = '''
+'''
+
+[[block]]
+key = "eccb96cf3fd1eced"
+type = "paragraph"
+origin = '''
+说明 3MF 文件本身完好，排查重点放在自动检测、手动 `.app` 路径、macOS 首次运行权限，以及 Lumina 与切片器是否运行在同一台本机。（注：一键打开使用的是临时副本，在切片器内继续所做的修改不会反向写回 Lumina 网页端。）
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8baf98658c3865a8"
+type = "heading"
+origin = '''
+### 仅某一款切片器打不开
+'''
+translate = '''
+'''
+
+[[block]]
+key = "83e63edcdc75e3ac"
+type = "paragraph"
+origin = '''
+核对 Lumina“设置”中的导出格式是否与该款切片器对应，并检查切片器版本是否为较新正式版。不同切片器对专有项目元数据的兼容范围不同，使用匹配导出格式的切片器打开最为稳妥。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "4fb6e981b991aa59"
+type = "heading"
+origin = '''
+### 所有切片器均无法打开
+'''
+translate = '''
+'''
+
+[[block]]
+key = "31b8985cf08f550e"
+type = "list"
+composite = true
+origin = '''
+{{31b8985cf08f550e-12e96d8e0e67054a}}
+{{31b8985cf08f550e-52a71d9bc6abdc34}}
+{{31b8985cf08f550e-ecfa49045ec5df01}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "31b8985cf08f550e-12e96d8e0e67054a"
+type = "listItem"
+composite = true
+origin = '''
+1. {{31b8985cf08f550e-12e96d8e0e67054a-a38ab016475a6aad}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "31b8985cf08f550e-12e96d8e0e67054a-a38ab016475a6aad"
+type = "paragraph"
+origin = '''
+先检查下载文件大小：若仅有数字节、后缀变为 `.html` 或下载中断，重新下载即可；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "31b8985cf08f550e-52a71d9bc6abdc34"
+type = "listItem"
+composite = true
+origin = '''
+2. {{31b8985cf08f550e-52a71d9bc6abdc34-8486ae4d40d05053}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "31b8985cf08f550e-52a71d9bc6abdc34-8486ae4d40d05053"
+type = "paragraph"
+origin = '''
+回到 Lumina 重新生成一份 3MF 并对比两次文件大小；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "31b8985cf08f550e-ecfa49045ec5df01"
+type = "listItem"
+composite = true
+origin = '''
+3. {{31b8985cf08f550e-ecfa49045ec5df01-4759c715f121a097}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "31b8985cf08f550e-ecfa49045ec5df01-4759c715f121a097"
+type = "paragraph"
+origin = '''
+若重新生成的文件仍无法在对应版本的切片器中打开，保留原始 `.3mf` 文件及双方版本号提交反馈。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "bced5c358f38ce1f"
+type = "heading"
+origin = '''
+## 第八步：导入切片器后的打印前核查
+'''
+translate = '''
+## Step 6: Verify filament mapping before printing
+'''
+
+[[block]]
+key = "a50d940b10d606a7"
+type = "paragraph"
+origin = '''
+成功载入项目后，发送打印前请完成以下核查：
+'''
+translate = '''
+Once the project loads in your slicer, confirm these final items before sending the print:
+'''
+
+[[block]]
+key = "2a3ffff42cb9d13e"
+type = "list"
+composite = true
+origin = '''
+{{2a3ffff42cb9d13e-a2222b359744c655}}
+{{2a3ffff42cb9d13e-5e76ff44e9dc8835}}
+{{2a3ffff42cb9d13e-91aca5649f0d33a6}}
+{{2a3ffff42cb9d13e-6ceb2fcd2ae09ed8}}
+'''
+translate = '''
+- Printer model and nozzle diameter match your hardware.
+- Project filaments and per-object assignments are intact.
+- Each project filament is mapped to the right physical spool and AMS or external slot.
+- In the sliced **Preview** tab, the viewing face, backing, and every color layer appear in the expected order.
+'''
+
+[[block]]
+key = "2a3ffff42cb9d13e-a2222b359744c655"
+type = "listItem"
+composite = true
+origin = '''
+- {{2a3ffff42cb9d13e-a2222b359744c655-8c33e543b80838b4}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2a3ffff42cb9d13e-a2222b359744c655-8c33e543b80838b4"
+type = "paragraph"
+origin = '''
+打印机型号与喷嘴直径与实物机器一致；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2a3ffff42cb9d13e-5e76ff44e9dc8835"
+type = "listItem"
+composite = true
+origin = '''
+- {{2a3ffff42cb9d13e-5e76ff44e9dc8835-fd219417162c8243}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2a3ffff42cb9d13e-5e76ff44e9dc8835-fd219417162c8243"
+type = "paragraph"
+origin = '''
+项目耗材列表及各对象/零件的耗材编号分配无误；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2a3ffff42cb9d13e-91aca5649f0d33a6"
+type = "listItem"
+composite = true
+origin = '''
+- {{2a3ffff42cb9d13e-91aca5649f0d33a6-f55b21bf8d6d6ea9}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2a3ffff42cb9d13e-91aca5649f0d33a6-f55b21bf8d6d6ea9"
+type = "paragraph"
+origin = '''
+项目耗材已准确映射到 AMS 槽位或外置线盘；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2a3ffff42cb9d13e-6ceb2fcd2ae09ed8"
+type = "listItem"
+composite = true
+origin = '''
+- {{2a3ffff42cb9d13e-6ceb2fcd2ae09ed8-2af7c892d0d99492}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2a3ffff42cb9d13e-6ceb2fcd2ae09ed8-2af7c892d0d99492"
+type = "paragraph"
+origin = '''
+执行真实切片后，在“预览”中逐层确认显色面、底板与各层颜色顺序。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "727e9c8b8d7452c7"
+type = "paragraph"
+origin = '''
+映射操作详见[把 Lumina 3MF 正确导入切片器](pathname:///zh/docs/tutorials/slicer-material-mapping/)；若预览颜色与切片或实物存在差异，请参阅[为什么 Lumina 预览、切片器预览和打印实物不一样？](pathname:///zh/docs/knowledge/preview-slicer-print-differences/)。
+'''
+translate = '''
+For the full mapping walkthrough, see [Import a Lumina 3MF into the Slicer Correctly](pathname:///en/docs/tutorials/slicer-material-mapping/).
+'''
+
+[[block]]
+key = "6e9e4d2c46326af9"
+type = "heading"
+origin = '''
+## 提交反馈时建议附上的信息
+'''
+translate = '''
+## Reporting persistent open issues
+
+If a newly generated 3MF still fails to open, include:
+'''
+
+[[block]]
+key = "98dfb279ffe080f9"
+type = "list"
+composite = true
+origin = '''
+{{98dfb279ffe080f9-8432eefe7ccaffd9}}
+{{98dfb279ffe080f9-73bd7e1aef2f86b5}}
+{{98dfb279ffe080f9-93729108ad12a9ce}}
+{{98dfb279ffe080f9-5dcce7bdba07b417}}
+{{98dfb279ffe080f9-14b0d7a463348c76}}
+{{98dfb279ffe080f9-d6188babc43749a7}}
+{{98dfb279ffe080f9-aa66de20ba19c344}}
+'''
+translate = '''
+1. Lumina Studio version or build info
+2. Operating system and version
+3. Slicer name and exact version
+4. Slicer, printer, and nozzle selected in Lumina **Settings**
+5. A screenshot of the full error message
+6. Whether one-click launch fails, manual **Open Project** fails, or both
+7. The unmodified `.3mf` file (when safe to share) and whether another slicer can open it
+'''
+
+[[block]]
+key = "98dfb279ffe080f9-8432eefe7ccaffd9"
+type = "listItem"
+composite = true
+origin = '''
+1. {{98dfb279ffe080f9-8432eefe7ccaffd9-bee6b263cd38f12b}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "98dfb279ffe080f9-8432eefe7ccaffd9-bee6b263cd38f12b"
+type = "paragraph"
+origin = '''
+Lumina Studio 版本号（或页面显示的构建信息）；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "98dfb279ffe080f9-73bd7e1aef2f86b5"
+type = "listItem"
+composite = true
+origin = '''
+2. {{98dfb279ffe080f9-73bd7e1aef2f86b5-b230a5753dd8d724}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "98dfb279ffe080f9-73bd7e1aef2f86b5-b230a5753dd8d724"
+type = "paragraph"
+origin = '''
+操作系统名称与系统版本；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "98dfb279ffe080f9-93729108ad12a9ce"
+type = "listItem"
+composite = true
+origin = '''
+3. {{98dfb279ffe080f9-93729108ad12a9ce-debe1868f3d5fedd}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "98dfb279ffe080f9-93729108ad12a9ce-debe1868f3d5fedd"
+type = "paragraph"
+origin = '''
+切片软件名称与具体版本号；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "98dfb279ffe080f9-5dcce7bdba07b417"
+type = "listItem"
+composite = true
+origin = '''
+4. {{98dfb279ffe080f9-5dcce7bdba07b417-4136b8c9576c3920}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "98dfb279ffe080f9-5dcce7bdba07b417-4136b8c9576c3920"
+type = "paragraph"
+origin = '''
+Lumina“设置”中选定的切片软件、打印机型号与喷嘴尺寸；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "98dfb279ffe080f9-14b0d7a463348c76"
+type = "listItem"
+composite = true
+origin = '''
+5. {{98dfb279ffe080f9-14b0d7a463348c76-9e513a2e650d143e}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "98dfb279ffe080f9-14b0d7a463348c76-9e513a2e650d143e"
+type = "paragraph"
+origin = '''
+报错提示的完整截图；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "98dfb279ffe080f9-d6188babc43749a7"
+type = "listItem"
+composite = true
+origin = '''
+6. {{98dfb279ffe080f9-d6188babc43749a7-abb167c828c14acd}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "98dfb279ffe080f9-d6188babc43749a7-abb167c828c14acd"
+type = "paragraph"
+origin = '''
+具体表现属于“仅一键启动失败”还是“下载后手动打开也报错”；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "98dfb279ffe080f9-aa66de20ba19c344"
+type = "listItem"
+composite = true
+origin = '''
+7. {{98dfb279ffe080f9-aa66de20ba19c344-789892d413cf4024}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "98dfb279ffe080f9-aa66de20ba19c344-789892d413cf4024"
+type = "paragraph"
+origin = '''
+未经修改的原始故障 `.3mf` 文件，以及是否能被其他切片软件打开。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "ba5253e50435675b"
+type = "paragraph"
+origin = '''
+公开提交前请隐去截图与路径中的个人账号、邮箱、服务器地址及未公开商业素材。
+'''
+translate = '''
+Redact personal account names, email addresses, local usernames, server URLs, and proprietary designs before posting in public channels.
+'''
+
+[[block]]
+key = "3b30b685be5af364"
+type = "heading"
+origin = '''
+## 常见问题
+'''
+translate = '''
+## Common questions
+'''
+
+[[block]]
+key = "0bf17287670cb1f3"
+type = "heading"
+origin = '''
+### 为什么“设置”页面修改机型后没有单独的“保存”按钮？
+'''
+translate = '''
+### Why isn't there a Save button for slicer, printer, and nozzle?
+'''
+
+[[block]]
+key = "622b74378af14cdc"
+type = "paragraph"
+origin = '''
+切片软件、打印机型号与喷嘴尺寸在切换后立即自动生效保存；仅“手动切片软件路径”需要点击“校验并保存”，用于验证目标 `.app` 应用包是否有效且受支持。
+'''
+translate = '''
+Standard dropdown choices save immediately when changed. Only the macOS manual path requires clicking **Validate and Save** so Lumina can verify that the target is a valid, supported `.app` bundle.
+'''
+
+[[block]]
+key = "ea3e3bd995b941ef"
+type = "heading"
+origin = '''
+### 手动路径已经显示识别成功，为什么转换页面还提示另一款切片器？
+'''
+translate = '''
+### My custom path validated, so why does the Converter still mention another slicer?
+'''
+
+[[block]]
+key = "f33088368f7f5ed8"
+type = "paragraph"
+origin = '''
+一键打开需要“设置”中选定的**切片软件（导出格式）**与手动路径指向的切片器一致。将“切片软件”切换为同一款软件后重新生成 3MF 即可。
+'''
+translate = '''
+One-click launch requires both the **Slicer** export setting and your custom `.app` path to point to the same application. Update the slicer selection in **Settings** and generate a fresh 3MF.
+'''
+
+[[block]]
+key = "75e3510af2099c91"
+type = "heading"
+origin = '''
+### 把切片软件移到别的文件夹后，原来保存的手动路径为什么失效了？
+'''
+translate = '''
+### I moved my slicer app and the saved path stopped working—why?
+'''
+
+[[block]]
+key = "dc03f654e0506b9e"
+type = "paragraph"
+origin = '''
+手动路径记录的是绝对路径位置。移动、重命名或重新安装应用后，请重新填入新路径并点击“校验并保存”。
+'''
+translate = '''
+Manual paths point to an exact filesystem location. After moving, renaming, or reinstalling the app, enter the updated `.app` path and click **Validate and Save**.
+'''
+
+[[block]]
+key = "7fa1ffd1c4fa8034"
+type = "heading"
+origin = '''
+### 点击一键打开后切片软件启动了，里面却是空白新项目？
+'''
+translate = '''
+### One-click open launches the slicer to an empty plate. What should I do?
+'''
+
+[[block]]
+key = "f9de7b2952c3732a"
+type = "paragraph"
+origin = '''
+当切片软件首次冷启动较慢时，启动参数可能未被及时接收。待切片软件完全打开后，再次点击“在……中打开”，或直接通过“文件 → 打开项目”载入已下载的 3MF。
+'''
+translate = '''
+On a slow cold start, the slicer may finish initializing before picking up the file argument. Once the slicer window is open, click the open button in Lumina again or load the downloaded file via **File → Open Project**.
+'''
+
+[[block]]
+key = "b43b33b9628a2153"
+type = "heading"
+origin = '''
+### 隔了一段时间再点下载链接提示失效，是文件损坏了吗？
+'''
+translate = '''
+### Does an expired download link mean my project is corrupted?
+'''
+
+[[block]]
+key = "088cfb153ad27fe0"
+type = "paragraph"
+origin = '''
+生成产物保存在临时会话中，超时或清理后旧链接会自动失效。返回页面用当前设置重新生成并及时保存到本地文件夹即可。
+'''
+translate = '''
+No—generated files live in temporary session storage and expire automatically over time. Run Generate again and save the `.3mf` to a local folder.
+'''
+
+[[block]]
+key = "c20b6acf3e88042a"
+type = "heading"
+origin = '''
+### 在电脑里双击 `.3mf` 文件默认打开了别的软件怎么办？
+'''
+translate = '''
+### Double-clicking a `.3mf` opens the wrong program on my computer. Why?
+'''
+
+[[block]]
+key = "751fc5ceb70f6c70"
+type = "paragraph"
+origin = '''
+双击行为由操作系统的默认文件关联决定。你可以在目标切片软件内通过“文件 → 打开项目”导入，或在系统文件属性中将 `.3mf` 的默认打开方式改为常用切片软件。
+'''
+translate = '''
+File double-click behavior is controlled by your operating system's default file associations rather than Lumina. Either launch your target slicer first and use **File → Open Project**, or change the default app for `.3mf` files in Finder or Windows Settings.
+'''

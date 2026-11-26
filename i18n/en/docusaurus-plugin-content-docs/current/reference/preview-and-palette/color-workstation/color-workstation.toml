@@ -1,0 +1,351 @@
+[metadata]
+reviewed_source = "8703582fc54e64f138340d289ced9fa906b0afdfa4bb476a454a5d9eb23b02e9"
+
+[[block]]
+key = "e53c0fee7f5c0eee"
+type = "yaml"
+origin = '''
+---
+title: "颜色工作站"
+description: "颜色工作站的入口、三栏布局与预览会话同步机制。"
+sidebar_position: 1
+---
+'''
+translate = '''
+---
+title: "Color Workstation"
+description: "Entry point, three-column layout, and preview-session behavior of Color Workstation."
+sidebar_position: 1
+---
+'''
+
+[[block]]
+key = "e86d9dc92bf2e076"
+type = "heading"
+origin = '''
+# 颜色工作站
+'''
+translate = '''
+# Color Workstation
+'''
+
+[[block]]
+key = "19341bd626e1d635"
+type = "paragraph"
+origin = '''
+完成预览后，进入**颜色调整**即可打开颜色工作站。左侧 2D 预览、中间调色板与右侧候选颜色共用当前预览会话，确认后的换色结果会直接写回该会话。
+'''
+translate = '''
+After generating a preview, open **Color Adjustment** to enter Color Workstation. The 2D preview, palette, and target-color panels all share the active preview session, and confirmed edits write directly back to that session.
+'''
+
+[[block]]
+key = "53f8753af48c5ea9"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-workstation.webp').default}
+  alt="使用真实预览数据打开的颜色工作站"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-workstation.webp').default}
+  alt="Color Workstation opened with real preview data"
+/>
+'''
+
+[[block]]
+key = "bb382f3fce82f4fe"
+type = "heading"
+origin = '''
+## 界面布局
+'''
+translate = '''
+## Layout
+'''
+
+[[block]]
+key = "9d12ff460bf6f302"
+type = "list"
+composite = true
+origin = '''
+{{9d12ff460bf6f302-a176ff89c1e3b63b}}
+{{9d12ff460bf6f302-df815f2bca14014e}}
+{{9d12ff460bf6f302-a2717aadf0ee5253}}
+'''
+translate = '''
+{{9d12ff460bf6f302-a176ff89c1e3b63b}}
+{{9d12ff460bf6f302-df815f2bca14014e}}
+{{9d12ff460bf6f302-a2717aadf0ee5253}}
+'''
+
+[[block]]
+key = "9d12ff460bf6f302-a176ff89c1e3b63b"
+type = "listItem"
+composite = true
+origin = '''
+- {{9d12ff460bf6f302-a176ff89c1e3b63b-a632dbd81ff94254}}
+'''
+translate = '''
+- {{9d12ff460bf6f302-a176ff89c1e3b63b-a632dbd81ff94254}}
+'''
+
+[[block]]
+key = "9d12ff460bf6f302-a176ff89c1e3b63b-a632dbd81ff94254"
+type = "paragraph"
+origin = '''
+**2D 预览：** 查看成品配色效果，点击像素或连通区域选定修改目标。
+'''
+translate = '''
+**2D preview:** Inspect the color result and click a pixel or connected region to select what you want to edit.
+'''
+
+[[block]]
+key = "9d12ff460bf6f302-df815f2bca14014e"
+type = "listItem"
+composite = true
+origin = '''
+- {{9d12ff460bf6f302-df815f2bca14014e-261b907e462a7999}}
+'''
+translate = '''
+- {{9d12ff460bf6f302-df815f2bca14014e-261b907e462a7999}}
+'''
+
+[[block]]
+key = "9d12ff460bf6f302-df815f2bca14014e-261b907e462a7999"
+type = "paragraph"
+origin = '''
+**调色板：** 显示当前预览使用的全部颜色、像素占比、选择工具与编辑历史。
+'''
+translate = '''
+**Palette:** View every color used in the active preview, its pixel coverage, selection tools, and edit history.
+'''
+
+[[block]]
+key = "9d12ff460bf6f302-a2717aadf0ee5253"
+type = "listItem"
+composite = true
+origin = '''
+- {{9d12ff460bf6f302-a2717aadf0ee5253-7a394761572d0963}}
+'''
+translate = '''
+- {{9d12ff460bf6f302-a2717aadf0ee5253-7a394761572d0963}}
+'''
+
+[[block]]
+key = "9d12ff460bf6f302-a2717aadf0ee5253-7a394761572d0963"
+type = "paragraph"
+origin = '''
+**目标颜色：** 传统 LUT 模式展示完整 LUT 色库；耗材档案模式展示当前耗材组合可求解出的候选颜色。
+'''
+translate = '''
+**Target colors:** Legacy LUT mode loads the LUT color library; Material Archive mode shows candidate colors achievable with the active material set.
+'''
+
+[[block]]
+key = "dba789cd4402a4db"
+type = "paragraph"
+origin = '''
+若已上传图片但尚未生成预览，打开工作站时会自动执行一次预览；若图片、颜色来源或必要参数尚未设置完整，面板会保持空白状态。
+'''
+translate = '''
+If an image is uploaded without a preview, opening the workstation runs a preview automatically. If the image, color source, or required settings are incomplete, the workspace stays blank until ready.
+'''
+
+[[block]]
+key = "0bb6abb2c56c7499"
+type = "heading"
+origin = '''
+## 编辑结果的保存与生效
+'''
+translate = '''
+## How edits are applied and saved
+'''
+
+[[block]]
+key = "144cffc4fdbf7487"
+type = "paragraph"
+origin = '''
+确认颜色替换后，系统会先更新当前 2D 与 3D 预览；点击**生成**时，再将修改后的配色写入 3MF 模型。关闭工作站或按 `Esc` 仅返回 3D 查看器，已确认的替换仍会保留。更换输入图片或颜色来源后，请重新核对调色板。
+'''
+translate = '''
+Confirming a color replacement immediately updates the active 2D and 3D previews, and **Generate** applies those edits when building the 3MF. Closing the workstation or pressing `Esc` returns to the 3D viewer while keeping all confirmed replacements. Recheck the palette after changing the image or color source.
+'''
+
+[[block]]
+key = "f1dc0e78cfe9ac36"
+type = "paragraph"
+origin = '''
+已确认的局部换色、区域配方与选区可随项目一并保存和恢复，重新执行预览时也会保留这些修改。项目保存方法及旧版文件说明见[保存项目与分享卡](../../../knowledge/share-card-json/share-card-json.mdx)。
+'''
+translate = '''
+Confirmed local recoloring, regional recipes, and selections are saved and restored with your project, and remain intact when you run **Preview** again. For saving options and legacy file behavior, see [Save projects and share cards](../../../knowledge/share-card-json/share-card-json.mdx).
+'''
+
+[[block]]
+key = "2a53236cadf7b437"
+type = "paragraph"
+origin = '''
+右侧的[快速换色与相似配方](../quick-recolor/quick-recolor.mdx)支持为当前选区直接指定目标色、从画面吸管取色，或套用相近的叠层配方。
+'''
+translate = '''
+Use [Quick recolor & similar recipes](../quick-recolor/quick-recolor.mdx) in the right column to set a target color for the active selection, sample a color from the image, or apply a similar material stack.
+'''
+
+[[block]]
+key = "ccc6c6d821397120"
+type = "paragraph"
+origin = '''
+继续阅读：
+'''
+translate = '''
+Related pages:
+'''
+
+[[block]]
+key = "66634d4d827a467c"
+type = "list"
+composite = true
+origin = '''
+{{66634d4d827a467c-bf9880243554b731}}
+{{66634d4d827a467c-fce93e952505b897}}
+{{66634d4d827a467c-558f483fddbe7e53}}
+{{66634d4d827a467c-b66d92fe8a10297e}}
+{{66634d4d827a467c-378d28ec42aacaf1}}
+{{66634d4d827a467c-763837f8178ecd84}}
+'''
+translate = '''
+{{66634d4d827a467c-bf9880243554b731}}
+{{66634d4d827a467c-fce93e952505b897}}
+{{66634d4d827a467c-558f483fddbe7e53}}
+{{66634d4d827a467c-b66d92fe8a10297e}}
+{{66634d4d827a467c-378d28ec42aacaf1}}
+{{66634d4d827a467c-763837f8178ecd84}}
+'''
+
+[[block]]
+key = "66634d4d827a467c-bf9880243554b731"
+type = "listItem"
+composite = true
+origin = '''
+- {{66634d4d827a467c-bf9880243554b731-c59138083c1ca6fc}}
+'''
+translate = '''
+- {{66634d4d827a467c-bf9880243554b731-c59138083c1ca6fc}}
+'''
+
+[[block]]
+key = "66634d4d827a467c-bf9880243554b731-c59138083c1ca6fc"
+type = "paragraph"
+origin = '''
+[2D 预览与悬停检查](../two-dimensional-preview/two-dimensional-preview.mdx)
+'''
+translate = '''
+[2D Preview and Hover Inspection](../two-dimensional-preview/two-dimensional-preview.mdx)
+'''
+
+[[block]]
+key = "66634d4d827a467c-fce93e952505b897"
+type = "listItem"
+composite = true
+origin = '''
+- {{66634d4d827a467c-fce93e952505b897-03f9167be2720be5}}
+'''
+translate = '''
+- {{66634d4d827a467c-fce93e952505b897-03f9167be2720be5}}
+'''
+
+[[block]]
+key = "66634d4d827a467c-fce93e952505b897-03f9167be2720be5"
+type = "paragraph"
+origin = '''
+[选择模式、调色板与自由色](../selection-modes/selection-modes.mdx)
+'''
+translate = '''
+[Selection Modes, Palette, and Free Colors](../selection-modes/selection-modes.mdx)
+'''
+
+[[block]]
+key = "66634d4d827a467c-558f483fddbe7e53"
+type = "listItem"
+composite = true
+origin = '''
+- {{66634d4d827a467c-558f483fddbe7e53-ce3489a3005e9f4f}}
+'''
+translate = '''
+- {{66634d4d827a467c-558f483fddbe7e53-ce3489a3005e9f4f}}
+'''
+
+[[block]]
+key = "66634d4d827a467c-558f483fddbe7e53-ce3489a3005e9f4f"
+type = "paragraph"
+origin = '''
+[LUT 颜色网格](../lut-color-grid/lut-color-grid.mdx)
+'''
+translate = '''
+[LUT Color Grid](../lut-color-grid/lut-color-grid.mdx)
+'''
+
+[[block]]
+key = "66634d4d827a467c-b66d92fe8a10297e"
+type = "listItem"
+composite = true
+origin = '''
+- {{66634d4d827a467c-b66d92fe8a10297e-10dd69719cece5f6}}
+'''
+translate = '''
+- {{66634d4d827a467c-b66d92fe8a10297e-10dd69719cece5f6}}
+'''
+
+[[block]]
+key = "66634d4d827a467c-b66d92fe8a10297e-10dd69719cece5f6"
+type = "paragraph"
+origin = '''
+[耗材可达色](../material-achievable-colors/material-achievable-colors.mdx)
+'''
+translate = '''
+[Achievable Material Colors](../material-achievable-colors/material-achievable-colors.mdx)
+'''
+
+[[block]]
+key = "66634d4d827a467c-378d28ec42aacaf1"
+type = "listItem"
+composite = true
+origin = '''
+- {{66634d4d827a467c-378d28ec42aacaf1-bdd87b0820ec4236}}
+'''
+translate = '''
+- {{66634d4d827a467c-378d28ec42aacaf1-bdd87b0820ec4236}}
+'''
+
+[[block]]
+key = "66634d4d827a467c-378d28ec42aacaf1-bdd87b0820ec4236"
+type = "paragraph"
+origin = '''
+[自定义配方](../custom-recipes/custom-recipes.mdx)
+'''
+translate = '''
+[Custom Recipes](../custom-recipes/custom-recipes.mdx)
+'''
+
+[[block]]
+key = "66634d4d827a467c-763837f8178ecd84"
+type = "listItem"
+composite = true
+origin = '''
+- {{66634d4d827a467c-763837f8178ecd84-391e51053d198bd6}}
+'''
+translate = '''
+- {{66634d4d827a467c-763837f8178ecd84-391e51053d198bd6}}
+'''
+
+[[block]]
+key = "66634d4d827a467c-763837f8178ecd84-391e51053d198bd6"
+type = "paragraph"
+origin = '''
+[渐变分组与区域处理](../gradient-groups/gradient-groups.mdx)
+'''
+translate = '''
+[Gradient Groups and Region Processing](../gradient-groups/gradient-groups.mdx)
+'''

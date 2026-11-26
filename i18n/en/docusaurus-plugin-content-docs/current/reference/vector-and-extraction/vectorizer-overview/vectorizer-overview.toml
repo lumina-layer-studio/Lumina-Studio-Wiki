@@ -1,0 +1,514 @@
+[metadata]
+reviewed_source = "26c3d0aa7ef2ce93d482926951e174eb3e55849daddd11028ef84ffa55c68afc"
+
+[[block]]
+key = "20bd17a0a5d625e4"
+type = "yaml"
+origin = '''
+---
+title: "图像转矢量"
+description: "将位图转换为封闭路径组成的清晰 SVG，直接下载保存或一键送入图像转换生成 3D 模型。"
+sidebar_position: 1
+---
+'''
+translate = '''
+---
+title: "Image Vectorizer"
+description: "Convert raster images into clean, closed-path SVGs ready to download or send straight to Image Converter."
+sidebar_position: 1
+---
+'''
+
+[[block]]
+key = "1ee24128e6d7876b"
+type = "heading"
+origin = '''
+# 图像转矢量
+'''
+translate = '''
+# Image Vectorizer
+'''
+
+[[block]]
+key = "4fabb977683a4b0f"
+type = "paragraph"
+origin = '''
+“图像转矢量”可将 PNG、JPEG、WebP 或 BMP 位图转换为由封闭路径与有限调色板组成的 SVG 文件。该模块非常适合图标、徽标、像素画、平涂插画及边界清晰的设计稿；实景照片同样支持转换，通常会生成更多色阶与路径。
+'''
+translate = '''
+**Image Vectorizer** converts PNG, JPEG, WebP, and BMP raster images into clean SVGs built from closed paths and a compact color palette. It shines on icons, logos, pixel art, flat illustrations, and artwork with crisp edges; photographs also convert cleanly, typically yielding higher color and shape counts.
+'''
+
+[[block]]
+key = "a7a6b025b9ac3beb"
+type = "heading"
+origin = '''
+## 操作流程
+'''
+translate = '''
+## Basic workflow
+'''
+
+[[block]]
+key = "c78fba0ac5a17b67"
+type = "list"
+composite = true
+origin = '''
+{{c78fba0ac5a17b67-c39d6feb0a6bc505}}
+{{c78fba0ac5a17b67-bb52c5e8ad91a403}}
+{{c78fba0ac5a17b67-75649fe2e3a06897}}
+{{c78fba0ac5a17b67-f46d0be0da416985}}
+'''
+translate = '''
+{{c78fba0ac5a17b67-c39d6feb0a6bc505}}
+{{c78fba0ac5a17b67-bb52c5e8ad91a403}}
+{{c78fba0ac5a17b67-75649fe2e3a06897}}
+{{c78fba0ac5a17b67-f46d0be0da416985}}
+'''
+
+[[block]]
+key = "c78fba0ac5a17b67-c39d6feb0a6bc505"
+type = "listItem"
+composite = true
+origin = '''
+1. {{c78fba0ac5a17b67-c39d6feb0a6bc505-7d00f0d42438c318}}
+'''
+translate = '''
+1. {{c78fba0ac5a17b67-c39d6feb0a6bc505-7d00f0d42438c318}}
+'''
+
+[[block]]
+key = "c78fba0ac5a17b67-c39d6feb0a6bc505-7d00f0d42438c318"
+type = "paragraph"
+origin = '''
+点击上传区域，选择一张支持的位图文件。
+'''
+translate = '''
+Choose a supported raster image in the upload area.
+'''
+
+[[block]]
+key = "c78fba0ac5a17b67-bb52c5e8ad91a403"
+type = "listItem"
+composite = true
+origin = '''
+2. {{c78fba0ac5a17b67-bb52c5e8ad91a403-42c7795f211dd0a2}}
+'''
+translate = '''
+2. {{c78fba0ac5a17b67-bb52c5e8ad91a403-42c7795f211dd0a2}}
+'''
+
+[[block]]
+key = "c78fba0ac5a17b67-bb52c5e8ad91a403-42c7795f211dd0a2"
+type = "paragraph"
+origin = '''
+首次转换建议保持默认参数，点击“开始矢量化”。
+'''
+translate = '''
+Start with the default settings and click **Start Vectorization**.
+'''
+
+[[block]]
+key = "c78fba0ac5a17b67-75649fe2e3a06897"
+type = "listItem"
+composite = true
+origin = '''
+3. {{c78fba0ac5a17b67-75649fe2e3a06897-960b76f0cb2ddbb3}}
+'''
+translate = '''
+3. {{c78fba0ac5a17b67-75649fe2e3a06897-960b76f0cb2ddbb3}}
+'''
+
+[[block]]
+key = "c78fba0ac5a17b67-75649fe2e3a06897-960b76f0cb2ddbb3"
+type = "paragraph"
+origin = '''
+在预览对比区同步缩放、拖拽原图与 SVG，检查轮廓转折、细线还原度与色块交界。
+'''
+translate = '''
+Pan and zoom the synchronized original and SVG views to inspect contours, fine lines, and color transitions.
+'''
+
+[[block]]
+key = "c78fba0ac5a17b67-f46d0be0da416985"
+type = "listItem"
+composite = true
+origin = '''
+4. {{c78fba0ac5a17b67-f46d0be0da416985-8bf988713ddc1414}}
+'''
+translate = '''
+4. {{c78fba0ac5a17b67-f46d0be0da416985-8bf988713ddc1414}}
+'''
+
+[[block]]
+key = "c78fba0ac5a17b67-f46d0be0da416985-8bf988713ddc1414"
+type = "paragraph"
+origin = '''
+点击“下载 SVG”将矢量文件保存到本地，或点击“发送到图像转换”继续生成 3D 打印模型。
+'''
+translate = '''
+Click **Download SVG** to save the vector file locally, or **Send to Image Converter** to build a 3D print model right away.
+'''
+
+[[block]]
+key = "96d90213ea171599"
+type = "paragraph"
+origin = '''
+转换进行时按钮会显示“正在矢量化…”，再次点击即可取消当前任务。重新上传图片会自动清空上一轮结果。
+'''
+translate = '''
+While running, the action button changes to **Vectorizing…**—click it again to cancel the active job. Uploading a new image clears the previous output.
+'''
+
+[[block]]
+key = "6a4dda8087ecca3c"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-comparison.webp').default}
+  alt="图像转矢量的原图与 SVG 同步对比"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-comparison.webp').default}
+  alt="Synchronized comparison of the original image and vectorized SVG"
+/>
+'''
+
+[[block]]
+key = "5b88028ef18925f3"
+type = "heading"
+origin = '''
+## 处理管线与结果摘要
+'''
+translate = '''
+## Processing pipeline and result summary
+'''
+
+[[block]]
+key = "3589c499fea641e4"
+type = "paragraph"
+origin = '''
+矢量化依次经历分辨率控制与 Mean Shift 平滑、颜色分割、边界提取、轮廓装配、贝塞尔曲线拟合、轮廓追踪及 SVG 导出七个阶段，面板中的各组参数分别对应上述不同环节。
+'''
+translate = '''
+Each conversion runs sequentially through resolution scaling and Mean Shift smoothing, color segmentation, boundary extraction, contour assembly, Bézier curve fitting, contour tracing, and SVG export. Every parameter group in the sidebar controls a dedicated stage of this pipeline.
+'''
+
+[[block]]
+key = "af4faa55b2c8d776"
+type = "paragraph"
+origin = '''
+生成完成后，结果摘要会列出四项关键信息：
+'''
+translate = '''
+When vectorization finishes, the result summary displays:
+'''
+
+[[block]]
+key = "0305b5de2bdea175"
+type = "list"
+composite = true
+origin = '''
+{{0305b5de2bdea175-5efbed43ba20cbc9}}
+{{0305b5de2bdea175-83021ca5b1bdc43b}}
+{{0305b5de2bdea175-25f98870a7118c6a}}
+{{0305b5de2bdea175-18b4b62591d11426}}
+'''
+translate = '''
+{{0305b5de2bdea175-5efbed43ba20cbc9}}
+{{0305b5de2bdea175-83021ca5b1bdc43b}}
+{{0305b5de2bdea175-25f98870a7118c6a}}
+{{0305b5de2bdea175-18b4b62591d11426}}
+'''
+
+[[block]]
+key = "0305b5de2bdea175-5efbed43ba20cbc9"
+type = "listItem"
+composite = true
+origin = '''
+- {{0305b5de2bdea175-5efbed43ba20cbc9-c6aefc99e4aad0bb}}
+'''
+translate = '''
+- {{0305b5de2bdea175-5efbed43ba20cbc9-c6aefc99e4aad0bb}}
+'''
+
+[[block]]
+key = "0305b5de2bdea175-5efbed43ba20cbc9-c6aefc99e4aad0bb"
+type = "paragraph"
+origin = '''
+**形状数**：最终 SVG 中保留的封闭路径总数；
+'''
+translate = '''
+**Shapes**: total closed paths in the final SVG;
+'''
+
+[[block]]
+key = "0305b5de2bdea175-83021ca5b1bdc43b"
+type = "listItem"
+composite = true
+origin = '''
+- {{0305b5de2bdea175-83021ca5b1bdc43b-41c6e679d3866591}}
+'''
+translate = '''
+- {{0305b5de2bdea175-83021ca5b1bdc43b-41c6e679d3866591}}
+'''
+
+[[block]]
+key = "0305b5de2bdea175-83021ca5b1bdc43b-41c6e679d3866591"
+type = "paragraph"
+origin = '''
+**颜色数**：自动检测或手动指定后实际采用的调色板大小；
+'''
+translate = '''
+**Colors**: final palette size after automatic detection or manual selection;
+'''
+
+[[block]]
+key = "0305b5de2bdea175-25f98870a7118c6a"
+type = "listItem"
+composite = true
+origin = '''
+- {{0305b5de2bdea175-25f98870a7118c6a-1740790332fd38cd}}
+'''
+translate = '''
+- {{0305b5de2bdea175-25f98870a7118c6a-1740790332fd38cd}}
+'''
+
+[[block]]
+key = "0305b5de2bdea175-25f98870a7118c6a-1740790332fd38cd"
+type = "paragraph"
+origin = '''
+**宽 × 高**：源图像的原始像素尺寸；
+'''
+translate = '''
+**Width × height**: original pixel dimensions of the source image;
+'''
+
+[[block]]
+key = "0305b5de2bdea175-18b4b62591d11426"
+type = "listItem"
+composite = true
+origin = '''
+- {{0305b5de2bdea175-18b4b62591d11426-eb3853365b4d3413}}
+'''
+translate = '''
+- {{0305b5de2bdea175-18b4b62591d11426-eb3853365b4d3413}}
+'''
+
+[[block]]
+key = "0305b5de2bdea175-18b4b62591d11426-eb3853365b4d3413"
+type = "paragraph"
+origin = '''
+**调色板**：直观展示前 16 种颜色色卡，超出部分以 `+N` 汇总显示。
+'''
+translate = '''
+**Palette**: up to 16 color swatches shown inline, with any additional colors summarized as `+N`.
+'''
+
+[[block]]
+key = "288bf56d105a975d"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/02-result-summary.webp').default}
+  alt="矢量化结果的形状数、颜色数、尺寸和调色板"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/02-result-summary.webp').default}
+  alt="Vectorization shape count, color count, dimensions, and palette"
+/>
+'''
+
+[[block]]
+key = "3fdc5e2d600e6397"
+type = "paragraph"
+origin = '''
+形状数越多，保留的细小色块越丰富，同时 SVG 结构也更复杂。微调参数时建议直接放大对比画面边缘与色彩还原度，在细节表现与路径简洁度之间取得平衡。
+'''
+translate = '''
+Higher shape counts preserve smaller color details while producing denser SVG geometry. Zoom in to inspect edge fidelity and color cleanliness directly so you can balance fine detail against clean paths.
+'''
+
+[[block]]
+key = "29235fe90f713d85"
+type = "heading"
+origin = '''
+## 下载或送入图像转换
+'''
+translate = '''
+## Download or continue in Image Converter
+'''
+
+[[block]]
+key = "ceefe0d9181d54c2"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/03-result-actions.webp').default}
+  alt="发送到图像转换和下载 SVG 按钮"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/03-result-actions.webp').default}
+  alt="Send to Image Converter and Download SVG actions"
+/>
+'''
+
+[[block]]
+key = "a3c353f80f14c104"
+type = "paragraph"
+origin = '''
+点击“发送到图像转换”会将刚生成的 SVG 直接作为原生矢量源载入“图像转换”页面，并保留 Lumina 矢量化标记，方便后续按原生矢量几何流程建模。
+'''
+translate = '''
+Clicking **Send to Image Converter** loads the generated SVG directly into **Image Converter** as a native vector source and switches tabs automatically, preserving Lumina's vectorization metadata for downstream 3D modeling.
+'''
+
+[[block]]
+key = "bf86f65ccd351556"
+type = "paragraph"
+origin = '''
+生成的临时下载链接保留时长为 20 分钟，离开当前模块也会清空页面状态与预览缓存；需要留存的 SVG 文件请及时下载保存。
+'''
+translate = '''
+Generated SVGs are held at a temporary download URL for 20 minutes, and navigating away from **Image Vectorizer** clears the current session preview—download any SVG you plan to keep.
+'''
+
+[[block]]
+key = "a70beb12a880124c"
+type = "heading"
+origin = '''
+## 参数详解
+'''
+translate = '''
+## Parameter reference
+'''
+
+[[block]]
+key = "ea1935ee62c4495f"
+type = "list"
+composite = true
+origin = '''
+{{ea1935ee62c4495f-75ce30386cbfc458}}
+{{ea1935ee62c4495f-3f490083b2babdee}}
+{{ea1935ee62c4495f-e154c01f1f52ba1d}}
+{{ea1935ee62c4495f-a7a08c51bc0533ff}}
+{{ea1935ee62c4495f-e9ba8c72c9a498ae}}
+'''
+translate = '''
+{{ea1935ee62c4495f-75ce30386cbfc458}}
+{{ea1935ee62c4495f-3f490083b2babdee}}
+{{ea1935ee62c4495f-e154c01f1f52ba1d}}
+{{ea1935ee62c4495f-a7a08c51bc0533ff}}
+{{ea1935ee62c4495f-e9ba8c72c9a498ae}}
+'''
+
+[[block]]
+key = "ea1935ee62c4495f-75ce30386cbfc458"
+type = "listItem"
+composite = true
+origin = '''
+- {{ea1935ee62c4495f-75ce30386cbfc458-025b108e6fc7e7ac}}
+'''
+translate = '''
+- {{ea1935ee62c4495f-75ce30386cbfc458-025b108e6fc7e7ac}}
+'''
+
+[[block]]
+key = "ea1935ee62c4495f-75ce30386cbfc458-025b108e6fc7e7ac"
+type = "paragraph"
+origin = '''
+[颜色数量、平滑度与细节等级](../vectorizer-color-and-detail/vectorizer-color-and-detail.mdx)
+'''
+translate = '''
+[Colors, Smoothness, and Detail](../vectorizer-color-and-detail/vectorizer-color-and-detail.mdx)
+'''
+
+[[block]]
+key = "ea1935ee62c4495f-3f490083b2babdee"
+type = "listItem"
+composite = true
+origin = '''
+- {{ea1935ee62c4495f-3f490083b2babdee-b57433562c372114}}
+'''
+translate = '''
+- {{ea1935ee62c4495f-3f490083b2babdee-b57433562c372114}}
+'''
+
+[[block]]
+key = "ea1935ee62c4495f-3f490083b2babdee-b57433562c372114"
+type = "paragraph"
+origin = '''
+[描边、薄线与覆盖修复](../vectorizer-output-enhancement/vectorizer-output-enhancement.mdx)
+'''
+translate = '''
+[Stroke, Thin Lines, and Coverage Fix](../vectorizer-output-enhancement/vectorizer-output-enhancement.mdx)
+'''
+
+[[block]]
+key = "ea1935ee62c4495f-e154c01f1f52ba1d"
+type = "listItem"
+composite = true
+origin = '''
+- {{ea1935ee62c4495f-e154c01f1f52ba1d-3cb13da39605a356}}
+'''
+translate = '''
+- {{ea1935ee62c4495f-e154c01f1f52ba1d-3cb13da39605a356}}
+'''
+
+[[block]]
+key = "ea1935ee62c4495f-e154c01f1f52ba1d-3cb13da39605a356"
+type = "paragraph"
+origin = '''
+[图像预处理](../vectorizer-preprocessing/vectorizer-preprocessing.mdx)
+'''
+translate = '''
+[Image Preprocessing](../vectorizer-preprocessing/vectorizer-preprocessing.mdx)
+'''
+
+[[block]]
+key = "ea1935ee62c4495f-a7a08c51bc0533ff"
+type = "listItem"
+composite = true
+origin = '''
+- {{ea1935ee62c4495f-a7a08c51bc0533ff-a589955dee71307b}}
+'''
+translate = '''
+- {{ea1935ee62c4495f-a7a08c51bc0533ff-a589955dee71307b}}
+'''
+
+[[block]]
+key = "ea1935ee62c4495f-a7a08c51bc0533ff-a589955dee71307b"
+type = "paragraph"
+origin = '''
+[超像素分割与抗锯齿检测](../vectorizer-segmentation/vectorizer-segmentation.mdx)
+'''
+translate = '''
+[Superpixel Segmentation and Antialiasing](../vectorizer-segmentation/vectorizer-segmentation.mdx)
+'''
+
+[[block]]
+key = "ea1935ee62c4495f-e9ba8c72c9a498ae"
+type = "listItem"
+composite = true
+origin = '''
+- {{ea1935ee62c4495f-e9ba8c72c9a498ae-f28d274d5fcda15a}}
+'''
+translate = '''
+- {{ea1935ee62c4495f-e9ba8c72c9a498ae-f28d274d5fcda15a}}
+'''
+
+[[block]]
+key = "ea1935ee62c4495f-e9ba8c72c9a498ae-f28d274d5fcda15a"
+type = "paragraph"
+origin = '''
+[曲线拟合与区域过滤](../vectorizer-curve-and-filtering/vectorizer-curve-and-filtering.mdx)
+'''
+translate = '''
+[Curve Fitting and Region Filtering](../vectorizer-curve-and-filtering/vectorizer-curve-and-filtering.mdx)
+'''

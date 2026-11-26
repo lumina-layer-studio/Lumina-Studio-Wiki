@@ -1,0 +1,1023 @@
+[metadata]
+reviewed_source = "53d3e62c1fac7954590a49e04cd3107a25be2acfd3dd53d4981ddf0ba4ae099c"
+
+[[block]]
+key = "1316211cf949a56a"
+type = "yaml"
+origin = '''
+---
+title: "使用启动器激活 Lumina Studio"
+description: "按购买渠道查找订单号或使用 Patreon 账号，激活启动器并安装 Lumina Studio。"
+sidebar_position: 2
+---
+'''
+translate = '''
+---
+title: "Activate Lumina Studio with the Launcher"
+description: "Find your order number or use Patreon to activate the launcher and install Lumina Studio."
+sidebar_position: 2
+---
+'''
+
+[[block]]
+key = "5faba6933d4e45a6"
+type = "heading"
+origin = '''
+# 使用启动器激活 Lumina Studio
+'''
+translate = '''
+# Activate Lumina Studio with the Launcher
+'''
+
+[[block]]
+key = "2c786b11097e502e"
+type = "admonition"
+composite = true
+origin = '''
+:::note[开源源码与启动器]
+{{2c786b11097e502e-a4634aa0525c9761}}
+:::
+'''
+translate = '''
+:::note[Open-source code and the launcher]
+{{2c786b11097e502e-a4634aa0525c9761}}
+:::
+'''
+
+[[block]]
+key = "2c786b11097e502e-a4634aa0525c9761"
+type = "paragraph"
+origin = '''
+Lumina Studio 已在 [Lumina-Layers 仓库](https://github.com/lumina-layer-studio/Lumina-Layers)开源，个人与企业均可免费使用；从源码运行无需激活启动器。本文适用于使用 Lumina Launcher 验证既有支持权益并一键安装软件的场景。
+'''
+translate = '''
+Lumina Studio is developed openly in the [Lumina-Layers repository](https://github.com/lumina-layer-studio/Lumina-Layers) and is free for both personal and commercial use. Running from source does not require launcher activation. This guide covers verifying existing purchase or membership access in Lumina Launcher.
+'''
+
+[[block]]
+key = "5b1af66530fb39cd"
+type = "paragraph"
+origin = '''
+打开 Lumina Launcher 后，如果设备尚未激活，可以按购买时的付款渠道完成验证，随后直接在启动器中下载、安装和启动 Lumina Studio。
+'''
+translate = '''
+When you open Lumina Launcher on a new computer, verify your purchase or Patreon membership once to download, install, and launch Lumina Studio directly from the launcher.
+'''
+
+[[block]]
+key = "f0fd74681aaa4d6e"
+type = "heading"
+origin = '''
+## 准备工作
+'''
+translate = '''
+## Before you begin
+'''
+
+[[block]]
+key = "79664bce85313328"
+type = "list"
+composite = true
+origin = '''
+{{79664bce85313328-bae6eb75b8916524}}
+{{79664bce85313328-7923d40f21c0ca22}}
+{{79664bce85313328-f588a3ade9c9a826}}
+'''
+translate = '''
+{{79664bce85313328-bae6eb75b8916524}}
+{{79664bce85313328-7923d40f21c0ca22}}
+{{79664bce85313328-f588a3ade9c9a826}}
+'''
+
+[[block]]
+key = "79664bce85313328-bae6eb75b8916524"
+type = "listItem"
+composite = true
+origin = '''
+1. {{79664bce85313328-bae6eb75b8916524-d0bb15bde8449d1a}}
+'''
+translate = '''
+1. {{79664bce85313328-bae6eb75b8916524-d0bb15bde8449d1a}}
+'''
+
+[[block]]
+key = "79664bce85313328-bae6eb75b8916524-d0bb15bde8449d1a"
+type = "paragraph"
+origin = '''
+下载并打开 Lumina Launcher（国内用户也可通过[官方夸克网盘](https://pan.quark.cn/s/c97fa97c2aba)获取）。
+'''
+translate = '''
+Download and open Lumina Launcher from an official Lumina channel.
+'''
+
+[[block]]
+key = "79664bce85313328-7923d40f21c0ca22"
+type = "listItem"
+composite = true
+origin = '''
+2. {{79664bce85313328-7923d40f21c0ca22-6270153769da0b5e}}
+'''
+translate = '''
+2. {{79664bce85313328-7923d40f21c0ca22-6270153769da0b5e}}
+'''
+
+[[block]]
+key = "79664bce85313328-7923d40f21c0ca22-6270153769da0b5e"
+type = "paragraph"
+origin = '''
+确保电脑已连接网络。
+'''
+translate = '''
+Make sure your computer is connected to the internet.
+'''
+
+[[block]]
+key = "79664bce85313328-f588a3ade9c9a826"
+type = "listItem"
+composite = true
+origin = '''
+3. {{79664bce85313328-f588a3ade9c9a826-bf0ac228e0194dc8}}
+'''
+translate = '''
+3. {{79664bce85313328-f588a3ade9c9a826-bf0ac228e0194dc8}}
+'''
+
+[[block]]
+key = "79664bce85313328-f588a3ade9c9a826-bf0ac228e0194dc8"
+type = "paragraph"
+origin = '''
+按实际付款平台准备对应凭证：
+'''
+translate = '''
+Prepare the credential matching the platform that processed your payment:
+'''
+
+[[block]]
+key = "e73e2a39ce2ccc8a"
+type = "table"
+origin = '''
+| 付款渠道 | 所需凭证 | 启动器入口 |
+| --- | --- | --- |
+| 爱发电 | 爱发电订单号 | 填入“订单号或激活码” |
+| 官网银行卡付款（Waffo） | `LUM-` 开头的官网订单编号 | 填入“订单号或激活码” |
+| Patreon | 购买时使用的 Patreon 账号 | 点击“通过 Patreon 激活” |
+'''
+translate = '''
+| Payment channel | What you need | Where to verify |
+| --- | --- | --- |
+| Afdian | Afdian order number | Paste into **Order number or activation code** |
+| Card payment on Lumina website (Waffo) | Order reference starting with `LUM-` | Paste into **Order number or activation code** |
+| Patreon | Patreon account with active membership | Click **Activate with Patreon** |
+'''
+
+[[block]]
+key = "b6415e482ea77d5d"
+type = "paragraph"
+origin = '''
+即使从 Lumina 官网跳转进入购买页，也请按最终完成付款的平台操作。单独发放的 Lumina 激活码同样填入“订单号或激活码”输入框。
+'''
+translate = '''
+If you started on the Lumina website and completed checkout on Afdian or Patreon, follow the steps for that platform. Standalone Lumina activation codes also go into **Order number or activation code**.
+'''
+
+[[block]]
+key = "649ab1aefec44144"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/launcher-order.webp').default} alt="启动器中用于输入订单号或激活码的真实界面" />
+'''
+translate = '''
+<img src={require('./assets/launcher-order.webp').default} alt="The launcher's order number and activation field" />
+'''
+
+[[block]]
+key = "f3c49a769d422f5d"
+type = "heading"
+origin = '''
+## 通过爱发电激活
+'''
+translate = '''
+## Activate with Afdian
+'''
+
+[[block]]
+key = "14e80c9aff7bc3bc"
+type = "heading"
+origin = '''
+### 1. 查找爱发电订单号
+'''
+translate = '''
+### 1. Find your Afdian order number
+'''
+
+[[block]]
+key = "519dabb833adf990"
+type = "list"
+composite = true
+origin = '''
+{{519dabb833adf990-e676ee5884f05b0e}}
+{{519dabb833adf990-d790ff0f55205649}}
+{{519dabb833adf990-30128bd7779e5590}}
+'''
+translate = '''
+{{519dabb833adf990-e676ee5884f05b0e}}
+{{519dabb833adf990-d790ff0f55205649}}
+{{519dabb833adf990-30128bd7779e5590}}
+'''
+
+[[block]]
+key = "519dabb833adf990-e676ee5884f05b0e"
+type = "listItem"
+composite = true
+origin = '''
+1. {{519dabb833adf990-e676ee5884f05b0e-154b912fa4083595}}
+'''
+translate = '''
+1. {{519dabb833adf990-e676ee5884f05b0e-154b912fa4083595}}
+'''
+
+[[block]]
+key = "519dabb833adf990-e676ee5884f05b0e-154b912fa4083595"
+type = "paragraph"
+origin = '''
+打开爱发电 App 或[爱发电网页版](https://ifdian.net/)，登录购买时使用的账号。
+'''
+translate = '''
+Sign in to the Afdian app or [Afdian website](https://ifdian.net/) with the account used for your purchase.
+'''
+
+[[block]]
+key = "519dabb833adf990-d790ff0f55205649"
+type = "listItem"
+composite = true
+origin = '''
+2. {{519dabb833adf990-d790ff0f55205649-b290a88ac6394ff3}}
+'''
+translate = '''
+2. {{519dabb833adf990-d790ff0f55205649-b290a88ac6394ff3}}
+'''
+
+[[block]]
+key = "519dabb833adf990-d790ff0f55205649-b290a88ac6394ff3"
+type = "paragraph"
+origin = '''
+**电脑网页版**：点击顶部“管理” → “订单”。**手机 App**：点击“个人” → “订单”。
+'''
+translate = '''
+On desktop web, open **Dashboard** → **My Orders**. In the mobile app, open your profile and tap **Orders**.
+'''
+
+[[block]]
+key = "519dabb833adf990-30128bd7779e5590"
+type = "listItem"
+composite = true
+origin = '''
+3. {{519dabb833adf990-30128bd7779e5590-d9826172c6308e67}}
+'''
+translate = '''
+3. {{519dabb833adf990-30128bd7779e5590-d9826172c6308e67}}
+'''
+
+[[block]]
+key = "519dabb833adf990-30128bd7779e5590-d9826172c6308e67"
+type = "paragraph"
+origin = '''
+在“已支付”列表中找到 Lumina Studio 订单，点击订单号旁的“复制”（如列表未直接显示，点进订单详情即可复制）。
+'''
+translate = '''
+Under **Paid**, locate your Lumina Studio order and click **Copy** next to **Order No.** (or open the order details to copy the full number).
+'''
+
+[[block]]
+key = "0f9012d86ee2ebe3"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/afdian-entry.webp').default} alt="爱发电电脑版顶部的管理入口" />
+'''
+translate = '''
+<img src={require('./assets/afdian-entry.webp').default} alt="Afdian Dashboard in the desktop navigation" />
+'''
+
+[[block]]
+key = "d18d0eece368e0a9"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/afdian-orders.webp').default} alt="爱发电电脑版订单与已支付入口" />
+'''
+translate = '''
+<img src={require('./assets/afdian-orders.webp').default} alt="My Orders and Paid on Afdian" />
+'''
+
+[[block]]
+key = "d1fed933d2dfa5f8"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/afdian-copy.webp').default} alt="爱发电订单号和复制按钮，订单内容已遮挡" />
+'''
+translate = '''
+<img src={require('./assets/afdian-copy.webp').default} alt="The Afdian order number and Copy control, with the order details concealed" />
+'''
+
+[[block]]
+key = "bc7b9e1ec3b85919"
+type = "paragraph"
+origin = '''
+请复制**爱发电订单号**，而非微信或支付宝账单中的支付流水号。如果订单在手机上查看不便复制，可在电脑浏览器登录同一爱发电账号直接复制。
+'''
+translate = '''
+Copy the **Afdian order number**, not the WeChat Pay or Alipay receipt transaction ID. If you checked the order on your phone, you can sign in to Afdian in your desktop browser to copy it directly on your computer.
+'''
+
+[[block]]
+key = "1a2356e3c3765ce1"
+type = "heading"
+origin = '''
+### 2. 激活设备
+'''
+translate = '''
+### 2. Activate your device
+'''
+
+[[block]]
+key = "cd9e4ce8134de98c"
+type = "list"
+composite = true
+origin = '''
+{{cd9e4ce8134de98c-10a2ca01bb713185}}
+{{cd9e4ce8134de98c-1176b326528f0cdd}}
+'''
+translate = '''
+{{cd9e4ce8134de98c-10a2ca01bb713185}}
+{{cd9e4ce8134de98c-1176b326528f0cdd}}
+'''
+
+[[block]]
+key = "cd9e4ce8134de98c-10a2ca01bb713185"
+type = "listItem"
+composite = true
+origin = '''
+1. {{cd9e4ce8134de98c-10a2ca01bb713185-1831f7d6aee7c024}}
+'''
+translate = '''
+1. {{cd9e4ce8134de98c-10a2ca01bb713185-1831f7d6aee7c024}}
+'''
+
+[[block]]
+key = "cd9e4ce8134de98c-10a2ca01bb713185-1831f7d6aee7c024"
+type = "paragraph"
+origin = '''
+回到 Lumina Launcher，将订单号粘贴到“订单号或激活码”输入框（输入内容会自动隐藏为圆点）。
+'''
+translate = '''
+Paste the order number into **Order number or activation code** in Lumina Launcher (characters appear as dots for privacy).
+'''
+
+[[block]]
+key = "cd9e4ce8134de98c-1176b326528f0cdd"
+type = "listItem"
+composite = true
+origin = '''
+2. {{cd9e4ce8134de98c-1176b326528f0cdd-7f432372417cfca1}}
+'''
+translate = '''
+2. {{cd9e4ce8134de98c-1176b326528f0cdd-7f432372417cfca1}}
+'''
+
+[[block]]
+key = "cd9e4ce8134de98c-1176b326528f0cdd-7f432372417cfca1"
+type = "paragraph"
+origin = '''
+点击“激活此设备”。验证通过后会自动进入启动器首页。
+'''
+translate = '''
+Click **Activate this device**. Once verified, the launcher opens its home screen.
+'''
+
+[[block]]
+key = "3af55c0c49e68d4a"
+type = "heading"
+origin = '''
+## 通过官网银行卡订单激活
+'''
+translate = '''
+## Activate with a Lumina website card order
+'''
+
+[[block]]
+key = "5434cab65d2e9b3f"
+type = "heading"
+origin = '''
+### 1. 查找官网订单编号
+'''
+translate = '''
+### 1. Copy your `LUM-` order reference
+'''
+
+[[block]]
+key = "2df572cfc9a41513"
+type = "list"
+composite = true
+origin = '''
+{{2df572cfc9a41513-f1551795f27f1bf8}}
+{{2df572cfc9a41513-9c0d7e7c7941e2a2}}
+{{2df572cfc9a41513-aaa13521cdb801a3}}
+'''
+translate = '''
+{{2df572cfc9a41513-f1551795f27f1bf8}}
+{{2df572cfc9a41513-9c0d7e7c7941e2a2}}
+{{2df572cfc9a41513-aaa13521cdb801a3}}
+'''
+
+[[block]]
+key = "2df572cfc9a41513-f1551795f27f1bf8"
+type = "listItem"
+composite = true
+origin = '''
+1. {{2df572cfc9a41513-f1551795f27f1bf8-909364273cadf6e8}}
+'''
+translate = '''
+1. {{2df572cfc9a41513-f1551795f27f1bf8-909364273cadf6e8}}
+'''
+
+[[block]]
+key = "2df572cfc9a41513-f1551795f27f1bf8-909364273cadf6e8"
+type = "paragraph"
+origin = '''
+在完成付款的浏览器中打开 Lumina 官网付款结果页。
+'''
+translate = '''
+Open the Lumina payment result page in the browser where you completed checkout.
+'''
+
+[[block]]
+key = "2df572cfc9a41513-9c0d7e7c7941e2a2"
+type = "listItem"
+composite = true
+origin = '''
+2. {{2df572cfc9a41513-9c0d7e7c7941e2a2-79d0e2ab07a093e1}}
+'''
+translate = '''
+2. {{2df572cfc9a41513-9c0d7e7c7941e2a2-79d0e2ab07a093e1}}
+'''
+
+[[block]]
+key = "2df572cfc9a41513-9c0d7e7c7941e2a2-79d0e2ab07a093e1"
+type = "paragraph"
+origin = '''
+找到“订单编号”下方以 `LUM-` 开头的完整编号并复制（须包含 `LUM-` 前缀，勿使用银行卡或支付通道流水号）。
+'''
+translate = '''
+Copy the full **Order reference** starting with `LUM-` (include the `LUM-` prefix; do not use your bank or card processor's transaction ID).
+'''
+
+[[block]]
+key = "2df572cfc9a41513-aaa13521cdb801a3"
+type = "listItem"
+composite = true
+origin = '''
+3. {{2df572cfc9a41513-aaa13521cdb801a3-78ecc9fa527ff70a}}
+'''
+translate = '''
+3. {{2df572cfc9a41513-aaa13521cdb801a3-78ecc9fa527ff70a}}
+'''
+
+[[block]]
+key = "2df572cfc9a41513-aaa13521cdb801a3-78ecc9fa527ff70a"
+type = "paragraph"
+origin = '''
+确认页面状态显示为“付款已确认”后再去激活；若显示“付款已提交”或暂未确认，请稍候片刻再试。
+'''
+translate = '''
+Make sure the status reads **Payment confirmed**. If it still shows **Payment submitted**, keep the reference and retry once confirmation completes.
+'''
+
+[[block]]
+key = "e63ce3fd28df7cdc"
+type = "paragraph"
+origin = '''
+如果已关闭付款结果页，可在同一浏览器的历史记录中重新打开；仍无法找回订单编号时，可凭付款凭证联系官方支持查询。
+'''
+translate = '''
+If you closed the result tab, check your browser history in the same browser. If you still cannot locate the reference, contact official support with your proof of payment.
+'''
+
+[[block]]
+key = "1a2356e3c3765ce1"
+type = "heading"
+origin = '''
+### 2. 激活设备
+'''
+translate = '''
+### 2. Activate your device
+'''
+
+[[block]]
+key = "8a009c201bb07004"
+type = "list"
+composite = true
+origin = '''
+{{8a009c201bb07004-546c35dd8b47364c}}
+{{8a009c201bb07004-de264cc036229ff2}}
+'''
+translate = '''
+{{8a009c201bb07004-546c35dd8b47364c}}
+{{8a009c201bb07004-de264cc036229ff2}}
+'''
+
+[[block]]
+key = "8a009c201bb07004-546c35dd8b47364c"
+type = "listItem"
+composite = true
+origin = '''
+1. {{8a009c201bb07004-546c35dd8b47364c-dab3ac03810eb290}}
+'''
+translate = '''
+1. {{8a009c201bb07004-546c35dd8b47364c-dab3ac03810eb290}}
+'''
+
+[[block]]
+key = "8a009c201bb07004-546c35dd8b47364c-dab3ac03810eb290"
+type = "paragraph"
+origin = '''
+将 `LUM-` 开头的完整订单编号粘贴到 Lumina Launcher 的“订单号或激活码”输入框。
+'''
+translate = '''
+Paste the full `LUM-` reference into **Order number or activation code** in Lumina Launcher.
+'''
+
+[[block]]
+key = "8a009c201bb07004-de264cc036229ff2"
+type = "listItem"
+composite = true
+origin = '''
+2. {{8a009c201bb07004-de264cc036229ff2-c56315937ead7ede}}
+'''
+translate = '''
+2. {{8a009c201bb07004-de264cc036229ff2-c56315937ead7ede}}
+'''
+
+[[block]]
+key = "8a009c201bb07004-de264cc036229ff2-c56315937ead7ede"
+type = "paragraph"
+origin = '''
+点击“激活此设备”，验证完成后即进入启动器首页。
+'''
+translate = '''
+Click **Activate this device** to complete verification.
+'''
+
+[[block]]
+key = "c2055056fab8cdf3"
+type = "heading"
+origin = '''
+## 通过 Patreon 激活
+'''
+translate = '''
+## Activate with Patreon
+'''
+
+[[block]]
+key = "fe871941cb603516"
+type = "paragraph"
+origin = '''
+Patreon 渠道通过浏览器账号授权完成验证，无需手动输入订单号。
+'''
+translate = '''
+Patreon verification uses browser OAuth sign-in rather than an order number.
+'''
+
+[[block]]
+key = "a729979b056929cc"
+type = "heading"
+origin = '''
+### 1. 确认 Patreon 赞助账号
+'''
+translate = '''
+### 1. Confirm which Patreon account holds your membership
+'''
+
+[[block]]
+key = "2e504458a9435334"
+type = "paragraph"
+origin = '''
+如果不确定当时使用了哪个账号：
+'''
+translate = '''
+If you have more than one Patreon account:
+'''
+
+[[block]]
+key = "7fc925c49c91cd4f"
+type = "list"
+composite = true
+origin = '''
+{{7fc925c49c91cd4f-4bc10dc421cb6ea0}}
+{{7fc925c49c91cd4f-ee175e9287d6b44a}}
+'''
+translate = '''
+{{7fc925c49c91cd4f-4bc10dc421cb6ea0}}
+{{7fc925c49c91cd4f-ee175e9287d6b44a}}
+'''
+
+[[block]]
+key = "7fc925c49c91cd4f-4bc10dc421cb6ea0"
+type = "listItem"
+composite = true
+origin = '''
+1. {{7fc925c49c91cd4f-4bc10dc421cb6ea0-6a467a38df96c2d0}}
+'''
+translate = '''
+1. {{7fc925c49c91cd4f-4bc10dc421cb6ea0-6a467a38df96c2d0}}
+'''
+
+[[block]]
+key = "7fc925c49c91cd4f-4bc10dc421cb6ea0-6a467a38df96c2d0"
+type = "paragraph"
+origin = '''
+在浏览器登录 [Patreon](https://www.patreon.com/)，打开左下角账号菜单 → “设置”（Settings）→ “会籍”（Memberships）。
+'''
+translate = '''
+Sign in to [Patreon](https://www.patreon.com/), open **Settings** → **Memberships**, and locate **Lumina Studio**.
+'''
+
+[[block]]
+key = "7fc925c49c91cd4f-ee175e9287d6b44a"
+type = "listItem"
+composite = true
+origin = '''
+2. {{7fc925c49c91cd4f-ee175e9287d6b44a-da48bd7406b0a2ca}}
+'''
+translate = '''
+2. {{7fc925c49c91cd4f-ee175e9287d6b44a-da48bd7406b0a2ca}}
+'''
+
+[[block]]
+key = "7fc925c49c91cd4f-ee175e9287d6b44a-da48bd7406b0a2ca"
+type = "paragraph"
+origin = '''
+在会籍列表中确认包含 **Lumina Studio** 的有效付费档位。
+'''
+translate = '''
+Click **View Details** to confirm this account holds your eligible paid tier.
+'''
+
+[[block]]
+key = "20b9d0623704a122"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/patreon-memberships.webp').default} alt="Patreon 设置中的会籍入口" />
+'''
+translate = '''
+<img src={require('./assets/patreon-memberships.webp').default} alt="The Memberships entry in Patreon settings" />
+'''
+
+[[block]]
+key = "22db615ed67d0f64"
+type = "heading"
+origin = '''
+### 2. 授权并验证
+'''
+translate = '''
+### 2. Authorize in the launcher
+'''
+
+[[block]]
+key = "7c01db227a91e9ad"
+type = "list"
+composite = true
+origin = '''
+{{7c01db227a91e9ad-c77ab3da7dbbcce0}}
+{{7c01db227a91e9ad-74dcd7c08230e0fd}}
+{{7c01db227a91e9ad-a01a7a6c8c57f9db}}
+'''
+translate = '''
+{{7c01db227a91e9ad-c77ab3da7dbbcce0}}
+{{7c01db227a91e9ad-74dcd7c08230e0fd}}
+{{7c01db227a91e9ad-a01a7a6c8c57f9db}}
+'''
+
+[[block]]
+key = "7c01db227a91e9ad-c77ab3da7dbbcce0"
+type = "listItem"
+composite = true
+origin = '''
+1. {{7c01db227a91e9ad-c77ab3da7dbbcce0-0caad9d234083937}}
+'''
+translate = '''
+1. {{7c01db227a91e9ad-c77ab3da7dbbcce0-0caad9d234083937}}
+'''
+
+[[block]]
+key = "7c01db227a91e9ad-c77ab3da7dbbcce0-0caad9d234083937"
+type = "paragraph"
+origin = '''
+在 Lumina Launcher 激活页点击“通过 Patreon 激活”。
+'''
+translate = '''
+Click **Activate with Patreon** on the launcher activation screen.
+'''
+
+[[block]]
+key = "7c01db227a91e9ad-74dcd7c08230e0fd"
+type = "listItem"
+composite = true
+origin = '''
+2. {{7c01db227a91e9ad-74dcd7c08230e0fd-5ed46857a38110f5}}
+'''
+translate = '''
+2. {{7c01db227a91e9ad-74dcd7c08230e0fd-5ed46857a38110f5}}
+'''
+
+[[block]]
+key = "7c01db227a91e9ad-74dcd7c08230e0fd-5ed46857a38110f5"
+type = "paragraph"
+origin = '''
+在自动打开的浏览器窗口中登录对应的 Patreon 账号，按提示完成授权。
+'''
+translate = '''
+Sign in to your Patreon account in the browser window that opens and approve access.
+'''
+
+[[block]]
+key = "7c01db227a91e9ad-a01a7a6c8c57f9db"
+type = "listItem"
+composite = true
+origin = '''
+3. {{7c01db227a91e9ad-a01a7a6c8c57f9db-401f8f14e17bb5ef}}
+'''
+translate = '''
+3. {{7c01db227a91e9ad-a01a7a6c8c57f9db-401f8f14e17bb5ef}}
+'''
+
+[[block]]
+key = "7c01db227a91e9ad-a01a7a6c8c57f9db-401f8f14e17bb5ef"
+type = "paragraph"
+origin = '''
+返回启动器等待核验完成，通过后自动进入首页。若授权中途取消或超时，重新点击“通过 Patreon 激活”即可。
+'''
+translate = '''
+Return to Lumina Launcher. Once verified, the launcher opens its home screen. If authorization is canceled or times out, click **Activate with Patreon** again.
+'''
+
+[[block]]
+key = "56c45780aeac993b"
+type = "mdxJsxFlowElement"
+origin = '''
+<img src={require('./assets/launcher-patreon.webp').default} alt="启动器中的通过 Patreon 激活按钮" />
+'''
+translate = '''
+<img src={require('./assets/launcher-patreon.webp').default} alt="The Activate with Patreon button in Lumina Launcher" />
+'''
+
+[[block]]
+key = "81c4ac18011b5343"
+type = "heading"
+origin = '''
+## 安装并启动软件
+'''
+translate = '''
+## Install and launch Lumina Studio
+'''
+
+[[block]]
+key = "0e5c8127b27696df"
+type = "paragraph"
+origin = '''
+激活完成后，启动器状态会变为“已激活”。继续安装本机软件：
+'''
+translate = '''
+Once your device shows **Activated**, install the application:
+'''
+
+[[block]]
+key = "4e562029b0e912d0"
+type = "list"
+composite = true
+origin = '''
+{{4e562029b0e912d0-88fc461bd6e49d79}}
+{{4e562029b0e912d0-87a9ac2808fac897}}
+'''
+translate = '''
+{{4e562029b0e912d0-88fc461bd6e49d79}}
+{{4e562029b0e912d0-87a9ac2808fac897}}
+'''
+
+[[block]]
+key = "4e562029b0e912d0-88fc461bd6e49d79"
+type = "listItem"
+composite = true
+origin = '''
+1. {{4e562029b0e912d0-88fc461bd6e49d79-2783e39ebc913d99}}
+'''
+translate = '''
+1. {{4e562029b0e912d0-88fc461bd6e49d79-2783e39ebc913d99}}
+'''
+
+[[block]]
+key = "4e562029b0e912d0-88fc461bd6e49d79-2783e39ebc913d99"
+type = "paragraph"
+origin = '''
+在启动器“首页”选择目标版本，点击“安装”。
+'''
+translate = '''
+On **Home**, select an available release and click **Install**.
+'''
+
+[[block]]
+key = "4e562029b0e912d0-87a9ac2808fac897"
+type = "listItem"
+composite = true
+origin = '''
+2. {{4e562029b0e912d0-87a9ac2808fac897-fe5f455d2750ddb4}}
+'''
+translate = '''
+2. {{4e562029b0e912d0-87a9ac2808fac897-fe5f455d2750ddb4}}
+'''
+
+[[block]]
+key = "4e562029b0e912d0-87a9ac2808fac897-fe5f455d2750ddb4"
+type = "paragraph"
+origin = '''
+下载安装完成后，点击“启动 Lumina”打开软件。后续也可在“版本”页管理或切换已安装版本。
+'''
+translate = '''
+After installation completes, click **Launch Lumina**. Installed builds can also be managed from **Versions**.
+'''
+
+[[block]]
+key = "3b30b685be5af364"
+type = "heading"
+origin = '''
+## 常见问题
+'''
+translate = '''
+## Troubleshooting
+'''
+
+[[block]]
+key = "ab800206fb178eeb"
+type = "heading"
+origin = '''
+### 提示“正在验证订单”但长时间未跳转？
+'''
+translate = '''
+### The launcher stays on "Verifying order"
+'''
+
+[[block]]
+key = "9c9e228889b8c26d"
+type = "paragraph"
+origin = '''
+保持网络连接并稍候片刻即可。若长时间停留无响应，请截取当前提示画面联系官方支持排查。
+'''
+translate = '''
+Keep the launcher online and wait a moment for verification to finish. If it remains stuck, take a screenshot and contact official support.
+'''
+
+[[block]]
+key = "8bde1e039310a515"
+type = "heading"
+origin = '''
+### 提示无法激活，应先核对什么？
+'''
+translate = '''
+### Activation failed
+'''
+
+[[block]]
+key = "7a9f665ca42e3d73"
+type = "list"
+composite = true
+origin = '''
+{{7a9f665ca42e3d73-a22bc73f501d940d}}
+{{7a9f665ca42e3d73-7ee8534df710725f}}
+{{7a9f665ca42e3d73-e0f37c90219fd92e}}
+'''
+translate = '''
+{{7a9f665ca42e3d73-a22bc73f501d940d}}
+{{7a9f665ca42e3d73-7ee8534df710725f}}
+{{7a9f665ca42e3d73-e0f37c90219fd92e}}
+'''
+
+[[block]]
+key = "7a9f665ca42e3d73-a22bc73f501d940d"
+type = "listItem"
+composite = true
+origin = '''
+- {{7a9f665ca42e3d73-a22bc73f501d940d-070fe3547ecae404}}
+'''
+translate = '''
+- {{7a9f665ca42e3d73-a22bc73f501d940d-070fe3547ecae404}}
+'''
+
+[[block]]
+key = "7a9f665ca42e3d73-a22bc73f501d940d-070fe3547ecae404"
+type = "paragraph"
+origin = '''
+**爱发电**：确认复制的是爱发电订单号而非微信/支付宝流水号，且对应购买 Lumina Studio 的订单。
+'''
+translate = '''
+**Afdian**: Confirm you copied the Afdian order number (not a payment-app transaction number) from the account that purchased Lumina Studio.
+'''
+
+[[block]]
+key = "7a9f665ca42e3d73-7ee8534df710725f"
+type = "listItem"
+composite = true
+origin = '''
+- {{7a9f665ca42e3d73-7ee8534df710725f-a95e80d304f401e5}}
+'''
+translate = '''
+- {{7a9f665ca42e3d73-7ee8534df710725f-a95e80d304f401e5}}
+'''
+
+[[block]]
+key = "7a9f665ca42e3d73-7ee8534df710725f-a95e80d304f401e5"
+type = "paragraph"
+origin = '''
+**官网付款**：确认完整保留了 `LUM-` 前缀，且付款状态已确认。
+'''
+translate = '''
+**Website card order**: Confirm the full `LUM-` prefix is included and payment is confirmed.
+'''
+
+[[block]]
+key = "7a9f665ca42e3d73-e0f37c90219fd92e"
+type = "listItem"
+composite = true
+origin = '''
+- {{7a9f665ca42e3d73-e0f37c90219fd92e-3bef2049c1c98b90}}
+'''
+translate = '''
+- {{7a9f665ca42e3d73-e0f37c90219fd92e-3bef2049c1c98b90}}
+'''
+
+[[block]]
+key = "7a9f665ca42e3d73-e0f37c90219fd92e-3bef2049c1c98b90"
+type = "paragraph"
+origin = '''
+**Patreon**：确认浏览器当前登录的是持有有效会籍的 Patreon 账号。
+'''
+translate = '''
+**Patreon**: Confirm your browser signed in to the Patreon account holding an eligible Lumina Studio membership.
+'''
+
+[[block]]
+key = "8ca71842ae0330f2"
+type = "heading"
+origin = '''
+### 激活后没有显示可下载版本？
+'''
+translate = '''
+### Activated, but no versions appear
+'''
+
+[[block]]
+key = "c025ed577ab19e6e"
+type = "paragraph"
+origin = '''
+点击启动器内的“检查更新”刷新版本列表。若提示“激活信息已保存，版本列表未能刷新”，无需重新激活，稍后再次刷新即可。
+'''
+translate = '''
+Click **Check for updates** to refresh the release list. If the launcher reports that activation was saved but the version list could not refresh, simply retry later—you do not need to activate again.
+'''
+
+[[block]]
+key = "d491fe723b22abc3"
+type = "heading"
+origin = '''
+### 界面上没有“通过 Patreon 激活”按钮？
+'''
+translate = '''
+### "Activate with Patreon" is missing
+'''
+
+[[block]]
+key = "301ca6a85d41ac37"
+type = "paragraph"
+origin = '''
+请从官方渠道下载安装最新版 Lumina Launcher 后重试。
+'''
+translate = '''
+Download and install the latest Lumina Launcher from an official channel.
+'''
+
+[[block]]
+key = "89485df84dc440e4"
+type = "heading"
+origin = '''
+### 联系官方支持时需要准备哪些信息？
+'''
+translate = '''
+### Contacting support
+'''
+
+[[block]]
+key = "4bbe732cf7c7b240"
+type = "paragraph"
+origin = '''
+请附上付款渠道、启动器版本号和报错截图；如需核验订单，请通过官方私信发送订单号或付款凭证，切勿发在公开评论区或群聊中。
+'''
+translate = '''
+Include your payment channel, launcher version, and a screenshot of any error message. Send order numbers or payment receipts only through private official support channels, never in public comments or group chats.
+'''

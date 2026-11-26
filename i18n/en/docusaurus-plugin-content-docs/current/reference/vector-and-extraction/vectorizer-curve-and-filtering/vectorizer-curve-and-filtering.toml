@@ -1,0 +1,410 @@
+[metadata]
+reviewed_source = "61b65f7dcfbe2f3f63a5850a2ab9fcee6b68c6a7ecd4c909938a1bc57a67847b"
+
+[[block]]
+key = "2a66d8cdfe4c0bbc"
+type = "yaml"
+origin = '''
+---
+title: "曲线拟合与区域过滤"
+description: "调节贝塞尔曲线拟合精度、轮廓简化强度，并按面积清理碎小色块、独立轮廓与内部孔洞。"
+sidebar_position: 6
+---
+'''
+translate = '''
+---
+title: "Curve Fitting and Region Filtering"
+description: "Fine-tune Bézier curve precision, contour simplification, and area-based filtering for small regions, stray contours, and pinholes."
+sidebar_position: 6
+---
+'''
+
+[[block]]
+key = "c894c3be1cd65242"
+type = "heading"
+origin = '''
+# 曲线拟合与区域过滤
+'''
+translate = '''
+# Curve Fitting and Region Filtering
+'''
+
+[[block]]
+key = "6487e9faba3a0ca8"
+type = "paragraph"
+origin = '''
+颜色分割划定色块区域后，引擎会对边界执行点位简化、贝塞尔曲线拟合与 Potrace 轮廓追踪；区域过滤参数则负责按面积合并或剔除零碎色块、孤立小轮廓与细微孔洞。
+'''
+translate = '''
+Once color segmentation defines each region, the vectorizer simplifies its boundaries, fits cubic Bézier curves, and runs Potrace contour tracing. Region filtering controls then merge or remove tiny color patches, stray contours, and interior pinholes before writing the final SVG.
+'''
+
+[[block]]
+key = "cb20440fdf08e1a8"
+type = "heading"
+origin = '''
+## 曲线拟合
+'''
+translate = '''
+## Curve Fitting
+'''
+
+[[block]]
+key = "8023e0df4deae851"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-curve-fitting.webp').default}
+  alt="图像转矢量的曲线拟合参数"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-curve-fitting.webp').default}
+  alt="Image Vectorizer curve-fitting controls"
+/>
+'''
+
+[[block]]
+key = "b6f5636bb8bdfb9b"
+type = "heading"
+origin = '''
+### 曲线拟合误差
+'''
+translate = '''
+### Curve Fit Error
+'''
+
+[[block]]
+key = "3c2c0468ab6ff107"
+type = "paragraph"
+origin = '''
+取值范围为 `0.1–5 px`，默认值为 `0.8 px`，定义 Schneider 贝塞尔曲线拟合允许的最大像素偏差：
+'''
+translate = '''
+Ranges from `0.1–5 px`, with a default of `0.8 px`. Sets the maximum pixel error allowed during Schneider Bézier curve fitting:
+'''
+
+[[block]]
+key = "4610d782ab371985"
+type = "list"
+composite = true
+origin = '''
+{{4610d782ab371985-f8430209befeed65}}
+{{4610d782ab371985-ddb9b5665e678c0e}}
+'''
+translate = '''
+{{4610d782ab371985-f8430209befeed65}}
+{{4610d782ab371985-ddb9b5665e678c0e}}
+'''
+
+[[block]]
+key = "4610d782ab371985-f8430209befeed65"
+type = "listItem"
+composite = true
+origin = '''
+- {{4610d782ab371985-f8430209befeed65-ce0fde84ff43adb7}}
+'''
+translate = '''
+- {{4610d782ab371985-f8430209befeed65-ce0fde84ff43adb7}}
+'''
+
+[[block]]
+key = "4610d782ab371985-f8430209befeed65-ce0fde84ff43adb7"
+type = "paragraph"
+origin = '''
+**调小数值**：曲线紧密贴合原始像素边界，生成的控制点更多；
+'''
+translate = '''
+**Smaller values** hug the source boundary more tightly using more control points.
+'''
+
+[[block]]
+key = "4610d782ab371985-ddb9b5665e678c0e"
+type = "listItem"
+composite = true
+origin = '''
+- {{4610d782ab371985-ddb9b5665e678c0e-93f97571063d2d15}}
+'''
+translate = '''
+- {{4610d782ab371985-ddb9b5665e678c0e-93f97571063d2d15}}
+'''
+
+[[block]]
+key = "4610d782ab371985-ddb9b5665e678c0e-93f97571063d2d15"
+type = "paragraph"
+origin = '''
+**调大数值**：控制点减少、曲线更舒展平滑，但细小转折会被略过。
+'''
+translate = '''
+**Larger values** generate smoother curves with fewer control points, softening fine detail.
+'''
+
+[[block]]
+key = "0e26ab6ea87d112b"
+type = "heading"
+origin = '''
+### 轮廓简化强度
+'''
+translate = '''
+### Contour Simplification
+'''
+
+[[block]]
+key = "33790662903a10c5"
+type = "paragraph"
+origin = '''
+取值范围为 `0–2`，默认值为 `0.45`。调高后会在进入贝塞尔拟合之前先行精简原始轮廓点，从源头降低路径复杂度；“曲线拟合误差”则约束后续拟合阶段偏离轮廓的幅度，两者配合决定最终节点密度。
+'''
+translate = '''
+Ranges from `0–2`, with a default of `0.45`. Raising this value prunes raw boundary vertices before Bézier fitting begins, reducing overall path complexity, whereas **Curve Fit Error** governs how closely the fitted curves track those simplified vertices.
+'''
+
+[[block]]
+key = "ca2d369f8a912bd3"
+type = "heading"
+origin = '''
+### 线段合并容差
+'''
+translate = '''
+### Merge Segment Tolerance
+'''
+
+[[block]]
+key = "818fcd446c35e884"
+type = "paragraph"
+origin = '''
+取值范围为 `0–0.5`，默认值为 `0.05`。当相邻近线性贝塞尔段的控制点偏差低于该容差时，系统会将其合并为单一段，减少长直边上的多余节点；调得过高时，轻微的折线转折也会被拉直。
+'''
+translate = '''
+Ranges from `0–0.5`, with a default of `0.05`. Merges adjacent, nearly collinear Bézier segments whose control-point deviation falls within this threshold. Raising it cleans up redundant nodes along straight edges; setting it too high can flatten subtle bends.
+'''
+
+[[block]]
+key = "b7d268210da16cd1"
+type = "heading"
+origin = '''
+## 区域过滤
+'''
+translate = '''
+## Region Filtering
+'''
+
+[[block]]
+key = "be5e682c6b266390"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/02-region-filtering.webp').default}
+  alt="图像转矢量的区域过滤参数"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/02-region-filtering.webp').default}
+  alt="Image Vectorizer region-filtering controls"
+/>
+'''
+
+[[block]]
+key = "dedd931ea396957d"
+type = "heading"
+origin = '''
+### 最小区域面积与最大合并色差
+'''
+translate = '''
+### Min Region Area and Max Merge Color Dist
+'''
+
+[[block]]
+key = "8e8aa85df20eb5c7"
+type = "list"
+composite = true
+origin = '''
+{{8e8aa85df20eb5c7-8f4dbf400bc92cdd}}
+{{8e8aa85df20eb5c7-2e4ddb0b8f68275f}}
+'''
+translate = '''
+{{8e8aa85df20eb5c7-8f4dbf400bc92cdd}}
+{{8e8aa85df20eb5c7-2e4ddb0b8f68275f}}
+'''
+
+[[block]]
+key = "8e8aa85df20eb5c7-8f4dbf400bc92cdd"
+type = "listItem"
+composite = true
+origin = '''
+- {{8e8aa85df20eb5c7-8f4dbf400bc92cdd-069078abc480e3a9}}
+'''
+translate = '''
+- {{8e8aa85df20eb5c7-8f4dbf400bc92cdd-069078abc480e3a9}}
+'''
+
+[[block]]
+key = "8e8aa85df20eb5c7-8f4dbf400bc92cdd-069078abc480e3a9"
+type = "paragraph"
+origin = '''
+**最小区域面积**：取值范围为 `0–1000 px²`，默认值为 `50 px²`。颜色分割阶段面积小于该阈值的色块，会优先尝试并入相邻区域。
+'''
+translate = '''
+**Min Region Area**: ranges from `0–1000 px²`, with a default of `50 px²`. Segmented color regions smaller than this area become candidates to merge into a neighboring region.
+'''
+
+[[block]]
+key = "8e8aa85df20eb5c7-2e4ddb0b8f68275f"
+type = "listItem"
+composite = true
+origin = '''
+- {{8e8aa85df20eb5c7-2e4ddb0b8f68275f-1900ddbbb8208937}}
+'''
+translate = '''
+- {{8e8aa85df20eb5c7-2e4ddb0b8f68275f-1900ddbbb8208937}}
+'''
+
+[[block]]
+key = "8e8aa85df20eb5c7-2e4ddb0b8f68275f-1900ddbbb8208937"
+type = "paragraph"
+origin = '''
+**最大合并色差**：取值范围为 `0–500`，默认值为 `200`（单位为 LAB ΔE²），用于限制上述合并允许的最大颜色差异。数值越大，反差更明显的小碎块也能被邻近色块吸收。
+'''
+translate = '''
+**Max Merge Color Dist**: ranges from `0–500`, with a default of `200` (measured in LAB ΔE²). Caps how different a neighbor's color may be when absorbing a small region—higher values allow higher-contrast speckles to merge.
+'''
+
+[[block]]
+key = "41466cdaa33f94c8"
+type = "heading"
+origin = '''
+### 最小轮廓面积
+'''
+translate = '''
+### Min Contour Area
+'''
+
+[[block]]
+key = "40cd036d6ff00c9d"
+type = "paragraph"
+origin = '''
+取值范围为 `0–500 px²`，默认值为 `10 px²`。轮廓追踪完成后，面积仍小于该值的独立悬浮形状会被直接剔除。该步骤在“最小区域面积”合并之后执行，专门清理未能并入邻区的零星残片。
+'''
+translate = '''
+Ranges from `0–500 px²`, with a default of `10 px²`. Discards standalone shapes smaller than this area after contour tracing. Because it runs after **Min Region Area**, it catches isolated fragments that could not merge into an adjacent color.
+'''
+
+[[block]]
+key = "070ba6116d4ab292"
+type = "heading"
+origin = '''
+### 最小孔洞面积
+'''
+translate = '''
+### Min Hole Area
+'''
+
+[[block]]
+key = "758671ce427ebeaa"
+type = "paragraph"
+origin = '''
+取值范围为 `0–100 px²`，默认值为 `4 px²`。色块内部面积小于该值的细小镂空会被自动填平；大于或等于该值的孔洞则保留为空白镂空路径。
+'''
+translate = '''
+Ranges from `0–100 px²`, with a default of `4 px²`. Fills enclosed interior pinholes smaller than this area while preserving larger cutouts as open holes in the SVG path.
+'''
+
+[[block]]
+key = "c72804b1f1b21f9f"
+type = "paragraph"
+origin = '''
+排查画面碎片时，可先放大观察目标属于“紧贴邻区的分割小色块”“孤立的小轮廓”还是“色块内部的针孔镂空”，再针对性上调对应阈值。
+'''
+translate = '''
+When cleaning up artifacts, zoom in first to see whether the unwanted specks are adjacent segmented patches, isolated contours, or tiny interior pinholes, then raise the matching threshold.
+'''
+
+[[block]]
+key = "2ebb014b8f68bd72"
+type = "heading"
+origin = '''
+## 相关页面
+'''
+translate = '''
+## Related pages
+'''
+
+[[block]]
+key = "f1724101ff213cdc"
+type = "list"
+composite = true
+origin = '''
+{{f1724101ff213cdc-3ba0d0425b0af545}}
+{{f1724101ff213cdc-3f490083b2babdee}}
+{{f1724101ff213cdc-a7a08c51bc0533ff}}
+'''
+translate = '''
+{{f1724101ff213cdc-3ba0d0425b0af545}}
+{{f1724101ff213cdc-3f490083b2babdee}}
+{{f1724101ff213cdc-a7a08c51bc0533ff}}
+'''
+
+[[block]]
+key = "f1724101ff213cdc-3ba0d0425b0af545"
+type = "listItem"
+composite = true
+origin = '''
+- {{f1724101ff213cdc-3ba0d0425b0af545-613e4c10d7db490e}}
+'''
+translate = '''
+- {{f1724101ff213cdc-3ba0d0425b0af545-613e4c10d7db490e}}
+'''
+
+[[block]]
+key = "f1724101ff213cdc-3ba0d0425b0af545-613e4c10d7db490e"
+type = "paragraph"
+origin = '''
+[图像转矢量](../vectorizer-overview/vectorizer-overview.mdx)
+'''
+translate = '''
+[Image Vectorizer](../vectorizer-overview/vectorizer-overview.mdx)
+'''
+
+[[block]]
+key = "f1724101ff213cdc-3f490083b2babdee"
+type = "listItem"
+composite = true
+origin = '''
+- {{f1724101ff213cdc-3f490083b2babdee-b57433562c372114}}
+'''
+translate = '''
+- {{f1724101ff213cdc-3f490083b2babdee-b57433562c372114}}
+'''
+
+[[block]]
+key = "f1724101ff213cdc-3f490083b2babdee-b57433562c372114"
+type = "paragraph"
+origin = '''
+[描边、薄线与覆盖修复](../vectorizer-output-enhancement/vectorizer-output-enhancement.mdx)
+'''
+translate = '''
+[Stroke, Thin Lines, and Coverage Fix](../vectorizer-output-enhancement/vectorizer-output-enhancement.mdx)
+'''
+
+[[block]]
+key = "f1724101ff213cdc-a7a08c51bc0533ff"
+type = "listItem"
+composite = true
+origin = '''
+- {{f1724101ff213cdc-a7a08c51bc0533ff-a589955dee71307b}}
+'''
+translate = '''
+- {{f1724101ff213cdc-a7a08c51bc0533ff-a589955dee71307b}}
+'''
+
+[[block]]
+key = "f1724101ff213cdc-a7a08c51bc0533ff-a589955dee71307b"
+type = "paragraph"
+origin = '''
+[超像素分割与抗锯齿检测](../vectorizer-segmentation/vectorizer-segmentation.mdx)
+'''
+translate = '''
+[Superpixel Segmentation and Antialiasing](../vectorizer-segmentation/vectorizer-segmentation.mdx)
+'''

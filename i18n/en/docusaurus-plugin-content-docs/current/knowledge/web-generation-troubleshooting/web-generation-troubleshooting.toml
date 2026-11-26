@@ -1,0 +1,1605 @@
+[metadata]
+reviewed_source = "48f39bb6670fc8093a58a50ec1b3b10555f6532e72f4cce5262997916995a06b"
+
+[[block]]
+key = "e8197d61012e725c"
+type = "yaml"
+origin = '''
+---
+title: "打不开、一直转圈或生成失败，应该先查什么？"
+description: "按入口、连接、输入、预览、生成和下载六个阶段，排查 Lumina Studio 打不开、后端不可达、预览卡住、生成失败与切片器打不开。"
+sidebar_position: 26
+---
+'''
+translate = '''
+---
+title: "What Should I Check When Lumina Will Not Open, Keeps Spinning, or Fails to Generate?"
+description: "Diagnose Lumina Studio entry, backend connection, input, preview, generation, download, and slicer-launch failures in a fixed six-step order."
+sidebar_position: 26
+---
+'''
+
+[[block]]
+key = "cae402eb2c34408b"
+type = "heading"
+origin = '''
+# 打不开、一直转圈或生成失败，应该先查什么？
+'''
+translate = '''
+# What Should I Check When Lumina Will Not Open, Keeps Spinning, or Fails to Generate?
+'''
+
+[[block]]
+key = "1db6c9d11f451a15"
+type = "paragraph"
+origin = '''
+排查页面与生成问题时，最省力的方式是先找出**最早出现异常的环节**，每次只调整一个变量。
+'''
+translate = '''
+When troubleshooting load or generation issues, start at the **earliest stage that behaves unexpectedly** and change one variable at a time so you can pinpoint the exact cause.
+'''
+
+[[block]]
+key = "56a4e4b593cfc0ec"
+type = "paragraph"
+origin = '''
+Lumina Studio 的完整处理链路分为六个阶段：**打开页面 → 连接后端 → 准备最小输入 → 完成最小预览 → 生成文件 → 下载、打开或提交报告**。上游环节尚未走通时，先解决上游即可恢复整条链路。
+'''
+translate = '''
+Every session moves through six stages: **open Lumina → connect to the backend → prepare a minimal input → complete a minimal Preview → Generate → download, open, or report**. Resolving an upstream blocker restores everything downstream.
+'''
+
+[[block]]
+key = "d2aa3ad5600aea86"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/symptom-map.webp').default}
+  alt="Lumina Studio 页面打不开、后端不可达、预览失败、生成失败和下载失败的六类症状"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/symptom-map.webp').default}
+  alt="Six diagnostic entry points covering page access, backend connection, upload, Preview, Generate, and file delivery"
+/>
+'''
+
+[[block]]
+key = "53eaac3530d07394"
+type = "heading"
+origin = '''
+## 排查前注意四点
+'''
+translate = '''
+## Four ground rules before you start
+'''
+
+[[block]]
+key = "a65ba710ad186f0f"
+type = "list"
+composite = true
+origin = '''
+{{a65ba710ad186f0f-f8dce9bfc59091b2}}
+{{a65ba710ad186f0f-02a4d00b20486020}}
+{{a65ba710ad186f0f-54aa17c13768e4df}}
+{{a65ba710ad186f0f-495f1806633d4835}}
+'''
+translate = '''
+{{a65ba710ad186f0f-f8dce9bfc59091b2}}
+{{a65ba710ad186f0f-02a4d00b20486020}}
+{{a65ba710ad186f0f-54aa17c13768e4df}}
+{{a65ba710ad186f0f-495f1806633d4835}}
+'''
+
+[[block]]
+key = "a65ba710ad186f0f-f8dce9bfc59091b2"
+type = "listItem"
+composite = true
+origin = '''
+- {{a65ba710ad186f0f-f8dce9bfc59091b2-d05e28edace900c8}}
+'''
+translate = '''
+- {{a65ba710ad186f0f-f8dce9bfc59091b2-d05e28edace900c8}}
+'''
+
+[[block]]
+key = "a65ba710ad186f0f-f8dce9bfc59091b2-d05e28edace900c8"
+type = "paragraph"
+origin = '''
+**等待单次请求返回**：加载转圈期间无需连续点击“预览”或“生成”，以免重复排队触发限流；
+'''
+translate = '''
+**Let active tasks finish**: wait for a spinning **Preview** or **Generate** job to complete or return an error rather than clicking repeatedly.
+'''
+
+[[block]]
+key = "a65ba710ad186f0f-02a4d00b20486020"
+type = "listItem"
+composite = true
+origin = '''
+- {{a65ba710ad186f0f-02a4d00b20486020-ffed81498b607d0c}}
+'''
+translate = '''
+- {{a65ba710ad186f0f-02a4d00b20486020-ffed81498b607d0c}}
+'''
+
+[[block]]
+key = "a65ba710ad186f0f-02a4d00b20486020-ffed81498b607d0c"
+type = "paragraph"
+origin = '''
+**先保留现场再清理**：记录最早出现的完整报错文字后再做后续操作，不必第一时间点击“清除缓存”；
+'''
+translate = '''
+**Capture the error before clearing state**: save the first complete error message before running **Clear Cache**.
+'''
+
+[[block]]
+key = "a65ba710ad186f0f-54aa17c13768e4df"
+type = "listItem"
+composite = true
+origin = '''
+- {{a65ba710ad186f0f-54aa17c13768e4df-934c23209cfbf467}}
+'''
+translate = '''
+- {{a65ba710ad186f0f-54aa17c13768e4df-934c23209cfbf467}}
+'''
+
+[[block]]
+key = "a65ba710ad186f0f-54aa17c13768e4df-934c23209cfbf467"
+type = "paragraph"
+origin = '''
+**使用真实导出的文件格式**：将不支持的文件直接改后缀为 `.png` 仍会因内部格式不符而报错；
+'''
+translate = '''
+**Use genuine exported files**: renaming an unsupported file to `.png` leaves incompatible data inside and will still fail validation.
+'''
+
+[[block]]
+key = "a65ba710ad186f0f-495f1806633d4835"
+type = "listItem"
+composite = true
+origin = '''
+- {{a65ba710ad186f0f-495f1806633d4835-ab3a8746cb7dfbfc}}
+'''
+translate = '''
+- {{a65ba710ad186f0f-495f1806633d4835-ab3a8746cb7dfbfc}}
+'''
+
+[[block]]
+key = "a65ba710ad186f0f-495f1806633d4835-ab3a8746cb7dfbfc"
+type = "paragraph"
+origin = '''
+**注意隐私脱敏**：在公开群聊或社区提问前，先隐去未公开稿件、商业文件及个人账号信息。
+'''
+translate = '''
+**Protect private work**: strip personal details, credentials, and unreleased commercial artwork before posting screenshots or files in public channels.
+'''
+
+[[block]]
+key = "b4950c1b15536c75"
+type = "heading"
+origin = '''
+## 六步排查顺序
+'''
+translate = '''
+## Six-step diagnostic sequence
+'''
+
+[[block]]
+key = "e866a844fa17356f"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/troubleshooting-flow.webp').default}
+  alt="从入口、连接、最小输入、最小预览、生成到下载和报告的六步固定排查顺序"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/troubleshooting-flow.webp').default}
+  alt="Six-step diagnostic order from opening Lumina and checking the backend to Preview, Generate, download, and reporting"
+/>
+'''
+
+[[block]]
+key = "01e2b8e58f2c548d"
+type = "heading"
+origin = '''
+### 第一步：确认页面能否正常加载
+'''
+translate = '''
+### Step 1: Confirm the application loads completely
+'''
+
+[[block]]
+key = "5a923be625150fca"
+type = "paragraph"
+origin = '''
+如果浏览器直接报错、白屏，或长时间未显示 Lumina Studio 主界面，问题处于访问入口层：
+'''
+translate = '''
+If the browser shows an error page, a blank screen, or never renders the Lumina Studio workspace, focus on the entry point first:
+'''
+
+[[block]]
+key = "db47f9a4a1ad4ab7"
+type = "list"
+composite = true
+origin = '''
+{{db47f9a4a1ad4ab7-41ac65907171ab24}}
+{{db47f9a4a1ad4ab7-53790f4e1e3f0075}}
+{{db47f9a4a1ad4ab7-fade6fa330e800d7}}
+{{db47f9a4a1ad4ab7-8831f6c59fa23fb5}}
+'''
+translate = '''
+{{db47f9a4a1ad4ab7-41ac65907171ab24}}
+{{db47f9a4a1ad4ab7-53790f4e1e3f0075}}
+{{db47f9a4a1ad4ab7-fade6fa330e800d7}}
+{{db47f9a4a1ad4ab7-8831f6c59fa23fb5}}
+'''
+
+[[block]]
+key = "db47f9a4a1ad4ab7-41ac65907171ab24"
+type = "listItem"
+composite = true
+origin = '''
+1. {{db47f9a4a1ad4ab7-41ac65907171ab24-785fb8a2fd9db621}}
+'''
+translate = '''
+1. {{db47f9a4a1ad4ab7-41ac65907171ab24-785fb8a2fd9db621}}
+'''
+
+[[block]]
+key = "db47f9a4a1ad4ab7-41ac65907171ab24-785fb8a2fd9db621"
+type = "paragraph"
+origin = '''
+确认访问的是当前官方地址或本地正式启动入口（而非失效的旧书签、临时分享链接或调试端口）；
+'''
+translate = '''
+Verify you are opening the current official URL or standard local launcher rather than an outdated bookmark, temporary link, or dev port.
+'''
+
+[[block]]
+key = "db47f9a4a1ad4ab7-53790f4e1e3f0075"
+type = "listItem"
+composite = true
+origin = '''
+2. {{db47f9a4a1ad4ab7-53790f4e1e3f0075-060a8388e92b891b}}
+'''
+translate = '''
+2. {{db47f9a4a1ad4ab7-53790f4e1e3f0075-060a8388e92b891b}}
+'''
+
+[[block]]
+key = "db47f9a4a1ad4ab7-53790f4e1e3f0075-060a8388e92b891b"
+type = "paragraph"
+origin = '''
+普通刷新页面，观察现象是否一致；
+'''
+translate = '''
+Refresh the page once to see whether the symptom persists.
+'''
+
+[[block]]
+key = "db47f9a4a1ad4ab7-fade6fa330e800d7"
+type = "listItem"
+composite = true
+origin = '''
+3. {{db47f9a4a1ad4ab7-fade6fa330e800d7-df978fb6716305ba}}
+'''
+translate = '''
+3. {{db47f9a4a1ad4ab7-fade6fa330e800d7-df978fb6716305ba}}
+'''
+
+[[block]]
+key = "db47f9a4a1ad4ab7-fade6fa330e800d7-df978fb6716305ba"
+type = "paragraph"
+origin = '''
+同一时间用手机热点或另一台设备访问同一地址做横向对照；
+'''
+translate = '''
+Test the same URL from another network (such as a mobile hotspot) or a second device at the same time.
+'''
+
+[[block]]
+key = "db47f9a4a1ad4ab7-8831f6c59fa23fb5"
+type = "listItem"
+composite = true
+origin = '''
+4. {{db47f9a4a1ad4ab7-8831f6c59fa23fb5-c65f8fb4f0f7e2ce}}
+'''
+translate = '''
+4. {{db47f9a4a1ad4ab7-8831f6c59fa23fb5-c65f8fb4f0f7e2ce}}
+'''
+
+[[block]]
+key = "db47f9a4a1ad4ab7-8831f6c59fa23fb5-c65f8fb4f0f7e2ce"
+type = "paragraph"
+origin = '''
+记录发生时间、所在地区与网络类型。
+'''
+translate = '''
+Note the time, region, and connection type.
+'''
+
+[[block]]
+key = "f20cc2b3638ad039"
+type = "paragraph"
+origin = '''
+仅单台设备无法打开时，优先检查该设备的浏览器扩展、系统代理或本地网络；多台设备与不同网络同时无法访问时，多为服务端或线路波动，稍后重试或反馈维护团队即可。
+'''
+translate = '''
+When only a single device fails, check browser extensions, VPN/proxy rules, or local firewall settings on that machine; when multiple devices and networks fail simultaneously, retry shortly or report a service outage.
+'''
+
+[[block]]
+key = "8dd7830a1d54766d"
+type = "heading"
+origin = '''
+### 第二步：查看顶栏后端连接状态
+'''
+translate = '''
+### Step 2: Check the backend status in the top bar
+'''
+
+[[block]]
+key = "3cc3a8f1972d2d09"
+type = "paragraph"
+origin = '''
+刚打开页面时短暂显示“正在检查后端…”属于正常握手过程，随后会变为“后端已连接”。
+'''
+translate = '''
+Seeing **Checking backend...** briefly on launch is normal and should transition to **Backend connected** within a few seconds.
+'''
+
+[[block]]
+key = "a7aeca69cb572aa5"
+type = "paragraph"
+origin = '''
+若顶栏持续提示“后端不可达”：
+'''
+translate = '''
+If the header stays on **Backend unreachable**:
+'''
+
+[[block]]
+key = "fb050b93a7364eed"
+type = "list"
+composite = true
+origin = '''
+{{fb050b93a7364eed-556b77eb64a02e7a}}
+{{fb050b93a7364eed-f5b53d9ffe48292d}}
+'''
+translate = '''
+{{fb050b93a7364eed-556b77eb64a02e7a}}
+{{fb050b93a7364eed-f5b53d9ffe48292d}}
+'''
+
+[[block]]
+key = "fb050b93a7364eed-556b77eb64a02e7a"
+type = "listItem"
+composite = true
+origin = '''
+- {{fb050b93a7364eed-556b77eb64a02e7a-5208c9d6ddca5d13}}
+'''
+translate = '''
+- {{fb050b93a7364eed-556b77eb64a02e7a-5208c9d6ddca5d13}}
+'''
+
+[[block]]
+key = "fb050b93a7364eed-556b77eb64a02e7a-5208c9d6ddca5d13"
+type = "paragraph"
+origin = '''
+**在线版**：记录时间、网络环境与状态提示，稍后重试或提交反馈；
+'''
+translate = '''
+**Online edition**: note the timestamp and network, then retry shortly or submit a report.
+'''
+
+[[block]]
+key = "fb050b93a7364eed-f5b53d9ffe48292d"
+type = "listItem"
+composite = true
+origin = '''
+- {{fb050b93a7364eed-f5b53d9ffe48292d-76a531e195e8bc81}}
+'''
+translate = '''
+- {{fb050b93a7364eed-f5b53d9ffe48292d-76a531e195e8bc81}}
+'''
+
+[[block]]
+key = "fb050b93a7364eed-f5b53d9ffe48292d-76a531e195e8bc81"
+type = "paragraph"
+origin = '''
+**本地版**：通过官方启动器重新启动 Lumina Studio 服务，再刷新页面。
+'''
+translate = '''
+**Local edition**: restart Lumina Studio via its standard launcher and reload the page.
+'''
+
+[[block]]
+key = "fa485d8991c18609"
+type = "paragraph"
+origin = '''
+上传、预览与模型生成均依赖后端服务运行，顶栏恢复“后端已连接”后再继续测试输入文件。
+'''
+translate = '''
+Uploads, **Preview**, and **Generate** all run through the backend service, so wait until **Backend connected** appears before testing files.
+'''
+
+[[block]]
+key = "381db5e30781cbcc"
+type = "heading"
+origin = '''
+### 第三步：用最小输入隔离文件与环境问题
+'''
+translate = '''
+### Step 3: Separate file issues from environment issues
+'''
+
+[[block]]
+key = "f7ff330a7fc68867"
+type = "paragraph"
+origin = '''
+准备一张尺寸较小、内容简单的常规 JPG 或 PNG，搭配一份此前验证可用的耗材档案或经典 LUT；暂时关闭批量生成、大尺寸分割及挂环等附加结构，仅保留基础转换参数，并确认：
+'''
+translate = '''
+Test with a small, clean JPG or PNG alongside a Material Archive or Classic LUT you know works. Turn off Batch processing, Large Format Mode, and optional hardware add-ons so only core conversion settings remain, and verify that:
+'''
+
+[[block]]
+key = "b5d53552b592a260"
+type = "list"
+composite = true
+origin = '''
+{{b5d53552b592a260-c6fa2dbc3069ecb9}}
+{{b5d53552b592a260-4aa46bb6d98d0ba6}}
+{{b5d53552b592a260-77e39506661c6f3f}}
+{{b5d53552b592a260-ccd8d706513f92a5}}
+'''
+translate = '''
+{{b5d53552b592a260-c6fa2dbc3069ecb9}}
+{{b5d53552b592a260-4aa46bb6d98d0ba6}}
+{{b5d53552b592a260-77e39506661c6f3f}}
+{{b5d53552b592a260-ccd8d706513f92a5}}
+'''
+
+[[block]]
+key = "b5d53552b592a260-c6fa2dbc3069ecb9"
+type = "listItem"
+composite = true
+origin = '''
+- {{b5d53552b592a260-c6fa2dbc3069ecb9-18212a54879cbd4b}}
+'''
+translate = '''
+- {{b5d53552b592a260-c6fa2dbc3069ecb9-18212a54879cbd4b}}
+'''
+
+[[block]]
+key = "b5d53552b592a260-c6fa2dbc3069ecb9-18212a54879cbd4b"
+type = "paragraph"
+origin = '''
+图片已真正上传完毕（显示缩略图而非仅文件名）；
+'''
+translate = '''
+Upload completed fully (a thumbnail appears, not just a filename).
+'''
+
+[[block]]
+key = "b5d53552b592a260-4aa46bb6d98d0ba6"
+type = "listItem"
+composite = true
+origin = '''
+- {{b5d53552b592a260-4aa46bb6d98d0ba6-66d6e3bf4596969c}}
+'''
+translate = '''
+- {{b5d53552b592a260-4aa46bb6d98d0ba6-66d6e3bf4596969c}}
+'''
+
+[[block]]
+key = "b5d53552b592a260-4aa46bb6d98d0ba6-66d6e3bf4596969c"
+type = "paragraph"
+origin = '''
+色彩数据来源已选定，且对应的耗材档案、品牌或 LUT 已勾选就绪；
+'''
+translate = '''
+**Source Type** and the required archive, brand, or LUT are selected.
+'''
+
+[[block]]
+key = "b5d53552b592a260-77e39506661c6f3f"
+type = "listItem"
+composite = true
+origin = '''
+- {{b5d53552b592a260-77e39506661c6f3f-4224e67d2937ac92}}
+'''
+translate = '''
+- {{b5d53552b592a260-77e39506661c6f3f-4224e67d2937ac92}}
+'''
+
+[[block]]
+key = "b5d53552b592a260-77e39506661c6f3f-4224e67d2937ac92"
+type = "paragraph"
+origin = '''
+图片分辨率、色彩通道及 PNG 透明区域正常；
+'''
+translate = '''
+Image dimensions, color channels, and PNG alpha transparency look normal.
+'''
+
+[[block]]
+key = "b5d53552b592a260-ccd8d706513f92a5"
+type = "listItem"
+composite = true
+origin = '''
+- {{b5d53552b592a260-ccd8d706513f92a5-bb445f6b159be463}}
+'''
+translate = '''
+- {{b5d53552b592a260-ccd8d706513f92a5-bb445f6b159be463}}
+'''
+
+[[block]]
+key = "b5d53552b592a260-ccd8d706513f92a5-bb445f6b159be463"
+type = "paragraph"
+origin = '''
+若输入为 SVG，先排除外部字体、复杂蒙版、滤镜或画布越界，详见[SVG 上传失败、白底、破洞和细节异常怎么排查？](pathname:///zh/docs/knowledge/svg-troubleshooting/)。
+'''
+translate = '''
+If testing an SVG, no missing fonts, masks, filters, or out-of-bounds `viewBox` coordinates are blocking parsing—see [How Do I Fix SVG Upload Failures, White Backgrounds, Holes, or Missing Detail?](pathname:///en/docs/knowledge/svg-troubleshooting/).
+'''
+
+[[block]]
+key = "a62d5c5cc5b84c55"
+type = "paragraph"
+origin = '''
+若简单小图能够顺利预览而原文件报错，说明问题集中在原文件或特定参数组合；若最简图片同样失败，再继续检查软件服务状态。
+'''
+translate = '''
+If the simple test image previews cleanly while your original file fails, the issue lies in that file or parameter combination; if even the minimal image fails, continue checking the connection and app state.
+'''
+
+[[block]]
+key = "c1bf27f082ad130a"
+type = "heading"
+origin = '''
+### 第四步：跑通一次最小预览
+'''
+translate = '''
+### Step 4: Complete one minimal Preview
+'''
+
+[[block]]
+key = "57bf2d34cac48e16"
+type = "paragraph"
+origin = '''
+使用常规成品尺寸与默认参数，发起单次“预览”并等待结果返回或弹出明确提示。
+'''
+translate = '''
+Using standard single-plate dimensions and default parameters, run a single **Preview** and wait for it to finish or display an error.
+'''
+
+[[block]]
+key = "05383914431ef85b"
+type = "paragraph"
+origin = '''
+若预览持续转圈或报错：
+'''
+translate = '''
+If **Preview** hangs or fails:
+'''
+
+[[block]]
+key = "353d76e0bc208d55"
+type = "list"
+composite = true
+origin = '''
+{{353d76e0bc208d55-9c8ad4afdb6a6b79}}
+{{353d76e0bc208d55-fa27f2f8a07a05ba}}
+{{353d76e0bc208d55-65a8b754364ceeaa}}
+{{353d76e0bc208d55-d284748e60cd175e}}
+'''
+translate = '''
+{{353d76e0bc208d55-9c8ad4afdb6a6b79}}
+{{353d76e0bc208d55-fa27f2f8a07a05ba}}
+{{353d76e0bc208d55-65a8b754364ceeaa}}
+{{353d76e0bc208d55-d284748e60cd175e}}
+'''
+
+[[block]]
+key = "353d76e0bc208d55-9c8ad4afdb6a6b79"
+type = "listItem"
+composite = true
+origin = '''
+1. {{353d76e0bc208d55-9c8ad4afdb6a6b79-c60ad7d3942eddaf}}
+'''
+translate = '''
+1. {{353d76e0bc208d55-9c8ad4afdb6a6b79-c60ad7d3942eddaf}}
+'''
+
+[[block]]
+key = "353d76e0bc208d55-9c8ad4afdb6a6b79-c60ad7d3942eddaf"
+type = "paragraph"
+origin = '''
+确认顶栏仍保持“后端已连接”；
+'''
+translate = '''
+Check that the top bar still shows **Backend connected**.
+'''
+
+[[block]]
+key = "353d76e0bc208d55-fa27f2f8a07a05ba"
+type = "listItem"
+composite = true
+origin = '''
+2. {{353d76e0bc208d55-fa27f2f8a07a05ba-99feec33d67debf9}}
+'''
+translate = '''
+2. {{353d76e0bc208d55-fa27f2f8a07a05ba-99feec33d67debf9}}
+'''
+
+[[block]]
+key = "353d76e0bc208d55-fa27f2f8a07a05ba-99feec33d67debf9"
+type = "paragraph"
+origin = '''
+确认图片与色彩来源均已就绪；
+'''
+translate = '''
+Confirm both the artwork and color source are selected.
+'''
+
+[[block]]
+key = "353d76e0bc208d55-65a8b754364ceeaa"
+type = "listItem"
+composite = true
+origin = '''
+3. {{353d76e0bc208d55-65a8b754364ceeaa-0e711f7e0f2c478b}}
+'''
+translate = '''
+3. {{353d76e0bc208d55-65a8b754364ceeaa-0e711f7e0f2c478b}}
+'''
+
+[[block]]
+key = "353d76e0bc208d55-65a8b754364ceeaa-0e711f7e0f2c478b"
+type = "paragraph"
+origin = '''
+关闭大尺寸分割、批量、拼图等扩展功能；
+'''
+translate = '''
+Turn off Large Format, Batch, Puzzle, and optional add-ons.
+'''
+
+[[block]]
+key = "353d76e0bc208d55-d284748e60cd175e"
+type = "listItem"
+composite = true
+origin = '''
+4. {{353d76e0bc208d55-d284748e60cd175e-dfd28cff9c4fb3fc}}
+'''
+translate = '''
+4. {{353d76e0bc208d55-d284748e60cd175e-dfd28cff9c4fb3fc}}
+'''
+
+[[block]]
+key = "353d76e0bc208d55-d284748e60cd175e-dfd28cff9c4fb3fc"
+type = "paragraph"
+origin = '''
+换用简单小图做一次对照预览，并记录首条完整错误提示。
+'''
+translate = '''
+Run a comparison test with a small flat image and copy the full error message.
+'''
+
+[[block]]
+key = "d16910c1a6c1a2c0"
+type = "paragraph"
+origin = '''
+最小预览跑通后，再每次只恢复一项原有条件（原图、目标尺寸或高级选项），最先重新触发失败的那一项即为问题根源。
+'''
+translate = '''
+Once the minimal test succeeds, restore your original artwork, print dimensions, and advanced features one setting at a time until you find the exact option that triggers the failure.
+'''
+
+[[block]]
+key = "fac2bb19813e883f"
+type = "heading"
+origin = '''
+### 第五步：处理“生成”按钮置灰或生成报错
+'''
+translate = '''
+### Step 5: Resolve a disabled or failing Generate button
+'''
+
+[[block]]
+key = "a2eab62ff2b54aa6"
+type = "paragraph"
+origin = '''
+“生成”按钮需要建立在一次**有效的当前预览**之上才能启用。若按钮呈灰色不可点，按顺序核查：
+'''
+translate = '''
+Lumina unlocks **Generate** only after a **valid Preview** completes for your active settings. When **Generate** is grayed out, check in order:
+'''
+
+[[block]]
+key = "65aaf8340a13674a"
+type = "list"
+composite = true
+origin = '''
+{{65aaf8340a13674a-d2fa98747a05fd3b}}
+{{65aaf8340a13674a-5bf6efdb37af12d4}}
+{{65aaf8340a13674a-81b8f1724bcae10b}}
+{{65aaf8340a13674a-f85af22330944592}}
+{{65aaf8340a13674a-6e36b6fc13898756}}
+'''
+translate = '''
+{{65aaf8340a13674a-d2fa98747a05fd3b}}
+{{65aaf8340a13674a-5bf6efdb37af12d4}}
+{{65aaf8340a13674a-81b8f1724bcae10b}}
+{{65aaf8340a13674a-f85af22330944592}}
+{{65aaf8340a13674a-6e36b6fc13898756}}
+'''
+
+[[block]]
+key = "65aaf8340a13674a-d2fa98747a05fd3b"
+type = "listItem"
+composite = true
+origin = '''
+- {{65aaf8340a13674a-d2fa98747a05fd3b-2c3a4abb2837c1fc}}
+'''
+translate = '''
+- {{65aaf8340a13674a-d2fa98747a05fd3b-2c3a4abb2837c1fc}}
+'''
+
+[[block]]
+key = "65aaf8340a13674a-d2fa98747a05fd3b-2c3a4abb2837c1fc"
+type = "paragraph"
+origin = '''
+图片与色彩数据来源均已选妥；
+'''
+translate = '''
+Both your input artwork and color source are loaded.
+'''
+
+[[block]]
+key = "65aaf8340a13674a-5bf6efdb37af12d4"
+type = "listItem"
+composite = true
+origin = '''
+- {{65aaf8340a13674a-5bf6efdb37af12d4-05fdb94e9d464b8b}}
+'''
+translate = '''
+- {{65aaf8340a13674a-5bf6efdb37af12d4-05fdb94e9d464b8b}}
+'''
+
+[[block]]
+key = "65aaf8340a13674a-5bf6efdb37af12d4-05fdb94e9d464b8b"
+type = "paragraph"
+origin = '''
+当前参数下已成功完成过一次预览；
+'''
+translate = '''
+You have completed a successful **Preview** with the current settings.
+'''
+
+[[block]]
+key = "65aaf8340a13674a-81b8f1724bcae10b"
+type = "listItem"
+composite = true
+origin = '''
+- {{65aaf8340a13674a-81b8f1724bcae10b-f44280ed32363083}}
+'''
+translate = '''
+- {{65aaf8340a13674a-81b8f1724bcae10b-f44280ed32363083}}
+'''
+
+[[block]]
+key = "65aaf8340a13674a-81b8f1724bcae10b-f44280ed32363083"
+type = "paragraph"
+origin = '''
+更换图片、色彩来源或关键建模参数后，已重新点击“预览”刷新状态；
+'''
+translate = '''
+You ran **Preview** again after changing the image, color source, or modeling parameters.
+'''
+
+[[block]]
+key = "65aaf8340a13674a-f85af22330944592"
+type = "listItem"
+composite = true
+origin = '''
+- {{65aaf8340a13674a-f85af22330944592-78f2b7540d845d1f}}
+'''
+translate = '''
+- {{65aaf8340a13674a-f85af22330944592-78f2b7540d845d1f}}
+'''
+
+[[block]]
+key = "65aaf8340a13674a-f85af22330944592-78f2b7540d845d1f"
+type = "paragraph"
+origin = '''
+当前建模模式、耗材档案、附加结构与导出方式彼此兼容；
+'''
+translate = '''
+Your active Modeling Mode, archive, add-ons, and export format are compatible.
+'''
+
+[[block]]
+key = "65aaf8340a13674a-6e36b6fc13898756"
+type = "listItem"
+composite = true
+origin = '''
+- {{65aaf8340a13674a-6e36b6fc13898756-d98be6f629aa2055}}
+'''
+translate = '''
+- {{65aaf8340a13674a-6e36b6fc13898756-d98be6f629aa2055}}
+'''
+
+[[block]]
+key = "65aaf8340a13674a-6e36b6fc13898756-d98be6f629aa2055"
+type = "paragraph"
+origin = '''
+成品尺寸、热床范围或大尺寸分割未触发阻断性警告。
+'''
+translate = '''
+Finished dimensions, Bed Size, and Large Format settings show no blocking warnings.
+'''
+
+[[block]]
+key = "9a5589aa442413f7"
+type = "paragraph"
+origin = '''
+若预览正常但点击“生成”后报错，请先截图保留完整报错文字，关闭非必要附加选项，用同一张简单小图做一次最小生成验证。
+'''
+translate = '''
+If **Preview** succeeds yet **Generate** returns an error, copy the full message first, turn off optional add-ons, and test a minimal **Generate** run with your small sample image.
+'''
+
+[[block]]
+key = "282a63b08cdf2d22"
+type = "heading"
+origin = '''
+### 第六步：区分文件下载异常与切片器打开异常
+'''
+translate = '''
+### Step 6: Separate download issues from slicer issues
+'''
+
+[[block]]
+key = "9eb8d27ac1e2b8c7"
+type = "paragraph"
+origin = '''
+生成完成后，先点击下载将 `.3mf` 或 `.zip` 完整保存到本机磁盘，再根据现象分流处理：
+'''
+translate = '''
+Once **Generate** finishes, save the full `.3mf` or `.zip` file to disk before troubleshooting the slicer:
+'''
+
+[[block]]
+key = "82b3371d27c8a517"
+type = "list"
+composite = true
+origin = '''
+{{82b3371d27c8a517-0f165ef21ec37bbc}}
+{{82b3371d27c8a517-56c1a2587eaeabb2}}
+{{82b3371d27c8a517-3b21f1cf11148c2e}}
+{{82b3371d27c8a517-915ddfbf1a1563dc}}
+'''
+translate = '''
+{{82b3371d27c8a517-0f165ef21ec37bbc}}
+{{82b3371d27c8a517-56c1a2587eaeabb2}}
+{{82b3371d27c8a517-3b21f1cf11148c2e}}
+{{82b3371d27c8a517-915ddfbf1a1563dc}}
+'''
+
+[[block]]
+key = "82b3371d27c8a517-0f165ef21ec37bbc"
+type = "listItem"
+composite = true
+origin = '''
+- {{82b3371d27c8a517-0f165ef21ec37bbc-2cc76f6f5ca7d5c0}}
+'''
+translate = '''
+- {{82b3371d27c8a517-0f165ef21ec37bbc-2cc76f6f5ca7d5c0}}
+'''
+
+[[block]]
+key = "82b3371d27c8a517-0f165ef21ec37bbc-2cc76f6f5ca7d5c0"
+type = "paragraph"
+origin = '''
+**下载按钮失效或提示文件不存在**：临时会话产物已过期，重新执行一次预览与生成并及时保存；
+'''
+translate = '''
+**Download link missing or expired**: temporary session files were cleaned up—run **Preview** and **Generate** again and save the file right away.
+'''
+
+[[block]]
+key = "82b3371d27c8a517-56c1a2587eaeabb2"
+type = "listItem"
+composite = true
+origin = '''
+- {{82b3371d27c8a517-56c1a2587eaeabb2-ca26ed6765876516}}
+'''
+translate = '''
+- {{82b3371d27c8a517-56c1a2587eaeabb2-ca26ed6765876516}}
+'''
+
+[[block]]
+key = "82b3371d27c8a517-56c1a2587eaeabb2-ca26ed6765876516"
+type = "paragraph"
+origin = '''
+**文件已下载但未能自动打开切片器**：检查“设置”中的切片软件选项与本地应用路径，或直接在切片器中通过“文件 → 打开项目”载入，详见[切片器没检测到，或者 3MF 打不开怎么办？](pathname:///zh/docs/knowledge/slicer-path-and-open-troubleshooting/)；
+'''
+translate = '''
+**Downloaded fine, one-click slicer launch failed**: verify **Slicer Software** and your custom app path in Settings, or open the file directly in your slicer—see [What If Lumina Cannot Find the Slicer or Open the 3MF?](pathname:///en/docs/knowledge/slicer-path-and-open-troubleshooting/).
+'''
+
+[[block]]
+key = "82b3371d27c8a517-3b21f1cf11148c2e"
+type = "listItem"
+composite = true
+origin = '''
+- {{82b3371d27c8a517-3b21f1cf11148c2e-f85ec76d4d6735cb}}
+'''
+translate = '''
+- {{82b3371d27c8a517-3b21f1cf11148c2e-f85ec76d4d6735cb}}
+'''
+
+[[block]]
+key = "82b3371d27c8a517-3b21f1cf11148c2e-f85ec76d4d6735cb"
+type = "paragraph"
+origin = '''
+**切片器打开后颜色或耗材不对**：核对模型对象、项目耗材与真实料槽映射，详见[把 Lumina 3MF 正确导入切片器](pathname:///zh/docs/tutorials/slicer-material-mapping/)；若三阶段显色不一致，另见[为什么 Lumina 预览、切片器预览和打印实物不一样？](pathname:///zh/docs/knowledge/preview-slicer-print-differences/)；
+'''
+translate = '''
+**Opens in the slicer with wrong colors**: check object, project-filament, physical-spool, and AMS-slot assignments—see [Open a Lumina 3MF in Your Slicer](pathname:///en/docs/tutorials/slicer-material-mapping/) and [Why Do Lumina Preview, Slicer Preview, and the Physical Print Look Different?](pathname:///en/docs/knowledge/preview-slicer-print-differences/).
+'''
+
+[[block]]
+key = "82b3371d27c8a517-915ddfbf1a1563dc"
+type = "listItem"
+composite = true
+origin = '''
+- {{82b3371d27c8a517-915ddfbf1a1563dc-0714836d389c5ebb}}
+'''
+translate = '''
+- {{82b3371d27c8a517-915ddfbf1a1563dc-0714836d389c5ebb}}
+'''
+
+[[block]]
+key = "82b3371d27c8a517-915ddfbf1a1563dc-0714836d389c5ebb"
+type = "paragraph"
+origin = '''
+**大尺寸切分或批量导出为 ZIP**：先将 ZIP 完整解压到本地文件夹，再导入其中的 `.3mf` 文件（切勿直接在压缩包预览窗口内双击打开）。
+'''
+translate = '''
+**Large Format or Batch `.zip` archive**: extract the entire ZIP to a folder on disk before opening the `.3mf` files inside.
+'''
+
+[[block]]
+key = "3b57111abff96a2e"
+type = "heading"
+origin = '''
+## 什么情况下使用“清除缓存”
+'''
+translate = '''
+## When to use Clear Cache
+'''
+
+[[block]]
+key = "5eeeecb44d1527ad"
+type = "paragraph"
+origin = '''
+“清除缓存”用于在本地版出现临时会话、预览或下载状态卡死，且重启软件与最小对照测试仍未恢复时重置临时状态。清理前请留意：
+'''
+translate = '''
+Use **Clear Cache** on a local installation only when temporary session, Preview, or download state becomes stuck and neither restarting the app nor running a minimal test clears it:
+'''
+
+[[block]]
+key = "572d712da70c1765"
+type = "list"
+composite = true
+origin = '''
+{{572d712da70c1765-8775b902990d69c6}}
+{{572d712da70c1765-35dbc909de70dd23}}
+{{572d712da70c1765-f71076d43984314d}}
+'''
+translate = '''
+{{572d712da70c1765-8775b902990d69c6}}
+{{572d712da70c1765-35dbc909de70dd23}}
+{{572d712da70c1765-f71076d43984314d}}
+'''
+
+[[block]]
+key = "572d712da70c1765-8775b902990d69c6"
+type = "listItem"
+composite = true
+origin = '''
+- {{572d712da70c1765-8775b902990d69c6-211169b41656fab8}}
+'''
+translate = '''
+- {{572d712da70c1765-8775b902990d69c6-211169b41656fab8}}
+'''
+
+[[block]]
+key = "572d712da70c1765-8775b902990d69c6-211169b41656fab8"
+type = "paragraph"
+origin = '''
+当前未保存的临时预览与下载链接会一并清空，需重新上传、预览并生成；
+'''
+translate = '''
+Clearing cache invalidates active temporary previews and download links, so you will re-upload, **Preview**, and **Generate** afterward.
+'''
+
+[[block]]
+key = "572d712da70c1765-35dbc909de70dd23"
+type = "listItem"
+composite = true
+origin = '''
+- {{572d712da70c1765-35dbc909de70dd23-c415c29f83806621}}
+'''
+translate = '''
+- {{572d712da70c1765-35dbc909de70dd23-c415c29f83806621}}
+'''
+
+[[block]]
+key = "572d712da70c1765-35dbc909de70dd23-c415c29f83806621"
+type = "paragraph"
+origin = '''
+清理临时缓存不会删除用户耗材库中的耗材档案与配置预设；
+'''
+translate = '''
+Your saved Material Library archives and configuration presets remain untouched.
+'''
+
+[[block]]
+key = "572d712da70c1765-f71076d43984314d"
+type = "listItem"
+composite = true
+origin = '''
+- {{572d712da70c1765-f71076d43984314d-a0b3d8d8ee22116c}}
+'''
+translate = '''
+- {{572d712da70c1765-f71076d43984314d-a0b3d8d8ee22116c}}
+'''
+
+[[block]]
+key = "572d712da70c1765-f71076d43984314d-a0b3d8d8ee22116c"
+type = "paragraph"
+origin = '''
+图像格式错误、参数冲突或切片器槽位映射问题无需通过清缓存处理。
+'''
+translate = '''
+File-format errors, incompatible parameters, and slicer slot mappings are unaffected by cache clearing.
+'''
+
+[[block]]
+key = "9ed9b9c123b5f503"
+type = "heading"
+origin = '''
+## 常见报错类型速查
+'''
+translate = '''
+## Decoding common error messages
+'''
+
+[[block]]
+key = "4e228d11ab53c12d"
+type = "paragraph"
+origin = '''
+遇到弹窗提示时，直接按完整提示归属的类别处理即可：
+'''
+translate = '''
+You do not need to memorize numeric error codes—focus on what the message describes:
+'''
+
+[[block]]
+key = "b943b4a6a79f171c"
+type = "table"
+origin = '''
+| 报错含义 | 常见原因 | 处理方式 |
+| --- | --- | --- |
+| 输入无效或缺少必填信息 | 未选定色彩来源、参数未填齐或文件内容损坏 | 退回最小输入基准，逐项补齐必选项 |
+| 不支持该文件类型 | 文件实际编码与扩展名不符，或当前模式不支持 | 从设计或看图软件重新导出标准 JPG、PNG、SVG、WebP 或 HEIC |
+| 文件体积或复杂度超限 | 分辨率极高或 SVG 锚点过多 | 另存适度缩小的副本测试，保留原稿不动 |
+| 文件或会话不存在 | 临时生成产物超时清理、页面刷新或会话切换 | 重新选择输入文件，执行预览与生成 |
+| 当前任务过多 | 短时间内连续点击，或后台仍在处理上一任务 | 暂停点击，待当前任务结束后再单次发起 |
+| 服务暂时不可用或超时 | 后端进程异常、网络抖动或单次计算耗时过长 | 记录时间与首条报错文字，稍后用最小小图重试或反馈 |
+'''
+translate = '''
+| Message meaning | Typical cause | Recommended action |
+| --- | --- | --- |
+| Invalid input or missing required field | Unselected color source, incomplete settings, or unreadable file payload | Step back to the minimal baseline and fill in each required field |
+| Unsupported file format | Internal file format mismatches its extension, or unsupported mode | Re-export a genuine JPG, PNG, SVG, WebP, or HEIC from your editor |
+| File too large or complex | Oversized pixel dimensions or extreme SVG node count | Test a downscaled copy while keeping your master file safe |
+| File or session not found | Temporary output expired, page refreshed, or session reset | Re-select your artwork, then run **Preview** and **Generate** |
+| Too many active tasks | Rapid repeated clicks or another job still running | Wait for the current job to finish, then submit once |
+| Service unavailable or timeout | Backend interruption, network drop, or heavy job timeout | Record the timestamp and error text, then retry with a small test image or report |
+'''
+
+[[block]]
+key = "ff7eb910e421e406"
+type = "heading"
+origin = '''
+## 标准最小复现流程
+'''
+translate = '''
+## Baseline minimal test checklist
+'''
+
+[[block]]
+key = "80d2385feb6d3fa9"
+type = "paragraph"
+origin = '''
+排查疑难故障时，可用以下固定组合快速验证基础环境是否健康：
+'''
+translate = '''
+Use this clean baseline whenever you want to verify core functionality:
+'''
+
+[[block]]
+key = "12fec0ff2519713b"
+type = "list"
+composite = true
+origin = '''
+{{12fec0ff2519713b-48a698227ec96ab6}}
+{{12fec0ff2519713b-807518b793fb5d03}}
+{{12fec0ff2519713b-72ac056b9c48d42d}}
+{{12fec0ff2519713b-6e35b2de9a2d1858}}
+{{12fec0ff2519713b-a85871445840a5e7}}
+{{12fec0ff2519713b-8e8f45a6e8d2fe21}}
+'''
+translate = '''
+{{12fec0ff2519713b-48a698227ec96ab6}}
+{{12fec0ff2519713b-807518b793fb5d03}}
+{{12fec0ff2519713b-72ac056b9c48d42d}}
+{{12fec0ff2519713b-6e35b2de9a2d1858}}
+{{12fec0ff2519713b-a85871445840a5e7}}
+{{12fec0ff2519713b-8e8f45a6e8d2fe21}}
+'''
+
+[[block]]
+key = "12fec0ff2519713b-48a698227ec96ab6"
+type = "listItem"
+composite = true
+origin = '''
+1. {{12fec0ff2519713b-48a698227ec96ab6-4000f5896bf52627}}
+'''
+translate = '''
+1. {{12fec0ff2519713b-48a698227ec96ab6-4000f5896bf52627}}
+'''
+
+[[block]]
+key = "12fec0ff2519713b-48a698227ec96ab6-4000f5896bf52627"
+type = "paragraph"
+origin = '''
+当前官方网址或本地标准启动器入口；
+'''
+translate = '''
+Current official URL or standard local launcher
+'''
+
+[[block]]
+key = "12fec0ff2519713b-807518b793fb5d03"
+type = "listItem"
+composite = true
+origin = '''
+2. {{12fec0ff2519713b-807518b793fb5d03-c312ad0534307634}}
+'''
+translate = '''
+2. {{12fec0ff2519713b-807518b793fb5d03-c312ad0534307634}}
+'''
+
+[[block]]
+key = "12fec0ff2519713b-807518b793fb5d03-c312ad0534307634"
+type = "paragraph"
+origin = '''
+一张确认可正常查看的小尺寸纯色 JPG 或 PNG；
+'''
+translate = '''
+A small, clean JPG or PNG verified to open normally
+'''
+
+[[block]]
+key = "12fec0ff2519713b-72ac056b9c48d42d"
+type = "listItem"
+composite = true
+origin = '''
+3. {{12fec0ff2519713b-72ac056b9c48d42d-5fe971277096a172}}
+'''
+translate = '''
+3. {{12fec0ff2519713b-72ac056b9c48d42d-5fe971277096a172}}
+'''
+
+[[block]]
+key = "12fec0ff2519713b-72ac056b9c48d42d-5fe971277096a172"
+type = "paragraph"
+origin = '''
+一份此前成功生成过的耗材档案或经典 LUT；
+'''
+translate = '''
+A previously working Material Archive or Classic LUT
+'''
+
+[[block]]
+key = "12fec0ff2519713b-6e35b2de9a2d1858"
+type = "listItem"
+composite = true
+origin = '''
+4. {{12fec0ff2519713b-6e35b2de9a2d1858-ccd5b5261ce1a92e}}
+'''
+translate = '''
+4. {{12fec0ff2519713b-6e35b2de9a2d1858-ccd5b5261ce1a92e}}
+'''
+
+[[block]]
+key = "12fec0ff2519713b-6e35b2de9a2d1858-ccd5b5261ce1a92e"
+type = "paragraph"
+origin = '''
+常规单板成品尺寸与默认建模参数；
+'''
+translate = '''
+Standard finished dimensions and default parameters
+'''
+
+[[block]]
+key = "12fec0ff2519713b-a85871445840a5e7"
+type = "listItem"
+composite = true
+origin = '''
+5. {{12fec0ff2519713b-a85871445840a5e7-88a82cc15de6fb26}}
+'''
+translate = '''
+5. {{12fec0ff2519713b-a85871445840a5e7-88a82cc15de6fb26}}
+'''
+
+[[block]]
+key = "12fec0ff2519713b-a85871445840a5e7-88a82cc15de6fb26"
+type = "paragraph"
+origin = '''
+关闭批量、大尺寸分割及全部附加结构；
+'''
+translate = '''
+Batch, Large Format, and optional add-ons turned off
+'''
+
+[[block]]
+key = "12fec0ff2519713b-8e8f45a6e8d2fe21"
+type = "listItem"
+composite = true
+origin = '''
+6. {{12fec0ff2519713b-8e8f45a6e8d2fe21-65d31aceae34f559}}
+'''
+translate = '''
+6. {{12fec0ff2519713b-8e8f45a6e8d2fe21-65d31aceae34f559}}
+'''
+
+[[block]]
+key = "12fec0ff2519713b-8e8f45a6e8d2fe21-65d31aceae34f559"
+type = "paragraph"
+origin = '''
+单次点击“预览”，待预览完成后单次点击“生成”。
+'''
+translate = '''
+One **Preview** run, followed by one **Generate** run once Preview completes
+'''
+
+[[block]]
+key = "72ffa5a3d43023f5"
+type = "heading"
+origin = '''
+## 提交反馈前建议准备的资料
+'''
+translate = '''
+## Helpful details to include in a bug report
+'''
+
+[[block]]
+key = "9fdf1db215fa835c"
+type = "list"
+composite = true
+origin = '''
+{{9fdf1db215fa835c-69fa977814844cae}}
+{{9fdf1db215fa835c-815eda3c0c96df13}}
+{{9fdf1db215fa835c-35a1edb656689834}}
+{{9fdf1db215fa835c-850cfca4edd1c80b}}
+{{9fdf1db215fa835c-779f7b34deab7b9a}}
+{{9fdf1db215fa835c-089e32403955d7de}}
+{{9fdf1db215fa835c-66351e467cfbd975}}
+'''
+translate = '''
+{{9fdf1db215fa835c-69fa977814844cae}}
+{{9fdf1db215fa835c-815eda3c0c96df13}}
+{{9fdf1db215fa835c-35a1edb656689834}}
+{{9fdf1db215fa835c-850cfca4edd1c80b}}
+{{9fdf1db215fa835c-779f7b34deab7b9a}}
+{{9fdf1db215fa835c-089e32403955d7de}}
+{{9fdf1db215fa835c-66351e467cfbd975}}
+'''
+
+[[block]]
+key = "9fdf1db215fa835c-69fa977814844cae"
+type = "listItem"
+composite = true
+origin = '''
+- {{9fdf1db215fa835c-69fa977814844cae-80ad38440728860b}}
+'''
+translate = '''
+- {{9fdf1db215fa835c-69fa977814844cae-80ad38440728860b}}
+'''
+
+[[block]]
+key = "9fdf1db215fa835c-69fa977814844cae-80ad38440728860b"
+type = "paragraph"
+origin = '''
+Lumina Studio 版本号，以及使用的是在线版还是本地版；
+'''
+translate = '''
+Lumina Studio version and edition (online vs. local)
+'''
+
+[[block]]
+key = "9fdf1db215fa835c-815eda3c0c96df13"
+type = "listItem"
+composite = true
+origin = '''
+- {{9fdf1db215fa835c-815eda3c0c96df13-978ff78b7109b9c1}}
+'''
+translate = '''
+- {{9fdf1db215fa835c-815eda3c0c96df13-978ff78b7109b9c1}}
+'''
+
+[[block]]
+key = "9fdf1db215fa835c-815eda3c0c96df13-978ff78b7109b9c1"
+type = "paragraph"
+origin = '''
+故障发生时间、所在地区与网络类型；
+'''
+translate = '''
+Timestamp, region, and network type
+'''
+
+[[block]]
+key = "9fdf1db215fa835c-35a1edb656689834"
+type = "listItem"
+composite = true
+origin = '''
+- {{9fdf1db215fa835c-35a1edb656689834-59a518e9680a2e30}}
+'''
+translate = '''
+- {{9fdf1db215fa835c-35a1edb656689834-59a518e9680a2e30}}
+'''
+
+[[block]]
+key = "9fdf1db215fa835c-35a1edb656689834-59a518e9680a2e30"
+type = "paragraph"
+origin = '''
+卡住的具体环节与第一条完整错误提示文字；
+'''
+translate = '''
+Exact stage where the workflow stopped and the first complete error message
+'''
+
+[[block]]
+key = "9fdf1db215fa835c-850cfca4edd1c80b"
+type = "listItem"
+composite = true
+origin = '''
+- {{9fdf1db215fa835c-850cfca4edd1c80b-b890e34f684680e8}}
+'''
+translate = '''
+- {{9fdf1db215fa835c-850cfca4edd1c80b-b890e34f684680e8}}
+'''
+
+[[block]]
+key = "9fdf1db215fa835c-850cfca4edd1c80b-b890e34f684680e8"
+type = "paragraph"
+origin = '''
+从打开页面起的复现步骤；
+'''
+translate = '''
+Step-by-step actions from opening Lumina
+'''
+
+[[block]]
+key = "9fdf1db215fa835c-779f7b34deab7b9a"
+type = "listItem"
+composite = true
+origin = '''
+- {{9fdf1db215fa835c-779f7b34deab7b9a-5310ebfd5817c2cb}}
+'''
+translate = '''
+- {{9fdf1db215fa835c-779f7b34deab7b9a-5310ebfd5817c2cb}}
+'''
+
+[[block]]
+key = "9fdf1db215fa835c-779f7b34deab7b9a-5310ebfd5817c2cb"
+type = "paragraph"
+origin = '''
+原始输入文件，或可复现同一现象的脱敏最小示例文件；
+'''
+translate = '''
+Original input file, or a privacy-safe minimal sample that reproduces the bug
+'''
+
+[[block]]
+key = "9fdf1db215fa835c-089e32403955d7de"
+type = "listItem"
+composite = true
+origin = '''
+- {{9fdf1db215fa835c-089e32403955d7de-cf5c87df733a3962}}
+'''
+translate = '''
+- {{9fdf1db215fa835c-089e32403955d7de-cf5c87df733a3962}}
+'''
+
+[[block]]
+key = "9fdf1db215fa835c-089e32403955d7de-cf5c87df733a3962"
+type = "paragraph"
+origin = '''
+所选色彩来源类型、耗材档案 / LUT 名称、建模模式、成品尺寸及关键开关；
+'''
+translate = '''
+Selected **Source Type**, archive or LUT name, **Modeling Mode**, print dimensions, and active options
+'''
+
+[[block]]
+key = "9fdf1db215fa835c-66351e467cfbd975"
+type = "listItem"
+composite = true
+origin = '''
+- {{9fdf1db215fa835c-66351e467cfbd975-68cc2a76fb984c84}}
+'''
+translate = '''
+- {{9fdf1db215fa835c-66351e467cfbd975-68cc2a76fb984c84}}
+'''
+
+[[block]]
+key = "9fdf1db215fa835c-66351e467cfbd975-68cc2a76fb984c84"
+type = "paragraph"
+origin = '''
+报错界面截图，以及（若已成功生成）导出的原始 `.3mf` 或 `.zip` 文件。
+'''
+translate = '''
+Relevant screenshots, plus the untouched `.3mf` or `.zip` if generation completed
+'''
+
+[[block]]
+key = "3950bc8b521066df"
+type = "paragraph"
+origin = '''
+使用软件内置错误报告功能时，可在提交前展开“自动收集的信息”预览将发送的页面状态、参数选择与诊断日志（截图为可选项，请勿附带密码、密钥或无关商业原稿）；若网络受限导致在线提交失败，可复制备用报告文本通过官方渠道反馈。
+'''
+translate = '''
+When using **Report a bug** inside the app, expand **Automatically collected info** first to review the captured UI state, parameter selections, and diagnostic logs (screenshots are optional; never attach passwords, API keys, or confidential commercial files). If network issues block direct submission, copy the backup report text and share it via an official support channel.
+'''
+
+[[block]]
+key = "3b30b685be5af364"
+type = "heading"
+origin = '''
+## 常见问题
+'''
+translate = '''
+## Common questions
+'''
+
+[[block]]
+key = "78e8bbb722a2b7a1"
+type = "heading"
+origin = '''
+### 顶栏“正在检查后端…”停多久算异常？
+'''
+translate = '''
+### How long should “Checking backend...” stay visible?
+'''
+
+[[block]]
+key = "281e111b21e931dd"
+type = "paragraph"
+origin = '''
+页面刚加载时通常在数秒内切换为“后端已连接”。若长时间停留不变或转为“后端不可达”，请直接按第二步检查网络或重启本地服务。
+'''
+translate = '''
+Normally just a couple of seconds on initial load. If it hangs indefinitely or switches to **Backend unreachable**, troubleshoot the network or restart your local launcher before adjusting artwork settings.
+'''
+
+[[block]]
+key = "b8eccbafb783d81b"
+type = "heading"
+origin = '''
+### “生成”按钮一直是灰色，是账号权限受限吗？
+'''
+translate = '''
+### Generate stays grayed out—is that an account permission restriction?
+'''
+
+[[block]]
+key = "d6ffe7680f842e09"
+type = "paragraph"
+origin = '''
+与账号权限无关。“生成”按钮在图片、色彩来源及当前参数下的有效预览全部就绪后自动点亮；修改过图片、色彩来源或关键建模参数后，请重新点击一次“预览”。
+'''
+translate = '''
+No. **Generate** activates automatically once valid artwork, a color source, and an up-to-date **Preview** for your current settings are all in place. Changing the image, color source, or key modeling parameters invalidates the previous Preview—click **Preview** once more to unlock **Generate**.
+'''
+
+[[block]]
+key = "ebe535049cd7ac03"
+type = "heading"
+origin = '''
+### 为什么手机热点能打开，宽带 Wi-Fi 打不开？
+'''
+translate = '''
+### Why does Lumina open on my phone hotspot but not on home Wi-Fi?
+'''
+
+[[block]]
+key = "99f13cd0aacda770"
+type = "paragraph"
+origin = '''
+这种差异表明软件与输入文件本身正常，问题出在本地运营商线路、路由器 DNS 或代理规则。记录两侧网络表现、时间与地区反馈给维护者即可，无需改动本地耗材库或切片设置。
+'''
+translate = '''
+That points to an ISP routing, local DNS, or proxy/firewall difference rather than an issue with your artwork or archives. Share both network details, the timestamp, and your region with the team rather than changing all browser and system settings at once.
+'''
+
+[[block]]
+key = "86254664650ae4aa"
+type = "heading"
+origin = '''
+### 点击“清除缓存”会把我自己校准的耗材档案删掉吗？
+'''
+translate = '''
+### Will Clear Cache erase my custom Material Archives?
+'''
+
+[[block]]
+key = "8d91f36d3f68c2da"
+type = "paragraph"
+origin = '''
+不会。“清除缓存”仅清理临时会话、预览缓存与临时导出产物，耗材库中的用户耗材档案与预设配置均会保留。
+'''
+translate = '''
+No. **Clear Cache** removes temporary session data, cached previews, and temporary outputs while preserving your user Material Library and saved presets.
+'''
+
+[[block]]
+key = "7ab191939b5d6bc7"
+type = "heading"
+origin = '''
+### 为什么刷新浏览器后，刚才生成的下载按钮不能用了？
+'''
+translate = '''
+### Why did my download button stop working after refreshing the browser?
+'''
+
+[[block]]
+key = "6031c7e0e84bbb22"
+type = "paragraph"
+origin = '''
+预览与导出文件绑定在当前临时会话中，刷新页面、超时或清理缓存后旧临时链接即会释放。重新选入图片执行一次预览与生成，并在完成后立即保存到本地文件夹即可。
+'''
+translate = '''
+Preview and generation outputs live inside a temporary session; refreshing the tab, timing out, or clearing cache releases old temporary links. Re-upload or reselect your artwork, run **Preview** and **Generate**, and save the `.3mf` directly to a local folder.
+'''
+
+[[block]]
+key = "f099f8c1afb7bf4f"
+type = "heading"
+origin = '''
+### 反馈 Bug 时必须上传我的未公开原图吗？
+'''
+translate = '''
+### Do I have to attach my private artwork when reporting a bug?
+'''
+
+[[block]]
+key = "aca9df72f0752a58"
+type = "paragraph"
+origin = '''
+不需要。只要用一张简单的公开图形或色块复现出相同报错，提交该最小复现文件并说明原图的格式与尺寸特征即可。
+'''
+translate = '''
+Not at all. Recreate the issue with a simple geometric PNG or SVG that shares the same file format and settings, attach that safe reproduction file, and note any differences from your original piece.
+'''

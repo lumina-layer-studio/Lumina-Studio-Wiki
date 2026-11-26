@@ -1,0 +1,337 @@
+[metadata]
+reviewed_source = "efb4a5e0ecc0f37ffa5903c5df2b6c887e55c46953c94c90ab79899c7641e01a"
+
+[[block]]
+key = "d0b53c96692d5176"
+type = "yaml"
+origin = '''
+---
+title: "高保真 SVG 采样密度"
+description: "SVG 在高保真模式下的像素栅格化采样密度、可调范围与性能影响。"
+sidebar_position: 4
+---
+'''
+translate = '''
+---
+title: "High-Fidelity SVG Sampling Density"
+description: "Pixel sampling density, range, and performance trade-offs when rasterizing SVGs in High-Fidelity mode."
+sidebar_position: 4
+---
+'''
+
+[[block]]
+key = "b602c6d5863d97bf"
+type = "heading"
+origin = '''
+# 高保真 SVG 采样密度
+'''
+translate = '''
+# High-Fidelity SVG Sampling Density
+'''
+
+[[block]]
+key = "85ef5467e68ecf3d"
+type = "paragraph"
+origin = '''
+将 SVG 设为“高保真”模式时，软件会先按目标物理尺寸将其栅格化为像素图像，再进入颜色匹配与三维建模流程。“高保真 SVG 采样密度”决定每毫米生成多少像素。
+'''
+translate = '''
+In High-Fidelity mode, Lumina rasterizes SVG files at their target physical dimensions before running color matching and 3D modeling. **High-Fidelity SVG Sampling Density** sets how many pixels are generated per millimeter.
+'''
+
+[[block]]
+key = "b2515668f6322535"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-svg-density.webp').default}
+  alt="高保真 SVG 采样密度滑块"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-svg-density.webp').default}
+  alt="High-Fidelity SVG sampling-density slider"
+/>
+'''
+
+[[block]]
+key = "b8a20068802af555"
+type = "heading"
+origin = '''
+## 数值范围
+'''
+translate = '''
+## Range
+'''
+
+[[block]]
+key = "df6885e5fb4a8307"
+type = "list"
+composite = true
+origin = '''
+{{df6885e5fb4a8307-1fa7e03d5b506217}}
+{{df6885e5fb4a8307-a9ea8818adce38c0}}
+{{df6885e5fb4a8307-9368d27830590e46}}
+{{df6885e5fb4a8307-f62282fb6dc314a5}}
+'''
+translate = '''
+{{df6885e5fb4a8307-1fa7e03d5b506217}}
+{{df6885e5fb4a8307-a9ea8818adce38c0}}
+{{df6885e5fb4a8307-9368d27830590e46}}
+{{df6885e5fb4a8307-f62282fb6dc314a5}}
+'''
+
+[[block]]
+key = "df6885e5fb4a8307-1fa7e03d5b506217"
+type = "listItem"
+composite = true
+origin = '''
+- {{df6885e5fb4a8307-1fa7e03d5b506217-f228daddd49875f6}}
+'''
+translate = '''
+- {{df6885e5fb4a8307-1fa7e03d5b506217-f228daddd49875f6}}
+'''
+
+[[block]]
+key = "df6885e5fb4a8307-1fa7e03d5b506217-f228daddd49875f6"
+type = "paragraph"
+origin = '''
+默认值：`10.0 px/mm`
+'''
+translate = '''
+Default: `10.0 px/mm`
+'''
+
+[[block]]
+key = "df6885e5fb4a8307-a9ea8818adce38c0"
+type = "listItem"
+composite = true
+origin = '''
+- {{df6885e5fb4a8307-a9ea8818adce38c0-a95b6b2340aee0b7}}
+'''
+translate = '''
+- {{df6885e5fb4a8307-a9ea8818adce38c0-a95b6b2340aee0b7}}
+'''
+
+[[block]]
+key = "df6885e5fb4a8307-a9ea8818adce38c0-a95b6b2340aee0b7"
+type = "paragraph"
+origin = '''
+最小值：`2.0 px/mm`
+'''
+translate = '''
+Minimum: `2.0 px/mm`
+'''
+
+[[block]]
+key = "df6885e5fb4a8307-9368d27830590e46"
+type = "listItem"
+composite = true
+origin = '''
+- {{df6885e5fb4a8307-9368d27830590e46-856002b3fc8abf48}}
+'''
+translate = '''
+- {{df6885e5fb4a8307-9368d27830590e46-856002b3fc8abf48}}
+'''
+
+[[block]]
+key = "df6885e5fb4a8307-9368d27830590e46-856002b3fc8abf48"
+type = "paragraph"
+origin = '''
+最大值：`50.0 px/mm`
+'''
+translate = '''
+Maximum: `50.0 px/mm`
+'''
+
+[[block]]
+key = "df6885e5fb4a8307-f62282fb6dc314a5"
+type = "listItem"
+composite = true
+origin = '''
+- {{df6885e5fb4a8307-f62282fb6dc314a5-a5bc0c75cee9fb37}}
+'''
+translate = '''
+- {{df6885e5fb4a8307-f62282fb6dc314a5-a5bc0c75cee9fb37}}
+'''
+
+[[block]]
+key = "df6885e5fb4a8307-f62282fb6dc314a5-a5bc0c75cee9fb37"
+type = "paragraph"
+origin = '''
+调整步进：`0.1 px/mm`
+'''
+translate = '''
+Step: `0.1 px/mm`
+'''
+
+[[block]]
+key = "acdcf1d419ac162a"
+type = "paragraph"
+origin = '''
+例如，宽度为 100 mm 的 SVG 在默认 `10.0 px/mm` 下会栅格化为约 1000 像素宽。调高数值能保留更细腻的边缘和微小图形，但会增加图像处理耗时与内存占用；调低数值可加快计算，细线条或微小间隙则会相对粗糙。
+'''
+translate = '''
+For example, a 100 mm-wide SVG rasterizes to roughly 1000 pixels wide at the `10.0 px/mm` default. Higher values preserve sharper edges and tiny details at the cost of extra processing time and memory; lower values speed up computation while making fine strokes or narrow gaps coarser.
+'''
+
+[[block]]
+key = "76f5a42fea8b8e09"
+type = "heading"
+origin = '''
+## 生效条件
+'''
+translate = '''
+## When it applies
+'''
+
+[[block]]
+key = "f7ab727ff4de388d"
+type = "paragraph"
+origin = '''
+该设置仅在同时满足以下两项条件时生效：
+'''
+translate = '''
+This setting takes effect only when both conditions are met:
+'''
+
+[[block]]
+key = "8e27c2f1afac0672"
+type = "list"
+composite = true
+origin = '''
+{{8e27c2f1afac0672-8169d3727e83ae70}}
+{{8e27c2f1afac0672-c3e8b07dbc1f2637}}
+'''
+translate = '''
+{{8e27c2f1afac0672-8169d3727e83ae70}}
+{{8e27c2f1afac0672-c3e8b07dbc1f2637}}
+'''
+
+[[block]]
+key = "8e27c2f1afac0672-8169d3727e83ae70"
+type = "listItem"
+composite = true
+origin = '''
+- {{8e27c2f1afac0672-8169d3727e83ae70-b606348d96b2a539}}
+'''
+translate = '''
+- {{8e27c2f1afac0672-8169d3727e83ae70-b606348d96b2a539}}
+'''
+
+[[block]]
+key = "8e27c2f1afac0672-8169d3727e83ae70-b606348d96b2a539"
+type = "paragraph"
+origin = '''
+上传的文件格式为 SVG。
+'''
+translate = '''
+The input file is an SVG.
+'''
+
+[[block]]
+key = "8e27c2f1afac0672-c3e8b07dbc1f2637"
+type = "listItem"
+composite = true
+origin = '''
+- {{8e27c2f1afac0672-c3e8b07dbc1f2637-c95045cbcbf74195}}
+'''
+translate = '''
+- {{8e27c2f1afac0672-c3e8b07dbc1f2637-c95045cbcbf74195}}
+'''
+
+[[block]]
+key = "8e27c2f1afac0672-c3e8b07dbc1f2637-c95045cbcbf74195"
+type = "paragraph"
+origin = '''
+图片处理模式选择“高保真”。
+'''
+translate = '''
+Image Mode is set to **High-Fidelity**.
+'''
+
+[[block]]
+key = "586b1f75fda7f0b0"
+type = "paragraph"
+origin = '''
+原生“矢量”模式直接解析 SVG 几何路径，不经过像素栅格化，因此不使用此数值；PNG、JPG 等位图素材同样不受影响。
+'''
+translate = '''
+Native **Vector** mode processes SVG paths directly without rasterizing, so it ignores this value. Standard raster formats such as PNG and JPG are also unaffected.
+'''
+
+[[block]]
+key = "a68651d802696b68"
+type = "paragraph"
+origin = '''
+修改采样密度后，请重新点击预览并生成 3MF 以应用新精度；点击“恢复默认”可重置回 `10.0 px/mm`。
+'''
+translate = '''
+After changing the sampling density, run Preview and Generate again to rebuild with the updated resolution. **Reset default** restores `10.0 px/mm`.
+'''
+
+[[block]]
+key = "8e598e329cd91d51"
+type = "paragraph"
+origin = '''
+相关页面：
+'''
+translate = '''
+Related pages:
+'''
+
+[[block]]
+key = "ddd6833c7d3d32aa"
+type = "list"
+composite = true
+origin = '''
+{{ddd6833c7d3d32aa-a91dc5ff07f9ccaf}}
+{{ddd6833c7d3d32aa-4635db3905b9ccd0}}
+'''
+translate = '''
+{{ddd6833c7d3d32aa-a91dc5ff07f9ccaf}}
+{{ddd6833c7d3d32aa-4635db3905b9ccd0}}
+'''
+
+[[block]]
+key = "ddd6833c7d3d32aa-a91dc5ff07f9ccaf"
+type = "listItem"
+composite = true
+origin = '''
+- {{ddd6833c7d3d32aa-a91dc5ff07f9ccaf-51c95f37a09bf08f}}
+'''
+translate = '''
+- {{ddd6833c7d3d32aa-a91dc5ff07f9ccaf-51c95f37a09bf08f}}
+'''
+
+[[block]]
+key = "ddd6833c7d3d32aa-a91dc5ff07f9ccaf-51c95f37a09bf08f"
+type = "paragraph"
+origin = '''
+[图片处理模式](../../converter-basic/source-type/source-type.mdx)
+'''
+translate = '''
+[Image Mode](../../converter-basic/source-type/source-type.mdx)
+'''
+
+[[block]]
+key = "ddd6833c7d3d32aa-4635db3905b9ccd0"
+type = "listItem"
+composite = true
+origin = '''
+- {{ddd6833c7d3d32aa-4635db3905b9ccd0-e3909aa3702cb04f}}
+'''
+translate = '''
+- {{ddd6833c7d3d32aa-4635db3905b9ccd0-e3909aa3702cb04f}}
+'''
+
+[[block]]
+key = "ddd6833c7d3d32aa-4635db3905b9ccd0-e3909aa3702cb04f"
+type = "paragraph"
+origin = '''
+[位图与矢量图的区别](../../../knowledge/bitmap-vs-vector/bitmap-vs-vector.mdx)
+'''
+translate = '''
+[Raster and Vector Images](../../../knowledge/bitmap-vs-vector/bitmap-vs-vector.mdx)
+'''

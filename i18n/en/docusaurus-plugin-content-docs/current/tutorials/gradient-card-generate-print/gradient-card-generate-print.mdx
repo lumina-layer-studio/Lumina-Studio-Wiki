@@ -31,6 +31,8 @@ If the player does not load, [watch the complete tutorial on YouTube](https://ww
   alt="A finished white-base and black-base gradient-card pair"
 />
 
+
+
 Every test filament requires two cards—one on a white base and one on a black base—with the stepped color blocks on both cards printed from the same spool.
 
 ## Before you begin
@@ -90,6 +92,8 @@ Click **Generate Configuration Package** and wait for Lumina to build the archiv
   alt="The real files included in the generated ZIP"
 />
 
+
+
 Along with the 3MF model, the ZIP archive contains `manifest.json`, instructions, and the dataset folder template needed during extraction. Keep the archive intact without renaming or deleting its supporting files.
 
 ### Optional: use the online MakerWorld model
@@ -109,11 +113,15 @@ The right-hand panel also links to the official MakerWorld models for the gradie
   alt="The official MakerWorld gradient-card page"
 />
 
+
+
 The linked MakerWorld gradient card uses a **0.08 mm** layer height; if you chose a different layer height in Lumina, print the 3MF inside your local ZIP instead.
 
 Downloading via MakerWorld optionally contributes community giveaway points to the Lumina team. Even if you print from MakerWorld, generate and save the local ZIP from Lumina so you have the dataset package ready for extraction.
 
 ## Step 4: Find and open the 3MF
+
+
 
 Extract the ZIP archive and locate the `.3mf` file in the root folder alongside `manifest.json`, the read-me file, and the dataset template folders.
 
@@ -121,6 +129,10 @@ Open the `.3mf` in Bambu Studio or OrcaSlicer and expand **Gradient Card** in th
 
 - **Base - White** — the backing plate.
 - **Step - Sample** — the stepped gradient patches printed with your test filament.
+
+
+
+
 
 If the slicer warns of an incompatible printer, nozzle, or profile, return to Lumina **Settings**, verify your hardware configuration, and generate a new package rather than overriding the project settings.
 
@@ -137,6 +149,8 @@ For the first card (white base):
 
 - Assign **Base - White** to the white filament.
 - Assign **Step - Sample** to the red test filament.
+
+
 
 For the second card (black base):
 
@@ -160,6 +174,8 @@ Click **Slice Plate** to generate toolpaths.
   src={require('./assets/09-sliced-layer-preview.webp').default}
   alt="Move the layer slider through the sliced bottom preview"
 />
+
+
 
 In **Preview**, rotate the camera to the **Bottom** view and drag the layer slider through the print. Confirm that one base prints white, the other prints black, and the stepped patches on both cards print red, with no missing layers, floating paths, or unintended color swaps.
 

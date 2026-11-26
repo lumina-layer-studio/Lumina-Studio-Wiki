@@ -1,0 +1,234 @@
+[metadata]
+reviewed_source = "6b3aa52c8c456bec81856685a34b43de5ecd22f245dad69fd5865186a897a754"
+
+[[block]]
+key = "09162dbfa0877a50"
+type = "yaml"
+origin = '''
+---
+title: "自定义配方"
+description: "逐层编辑区域配方、预测颜色、应用选区、扩展层数与复用历史配方。"
+sidebar_position: 6
+---
+'''
+translate = '''
+---
+title: "Custom Recipes"
+description: "Edit a region layer by layer, predict color, apply to selection, extend layer count, and reuse recipe history."
+sidebar_position: 6
+---
+'''
+
+[[block]]
+key = "320b5351128406a2"
+type = "heading"
+origin = '''
+# 自定义配方
+'''
+translate = '''
+# Custom Recipes
+'''
+
+[[block]]
+key = "c9cb414628230d56"
+type = "paragraph"
+origin = '''
+自定义配方可为选中的空间区域逐层指定耗材颜色。先在 2D 预览中选中至少一个区域，再点击**自定义配方**打开编辑器。
+'''
+translate = '''
+**Custom Recipe** lets you specify the exact filament color on each optical layer of a selected spatial region. Select at least one region in the 2D preview, then click **Custom Recipe** to open the editor.
+'''
+
+[[block]]
+key = "b8a7d85d0ef15db3"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-custom-recipe.webp').default}
+  alt="为当前区域逐层编辑颜色的自定义配方编辑器"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-custom-recipe.webp').default}
+  alt="Custom Recipe Editor assigning a colour to every layer of the current region"
+/>
+'''
+
+[[block]]
+key = "e1c243e1da5c8c1b"
+type = "heading"
+origin = '''
+## 编辑层序
+'''
+translate = '''
+## Editing the layer stack
+'''
+
+[[block]]
+key = "796f40a0ca2547b1"
+type = "paragraph"
+origin = '''
+编辑器按当前 LUT 记录的光学层序展示各层材料，支持逐层换色、添加层、删除层或上下调整顺序。顶部的**层色搜索**支持简写快速填充：
+'''
+translate = '''
+Layers are listed in the order defined by the active LUT. You can recolor any layer, **Add Layer**, **Remove Layer**, or reorder layers with **Move Up** and **Move Down**. Use the pattern search field at the top for quick shorthand entry:
+'''
+
+[[block]]
+key = "9e9eb7db3cc9b41e"
+type = "list"
+composite = true
+origin = '''
+{{9e9eb7db3cc9b41e-24420c89659a68af}}
+{{9e9eb7db3cc9b41e-224c073aa9150104}}
+{{9e9eb7db3cc9b41e-d562925210051c18}}
+'''
+translate = '''
+{{9e9eb7db3cc9b41e-24420c89659a68af}}
+{{9e9eb7db3cc9b41e-224c073aa9150104}}
+{{9e9eb7db3cc9b41e-d562925210051c18}}
+'''
+
+[[block]]
+key = "9e9eb7db3cc9b41e-24420c89659a68af"
+type = "listItem"
+composite = true
+origin = '''
+- {{9e9eb7db3cc9b41e-24420c89659a68af-ae0785e8e36505f5}}
+'''
+translate = '''
+- {{9e9eb7db3cc9b41e-24420c89659a68af-ae0785e8e36505f5}}
+'''
+
+[[block]]
+key = "9e9eb7db3cc9b41e-24420c89659a68af-ae0785e8e36505f5"
+type = "paragraph"
+origin = '''
+使用颜色英文名首字母指定材料，例如 `W`、`B`、`C`、`M`、`Y`、`R`、`G`；
+'''
+translate = '''
+Enter the first letter of a color's English name, such as `W`, `B`, `C`, `M`, `Y`, `R`, or `G`.
+'''
+
+[[block]]
+key = "9e9eb7db3cc9b41e-224c073aa9150104"
+type = "listItem"
+composite = true
+origin = '''
+- {{9e9eb7db3cc9b41e-224c073aa9150104-cbf88cea68c77fd2}}
+'''
+translate = '''
+- {{9e9eb7db3cc9b41e-224c073aa9150104-cbf88cea68c77fd2}}
+'''
+
+[[block]]
+key = "9e9eb7db3cc9b41e-224c073aa9150104-cbf88cea68c77fd2"
+type = "paragraph"
+origin = '''
+使用 `?` 保留该层当前颜色；
+'''
+translate = '''
+Use `?` to keep the layer's current color.
+'''
+
+[[block]]
+key = "9e9eb7db3cc9b41e-d562925210051c18"
+type = "listItem"
+composite = true
+origin = '''
+- {{9e9eb7db3cc9b41e-d562925210051c18-251b37177f507ebd}}
+'''
+translate = '''
+- {{9e9eb7db3cc9b41e-d562925210051c18-251b37177f507ebd}}
+'''
+
+[[block]]
+key = "9e9eb7db3cc9b41e-d562925210051c18-251b37177f507ebd"
+type = "paragraph"
+origin = '''
+使用 `-` 作为可选分隔符。
+'''
+translate = '''
+Use `-` as an optional separator.
+'''
+
+[[block]]
+key = "a58639ae48c6b783"
+type = "paragraph"
+origin = '''
+简写字母会按当前调色板匹配对应材料；当调色板中存在首字母相同的颜色时，请在填充后核对每一层的实际色块。
+'''
+translate = '''
+Shorthand letters match against the active palette. When two palette colors share the same initial, inspect each layer swatch after clicking **Apply Pattern**.
+'''
+
+[[block]]
+key = "24df14d8202afe74"
+type = "heading"
+origin = '''
+## 预测颜色
+'''
+translate = '''
+## Predict Color
+'''
+
+[[block]]
+key = "09744e159d8d7eb4"
+type = "paragraph"
+origin = '''
+点击**预测颜色**可调用当前 LUT 内置的正向模型，计算该层序对应的 RGB 与 Lab 估算值。若当前 LUT 不含正向模型，界面会提示无法生成预测色，但仍可正常编辑并应用配方。
+'''
+translate = '''
+**Predict Color** uses the forward model bundled with the active LUT to estimate the resulting RGB and Lab values. If the LUT has no forward model, the editor notes that prediction is unavailable, while manual stack editing and application continue to work normally.
+'''
+
+[[block]]
+key = "f748cbe95f2e03c5"
+type = "paragraph"
+origin = '''
+预测色基于光学模型估算，实际打印效果还会受耗材批次、打印板纹理、环境光源与相机白平衡影响。
+'''
+translate = '''
+Predicted values reflect the optical model; physical prints also vary with filament batch, build-plate texture, lighting, and camera white balance.
+'''
+
+[[block]]
+key = "d1cd6bb0acc66cd5"
+type = "heading"
+origin = '''
+## 应用到选区
+'''
+translate = '''
+## Apply to Selection
+'''
+
+[[block]]
+key = "3b44eae05cd42085"
+type = "paragraph"
+origin = '''
+点击**应用到选区**会将当前配方写入所选的一个或多个区域，并重新生成预览。若新配方的层数高于当前预览层数，整张图需按更高的光学层数重新渲染，编辑器会在执行前弹出二次确认。
+'''
+translate = '''
+**Apply to Selection** saves the layer stack to one or more selected regions and rebuilds the preview. When your custom stack uses more layers than the current preview, the full image re-renders at the higher optical-layer count after a confirmation prompt.
+'''
+
+[[block]]
+key = "d96bf1b6f7414f98"
+type = "paragraph"
+origin = '''
+配方既可使用当前 LUT 的原有材料，也可包含本次编辑新增的虚拟材料。生成 3MF 时，相关材料信息会随区域配方一并写入模型，确保预览中的每种颜色都能生成对应实体对象。
+'''
+translate = '''
+A custom recipe can use both existing LUT materials and virtual materials introduced during editing. Both are passed into 3MF generation alongside regional overrides so every previewed color produces its corresponding 3MF object.
+'''
+
+[[block]]
+key = "3b5f8d88b9dcca16"
+type = "paragraph"
+origin = '''
+每次成功应用的配方都会自动存入**历史配方**，切换到其他区域后可一键复用同一层序。编辑器底部的**撤销编辑**仅撤回当前窗口内尚未应用的改动；已确认生效的颜色替换请使用工作站顶部的**撤销**。
+'''
+translate = '''
+Each applied stack is saved to **Recipe History** for one-click reuse on other regions. **Undo edit** inside the dialog reverts only unapplied changes in the editor, whereas **Undo** in the workstation toolbar reverts confirmed replacements.
+'''

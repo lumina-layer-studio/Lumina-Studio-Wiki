@@ -1,0 +1,48 @@
+---
+title: "Gamut Coverage and Material Contributions"
+description: "Compare a filament combination's color range, estimated match error, and the colors affected by removing each filament."
+sidebar_position: 8
+---
+
+# Gamut Coverage and Material Contributions
+
+**Gamut Coverage** compares the color range of a material combination and the role of each filament in that palette. It predicts stacked colors from material profiles, without first generating a model or printing a test piece.
+
+## Choose a combination and calculate
+
+1. Open **Gamut Coverage** under **Material Management** and select at least one material.
+2. Set the layer height and fixed layer count, or enable dynamic layers and choose the minimum, maximum and backing material.
+3. Check the simulated white or black substrate, then select **Calculate coverage**.
+4. Inspect coverage, match error, lightness range, color distribution and material contributions.
+
+Opening the gamut view from the converter brings in its current palette. Select **Use converter selection** to bring it in again. Trying different materials or layer counts in the workbench does not change the converter's settings. After parameters change, the previous result is marked as belonging to the earlier combination; recalculate before comparing.
+
+## Coverage versus match error
+
+| Metric | What it measures | How to compare it |
+| --- | --- | --- |
+| sRGB coverage | How many reference color cells the combination reaches | Higher means a wider range, not necessarily more accurate matching for every color |
+| Estimated match error | Average ΔE00 between reference colors and nearby printable colors | Lower is closer within a color group; inspect greys, dark colors, skin tones and vivid colors separately |
+| Lightness range | The predicted range from dark to light | Consider it alongside shadow detail, greyscale and highlight requirements |
+| Complete / Approximate candidates | Whether all possible stack colors were retained | Approximate results can omit reachable colors; keep the candidate source in mind |
+
+By default, coverage divides Lab space into cells with edges of 5 ΔE, then counts how many cells containing sRGB colors are reached by predicted colors. Match error takes the smallest ΔE00 among eight nearby candidates for each reference color, then averages by color group. Even **Complete candidates** does not mean the reported match error is a global minimum.
+
+## Read the material contribution table
+
+The first row is the full combination's baseline. Each subsequent row shows what happens **when that filament is removed**, not what the filament prints on its own.
+
+- A larger increase in a color group's error means that filament matters more to that group.
+- An increase in the darkest lightness means the remaining combination cannot reach as dark a color.
+- A drop in coverage means part of the available color range is lost.
+- Little visible change means the difference is small for this combination and calculation, not that the filament has no use in other projects.
+
+For example, if removing a filament increases skin-tone error substantially but barely affects vivid colors, that filament is particularly useful for skin tones in this palette. Whether to keep it depends on the artwork, available filament slots and printing requirements, rather than coverage alone.
+
+Per-filament comparisons use the same fixed layer count and a one-million-candidate budget. In dynamic mode, this comparison uses the **maximum layer count**, so its baseline can differ from the coverage of the full dynamic range.
+
+## Dynamic layers and caching
+
+Dynamic mode also shows cumulative coverage at different effective layer-count limits. Its first calculation builds per-layer candidates and a combined catalog, which later conversions can reuse. Changing the fixed count, dynamic range or material combination changes which caches apply. See [Solver Cache](../material-solver-cache/material-solver-cache.mdx).
+
+The calculation uses the selected profiles' measured and fitted data. Compare combinations under consistent layer-height, substrate and candidate conditions; actual prints are also affected by filament batch, temperature and measurement conditions.

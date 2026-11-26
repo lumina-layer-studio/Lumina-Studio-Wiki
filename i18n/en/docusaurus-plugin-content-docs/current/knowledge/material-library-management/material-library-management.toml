@@ -1,0 +1,1462 @@
+[metadata]
+migration_layout = "preserved English structure; root blocks retain grouped or omitted source sections"
+reviewed_source = "d8e7c8767c062e23f96d71da047912f6fba60ea9da09fed9cec4cd0f357cb76d"
+
+[[block]]
+key = "3d2061e43b0632dd"
+type = "yaml"
+origin = '''
+---
+title: "管理耗材档案：编辑、复验、历史、导入和导出"
+description: "在 Lumina Studio 耗材库中查找并核对耗材档案，修改显示信息，继续验证，查看历史，以及用 ZIP 导入、导出和备份。"
+sidebar_position: 34
+---
+'''
+translate = '''
+---
+title: "Manage Material Archives: Edit, Re-Verify, Import, and Export"
+description: "Find and identify Lumina Material Archives, edit display information, review verification history, re-verify physical data, and back up or transfer archives as ZIP files."
+sidebar_position: 34
+---
+'''
+
+[[block]]
+key = "50adbe2fd3bd8872"
+type = "heading"
+origin = '''
+# 管理耗材档案：编辑、复验、历史、导入和导出
+'''
+translate = '''
+# Manage Material Archives: Edit, Re-Verify, Import, and Export
+
+A Lumina Material Archive stores the calibrated optical profile for a specific physical spool of filament. Inside the Material Library, you can inspect archive metadata, tidy up display names and swatches, review past calibration runs, merge new verification data, and back up or transfer archives as ZIP packages.
+'''
+
+[[block]]
+key = "893587fd0f5b7f1a"
+type = "paragraph"
+origin = '''
+完成梯度卡提取后，Lumina Studio 会将结果保存为一份可复用的**耗材档案**。档案中除了显示名称与识别色块外，还完整记录了该卷耗材在指定层高下的光学拟合参数、历次验证记录以及供图像转换调用的测量数据。
+'''
+translate = '''
+Keep this core distinction in mind:
+
+- **Edit Details** updates display labels and the identification swatch shown in the interface.
+- **Re-Verify** updates measured optical parameters through a new gradient-card calibration run.
+'''
+
+[[block]]
+key = "f86f7487b3c545eb"
+type = "paragraph"
+origin = '''
+本篇介绍耗材库中的日常管理操作：查找与核对档案身份、修改显示信息、追加复验、回看历史记录，以及使用 ZIP 压缩包完成备份和跨设备迁移。
+'''
+translate = '''
+Adjusting a swatch color only changes how the card appears in your library—it never recalculates light transmission or fitting parameters.
+'''
+
+[[block]]
+key = "2a029f77dfb9a0dc"
+type = "heading"
+origin = '''
+## 梯度卡 ZIP 和耗材档案 ZIP 有什么区别
+'''
+translate = '''
+## Gradient-card ZIP or material archive ZIP?
+'''
+
+[[block]]
+key = "a371ba5af1e20ca7"
+type = "table"
+origin = '''
+| 压缩包类型 | 获取方式 | 导入位置与用途 |
+| --- | --- | --- |
+| 梯度卡配置 ZIP | 在“梯度卡生成”页面生成并下载 | 在“梯度卡提取”中导入，配合同批次打印的白底卡、黑底卡实拍图提取新档案 |
+| 耗材档案 ZIP | 从“耗材库”导出备份，或由他人分享 | 在“耗材库”中点击“导入耗材 ZIP”，直接安装已制作完成的耗材档案 |
+'''
+translate = '''
+| Package type | Where you get it | Where to import it |
+| --- | --- | --- |
+| Gradient-card kit ZIP | Generated and downloaded from **Gradient Card Generation** | Import in **Gradient Card Extraction** alongside photos of your printed white- and black-backed cards to build an archive |
+| Material Archive ZIP | Exported from the **Material Library** or shared by another user | Click **Import Material ZIP** in the **Material Library** to install finished archives |
+'''
+
+[[block]]
+key = "4014a87aa5f1d7d6"
+type = "paragraph"
+origin = '''
+两种文件虽同为 `.zip` 扩展名，但内部数据结构与导入入口各不相同，不可交叉混用。如需从零制作新档案，请参阅[生成并打印梯度卡](../../tutorials/gradient-card-generate-print/gradient-card-generate-print.mdx)与[拍摄并提取梯度卡](../../tutorials/gradient-card-extract-profile/gradient-card-extract-profile.mdx)。
+'''
+translate = '''
+Although both files end in `.zip`, they hold different data for different stages of the workflow and cannot be swapped. To create an archive from scratch, see [Generate and Print Gradient Calibration Cards](../../tutorials/gradient-card-generate-print/gradient-card-generate-print.mdx) and [Photograph and Extract Gradient Cards](../../tutorials/gradient-card-extract-profile/gradient-card-extract-profile.mdx).
+'''
+
+[[block]]
+key = "793919f786bd658b"
+type = "admonition"
+composite = true
+origin = '''
+:::info[阅读前提]
+{{793919f786bd658b-d700bb76a8101a67}}
+:::
+'''
+translate = '''
+'''
+
+[[block]]
+key = "793919f786bd658b-d700bb76a8101a67"
+type = "paragraph"
+origin = '''
+本篇面向已在“耗材管理 → 耗材库”中拥有至少一份耗材档案的用户。首次制作档案请先阅读[生成并打印梯度卡](pathname:///zh/docs/tutorials/gradient-card-generate-print/)和[拍摄并提取梯度卡](pathname:///zh/docs/tutorials/gradient-card-extract-profile/)。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "23a13988648c2bac"
+type = "heading"
+origin = '''
+## 第一步：进入耗材库定位目标档案
+'''
+translate = '''
+## Step 1: Browse brand groups and selection controls
+'''
+
+[[block]]
+key = "1c78f887dd13c68f"
+type = "list"
+composite = true
+origin = '''
+{{1c78f887dd13c68f-7e6c08a4638e262c}}
+{{1c78f887dd13c68f-f40969fb133135d2}}
+{{1c78f887dd13c68f-c084d9e67a999683}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1c78f887dd13c68f-7e6c08a4638e262c"
+type = "listItem"
+composite = true
+origin = '''
+1. {{1c78f887dd13c68f-7e6c08a4638e262c-27833eb30e9aaf0c}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1c78f887dd13c68f-7e6c08a4638e262c-27833eb30e9aaf0c"
+type = "paragraph"
+origin = '''
+打开 Lumina Studio，点击顶部导航栏的“耗材管理”；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1c78f887dd13c68f-f40969fb133135d2"
+type = "listItem"
+composite = true
+origin = '''
+2. {{1c78f887dd13c68f-f40969fb133135d2-948cf70fc8b4942a}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1c78f887dd13c68f-f40969fb133135d2-948cf70fc8b4942a"
+type = "paragraph"
+origin = '''
+在二级标签页中切换到“耗材库”；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1c78f887dd13c68f-c084d9e67a999683"
+type = "listItem"
+composite = true
+origin = '''
+3. {{1c78f887dd13c68f-c084d9e67a999683-8c3c11503c4db8d5}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "1c78f887dd13c68f-c084d9e67a999683-8c3c11503c4db8d5"
+type = "paragraph"
+origin = '''
+点击展开对应的品牌分组，找到需要管理的耗材卡片。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "cdfbffe237ce4484"
+type = "paragraph"
+origin = '''
+耗材库默认按品牌折叠，品牌名称右侧的数字代表该分组下的档案总数。工具栏左侧实时统计“已选择 / 总数”，右侧依次提供全选、导入、导出与刷新按钮。
+'''
+translate = '''
+Open **Material Management → Material Library**.
+'''
+
+[[block]]
+key = "af9538a797f70e99"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-library-overview.webp').default}
+  alt="Lumina Studio 耗材库顶部显示选择数量，并提供全选、导入 ZIP、导出和刷新按钮"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-library-overview.webp').default}
+  alt="Real English Lumina Material Library with selection count, brand groups, Select All, import, export, and refresh controls highlighted"
+/>
+
+The header bar shows your current selection count alongside total installed archives (export remains disabled until at least one archive is checked). Brand groups start collapsed by default, with a badge indicating how many archives belong to each brand:
+
+- **Select All:** Selects every archive currently in the library.
+- **Import Material ZIP:** Installs one or more exported Lumina archive ZIP packages.
+- **Export Selected:** Downloads all checked archives together in a single ZIP file.
+- **Refresh:** Reloads the library after importing or external file updates.
+'''
+
+[[block]]
+key = "cdcc0e85d4c0653a"
+type = "paragraph"
+origin = '''
+刚保存或导入新档案后，若列表暂未显示，先点击右上角的“刷新耗材库”再展开对应品牌即可，避免重复导入同一份 ZIP。
+'''
+translate = '''
+Expand a brand group to inspect individual cards rather than relying on color names alone—similar names can belong to different product lines, finishes, or layer heights.
+'''
+
+[[block]]
+key = "c48634c2b4df8997"
+type = "heading"
+origin = '''
+## 第二步：读懂耗材卡片上的关键指标
+'''
+translate = '''
+## Step 2: Check archive details before use
+'''
+
+[[block]]
+key = "89a49479856c0cf3"
+type = "paragraph"
+origin = '''
+每张卡片对应一份独立耗材档案。在编辑、调用或删除前，建议先核对卡片上的核心信息：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "dac594834ded6760"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/02-material-card.webp').default}
+  alt="一份 Lumina Studio 耗材档案卡片显示名称、颜色、目录、拟合误差、验证次数、使用次数和层高"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/02-material-card.webp').default}
+  alt="Real English Lumina Material Archive card with material name, brand, directory, display colour, fit error, verification count, usage count, and layer height highlighted"
+/>
+
+Review these fields on a Material Archive card before selecting, editing, or deleting it:
+
+- **Material name and brand:** Human-readable labels for searching and grouping.
+- **Directory identity and source:** The internal folder ID that uniquely identifies the archive.
+- **Display color and HEX code:** Visual swatch for quick recognition in lists.
+- **Layer Height:** The print layer height used when the gradient cards were calibrated.
+- **Fit error and verification count:** Optical fitting accuracy and number of merged calibration runs.
+- **Created and last-updated timestamps:** Helpful for telling apart older and newer revisions.
+'''
+
+[[block]]
+key = "a89fe6f978d4c88d"
+type = "table"
+origin = '''
+| 字段名称 | 含义说明 | 核对要点 |
+| --- | --- | --- |
+| 名称与品牌 | 用于列表分组与检索的展示标签 | 不同批次或不同用户制作的档案可能同名，需结合目录名与验证记录区分 |
+| 显示颜色与 HEX 值 | 用于界面快速辨认的参考色块 | 仅作视觉标识，实际叠色预测以内部光学参数为准 |
+| 目录名 | 系统区分档案身份的唯一内部标识 | 修改显示名称后目录名保持不变，不会打断已有引用 |
+| 创建时间 / 最近更新 | 首次建档与最后一次修改的时间戳 | 存在多份相近档案时，可用于分辨新旧版本 |
+| 拟合误差 | 光学模型与实拍采样数据的平均偏差 | 在同一套布光与拍摄条件下数值越低拟合越紧密；跨设备、跨光线不宜直接横向对比 |
+| 验证次数 | 该档案累计合并的独立验证轮数 | 结合每次拍摄质量综合评估稳定性 |
+| 使用次数 | 在图像转换任务中被选用的累计次数 | 统计日常使用频率 |
+| 层高 | 校准提取该档案时所用的打印层高 | 转换作品时应匹配对应层高（如 `0.08 mm` 档案对应 `0.08 mm` 显色层高） |
+'''
+translate = '''
+'''
+
+[[block]]
+key = "df0608e1ad5eae8b"
+type = "paragraph"
+origin = '''
+若界面提示存在同名同品牌的重复项，说明本地同时安装了多份相近档案。可展开卡片逐一比对目录名、更新时间、验证次数与测试层高后再做取舍。
+'''
+translate = '''
+Note that **Usage Count** simply tracks how many times you've used the archive in conversions rather than scoring calibration quality. When choosing among similarly colored cards, match the exact filament product, polymer family, batch (if known), and Layer Height—see [Choose Material Archives or a Classic LUT](../material-profile-selection/material-profile-selection.mdx).
+'''
+
+[[block]]
+key = "6eb5cd876738cf29"
+type = "heading"
+origin = '''
+## 第三步：修改名称、品牌与显示色块
+'''
+translate = '''
+## Step 3: Edit display labels and swatches
+'''
+
+[[block]]
+key = "fee62ba3d0ae75ab"
+type = "paragraph"
+origin = '''
+点击卡片底部的“编辑信息”，可随时调整以下展示字段：
+'''
+translate = '''
+Click **Edit Details** on a card to tidy up how it appears in your library:
+'''
+
+[[block]]
+key = "e40d80b8fd3ffc80"
+type = "list"
+composite = true
+origin = '''
+{{e40d80b8fd3ffc80-14c591932711ab73}}
+{{e40d80b8fd3ffc80-c77ad2237569a7db}}
+{{e40d80b8fd3ffc80-3ed53d38a75e9cfc}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "e40d80b8fd3ffc80-14c591932711ab73"
+type = "listItem"
+composite = true
+origin = '''
+- {{e40d80b8fd3ffc80-14c591932711ab73-af548a00e05542ea}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "e40d80b8fd3ffc80-14c591932711ab73-af548a00e05542ea"
+type = "paragraph"
+origin = '''
+耗材名称；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "e40d80b8fd3ffc80-c77ad2237569a7db"
+type = "listItem"
+composite = true
+origin = '''
+- {{e40d80b8fd3ffc80-c77ad2237569a7db-f4adf980ee51d5e4}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "e40d80b8fd3ffc80-c77ad2237569a7db-f4adf980ee51d5e4"
+type = "paragraph"
+origin = '''
+所属品牌；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "e40d80b8fd3ffc80-3ed53d38a75e9cfc"
+type = "listItem"
+composite = true
+origin = '''
+- {{e40d80b8fd3ffc80-3ed53d38a75e9cfc-cd0d8d5bbefa76f5}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "e40d80b8fd3ffc80-3ed53d38a75e9cfc-cd0d8d5bbefa76f5"
+type = "paragraph"
+origin = '''
+用于界面辨识的显示颜色（或十六进制色号）。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "87181ab9b8ba64de"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/03-edit-dialog.webp').default}
+  alt="编辑耗材信息窗口可以修改名称、品牌和显示颜色，同时显示不可直接修改的目录名"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/03-edit-dialog.webp').default}
+  alt="Real English Lumina Edit Material Details dialog with name, brand, display colour, directory identity, and non-recalibration warning highlighted"
+/>
+
+Here you can update:
+
+- **Material Name**
+- **Brand** (optional)
+- **Display Color** swatch used for UI identification
+'''
+
+[[block]]
+key = "04aba8ebe6307fd0"
+type = "paragraph"
+origin = '''
+保存修改后，底层目录身份与过往验证历史均原样保留，非常适合修正拼写、统一品牌归类或调整色块辨识度。
+'''
+translate = '''
+Saving updates these labels while keeping the underlying directory ID and full verification history intact—handy for fixing typos, standardizing brand names, or making similar swatches easier to tell apart.
+'''
+
+[[block]]
+key = "93933f0a89705bf4"
+type = "admonition"
+composite = true
+origin = '''
+:::warning[仅改显示信息]
+{{93933f0a89705bf4-961007f90dd2d65c}}
+:::
+'''
+translate = '''
+:::warning[Display color vs. calibration data]
+**Edit Details** does not reprocess gradient-card photos or recalculate optical parameters (`E`, `K`, or `C0`). If physical prints shift in hue or brightness, check your spool identity, lighting setup, and Layer Height, and run **Re-Verify** to update the measured model.
+:::
+'''
+
+[[block]]
+key = "93933f0a89705bf4-961007f90dd2d65c"
+type = "paragraph"
+origin = '''
+“编辑信息”仅更新卡片外观与文字标签，不会重新解析梯度卡照片或重算 `E`、`K`、`C0` 等物理拟合参数。若更换了线材批次或需要修正成色偏差，请使用“再次验证”。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0d4d8135a43c38c2"
+type = "heading"
+origin = '''
+## 第四步：回看历次验证历史
+'''
+translate = '''
+## Step 4: Inspect verification history
+'''
+
+[[block]]
+key = "3956543bd734c5ad"
+type = "paragraph"
+origin = '''
+点击卡片上的“展开验证历史”，即可按时间倒序查看该档案的历次校准详情（最新一轮排在最上方）：
+'''
+translate = '''
+Click **Show Verification History** to review every calibration run logged for the archive, listed newest first:
+'''
+
+[[block]]
+key = "6f37af05fc94cd5e"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/04-verification-history.webp').default}
+  alt="验证历史窗口按时间显示多次耗材验证的颜色、拟合误差、RMSE、方向和诊断参数"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/04-verification-history.webp').default}
+  alt="Real English Lumina verification history showing several dated runs, display colour, fit error, RMSE, and diagnostic values"
+/>
+'''
+
+[[block]]
+key = "277c3e246d6245dd"
+type = "paragraph"
+origin = '''
+日常核查可重点关注这五项指标：
+'''
+translate = '''
+For routine checks, focus on:
+'''
+
+[[block]]
+key = "5fd51b2eb479b886"
+type = "list"
+composite = true
+origin = '''
+{{5fd51b2eb479b886-aee181bd5a629f75}}
+{{5fd51b2eb479b886-e55c39ddd9d5c274}}
+{{5fd51b2eb479b886-3b0d74a9776eb4b4}}
+{{5fd51b2eb479b886-2864fb7393f21cf2}}
+{{5fd51b2eb479b886-5a79de56e6298f74}}
+'''
+translate = '''
+- **Date and timestamp** of each calibration run
+- **Estimated display color** stability across runs
+- **Fit error and linear RMSE** under consistent lighting and camera settings
+- **Layer Height** recorded with the run
+'''
+
+[[block]]
+key = "5fd51b2eb479b886-aee181bd5a629f75"
+type = "listItem"
+composite = true
+origin = '''
+1. {{5fd51b2eb479b886-aee181bd5a629f75-e090d0db1bd84e62}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "5fd51b2eb479b886-aee181bd5a629f75-e090d0db1bd84e62"
+type = "paragraph"
+origin = '''
+**验证时间**：确认对应哪一卷线材批次与哪一次拍摄；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "5fd51b2eb479b886-e55c39ddd9d5c274"
+type = "listItem"
+composite = true
+origin = '''
+2. {{5fd51b2eb479b886-e55c39ddd9d5c274-c77644799a6e2e2b}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "5fd51b2eb479b886-e55c39ddd9d5c274-c77644799a6e2e2b"
+type = "paragraph"
+origin = '''
+**估算颜色**：观察多轮采样的色相与明度是否稳定一致；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "5fd51b2eb479b886-3b0d74a9776eb4b4"
+type = "listItem"
+composite = true
+origin = '''
+3. {{5fd51b2eb479b886-3b0d74a9776eb4b4-d70bce9a49da971f}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "5fd51b2eb479b886-3b0d74a9776eb4b4-d70bce9a49da971f"
+type = "paragraph"
+origin = '''
+**拟合误差**：在相同布光与相机参数下对比各轮拟合表现；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "5fd51b2eb479b886-2864fb7393f21cf2"
+type = "listItem"
+composite = true
+origin = '''
+4. {{5fd51b2eb479b886-2864fb7393f21cf2-1819eb88ed2929df}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "5fd51b2eb479b886-2864fb7393f21cf2-1819eb88ed2929df"
+type = "paragraph"
+origin = '''
+**线性 RMSE**：辅助评估模型对全梯度采样点的整体拟合优度；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "5fd51b2eb479b886-5a79de56e6298f74"
+type = "listItem"
+composite = true
+origin = '''
+5. {{5fd51b2eb479b886-5a79de56e6298f74-7dfee4bbf09fe23a}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "5fd51b2eb479b886-5a79de56e6298f74-7dfee4bbf09fe23a"
+type = "paragraph"
+origin = '''
+**识别方向**：确认白底卡与黑底卡照片朝向识别正常。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7890a56c824604d6"
+type = "paragraph"
+origin = '''
+窗口底部列出的 `E`、`K`、白底 `C0` 与黑底 `C0` 为底层光学诊断参数，日常使用无需手动记录。若两轮验证数值相差悬殊，请优先排查布光均匀度、相机固定曝光、白平衡、四角框选位置以及色卡是否出自同一卷线盘。
+'''
+translate = '''
+Card orientation, `E`, `K`, and white/black `C0` values serve as deeper diagnostics when troubleshooting glare, uneven lighting, or corner-alignment issues. Evaluate fit numbers alongside consistent lighting and a physical test swatch rather than picking a run by the lowest error number alone.
+'''
+
+[[block]]
+key = "23f1f67c3cdb0ffa"
+type = "heading"
+origin = '''
+## 第五步：对已有档案执行“再次验证”
+'''
+translate = '''
+## Step 5: Re-verify an existing archive
+'''
+
+[[block]]
+key = "1771f225cafa9e07"
+type = "paragraph"
+origin = '''
+遇到以下场景时，可在目标卡片上点击“再次验证”：
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a12564bd06db6cee"
+type = "list"
+composite = true
+origin = '''
+{{a12564bd06db6cee-a83924129597b843}}
+{{a12564bd06db6cee-331ff228d3b008e1}}
+{{a12564bd06db6cee-fddf8ced16e918c8}}
+{{a12564bd06db6cee-c859f066a35fc405}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a12564bd06db6cee-a83924129597b843"
+type = "listItem"
+composite = true
+origin = '''
+- {{a12564bd06db6cee-a83924129597b843-e6a73bf20c90eddb}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a12564bd06db6cee-a83924129597b843-e6a73bf20c90eddb"
+type = "paragraph"
+origin = '''
+改善了灯箱布光或固定了相机参数，希望补拍一组更干净的样本；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a12564bd06db6cee-331ff228d3b008e1"
+type = "listItem"
+composite = true
+origin = '''
+- {{a12564bd06db6cee-331ff228d3b008e1-0bdd5d2cd6b4b132}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a12564bd06db6cee-331ff228d3b008e1-0bdd5d2cd6b4b132"
+type = "paragraph"
+origin = '''
+购入了同款同色的新批次耗材，希望在同一档案下留存对比记录；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a12564bd06db6cee-fddf8ced16e918c8"
+type = "listItem"
+composite = true
+origin = '''
+- {{a12564bd06db6cee-fddf8ced16e918c8-0ae62f8ded8f3f71}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a12564bd06db6cee-fddf8ced16e918c8-0ae62f8ded8f3f71"
+type = "paragraph"
+origin = '''
+上一轮实拍图存在局部反光、色温漂移或角点偏移；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a12564bd06db6cee-c859f066a35fc405"
+type = "listItem"
+composite = true
+origin = '''
+- {{a12564bd06db6cee-c859f066a35fc405-7da8e31a4b622abc}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "a12564bd06db6cee-c859f066a35fc405-7da8e31a4b622abc"
+type = "paragraph"
+origin = '''
+希望增加一轮独立采样以提高参数稳健性。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "e855a9cc1c4fb777"
+type = "paragraph"
+origin = '''
+跳转至梯度卡提取页面后，顶部横幅会提示“当前正在进行耗材复验”，并标明目标耗材名称与已有验证次数。核对目标无误后，导入与该组实体色卡配套的梯度卡配置 ZIP，并上传新拍摄的白底与黑底照片。
+'''
+translate = '''
+Click **Re-Verify** on a card whenever you want to refine or update its optical measurements—for example, after improving your lighting setup, opening a fresh batch of the same filament, or adding another independent sample run:
+'''
+
+[[block]]
+key = "ddfd6c94db0085fc"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/05-reverify-target.webp').default}
+  alt="再次验证时梯度卡提取页面显示目标耗材、现有验证次数和合并结果入口"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/05-reverify-target.webp').default}
+  alt="Real English Lumina Material Re-Verification flow with target archive, current verification count, ZIP upload, white and black backing images, and Merge Results highlighted"
+/>
+
+Confirm the target archive banner at the top of the extraction page, then:
+
+1. Import the matching gradient-card kit ZIP for that exact spool and Layer Height.
+2. Upload your newly photographed white-backed and black-backed gradient cards.
+3. Verify card orientation, even illumination, and corner markers.
+4. Run extraction and click **Merge Results** to append the new calibration run to the archive (or cancel if you selected the wrong card or files).
+'''
+
+[[block]]
+key = "35eab270b457f1a0"
+type = "paragraph"
+origin = '''
+提取完成后点击“合并结果”，新数据将写入当前档案；如需中途退出，点击“取消复验”即可。
+'''
+translate = '''
+Only merge runs printed from the same filament product and Layer Height so the archive's optical model stays consistent.
+'''
+
+[[block]]
+key = "cfa7df00377fd2fc"
+type = "admonition"
+composite = true
+origin = '''
+:::tip[保持数据一致]
+{{cfa7df00377fd2fc-570374ddaa7b50cf}}
+:::
+'''
+translate = '''
+'''
+
+[[block]]
+key = "cfa7df00377fd2fc-570374ddaa7b50cf"
+type = "paragraph"
+origin = '''
+复验时导入的配置 ZIP、白底照片与黑底照片，必须来自同一卷耗材、同一次梯度卡生成任务和相同的打印层高，切勿将不同批次或不同层高的数据混入同一次复验。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0850701f35fc347c"
+type = "heading"
+origin = '''
+## 第六步：导出耗材 ZIP 备份或迁移
+'''
+translate = '''
+## Step 6: Export a ZIP backup before major changes
+'''
+
+[[block]]
+key = "2bc560c318e801b2"
+type = "list"
+composite = true
+origin = '''
+{{2bc560c318e801b2-548881b8a6336caa}}
+{{2bc560c318e801b2-8556c4d69ebfb03f}}
+{{2bc560c318e801b2-e46bab918ee73b55}}
+{{2bc560c318e801b2-eb857e72d747114a}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2bc560c318e801b2-548881b8a6336caa"
+type = "listItem"
+composite = true
+origin = '''
+1. {{2bc560c318e801b2-548881b8a6336caa-d3be4c27ebee18bb}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2bc560c318e801b2-548881b8a6336caa-d3be4c27ebee18bb"
+type = "paragraph"
+origin = '''
+勾选需要备份的一张或多张耗材卡片（备份整库可点击顶部“全选耗材”）；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2bc560c318e801b2-8556c4d69ebfb03f"
+type = "listItem"
+composite = true
+origin = '''
+2. {{2bc560c318e801b2-8556c4d69ebfb03f-90764ce63e4dbf32}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2bc560c318e801b2-8556c4d69ebfb03f-90764ce63e4dbf32"
+type = "paragraph"
+origin = '''
+点击“导出所选耗材”；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2bc560c318e801b2-e46bab918ee73b55"
+type = "listItem"
+composite = true
+origin = '''
+3. {{2bc560c318e801b2-e46bab918ee73b55-2ae0a7287eb309f3}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2bc560c318e801b2-e46bab918ee73b55-2ae0a7287eb309f3"
+type = "paragraph"
+origin = '''
+浏览器会自动下载打包好的 Lumina 耗材档案 ZIP；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2bc560c318e801b2-eb857e72d747114a"
+type = "listItem"
+composite = true
+origin = '''
+4. {{2bc560c318e801b2-eb857e72d747114a-dad6bad83c486c0e}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2bc560c318e801b2-eb857e72d747114a-dad6bad83c486c0e"
+type = "paragraph"
+origin = '''
+为 ZIP 文件备注日期与品牌范围，妥善存放在本地备份目录或网盘中。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "b9132cc0f88f2d37"
+type = "paragraph"
+origin = '''
+无论勾选单份还是多份档案，系统都会统一打包为一个标准耗材档案 ZIP，专用于档案备份、多台电脑同步或团队共享（不可作为 3MF 模型直接放入切片器）。
+'''
+translate = '''
+Check one or more archive cards and click **Export Selected**:
+'''
+
+[[block]]
+key = "a33768fce4f9d8c8"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/06-import-export.webp').default}
+  alt="耗材库选择一份档案后成功导出 ZIP，顶部同时提供导入耗材 ZIP 的入口"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/06-import-export.webp').default}
+  alt="Real English Lumina Material Library after exporting one selected archive as a ZIP"
+/>
+'''
+
+[[block]]
+key = "c8a49c338f6abc3b"
+type = "paragraph"
+origin = '''
+建议在执行以下操作前先导出一份离线备份：
+'''
+translate = '''
+Exported Material Archive ZIPs are ideal for:
+'''
+
+[[block]]
+key = "62e102052cebc804"
+type = "list"
+composite = true
+origin = '''
+{{62e102052cebc804-3783ebcbac813fe7}}
+{{62e102052cebc804-0818822e05132f91}}
+{{62e102052cebc804-ad514ade5805d787}}
+{{62e102052cebc804-5240ff35aff1555e}}
+'''
+translate = '''
+- Saving an offline backup before deleting or reorganizing archives
+- Migrating your calibrated library to another authorized computer
+- Sharing custom calibration profiles for the exact same filament and Layer Height
+- Snapshotting a known-good archive before merging a new verification run
+
+Because deleting an archive in the Material Library cannot be undone, always save an exported ZIP outside Lumina's working folder first.
+'''
+
+[[block]]
+key = "62e102052cebc804-3783ebcbac813fe7"
+type = "listItem"
+composite = true
+origin = '''
+- {{62e102052cebc804-3783ebcbac813fe7-7789f0dbae156596}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "62e102052cebc804-3783ebcbac813fe7-7789f0dbae156596"
+type = "paragraph"
+origin = '''
+清理或删除本地耗材档案；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "62e102052cebc804-0818822e05132f91"
+type = "listItem"
+composite = true
+origin = '''
+- {{62e102052cebc804-0818822e05132f91-56752389df2230d3}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "62e102052cebc804-0818822e05132f91-56752389df2230d3"
+type = "paragraph"
+origin = '''
+批量整理品牌分组与命名；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "62e102052cebc804-ad514ade5805d787"
+type = "listItem"
+composite = true
+origin = '''
+- {{62e102052cebc804-ad514ade5805d787-6b60b227dadd48bf}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "62e102052cebc804-ad514ade5805d787-6b60b227dadd48bf"
+type = "paragraph"
+origin = '''
+更换电脑、重装系统或迁移工作目录；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "62e102052cebc804-5240ff35aff1555e"
+type = "listItem"
+composite = true
+origin = '''
+- {{62e102052cebc804-5240ff35aff1555e-10ce8d13c5469ca6}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "62e102052cebc804-5240ff35aff1555e-10ce8d13c5469ca6"
+type = "paragraph"
+origin = '''
+在获得授权的前提下与同伴共享自测耗材档案。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "7a1c7837d5ad656e"
+type = "heading"
+origin = '''
+## 第七步：导入外部耗材档案 ZIP
+'''
+translate = '''
+## Step 7: Import Material Archive ZIPs
+
+Click **Import Material ZIP** to install one or more Lumina archive packages at once. To protect existing work, the importer never overwrites local archives destructively: identical package revisions are skipped automatically, while directory name collisions with different data are saved side by side under a suffixed directory ID.
+
+After importing, expand the brand group and verify:
+'''
+
+[[block]]
+key = "0ace56d68885e0e2"
+type = "list"
+composite = true
+origin = '''
+{{0ace56d68885e0e2-c263c4b75d6a528c}}
+{{0ace56d68885e0e2-5ac5e871e58bc04a}}
+{{0ace56d68885e0e2-ca43d91075a9286a}}
+{{0ace56d68885e0e2-a10686f3103c6915}}
+{{0ace56d68885e0e2-b2e196e287aa113e}}
+'''
+translate = '''
+- Displayed material name, brand, and directory ID
+- Verification count and calibrated Layer Height
+- Source provenance and usage rights (if shared by a third party)
+- A quick physical test swatch before starting a large print
+'''
+
+[[block]]
+key = "0ace56d68885e0e2-c263c4b75d6a528c"
+type = "listItem"
+composite = true
+origin = '''
+1. {{0ace56d68885e0e2-c263c4b75d6a528c-72193d66284407a8}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0ace56d68885e0e2-c263c4b75d6a528c-72193d66284407a8"
+type = "paragraph"
+origin = '''
+在耗材库顶部点击“导入耗材 ZIP”；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0ace56d68885e0e2-5ac5e871e58bc04a"
+type = "listItem"
+composite = true
+origin = '''
+2. {{0ace56d68885e0e2-5ac5e871e58bc04a-8bcfc8a62d3465f3}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0ace56d68885e0e2-5ac5e871e58bc04a-8bcfc8a62d3465f3"
+type = "paragraph"
+origin = '''
+选择一个或多个由 Lumina 导出的 `.zip` 耗材归档包；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0ace56d68885e0e2-ca43d91075a9286a"
+type = "listItem"
+composite = true
+origin = '''
+3. {{0ace56d68885e0e2-ca43d91075a9286a-b79769030be02ba9}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0ace56d68885e0e2-ca43d91075a9286a-b79769030be02ba9"
+type = "paragraph"
+origin = '''
+等待导入完成并自动刷新列表；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0ace56d68885e0e2-a10686f3103c6915"
+type = "listItem"
+composite = true
+origin = '''
+4. {{0ace56d68885e0e2-a10686f3103c6915-f80307a9d3d8a72b}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0ace56d68885e0e2-a10686f3103c6915-f80307a9d3d8a72b"
+type = "paragraph"
+origin = '''
+展开对应品牌，核对新档案的名称、目录名、验证次数与层高；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0ace56d68885e0e2-b2e196e287aa113e"
+type = "listItem"
+composite = true
+origin = '''
+5. {{0ace56d68885e0e2-b2e196e287aa113e-b657a8dbc32d3a0b}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "0ace56d68885e0e2-b2e196e287aa113e-b657a8dbc32d3a0b"
+type = "paragraph"
+origin = '''
+若出现同名提示，展开卡片比对目录名与更新时间以区分原档与新导入档。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "03fff6af9db1eb48"
+type = "paragraph"
+origin = '''
+为保护本地已有数据，导入器不会强行覆盖现有档案：完全一致的修订包会自动跳过重复安装，而目录重名但内容不同的档案则会以带时间戳后缀的新目录独立并存。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "01ba80fc1502964a"
+type = "paragraph"
+origin = '''
+导入时请直接使用原始导出的完整 `.zip` 文件，切勿手动解压改名内部 JSON 后重新打包，也不要将普通图片、3MF 模型或梯度卡配置包误投到此入口。
+'''
+translate = '''
+Always import the intact `.zip` package directly rather than unzipping and repacking internal JSON files by hand.
+'''
+
+[[block]]
+key = "8083ff92c2db1076"
+type = "heading"
+origin = '''
+## 第八步：安全删除不再需要的档案
+'''
+translate = '''
+## Recommended local backup layout
+'''
+
+[[block]]
+key = "0af43018a3f8ca27"
+type = "paragraph"
+origin = '''
+“删除耗材”会将所选档案从本地耗材库中永久移除，且无法直接在界面内撤销。执行删除前请按顺序确认：
+'''
+translate = '''
+Keeping dated backups alongside brief calibration notes makes long-term library maintenance effortless:
+
+```text
+material-archives/
+  YYYY-MM-DD/
+    exported-materials.zip
+    verification-notes.txt
+    reference-photos/
+```
+'''
+
+[[block]]
+key = "96e299ccc1f02783"
+type = "list"
+composite = true
+origin = '''
+{{96e299ccc1f02783-93229b8cbd14fdb2}}
+{{96e299ccc1f02783-a8dd31822557bbf4}}
+{{96e299ccc1f02783-477cabf65de7c982}}
+{{96e299ccc1f02783-ee7ab32290714133}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "96e299ccc1f02783-93229b8cbd14fdb2"
+type = "listItem"
+composite = true
+origin = '''
+1. {{96e299ccc1f02783-93229b8cbd14fdb2-537f1a2f1855fd62}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "96e299ccc1f02783-93229b8cbd14fdb2-537f1a2f1855fd62"
+type = "paragraph"
+origin = '''
+核对卡片目录名与更新时间，防止误删同名的有效档案；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "96e299ccc1f02783-a8dd31822557bbf4"
+type = "listItem"
+composite = true
+origin = '''
+2. {{96e299ccc1f02783-a8dd31822557bbf4-4a1cfeea8cb3d9dc}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "96e299ccc1f02783-a8dd31822557bbf4-4a1cfeea8cb3d9dc"
+type = "paragraph"
+origin = '''
+先执行一次“导出所选耗材”，确认备份 ZIP 已妥善落盘；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "96e299ccc1f02783-477cabf65de7c982"
+type = "listItem"
+composite = true
+origin = '''
+3. {{96e299ccc1f02783-477cabf65de7c982-d2b4cc78eaf11479}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "96e299ccc1f02783-477cabf65de7c982-d2b4cc78eaf11479"
+type = "paragraph"
+origin = '''
+确认当前没有正在使用该档案的转换任务；
+'''
+translate = '''
+'''
+
+[[block]]
+key = "96e299ccc1f02783-ee7ab32290714133"
+type = "listItem"
+composite = true
+origin = '''
+4. {{96e299ccc1f02783-ee7ab32290714133-80caa46e370b1666}}
+'''
+translate = '''
+'''
+
+[[block]]
+key = "96e299ccc1f02783-ee7ab32290714133-80caa46e370b1666"
+type = "paragraph"
+origin = '''
+核对弹窗中的档案名称与目录标识后再点击确认。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "be7e0b2bb8778144"
+type = "paragraph"
+origin = '''
+若只是想改名、归整品牌或调亮识别色块，直接使用“编辑信息”即可；若只是想更新实测数据，使用“再次验证”即可，均无需删档重建。
+'''
+translate = '''
+Record the exact filament line, batch code, Layer Height, nozzle size, and lighting setup in your notes, and strip any personal machine paths or account details before sharing archives publicly.
+'''
+
+[[block]]
+key = "cbbf3b866f003400"
+type = "heading"
+origin = '''
+## 常见问题 Q&A
+'''
+translate = '''
+## Common questions
+'''
+
+[[block]]
+key = "7449bb6f5b473ada"
+type = "heading"
+origin = '''
+### 修改了卡片的“显示颜色”，会影响打印出来的颜色吗？
+'''
+translate = '''
+'''
+
+[[block]]
+key = "358ca4249b125053"
+type = "paragraph"
+origin = '''
+不会。显示颜色仅用于耗材库内的色块识别与列表展示，图像转换时的叠色计算完全依据档案内部的光学拟合数据。如需更新测量结果，请重新拍摄梯度卡并执行“再次验证”。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "3c818a703530221f"
+type = "heading"
+origin = '''
+### 拟合误差数字越小，代表打印成色一定越准吗？
+'''
+translate = '''
+'''
+
+[[block]]
+key = "2edb8df50e0f28b0"
+type = "paragraph"
+origin = '''
+拟合误差适合在同一套均匀布光与标准拍摄流程下辅助判断拟合优度。如果拍摄时存在局部炫光、曝光失准或色温偏离，单纯追求更小的误差数字并不能提升实物还原度。建议结合估算颜色、历史一致性与实物试打小样综合验证。
+'''
+translate = '''
+'''
+
+[[block]]
+key = "8e3fbfa4ce6a61d7"
+type = "heading"
+origin = '''
+### 为什么导入 ZIP 后出现了两张一模一样名字的卡片？
+'''
+translate = '''
+### Why doesn't changing Display Color alter my printed colors?
+'''
+
+[[block]]
+key = "968266b772708500"
+type = "paragraph"
+origin = '''
+耗材名称与品牌属于可重复的显示标签。当导入包与本地已有目录发生命名冲突且内容不同时，系统会自动新建带后缀的独立目录妥善保留两份数据。比对目录名、验证次数和更新时间后，导出备份并删掉多余的一份即可。
+'''
+translate = '''
+**Display Color** only sets the UI badge swatch in the Material Library. Color conversion relies on the archive's measured optical parameters—use **Re-Verify** and print a test swatch whenever physical color predictions need updating.
+'''
+
+[[block]]
+key = "2cdd8f9d08a7fe43"
+type = "heading"
+origin = '''
+### 可以把自己导出的耗材 ZIP 分享给朋友用吗？
+'''
+translate = '''
+### Does a lower fit error guarantee a more accurate print?
+'''
+
+[[block]]
+key = "715c220115b23d9e"
+type = "paragraph"
+origin = '''
+可以正常导入。分享前请确认自己对包内的实测数据与相关内容拥有分享权限；接收方导入后，也需核对手头线材的品牌系列、批次与层高是否一致，并先打印小样确认匹配度。
+'''
+translate = '''
+Fit error is a helpful comparison metric when lighting, camera exposure, and card alignment stay controlled. Specular glare, color casts, or mismatched cards can still skew real-world accuracy even when numerical error looks low, so always confirm with a physical swatch.
+'''
+
+[[block]]
+key = "1da4cfd9f884b21c"
+type = "heading"
+origin = '''
+### 一个耗材 ZIP 里最多能打包几份档案？
+'''
+translate = '''
+### Is it safe to rename an archive?
+'''
+
+[[block]]
+key = "e9595dfc01fed0ce"
+type = "paragraph"
+origin = '''
+数量不限，导出时勾选几份就会把几份打进同一个 ZIP；导入时也支持一次多选多个 ZIP 批量导入。档案较多时，按品牌或材质分包导出并在文件名上标注日期会更便于日后检索。
+'''
+translate = '''
+Yes. **Edit Details** updates the visible name and brand while keeping the internal directory ID unchanged. Avoid giving multiple distinct archives identical display names so they remain easy to tell apart in conversion pickers.
+'''
+
+[[block]]
+key = "05b755b57cf794bb"
+type = "heading"
+origin = '''
+### “耗材库”和“云端耗材”有什么区别？
+'''
+translate = '''
+### Can I use a Material Archive shared by another maker right away?
+'''
+
+[[block]]
+key = "473ebef0f84c3823"
+type = "paragraph"
+origin = '''
+“耗材库”管理当前已安装到本地、可直接供图像转换调用的档案；“云端耗材”则用于在线浏览和下载官方或社区发布的档案包。编辑或删除带有“官方”标识的档案前，同样建议先导出备份，留意后续云端同步或版本更新的影响。
+'''
+translate = '''
+Verify the exact filament brand, product line, finish, calibrated Layer Height, and sharing permissions first, then print a small validation swatch on your own setup before committing to a full-size artwork.
+'''
+
+[[block]]
+key = "9945e0622b94c037"
+type = "heading"
+origin = '''
+### 在多份档案之间挑选时要注意什么？
+'''
+translate = '''
+### What should I check before deleting a duplicate archive?
+'''
+
+[[block]]
+key = "2cd3808f7a29138f"
+type = "paragraph"
+origin = '''
+请结合材质、品牌系列、色号、批次与目标层高综合挑选，详细判断方法见[耗材档案和经典 LUT 怎么选？](../material-profile-selection/material-profile-selection.mdx)。
+'''
+translate = '''
+Export a backup ZIP first, compare directory IDs, timestamps, and verification histories between the two cards, and make sure no active project relies on the copy you plan to remove.
+'''
+
+[[block]]
+key = "44e32d2a8aaaed45"
+type = "heading"
+origin = '''
+### 建好耗材档案后，怎样提前测试不同颜色的叠层效果？
+'''
+translate = '''
+### Why did an imported archive land under a different brand group?
+'''
+
+[[block]]
+key = "86fe40490fd7b14e"
+type = "paragraph"
+origin = '''
+可前往“耗材管理 → 配方查询”，按从观赏面到底板的顺序自由排列档案、实时查看预测颜色，并将多组候选配方一键导出为验证色块 3MF 试打确认。操作步骤详见[组合耗材层、预测叠色并生成验证色块](pathname:///zh/docs/knowledge/material-recipe-query/)。
+'''
+translate = '''
+Brand grouping reads the brand string stored inside the archive's metadata. Open **Edit Details** and update the **Brand** field to move it into your preferred brand group without touching its calibration data.
+'''

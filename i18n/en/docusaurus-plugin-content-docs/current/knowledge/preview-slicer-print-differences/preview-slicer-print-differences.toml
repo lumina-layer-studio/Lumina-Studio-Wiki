@@ -1,0 +1,1719 @@
+[metadata]
+reviewed_source = "bc916749a36f7ac58970e4e0e93abccf9c2a1feb39d6ca6168364f2906d124e8"
+
+[[block]]
+key = "df562d39785ff5b8"
+type = "yaml"
+origin = '''
+---
+title: "为什么 Lumina 预览、切片器预览和打印实物不一样？"
+description: "分清颜色匹配预览、真实切片路径和打印实物，按固定顺序排查显示色、耗材映射、色偏、细节丢失与异常预览。"
+sidebar_position: 24
+---
+'''
+translate = '''
+---
+title: "Why Do Lumina Preview, Slicer Preview, and the Physical Print Look Different?"
+description: "Separate color-matching preview, real sliced toolpaths, and the physical print, then diagnose display colors, filament mapping, color shifts, lost detail, and abnormal previews in a fixed order."
+sidebar_position: 24
+---
+'''
+
+[[block]]
+key = "1ab5c0409f2b52dd"
+type = "heading"
+origin = '''
+# 为什么 Lumina 预览、切片器预览和打印实物不一样？
+'''
+translate = '''
+# Why Do Lumina Preview, Slicer Preview, and the Physical Print Look Different?
+'''
+
+[[block]]
+key = "273cdd4ae497450f"
+type = "paragraph"
+origin = '''
+Lumina 预览、切片器预览与打印实物分别呈现了工作流中三个不同阶段的结果：
+'''
+translate = '''
+Lumina Preview, your slicer preview, and the finished print represent three distinct stages of the workflow:
+'''
+
+[[block]]
+key = "88f229e68dc52541"
+type = "list"
+composite = true
+origin = '''
+{{88f229e68dc52541-2bc4826ad25b0bca}}
+{{88f229e68dc52541-0894fb018ba602a5}}
+{{88f229e68dc52541-b5da3eb66df18e13}}
+'''
+translate = '''
+{{88f229e68dc52541-2bc4826ad25b0bca}}
+{{88f229e68dc52541-0894fb018ba602a5}}
+{{88f229e68dc52541-b5da3eb66df18e13}}
+'''
+
+[[block]]
+key = "88f229e68dc52541-2bc4826ad25b0bca"
+type = "listItem"
+composite = true
+origin = '''
+- {{88f229e68dc52541-2bc4826ad25b0bca-0f3bea874f048d24}}
+'''
+translate = '''
+- {{88f229e68dc52541-2bc4826ad25b0bca-0f3bea874f048d24}}
+'''
+
+[[block]]
+key = "88f229e68dc52541-2bc4826ad25b0bca-0f3bea874f048d24"
+type = "paragraph"
+origin = '''
+**Lumina 预览**：按当前色彩数据来源与建模设置计算出的目标配色及几何结构；
+'''
+translate = '''
+**Lumina Preview**: how your chosen color source and modeling settings assign colors and build 3D geometry.
+'''
+
+[[block]]
+key = "88f229e68dc52541-0894fb018ba602a5"
+type = "listItem"
+composite = true
+origin = '''
+- {{88f229e68dc52541-0894fb018ba602a5-56425f2ef4bc73cf}}
+'''
+translate = '''
+- {{88f229e68dc52541-0894fb018ba602a5-56425f2ef4bc73cf}}
+'''
+
+[[block]]
+key = "88f229e68dc52541-0894fb018ba602a5-56425f2ef4bc73cf"
+type = "paragraph"
+origin = '''
+**切片器预览**：结合打印机型号、喷嘴、线宽与耗材映射生成的真实挤出走线路径；
+'''
+translate = '''
+**Slicer preview**: the actual extrusion toolpaths generated for your printer, nozzle, line width, and filament mapping.
+'''
+
+[[block]]
+key = "88f229e68dc52541-b5da3eb66df18e13"
+type = "listItem"
+composite = true
+origin = '''
+- {{88f229e68dc52541-b5da3eb66df18e13-662dda576b9816d1}}
+'''
+translate = '''
+- {{88f229e68dc52541-b5da3eb66df18e13-662dda576b9816d1}}
+'''
+
+[[block]]
+key = "88f229e68dc52541-b5da3eb66df18e13-662dda576b9816d1"
+type = "paragraph"
+origin = '''
+**打印实物**：由真实耗材、机器状态、首层挤压、打印板纹理与环境光线共同呈现的物理成品。
+'''
+translate = '''
+**Physical print**: the real-world piece shaped by physical filament, machine calibration, first-layer squish, build-plate texture, and ambient lighting.
+'''
+
+[[block]]
+key = "35ddd64eb73ded76"
+type = "paragraph"
+origin = '''
+三者在屏幕与肉眼之间存在光泽和亮度差异属于正常现象，但关键轮廓、颜色分区与每层耗材映射应当逐层对应。若对 Lumina 中的“第 1 层”、预测色与逐层配色的含义尚不熟悉，建议先阅读[怎样读懂 Lumina 分层预览？](pathname:///zh/docs/knowledge/layer-preview-guide/)。
+'''
+translate = '''
+While screen previews and physical plastic naturally differ in brightness and surface sheen, every major outline, color region, and per-layer filament assignment should match from stage to stage. If you want a refresher on what “Layer 1,” predicted color, and per-layer colors represent in Lumina, see [How to Read Lumina Layer Preview](pathname:///en/docs/knowledge/layer-preview-guide/).
+'''
+
+[[block]]
+key = "30c92991554c46c5"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/three-preview-roles.webp').default}
+  alt="Lumina 预览、切片器预览和打印实物分别对应颜色匹配、喷嘴路径与真实材料结果"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/three-preview-roles.webp').default}
+  alt="Lumina Preview, slicer preview, and the physical print representing color mapping, toolpaths, and the real material result"
+/>
+'''
+
+[[block]]
+key = "fb54ca2fe93c0183"
+type = "heading"
+origin = '''
+## 快速定位差异类型
+'''
+translate = '''
+## Identify the type of difference first
+'''
+
+[[block]]
+key = "31b145d3c6166e10"
+type = "table"
+origin = '''
+| 现象 | 原因判断 | 处理建议 |
+| --- | --- | --- |
+| 切片器色块颜色与实物不像，但对象和槽位映射均正确 | 仅切片器标识显示色不同 | 不影响实际出料，可继续其余检查 |
+| 某个对象、色块区域或底板指向了错误的项目耗材或料槽 | 耗材映射错位 | 先修正对象与料槽映射，重新切片 |
+| Lumina 与切片器均正常，但实物整体偏绿、偏灰、偏暗或偏暖 | 耗材档案、线材批次、打印状态或观察光源偏差 | 先打小样逐项排查材料与打印参数 |
+| 小字、细线或微小色块在切片后消失 | 成品尺寸过小，或超出当前喷嘴与线宽下限 | 放大成品尺寸、调整原图或换用细喷嘴后再切片 |
+| Lumina 预览本身全黑、偏绿、出现破洞或边界错乱 | 色彩来源、输入原图或建模模式异常 | 先在 Lumina 中修复预览，暂不导出正式 3MF |
+'''
+translate = '''
+| Symptom | Likely cause | Recommended action |
+| --- | --- | --- |
+| The slicer's color swatch looks off, but object and slot assignments are right | Display-only swatch color in the slicer | Safe to continue with final pre-print checks |
+| An object, color region, or backing points to the wrong project filament or hardware slot | Incorrect filament mapping | Fix object and slot mapping, then slice again |
+| Lumina and the slicer match, but the print looks greenish, gray, dark, or warm overall | Archive mismatch, filament batch, print calibration, or lighting | Run a small test swatch to isolate the variable |
+| Small text, thin lines, or tiny color islands vanish after slicing | Print size, nozzle diameter, or line-width limits | Scale up the model, thicken fine strokes, or switch to a finer nozzle |
+| Lumina Preview itself is black, green, perforated, or distorted | Source Type, input file, or modeling mode issue | Resolve the preview inside Lumina before exporting a 3MF |
+'''
+
+[[block]]
+key = "ecf4572e88d63747"
+type = "paragraph"
+origin = '''
+表格前两项最容易混淆：切片器里的纯色方块只是界面识别标识，色块色差本身不会改变吐丝；只有当模型对象绑定的项目耗材编号有误，或项目耗材映射到了错误的 AMS 槽位时，才会真正打错耗材。
+'''
+translate = '''
+Pay special attention to the first two rows: a slicer's colored square is merely an on-screen label and will not alter extrusion on its own, whereas assigning an object to the wrong project filament—or mapping that project filament to the wrong AMS slot—changes which spool actually prints.
+'''
+
+[[block]]
+key = "2e2d4cc87ef4af41"
+type = "heading"
+origin = '''
+## 七步排查顺序
+'''
+translate = '''
+## Seven-step diagnostic order
+'''
+
+[[block]]
+key = "5bde0ca7c93485de"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/difference-troubleshooting-flow.webp').default}
+  alt="从版本与档案到光线的七步固定排查顺序"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/difference-troubleshooting-flow.webp').default}
+  alt="Seven-step diagnostic order from software version and color data to viewing light"
+/>
+'''
+
+[[block]]
+key = "e3ae40634c1c22ac"
+type = "paragraph"
+origin = '''
+建议按以下顺序从上游到下游逐一核对，避免在上游映射尚未确认时盲目修改温度、流量或原图。
+'''
+translate = '''
+Work through the checks below from upstream to downstream before adjusting nozzle temperature, flow, or source artwork.
+'''
+
+[[block]]
+key = "773f96a814acf5ac"
+type = "heading"
+origin = '''
+### 第一步：核对色彩数据来源与档案
+'''
+translate = '''
+### Step 1: Check Color Data Source and archives
+'''
+
+[[block]]
+key = "a3e759b29be8f561"
+type = "paragraph"
+origin = '''
+确认“色彩数据来源”选用的是耗材档案还是经典 LUT，并检查：
+'''
+translate = '''
+Confirm whether **Color Data Source** is set to Material Archive or Classic LUT, and verify that:
+'''
+
+[[block]]
+key = "6b571dc7b92e4c46"
+type = "list"
+composite = true
+origin = '''
+{{6b571dc7b92e4c46-a3342832b016619f}}
+{{6b571dc7b92e4c46-067c7c7588a7d5bd}}
+{{6b571dc7b92e4c46-dd238a454219537b}}
+{{6b571dc7b92e4c46-322a2af13d2a43da}}
+'''
+translate = '''
+{{6b571dc7b92e4c46-a3342832b016619f}}
+{{6b571dc7b92e4c46-067c7c7588a7d5bd}}
+{{6b571dc7b92e4c46-dd238a454219537b}}
+{{6b571dc7b92e4c46-322a2af13d2a43da}}
+'''
+
+[[block]]
+key = "6b571dc7b92e4c46-a3342832b016619f"
+type = "listItem"
+composite = true
+origin = '''
+- {{6b571dc7b92e4c46-a3342832b016619f-428a0aa277791d49}}
+'''
+translate = '''
+- {{6b571dc7b92e4c46-a3342832b016619f-428a0aa277791d49}}
+'''
+
+[[block]]
+key = "6b571dc7b92e4c46-a3342832b016619f-428a0aa277791d49"
+type = "paragraph"
+origin = '''
+所选耗材档案或 LUT 文件完整可读；
+'''
+translate = '''
+The selected archive or LUT file is intact and readable.
+'''
+
+[[block]]
+key = "6b571dc7b92e4c46-067c7c7588a7d5bd"
+type = "listItem"
+composite = true
+origin = '''
+- {{6b571dc7b92e4c46-067c7c7588a7d5bd-7337a6289b273591}}
+'''
+translate = '''
+- {{6b571dc7b92e4c46-067c7c7588a7d5bd-7337a6289b273591}}
+'''
+
+[[block]]
+key = "6b571dc7b92e4c46-067c7c7588a7d5bd-7337a6289b273591"
+type = "paragraph"
+origin = '''
+材质、品牌、系列及颜色与即将上机的真实线材一致；
+'''
+translate = '''
+Material type, brand, product line, and color match the physical spools you plan to print.
+'''
+
+[[block]]
+key = "6b571dc7b92e4c46-dd238a454219537b"
+type = "listItem"
+composite = true
+origin = '''
+- {{6b571dc7b92e4c46-dd238a454219537b-9dbf470c354a4300}}
+'''
+translate = '''
+- {{6b571dc7b92e4c46-dd238a454219537b-9dbf470c354a4300}}
+'''
+
+[[block]]
+key = "6b571dc7b92e4c46-dd238a454219537b-9dbf470c354a4300"
+type = "paragraph"
+origin = '''
+切换色彩来源后已重新点击生成预览；
+'''
+translate = '''
+You ran a fresh preview after changing color sources.
+'''
+
+[[block]]
+key = "6b571dc7b92e4c46-322a2af13d2a43da"
+type = "listItem"
+composite = true
+origin = '''
+- {{6b571dc7b92e4c46-322a2af13d2a43da-0ae87ecbf6f1e4a0}}
+'''
+translate = '''
+- {{6b571dc7b92e4c46-322a2af13d2a43da-0ae87ecbf6f1e4a0}}
+'''
+
+[[block]]
+key = "6b571dc7b92e4c46-322a2af13d2a43da-0ae87ecbf6f1e4a0"
+type = "paragraph"
+origin = '''
+使用经典 LUT 时，显色层数、层高与耗材排列顺序与当前项目参数一致。
+'''
+translate = '''
+For a Classic LUT, layer count, Layer Height, and filament order match your current project settings.
+'''
+
+[[block]]
+key = "b6ae9228a7f81035"
+type = "paragraph"
+origin = '''
+若 Lumina 预览在这一步就已偏色或报错，请先核查色彩来源设置，详见[耗材档案和经典 LUT 怎么选？](../material-profile-selection/material-profile-selection.mdx)。
+'''
+translate = '''
+If Lumina Preview already looks wrong at this stage, address the color source first. See [Material Archives or Classic LUT?](../material-profile-selection/material-profile-selection.mdx).
+'''
+
+[[block]]
+key = "fa997cb93e53b5e7"
+type = "heading"
+origin = '''
+### 第二步：核对四层耗材映射关系
+'''
+translate = '''
+### Step 2: Verify four-level filament mapping
+'''
+
+[[block]]
+key = "c2279273e6d45d76"
+type = "paragraph"
+origin = '''
+将以下四层对应关系逐项对齐：
+'''
+translate = '''
+Align all four links in the chain:
+'''
+
+[[block]]
+key = "196be12076a5e394"
+type = "list"
+composite = true
+origin = '''
+{{196be12076a5e394-0a079dd61007b7f6}}
+{{196be12076a5e394-c018dcd7bec39411}}
+{{196be12076a5e394-cf4b1dcb68a58b03}}
+{{196be12076a5e394-a6404fd91766e715}}
+'''
+translate = '''
+{{196be12076a5e394-0a079dd61007b7f6}}
+{{196be12076a5e394-c018dcd7bec39411}}
+{{196be12076a5e394-cf4b1dcb68a58b03}}
+{{196be12076a5e394-a6404fd91766e715}}
+'''
+
+[[block]]
+key = "196be12076a5e394-0a079dd61007b7f6"
+type = "listItem"
+composite = true
+origin = '''
+1. {{196be12076a5e394-0a079dd61007b7f6-6541ff22bd5caec3}}
+'''
+translate = '''
+1. {{196be12076a5e394-0a079dd61007b7f6-6541ff22bd5caec3}}
+'''
+
+[[block]]
+key = "196be12076a5e394-0a079dd61007b7f6-6541ff22bd5caec3"
+type = "paragraph"
+origin = '''
+Lumina 中选定的耗材档案或调色板；
+'''
+translate = '''
+Archives or palette slots chosen in Lumina
+'''
+
+[[block]]
+key = "196be12076a5e394-c018dcd7bec39411"
+type = "listItem"
+composite = true
+origin = '''
+2. {{196be12076a5e394-c018dcd7bec39411-32d167ea0aa02b2c}}
+'''
+translate = '''
+2. {{196be12076a5e394-c018dcd7bec39411-32d167ea0aa02b2c}}
+'''
+
+[[block]]
+key = "196be12076a5e394-c018dcd7bec39411-32d167ea0aa02b2c"
+type = "paragraph"
+origin = '''
+导出 3MF 内的项目耗材列表；
+'''
+translate = '''
+Project filaments embedded in the exported 3MF
+'''
+
+[[block]]
+key = "196be12076a5e394-cf4b1dcb68a58b03"
+type = "listItem"
+composite = true
+origin = '''
+3. {{196be12076a5e394-cf4b1dcb68a58b03-412c266b05135f2e}}
+'''
+translate = '''
+3. {{196be12076a5e394-cf4b1dcb68a58b03-412c266b05135f2e}}
+'''
+
+[[block]]
+key = "196be12076a5e394-cf4b1dcb68a58b03-412c266b05135f2e"
+type = "paragraph"
+origin = '''
+切片器中每个对象或零件绑定的项目耗材编号；
+'''
+translate = '''
+Project-filament numbers assigned to each object or part in the slicer
+'''
+
+[[block]]
+key = "196be12076a5e394-a6404fd91766e715"
+type = "listItem"
+composite = true
+origin = '''
+4. {{196be12076a5e394-a6404fd91766e715-1e28e420e98f7451}}
+'''
+translate = '''
+4. {{196be12076a5e394-a6404fd91766e715-1e28e420e98f7451}}
+'''
+
+[[block]]
+key = "196be12076a5e394-a6404fd91766e715-1e28e420e98f7451"
+type = "paragraph"
+origin = '''
+AMS、多色系统或外置料架上装载的真实线盘。
+'''
+translate = '''
+Physical spools loaded in your AMS, multi-material unit, or external holder
+'''
+
+[[block]]
+key = "14789298ec0b1318"
+type = "paragraph"
+origin = '''
+点击切片器的“同步料仓”只能读取硬件槽位信息，仍需人工确认每个模型区域对应的项目耗材已指向正确的物理线盘。完整操作见[把 Lumina 3MF 正确导入切片器](pathname:///zh/docs/tutorials/slicer-material-mapping/)。
+'''
+translate = '''
+Synchronizing your AMS updates hardware slot labels in the slicer, while you still confirm that each project filament maps to the right physical spool. For step-by-step mapping instructions, see [Open a Lumina 3MF in Your Slicer](pathname:///en/docs/tutorials/slicer-material-mapping/).
+'''
+
+[[block]]
+key = "a60feaece063ee4c"
+type = "heading"
+origin = '''
+### 第三步：核对喷嘴、线宽、层高与成品尺寸
+'''
+translate = '''
+### Step 3: Check nozzle, line width, Layer Height, and print size
+'''
+
+[[block]]
+key = "94c0cbe8319fff6d"
+type = "paragraph"
+origin = '''
+“准备”界面可见的细微三维几何，若窄于单条挤出线宽，切片时会被自动过滤。请检查：
+'''
+translate = '''
+Fine 3D geometry visible on the **Prepare** tab will only generate toolpaths if it is wide enough for your extruder line width. Verify that:
+'''
+
+[[block]]
+key = "4c4780fb10385ade"
+type = "list"
+composite = true
+origin = '''
+{{4c4780fb10385ade-d2d9ac72c76847e6}}
+{{4c4780fb10385ade-f7d25755bac09d1b}}
+{{4c4780fb10385ade-ab28c313f41d68bb}}
+{{4c4780fb10385ade-114cfc25aa53e297}}
+'''
+translate = '''
+{{4c4780fb10385ade-d2d9ac72c76847e6}}
+{{4c4780fb10385ade-f7d25755bac09d1b}}
+{{4c4780fb10385ade-ab28c313f41d68bb}}
+{{4c4780fb10385ade-114cfc25aa53e297}}
+'''
+
+[[block]]
+key = "4c4780fb10385ade-d2d9ac72c76847e6"
+type = "listItem"
+composite = true
+origin = '''
+- {{4c4780fb10385ade-d2d9ac72c76847e6-5222025f597e1fe0}}
+'''
+translate = '''
+- {{4c4780fb10385ade-d2d9ac72c76847e6-5222025f597e1fe0}}
+'''
+
+[[block]]
+key = "4c4780fb10385ade-d2d9ac72c76847e6-5222025f597e1fe0"
+type = "paragraph"
+origin = '''
+切片器选定的机型与喷嘴直径是否与实际硬件一致；
+'''
+translate = '''
+Printer model and nozzle size in the slicer match your hardware.
+'''
+
+[[block]]
+key = "4c4780fb10385ade-f7d25755bac09d1b"
+type = "listItem"
+composite = true
+origin = '''
+- {{4c4780fb10385ade-f7d25755bac09d1b-d72a26852d55505f}}
+'''
+translate = '''
+- {{4c4780fb10385ade-f7d25755bac09d1b-d72a26852d55505f}}
+'''
+
+[[block]]
+key = "4c4780fb10385ade-f7d25755bac09d1b-d72a26852d55505f"
+type = "paragraph"
+origin = '''
+当前线宽是否足以容纳画面中的小字、细线与独立小色块；
+'''
+translate = '''
+Line width can accommodate small lettering, thin outlines, and tiny isolated patches.
+'''
+
+[[block]]
+key = "4c4780fb10385ade-ab28c313f41d68bb"
+type = "listItem"
+composite = true
+origin = '''
+- {{4c4780fb10385ade-ab28c313f41d68bb-9838fec15ac00374}}
+'''
+translate = '''
+- {{4c4780fb10385ade-ab28c313f41d68bb-9838fec15ac00374}}
+'''
+
+[[block]]
+key = "4c4780fb10385ade-ab28c313f41d68bb-9838fec15ac00374"
+type = "paragraph"
+origin = '''
+显色层层高是否与 Lumina 校准档案及项目设置匹配；
+'''
+translate = '''
+Layer Height for the color layers matches your Lumina calibration source and project settings.
+'''
+
+[[block]]
+key = "4c4780fb10385ade-114cfc25aa53e297"
+type = "listItem"
+composite = true
+origin = '''
+- {{4c4780fb10385ade-114cfc25aa53e297-31a277a22f6ac4ca}}
+'''
+translate = '''
+- {{4c4780fb10385ade-114cfc25aa53e297-31a277a22f6ac4ca}}
+'''
+
+[[block]]
+key = "4c4780fb10385ade-114cfc25aa53e297-31a277a22f6ac4ca"
+type = "paragraph"
+origin = '''
+成品尺寸是否缩得过小，导致细节低于当前喷嘴的采样下限。
+'''
+translate = '''
+Overall print dimensions have not been scaled down past your nozzle's resolution limit.
+'''
+
+[[block]]
+key = "828d71351f3f46b4"
+type = "paragraph"
+origin = '''
+层高决定 Z 方向叠色厚度，喷嘴与线宽决定 XY 平面细节上限；喷嘴与尺寸的换算方法见[0.2 和 0.4 喷嘴相当于多少分辨率？](pathname:///zh/docs/knowledge/nozzle-equivalent-resolution/)。
+'''
+translate = '''
+Layer Height governs Z-axis color stacking, whereas nozzle diameter and line width determine XY detail capacity. See [What Image Resolution Is a 0.2 mm or 0.4 mm Nozzle Equivalent To?](pathname:///en/docs/knowledge/nozzle-equivalent-resolution/).
+'''
+
+[[block]]
+key = "d70707c692929338"
+type = "heading"
+origin = '''
+### 第四步：检查 Lumina 二维与三维预览
+'''
+translate = '''
+### Step 4: Inspect Lumina 2D and 3D previews
+'''
+
+[[block]]
+key = "354a2baeaab87b29"
+type = "paragraph"
+origin = '''
+依次查看配色完成后的二维预览与三维结构预览，确认：
+'''
+translate = '''
+Review the 2D color-matched preview and the 3D geometry preview to confirm that:
+'''
+
+[[block]]
+key = "838966c9c468a4de"
+type = "list"
+composite = true
+origin = '''
+{{838966c9c468a4de-b8b8af08b72c095c}}
+{{838966c9c468a4de-79ee1140b18882da}}
+{{838966c9c468a4de-d14c34f9582dcf3b}}
+{{838966c9c468a4de-65eea421baa14f5e}}
+{{838966c9c468a4de-8ff63ad05a67d7e9}}
+'''
+translate = '''
+{{838966c9c468a4de-b8b8af08b72c095c}}
+{{838966c9c468a4de-79ee1140b18882da}}
+{{838966c9c468a4de-d14c34f9582dcf3b}}
+{{838966c9c468a4de-65eea421baa14f5e}}
+{{838966c9c468a4de-8ff63ad05a67d7e9}}
+'''
+
+[[block]]
+key = "838966c9c468a4de-b8b8af08b72c095c"
+type = "listItem"
+composite = true
+origin = '''
+- {{838966c9c468a4de-b8b8af08b72c095c-d05e6c56f5a6220e}}
+'''
+translate = '''
+- {{838966c9c468a4de-b8b8af08b72c095c-d05e6c56f5a6220e}}
+'''
+
+[[block]]
+key = "838966c9c468a4de-b8b8af08b72c095c-d05e6c56f5a6220e"
+type = "paragraph"
+origin = '''
+主体轮廓与透明镂空区域准确；
+'''
+translate = '''
+Outer silhouettes and transparent cutouts are clean.
+'''
+
+[[block]]
+key = "838966c9c468a4de-79ee1140b18882da"
+type = "listItem"
+composite = true
+origin = '''
+- {{838966c9c468a4de-79ee1140b18882da-2b585df9acf063dc}}
+'''
+translate = '''
+- {{838966c9c468a4de-79ee1140b18882da-2b585df9acf063dc}}
+'''
+
+[[block]]
+key = "838966c9c468a4de-79ee1140b18882da-2b585df9acf063dc"
+type = "paragraph"
+origin = '''
+关键色块未被意外合并或替换；
+'''
+translate = '''
+Key color regions have not merged or shifted unexpectedly.
+'''
+
+[[block]]
+key = "838966c9c468a4de-d14c34f9582dcf3b"
+type = "listItem"
+composite = true
+origin = '''
+- {{838966c9c468a4de-d14c34f9582dcf3b-fbf48962ff0c09bb}}
+'''
+translate = '''
+- {{838966c9c468a4de-d14c34f9582dcf3b-fbf48962ff0c09bb}}
+'''
+
+[[block]]
+key = "838966c9c468a4de-d14c34f9582dcf3b-fbf48962ff0c09bb"
+type = "paragraph"
+origin = '''
+底板、外轮廓描边与挂环等附加结构符合设置；
+'''
+translate = '''
+Backing, outlines, and optional hardware features match your settings.
+'''
+
+[[block]]
+key = "838966c9c468a4de-65eea421baa14f5e"
+type = "listItem"
+composite = true
+origin = '''
+- {{838966c9c468a4de-65eea421baa14f5e-d31cd85531f6ba06}}
+'''
+translate = '''
+- {{838966c9c468a4de-65eea421baa14f5e-d31cd85531f6ba06}}
+'''
+
+[[block]]
+key = "838966c9c468a4de-65eea421baa14f5e-d31cd85531f6ba06"
+type = "paragraph"
+origin = '''
+眼睛、文字、细线等重点细节完整保留；
+'''
+translate = '''
+Eyes, lettering, and fine lines remain intact.
+'''
+
+[[block]]
+key = "838966c9c468a4de-8ff63ad05a67d7e9"
+type = "listItem"
+composite = true
+origin = '''
+- {{838966c9c468a4de-8ff63ad05a67d7e9-724526559c7b85d6}}
+'''
+translate = '''
+- {{838966c9c468a4de-8ff63ad05a67d7e9-724526559c7b85d6}}
+'''
+
+[[block]]
+key = "838966c9c468a4de-8ff63ad05a67d7e9-724526559c7b85d6"
+type = "paragraph"
+origin = '''
+画面无整片发黑、异常色偏、破洞或边缘错位。
+'''
+translate = '''
+There are no solid-black blocks, severe color casts, pinholes, or misaligned borders.
+'''
+
+[[block]]
+key = "641f1bc6ae3ba5cc"
+type = "paragraph"
+origin = '''
+若 Lumina 预览阶段已存在结构或配色异常，请先返回原图、建模模式或配方设置修正，再导出 3MF。
+'''
+translate = '''
+If the Lumina preview already shows missing or miscolored regions, adjust the source image, modeling mode, or palette before exporting to the slicer.
+'''
+
+[[block]]
+key = "7ed5ef39d57ec27e"
+type = "heading"
+origin = '''
+### 第五步：执行真实切片并逐层检查显色面
+'''
+translate = '''
+### Step 5: Slice the project and inspect the viewing face
+'''
+
+[[block]]
+key = "486e5374a4cd3aa0"
+type = "paragraph"
+origin = '''
+在 Bambu Studio、OrcaSlicer 或常用切片器中点击**切片**并切换到“预览”视图（“准备”视图仅展示几何外形，不含真实走线）。
+'''
+translate = '''
+Run **Slice** in Bambu Studio, OrcaSlicer, or your preferred slicer and switch to the **Preview** tab (the **Prepare** tab shows raw meshes rather than actual toolpaths).
+'''
+
+[[block]]
+key = "e9dc29e7ac96e505"
+type = "paragraph"
+origin = '''
+若作品显色面贴合打印板朝下，请将视角翻至底面，拖动右侧层滑块从显色面往内逐层检查：
+'''
+translate = '''
+If the viewing face prints face-down on the build plate, orbit underneath the plate and scrub the layer slider inward from Layer 1:
+'''
+
+[[block]]
+key = "0682597747159f58"
+type = "list"
+composite = true
+origin = '''
+{{0682597747159f58-d267cf0daddf8e38}}
+{{0682597747159f58-6fc40b7c7fc1d0ba}}
+{{0682597747159f58-3098e6d244d5e7af}}
+{{0682597747159f58-1be3a96277e65c75}}
+{{0682597747159f58-e60713e29f12c200}}
+'''
+translate = '''
+{{0682597747159f58-d267cf0daddf8e38}}
+{{0682597747159f58-6fc40b7c7fc1d0ba}}
+{{0682597747159f58-3098e6d244d5e7af}}
+{{0682597747159f58-1be3a96277e65c75}}
+{{0682597747159f58-e60713e29f12c200}}
+'''
+
+[[block]]
+key = "0682597747159f58-d267cf0daddf8e38"
+type = "listItem"
+composite = true
+origin = '''
+- {{0682597747159f58-d267cf0daddf8e38-6e8fa7e0e38077b4}}
+'''
+translate = '''
+- {{0682597747159f58-d267cf0daddf8e38-6e8fa7e0e38077b4}}
+'''
+
+[[block]]
+key = "0682597747159f58-d267cf0daddf8e38-6e8fa7e0e38077b4"
+type = "paragraph"
+origin = '''
+首层轮廓与各色块边界是否完整闭合；
+'''
+translate = '''
+First-layer outlines and color regions are complete.
+'''
+
+[[block]]
+key = "0682597747159f58-6fc40b7c7fc1d0ba"
+type = "listItem"
+composite = true
+origin = '''
+- {{0682597747159f58-6fc40b7c7fc1d0ba-7fdee8ab038b3463}}
+'''
+translate = '''
+- {{0682597747159f58-6fc40b7c7fc1d0ba-7fdee8ab038b3463}}
+'''
+
+[[block]]
+key = "0682597747159f58-6fc40b7c7fc1d0ba-7fdee8ab038b3463"
+type = "paragraph"
+origin = '''
+每一层调用的项目耗材是否正确；
+'''
+translate = '''
+Every layer calls the intended project filament.
+'''
+
+[[block]]
+key = "0682597747159f58-3098e6d244d5e7af"
+type = "listItem"
+composite = true
+origin = '''
+- {{0682597747159f58-3098e6d244d5e7af-5ecac33e53b8927b}}
+'''
+translate = '''
+- {{0682597747159f58-3098e6d244d5e7af-5ecac33e53b8927b}}
+'''
+
+[[block]]
+key = "0682597747159f58-3098e6d244d5e7af-5ecac33e53b8927b"
+type = "paragraph"
+origin = '''
+细线与微小色块是否真正生成了挤出路径；
+'''
+translate = '''
+Fine strokes and tiny islands produce real extrusion paths.
+'''
+
+[[block]]
+key = "0682597747159f58-1be3a96277e65c75"
+type = "listItem"
+composite = true
+origin = '''
+- {{0682597747159f58-1be3a96277e65c75-ea2c88f74706fe24}}
+'''
+translate = '''
+- {{0682597747159f58-1be3a96277e65c75-ea2c88f74706fe24}}
+'''
+
+[[block]]
+key = "0682597747159f58-1be3a96277e65c75-ea2c88f74706fe24"
+type = "paragraph"
+origin = '''
+底板、描边、挂环等结构是否使用了预期耗材；
+'''
+translate = '''
+Backing, outlines, and keychain loops use the expected filament.
+'''
+
+[[block]]
+key = "0682597747159f58-e60713e29f12c200"
+type = "listItem"
+composite = true
+origin = '''
+- {{0682597747159f58-e60713e29f12c200-b9c2c74562980a7e}}
+'''
+translate = '''
+- {{0682597747159f58-e60713e29f12c200-b9c2c74562980a7e}}
+'''
+
+[[block]]
+key = "0682597747159f58-e60713e29f12c200-b9c2c74562980a7e"
+type = "paragraph"
+origin = '''
+是否存在耗材自动替换、缺层、悬空或超出热床边界的警告。
+'''
+translate = '''
+No automatic filament substitutions, missing layers, floating parts, or bed-boundary warnings appear.
+'''
+
+[[block]]
+key = "7f66f58274f71cc1"
+type = "paragraph"
+origin = '''
+若 Lumina 预览正常而切片预览异常，重点排查 3MF 打开方式（需作为完整项目打开）、对象耗材绑定、喷嘴规格与线宽设置。
+'''
+translate = '''
+When Lumina Preview looks clean but sliced layers do not, check that the 3MF was opened as a full project and verify object-filament assignments, nozzle size, and line widths.
+'''
+
+[[block]]
+key = "28b06bbe9565f95d"
+type = "heading"
+origin = '''
+### 第六步：检查首层、流量、热床与机器状态
+'''
+translate = '''
+### Step 6: Inspect first layer, flow, build plate, and hardware
+'''
+
+[[block]]
+key = "25770b09de1263a4"
+type = "paragraph"
+origin = '''
+当 Lumina 预览与切片走线均正常，但打印实物出现细部糊连、断线、拉丝擦除或表面发花时，检查硬件与工艺状态：
+'''
+translate = '''
+When both software previews look accurate yet fine details blur, peel off, break, or look blotchy on the print, check the physical setup:
+'''
+
+[[block]]
+key = "0c278dbee634af88"
+type = "list"
+composite = true
+origin = '''
+{{0c278dbee634af88-dd17b085bd48b3b1}}
+{{0c278dbee634af88-92737b5f1aa5110e}}
+{{0c278dbee634af88-0b5fb9d7fd334cc9}}
+{{0c278dbee634af88-4655da1d0dceeaea}}
+{{0c278dbee634af88-e3cca869e832899c}}
+'''
+translate = '''
+{{0c278dbee634af88-dd17b085bd48b3b1}}
+{{0c278dbee634af88-92737b5f1aa5110e}}
+{{0c278dbee634af88-0b5fb9d7fd334cc9}}
+{{0c278dbee634af88-4655da1d0dceeaea}}
+{{0c278dbee634af88-e3cca869e832899c}}
+'''
+
+[[block]]
+key = "0c278dbee634af88-dd17b085bd48b3b1"
+type = "listItem"
+composite = true
+origin = '''
+- {{0c278dbee634af88-dd17b085bd48b3b1-21d9dc6b642dc933}}
+'''
+translate = '''
+- {{0c278dbee634af88-dd17b085bd48b3b1-21d9dc6b642dc933}}
+'''
+
+[[block]]
+key = "0c278dbee634af88-dd17b085bd48b3b1-21d9dc6b642dc933"
+type = "paragraph"
+origin = '''
+首层间隙是否过低（挤溢串色）或过高（附着不牢被带走）；
+'''
+translate = '''
+First-layer Z offset (too much squish causes color bleed; too little adhesion lets small islands lift).
+'''
+
+[[block]]
+key = "0c278dbee634af88-92737b5f1aa5110e"
+type = "listItem"
+composite = true
+origin = '''
+- {{0c278dbee634af88-92737b5f1aa5110e-578563b49dd56e66}}
+'''
+translate = '''
+- {{0c278dbee634af88-92737b5f1aa5110e-578563b49dd56e66}}
+'''
+
+[[block]]
+key = "0c278dbee634af88-92737b5f1aa5110e-578563b49dd56e66"
+type = "paragraph"
+origin = '''
+打印板是否清洁无油污、表面平整且匹配当前材质；
+'''
+translate = '''
+Build plate cleanliness, flatness, and surface compatibility.
+'''
+
+[[block]]
+key = "0c278dbee634af88-0b5fb9d7fd334cc9"
+type = "listItem"
+composite = true
+origin = '''
+- {{0c278dbee634af88-0b5fb9d7fd334cc9-223a5622c7fc0655}}
+'''
+translate = '''
+- {{0c278dbee634af88-0b5fb9d7fd334cc9-223a5622c7fc0655}}
+'''
+
+[[block]]
+key = "0c278dbee634af88-0b5fb9d7fd334cc9-223a5622c7fc0655"
+type = "paragraph"
+origin = '''
+喷嘴温度与流量比例是否贴合当前线材；
+'''
+translate = '''
+Nozzle temperature and flow ratio for the specific filament.
+'''
+
+[[block]]
+key = "0c278dbee634af88-4655da1d0dceeaea"
+type = "listItem"
+composite = true
+origin = '''
+- {{0c278dbee634af88-4655da1d0dceeaea-cefcf78f573e85cc}}
+'''
+translate = '''
+- {{0c278dbee634af88-4655da1d0dceeaea-cefcf78f573e85cc}}
+'''
+
+[[block]]
+key = "0c278dbee634af88-4655da1d0dceeaea-cefcf78f573e85cc"
+type = "paragraph"
+origin = '''
+喷嘴外壁是否挂有残料、半堵或刮擦已打印走线；
+'''
+translate = '''
+Nozzle tip residue, partial clogs, or travel dragging across fresh lines.
+'''
+
+[[block]]
+key = "0c278dbee634af88-e3cca869e832899c"
+type = "listItem"
+composite = true
+origin = '''
+- {{0c278dbee634af88-e3cca869e832899c-1f1d9504b495e30e}}
+'''
+translate = '''
+- {{0c278dbee634af88-e3cca869e832899c-1f1d9504b495e30e}}
+'''
+
+[[block]]
+key = "0c278dbee634af88-e3cca869e832899c-1f1d9504b495e30e"
+type = "paragraph"
+origin = '''
+耗材是否受潮，或同款不同批次存在明显透光差异。
+'''
+translate = '''
+Filament moisture or noticeable batch-to-batch translucency differences.
+'''
+
+[[block]]
+key = "fee9883b4192548f"
+type = "paragraph"
+origin = '''
+建议每次只调整一个变量并先打印局部小样对比，便于准确锁定原因。
+'''
+translate = '''
+Adjust one parameter at a time on a small test crop so you can tell exactly which change solved the issue.
+'''
+
+[[block]]
+key = "ae56d138f1223817"
+type = "heading"
+origin = '''
+### 第七步：在稳定中性光线下比对实物
+'''
+translate = '''
+### Step 7: Evaluate lighting and camera effects last
+'''
+
+[[block]]
+key = "7ebd2c0bdb8dbc78"
+type = "paragraph"
+origin = '''
+显示器依靠背光主动发光，实体打印件依靠环境光反射与层间透射显色。暖黄灯光、有色墙面反光以及手机相机的自动白平衡、HDR 和锐化算法都会显著改变照片色彩。
+'''
+translate = '''
+Monitors emit light directly, whereas printed plastic reflects and transmits surrounding light. Warm desk lamps, colored walls, and smartphone auto white balance, exposure, and HDR processing can introduce strong apparent color casts in photos.
+'''
+
+[[block]]
+key = "85a7a918a4d09a76"
+type = "paragraph"
+origin = '''
+比对色差时，请将实物置于稳定、中性的光源下同一位置直接用肉眼观察；如需拍照记录，请关闭滤镜与自动增强并锁定白平衡。
+'''
+translate = '''
+Judge prints directly under steady, neutral lighting side by side. When photographing prints for comparison, turn off filters and auto enhancements and lock white balance.
+'''
+
+[[block]]
+key = "0bf60febd36c4039"
+type = "heading"
+origin = '''
+## 五种高频现象速查
+'''
+translate = '''
+## Five common scenarios
+'''
+
+[[block]]
+key = "ec6a459f2411fc6c"
+type = "heading"
+origin = '''
+### 仅切片器显示色与实物不符
+'''
+translate = '''
+### Only the slicer's swatch color looks off
+'''
+
+[[block]]
+key = "dd244eeeef99b8a3"
+type = "paragraph"
+origin = '''
+选中模型对象查看其绑定的项目耗材编号，确认该编号已映射到正确的物理槽位。只要对象绑定与真实槽位无误，修改切片器内的色块显示颜色仅用于方便屏幕辨认，不会改变实际打印所用的线盘。
+'''
+translate = '''
+Click the object to check its assigned project-filament number and confirm which physical slot that filament maps to. Once the object assignment and physical spool match, editing the display swatch in the slicer is purely visual convenience.
+'''
+
+[[block]]
+key = "026a3bbfee670e64"
+type = "heading"
+origin = '''
+### 对象或槽位映射错误
+'''
+translate = '''
+### An object or slot is mapped to the wrong spool
+'''
+
+[[block]]
+key = "fa9b1794d6d5a64e"
+type = "paragraph"
+origin = '''
+先取消打印，依次修正“模型对象 → 项目耗材”与“项目耗材 → 物理料槽”两级映射，重新切片并逐层复核（仅修改对象名称不会改变实际挤出耗材）。
+'''
+translate = '''
+Cancel the print, fix both the object-to-project-filament assignment and the project-filament-to-slot mapping, then re-slice and verify the layers (renaming an object label alone does not change which extruder prints it).
+'''
+
+[[block]]
+key = "8e01fc24cfa4e5d7"
+type = "heading"
+origin = '''
+### 实物整体色偏
+'''
+translate = '''
+### Global color cast on the finished print
+'''
+
+[[block]]
+key = "51bf923fa654f2b0"
+type = "paragraph"
+origin = '''
+确认档案与上机线材完全对应后，依次排查线材批次、干燥度、打印温度、层高、首层压实度及观察光源。若同一卷线材在稳定工况下持续偏色，建议重新打印梯度卡为该批次建立专属耗材档案。
+'''
+translate = '''
+Double-check your archive selection and loaded spools first, then review batch consistency, filament dryness, print temperature, Layer Height, first-layer squish, and room lighting. If a spool consistently shifts away from an existing archive under controlled settings, print and extract a fresh gradient card for that batch.
+'''
+
+[[block]]
+key = "76aae367905967c0"
+type = "heading"
+origin = '''
+### 细小色块糊掉、被带走或消失
+'''
+translate = '''
+### Tiny details blur, lift, or disappear
+'''
+
+[[block]]
+key = "8ea87098dee4587d"
+type = "paragraph"
+origin = '''
+回到切片器逐层预览分情况处理：
+'''
+translate = '''
+Check the slicer's layer preview to narrow down the cause:
+'''
+
+[[block]]
+key = "d7853ddbfd99a674"
+type = "list"
+composite = true
+origin = '''
+{{d7853ddbfd99a674-b84820170d42a6d7}}
+{{d7853ddbfd99a674-34f645afa4a96fd2}}
+{{d7853ddbfd99a674-56898272be876b4f}}
+'''
+translate = '''
+{{d7853ddbfd99a674-b84820170d42a6d7}}
+{{d7853ddbfd99a674-34f645afa4a96fd2}}
+{{d7853ddbfd99a674-56898272be876b4f}}
+'''
+
+[[block]]
+key = "d7853ddbfd99a674-b84820170d42a6d7"
+type = "listItem"
+composite = true
+origin = '''
+- {{d7853ddbfd99a674-b84820170d42a6d7-42a676e5cee4f2dc}}
+'''
+translate = '''
+- {{d7853ddbfd99a674-b84820170d42a6d7-42a676e5cee4f2dc}}
+'''
+
+[[block]]
+key = "d7853ddbfd99a674-b84820170d42a6d7-42a676e5cee4f2dc"
+type = "paragraph"
+origin = '''
+**切片预览中无走线**：适当放大成品尺寸、加粗原图细部，或换用 `0.2 mm` 喷嘴；
+'''
+translate = '''
+**No toolpath in Preview**: scale up the finished print, widen fine strokes in the artwork, or switch to a `0.2 mm` nozzle.
+'''
+
+[[block]]
+key = "d7853ddbfd99a674-34f645afa4a96fd2"
+type = "listItem"
+composite = true
+origin = '''
+- {{d7853ddbfd99a674-34f645afa4a96fd2-cf8a832bc0468579}}
+'''
+translate = '''
+- {{d7853ddbfd99a674-34f645afa4a96fd2-cf8a832bc0468579}}
+'''
+
+[[block]]
+key = "d7853ddbfd99a674-34f645afa4a96fd2-cf8a832bc0468579"
+type = "paragraph"
+origin = '''
+**切片有走线但实物缺失**：清洁热床，校准首层高度与流量，检查喷嘴残料拖拽及耗材干燥度；
+'''
+translate = '''
+**Toolpath exists, missing on print**: clean the build plate, tune first-layer squish and flow, and check for nozzle residue or wet filament.
+'''
+
+[[block]]
+key = "d7853ddbfd99a674-56898272be876b4f"
+type = "listItem"
+composite = true
+origin = '''
+- {{d7853ddbfd99a674-56898272be876b4f-11a98666f3a3abd0}}
+'''
+translate = '''
+- {{d7853ddbfd99a674-56898272be876b4f-11a98666f3a3abd0}}
+'''
+
+[[block]]
+key = "d7853ddbfd99a674-56898272be876b4f-11a98666f3a3abd0"
+type = "paragraph"
+origin = '''
+**走线被并入相邻底色**：检查对象耗材绑定与槽位映射。
+'''
+translate = '''
+**Toolpath uses the neighboring color**: fix object and slot mapping.
+'''
+
+[[block]]
+key = "08485013e6f1893a"
+type = "heading"
+origin = '''
+### Lumina 预览全黑、偏绿或边界破损
+'''
+translate = '''
+### Lumina Preview turns black, green, or broken at the edges
+'''
+
+[[block]]
+key = "7c770a651afc4a7b"
+type = "list"
+composite = true
+origin = '''
+{{7c770a651afc4a7b-47d5b5ed082b07aa}}
+{{7c770a651afc4a7b-7127d80e856bc295}}
+{{7c770a651afc4a7b-774c02de4e839675}}
+{{7c770a651afc4a7b-c46057a4b4d90b03}}
+{{7c770a651afc4a7b-aa0bf74123b5a4a3}}
+'''
+translate = '''
+{{7c770a651afc4a7b-47d5b5ed082b07aa}}
+{{7c770a651afc4a7b-7127d80e856bc295}}
+{{7c770a651afc4a7b-774c02de4e839675}}
+{{7c770a651afc4a7b-c46057a4b4d90b03}}
+{{7c770a651afc4a7b-aa0bf74123b5a4a3}}
+'''
+
+[[block]]
+key = "7c770a651afc4a7b-47d5b5ed082b07aa"
+type = "listItem"
+composite = true
+origin = '''
+1. {{7c770a651afc4a7b-47d5b5ed082b07aa-564f90b8a39e0c4f}}
+'''
+translate = '''
+1. {{7c770a651afc4a7b-47d5b5ed082b07aa-564f90b8a39e0c4f}}
+'''
+
+[[block]]
+key = "7c770a651afc4a7b-47d5b5ed082b07aa-564f90b8a39e0c4f"
+type = "paragraph"
+origin = '''
+核对色彩数据来源、耗材档案 / LUT 与底板耗材设置；
+'''
+translate = '''
+Verify **Source Type**, your Material Archive or LUT, and **Base Plate Material**.
+'''
+
+[[block]]
+key = "7c770a651afc4a7b-7127d80e856bc295"
+type = "listItem"
+composite = true
+origin = '''
+2. {{7c770a651afc4a7b-7127d80e856bc295-40da3c5a3e410647}}
+'''
+translate = '''
+2. {{7c770a651afc4a7b-7127d80e856bc295-40da3c5a3e410647}}
+'''
+
+[[block]]
+key = "7c770a651afc4a7b-7127d80e856bc295-40da3c5a3e410647"
+type = "paragraph"
+origin = '''
+切换色彩来源后重新点击生成预览；
+'''
+translate = '''
+Re-run Preview after changing color sources.
+'''
+
+[[block]]
+key = "7c770a651afc4a7b-774c02de4e839675"
+type = "listItem"
+composite = true
+origin = '''
+3. {{7c770a651afc4a7b-774c02de4e839675-8fbc616007d700e3}}
+'''
+translate = '''
+3. {{7c770a651afc4a7b-774c02de4e839675-8fbc616007d700e3}}
+'''
+
+[[block]]
+key = "7c770a651afc4a7b-774c02de4e839675-8fbc616007d700e3"
+type = "paragraph"
+origin = '''
+检查原图的透明通道、色彩空间与分辨率；
+'''
+translate = '''
+Check the source image's alpha channel, color profile, and pixel dimensions.
+'''
+
+[[block]]
+key = "7c770a651afc4a7b-c46057a4b4d90b03"
+type = "listItem"
+composite = true
+origin = '''
+4. {{7c770a651afc4a7b-c46057a4b4d90b03-b236e776b1f5dbb7}}
+'''
+translate = '''
+4. {{7c770a651afc4a7b-c46057a4b4d90b03-b236e776b1f5dbb7}}
+'''
+
+[[block]]
+key = "7c770a651afc4a7b-c46057a4b4d90b03-b236e776b1f5dbb7"
+type = "paragraph"
+origin = '''
+若输入为 SVG，检查未闭合路径、填充规则、`viewBox` 与滤镜蒙版，详见[SVG 上传失败、白底、破洞和细节异常怎么排查？](pathname:///zh/docs/knowledge/svg-troubleshooting/)；
+'''
+translate = '''
+For SVGs, inspect open paths, fill rules, `viewBox` bounds, and live effects—see [Troubleshooting SVG Uploads, White Backgrounds, Holes, and Missing Detail](pathname:///en/docs/knowledge/svg-troubleshooting/).
+'''
+
+[[block]]
+key = "7c770a651afc4a7b-aa0bf74123b5a4a3"
+type = "listItem"
+composite = true
+origin = '''
+5. {{7c770a651afc4a7b-aa0bf74123b5a4a3-464c180360271af3}}
+'''
+translate = '''
+5. {{7c770a651afc4a7b-aa0bf74123b5a4a3-464c180360271af3}}
+'''
+
+[[block]]
+key = "7c770a651afc4a7b-aa0bf74123b5a4a3-464c180360271af3"
+type = "paragraph"
+origin = '''
+用一张简单纯色小图或最小化 SVG 做对照测试，确认问题是否仅出现在当前源文件。
+'''
+translate = '''
+Test with a simple flat PNG or minimal single-shape SVG to see whether the issue is file-specific.
+'''
+
+[[block]]
+key = "185243a5f34da919"
+type = "heading"
+origin = '''
+## 提交排查时建议附上的资料
+'''
+translate = '''
+## Helpful files to keep for support
+'''
+
+[[block]]
+key = "966d94a185ca99f6"
+type = "paragraph"
+origin = '''
+如需向社区或维护团队反馈疑难色差与结构问题，建议打包保留以下三阶段信息，以便直接定位问题发生的环节：
+'''
+translate = '''
+If an issue persists, save the files from all three stages so it is clear where the discrepancy begins:
+'''
+
+[[block]]
+key = "aa03b02f0271710b"
+type = "list"
+composite = true
+origin = '''
+{{aa03b02f0271710b-5639a86fd49f74dc}}
+{{aa03b02f0271710b-8ba39f67286d1488}}
+{{aa03b02f0271710b-ab1b17b5c3c89973}}
+{{aa03b02f0271710b-dbdde2ea1ed44bde}}
+{{aa03b02f0271710b-886f6128495d552a}}
+{{aa03b02f0271710b-42667aa59c03505e}}
+{{aa03b02f0271710b-1fc94fd3026e84ae}}
+'''
+translate = '''
+{{aa03b02f0271710b-5639a86fd49f74dc}}
+{{aa03b02f0271710b-8ba39f67286d1488}}
+{{aa03b02f0271710b-ab1b17b5c3c89973}}
+{{aa03b02f0271710b-dbdde2ea1ed44bde}}
+{{aa03b02f0271710b-886f6128495d552a}}
+{{aa03b02f0271710b-42667aa59c03505e}}
+{{aa03b02f0271710b-1fc94fd3026e84ae}}
+'''
+
+[[block]]
+key = "aa03b02f0271710b-5639a86fd49f74dc"
+type = "listItem"
+composite = true
+origin = '''
+- {{aa03b02f0271710b-5639a86fd49f74dc-c91c2f6df578740f}}
+'''
+translate = '''
+- {{aa03b02f0271710b-5639a86fd49f74dc-c91c2f6df578740f}}
+'''
+
+[[block]]
+key = "aa03b02f0271710b-5639a86fd49f74dc-c91c2f6df578740f"
+type = "paragraph"
+origin = '''
+原始输入图片或 SVG 文件；
+'''
+translate = '''
+Original input image or SVG
+'''
+
+[[block]]
+key = "aa03b02f0271710b-8ba39f67286d1488"
+type = "listItem"
+composite = true
+origin = '''
+- {{aa03b02f0271710b-8ba39f67286d1488-36abd856bbe10bfa}}
+'''
+translate = '''
+- {{aa03b02f0271710b-8ba39f67286d1488-36abd856bbe10bfa}}
+'''
+
+[[block]]
+key = "aa03b02f0271710b-8ba39f67286d1488-36abd856bbe10bfa"
+type = "paragraph"
+origin = '''
+所用色彩来源类型、耗材档案 / LUT 名称及耗材顺序；
+'''
+translate = '''
+Selected Source Type, archive or LUT name, and filament stack order
+'''
+
+[[block]]
+key = "aa03b02f0271710b-ab1b17b5c3c89973"
+type = "listItem"
+composite = true
+origin = '''
+- {{aa03b02f0271710b-ab1b17b5c3c89973-56e90c15666f0843}}
+'''
+translate = '''
+- {{aa03b02f0271710b-ab1b17b5c3c89973-56e90c15666f0843}}
+'''
+
+[[block]]
+key = "aa03b02f0271710b-ab1b17b5c3c89973-56e90c15666f0843"
+type = "paragraph"
+origin = '''
+Lumina 二维配色预览与三维结构预览截图；
+'''
+translate = '''
+Screenshots of Lumina's 2D and 3D previews
+'''
+
+[[block]]
+key = "aa03b02f0271710b-dbdde2ea1ed44bde"
+type = "listItem"
+composite = true
+origin = '''
+- {{aa03b02f0271710b-dbdde2ea1ed44bde-750013522996ffbe}}
+'''
+translate = '''
+- {{aa03b02f0271710b-dbdde2ea1ed44bde-750013522996ffbe}}
+'''
+
+[[block]]
+key = "aa03b02f0271710b-dbdde2ea1ed44bde-750013522996ffbe"
+type = "paragraph"
+origin = '''
+导出的原始 3MF 项目文件；
+'''
+translate = '''
+Exported 3MF project file
+'''
+
+[[block]]
+key = "aa03b02f0271710b-886f6128495d552a"
+type = "listItem"
+composite = true
+origin = '''
+- {{aa03b02f0271710b-886f6128495d552a-b1aedddebaf54af7}}
+'''
+translate = '''
+- {{aa03b02f0271710b-886f6128495d552a-b1aedddebaf54af7}}
+'''
+
+[[block]]
+key = "aa03b02f0271710b-886f6128495d552a-b1aedddebaf54af7"
+type = "paragraph"
+origin = '''
+切片器显色面及关键层的走线预览截图；
+'''
+translate = '''
+Slicer Preview screenshots of the viewing face and key color layers
+'''
+
+[[block]]
+key = "aa03b02f0271710b-42667aa59c03505e"
+type = "listItem"
+composite = true
+origin = '''
+- {{aa03b02f0271710b-42667aa59c03505e-624bfd5332692edc}}
+'''
+translate = '''
+- {{aa03b02f0271710b-42667aa59c03505e-624bfd5332692edc}}
+'''
+
+[[block]]
+key = "aa03b02f0271710b-42667aa59c03505e-624bfd5332692edc"
+type = "paragraph"
+origin = '''
+打印机型号、喷嘴规格、层高、线宽与真实槽位对应记录；
+'''
+translate = '''
+Printer model, nozzle size, Layer Height, line width, and physical slot mapping
+'''
+
+[[block]]
+key = "aa03b02f0271710b-1fc94fd3026e84ae"
+type = "listItem"
+composite = true
+origin = '''
+- {{aa03b02f0271710b-1fc94fd3026e84ae-92fed1c121b212e8}}
+'''
+translate = '''
+- {{aa03b02f0271710b-1fc94fd3026e84ae-92fed1c121b212e8}}
+'''
+
+[[block]]
+key = "aa03b02f0271710b-1fc94fd3026e84ae-92fed1c121b212e8"
+type = "paragraph"
+origin = '''
+在中性光线下拍摄的实物照片。
+'''
+translate = '''
+A neutral-light photo of the physical print
+'''
+
+[[block]]
+key = "3b30b685be5af364"
+type = "heading"
+origin = '''
+## 常见问题
+'''
+translate = '''
+## Common questions
+'''
+
+[[block]]
+key = "1227da505b230329"
+type = "heading"
+origin = '''
+### Lumina 预览和切片器预览颜色不一样，可以直接打印吗？
+'''
+translate = '''
+### Lumina Preview and slicer preview look different. Is it safe to print?
+'''
+
+[[block]]
+key = "d2ec6d19ed707db9"
+type = "paragraph"
+origin = '''
+先区分是“界面显示色差异”还是“实际映射 / 走线差异”。若颜色分区、对象绑定、槽位映射或逐层路径不一致，请先修正并重新切片；若仅是切片器色块示意色不够贴近线材外观，且所有槽位映射和逐层走线均准确无误，即可正常打印。
+'''
+translate = '''
+Only if the sole difference is an approximate display swatch color in the slicer while every color region, object assignment, physical slot, and sliced toolpath matches. If regions, filament mappings, or toolpaths differ, fix them and slice again before printing.
+'''
+
+[[block]]
+key = "ff354c7c618b38c5"
+type = "heading"
+origin = '''
+### Lumina 预览里有细线，切片后消失了，需要去调颜色吗？
+'''
+translate = '''
+### Thin lines appear in Lumina Preview but vanish after slicing. Should I tweak colors?
+'''
+
+[[block]]
+key = "e9ff4e274ae1242d"
+type = "paragraph"
+origin = '''
+无需调色。细线在切片阶段消失通常是因为线条宽度低于当前喷嘴的挤出线宽下限。请先在切片预览中确认路径状态，通过放大成品尺寸、加粗原图线条或换用更细喷嘴即可解决。
+'''
+translate = '''
+Color adjustments rarely restore dropped geometry. Check whether a toolpath exists in the slicer's Preview tab; enlarging the print, thickening thin strokes, or switching to a smaller nozzle addresses line-width limits directly.
+'''
+
+[[block]]
+key = "e5700ea6feeec36f"
+type = "heading"
+origin = '''
+### 两个软件预览都正常，为什么打印出来的实物偏暗？
+'''
+translate = '''
+### Both previews look good, so why does the physical print look darker?
+'''
+
+[[block]]
+key = "da033855d6164626"
+type = "paragraph"
+origin = '''
+显示器自发光比反射环境光的塑料件更明亮，轻微亮度落差属于物理特性。若实物出现明显且持续的整体发暗，请检查深色底层耗材是否映射错位、显色层层高与首层是否过薄，以及线材批次透光率是否偏高。
+'''
+translate = '''
+Backlit screens naturally appear brighter than reflective plastic. If the print is noticeably and consistently too dark, check that dark backing or shadow filaments were not swapped into upper slots, verify color-layer height and first-layer thickness, and inspect the print under bright neutral light.
+'''
+
+[[block]]
+key = "8e353de886a7ca5e"
+type = "heading"
+origin = '''
+### 肉眼看实物很正常，但手机拍出来偏绿，需要重做耗材档案吗？
+'''
+translate = '''
+### The print looks accurate in person, but greenish in phone photos. Should I recalibrate the archive?
+'''
+
+[[block]]
+key = "7480c641161915ad"
+type = "paragraph"
+origin = '''
+不需要。这通常是手机自动白平衡或室内频闪光源造成的拍摄色偏。关闭相机美颜与色彩增强，在自然光或标准中性光下锁定白平衡并放入白色参照物重拍即可验证。
+'''
+translate = '''
+No need. Smartphone auto white balance and indoor LED lighting frequently skew camera colors. Lock white balance under neutral daylight-balanced lighting with a white reference card in frame if you need accurate photos.
+'''
+
+[[block]]
+key = "cd0869036c14311c"
+type = "heading"
+origin = '''
+### 小线条打印时“被擦掉”，一定是回抽参数不对吗？
+'''
+translate = '''
+### Small lines look “wiped away” on the plate—is retraction to blame?
+'''
+
+[[block]]
+key = "fd2150c491e8fb01"
+type = "paragraph"
+origin = '''
+先看切片逐层预览是否生成了该条路径：若本来就没有路径，属于成品尺寸或线宽限制；若切片路径完整但打印后脱落，优先清洁热床并检查首层压实度、流量与喷嘴外壁残料拖拽，最后再微调回抽与擦嘴参数。
+'''
+translate = '''
+Check the sliced Preview first. If no path was generated, the feature fell below your line width. If the path is present in Preview but lifts during printing, clean the build plate and inspect first-layer adhesion, flow, and nozzle buildup before tuning retraction.
+'''

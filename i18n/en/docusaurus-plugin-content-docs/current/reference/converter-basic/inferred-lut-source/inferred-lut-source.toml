@@ -1,0 +1,327 @@
+[metadata]
+reviewed_source = "4185ce8987277a8fc28d5c2a02ffe3b02b5615eb1601ca50b6d03006d0909393"
+
+[[block]]
+key = "6d4c7ae61008c4f7"
+type = "yaml"
+origin = '''
+---
+title: "反推 LUT（旧版资料）"
+description: "说明旧版反推 LUT 的品牌包、数据库、受支持层数及模型辅助匹配规则。"
+sidebar_position: 4
+---
+'''
+translate = '''
+---
+title: "Inferred LUT (older versions)"
+description: "Explains native brand packages, database selection, supported layer modes, and model-assisted matching in earlier versions."
+sidebar_position: 4
+---
+'''
+
+[[block]]
+key = "db921948f8af8fdc"
+type = "heading"
+origin = '''
+# 反推 LUT
+'''
+translate = '''
+# Inferred LUT
+'''
+
+[[block]]
+key = "d770acd1cdc27052"
+type = "admonition"
+composite = true
+origin = '''
+:::warning[旧版资料]
+{{d770acd1cdc27052-307376a9e2e539b6}}
+:::
+'''
+translate = '''
+:::warning[Older versions]
+{{d770acd1cdc27052-307376a9e2e539b6}}
+:::
+'''
+
+[[block]]
+key = "d770acd1cdc27052-307376a9e2e539b6"
+type = "paragraph"
+origin = '''
+新版“色彩数据来源”已移除“反推 LUT”选项，本页内容保留供旧版用户参考。
+'''
+translate = '''
+Newer releases no longer include **Inferred LUT** under **Color Data Source**. This page is retained as a reference for earlier versions.
+'''
+
+[[block]]
+key = "5957a599e48a0c62"
+type = "paragraph"
+origin = '''
+与直接选用单张固定查找表的经典 LUT 不同，**反推 LUT** 会读取耗材品牌包中的颜色数据库、受支持的叠层组合及可选预测模型：先选定品牌，再指定参与匹配的数据库与层数模式。
+'''
+translate = '''
+Unlike a Classic LUT that loads a single fixed lookup table, **Inferred LUT** loads a filament brand package containing color databases, supported layer modes, and an optional predictive model. You select a brand first, then choose which databases and supported layer mode participate in color matching.
+'''
+
+[[block]]
+key = "69853019c86e523b"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-inferred-lut-source.webp').default}
+  alt="反推 LUT 的品牌、数据库、层数和模型辅助匹配控件"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-inferred-lut-source.webp').default}
+  alt="Brand, database, layer, and model-assisted controls for an Inferred LUT"
+/>
+'''
+
+[[block]]
+key = "8d57d233a85901af"
+type = "heading"
+origin = '''
+## 品牌与数据库
+'''
+translate = '''
+## Brand and databases
+'''
+
+[[block]]
+key = "b3f392b1fe3a75ea"
+type = "paragraph"
+origin = '''
+选定品牌后，界面仅列出该品牌包声明的数据库。复选框决定哪些实测或计算数据库参与配色匹配，至少需要勾选一个数据库才能开始预览。
+'''
+translate = '''
+Selecting a brand displays only the databases declared in that brand package. At least one database must remain checked before **Preview** becomes available.
+'''
+
+[[block]]
+key = "4aeeb49df6d14549"
+type = "paragraph"
+origin = '''
+切换品牌时，原先勾选的数据库会清空并恢复为新品牌包的默认勾选组合，原有的预览和已生成的 3MF 也会同步失效。
+'''
+translate = '''
+Switching brands clears the previous database selection, applies the new brand package's defaults, and invalidates any existing preview and generated 3MF.
+'''
+
+[[block]]
+key = "7fb64a270790bfbc"
+type = "heading"
+origin = '''
+## 层数
+'''
+translate = '''
+## Layer Count
+'''
+
+[[block]]
+key = "922bc8dd4eadda43"
+type = "paragraph"
+origin = '''
+调整层数滑块时，软件会在品牌包的 `supported_modes` 中匹配可用的叠层方案：
+'''
+translate = '''
+Moving the layer slider selects from the modes declared in the brand package's `supported_modes`:
+'''
+
+[[block]]
+key = "87c68013d231474a"
+type = "list"
+composite = true
+origin = '''
+{{87c68013d231474a-c95893fdaaeff5c5}}
+{{87c68013d231474a-1d387dc1a7bc9563}}
+{{87c68013d231474a-e92419c8c8efa835}}
+'''
+translate = '''
+{{87c68013d231474a-c95893fdaaeff5c5}}
+{{87c68013d231474a-1d387dc1a7bc9563}}
+{{87c68013d231474a-e92419c8c8efa835}}
+'''
+
+[[block]]
+key = "87c68013d231474a-c95893fdaaeff5c5"
+type = "listItem"
+composite = true
+origin = '''
+- {{87c68013d231474a-c95893fdaaeff5c5-6bc70084b731fa4b}}
+'''
+translate = '''
+- {{87c68013d231474a-c95893fdaaeff5c5-6bc70084b731fa4b}}
+'''
+
+[[block]]
+key = "87c68013d231474a-c95893fdaaeff5c5-6bc70084b731fa4b"
+type = "paragraph"
+origin = '''
+若所选层数下存在与当前层高完全一致的组合，直接启用该组合；
+'''
+translate = '''
+If an exact match for both layer count and current layer height exists, that pair is used directly;
+'''
+
+[[block]]
+key = "87c68013d231474a-1d387dc1a7bc9563"
+type = "listItem"
+composite = true
+origin = '''
+- {{87c68013d231474a-1d387dc1a7bc9563-69155c1dcc1fbfdd}}
+'''
+translate = '''
+- {{87c68013d231474a-1d387dc1a7bc9563-69155c1dcc1fbfdd}}
+'''
+
+[[block]]
+key = "87c68013d231474a-1d387dc1a7bc9563-69155c1dcc1fbfdd"
+type = "paragraph"
+origin = '''
+若所选层数包含多种层高但无完全一致项，自动选用最接近当前层高的一项；
+'''
+translate = '''
+If multiple layer heights exist for that count without an exact match, the closest layer height is selected;
+'''
+
+[[block]]
+key = "87c68013d231474a-e92419c8c8efa835"
+type = "listItem"
+composite = true
+origin = '''
+- {{87c68013d231474a-e92419c8c8efa835-1c14de5543a4db88}}
+'''
+translate = '''
+- {{87c68013d231474a-e92419c8c8efa835-1c14de5543a4db88}}
+'''
+
+[[block]]
+key = "87c68013d231474a-e92419c8c8efa835-1c14de5543a4db88"
+type = "paragraph"
+origin = '''
+若品牌包未提供所选层数，则保持上一次的有效组合不变。
+'''
+translate = '''
+If the requested layer count is unsupported by the package, the previous valid mode stays active.
+'''
+
+[[block]]
+key = "639339414082ce22"
+type = "paragraph"
+origin = '''
+控件下方的**支持模式**列出了该品牌包实际可用的全部“层数 @ 层高”组合，预览与生成均按匹配到的组合执行。
+'''
+translate = '''
+The **Supported Modes** line below the control lists every valid “layers @ layer height” pair used during preview and model generation.
+'''
+
+[[block]]
+key = "d11595268880fd2f"
+type = "heading"
+origin = '''
+## 模型辅助匹配
+'''
+translate = '''
+## Model-assisted matching
+'''
+
+[[block]]
+key = "6d31406daabf2c65"
+type = "paragraph"
+origin = '''
+仅当所选品牌包内置可用的预测模型时，界面才会显示**模型辅助匹配**与**仅模型匹配**选项。默认情况下仍以实测颜色数据库为基准；开启模型辅助后，当数据库匹配色差较大而模型预测结果明显更优时，软件会采用模型候选方案。详细判定逻辑见[模型辅助匹配](../../color-matching/model-assisted-matching/model-assisted-matching.mdx)。
+'''
+translate = '''
+**Model-Assisted Matching** and **Model only** appear when the selected brand package includes a predictive model. Measured color databases remain the baseline, while the predictive model can step in to replace weak database matches when its prediction is substantially closer. See [Model-Assisted Matching](../../color-matching/model-assisted-matching/model-assisted-matching.mdx) for the full selection rules.
+'''
+
+[[block]]
+key = "2ebb014b8f68bd72"
+type = "heading"
+origin = '''
+## 相关页面
+'''
+translate = '''
+## Related pages
+'''
+
+[[block]]
+key = "eeaa322a1dbeecd8"
+type = "list"
+composite = true
+origin = '''
+{{eeaa322a1dbeecd8-6191a15f867e66d8}}
+{{eeaa322a1dbeecd8-181d94df560e189f}}
+{{eeaa322a1dbeecd8-209b4a25579a2fb3}}
+'''
+translate = '''
+{{eeaa322a1dbeecd8-6191a15f867e66d8}}
+{{eeaa322a1dbeecd8-181d94df560e189f}}
+{{eeaa322a1dbeecd8-209b4a25579a2fb3}}
+'''
+
+[[block]]
+key = "eeaa322a1dbeecd8-6191a15f867e66d8"
+type = "listItem"
+composite = true
+origin = '''
+- {{eeaa322a1dbeecd8-6191a15f867e66d8-c330205a22413743}}
+'''
+translate = '''
+- {{eeaa322a1dbeecd8-6191a15f867e66d8-c330205a22413743}}
+'''
+
+[[block]]
+key = "eeaa322a1dbeecd8-6191a15f867e66d8-c330205a22413743"
+type = "paragraph"
+origin = '''
+[来源类型](../source-type/source-type.mdx)
+'''
+translate = '''
+[Source Type](../source-type/source-type.mdx)
+'''
+
+[[block]]
+key = "eeaa322a1dbeecd8-181d94df560e189f"
+type = "listItem"
+composite = true
+origin = '''
+- {{eeaa322a1dbeecd8-181d94df560e189f-9d00046dc7593cf7}}
+'''
+translate = '''
+- {{eeaa322a1dbeecd8-181d94df560e189f-9d00046dc7593cf7}}
+'''
+
+[[block]]
+key = "eeaa322a1dbeecd8-181d94df560e189f-9d00046dc7593cf7"
+type = "paragraph"
+origin = '''
+[传统 LUT](../legacy-lut-source/legacy-lut-source.mdx)
+'''
+translate = '''
+[Legacy LUT](../legacy-lut-source/legacy-lut-source.mdx)
+'''
+
+[[block]]
+key = "eeaa322a1dbeecd8-209b4a25579a2fb3"
+type = "listItem"
+composite = true
+origin = '''
+- {{eeaa322a1dbeecd8-209b4a25579a2fb3-07aab1aa694ba6b4}}
+'''
+translate = '''
+- {{eeaa322a1dbeecd8-209b4a25579a2fb3-07aab1aa694ba6b4}}
+'''
+
+[[block]]
+key = "eeaa322a1dbeecd8-209b4a25579a2fb3-07aab1aa694ba6b4"
+type = "paragraph"
+origin = '''
+[模型辅助匹配](../../color-matching/model-assisted-matching/model-assisted-matching.mdx)
+'''
+translate = '''
+[Model-Assisted Matching](../../color-matching/model-assisted-matching/model-assisted-matching.mdx)
+'''

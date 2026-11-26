@@ -1,0 +1,613 @@
+[metadata]
+reviewed_source = "d886ac7fb0f84b0c36ffb9749b2818a3b40840b292a1af7890a4a307186991bc"
+
+[[block]]
+key = "5f781d838b8feb9e"
+type = "yaml"
+origin = '''
+---
+title: 本地预览与提交前检查
+description: 准备 Git 与 Node.js 环境，克隆仓库后用 Corepack 与 Yarn 4 分别预览中文与英文站点，并在提交 PR 前执行 typecheck 与 build。
+---
+'''
+translate = '''
+---
+title: Local Preview and Pre-Submit Checks
+description: Set up Git and Node.js, clone the repository, preview the Chinese and English sites with Corepack and Yarn 4, and run typecheck and build before opening a pull request.
+---
+'''
+
+[[block]]
+key = "308c9c6bd3f1f47a"
+type = "heading"
+origin = '''
+# 本地预览与提交前检查
+'''
+translate = '''
+# Local Preview and Pre-Submit Checks
+'''
+
+[[block]]
+key = "b76449f7bba8fe23"
+type = "paragraph"
+origin = '''
+本站基于 Docusaurus 构建，使用 `yarn` 管理依赖。修改文档后，请先在本地完成预览与构建检查，再提交 Pull Request。
+'''
+translate = '''
+This documentation site is built with Docusaurus and managed with `yarn`. Run a local preview and both pre-submit checks before opening a pull request.
+'''
+
+[[block]]
+key = "66081d8019bdd3b6"
+type = "heading"
+origin = '''
+## 一、环境准备
+'''
+translate = '''
+## 1. Environment setup
+'''
+
+[[block]]
+key = "883e63f8e1a8c4de"
+type = "heading"
+origin = '''
+### 1. Git 与源码仓库
+'''
+translate = '''
+### 1.1 Git and the source repository
+'''
+
+[[block]]
+key = "17b21e57c0b91d7c"
+type = "paragraph"
+origin = '''
+本地预览与提交前检查均会读取仓库的 `.git` 历史记录。请使用 `git clone` 克隆仓库，切勿直接下载源码 ZIP 解压运行（普通解压目录缺少 `.git` 记录，会导致预览与构建报错）。
+'''
+translate = '''
+Both local preview and pre-submit checks read the repository's `.git` history. Clone the repository with `git clone` rather than downloading a source ZIP archive, which lacks `.git` metadata and causes preview and build commands to fail.
+'''
+
+[[block]]
+key = "e04a4d1b84eda600"
+type = "list"
+composite = true
+origin = '''
+{{e04a4d1b84eda600-e04a4d1b84eda600}}
+'''
+translate = '''
+{{e04a4d1b84eda600-e04a4d1b84eda600}}
+'''
+
+[[block]]
+key = "e04a4d1b84eda600-e04a4d1b84eda600"
+type = "listItem"
+composite = true
+origin = '''
+1. {{e04a4d1b84eda600-e04a4d1b84eda600-26e63cfd4ac5ae13}}
+'''
+translate = '''
+1. {{e04a4d1b84eda600-e04a4d1b84eda600-26e63cfd4ac5ae13}}
+'''
+
+[[block]]
+key = "e04a4d1b84eda600-e04a4d1b84eda600-26e63cfd4ac5ae13"
+type = "paragraph"
+origin = '''
+安装 Git 并确认命令可用：
+'''
+translate = '''
+Install Git and verify that it is available:
+'''
+
+[[block]]
+key = "2c9681e20baea0d5"
+type = "code"
+origin = '''
+```bash
+git --version
+```
+'''
+translate = '''
+```bash
+git --version
+```
+'''
+
+[[block]]
+key = "92351db26c923c3f"
+type = "list"
+composite = true
+origin = '''
+{{92351db26c923c3f-92351db26c923c3f}}
+'''
+translate = '''
+{{92351db26c923c3f-92351db26c923c3f}}
+'''
+
+[[block]]
+key = "92351db26c923c3f-92351db26c923c3f"
+type = "listItem"
+composite = true
+origin = '''
+2. {{92351db26c923c3f-92351db26c923c3f-9b7387eb9d3a059f}}
+'''
+translate = '''
+2. {{92351db26c923c3f-92351db26c923c3f-9b7387eb9d3a059f}}
+'''
+
+[[block]]
+key = "92351db26c923c3f-92351db26c923c3f-9b7387eb9d3a059f"
+type = "paragraph"
+origin = '''
+克隆源码仓库并进入目录：
+'''
+translate = '''
+Clone the repository and enter the project directory:
+'''
+
+[[block]]
+key = "63525b353f1c3e76"
+type = "code"
+origin = '''
+```bash
+git clone https://github.com/lumina-layer-studio/Lumina-Studio-Wiki.git
+cd Lumina-Studio-Wiki
+```
+'''
+translate = '''
+```bash
+git clone https://github.com/lumina-layer-studio/Lumina-Studio-Wiki.git
+cd Lumina-Studio-Wiki
+```
+'''
+
+[[block]]
+key = "f8617efe5df22233"
+type = "heading"
+origin = '''
+### 2. Node.js 与 Corepack
+'''
+translate = '''
+### 1.2 Node.js and Corepack
+'''
+
+[[block]]
+key = "001700f65243df36"
+type = "paragraph"
+origin = '''
+需要 Node.js 20 及以上版本与 Corepack。Node.js 14.19.0 至 24.x 自带 Corepack；从 Node.js 25 起不再默认附带。
+'''
+translate = '''
+You need Node.js 20 or later and Corepack. Corepack is bundled with Node.js 14.19.0 through 24.x, and is no longer included starting with Node.js 25.
+'''
+
+[[block]]
+key = "2b542569b65b7601"
+type = "paragraph"
+origin = '''
+若系统提示找不到 `corepack`（如使用 Node.js 25 及以上版本），请先手动安装全局 Corepack，详见 [Corepack 官方安装说明](https://github.com/nodejs/corepack#how-to-install)：
+'''
+translate = '''
+If `corepack` is not found (for example on Node.js 25 or later), install it globally first (see the [official Corepack installation guide](https://github.com/nodejs/corepack#how-to-install)):
+'''
+
+[[block]]
+key = "8a9917ea97295a2e"
+type = "code"
+origin = '''
+```bash
+npm install -g corepack
+```
+'''
+translate = '''
+```bash
+npm install -g corepack
+```
+'''
+
+[[block]]
+key = "1edc9e89e58c64fc"
+type = "paragraph"
+origin = '''
+已内置或安装完成后，启用 Corepack：
+'''
+translate = '''
+Enable Corepack:
+'''
+
+[[block]]
+key = "193dde5bf36b4330"
+type = "code"
+origin = '''
+```bash
+corepack enable
+```
+'''
+translate = '''
+```bash
+corepack enable
+```
+'''
+
+[[block]]
+key = "9b734c32c89e4572"
+type = "paragraph"
+origin = '''
+随后安装项目依赖：
+'''
+translate = '''
+Then install project dependencies:
+'''
+
+[[block]]
+key = "bb54aa9608a3fb6e"
+type = "code"
+origin = '''
+```bash
+yarn install --immutable
+```
+'''
+translate = '''
+```bash
+yarn install --immutable
+```
+'''
+
+[[block]]
+key = "149fabeda82d91e8"
+type = "paragraph"
+origin = '''
+项目固定使用 `package.json` 中声明的 Yarn 4 版本。
+'''
+translate = '''
+The repository pins the exact Yarn 4 version specified in `package.json`.
+'''
+
+[[block]]
+key = "3cb9652d7abc8c18"
+type = "heading"
+origin = '''
+## 二、本地预览
+'''
+translate = '''
+## 2. Local preview
+'''
+
+[[block]]
+key = "42357c304240f157"
+type = "paragraph"
+origin = '''
+`yarn start` 默认仅启动中文站点预览：
+'''
+translate = '''
+`yarn start` launches the Chinese site by default:
+'''
+
+[[block]]
+key = "d073e98da6cb2b9e"
+type = "code"
+origin = '''
+```bash
+yarn start
+```
+'''
+translate = '''
+```bash
+yarn start
+```
+'''
+
+[[block]]
+key = "38e1a88f89845e71"
+type = "paragraph"
+origin = '''
+预览英文站点需显式指定语言参数：
+'''
+translate = '''
+To preview the English site, pass the `--locale en` flag:
+'''
+
+[[block]]
+key = "e145eff7417346a8"
+type = "code"
+origin = '''
+```bash
+yarn start --locale en
+```
+'''
+translate = '''
+```bash
+yarn start --locale en
+```
+'''
+
+[[block]]
+key = "2abcf901a78508f1"
+type = "paragraph"
+origin = '''
+中英文站点分别独立构建，且默认占用同一端口，因此**同一时间只能运行一种语言的预览服务**。切换语言前，请先按 `Ctrl+C` 停止当前服务，再执行另一条启动命令。
+'''
+translate = '''
+Chinese and English build separately and share the same default port, so **only one locale can run at a time**. Press `Ctrl+C` to stop the active dev server before starting the other locale.
+'''
+
+[[block]]
+key = "71e791c567a4f304"
+type = "heading"
+origin = '''
+## 三、提交前检查
+'''
+translate = '''
+## 3. Pre-submit checks
+'''
+
+[[block]]
+key = "52825a4778b9ddf7"
+type = "paragraph"
+origin = '''
+提交前请依次执行类型检查与完整构建：
+'''
+translate = '''
+Run both checks in order before committing:
+'''
+
+[[block]]
+key = "7c2a88260d370938"
+type = "code"
+origin = '''
+```bash
+yarn typecheck
+yarn build
+```
+'''
+translate = '''
+```bash
+yarn typecheck
+yarn build
+```
+'''
+
+[[block]]
+key = "68406826d6da0440"
+type = "heading"
+origin = '''
+## 四、目录与文件约定
+'''
+translate = '''
+## 4. Directory and file conventions
+'''
+
+[[block]]
+key = "9df312de86916524"
+type = "list"
+composite = true
+origin = '''
+{{9df312de86916524-b202dc97c137e381}}
+{{9df312de86916524-d4924194b17a9589}}
+'''
+translate = '''
+{{9df312de86916524-b202dc97c137e381}}
+{{9df312de86916524-d4924194b17a9589}}
+'''
+
+[[block]]
+key = "9df312de86916524-b202dc97c137e381"
+type = "listItem"
+composite = true
+origin = '''
+- {{9df312de86916524-b202dc97c137e381-cab02e6576c67d3a}}
+'''
+translate = '''
+- {{9df312de86916524-b202dc97c137e381-cab02e6576c67d3a}}
+'''
+
+[[block]]
+key = "9df312de86916524-b202dc97c137e381-cab02e6576c67d3a"
+type = "paragraph"
+origin = '''
+中文文档位于 `docs/`，英文文档位于 `i18n/en/docusaurus-plugin-content-docs/current/`。
+'''
+translate = '''
+Chinese docs live in `docs/`; English docs live in `i18n/en/docusaurus-plugin-content-docs/current/`.
+'''
+
+[[block]]
+key = "9df312de86916524-d4924194b17a9589"
+type = "listItem"
+composite = true
+origin = '''
+- {{9df312de86916524-d4924194b17a9589-b7f5d7df9419ba09}}
+'''
+translate = '''
+- {{9df312de86916524-d4924194b17a9589-b7f5d7df9419ba09}}
+'''
+
+[[block]]
+key = "9df312de86916524-d4924194b17a9589-b7f5d7df9419ba09"
+type = "paragraph"
+origin = '''
+每篇教程使用独立目录，MDX 文件与所在目录同名，配图统一存放在该目录下的 `assets/` 文件夹中。
+'''
+translate = '''
+Each tutorial lives in its own directory, with the `.mdx` filename matching the directory name and images placed under `assets/`.
+'''
+
+[[block]]
+key = "245443c3f11fe481"
+type = "paragraph"
+origin = '''
+示例：
+'''
+translate = '''
+Example:
+'''
+
+[[block]]
+key = "7b4eb7376f5171d3"
+type = "code"
+origin = '''
+```
+docs/tutorials/example/example.mdx
+docs/tutorials/example/assets/step-01.webp
+```
+'''
+translate = '''
+```
+docs/tutorials/example/example.mdx
+docs/tutorials/example/assets/step-01.webp
+```
+'''
+
+[[block]]
+key = "bb33b55506c53e92"
+type = "heading"
+origin = '''
+## 五、写法约定
+'''
+translate = '''
+## 5. Writing conventions
+'''
+
+[[block]]
+key = "32fc5943878feb2c"
+type = "list"
+composite = true
+origin = '''
+{{32fc5943878feb2c-cf9957ce27444be7}}
+{{32fc5943878feb2c-ff2e16c9d0d10b41}}
+{{32fc5943878feb2c-7e382274e01cb571}}
+'''
+translate = '''
+{{32fc5943878feb2c-cf9957ce27444be7}}
+{{32fc5943878feb2c-ff2e16c9d0d10b41}}
+{{32fc5943878feb2c-7e382274e01cb571}}
+'''
+
+[[block]]
+key = "32fc5943878feb2c-cf9957ce27444be7"
+type = "listItem"
+composite = true
+origin = '''
+- {{32fc5943878feb2c-cf9957ce27444be7-644acecb156e8883}}
+'''
+translate = '''
+- {{32fc5943878feb2c-cf9957ce27444be7-644acecb156e8883}}
+'''
+
+[[block]]
+key = "32fc5943878feb2c-cf9957ce27444be7-644acecb156e8883"
+type = "paragraph"
+origin = '''
+正文仅使用 Docusaurus 原生支持的 Markdown/MDX 语法，不引入自定义图片或路径组件。
+'''
+translate = '''
+Use standard Docusaurus Markdown/MDX features only; do not introduce custom image or path components in MDX bodies.
+'''
+
+[[block]]
+key = "32fc5943878feb2c-ff2e16c9d0d10b41"
+type = "listItem"
+composite = true
+origin = '''
+- {{32fc5943878feb2c-ff2e16c9d0d10b41-d2bbb055d21fbdb7}}
+'''
+translate = '''
+- {{32fc5943878feb2c-ff2e16c9d0d10b41-d2bbb055d21fbdb7}}
+'''
+
+[[block]]
+key = "32fc5943878feb2c-ff2e16c9d0d10b41-d2bbb055d21fbdb7"
+type = "paragraph"
+origin = '''
+MDX 正文中不添加 `import` 语句。
+'''
+translate = '''
+Do not add `import` statements inside MDX files.
+'''
+
+[[block]]
+key = "32fc5943878feb2c-7e382274e01cb571"
+type = "listItem"
+composite = true
+origin = '''
+- {{32fc5943878feb2c-7e382274e01cb571-52e2e3ca3e965d12}}
+'''
+translate = '''
+- {{32fc5943878feb2c-7e382274e01cb571-52e2e3ca3e965d12}}
+'''
+
+[[block]]
+key = "32fc5943878feb2c-7e382274e01cb571-52e2e3ca3e965d12"
+type = "paragraph"
+origin = '''
+图片统一使用页面目录内的相对路径引用：
+'''
+translate = '''
+Reference local images with relative `require` paths inside the page directory:
+'''
+
+[[block]]
+key = "e9f494d2e7789d00"
+type = "code"
+origin = '''
+```jsx
+<img src={require('./assets/step-01.webp').default} alt="步骤一" />
+```
+'''
+translate = '''
+```jsx
+<img src={require('./assets/step-01.webp').default} alt="Step one" />
+```
+'''
+
+[[block]]
+key = "83dc2a9abaa51f22"
+type = "list"
+composite = true
+origin = '''
+{{83dc2a9abaa51f22-83dc2a9abaa51f22}}
+'''
+translate = '''
+{{83dc2a9abaa51f22-83dc2a9abaa51f22}}
+'''
+
+[[block]]
+key = "83dc2a9abaa51f22-83dc2a9abaa51f22"
+type = "listItem"
+composite = true
+origin = '''
+- {{83dc2a9abaa51f22-83dc2a9abaa51f22-188d21d3c9069159}}
+'''
+translate = '''
+- {{83dc2a9abaa51f22-83dc2a9abaa51f22-188d21d3c9069159}}
+'''
+
+[[block]]
+key = "83dc2a9abaa51f22-83dc2a9abaa51f22-188d21d3c9069159"
+type = "paragraph"
+origin = '''
+完整贡献指南与排版规范请参阅 [CONTRIBUTING.md](https://github.com/lumina-layer-studio/Lumina-Studio-Wiki/blob/main/CONTRIBUTING.md)。
+'''
+translate = '''
+See [CONTRIBUTING.md](https://github.com/lumina-layer-studio/Lumina-Studio-Wiki/blob/main/CONTRIBUTING.md) for full authoring guidelines.
+'''
+
+[[block]]
+key = "5972e6acfd0cae6a"
+type = "heading"
+origin = '''
+## 参与贡献
+'''
+translate = '''
+## Contributing
+'''
+
+[[block]]
+key = "b47e02534cf61c9c"
+type = "paragraph"
+origin = '''
+欢迎通过 Issue 或 Pull Request 修正文档错漏、补充教程或优化译文；详细协作规则见 [CONTRIBUTING.md](https://github.com/lumina-layer-studio/Lumina-Studio-Wiki/blob/main/CONTRIBUTING.md)。
+'''
+translate = '''
+Bug fixes, new tutorials, and translation improvements are welcome via Issues or Pull Requests. See [CONTRIBUTING.md](https://github.com/lumina-layer-studio/Lumina-Studio-Wiki/blob/main/CONTRIBUTING.md) for details.
+'''

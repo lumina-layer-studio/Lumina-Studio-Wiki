@@ -1,0 +1,357 @@
+[metadata]
+reviewed_source = "5e5b9953e474bb250ac1d6c523edee295590e3ea4644e53980e98b5b9114fe34"
+
+[[block]]
+key = "f1b4e79e26027656"
+type = "yaml"
+origin = '''
+---
+title: "梯度卡生成"
+description: "生成打印梯度卡和后续提取所需的配置文件包。"
+sidebar_position: 5
+---
+'''
+translate = '''
+---
+title: "Gradient Card Generation"
+description: "Generate printable gradient cards and the extraction configuration package."
+sidebar_position: 5
+---
+'''
+
+[[block]]
+key = "7b3491f75299116f"
+type = "heading"
+origin = '''
+# 梯度卡生成
+'''
+translate = '''
+# Gradient Card Generation
+'''
+
+[[block]]
+key = "a258edad1b8e46f0"
+type = "paragraph"
+origin = '''
+梯度卡用于测量单种耗材在不同叠层厚度及黑白基底上的透射与吸收特性。本页面会同时生成供切片打印的模型文件，以及后续提取阶段所需的配置包（Kit ZIP）。
+'''
+translate = '''
+Gradient cards measure how a single filament transmits and absorbs color across varying stack thicknesses over white and black substrates. This page generates both the printable 3MF files and the Kit ZIP configuration package required for extraction.
+'''
+
+[[block]]
+key = "7b4e5bfa0313fb45"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-gradient-card-generation.webp').default}
+  alt="梯度卡生成页面"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-gradient-card-generation.webp').default}
+  alt="Gradient Card Generation page"
+/>
+'''
+
+[[block]]
+key = "26dfc3e31380efaf"
+type = "heading"
+origin = '''
+## 层高
+'''
+translate = '''
+## Layer height
+'''
+
+[[block]]
+key = "632ccf8fc14aac25"
+type = "paragraph"
+origin = '''
+支持选择 `0.04 mm`、`0.08 mm` 和 `0.10 mm` 三种标定层高。所选层高会写入打印文件、提取配置及最终生成的耗材档案。后续提取直接读取 Kit ZIP 中记录的层高参数，请在生成前确认所选数值与实际切片层高一致。
+'''
+translate = '''
+Available calibration layer heights are `0.04 mm`, `0.08 mm`, and `0.10 mm`. The selected layer height is recorded in the print files, the extraction configuration, and the final material archive. Because extraction reads the layer height directly from the Kit ZIP, select the exact layer height you plan to slice and print with before generating the package.
+'''
+
+[[block]]
+key = "ddac4388e8baa8eb"
+type = "heading"
+origin = '''
+## 生成配置文件包
+'''
+translate = '''
+## Generate Configuration Package
+'''
+
+[[block]]
+key = "dcb85f99eb70fcea"
+type = "paragraph"
+origin = '''
+点击“生成配置文件包”后，Lumina 会打包生成以下内容：
+'''
+translate = '''
+Clicking **Generate Configuration Package** builds a Kit ZIP containing:
+'''
+
+[[block]]
+key = "faef886ad41bce9e"
+type = "list"
+composite = true
+origin = '''
+{{faef886ad41bce9e-af96bfbf8f44b58e}}
+{{faef886ad41bce9e-98684b6cb5a9d4e1}}
+{{faef886ad41bce9e-5a81393dd2379ba3}}
+{{faef886ad41bce9e-047578bcc4663e5b}}
+'''
+translate = '''
+{{faef886ad41bce9e-af96bfbf8f44b58e}}
+{{faef886ad41bce9e-98684b6cb5a9d4e1}}
+{{faef886ad41bce9e-5a81393dd2379ba3}}
+{{faef886ad41bce9e-047578bcc4663e5b}}
+'''
+
+[[block]]
+key = "faef886ad41bce9e-af96bfbf8f44b58e"
+type = "listItem"
+composite = true
+origin = '''
+- {{faef886ad41bce9e-af96bfbf8f44b58e-fb3c87cf864707de}}
+'''
+translate = '''
+- {{faef886ad41bce9e-af96bfbf8f44b58e-fb3c87cf864707de}}
+'''
+
+[[block]]
+key = "faef886ad41bce9e-af96bfbf8f44b58e-fb3c87cf864707de"
+type = "paragraph"
+origin = '''
+可直接打印的 3MF 模型文件；
+'''
+translate = '''
+Printable 3MF files
+'''
+
+[[block]]
+key = "faef886ad41bce9e-98684b6cb5a9d4e1"
+type = "listItem"
+composite = true
+origin = '''
+- {{faef886ad41bce9e-98684b6cb5a9d4e1-63cca690272935ec}}
+'''
+translate = '''
+- {{faef886ad41bce9e-98684b6cb5a9d4e1-63cca690272935ec}}
+'''
+
+[[block]]
+key = "faef886ad41bce9e-98684b6cb5a9d4e1-63cca690272935ec"
+type = "paragraph"
+origin = '''
+梯度卡色块布局与层序配置；
+'''
+translate = '''
+Card patch layout and layer-sequence metadata
+'''
+
+[[block]]
+key = "faef886ad41bce9e-5a81393dd2379ba3"
+type = "listItem"
+composite = true
+origin = '''
+- {{faef886ad41bce9e-5a81393dd2379ba3-8d9ccf5209d4d279}}
+'''
+translate = '''
+- {{faef886ad41bce9e-5a81393dd2379ba3-8d9ccf5209d4d279}}
+'''
+
+[[block]]
+key = "faef886ad41bce9e-5a81393dd2379ba3-8d9ccf5209d4d279"
+type = "paragraph"
+origin = '''
+提取阶段定位与匹配各色块所需的参数；
+'''
+translate = '''
+Reference parameters for mapping patches during extraction
+'''
+
+[[block]]
+key = "faef886ad41bce9e-047578bcc4663e5b"
+type = "listItem"
+composite = true
+origin = '''
+- {{faef886ad41bce9e-047578bcc4663e5b-5ed45c28ed3a1cb8}}
+'''
+translate = '''
+- {{faef886ad41bce9e-047578bcc4663e5b-5ed45c28ed3a1cb8}}
+'''
+
+[[block]]
+key = "faef886ad41bce9e-047578bcc4663e5b-5ed45c28ed3a1cb8"
+type = "paragraph"
+origin = '''
+打印与拍摄说明。
+'''
+translate = '''
+Printing and photography instructions
+'''
+
+[[block]]
+key = "5e93d3090265fd22"
+type = "paragraph"
+origin = '''
+生成完成后请及时下载并保存该 ZIP 文件。即使直接下载 MakerWorld 上的同款在线 3MF 模型进行打印，后续在提取页面仍需上传此处生成的 Kit ZIP 配置包。
+'''
+translate = '''
+Download and keep the generated ZIP file. Even if you print the identical gradient card model downloaded from MakerWorld, you still need this Kit ZIP when running extraction.
+'''
+
+[[block]]
+key = "eb6c98a0841a6fe0"
+type = "heading"
+origin = '''
+## 打印要求
+'''
+translate = '''
+## Printing requirements
+'''
+
+[[block]]
+key = "4596bb4e21302e0f"
+type = "paragraph"
+origin = '''
+每种待测耗材均需打印两张梯度卡：
+'''
+translate = '''
+Print two gradient cards for each filament you want to calibrate:
+'''
+
+[[block]]
+key = "61bc75c5d784254d"
+type = "list"
+composite = true
+origin = '''
+{{61bc75c5d784254d-c2f4b4e5763046b1}}
+{{61bc75c5d784254d-b62f6830d501d40f}}
+'''
+translate = '''
+{{61bc75c5d784254d-c2f4b4e5763046b1}}
+{{61bc75c5d784254d-b62f6830d501d40f}}
+'''
+
+[[block]]
+key = "61bc75c5d784254d-c2f4b4e5763046b1"
+type = "listItem"
+composite = true
+origin = '''
+1. {{61bc75c5d784254d-c2f4b4e5763046b1-87892bce3abeb3cc}}
+'''
+translate = '''
+1. {{61bc75c5d784254d-c2f4b4e5763046b1-87892bce3abeb3cc}}
+'''
+
+[[block]]
+key = "61bc75c5d784254d-c2f4b4e5763046b1-87892bce3abeb3cc"
+type = "paragraph"
+origin = '''
+白色基底梯度卡一张；
+'''
+translate = '''
+One card over a white substrate
+'''
+
+[[block]]
+key = "61bc75c5d784254d-b62f6830d501d40f"
+type = "listItem"
+composite = true
+origin = '''
+2. {{61bc75c5d784254d-b62f6830d501d40f-3b01eb1fbd8c327b}}
+'''
+translate = '''
+2. {{61bc75c5d784254d-b62f6830d501d40f-3b01eb1fbd8c327b}}
+'''
+
+[[block]]
+key = "61bc75c5d784254d-b62f6830d501d40f-3b01eb1fbd8c327b"
+type = "paragraph"
+origin = '''
+黑色基底梯度卡一张。
+'''
+translate = '''
+One card over a black substrate
+'''
+
+[[block]]
+key = "8be2414efcbe92df"
+type = "paragraph"
+origin = '''
+两张色卡请使用同一卷待测耗材、相同层高、同一套打印参数及摆放方向完成打印。页面同时提供与本地几何尺寸一致的在线梯度卡模型及参数化收纳盒链接：
+'''
+translate = '''
+Print both cards with the same test spool, layer height, slicer profile, and build-plate orientation. The linked MakerWorld card shares the exact geometry of the locally generated model, alongside a customizable storage box:
+'''
+
+[[block]]
+key = "8b01728dae74e23d"
+type = "list"
+composite = true
+origin = '''
+{{8b01728dae74e23d-427998d8f7863626}}
+{{8b01728dae74e23d-eaa6fcbd6234df68}}
+'''
+translate = '''
+{{8b01728dae74e23d-427998d8f7863626}}
+{{8b01728dae74e23d-eaa6fcbd6234df68}}
+'''
+
+[[block]]
+key = "8b01728dae74e23d-427998d8f7863626"
+type = "listItem"
+composite = true
+origin = '''
+- {{8b01728dae74e23d-427998d8f7863626-2fe4e7d5fa32c494}}
+'''
+translate = '''
+- {{8b01728dae74e23d-427998d8f7863626-2fe4e7d5fa32c494}}
+'''
+
+[[block]]
+key = "8b01728dae74e23d-427998d8f7863626-2fe4e7d5fa32c494"
+type = "paragraph"
+origin = '''
+[Lumina 2.0 梯形校色色卡（0.08 mm 层高）](https://makerworld.com.cn/zh/models/2394753-lumina2-0-ti-xing-xiao-se-se-qia-0-08ceng-gao-15ce#profileId-2721317)
+'''
+translate = '''
+[Lumina 2.0 trapezoid calibration card (0.08 mm layers)](https://makerworld.com.cn/zh/models/2394753-lumina2-0-ti-xing-xiao-se-se-qia-0-08ceng-gao-15ce#profileId-2721317)
+'''
+
+[[block]]
+key = "8b01728dae74e23d-eaa6fcbd6234df68"
+type = "listItem"
+composite = true
+origin = '''
+- {{8b01728dae74e23d-eaa6fcbd6234df68-00be5bb4c7a27ad4}}
+'''
+translate = '''
+- {{8b01728dae74e23d-eaa6fcbd6234df68-00be5bb4c7a27ad4}}
+'''
+
+[[block]]
+key = "8b01728dae74e23d-eaa6fcbd6234df68-00be5bb4c7a27ad4"
+type = "paragraph"
+origin = '''
+[参数化 Lumina 2.0 梯度色卡收纳盒](https://makerworld.com.cn/zh/models/2400920-can-shu-hua-lumina-2-0ti-du-se-qia-zi-ding-yi-shou#profileId-2729620)
+'''
+translate = '''
+[Parametric Lumina 2.0 gradient-card storage box](https://makerworld.com.cn/zh/models/2400920-can-shu-hua-lumina-2-0ti-du-se-qia-zi-ding-yi-shou#profileId-2729620)
+'''
+
+[[block]]
+key = "ceb40bb8149dac1d"
+type = "paragraph"
+origin = '''
+打印并拍摄完成后，前往[梯度卡提取](../gradient-card-extraction/gradient-card-extraction.mdx)拟合并保存档案；保存后的耗材会显示在[耗材库](../material-library/material-library.mdx)中。
+'''
+translate = '''
+After printing and photographing both cards, proceed to [Gradient Card Extraction](../gradient-card-extraction/gradient-card-extraction.mdx). Saved archives appear in the [Material Library](../material-library/material-library.mdx).
+'''

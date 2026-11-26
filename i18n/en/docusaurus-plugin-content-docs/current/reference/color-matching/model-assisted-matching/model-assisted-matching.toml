@@ -1,0 +1,256 @@
+[metadata]
+reviewed_source = "17a91940934f10a26677e62062893ed8dba0061c2bac15dcdb2727c015938dba"
+
+[[block]]
+key = "7ae1aca822c072f6"
+type = "yaml"
+origin = '''
+---
+title: "模型辅助匹配"
+description: "在反推 LUT 品牌包中结合实测颜色数据库与预测模型求解逐层耗材配方。"
+sidebar_position: 6
+---
+'''
+translate = '''
+---
+title: "Model-Assisted Matching"
+description: "Combine measured color databases with predictive recipe models in Inferred LUT brand packages."
+sidebar_position: 6
+---
+'''
+
+[[block]]
+key = "98a8948ca69f59dd"
+type = "heading"
+origin = '''
+# 模型辅助匹配
+'''
+translate = '''
+# Model-Assisted Matching
+'''
+
+[[block]]
+key = "85eda1f34d17961b"
+type = "paragraph"
+origin = '''
+“模型辅助匹配”仅在内置了预测模型的[反推 LUT](../../converter-basic/inferred-lut-source/inferred-lut-source.mdx) 品牌包中显示，用于根据目标颜色预测逐层耗材叠色配方，补充实测数据库尚未覆盖的颜色区间。该功能只参与材料配方求解，不会改动原图内容。
+'''
+translate = '''
+**Model-Assisted Matching** appears when you select an [Inferred LUT](../../converter-basic/inferred-lut-source/inferred-lut-source.mdx) brand package that includes a predictive color model. It predicts layer-by-layer filament recipes for target colors where measured data is sparse, without altering your source image.
+'''
+
+[[block]]
+key = "95cd7fc8bd73121d"
+type = "mdxJsxFlowElement"
+origin = '''
+<img
+  src={require('./assets/01-model-assisted-matching.webp').default}
+  alt="反推 LUT 中的模型辅助匹配与仅模型匹配开关"
+/>
+'''
+translate = '''
+<img
+  src={require('./assets/01-model-assisted-matching.webp').default}
+  alt="Model-Assisted Matching and Model only controls"
+/>
+'''
+
+[[block]]
+key = "d11595268880fd2f"
+type = "heading"
+origin = '''
+## 模型辅助匹配
+'''
+translate = '''
+## Model-Assisted Matching
+'''
+
+[[block]]
+key = "0d19992567257c88"
+type = "paragraph"
+origin = '''
+开启后，Lumina Studio 会同时计算颜色数据库中的最近实测候选与预测模型候选。仅当同时满足以下两个条件时，系统才会采用预测模型结果替换数据库结果：
+'''
+translate = '''
+When enabled, Lumina Studio evaluates both the nearest measured database candidate and the predictive model candidate. The model result replaces the database match only when both conditions are met:
+'''
+
+[[block]]
+key = "71afe4e30ddea46c"
+type = "list"
+composite = true
+origin = '''
+{{71afe4e30ddea46c-bb348994ba56c6d0}}
+{{71afe4e30ddea46c-cfec7d638b07fff2}}
+'''
+translate = '''
+{{71afe4e30ddea46c-bb348994ba56c6d0}}
+{{71afe4e30ddea46c-cfec7d638b07fff2}}
+'''
+
+[[block]]
+key = "71afe4e30ddea46c-bb348994ba56c6d0"
+type = "listItem"
+composite = true
+origin = '''
+1. {{71afe4e30ddea46c-bb348994ba56c6d0-2ccf15265c0c65bc}}
+'''
+translate = '''
+1. {{71afe4e30ddea46c-bb348994ba56c6d0-2ccf15265c0c65bc}}
+'''
+
+[[block]]
+key = "71afe4e30ddea46c-bb348994ba56c6d0-2ccf15265c0c65bc"
+type = "paragraph"
+origin = '''
+数据库最近候选的色差距离超出模型触发阈值；
+'''
+translate = '''
+The database candidate's color distance exceeds the model threshold; and
+'''
+
+[[block]]
+key = "71afe4e30ddea46c-cfec7d638b07fff2"
+type = "listItem"
+composite = true
+origin = '''
+2. {{71afe4e30ddea46c-cfec7d638b07fff2-19a224a39245220c}}
+'''
+translate = '''
+2. {{71afe4e30ddea46c-cfec7d638b07fff2-19a224a39245220c}}
+'''
+
+[[block]]
+key = "71afe4e30ddea46c-cfec7d638b07fff2-19a224a39245220c"
+type = "paragraph"
+origin = '''
+预测模型的色差距离加上安全边距后，依然小于数据库色差距离。
+'''
+translate = '''
+The model's color distance plus its safety margin is still smaller than the database distance.
+'''
+
+[[block]]
+key = "a36988c6bc5560f9"
+type = "paragraph"
+origin = '''
+因此，实测数据库中已有的高匹配度颜色仍会优先保留，预测模型只负责填补数据库覆盖薄弱且模型把握更高的颜色区域。
+'''
+translate = '''
+Colors already well covered by measured swatches keep their verified database recipes, while the predictive model fills in under-sampled color regions where it offers a clearly closer match.
+'''
+
+[[block]]
+key = "797d4a5be6e0dac1"
+type = "heading"
+origin = '''
+## 仅模型匹配
+'''
+translate = '''
+## Model only
+'''
+
+[[block]]
+key = "168a61f629749efa"
+type = "paragraph"
+origin = '''
+开启“仅模型匹配”后，系统会跳过实测数据库基线，全部颜色均直接采用预测模型求解。该模式便于单独评估预测模型自身的色彩覆盖表现；实际打印通常建议优先使用“模型辅助匹配”，以兼顾实测数据的准确性。若所选品牌包未包含可用预测模型，这两项开关均不会显示。
+'''
+translate = '''
+**Model only** bypasses the measured database baseline and uses predictive model recipes across the entire image. Use it when you want to inspect the model's standalone color coverage; for everyday prints, **Model-Assisted Matching** is usually preferable so measured matches stay anchored. Neither toggle is shown if the active brand package has no predictive model.
+'''
+
+[[block]]
+key = "05667094914b8db1"
+type = "heading"
+origin = '''
+## 阈值、安全边距与对比方法
+'''
+translate = '''
+## Threshold, safety margin, and comparison tips
+'''
+
+[[block]]
+key = "1edbe025ea6dfdeb"
+type = "paragraph"
+origin = '''
+面板不单独展示阈值与安全边距输入框，默认直接读取品牌包内置的运行参数（配置文件中仍支持指定非负覆盖值以复现特定实验配置）。
+'''
+translate = '''
+Threshold and safety margin are not exposed as separate input fields in the panel—Lumina Studio uses the runtime defaults bundled with the brand package (non-negative overrides remain supported in configuration files for reproducible testing).
+'''
+
+[[block]]
+key = "8429cb0b3fc41e6f"
+type = "paragraph"
+origin = '''
+切换任一开关都会清空既有预览与 3MF 输出。对比不同模式的效果时，请保持品牌包、颜色数据库、打印层数、成品尺寸及其他颜色选项不变，分别重新生成预览后再作比较。
+'''
+translate = '''
+Changing either switch clears the current preview and 3MF output. When comparing modes, keep the brand package, active databases, layer count, print dimensions, and other color controls identical across runs.
+'''
+
+[[block]]
+key = "2ebb014b8f68bd72"
+type = "heading"
+origin = '''
+## 相关页面
+'''
+translate = '''
+## Related pages
+'''
+
+[[block]]
+key = "5cce7924f98dc6a8"
+type = "list"
+composite = true
+origin = '''
+{{5cce7924f98dc6a8-e461bbaee8b1c94c}}
+{{5cce7924f98dc6a8-f43fc166571f0862}}
+'''
+translate = '''
+{{5cce7924f98dc6a8-e461bbaee8b1c94c}}
+{{5cce7924f98dc6a8-f43fc166571f0862}}
+'''
+
+[[block]]
+key = "5cce7924f98dc6a8-e461bbaee8b1c94c"
+type = "listItem"
+composite = true
+origin = '''
+- {{5cce7924f98dc6a8-e461bbaee8b1c94c-f7b5cab0b2751c34}}
+'''
+translate = '''
+- {{5cce7924f98dc6a8-e461bbaee8b1c94c-f7b5cab0b2751c34}}
+'''
+
+[[block]]
+key = "5cce7924f98dc6a8-e461bbaee8b1c94c-f7b5cab0b2751c34"
+type = "paragraph"
+origin = '''
+[反推 LUT](../../converter-basic/inferred-lut-source/inferred-lut-source.mdx)
+'''
+translate = '''
+[Inferred LUT](../../converter-basic/inferred-lut-source/inferred-lut-source.mdx)
+'''
+
+[[block]]
+key = "5cce7924f98dc6a8-f43fc166571f0862"
+type = "listItem"
+composite = true
+origin = '''
+- {{5cce7924f98dc6a8-f43fc166571f0862-5dc3074a3c8ed20b}}
+'''
+translate = '''
+- {{5cce7924f98dc6a8-f43fc166571f0862-5dc3074a3c8ed20b}}
+'''
+
+[[block]]
+key = "5cce7924f98dc6a8-f43fc166571f0862-5dc3074a3c8ed20b"
+type = "paragraph"
+origin = '''
+[高精度颜色匹配](../precise-color-matching/precise-color-matching.mdx)
+'''
+translate = '''
+[Precise Color Matching](../precise-color-matching/precise-color-matching.mdx)
+'''
